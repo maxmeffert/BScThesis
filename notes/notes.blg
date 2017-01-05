@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: notes.aux
+The style file: splncs.bst
+Database file #1: notes.bib
+You're missing a field name---line 72 of file notes.bib
+ : 
+ : %howpublished = {http://userpages.uni-koblenz.de/~laemmel/pttcourse/slides/technology.pdf},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You've used 1 entry,
+            2785 wiz_defined-function locations,
+            591 strings with 4589 characters,
+and the built_in function-call counts, 578 in all, are:
+= -- 51
+> -- 7
+< -- 2
++ -- 3
+- -- 2
+* -- 37
+:= -- 75
+add.period$ -- 1
+call.type$ -- 1
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 1
+duplicate$ -- 51
+empty$ -- 52
+format.name$ -- 2
+if$ -- 126
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 9
+newline$ -- 8
+num.names$ -- 2
+pop$ -- 10
+preamble$ -- 1
+purify$ -- 3
+quote$ -- 0
+skip$ -- 21
+stack$ -- 0
+substring$ -- 45
+swap$ -- 34
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 6
+width$ -- 2
+write$ -- 15
+(There was 1 error message)

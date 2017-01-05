@@ -1,0 +1,248 @@
+\documentclass[runningheads,a4paper]{llncs}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[ngerman]{babel}
+\usepackage{enumerate}
+\usepackage{marvosym}
+\usepackage{gensymb}
+
+\usepackage[bookmarks,bookmarksopen,bookmarksdepth=2]{hyperref}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{amsthm}
+
+\usepackage{mathrsfs}
+
+\usepackage{fancyhdr}
+
+%\newtheorem{definition}{Definition}
+%\newtheorem{theorem}{Theorem}
+\newtheorem{axiom}{Axiom}
+
+
+%opening
+\title{BSc Notes}
+\author{Maximilian Meffert}
+
+
+\newcommand{\setname}[1]{\text{\textsf{#1}}}
+
+\newcommand{\partOf}{\text{\textsf{partOf}}}
+\newcommand{\partOfPlus}{\partOf^+}
+\newcommand{\partOfStar}{\partOf^*}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+asdf
+\end{abstract}
+
+%\tableofcontents
+
+\section{Theoretical Background}
+
+\subsection{Relations \& Predicates}
+
+\subsubsection{Notation}
+For a binary relation $R \subseteq X \times Y$ we consider the following notations to be semantically equivalent:
+\begin{align*}
+R(x,y)
+= xRy
+:= (x,y) \in R
+\end{align*}
+For that reason, relationships and predicates should be thought of as interchangeable. 
+
+
+\subsubsection{Composition of Relations}
+We define the composition of two binary relations $R \subseteq X \times Y$ and $S \subseteq Y \times X$ as:
+\begin{align*}
+S \circ R = \{ (x,y) | \exists z \in Y : xRz \wedge zSy \}
+\end{align*}
+
+\subsubsection{Transitive Closures of Relations: $R^+, R^*$}
+For a binary relation $R$ on a set $X$ ($R \subseteq X \times X$) we define its \textit{transitive closures} $R^+$ and $R^*$ as
+\begin{align*}
+R^0 &:= \{ (x,x) | x \in X \} \\
+R^1 &:= R \\
+R^{n+1} &:= R \circ R^n \\
+R^+ &:= \bigcup\limits_{1 \leq n} R^n \\
+R^* &:= \bigcup\limits_{0 \leq n} R^n = R^0 \cup R^+
+\end{align*}
+
+\subsection{Mereologoy}
+
+
+
+\subsubsection{Parthood}
+\cite{DBLP:journals/dke/Varzi96}
+\begin{definition}[Parthood]
+The binary relation $\partOf$ and defined:
+\begin{align*}
+\partOf \subseteq X \times Y
+\end{align*}
+and literally means that one element of set $X$ may be component or \textit{part} of an element of set $Y$.
+We do not make any assumption of the relationship between both sets.
+However, we assume $\partOf$ to be ...
+\begin{enumerate}
+
+
+\item
+\textbf{reflexive}
+$\forall x \in X, : \partOf(x,x)$
+
+\item
+\textbf{antysymmetric}
+$\forall (x,y) \in X \times Y : \partOf(x,y) \wedge \partOf(y,x) \Rightarrow x = y$
+
+%\item 
+%\textbf{asymmetric}
+%$\forall x,y \in L : \partOf(x,y) \Rightarrow \neg (y \partOf x)$
+
+\item
+\textbf{transitive}
+$\forall x,y,z \in L : \partOf(x,y) \wedge \partOf(y,z) \Rightarrow \partOf(x,z)$
+
+\end{enumerate}
+
+\end{definition}
+
+
+\begin{axiom}[M4]
+content...
+\end{axiom}
+
+
+\begin{corollary}[Transitive Closures of PartOf]
+For the transitve closures
+\begin{align*}
+\partOfPlus, \partOfStar \in L \times L
+\end{align*}
+of $\partOf$ holds:
+\begin{enumerate}
+
+\item 
+$\partOfPlus \subset \partOfStar$
+
+\item
+$\forall x,y \in L : x \neq y \wedge \partOf(x,y) \Rightarrow \partOfPlus(x,y)$
+
+\item
+$\forall x,y \in L : \partOfPlus(x,y) \Rightarrow \partOfStar(x,y)$
+
+\item
+$\forall x \in L :\partOfStar(x,x)$
+
+\end{enumerate}
+%\begin{align*}
+%\forall x,y \in L : x \partOf y \Rightarrow x \partOfPlus y \Rightarrow x \partOfStar y
+%\end{align*}
+\end{corollary}
+
+%\begin{align*}
+%\forall x,y \in L : (x,y) \in \partOf
+%&\Rightarrow (x,y) \in \partOf^1 \\
+%&\Rightarrow (x,y) \in (\bigcup\limits_{1 \leq n} \partOf^n) \\
+%&\Rightarrow (x,y) \in \partOfPlus \\
+%&\Rightarrow true \wedge (x,y) \in \partOfPlus \\
+%&\Rightarrow (x,x) \in \partOf \wedge (x,y) \in \partOf \\
+%&\Rightarrow (x,y) \in \partOf^0 \circ \partOf^1
+%\end{align*}
+
+\subsubsection{Proper Parts, Overlaps \& Underlaps}
+
+\begin{definition}[Proper Part]
+
+\begin{align*}
+\forall x \in X, y \in Y: \text{\textsf{properPartOf}}(x,y) :\Leftrightarrow \partOf(x,y) \wedge \neg \partOf(y,x)
+\end{align*}
+
+\end{definition}
+
+\newcommand{\overlap}{\text{\textsf{overlaps}}}
+\newcommand{\underlap}{\text{\textsf{underlaps}}}
+
+\begin{definition}[Overlap]
+
+\begin{align*}
+\forall x \in X, y \in Y: \text{\textsf{overlaps}}(x,y) :\Leftrightarrow \exists z (\partOf(z,x) \wedge \partOf(z,y))
+\end{align*}
+
+\end{definition}
+
+\begin{definition}[Underlap]
+
+\begin{align*}
+\forall x \in X, y \in Y: \text{\textsf{underlaps}}(x,y) :\Leftrightarrow \exists z (\partOf(x,z) \wedge \partOf(y,z))
+\end{align*}
+
+\end{definition}
+
+
+\begin{definition}[Sum]
+
+\begin{align*}
+\underlap(x,y) 
+&\Rightarrow \exists u \forall v (\overlap(v,u) \Leftrightarrow (\overlap(v,x) \vee \overlap(v,y))) \\
+&\Rightarrow \exists u \forall v (\overlap(v,u) \Leftrightarrow (\overlap(v,x) \vee \overlap(v,y))) \\
+\end{align*}
+
+\end{definition}
+
+\subsection{Mereotopologoy}
+
+
+\subsection{Grammars \& Languages}
+
+\section{A Mereologoy for Languages}
+
+%===========================================================================
+
+\section{Weblinks}
+
+\newcommand{\urlitem}[1]{\item\url{#1}}
+
+\begin{enumerate}
+\urlitem{https://plato.stanford.edu/entries/mereology/}
+\urlitem{https://de.wikipedia.org/wiki/Hasse-Diagramm}
+\urlitem{http://ontology.buffalo.edu/smith/articles/mereotopology.htm}
+\urlitem{https://en.wikipedia.org/wiki/Ontology_(information_science)}
+\urlitem{https://en.wikipedia.org/wiki/Mereology}
+\urlitem{https://en.wikipedia.org/wiki/Mereotopology}
+\urlitem{https://en.wikipedia.org/wiki/Meronomy}
+\urlitem{https://en.wikipedia.org/wiki/Connected_space}
+\urlitem{https://en.wikipedia.org/wiki/First-order_logic} % Many-sorted_logic
+\urlitem{https://userpages.uni-koblenz.de/~softlang/lao/}
+\urlitem{https://de.wikipedia.org/wiki/Korrespondenz_(Mathematik)}
+\urlitem{http://www.theoretische-informatik.com/relationen.php}
+\urlitem{https://en.wikipedia.org/wiki/Natural_deduction}
+\urlitem{https://en.wikipedia.org/wiki/Order_theory}
+\urlitem{https://de.wikipedia.org/wiki/Ordnungsrelation}
+\urlitem{https://en.oxforddictionaries.com/definition/meronym}
+\urlitem{https://www.w3.org/TR/rdf-primer/}
+\urlitem{https://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/}
+\urlitem{https://www.w3.org/2004/02/skos/}
+\urlitem{https://plato.stanford.edu/entries/set-theory/ZF.html}
+\urlitem{https://de.wikipedia.org/wiki/Zermelo-Fraenkel-Mengenlehre}
+\urlitem{https://en.wikibooks.org/wiki/Set_Theory/Zermelo-Fraenkel_Axiomatic_Set_Theory}
+\urlitem{https://en.wikibooks.org/wiki/Set_Theory/Sets}
+\urlitem{https://en.wikibooks.org/wiki/Set_Theory/Relations}
+\urlitem{https://de.wikipedia.org/wiki/Relation_(Mathematik)}
+\urlitem{https://de.wikipedia.org/wiki/Ordnungsrelation}
+\urlitem{https://de.wikibooks.org/wiki/Mathematik:_Analysis:_Grundlagen:_Relationen}
+\urlitem{https://en.wikipedia.org/wiki/Fragment_(logic)}
+\end{enumerate}
+
+
+
+%===========================================================================
+
+\bibliographystyle{splncs}
+\bibliography{notes}{}
+
+\end{document}

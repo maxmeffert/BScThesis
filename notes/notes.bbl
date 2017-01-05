@@ -1,0 +1,10 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem{DBLP:journals/dke/Varzi96}
+Varzi, A.C.: Parts, wholes, and part-whole relations: The prospects of
+  mereotopology. Data Knowl. Eng.  20(3),  259--286 (1996),
+  \url{http://dx.doi.org/10.1016/S0169-023X(96)00017-1}
+
+\end{thebibliography}

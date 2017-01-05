@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: expose.aux
+The style file: splncs.bst
+Database file #1: ../bsc.bib
+You're missing a field name---line 72 of file ../bsc.bib
+ : 
+ : %howpublished = {http://userpages.uni-koblenz.de/~laemmel/pttcourse/slides/technology.pdf},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+A bad cross reference---entry "DBLP:conf/ecmdafa/LammelV14"
+refers to entry "DBLP:conf/ecmdafa/2014", which doesn't exist
+A bad cross reference---entry "DBLP:conf/models/FavreLV12"
+refers to entry "DBLP:conf/models/2012", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sle/Lammel16"
+refers to entry "DBLP:conf/sle/2016", which doesn't exist
+Warning--I didn't find a database entry for "Laemmel16-cxonto"
+Warning--I didn't find a database entry for "DBLP:conf/models/2012"
+Warning--I didn't find a database entry for "DBLP:conf/ecmdafa/2014"
+Warning--I didn't find a database entry for "DBLP:conf/sle/2016"
+You've used 6 entries,
+            2785 wiz_defined-function locations,
+            639 strings with 6257 characters,
+and the built_in function-call counts, 3243 in all, are:
+= -- 293
+> -- 62
+< -- 7
++ -- 26
+- -- 20
+* -- 197
+:= -- 407
+add.period$ -- 8
+call.type$ -- 6
+change.case$ -- 34
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 286
+empty$ -- 305
+format.name$ -- 23
+if$ -- 728
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 51
+newline$ -- 23
+num.names$ -- 12
+pop$ -- 91
+preamble$ -- 1
+purify$ -- 22
+quote$ -- 0
+skip$ -- 111
+stack$ -- 0
+substring$ -- 222
+swap$ -- 158
+text.length$ -- 7
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 24
+warning$ -- 0
+while$ -- 33
+width$ -- 7
+write$ -- 67
+(There were 4 error messages)
