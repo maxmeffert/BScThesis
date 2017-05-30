@@ -10,13 +10,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="department")
 public class Department {
-	
+
+	private int id;
 	private String name;
 	
-	@XmlElementWrapper(name="employees")
+	@XmlElementWrapper(name="employees") 
 	@XmlElement(name="employee")
 	private List<Employee> employees = new LinkedList<Employee>();
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}

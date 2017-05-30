@@ -2,22 +2,22 @@ package org.softlang.maxmeffert.bscthesis.scenarios.model;
 
 public class Employee {
 
-	private String firstName;
-	private String familyName;
+	private int id;
+	private String name;
 	private int age;
 	private double salary;
 	
-	public String getFirstName() {
-		return firstName;
+	public int getId() {
+		return id;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getFamilyName() {
-		return familyName;
+	public String getName() {
+		return name;
 	}
-	public void setFamilyName(String familyName) {
-		this.familyName = familyName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public int getAge() {
 		return age;

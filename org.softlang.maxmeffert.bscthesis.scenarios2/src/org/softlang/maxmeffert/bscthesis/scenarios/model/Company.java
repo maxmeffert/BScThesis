@@ -12,12 +12,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="company")
 public class Company {
 
+	private int id;
 	private String name;
 	
 	@XmlElementWrapper(name="departments")
 	@XmlElement(name="department")
 	private List<Department> departments = new LinkedList<Department>();
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
