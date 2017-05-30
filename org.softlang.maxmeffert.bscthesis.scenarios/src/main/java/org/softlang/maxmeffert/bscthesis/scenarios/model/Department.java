@@ -2,33 +2,44 @@ package org.softlang.maxmeffert.bscthesis.scenarios.model;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @XmlRootElement(name="department")
 public class Department {
 	
 	@Id
-	@GenericGenerator(name="gen",strategy="increment")
-	@GeneratedValue(generator="gen")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String name;
 	
 	@XmlElementWrapper(name="employees") 
 	@XmlElement(name="employee")
 	@OneToMany(mappedBy="department", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Employee> employees = new LinkedList<Employee>();
+	private Collection<Employee> employees = new LinkedList<Employee>();
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="company_id", insertable=false)
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="company_id")
 	private Company company;
+	
+	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private Employee manager;
+	
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="superDepartment_id")
+	private Department superDepartment;
+	
+	@OneToMany(mappedBy="superDepartment", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private Collection<Department> subDepartments = new LinkedList<Department>();
+	
+	public Department() {}
+	
+	public Department(String name) {
+		setName(name);
+	}
 	
 	public int getId() {
 		return id;
@@ -42,26 +53,37 @@ public class Department {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Employee> getEmployees() {
+	public Collection<Employee> getEmployees() {
 		return employees;
 	}
-	public boolean add(Employee e) {
-		return employees.add(e);
-	}
-	public boolean remove(Object o) {
-		return employees.remove(o);
-	}
-	public boolean addAll(Collection<? extends Employee> c) {
-		return employees.addAll(c);
-	}
-	public boolean removeAll(Collection<?> c) {
-		return employees.removeAll(c);
-	}
+	
 	public Company getCompany() {
 		return company;
 	}
 	public void setCompany(Company company) {
 		this.company = company;
 	}
+
+	public Employee getManager() {
+		return manager;
+	}
+
+	public void setManager(Employee manager) {
+		this.manager = manager;
+	}
+
+	public Department getSuperDepartment() {
+		return superDepartment;
+	}
+
+	public void setSuperDepartment(Department superDepartment) {
+		this.superDepartment = superDepartment;
+	}
+
+	public Collection<Department> getSubDepartments() {
+		return subDepartments;
+	}
+	
+	
 	
 }

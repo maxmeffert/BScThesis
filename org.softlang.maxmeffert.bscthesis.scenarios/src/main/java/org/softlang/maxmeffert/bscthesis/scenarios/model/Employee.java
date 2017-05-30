@@ -2,26 +2,30 @@ package org.softlang.maxmeffert.bscthesis.scenarios.model;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.GenericGenerator;
-
 @Entity
 public class Employee {
 
 	@Id
-	@GenericGenerator(name="gen",strategy="increment")
-	@GeneratedValue(generator="gen")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String name;
 	private int age;
 	private double salary;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="department_id", insertable=false)
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="department_id")
 	private Department department;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="managedDepartment_id", insertable=false, nullable=true)
+	@OneToOne(mappedBy="manager", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private Department managedDepartment;
+	
+	public Employee() {}
+	
+	public Employee(String name, int age, double salary) {
+		setName(name);
+		setAge(age);
+		setSalary(salary);
+	}
 	
 	public int getId() {
 		return id;

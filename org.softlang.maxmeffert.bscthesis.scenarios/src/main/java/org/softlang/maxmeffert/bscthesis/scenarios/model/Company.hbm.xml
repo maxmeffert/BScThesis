@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated May 30, 2017 3:39:38 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 30, 2017 5:56:47 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class dynamic-insert="false" dynamic-update="false" mutable="true" name="org.softlang.maxmeffert.bscthesis.scenarios.model.Company" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Company">
         <id access="field" name="id" type="int">
             <column name="id"/>
-            <generator class="increment"/>
+            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator"/>
         </id>
         <bag access="field" cascade="all" embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="departments" optimistic-lock="true" table="Department">
             <key on-delete="noaction">

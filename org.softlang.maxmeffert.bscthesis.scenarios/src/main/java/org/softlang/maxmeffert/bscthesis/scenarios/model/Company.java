@@ -4,19 +4,15 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 import javax.persistence.*;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.*;
-
-import org.hibernate.annotations.GenericGenerator;
-
-
 
 @Entity
 @XmlRootElement(name="company")
 public class Company {
 
 	@Id
-	@GenericGenerator(name="gen",strategy="increment")
-	@GeneratedValue(generator="gen")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String name;
 	
@@ -25,32 +21,30 @@ public class Company {
 	@OneToMany(mappedBy="company", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private Collection<Department> departments = new LinkedList<Department>();
 	
+	public Company() {}
+	
+	public Company(String name) {
+		setName(name);
+	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public Collection<Department> getDepartments() {
 		return departments;
-	}
-	public boolean add(Department e) {
-		return departments.add(e);
-	}
-	public boolean remove(Object o) {
-		return departments.remove(o);
-	}
-	public boolean addAll(Collection<? extends Department> c) {
-		return departments.addAll(c);
-	}
-	public boolean removeAll(Collection<?> c) {
-		return departments.removeAll(c);
 	}
 	
 }
