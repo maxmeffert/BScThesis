@@ -12,17 +12,20 @@ import org.softlang.maxmeffert.bscthesis.scenarios.model.*;
 
 public class HibernateUtils {
 
-	private static final File hibernateCfg = new File("./src/main/resources/META-INF/hibernate.cfg.xml");
-	private static final Configuration cfg = new Configuration().configure(hibernateCfg);
-	private static final MetadataSources metadata = new MetadataSources(new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build());
+	private static final File hibernateCfgFile = new File("./src/main/resources/META-INF/hibernate.cfg.xml");
+	private static final Configuration configuration = new Configuration().configure(hibernateCfgFile);
+	private static final MetadataSources metadataSources = new MetadataSources(new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build());
+	
+	static {
+		metadataSources.addAnnotatedClass(Company.class);
+		metadataSources.addAnnotatedClass(Department.class);
+		metadataSources.addAnnotatedClass(Employee.class);
+	}
 	
 	public static void generateDDL(File file) {
-		metadata.addAnnotatedClass(Company.class);
-		metadata.addAnnotatedClass(Department.class);
-		metadata.addAnnotatedClass(Employee.class);
-		SchemaExport export = new SchemaExport();
-		export.setOutputFile(file.getAbsolutePath());
-		export.create(EnumSet.of(TargetType.SCRIPT), metadata.buildMetadata());
+		SchemaExport schemaExport = new SchemaExport();
+		schemaExport.setOutputFile(file.getAbsolutePath());
+		schemaExport.create(EnumSet.of(TargetType.SCRIPT), metadataSources.buildMetadata());
 	}
 	
 }
