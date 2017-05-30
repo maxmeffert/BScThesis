@@ -21,6 +21,7 @@ public class Department {
 	@OneToMany(mappedBy="department", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private Collection<Employee> employees = new LinkedList<Employee>();
 	
+
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="company_id")
 	private Company company;
@@ -57,6 +58,8 @@ public class Department {
 		return employees;
 	}
 	
+
+	@XmlTransient
 	public Company getCompany() {
 		return company;
 	}
@@ -72,6 +75,8 @@ public class Department {
 		this.manager = manager;
 	}
 
+
+	@XmlTransient
 	public Department getSuperDepartment() {
 		return superDepartment;
 	}

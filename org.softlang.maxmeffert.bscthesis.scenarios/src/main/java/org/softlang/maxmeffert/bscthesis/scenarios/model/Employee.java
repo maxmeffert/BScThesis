@@ -1,15 +1,22 @@
 package org.softlang.maxmeffert.bscthesis.scenarios.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.*;
 
 @Entity
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@XmlAttribute
 	private int id;
+	@XmlAttribute
 	private String name;
+	@XmlAttribute
 	private int age;
+	@XmlAttribute
 	private double salary;
 	
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
