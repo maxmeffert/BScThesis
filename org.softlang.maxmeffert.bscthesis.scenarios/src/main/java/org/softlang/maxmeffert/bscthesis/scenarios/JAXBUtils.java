@@ -26,8 +26,20 @@ public class JAXBUtils {
 		return marshaller;
 	}
 	
+	public static void marshal(Object object, File file) throws JAXBException {
+		newMarshaller().marshal(object, file);
+	}
+	
 	public static Unmarshaller newUnmarshaller() throws JAXBException {
 		return newContext().createUnmarshaller();
+	}
+	
+	public static Object unmarshal(File file) throws JAXBException {
+		return newUnmarshaller().unmarshal(file);
+	}
+	
+	public static Company unmarshalCompany(File file) throws JAXBException {
+		return (Company) unmarshal(file);
 	}
 	
 	public static void generateSchema(File file) throws IOException, JAXBException {

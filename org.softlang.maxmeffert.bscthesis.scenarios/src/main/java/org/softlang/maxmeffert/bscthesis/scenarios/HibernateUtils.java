@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 
 import org.hibernate.Session;

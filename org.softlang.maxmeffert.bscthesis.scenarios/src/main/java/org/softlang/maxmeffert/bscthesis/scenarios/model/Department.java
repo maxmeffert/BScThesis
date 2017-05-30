@@ -9,21 +9,25 @@ import javax.xml.bind.annotation.*;
 
 @Entity
 @XmlRootElement(name="department")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Department {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@XmlAttribute
 	private int id;
+	
+	@XmlAttribute
 	private String name;
 	
 	@XmlElementWrapper(name="employees") 
 	@XmlElement(name="employee")
 	@OneToMany(mappedBy="department", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private Collection<Employee> employees = new LinkedList<Employee>();
+	private Collection<Employee> employees;
 	
-
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="company_id")
+	@XmlTransient
 	private Company company;
 	
 	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
@@ -31,14 +35,19 @@ public class Department {
 	
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="superDepartment_id")
+	@XmlTransient
 	private Department superDepartment;
 	
 	@OneToMany(mappedBy="superDepartment", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private Collection<Department> subDepartments = new LinkedList<Department>();
+	private Collection<Department> subDepartments;
 	
-	public Department() {}
+	public Department() {
+		employees = new LinkedList<>();
+		subDepartments = new LinkedList<>();
+	}
 	
 	public Department(String name) {
+		this();
 		setName(name);
 	}
 	
@@ -57,38 +66,25 @@ public class Department {
 	public Collection<Employee> getEmployees() {
 		return employees;
 	}
-	
-
-	@XmlTransient
 	public Company getCompany() {
 		return company;
 	}
 	public void setCompany(Company company) {
 		this.company = company;
 	}
-
 	public Employee getManager() {
 		return manager;
 	}
-
 	public void setManager(Employee manager) {
 		this.manager = manager;
 	}
-
-
-	@XmlTransient
 	public Department getSuperDepartment() {
 		return superDepartment;
 	}
-
 	public void setSuperDepartment(Department superDepartment) {
 		this.superDepartment = superDepartment;
 	}
-
 	public Collection<Department> getSubDepartments() {
 		return subDepartments;
 	}
-	
-	
-	
 }

@@ -1,41 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<company>
+<company id="408" name="Softlang Inc.">
     <departments>
-        <department>
+        <department id="409" name="Grammar Engineering">
             <employees>
-                <employee id="138" name="John Backus" age="40" salary="55000.0"/>
-                <employee id="135" name="Peter Naur" age="40" salary="55000.0"/>
+                <employee id="413" name="John Backus" age="40" salary="55000.0"/>
+                <employee id="410" name="Peter Naur" age="40" salary="55000.0"/>
             </employees>
-            <id>134</id>
-            <manager id="135" name="Peter Naur" age="40" salary="55000.0"/>
-            <name>Grammar Engineering</name>
+            <manager id="410" name="Peter Naur" age="40" salary="55000.0"/>
         </department>
-        <department>
+        <department id="414" name="Research &amp; Development">
             <employees>
-                <employee id="141" name="Alonzo Church" age="40" salary="55000.0"/>
-                <employee id="140" name="Alan Turing" age="40" salary="55000.0"/>
+                <employee id="416" name="Alonzo Church" age="40" salary="55000.0"/>
+                <employee id="415" name="Alan Turing" age="40" salary="55000.0"/>
             </employees>
-            <id>139</id>
-            <manager id="140" name="Alan Turing" age="40" salary="55000.0"/>
-            <name>Research &amp; Development</name>
+            <manager id="415" name="Alan Turing" age="40" salary="55000.0"/>
         </department>
-        <department>
+        <department id="411" name="Language Engineering">
             <employees>
-                <employee id="137" name="Niklaus Wirth" age="40" salary="55000.0"/>
+                <employee id="412" name="Niklaus Wirth" age="40" salary="55000.0"/>
             </employees>
-            <id>136</id>
-            <manager id="137" name="Niklaus Wirth" age="40" salary="55000.0"/>
-            <name>Language Engineering</name>
+            <manager id="412" name="Niklaus Wirth" age="40" salary="55000.0"/>
+            <subDepartments id="409" name="Grammar Engineering">
+                <employees>
+                    <employee id="413" name="John Backus" age="40" salary="55000.0"/>
+                    <employee id="410" name="Peter Naur" age="40" salary="55000.0"/>
+                </employees>
+                <manager id="410" name="Peter Naur" age="40" salary="55000.0"/>
+            </subDepartments>
         </department>
-        <department>
+        <department id="417" name="Programming">
             <employees>
-                <employee id="143" name="Ada Lovelace" age="40" salary="55000.0"/>
+                <employee id="418" name="Ada Lovelace" age="40" salary="55000.0"/>
             </employees>
-            <id>142</id>
-            <manager id="143" name="Ada Lovelace" age="40" salary="55000.0"/>
-            <name>Programming</name>
+            <manager id="418" name="Ada Lovelace" age="40" salary="55000.0"/>
         </department>
     </departments>
-    <id>133</id>
-    <name>Softlang Inc.</name>
 </company>

@@ -16,9 +16,9 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="id" type="xs:int"/>
-      <xs:element name="name" type="xs:string" minOccurs="0"/>
     </xs:sequence>
+    <xs:attribute name="id" type="xs:int" use="required"/>
+    <xs:attribute name="name" type="xs:string"/>
   </xs:complexType>
 
   <xs:complexType name="department">
@@ -30,10 +30,11 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="id" type="xs:int"/>
       <xs:element name="manager" type="employee" minOccurs="0"/>
-      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="subDepartments" type="department" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
+    <xs:attribute name="id" type="xs:int" use="required"/>
+    <xs:attribute name="name" type="xs:string"/>
   </xs:complexType>
 
   <xs:complexType name="employee">

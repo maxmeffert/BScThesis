@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.*;
 
 @Entity
-@XmlRootElement
+@XmlRootElement(name="employee")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
 
@@ -12,10 +12,13 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@XmlAttribute
 	private int id;
+	
 	@XmlAttribute
 	private String name;
+	
 	@XmlAttribute
 	private int age;
+	
 	@XmlAttribute
 	private double salary;
 	
@@ -29,6 +32,7 @@ public class Employee {
 	public Employee() {}
 	
 	public Employee(String name, int age, double salary) {
+		this();
 		setName(name);
 		setAge(age);
 		setSalary(salary);
