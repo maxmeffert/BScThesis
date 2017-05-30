@@ -2,15 +2,11 @@ package org.softlang.maxmeffert.bscthesis.scenarios.model;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.*;
+import javax.xml.bind.annotation.*;
+
+import org.hibernate.annotations.GenericGenerator;
 
 
 
@@ -19,13 +15,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Company {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GenericGenerator(name="gen",strategy="increment")
+	@GeneratedValue(generator="gen")
 	private int id;
 	private String name;
 	
 	@XmlElementWrapper(name="departments")
 	@XmlElement(name="department")
-	private List<Department> departments = new LinkedList<Department>();
+	@OneToMany(mappedBy="company", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private Collection<Department> departments = new LinkedList<Department>();
 	
 	public int getId() {
 		return id;
@@ -39,7 +37,7 @@ public class Company {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Department> getDepartments() {
+	public Collection<Department> getDepartments() {
 		return departments;
 	}
 	public boolean add(Department e) {

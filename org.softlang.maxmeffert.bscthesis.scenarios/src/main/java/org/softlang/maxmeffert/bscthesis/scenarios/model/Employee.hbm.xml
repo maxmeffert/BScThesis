@@ -1,21 +1,25 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated May 30, 2017 1:07:42 PM by Hibernate Tools 3.5.0.Final -->
-<hibernate-mapping>
-    <class name="org.softlang.maxmeffert.bscthesis.scenarios.model.Employee" table="EMPLOYEE">
-        <id name="id" type="int">
-            <column name="ID" />
-            <generator class="assigned" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated May 30, 2017 3:39:38 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="org.softlang.maxmeffert.bscthesis.scenarios.model.Employee" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Employee">
+        <id access="field" name="id" type="int">
+            <column name="id"/>
+            <generator class="increment"/>
         </id>
-        <property name="name" type="java.lang.String">
-            <column name="NAME" />
+        <property access="field" generated="never" lazy="false" name="age" optimistic-lock="true" type="int" unique="false">
+            <column name="age" not-null="true"/>
         </property>
-        <property name="age" type="int">
-            <column name="AGE" />
+        <many-to-one access="field" class="org.softlang.maxmeffert.bscthesis.scenarios.model.Department" embed-xml="true" fetch="select" insert="false" name="department" not-found="exception" optimistic-lock="false" unique="false" update="true">
+            <column name="department_id"/>
+        </many-to-one>
+        <many-to-one access="field" class="org.softlang.maxmeffert.bscthesis.scenarios.model.Department" embed-xml="true" fetch="select" insert="false" name="managedDepartment" not-found="exception" optimistic-lock="false" unique="false" update="true">
+            <column name="managedDepartment_id"/>
+        </many-to-one>
+        <property access="field" generated="never" lazy="false" name="name" optimistic-lock="true" type="java.lang.String" unique="false">
+            <column name="name"/>
         </property>
-        <property name="salary" type="double">
-            <column name="SALARY" />
+        <property access="field" generated="never" lazy="false" name="salary" optimistic-lock="true" type="double" unique="false">
+            <column name="salary" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

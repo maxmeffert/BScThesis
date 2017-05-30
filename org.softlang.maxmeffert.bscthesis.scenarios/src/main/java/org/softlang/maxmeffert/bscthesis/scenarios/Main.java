@@ -10,12 +10,12 @@ public class Main {
 		session.beginTransaction();
 		
 		Employee e = new Employee();
-		e.setId(0);
 		e.setName("Alan Turing");
 		e.setAge(42);
 		e.setSalary(50000);
 		
 		session.save(e);
+		
 		
 		session.getTransaction().commit();
 		HibernateUtils.getSessionFactory().close();
