@@ -5,6 +5,14 @@
 *.toc
 *.log
 *.synctex.gz
-
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.ist
+*.pdf
 
 .~lock.*
