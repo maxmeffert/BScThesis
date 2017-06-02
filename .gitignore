@@ -13,6 +13,5 @@
 *.gls
 *.glsdefs
 *.ist
-*.pdf
 
 .~lock.*

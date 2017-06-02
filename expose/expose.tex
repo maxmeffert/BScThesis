@@ -20,31 +20,36 @@
 \usepackage[acronym,toc]{glossaries}
 \makeglossaries
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\newtheorem{definition}{Definition}
 %\newtheorem{theorem}{Theorem}
 \newtheorem{axiom}{Axiom}
 
 
 \newcommand{\partOf}{\text{~partOf~}}
+\newcommand{\properPartOf}{\text{~properPartOf~}}
+\newcommand{\atomOf}{\text{~atomOf~}}
+\newcommand{\fragmentOf}{\text{~fragmentOf~}}
 \newcommand{\correspondsTo}{\text{~correspondsTo~}}
+\newcommand{\correspondsToR}[1]{\text{~correspondsTo}_{#1}~}
 \newcommand{\conformsTo}{\text{~conformsTo~}}
 
+\newcommand{\footnoteurl}[1]{\footnote{\url{#1}}}
 
-\newcommand{\megal}{\textsf{MegaL}~}
-\newcommand{\megalxtext}{\textsf{MegaL/Xtext}~}
-\newcommand{\megaltext}{\textsf{MegaL/Text}~}
-\newcommand{\eclipse}{\textsf{eclipse}~}
-\newcommand{\theTitle}{Traceability Recovery \& Exploration in an O/R/X-Mapping scenario with \megal along the mereotopological aspects of software artifacts}
+\newcommand{\megal}{\text{MegaL}}
+\newcommand{\megalxtext}{\text{MegaL/Xtext}}
+\newcommand{\megaltext}{\text{MegaL/Text}}
+\newcommand{\eclipse}{\text{eclipse}}
+\newcommand{\thesis}{Megamodel-driven Traceability Recovery \& Exploration in an O/R/X-Mapping scenario along the mereological aspects of software artifacts}
 
-%opening
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \title{Exposé for B.Sc. Thesis}
-
-\subtitle{\theTitle}
-
+\subtitle{\thesis}
 \author{Maximilian Meffert\\210101205}
 \institute{University of Koblenz-Landau}
-
-
 
 \begin{document}
 
@@ -60,18 +65,18 @@
 This exposé\footnote{\url{http://www.softlang.org/info:expose}} outlines the thesis:
 \begin{center}
 \it
-\theTitle
+\thesis
 \end{center}
 for acquiring the degree Bachelor Science (B.Sc.) in Computer Science.
 
 The central topic of the thesis will be the study of \megal's traceability capabilities.
 
 
-\subsubsection{Road-map}
+\subsection{Road-map}
 Section \ref{section:Motivation} motivates the topic of the thesis.
-\ref{section:ResearchHypthesisAndQuestions} defines a preliminary hypothesis and formulates the research questions.
-\ref{section:Objectives} specifies the important objectives for the thesis.
 \ref{section:Background} gives a short overview over the necessary background information.
+\ref{section:ResearchHypthesesAndQuestions} defines a preliminary hypothesis and formulates the research questions.
+\ref{section:Objectives} specifies the important objectives for the thesis.
 \ref{section:Methodology} describes the approach and methodology of the thesis.
 Eventually \ref{section:StructureOfTheThesis} outlines the interim structure of the thesis.
 
@@ -83,22 +88,88 @@ Consider a simple web-service where data is stored in a database and served via 
 
 
 
-\section{Research Hypotheses \& Questions}
-\label{section:ResearchHypthesisAndQuestions}
-Research Hypotheses are:
+
+
+\section{Background}
+\label{section:Background}
+The thesis will be based but is not limited to aspects of the following topics:
+
+\subsection{Ontologies}
+\subsection{Traceability}
+
+\subsection{Mereology}
+Mereology is the systematic study of the relationships between wholes and part \cite{DBLP:journals/dke/Varzi96}.
+The core of its discourse is the Parthood- or \partOf-Relationship, which is axiomatized as follows:
+\begin{definition}[\partOf]
+We denote:
+\begin{align*}
+x \partOf y
+\end{align*}
+and mean that $x$ is constituent for $y$.
+We assume that:
 \begin{itemize}
-\item[RH1]
+\item[P1] $x \partOf x$ (Reflexiveness)
+\item[P2] $x \partOf y \wedge y \partOf x \Rightarrow x = y$ (Antisymmetry)
+\item[P3] $x \partOf y \wedge y \partOf z \Rightarrow x \partOf z$ (Transitivity)
+\end{itemize}
+\end{definition}
+
+
+
+
+\subsection{Megamodelinng (with \megal)}
+\megal\footnoteurl{http://www.softlang.org/megal/} is a Domain Specific Language (DSL) and technology designed  for modeling the linguistic architecture of software systems.
+It is actively developed by the Software Language Team\footnote{\url{http://www.softlang.org/}} at the University of Koblenz-Landau and currently has two implementations: 
+\begin{itemize}
+\item
+\megalxtext an \eclipse based Integrated Development Environment (IDE)
+\item
+and \megaltext a text-file and console based implementation with an 
+\end{itemize}
+
+\subsection{Program Analysis}
+Program Analysis is the process of automatically analyzing programs.
+This can be done (a) statically by analyzing the source code of a program or (b) dynamically through monitoring and intercepting the runtime of a program, analyzing transient artifacts. 
+
+
+\subsection{XML Data Binding (with JAXB)}
+XML Data Binding is the process of automatically mapping instance- and model-level objects into a XML-serialized form.
+That is, for the Java Architecture for XML Binding (JAXB)\footnoteurl{https://docs.oracle.com/javase/tutorial/jaxb/intro/arch.html}, a Java class itself is mapped via annotations to an XML Schema, both model-level objects.
+With this mapping Java class-instances can easily be de-/serialized into XML Documents, a process called un-/marshaling.
+XML Data Binding allows to directly work with a domain model rather than working with direct XML access.
+
+\subsection{Object-Relational Mapping (with JPA/Hibernate)}
+Object-Relational Mapping is the process of automatically mapping instance- and model-level objects into a relational data-storage.
+In case of SQL-database technologies, model-level objects are mapped to SQL/DDL (Data Definition Language) statements and instance-level objects are mapped to SQL/DML (Data Manipulation Language) statements.
+Usually, these statements are then sent to and executed by a SQL-database server.
+This allows to directly work with a domain model when persisting data.
+
+The Java Persistence API (JPA)\footnoteurl{http://www.oracle.com/technetwork/articles/javaee/jpa-137156.html} is a Java standard interface for working with Object-Relational Mapping.
+Hibernate\footnoteurl{http://hibernate.org/} is one of many JPA implementations.
+It provides annotations and a XML Schema for defining Object-Relational Mappings between Java classes and database tables.
+
+\section{Research Hypotheses \& Questions}
+\label{section:ResearchHypthesesAndQuestions}
+\subsection{Research Hypotheses}
+
+\begin{align*}
+x \properPartOf y &:\Leftrightarrow x \partOf y \wedge \neg (y \partOf x)
+\\
+x \atomOf y &:\Leftrightarrow x \properPartOf y \wedge \neg \exists z(z \properPartOf x)
+\\
+x \fragmentOf y &:\Leftrightarrow x,y \in L \wedge x \properPartOf y
+\end{align*}
+\subsubsection{Fragment Correspondence Hypothesis}
 If two artifacts are in a Correspondence-Relationship, they contain constituent parts in the same relation to each other, i.e.:
 \begin{align*}
-&A_1 \correspondsTo A_2
+&A_1 \correspondsToR{R} A_2
 \\&\Rightarrow
 \exists a_1, a_2: 
 a_1 \partOf A_1 
 \wedge a_2 \partOf A_2 
 \wedge a_1 \correspondsTo a_2
 \end{align*}
-
-\item[RH2]
+\subsubsection{Fragment Conformance Hypothesis}
 If two artifacts are in a Conformance-Relationship, they contain constituent parts in the same relation to each other, i.e.:
 \begin{align*}
 &A_1 \conformsTo A_2
@@ -108,8 +179,8 @@ a_1 \partOf A_1
 \wedge a_2 \partOf A_2 
 \wedge a_1 \conformsTo a_2
 \end{align*}
-\end{itemize}
 
+\subsection{Research Questions}
 Research Questions are:
 \begin{itemize}
 \item[RQ1] description
@@ -133,47 +204,42 @@ Providing an extensive discussion comparing \megal with related approaches on on
 %\item[O6] description
 \end{itemize}
 
-\section{Background}
-\label{section:Background}
-
-\subsection{\megal}
-\megal is a Domain Specific Language (DSL) and technology designed  for modeling the linguistic architecture of software systems.
-It is actively developed by the Software Language Team\footnote{\url{http://www.softlang.org/}} at the University of Koblenz-Landau and currently has two implementations: 
-\begin{itemize}
-\item
-\megalxtext an \eclipse based Integrated Development Environment (IDE)
-\item
-and \megaltext a text-file and console based implementation with an 
-\end{itemize}
-\subsection{Ontologies}
-\subsection{Traceability}
-\subsection{Mereology}
-\subsection{Static \& Dynamic Code Analysis}
-\subsection{XML-Binding (JAXB)}
-\subsection{Object-Relational-Mapping (JPA/Hibernate)}
-
 \section{Methodology}
 \label{section:Methodology}
+Thesis and research will utilize an example-driven approach inspired by the 101system\footnoteurl{https://101wiki.softlang.org/101system}.
+For this, the system to study will be an imaginary Human Resource Management System (HRMS).
+Figure \ref{figure:TheCompanyModel} shows an UML-Class-Diagram depicting the model of this system.
 
-
-\begin{figure}
-\label{figure:TheCompanyModel}
+\begin{figure}[h!]
 \centering
 \includegraphics[width=.6\textwidth]{companies.png}
-\caption{The Company Model}
+\caption{The Human Resource Management System Model}
+\label{figure:TheCompanyModel}
 \end{figure}
 
-\begin{figure}
-\label{figure:TheCompanyInstanceCalledSoftlangInc}
+\noindent
+This HRMS will be implemented in plain Java with two scenarios in mind:
+\begin{enumerate}
+\item 
+XML-Binding with JAXB
+\item
+Persitence with JPA/Hibernate
+\end{enumerate}
+Both scenarios will be studied with the concrete instance of the HRMS model depicted in figure \ref{figure:TheCompanyInstanceCalledSoftlangInc}.
+
+\begin{figure}[h!]
 \centering
 \includegraphics[width=.9\textwidth]{softlanginc.png}
-\caption{The Company Instance called \textit{Softlang Inc.}}
+\caption{The Human Resource Management System Instance called \textit{Softlang Inc.}}
+\label{figure:TheCompanyInstanceCalledSoftlangInc}
 \end{figure}
 
 \section{Structure of the Thesis}
 \label{section:StructureOfTheThesis}
+The interim structure\footnoteurl{http://softlang.wikidot.com/info:thesis-structure} of the thesis is depicted in figure \ref{figure:StructureOfTheThesis}.
+\ref{figure:TheCompanyModel}
 
-\begin{figure}
+\begin{figure}[h!]
 \begin{center}
 \begin{minipage}[t]{0.5\textwidth}
 \begin{enumerate}
@@ -212,11 +278,12 @@ and \megaltext a text-file and console based implementation with an
 \end{minipage}
 \end{center}
 \caption{Structure of the Thesis}
+\label{figure:StructureOfTheThesis}
 \end{figure}
 
 
 
-\url{http://softlang.wikidot.com/info:thesis-structure}
+
 
 \cite{DBLP:conf/ecmdafa/LammelV14}
 \cite{DBLP:conf/models/FavreLV12}
