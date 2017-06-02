@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 %\usepackage[ngerman]{babel}
 \usepackage{enumerate}
+\usepackage{listings}
 \usepackage{marvosym}
 \usepackage{gensymb}
 \usepackage[bookmarks,bookmarksopen,bookmarksdepth=2]{hyperref}
@@ -27,13 +28,14 @@
 \newtheorem{axiom}{Axiom}
 
 
-\newcommand{\partOf}{\text{~partOf~}}
-\newcommand{\properPartOf}{\text{~properPartOf~}}
-\newcommand{\atomOf}{\text{~atomOf~}}
-\newcommand{\fragmentOf}{\text{~fragmentOf~}}
-\newcommand{\correspondsTo}{\text{~correspondsTo~}}
-\newcommand{\correspondsToR}[1]{\text{~correspondsTo}_{#1}~}
-\newcommand{\conformsTo}{\text{~conformsTo~}}
+\newcommand{\partOf}{~\textsf{partOf}~}
+\newcommand{\properPartOf}{~\textsf{properPartOf}~}
+\newcommand{\atomOf}{~\textsf{atomOf}~}
+\newcommand{\fragmentOf}{~\textsf{fragmentOf}~}
+\newcommand{\atomicFragmentOf}{~\textsf{atomicFragmentOf}~}
+\newcommand{\correspondsTo}{~\textsf{correspondsTo}~}
+\newcommand{\correspondsToR}[1]{~\textsf{correspondsTo}_{#1}~}
+\newcommand{\conformsTo}{~\textsf{conformsTo}~}
 
 \newcommand{\footnoteurl}[1]{\footnote{\url{#1}}}
 
@@ -83,9 +85,55 @@ Eventually \ref{section:StructureOfTheThesis} outlines the interim structure of 
 
 \section{Motivation}
 \label{section:Motivation}
-A common task for during the development of software systems is to persist and serialize a domain model.
-Consider a simple web-service where data is stored in a database and served via HTTP in serialized form, e.g. XML or JSON.
+A common task during the development of software systems is to persist and serialize a domain model.
+For instance, consider a simple web-service where data is stored in a database and served via HTTP in serialized form, e.g. XML.
 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.9\textwidth]{orx-correspondence-big-picture.png}
+\caption{O/R/X-Correspondence}
+\label{figure:ORXCorrespondenceBigPicture}
+\end{figure}
+
+\begin{table}[h!]
+\resizebox{\textwidth}{!}{
+\begin{tabular}{l|l|l}
+&& \\
+\textbf{Language} 
+&\textbf{Fragment Type}
+&\textbf{Fragment Text}
+\\ && \\ \hline && \\
+Java
+&Class Property
+&\texttt{public String name;}
+\\ && \\
+XSD 
+&Attribute Definition
+&\texttt{<xs:attribute name="name" type="xs:string"/>}
+\\ && \\
+XML
+&Attribute
+&\texttt{name="Alan Turing"}
+\\ && \\
+Hibernate XML
+&Property Mapping
+&\begin{minipage}{\columnwidth}
+\ttfamily
+<property access="field" generated="never" lazy="false" name="name" optimistic-lock="true" type="java.lang.String" unique="false">
+\\\hspace*{0.1\columnwidth}<column name="name"/>
+\\</property>
+\end{minipage}
+\\ && \\
+SQL/DDL
+&Column Definition
+&\texttt{`name` varchar(255) DEFAULT NULL,}
+\\ && \\
+\end{tabular}
+}
+\newline
+\caption{O/R/X-Correspondence}
+\label{table:ORXCorrespondenceExample}
+\end{table}
 
 
 
@@ -151,24 +199,61 @@ It provides annotations and a XML Schema for defining Object-Relational Mappings
 \section{Research Hypotheses \& Questions}
 \label{section:ResearchHypthesesAndQuestions}
 \subsection{Research Hypotheses}
+\subsubsection{Correspondence}
+\cite{DBLP:conf/sle/Lammel16} axiomatizes a strict one-to-one correspondence of software artifacts as follows:
+Given there is an arbitrary relationship $R$ between to languages $L_1$ and $L_2$:
+\begin{align*}
+R : L_1 \times L_2
+\end{align*}
+For instance, $R$ may be a transformation from one language to the other.
 
+Then two artifacts $a_1 \in L_1$ and $a_2 \in L_2$ correspond to each other only if for each part of one artifact there exists exactly one corresponding part of the other:
 \begin{align*}
-x \properPartOf y &:\Leftrightarrow x \partOf y \wedge \neg (y \partOf x)
-\\
-x \atomOf y &:\Leftrightarrow x \properPartOf y \wedge \neg \exists z(z \properPartOf x)
-\\
-x \fragmentOf y &:\Leftrightarrow x,y \in L \wedge x \properPartOf y
+&(a_1,a_2) \in R
+\\&\wedge \forall b_1 \in L_1 : b_1 \partOf a_1 \Rightarrow (\exists! b_2 \in L_2 : b_2 \partOf a_2 \wedge b_1 \correspondsToR{R} b_2 )
+\\&\wedge \forall b_2 \in L_2 : b_2 \partOf a_2 \Rightarrow (\exists! b_1 \in L_1 : b_1 \partOf a_2 \wedge b_2 \correspondsToR{R} b_1 )
+\\&\Rightarrow a_1 \correspondsToR{R} a_2
 \end{align*}
+
+However, \cite{DBLP:conf/sle/Lammel16} also notes that this kind of correspondence may be unrealistic since real world artifacts may contain two or more parts corresponding to only one part in another artifact, e.g. an XSD documents can contain an element and a complex type definition corresponding to only on Java class declaration.
+For this reason the thesis will assume a weaker correspondence hypothesis.
+
 \subsubsection{Fragment Correspondence Hypothesis}
-If two artifacts are in a Correspondence-Relationship, they contain constituent parts in the same relation to each other, i.e.:
+One objective of the thesis should be to provide empirical assurance for the axiom above in the sense that correspondence is in fact mereologically induced.
+So if two artifacts $a_1$ and $a_2$ are assumed to correspond to each other, e.g. $a_2$ could be the result of a transformation of $a_1$, then parts of both artifacts should exist which also correspond to each other.
 \begin{align*}
-&A_1 \correspondsToR{R} A_2
-\\&\Rightarrow
-\exists a_1, a_2: 
-a_1 \partOf A_1 
-\wedge a_2 \partOf A_2 
-\wedge a_1 \correspondsTo a_2
+&\forall a_1 \in L_1, a_2 \in L_2 : 
+a_1 \correspondsToR{R} a_2
+\\&\Rightarrow 
+\exists b_1 \in L_1, b_2 \in L_2 : 
+b_1 \partOf a_2 \wedge b_2 \partOf a_2 \wedge b_1 \correspondsToR{R} b_2
 \end{align*}
+
+%Because the thesis will conduct empirical examination with real world artifacts, the hypothesis can be refined.
+%two helpful predicates can be defined:
+%\begin{align*}
+%x \properPartOf y &:\Leftrightarrow x \partOf y \wedge \neg (y \partOf x)
+%\\x \atomOf y &:\Leftrightarrow x \properPartOf y \wedge \neg \exists z(z \properPartOf x)
+%\\x \fragmentOf y &:\Leftrightarrow x,y \in L \wedge x \properPartOf y
+%\\x \atomicFragmentOf y &:\Leftrightarrow x,y \in L \wedge x \atomOf y
+%\end{align*}
+%\begin{align*}
+%&a_1 \correspondsToR{R} a_2
+%\wedge f_1 \atomicFragmentOf a_1
+%\wedde f_2 \atomicFragmentOf a_2
+%\\&\Rightarrow 
+%(f_1, f_2) \in R
+%\end{align*}
+%where \properPartOf is a standard irreflexive parthood relationship from \cite{DBLP:journals/dke/Varzi96}, and \fragmentOf
+%If two artifacts are in a Correspondence-Relationship, they contain constituent parts in the same relation to each other, i.e.:
+%\begin{align*}
+%&\forall a_1 \in L_1, a_2 \in L_2 (a_1 \correspondsToR{R} a_2
+%\\&\Rightarrow
+%\exists f_1, f_2: 
+%f_1 \fragmentOf a_1 
+%\wedge f_2 \fragmentOf a_2 
+%\wedge f_1 \correspondsToR{R} f_2)
+%\end{align*}
 \subsubsection{Fragment Conformance Hypothesis}
 If two artifacts are in a Conformance-Relationship, they contain constituent parts in the same relation to each other, i.e.:
 \begin{align*}
