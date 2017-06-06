@@ -28,6 +28,7 @@
 \newtheorem{axiom}{Axiom}
 
 
+\newcommand{\Any}{\textsf{Any}}
 \newcommand{\partOf}{~\textsf{partOf}~}
 \newcommand{\properPartOf}{~\textsf{properPartOf}~}
 \newcommand{\atomOf}{~\textsf{atomOf}~}
@@ -70,142 +71,138 @@ This exposé\footnote{\url{http://www.softlang.org/info:expose}} outlines the th
 \thesis
 \end{center}
 for acquiring the degree Bachelor Science (B.Sc.) in Computer Science.
+The central topic of the thesis will be the study of traceability recovery in a megamodel governed environment, that is \megal, a modeling language for such models. Furthermore a system for exploring the recovered traceability links will be developed.
 
-The central topic of the thesis will be the study of \megal's traceability capabilities.
-
-
-\subsection{Road-map}
-Section \ref{section:Motivation} motivates the topic of the thesis.
-\ref{section:Background} gives a short overview over the necessary background information.
-\ref{section:ResearchHypthesesAndQuestions} defines a preliminary hypothesis and formulates the research questions.
-\ref{section:Objectives} specifies the important objectives for the thesis.
-\ref{section:Methodology} describes the approach and methodology of the thesis.
-Eventually \ref{section:StructureOfTheThesis} outlines the interim structure of the thesis.
+%\subsection{Road-map}
+%Section \ref{section:Motivation} motivates the topic of the thesis.
+%\ref{section:Background} gives a short overview over the necessary background information.
+%\ref{section:ResearchHypthesesAndQuestions} defines a preliminary hypothesis and formulates the research questions.
+%\ref{section:Objectives} specifies the important objectives for the thesis.
+%\ref{section:Methodology} describes the approach and methodology of the thesis.
+%Eventually \ref{section:StructureOfTheThesis} outlines the interim structure of the thesis.
 
 
 \section{Motivation}
 \label{section:Motivation}
 A common task during the development of software systems is to persist and serialize a domain model.
-For instance, consider a simple web-service where data is stored in a database and served via HTTP in serialized form, e.g. XML.
+For instance, consider a simple ReST-ful web-service where data is stored in a database and served via HTTP in serialized form, e.g. XML.
+Given such a system, one can observe correspondences (structural similarities) and conformances (compliance with a definition) between different artifacts, i.e. manifestations of the same domain model.
+Figure \ref{figure:ORXCorrespondenceBigPicture} shows a non exhaustive depiction of such relationships in O/R/X scenario.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=.9\textwidth]{orx-correspondence-big-picture.png}
-\caption{O/R/X-Correspondence}
+\includegraphics[width=.7\textwidth]{orx-correspondence-big-picture.png}
+\\The depicted relationships may not be exhaustive.
+\caption{O/R/X Correspondence \& Conformance}
 \label{figure:ORXCorrespondenceBigPicture}
 \end{figure}
+
+Upon closer inspection, one can also observe that correspondence and conformance are not just interrelations of the artifacts as wholes.
+In fact the same relations can be found between fragments of the artifacts.
+Table \ref{table:ORXCorrespondenceExample} shows the fragments corresponding to a Java class property in the O/R/X scenario.
 
 \begin{table}[h!]
 \resizebox{\textwidth}{!}{
 \begin{tabular}{l|l|l}
-&& \\
 \textbf{Language} 
 &\textbf{Fragment Type}
 &\textbf{Fragment Text}
-\\ && \\ \hline && \\
+\\ \hline
 Java
 &Class Property
 &\texttt{public String name;}
-\\ && \\
+\\ \hline
 XSD 
 &Attribute Definition
 &\texttt{<xs:attribute name="name" type="xs:string"/>}
-\\ && \\
+\\ \hline
 XML
 &Attribute
 &\texttt{name="Alan Turing"}
-\\ && \\
+\\ \hline
 Hibernate XML
 &Property Mapping
 &\begin{minipage}{\columnwidth}
 \ttfamily
 <property access="field" generated="never" lazy="false" name="name" optimistic-lock="true" type="java.lang.String" unique="false">
-\\\hspace*{0.1\columnwidth}<column name="name"/>
+\\\hspace*{0.05\columnwidth}<column name="name"/>
 \\</property>
 \end{minipage}
-\\ && \\
+\\ \hline
 SQL/DDL
 &Column Definition
 &\texttt{`name` varchar(255) DEFAULT NULL,}
-\\ && \\
 \end{tabular}
 }
 \newline
-\caption{O/R/X-Correspondence}
+\caption{O/R/X Fragment Correspondence}
 \label{table:ORXCorrespondenceExample}
 \end{table}
 
-
-
+The motivating idea behind the thesis is that correspondence and conformance relationships between linguistic artifacts are trace-links left behind by transformations in the sense of \cite{DBLP:conf/sle/Lammel16}.
+Thus, it should be possible to recover these links with a model describing these linguistic relations.
+A technology capable of modeling such \textit{"linguistic architectures"}\cite{DBLP:conf/models/FavreLV12} is \megal\footnoteurl{http://www.softlang.org/megal/} \cite{DBLP:conf/ecmdafa/LammelV14}
 
 \section{Background}
 \label{section:Background}
 The thesis will be based but is not limited to aspects of the following topics:
 
-\subsection{Ontologies}
-\subsection{Traceability}
 
-\subsection{Mereology}
-Mereology is the systematic study of the relationships between wholes and part \cite{DBLP:journals/dke/Varzi96}.
-The core of its discourse is the Parthood- or \partOf-Relationship, which is axiomatized as follows:
-\begin{definition}[\partOf]
-We denote:
-\begin{align*}
-x \partOf y
-\end{align*}
-and mean that $x$ is constituent for $y$.
-We assume that:
-\begin{itemize}
-\item[P1] $x \partOf x$ (Reflexiveness)
-\item[P2] $x \partOf y \wedge y \partOf x \Rightarrow x = y$ (Antisymmetry)
-\item[P3] $x \partOf y \wedge y \partOf z \Rightarrow x \partOf z$ (Transitivity)
-\end{itemize}
-\end{definition}
-
-
-
-
-\subsection{Megamodelinng (with \megal)}
-\megal\footnoteurl{http://www.softlang.org/megal/} is a Domain Specific Language (DSL) and technology designed  for modeling the linguistic architecture of software systems.
-It is actively developed by the Software Language Team\footnote{\url{http://www.softlang.org/}} at the University of Koblenz-Landau and currently has two implementations: 
-\begin{itemize}
-\item
-\megalxtext an \eclipse based Integrated Development Environment (IDE)
-\item
-and \megaltext a text-file and console based implementation with an 
-\end{itemize}
-
-\subsection{Program Analysis}
-Program Analysis is the process of automatically analyzing programs.
-This can be done (a) statically by analyzing the source code of a program or (b) dynamically through monitoring and intercepting the runtime of a program, analyzing transient artifacts. 
-
-
-\subsection{XML Data Binding (with JAXB)}
-XML Data Binding is the process of automatically mapping instance- and model-level objects into a XML-serialized form.
-That is, for the Java Architecture for XML Binding (JAXB)\footnoteurl{https://docs.oracle.com/javase/tutorial/jaxb/intro/arch.html}, a Java class itself is mapped via annotations to an XML Schema, both model-level objects.
-With this mapping Java class-instances can easily be de-/serialized into XML Documents, a process called un-/marshaling.
-XML Data Binding allows to directly work with a domain model rather than working with direct XML access.
-
-\subsection{Object-Relational Mapping (with JPA/Hibernate)}
-Object-Relational Mapping is the process of automatically mapping instance- and model-level objects into a relational data-storage.
-In case of SQL-database technologies, model-level objects are mapped to SQL/DDL (Data Definition Language) statements and instance-level objects are mapped to SQL/DML (Data Manipulation Language) statements.
-Usually, these statements are then sent to and executed by a SQL-database server.
-This allows to directly work with a domain model when persisting data.
-
-The Java Persistence API (JPA)\footnoteurl{http://www.oracle.com/technetwork/articles/javaee/jpa-137156.html} is a Java standard interface for working with Object-Relational Mapping.
-Hibernate\footnoteurl{http://hibernate.org/} is one of many JPA implementations.
-It provides annotations and a XML Schema for defining Object-Relational Mappings between Java classes and database tables.
+%\subsection{Ontologies}
+%\subsection{Traceability}
+%
+%\subsection{Mereology}
+%Mereology is the systematic study of the relationships between wholes and part \cite{DBLP:journals/dke/Varzi96}.
+%The core of its discourse is the Parthood- or \partOf-Relationship, which is axiomatized as follows:
+%\begin{definition}[\partOf]
+%We denote: "$x \partOf y$" and mean that $x$ is constituent of $y$.
+%We assume that \partOf is
+%\begin{itemize}
+%\item reflexive: $x \partOf x$,
+%\item antisymmetric: $x \partOf y \wedge y \partOf x \Rightarrow x = y$
+%\item and transitive: $x \partOf y \wedge y \partOf z \Rightarrow x \partOf z$.
+%\end{itemize}
+%\end{definition}
+%
+%
+%
+%\subsection{Megamodelinng (with \megal)}
+%\megal\footnoteurl{http://www.softlang.org/megal/} is a Domain Specific Language (DSL) and technology designed  for modeling the linguistic architecture of software systems.
+%It is actively developed by the Software Language Team\footnote{\url{http://www.softlang.org/}} at the University of Koblenz-Landau and currently has two implementations: 
+%\begin{itemize}
+%\item
+%\megalxtext an \eclipse based Integrated Development Environment (IDE)
+%\item
+%and \megaltext a text-file and console based implementation with an 
+%\end{itemize}
+%
+%\subsection{Program Analysis}
+%Program Analysis is the process of automatically analyzing programs.
+%This can be done (a) statically by analyzing the source code of a program or (b) dynamically through monitoring and intercepting the runtime of a program, analyzing transient artifacts. 
+%
+%\subsection{XML Data Binding (with JAXB)}
+%XML Data Binding is the process of automatically mapping instance- and model-level objects into a XML-serialized form.
+%That is, for the Java Architecture for XML Binding (JAXB)\footnoteurl{https://docs.oracle.com/javase/tutorial/jaxb/intro/arch.html}, a Java class itself is mapped via annotations to an XML Schema, both model-level objects.
+%With this mapping Java class-instances can easily be de-/serialized into XML Documents, a process called un-/marshaling.
+%XML Data Binding allows to directly work with a domain model rather than working with direct XML access.
+%
+%\subsection{Object-Relational Mapping (with JPA/Hibernate)}
+%Object-Relational Mapping is the process of automatically mapping instance- and model-level objects into a relational data-storage.
+%In case of SQL-database technologies, model-level objects are mapped to SQL/DDL (Data Definition Language) statements and instance-level objects are mapped to SQL/DML (Data Manipulation Language) statements.
+%Usually, these statements are then sent to and executed by a SQL-database server.
+%This allows to directly work with a domain model when persisting data.
+%
+%The Java Persistence API (JPA)\footnoteurl{http://www.oracle.com/technetwork/articles/javaee/jpa-137156.html} is a Java standard interface for working with Object-Relational Mapping.
+%Hibernate\footnoteurl{http://hibernate.org/} is one of many JPA implementations.
+%It provides annotations and a XML Schema for defining Object-Relational Mappings between Java classes and database tables.
+%
 
 \section{Research Hypotheses \& Questions}
 \label{section:ResearchHypthesesAndQuestions}
 \subsection{Research Hypotheses}
 \subsubsection{Correspondence}
 \cite{DBLP:conf/sle/Lammel16} axiomatizes a strict one-to-one correspondence of software artifacts as follows:
-Given there is an arbitrary relationship $R$ between to languages $L_1$ and $L_2$:
-\begin{align*}
-R : L_1 \times L_2
-\end{align*}
-For instance, $R$ may be a transformation from one language to the other.
+Given there is an arbitrary relationship $R$ between to languages: $R \subseteq L_1 \times L_2$, for instance, $R$ may be a transformation from one language to the other.
 
 Then two artifacts $a_1 \in L_1$ and $a_2 \in L_2$ correspond to each other only if for each part of one artifact there exists exactly one corresponding part of the other:
 \begin{align*}
@@ -221,6 +218,10 @@ For this reason the thesis will assume a weaker correspondence hypothesis.
 \subsubsection{Fragment Correspondence Hypothesis}
 One objective of the thesis should be to provide empirical assurance for the axiom above in the sense that correspondence is in fact mereologically induced.
 So if two artifacts $a_1$ and $a_2$ are assumed to correspond to each other, e.g. $a_2$ could be the result of a transformation of $a_1$, then parts of both artifacts should exist which also correspond to each other.
+\begin{align*}
+\forall x \in \Any :
+x \in L \subseteq \Any \Leftrightarrow \exists d \in D \subseteq \Any : x \conformsTo d
+\end{align*}
 \begin{align*}
 &\forall a_1 \in L_1, a_2 \in L_2 : 
 a_1 \correspondsToR{R} a_2
