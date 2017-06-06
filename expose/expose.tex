@@ -44,7 +44,7 @@
 \newcommand{\megalxtext}{\text{MegaL/Xtext}}
 \newcommand{\megaltext}{\text{MegaL/Text}}
 \newcommand{\eclipse}{\text{eclipse}}
-\newcommand{\thesis}{Megamodel-driven Traceability Recovery \& Exploration of Linguistic Correspondence \& Conformance Links between Software Artifacts O/R/X-Mapping Scenario}
+\newcommand{\thesis}{Megamodel-driven Traceability Recovery \& Exploration of Linguistic Correspondence \& Conformance Links between Software Artifacts in an O/R/X-Mapping Scenario}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -91,7 +91,7 @@ Figure \ref{figure:ORXCorrespondenceBigPicture} shows a non exhaustive depiction
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=.7\textwidth]{orx-correspondence-big-picture.png}
+\includegraphics[width=\textwidth]{orx-correspondence-big-picture.png}
 \\The depicted relationships may not be exhaustive.
 \caption{O/R/X Correspondence \& Conformance}
 \label{figure:ORXCorrespondenceBigPicture}
@@ -185,57 +185,7 @@ XML Data Binding as  implemented by JAXB\footnote{Java Architecture for XML Bind
 The process of automatically mapping model- and instance-level objects into a relational data-storage.
 Object Relational Mapping as implemented by JPA\footnote{Java Persistence API \url{http://www.oracle.com/technetwork/articles/javaee/jpa-137156.html}} and Hibernate\footnoteurl{http://hibernate.org/} will serve as onother scenario subjected to traceability recovery of linguistic links
 
-
 \end{itemize}
-
-%\subsection{Ontologies}
-%\subsection{Traceability}
-%
-%\subsection{Mereology}
-%Mereology is the systematic study of the relationships between wholes and part \cite{DBLP:journals/dke/Varzi96}.
-%The core of its discourse is the Parthood- or \partOf-Relationship, which is axiomatized as follows:
-%\begin{definition}[\partOf]
-%We denote: "$x \partOf y$" and mean that $x$ is constituent of $y$.
-%We assume that \partOf is
-%\begin{itemize}
-%\item reflexive: $x \partOf x$,
-%\item antisymmetric: $x \partOf y \wedge y \partOf x \Rightarrow x = y$
-%\item and transitive: $x \partOf y \wedge y \partOf z \Rightarrow x \partOf z$.
-%\end{itemize}
-%\end{definition}
-%
-%
-%
-%\subsection{Megamodelinng (with \megal)}
-%\megal\footnoteurl{http://www.softlang.org/megal/} is a Domain Specific Language (DSL) and technology designed  for modeling the linguistic architecture of software systems.
-%It is actively developed by the Software Language Team\footnote{\url{http://www.softlang.org/}} at the University of Koblenz-Landau and currently has two implementations: 
-%\begin{itemize}
-%\item
-%\megalxtext an \eclipse based Integrated Development Environment (IDE)
-%\item
-%and \megaltext a text-file and console based implementation with an 
-%\end{itemize}
-%
-%\subsection{Program Analysis}
-%Program Analysis is the process of automatically analyzing programs.
-%This can be done (a) statically by analyzing the source code of a program or (b) dynamically through monitoring and intercepting the runtime of a program, analyzing transient artifacts. 
-%
-%\subsection{XML Data Binding (with JAXB)}
-%XML Data Binding is the process of automatically mapping instance- and model-level objects into a XML-serialized form.
-%That is, for the Java Architecture for XML Binding (JAXB)\footnoteurl{https://docs.oracle.com/javase/tutorial/jaxb/intro/arch.html}, a Java class itself is mapped via annotations to an XML Schema, both model-level objects.
-%With this mapping Java class-instances can easily be de-/serialized into XML Documents, a process called un-/marshaling.
-%XML Data Binding allows to directly work with a domain model rather than working with direct XML access.
-%
-%\subsection{Object-Relational Mapping (with JPA/Hibernate)}
-%Object-Relational Mapping is the process of automatically mapping instance- and model-level objects into a relational data-storage.
-%In case of SQL-database technologies, model-level objects are mapped to SQL/DDL (Data Definition Language) statements and instance-level objects are mapped to SQL/DML (Data Manipulation Language) statements.
-%Usually, these statements are then sent to and executed by a SQL-database server.
-%This allows to directly work with a domain model when persisting data.
-%
-%The Java Persistence API (JPA)\footnoteurl{http://www.oracle.com/technetwork/articles/javaee/jpa-137156.html} is a Java standard interface for working with Object-Relational Mapping.
-%Hibernate\footnoteurl{http://hibernate.org/} is one of many JPA implementations.
-%It provides annotations and a XML Schema for defining Object-Relational Mappings between Java classes and database tables.
-%
 
 \section{Research Hypotheses \& Questions}
 \label{section:ResearchHypthesesAndQuestions}
@@ -364,7 +314,7 @@ Figure \ref{figure:TheCompanyModel} shows an UML-Class-Diagram depicting the mod
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=.8\textwidth]{companies.png}
+\includegraphics[width=\textwidth]{companies.png}
 \caption{The Human Resource Management System Model}
 \label{figure:TheCompanyModel}
 \end{figure}
@@ -376,7 +326,7 @@ Both scenarios will be studied with the concrete instance of the HRMS model depi
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=.8\textwidth]{softlanginc.png}
+\includegraphics[width=\textwidth]{softlanginc.png}
 \caption{The Human Resource Management System Instance called \textit{Softlang Inc.}}
 \label{figure:TheCompanyInstanceCalledSoftlangInc}
 \end{figure}
