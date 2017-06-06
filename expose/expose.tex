@@ -246,6 +246,19 @@ Parthood is the relationship between a whole and its constituent parts.
 \\&x \partOf y \wedge y \partOf x \Rightarrow x = y
 \\&x \partOf y \wedge y \partOf z \Rightarrow x
 \end{align*}
+A stricter, irreflexive form of parthood is the proper-part relationshipd \cite{DBLP:journals/dke/Varzi96}:
+\begin{align*}
+x \properPartOf y
+\Leftrightarrow
+x \partOf y \wedge \neg(y \partOf x)
+\end{align*}
+Since software artifacts are based on formal languages it should also be fair to assume the atomicity axiom \cite{DBLP:journals/dke/Varzi96}:
+\begin{align*}
+\forall x \exists y : 
+y \partOf x \wedge \neg(\exists z : z \properPartOf y)
+\end{align*}
+Objects with no proper parts are called atoms, otherwise their called fusions.
+
 Correspondence is the relationship between two software artifacts who share a structural similarity.
 \cite{DBLP:conf/sle/Lammel16} axiomatizes it as a strict one-to-one relation between software artifacts:
 \begin{align*}
@@ -257,8 +270,6 @@ Correspondence is the relationship between two software artifacts who share a st
 
 Given an arbitrary relationship $R$ between to languages, for instance a transformation from one language to the other, two artifacts correspond to each other if and only if for each part of one artifact there exists exactly one corresponding part of the other.
 
-
-
 Conformance is the relationship between two software artifacts, denoting that one artifact complies to the definition given by the other.
 \cite{DBLP:conf/sle/Lammel16} axiomatizes it as follows:
 \begin{align*}
@@ -268,7 +279,7 @@ x \in L \subseteq \Any \Leftrightarrow \exists d \in D \subseteq \Any : x \confo
 
 Given a set $\Any$ serving as a universe for software artifacts, an arbitrary artifact conforms to another one if and only if the latter artifact is a definition for software language whom the former is an element of.
 
-One objective of the thesis should be to provide empirical assurance for the axiom above in the sense that correspondence and conformance are in fact mereologically induced.
+One objective of the thesis should be to provide empirical assurance for the axiom above in the sense that correspondence and conformance are in fact to some extend mereologically induced.
 However, \cite{DBLP:conf/sle/Lammel16} also notes that strict correspondence may be unrealistic since real world artifacts may contain two or more parts corresponding to only one part in another artifact, e.g. an XSD documents can contain an element and a complex type definition corresponding to only on Java class declaration.
 For this reason the thesis will assume a weaker forms of correspondence and conformance as research hypotheses:
 \begin{enumerate}[RH1]
@@ -278,7 +289,9 @@ For this reason the thesis will assume a weaker forms of correspondence and conf
 &\forall a_1 \in L_1, a_2 \in L_2 \exists b_1 \in L_1, b_2 \in L_2 :  
 \\&a_1 \correspondsToR{R} a_2
 \Rightarrow 
-b_1 \partOf a_2 \wedge b_2 \partOf a_2 \wedge b_1 \correspondsToR{R} b_2
+b_1 \partOf a_2 
+\wedge b_2 \partOf a_2
+\wedge b_1 \correspondsToR{R} b_2
 \end{align*}
 If two artifacts are assumed to correspond to each other, then parts of both artifacts should exist which also correspond to each other.
 
@@ -288,75 +301,60 @@ If two artifacts are assumed to correspond to each other, then parts of both art
 &\forall a_1 \in L, a_2 \in D \exists b_1 \in L, b_2 \in D : 
 \\&a_1 \conformsTo a_2
 \Rightarrow 
-b_1 \partOf a_2 \wedge b_2 \partOf a_2 \wedge b_1 \conformsTo b_2
+b_1 \partOf a_2
+\wedge b_2 \partOf a_2
+\wedge b_1 \conformsTo b_2
 \end{align*}
 If two artifacts are assumed to be in a conformance relationship, then parts of both artifacts should exist which share the same relationship.
 \end{enumerate}
 
+This leads to the following research questions:
+\begin{enumerate}[RQ1]
 
+\item
+Is linguistic correspondence to some extend strictly mereologically induced?
+\begin{align*}
+&\forall a_1 \in L_1, a_2 \in L_2 \exists b_1 \in L_1, b_2 \in L_2 :
+\\&a_1 \correspondsToR{R} a_2
+\\&\Rightarrow 
+b_1 \properPartOf a_2 
+\wedge b_2 \properPartOf a_2 
+\wedge b_1 \correspondsToR{R} b_2
+\end{align*}
 
+\item
+Is linguistic conformance to some extend strictly mereologically induced?
+\begin{align*}
+&\forall a_1 \in L_1, a_2 \in L_2 \exists b_1 \in L_1, b_2 \in L_2 :
+\\&a_1 \conformsTo a_2
+\\&\Rightarrow 
+b_1 \properPartOf a_2 
+\wedge b_2 \properPartOf a_2 
+\wedge b_1 \conformsTo b_2
+\end{align*}
 
-
-
-%Because the thesis will conduct empirical examination with real world artifacts, the hypothesis can be refined.
-%two helpful predicates can be defined:
-%\begin{align*}
-%x \properPartOf y &:\Leftrightarrow x \partOf y \wedge \neg (y \partOf x)
-%\\x \atomOf y &:\Leftrightarrow x \properPartOf y \wedge \neg \exists z(z \properPartOf x)
-%\\x \fragmentOf y &:\Leftrightarrow x,y \in L \wedge x \properPartOf y
-%\\x \atomicFragmentOf y &:\Leftrightarrow x,y \in L \wedge x \atomOf y
-%\end{align*}
-%\begin{align*}
-%&a_1 \correspondsToR{R} a_2
-%\wedge f_1 \atomicFragmentOf a_1
-%\wedde f_2 \atomicFragmentOf a_2
-%\\&\Rightarrow 
-%(f_1, f_2) \in R
-%\end{align*}
-%where \properPartOf is a standard irreflexive parthood relationship from \cite{DBLP:journals/dke/Varzi96}, and \fragmentOf
-%If two artifacts are in a Correspondence-Relationship, they contain constituent parts in the same relation to each other, i.e.:
-%\begin{align*}
-%&\forall a_1 \in L_1, a_2 \in L_2 (a_1 \correspondsToR{R} a_2
-%\\&\Rightarrow
-%\exists f_1, f_2: 
-%f_1 \fragmentOf a_1 
-%\wedge f_2 \fragmentOf a_2 
-%\wedge f_1 \correspondsToR{R} f_2)
-%\end{align*}
-%\subsubsection{Fragment Conformance Hypothesis}
-%If two artifacts are in a Conformance-Relationship, they contain constituent parts in the same relation to each other, i.e.:
-%\begin{align*}
-%&A_1 \conformsTo A_2
-%\\&\Rightarrow
-%\exists a_1, a_2: 
-%a_1 \partOf A_1 
-%\wedge a_2 \partOf A_2 
-%\wedge a_1 \conformsTo a_2
-%\end{align*}
-
-%\subsection{Research Questions}
-%Research Questions are:
-%\begin{itemize}
-%\item[RQ1] description
-%%\item[RQ2] description
-%%\item[RQ3] description
-%\end{itemize}
+\end{enumerate}
 
 \section{Objectives}
 \label{section:Objectives}
 Objectives for the thesis are:
-\begin{itemize}
-\item[O1]
-Implementation of a \megalxtext-extension capable of recovering traceability links representing PartOf-, Correspondence- and Conformance-Relationships between code fragments.
-\item[O2]
-Implementation of a \megalxtext-extension allowing for an user to visually explore traceability links, i.e. PartOf-, Correspondence- and Conformance-Relationships between code fragments.
-\item[O3]
-Providing an extensive discussion comparing \megal with related approaches on traceability recovery.
-\item[O4]
-Providing an extensive discussion comparing \megal with related approaches on ontologies for software artifacts or software engineering in general.
-%\item[O5] description
-%\item[O6] description
-\end{itemize}
+\begin{enumerate}[O1]
+\item
+Implementation of a \megalxtext-extension capable of recovering traceability links representing parthood, correspondence and conformance relationships between code fragments.
+
+\item
+Implementation of a $\megalxtext$-extension allowing for an user to visually explore traceability links, i.e. parthood, correspondence and conformance relationships between code fragments
+
+\item
+Providing an extensive discussion comparing $\megal$ with related approaches on traceability recovery.
+
+\item
+Providing an extensive discussion comparing $\megal$ with related approaches on ontologies for software artifacts or software engineering in general.
+
+\item
+Providing an answer for the research questions.
+
+\end{enumerate}
 
 \section{Methodology}
 \label{section:Methodology}
@@ -366,7 +364,7 @@ Figure \ref{figure:TheCompanyModel} shows an UML-Class-Diagram depicting the mod
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=.6\textwidth]{companies.png}
+\includegraphics[width=.8\textwidth]{companies.png}
 \caption{The Human Resource Management System Model}
 \label{figure:TheCompanyModel}
 \end{figure}
@@ -378,68 +376,65 @@ Both scenarios will be studied with the concrete instance of the HRMS model depi
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=.6\textwidth]{softlanginc.png}
+\includegraphics[width=.8\textwidth]{softlanginc.png}
 \caption{The Human Resource Management System Instance called \textit{Softlang Inc.}}
 \label{figure:TheCompanyInstanceCalledSoftlangInc}
 \end{figure}
 
 \section{Structure of the Thesis}
 \label{section:StructureOfTheThesis}
-The interim structure\footnoteurl{http://softlang.wikidot.com/info:thesis-structure} of the thesis is depicted in figure \ref{figure:StructureOfTheThesis}.
-\ref{figure:TheCompanyModel}
+The interim structure\footnoteurl{http://softlang.wikidot.com/info:thesis-structure} of the thesis is outlined by but not limited to the chapters as follows:
 
-\begin{figure}[h!]
-\begin{center}
-\begin{minipage}[t]{0.5\textwidth}
 \begin{enumerate}
 
 \item
 \textbf{Introduction}
+This chapter will introduce the thesis subject, also delimiting possible contributions to traceability recovery and megamodeling.
 
 \item
 \textbf{Background}
+This chapter will provide the theoretical background of the thesis as outlined but not limited to the topics in section \ref{section:Background} above.
 
 \item
 \textbf{Related Work}
+This chapter will provide a sound discussion of related work regard megamodeling and traceability recovery of linguistic relationships between software artifacts.
 
 \item
 \textbf{Methodology}
+This chapter will describe the approach of the thesis as outlined in section \ref{section:Methodology} above.
 
 \item
 \textbf{Requirements}
+This chapter will define the requirements and acceptance criteria for the system to be developed as described in section \ref{section:Objectives}.
 
 \item
 \textbf{Design}
+This chapter will provide a description of the design and architecture for the developed system from section \ref{section:Objectives}.
 
 \item
 \textbf{Implementation}
+This chapter will provide explanations of non trivial implementation details of the developed system, e.g. a fragmentation algorithm for software artifacts could be necessary for the system.
 
 \item
-\textbf{Case Study}
-
-\item
-\textbf{Analysis/Results}
+\textbf{Results}
+This chapter will provide a discussion of empirical results gathered by the implemented system from section \ref{section:Objectives} applied to the scenarios described in section \ref{section:Methodology}.
 
 \item
 \textbf{Conclusion}
+This chapter will summarize the thesis, pointing out possible limitations and future work.
 
 \end{enumerate}
-\end{minipage}
-\end{center}
-\caption{Structure of the Thesis}
-\label{figure:StructureOfTheThesis}
-\end{figure}
 
 
 
 
 
-\cite{DBLP:conf/ecmdafa/LammelV14}
-\cite{DBLP:conf/models/FavreLV12}
-\cite{DBLP:journals/dke/Varzi96}
-\cite{DBLP:journals/entcs/FavreN05}
-\cite{Softlang:course/ptt15/technoloymodeling}
-\cite{DBLP:conf/sle/Lammel16}
+%\cite{DBLP:conf/ecmdafa/LammelV14}
+%\cite{DBLP:conf/models/FavreLV12}
+%\cite{DBLP:journals/dke/Varzi96}
+%\cite{DBLP:journals/entcs/FavreN05}
+%\cite{Softlang:course/ptt15/technoloymodeling}
+%\cite{DBLP:conf/sle/Lammel16}
 
 \bibliographystyle{splncs}
 \bibliography{../bsc}{}
