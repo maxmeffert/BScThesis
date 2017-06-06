@@ -73,13 +73,13 @@ This exposé\footnote{\url{http://www.softlang.org/info:expose}} outlines the th
 for acquiring the degree Bachelor Science (B.Sc.) in Computer Science.
 The central topic of the thesis will be the study of traceability recovery in a megamodel governed environment, that is \megal, a modeling language for such models. Furthermore a system for exploring the recovered traceability links will be developed.
 
-%\subsection{Road-map}
-%Section \ref{section:Motivation} motivates the topic of the thesis.
-%\ref{section:Background} gives a short overview over the necessary background information.
-%\ref{section:ResearchHypthesesAndQuestions} defines a preliminary hypothesis and formulates the research questions.
-%\ref{section:Objectives} specifies the important objectives for the thesis.
-%\ref{section:Methodology} describes the approach and methodology of the thesis.
-%Eventually \ref{section:StructureOfTheThesis} outlines the interim structure of the thesis.
+\subsection{Road-map}
+Section \ref{section:Motivation} motivates the topic of the thesis.
+\ref{section:Background} gives a short overview over the necessary background information.
+\ref{section:ResearchHypthesesAndQuestions} defines a preliminary hypothesis and formulates the research questions.
+\ref{section:Objectives} specifies the important objectives for the thesis.
+\ref{section:Methodology} describes the approach and methodology of the thesis.
+Eventually \ref{section:StructureOfTheThesis} outlines the interim structure of the thesis.
 
 
 \section{Motivation}
@@ -147,6 +147,46 @@ A technology capable of modeling such \textit{"linguistic architectures"}\cite{D
 \label{section:Background}
 The thesis will be based but is not limited to aspects of the following topics:
 
+\begin{itemize}
+
+\item
+\textbf{Traceability}
+The ability to interrelate artifacts of a software development process.
+The automatic process of relating artifacts is called traceability recovery and the recovered relationships are called links.
+Traceability support is one desired capability of \megal and serves as main subject of the thesis.
+
+\item
+\textbf{Megamodeling}
+The process of interrelating models, e.g. relationships between models, meta-models, meta-meta-models up to meta*-models.
+Megamodeling in the sense of \megal mainly interrelates software languages and kindred objects.
+
+\item
+\textbf{Ontologies}
+The systematic modeling and representation of knowledge.
+Megamodels as used in the thesis are in fact some sorts of software linguistic ontologies, so ontologies may be covered as related work.
+
+\item
+\textbf{Mereology}
+The study of logic part-whole relationships \cite{DBLP:journals/dke/Varzi96}.
+Merology serves as theoretical basis for modeling fragments of linguistic artifacts.
+
+\item
+\textbf{Program Analysis}
+The process of automatically analyzing programs either statically, by analyzing source code, or dynamically by monitoring and intercepting the runtime of a program, i.e. analyzing transient artifacts.
+Traceability recovery of linguistic links is in fact an application of program analysis.
+
+\item 
+\textbf{XML Data Binding}
+The process of automatically mapping model- and instance-level objects into a XML-serialized form.
+XML Data Binding as  implemented by JAXB\footnote{Java Architecture for XML Binding \url{https://docs.oracle.com/javase/tutorial/jaxb/intro/arch.html}} will serve as a scenario subjected to traceability recovery of linguistic links.
+
+\item
+\textbf{Object Relational Mapping}
+The process of automatically mapping model- and instance-level objects into a relational data-storage.
+Object Relational Mapping as implemented by JPA\footnote{Java Persistence API \url{http://www.oracle.com/technetwork/articles/javaee/jpa-137156.html}} and Hibernate\footnoteurl{http://hibernate.org/} will serve as onother scenario subjected to traceability recovery of linguistic links
+
+
+\end{itemize}
 
 %\subsection{Ontologies}
 %\subsection{Traceability}
@@ -199,36 +239,64 @@ The thesis will be based but is not limited to aspects of the following topics:
 
 \section{Research Hypotheses \& Questions}
 \label{section:ResearchHypthesesAndQuestions}
-\subsection{Research Hypotheses}
-\subsubsection{Correspondence}
-\cite{DBLP:conf/sle/Lammel16} axiomatizes a strict one-to-one correspondence of software artifacts as follows:
-Given there is an arbitrary relationship $R$ between to languages: $R \subseteq L_1 \times L_2$, for instance, $R$ may be a transformation from one language to the other.
-
-Then two artifacts $a_1 \in L_1$ and $a_2 \in L_2$ correspond to each other only if for each part of one artifact there exists exactly one corresponding part of the other:
+Parthood is the relationship between a whole and its constituent parts.
+\cite{DBLP:journals/dke/Varzi96} and \cite{DBLP:conf/sle/Lammel16} axiomatize it as a reflexive, antisymmetric and transitive relation:
 \begin{align*}
-&(a_1,a_2) \in R
+&x \partOf x
+\\&x \partOf y \wedge y \partOf x \Rightarrow x = y
+\\&x \partOf y \wedge y \partOf z \Rightarrow x
+\end{align*}
+Correspondence is the relationship between two software artifacts who share a structural similarity.
+\cite{DBLP:conf/sle/Lammel16} axiomatizes it as a strict one-to-one relation between software artifacts:
+\begin{align*}
+&(a_1,a_2) \in R \subseteq L_1 \times L_2
 \\&\wedge \forall b_1 \in L_1 : b_1 \partOf a_1 \Rightarrow (\exists! b_2 \in L_2 : b_2 \partOf a_2 \wedge b_1 \correspondsToR{R} b_2 )
 \\&\wedge \forall b_2 \in L_2 : b_2 \partOf a_2 \Rightarrow (\exists! b_1 \in L_1 : b_1 \partOf a_2 \wedge b_2 \correspondsToR{R} b_1 )
 \\&\Rightarrow a_1 \correspondsToR{R} a_2
 \end{align*}
 
-However, \cite{DBLP:conf/sle/Lammel16} also notes that this kind of correspondence may be unrealistic since real world artifacts may contain two or more parts corresponding to only one part in another artifact, e.g. an XSD documents can contain an element and a complex type definition corresponding to only on Java class declaration.
-For this reason the thesis will assume a weaker correspondence hypothesis.
+Given an arbitrary relationship $R$ between to languages, for instance a transformation from one language to the other, two artifacts correspond to each other if and only if for each part of one artifact there exists exactly one corresponding part of the other.
 
-\subsubsection{Fragment Correspondence Hypothesis}
-One objective of the thesis should be to provide empirical assurance for the axiom above in the sense that correspondence is in fact mereologically induced.
-So if two artifacts $a_1$ and $a_2$ are assumed to correspond to each other, e.g. $a_2$ could be the result of a transformation of $a_1$, then parts of both artifacts should exist which also correspond to each other.
+
+
+Conformance is the relationship between two software artifacts, denoting that one artifact complies to the definition given by the other.
+\cite{DBLP:conf/sle/Lammel16} axiomatizes it as follows:
 \begin{align*}
 \forall x \in \Any :
 x \in L \subseteq \Any \Leftrightarrow \exists d \in D \subseteq \Any : x \conformsTo d
 \end{align*}
+
+Given a set $\Any$ serving as a universe for software artifacts, an arbitrary artifact conforms to another one if and only if the latter artifact is a definition for software language whom the former is an element of.
+
+One objective of the thesis should be to provide empirical assurance for the axiom above in the sense that correspondence and conformance are in fact mereologically induced.
+However, \cite{DBLP:conf/sle/Lammel16} also notes that strict correspondence may be unrealistic since real world artifacts may contain two or more parts corresponding to only one part in another artifact, e.g. an XSD documents can contain an element and a complex type definition corresponding to only on Java class declaration.
+For this reason the thesis will assume a weaker forms of correspondence and conformance as research hypotheses:
+\begin{enumerate}[RH1]
+\item
+\textbf{Fragment Correspondence Hypothesis}
 \begin{align*}
-&\forall a_1 \in L_1, a_2 \in L_2 : 
-a_1 \correspondsToR{R} a_2
-\\&\Rightarrow 
-\exists b_1 \in L_1, b_2 \in L_2 : 
+&\forall a_1 \in L_1, a_2 \in L_2 \exists b_1 \in L_1, b_2 \in L_2 :  
+\\&a_1 \correspondsToR{R} a_2
+\Rightarrow 
 b_1 \partOf a_2 \wedge b_2 \partOf a_2 \wedge b_1 \correspondsToR{R} b_2
 \end{align*}
+If two artifacts are assumed to correspond to each other, then parts of both artifacts should exist which also correspond to each other.
+
+\item
+\textbf{Fragment Conformance Hypothesis}
+\begin{align*}
+&\forall a_1 \in L, a_2 \in D \exists b_1 \in L, b_2 \in D : 
+\\&a_1 \conformsTo a_2
+\Rightarrow 
+b_1 \partOf a_2 \wedge b_2 \partOf a_2 \wedge b_1 \conformsTo b_2
+\end{align*}
+If two artifacts are assumed to be in a conformance relationship, then parts of both artifacts should exist which share the same relationship.
+\end{enumerate}
+
+
+
+
+
 
 %Because the thesis will conduct empirical examination with real world artifacts, the hypothesis can be refined.
 %two helpful predicates can be defined:
@@ -255,24 +323,24 @@ b_1 \partOf a_2 \wedge b_2 \partOf a_2 \wedge b_1 \correspondsToR{R} b_2
 %\wedge f_2 \fragmentOf a_2 
 %\wedge f_1 \correspondsToR{R} f_2)
 %\end{align*}
-\subsubsection{Fragment Conformance Hypothesis}
-If two artifacts are in a Conformance-Relationship, they contain constituent parts in the same relation to each other, i.e.:
-\begin{align*}
-&A_1 \conformsTo A_2
-\\&\Rightarrow
-\exists a_1, a_2: 
-a_1 \partOf A_1 
-\wedge a_2 \partOf A_2 
-\wedge a_1 \conformsTo a_2
-\end{align*}
+%\subsubsection{Fragment Conformance Hypothesis}
+%If two artifacts are in a Conformance-Relationship, they contain constituent parts in the same relation to each other, i.e.:
+%\begin{align*}
+%&A_1 \conformsTo A_2
+%\\&\Rightarrow
+%\exists a_1, a_2: 
+%a_1 \partOf A_1 
+%\wedge a_2 \partOf A_2 
+%\wedge a_1 \conformsTo a_2
+%\end{align*}
 
-\subsection{Research Questions}
-Research Questions are:
-\begin{itemize}
-\item[RQ1] description
-%\item[RQ2] description
-%\item[RQ3] description
-\end{itemize}
+%\subsection{Research Questions}
+%Research Questions are:
+%\begin{itemize}
+%\item[RQ1] description
+%%\item[RQ2] description
+%%\item[RQ3] description
+%\end{itemize}
 
 \section{Objectives}
 \label{section:Objectives}
@@ -303,19 +371,14 @@ Figure \ref{figure:TheCompanyModel} shows an UML-Class-Diagram depicting the mod
 \label{figure:TheCompanyModel}
 \end{figure}
 
-\noindent
-This HRMS will be implemented in plain Java with two scenarios in mind:
-\begin{enumerate}
-\item 
-XML-Binding with JAXB
-\item
-Persitence with JPA/Hibernate
-\end{enumerate}
+The HRMS will be implemented in plain Java with two scenarios in mind:
+(a) XML-Binding with JAXB
+and (b) Persitence with JPA/Hibernate.
 Both scenarios will be studied with the concrete instance of the HRMS model depicted in figure \ref{figure:TheCompanyInstanceCalledSoftlangInc}.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=.9\textwidth]{softlanginc.png}
+\includegraphics[width=.6\textwidth]{softlanginc.png}
 \caption{The Human Resource Management System Instance called \textit{Softlang Inc.}}
 \label{figure:TheCompanyInstanceCalledSoftlangInc}
 \end{figure}
