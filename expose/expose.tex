@@ -65,13 +65,13 @@
 
 
 \section{Introduction}
-This exposé\footnote{\url{http://www.softlang.org/info:expose}} outlines the thesis:
+This exposé\footnote{\url{http://www.softlang.org/info:expose}} outlines the thesis:3
 \begin{center}
 \it
 \thesis
 \end{center}
 for acquiring the degree Bachelor Science (B.Sc.) in Computer Science.
-The central topic of the thesis will be the study of traceability recovery in a megamodel governed environment, that is \megal, a modeling language for such models. Furthermore a system for exploring the recovered traceability links will be developed.
+The central topic of the thesis will be the study of traceability recovery in a megamodel governed environment, i.e. \megal, a modeling language for such models. Furthermore a system for exploring the recovered traceability links will be developed.
 
 \subsection{Road-map}
 Section \ref{section:Motivation} motivates the topic of the thesis.
@@ -97,9 +97,9 @@ Figure \ref{figure:ORXCorrespondenceBigPicture} shows a non exhaustive depiction
 \label{figure:ORXCorrespondenceBigPicture}
 \end{figure}
 
-Upon closer inspection, one can also observe that correspondence and conformance are not just interrelations of the artifacts as wholes.
+Upon closer inspection, one can also observe that correspondence and conformance are not just interrelations of the artifacts at large.
 In fact the same relations can be found between fragments of the artifacts.
-Table \ref{table:ORXCorrespondenceExample} shows the fragments corresponding to a Java class property in the O/R/X scenario.
+Table \ref{table:ORXCorrespondenceExample} shows fragments corresponding to a Java class property in the O/R/X scenario.
 
 \begin{table}[h!]
 \resizebox{\textwidth}{!}{
@@ -132,17 +132,20 @@ Hibernate XML
 SQL/DDL
 &Column Definition
 &\texttt{`name` varchar(255) DEFAULT NULL,}
+\\ \hline
+SQL/DML
+&Column Definition
+&\texttt{INSERT INTO Employee (...,name,...) VALUES (...,"Alan Turing",...)}
 \end{tabular}
 }
 \newline
-\caption{O/R/X Fragment Correspondence}
+\caption{Corresponding Fragments in an O/R/X Scenario}
 \label{table:ORXCorrespondenceExample}
 \end{table}
 
-The motivating idea behind the thesis is that correspondence and conformance relationships between linguistic artifacts are trace-links left behind by transformations in the sense of \cite{DBLP:conf/sle/Lammel16}.
-Thus, it should be possible to recover these links with a model describing these linguistic relations.
-A technology capable of modeling such \textit{"linguistic architectures"}\cite{DBLP:conf/models/FavreLV12} is \megal\footnoteurl{http://www.softlang.org/megal/} \cite{DBLP:conf/ecmdafa/LammelV14}
-
+The motivating idea behind the thesis is that correspondence and conformance relationships between linguistic artifacts create trace-links left behind by transformations in the sense of \cite{DBLP:conf/sle/Lammel16}.
+Thus, it should be possible to recover these links with a model describing such linguistic relations.
+A technology capable of modeling such \textit{"linguistic architectures"}\cite{DBLP:conf/models/FavreLV12} is \megal\footnoteurl{http://www.softlang.org/megal/} \cite{DBLP:conf/ecmdafa/LammelV14}.
 \section{Background}
 \label{section:Background}
 The thesis will be based but is not limited to aspects of the following topics:
@@ -158,7 +161,7 @@ Traceability support is one desired capability of $\megal$ and serves as main su
 \item
 \textbf{Megamodeling}
 The process of interrelating models, e.g. relationships between models, meta-models, meta-meta-models up to meta*-models.
-Megamodeling in the sense of \megal mainly interrelates software languages and kindred objects.
+Megamodeling in the sense of $\megal$ mainly interrelates software languages and kindred objects.
 
 \item
 \textbf{Ontologies}
