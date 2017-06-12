@@ -201,14 +201,14 @@ Parthood is the relationship between a whole and its constituent parts.
 &x \partOf x
 \\&x \partOf y \wedge y \partOf x \Rightarrow x = y
 \\&x \partOf y \wedge y \partOf z \Rightarrow x \partOf z
-\end{align*}
+\end{align*}the
 A stricter, irreflexive form of parthood is the proper-part relationship \cite{DBLP:journals/dke/Varzi96}:
 \begin{align*}
 x \properPartOf y
 \Leftrightarrow
 x \partOf y \wedge \neg(y \partOf x)
 \end{align*}
-Since software artifacts are based on formal languages it should also be fair to assume the atomicity axiom \cite{DBLP:journals/dke/Varzi96}:
+Since software artifacts are based on formal languages it should also be fair to assume atomicity \cite{DBLP:journals/dke/Varzi96}:
 \begin{align*}
 \forall x \exists y : 
 y \partOf x \wedge \neg(\exists z : z \properPartOf y)
