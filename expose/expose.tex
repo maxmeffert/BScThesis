@@ -44,7 +44,7 @@
 \newcommand{\megalxtext}{\text{MegaL/Xtext}}
 \newcommand{\megaltext}{\text{MegaL/Text}}
 \newcommand{\eclipse}{\text{eclipse}}
-\newcommand{\thesis}{Megamodel-driven Traceability Recovery \& Exploration of Linguistic Correspondence \& Conformance Links between Software Artifacts in an O/R/X-Mapping Scenario}
+\newcommand{\thesis}{Megamodel-driven Traceability Recovery \& Exploration\\of Correspondence \& Conformance Links}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -65,13 +65,14 @@
 
 
 \section{Introduction}
-This exposé\footnote{\url{http://www.softlang.org/info:expose}} outlines the thesis:3
+This exposé\footnote{\url{http://www.softlang.org/info:expose}} outlines the thesis:
 \begin{center}
 \it
 \thesis
 \end{center}
 for acquiring the degree Bachelor Science (B.Sc.) in Computer Science.
-The central topic of the thesis will be the study of traceability recovery in a megamodel governed environment, i.e. \megal, a modeling language for such models. Furthermore a system for exploring the recovered traceability links will be developed.
+The central topic of the thesis will be the study of traceability recovery in a megamodel governed environment.
+Furthermore a system for exploring the recovered traceability links will be developed.
 
 \subsection{Road-map}
 Section \ref{section:Motivation} motivates the topic of the thesis.
@@ -79,7 +80,7 @@ Section \ref{section:Motivation} motivates the topic of the thesis.
 \ref{section:ResearchHypthesesAndQuestions} defines a preliminary hypothesis and formulates the research questions.
 \ref{section:Objectives} specifies the important objectives for the thesis.
 \ref{section:Methodology} describes the approach and methodology of the thesis.
-Eventually \ref{section:StructureOfTheThesis} outlines the interim structure of the thesis.
+\ref{section:StructureOfTheThesis} outlines the interim structure of the thesis.
 
 
 \section{Motivation}
@@ -143,8 +144,8 @@ SQL/DML
 \label{table:ORXCorrespondenceExample}
 \end{table}
 
-The motivating idea behind the thesis is that correspondence and conformance relationships between linguistic artifacts create trace-links left behind by transformations in the sense of \cite{DBLP:conf/sle/Lammel16}.
-Thus, it should be possible to recover these links with a model describing such linguistic relations.
+The motivating idea behind the thesis is that correspondence and conformance relationships between artifacts create trace-links left behind by transformations in the sense of \cite{DBLP:conf/sle/Lammel16}.
+Thus, it should be possible to recover these links with a model describing such relations.
 A technology capable of modeling such \textit{"linguistic architectures"}\cite{DBLP:conf/models/FavreLV12} is \megal\footnoteurl{http://www.softlang.org/megal/} \cite{DBLP:conf/ecmdafa/LammelV14}.
 \section{Background}
 \label{section:Background}
@@ -186,7 +187,7 @@ XML Data Binding as  implemented by JAXB\footnote{Java Architecture for XML Bind
 \item
 \textbf{Object Relational Mapping}
 The process of automatically mapping model- and instance-level objects into a relational data-storage.
-Object Relational Mapping as implemented by JPA\footnote{Java Persistence API \url{http://www.oracle.com/technetwork/articles/javaee/jpa-137156.html}} and Hibernate\footnoteurl{http://hibernate.org/} will serve as onother scenario subjected to traceability recovery of linguistic links
+Object Relational Mapping as implemented by JPA\footnote{Java Persistence API \url{http://www.oracle.com/technetwork/articles/javaee/jpa-137156.html}} and Hibernate\footnoteurl{http://hibernate.org/} will serve as another scenario subjected to traceability recovery of linguistic links
 
 \end{itemize}
 
@@ -197,9 +198,9 @@ Parthood is the relationship between a whole and its constituent parts.
 \begin{align*}
 &x \partOf x
 \\&x \partOf y \wedge y \partOf x \Rightarrow x = y
-\\&x \partOf y \wedge y \partOf z \Rightarrow x
+\\&x \partOf y \wedge y \partOf z \Rightarrow x \partOf z
 \end{align*}
-A stricter, irreflexive form of parthood is the proper-part relationshipd \cite{DBLP:journals/dke/Varzi96}:
+A stricter, irreflexive form of parthood is the proper-part relationship \cite{DBLP:journals/dke/Varzi96}:
 \begin{align*}
 x \properPartOf y
 \Leftrightarrow
@@ -324,15 +325,9 @@ Figure \ref{figure:TheCompanyModel} shows an UML-Class-Diagram depicting the mod
 
 The HRMS will be implemented in plain Java with two scenarios in mind:
 (a) XML-Binding with JAXB
-and (b) Persitence with JPA/Hibernate.
-Both scenarios will be studied with the concrete instance of the HRMS model depicted in figure \ref{figure:TheCompanyInstanceCalledSoftlangInc}.
+and (b) Persistence with JPA/Hibernate.
+Both scenarios will be studied with the concrete instance of the HRMS model.
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=\textwidth]{softlanginc.png}
-\caption{The Human Resource Management System Instance called \textit{Softlang Inc.}}
-\label{figure:TheCompanyInstanceCalledSoftlangInc}
-\end{figure}
 
 \section{Structure of the Thesis}
 \label{section:StructureOfTheThesis}
@@ -350,7 +345,7 @@ This chapter will provide the theoretical background of the thesis as outlined b
 
 \item
 \textbf{Related Work}
-This chapter will provide a sound discussion of related work regard megamodeling and traceability recovery of linguistic relationships between software artifacts.
+This chapter will provide a sound discussion of related work regarding megamodeling and traceability recovery of linguistic relationships between software artifacts.
 
 \item
 \textbf{Methodology}
