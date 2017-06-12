@@ -129,34 +129,38 @@ F(G) =
 \cup
 \bigcup\limits_{t \in \Sigma_G} (\{V_t\},\{t\},\{V_t \rightarrow t\}, V_t)
 \end{align*}
-For our example grammar above the has the fragment grammar:
+The example grammar above has the fragment grammar:
+\begin{center}
+\small
 \begin{align*}
 F(G) &= (V,\Sigma,P,S)
-\\V &= \{ E,F,B,V_{\epsilon},V_{\texttt{Foo}},V_{\texttt{Bar}},V_{\texttt{\{}},V_{\texttt{\}}} \}
-\\\Sigma &= \{ \epsilon, \texttt{Foo}, \texttt{Bar}, \texttt{\{}, \texttt{\}} \}
+\\V &= \{ E,F,B,V_\texttt{interface},V_\texttt{method},V_\texttt{Foo},V_\texttt{Bar},V_\texttt{\{},V_\texttt{\}}, V_\texttt{;} \}
+\\\Sigma &= \{ \texttt{interface}, \texttt{method}, \texttt{Foo}, \texttt{Bar}, \texttt{\{}, \texttt{\}}, \texttt{;} \}
 \\P &= \{ 
-E \rightarrow \epsilon
-,E \rightarrow F
-,E \rightarrow B
-,F \rightarrow \texttt{Foo \{} E \texttt{\}}
-,B \rightarrow \texttt{Bar \{} E \texttt{\}},
-\\&
-V_\epsilon \rightarrow \epsilon
-,V_\texttt{Foo} \rightarrow \texttt{Foo}
-,V_\texttt{Bar} \rightarrow \texttt{Bar}
-,V_\texttt{\{} \rightarrow \texttt{\{}
-,V_\texttt{\}} \rightarrow \texttt{\}},
-\\&
-S \rightarrow E
-,S \rightarrow F
-,S \rightarrow B
-,S \rightarrow V_\epsilon
-,S \rightarrow V_\texttt{Foo}
-,S \rightarrow V_\texttt{Bar}
-,S \rightarrow V_\texttt{\{}
-,S \rightarrow V_\texttt{\}}
-\}
+\\& N \rightarrow \texttt{Foo},
+\\& N \rightarrow \texttt{Bar},
+\\& M \rightarrow \texttt{method} N \texttt{;},
+\\& I \rightarrow \texttt{interface} N \texttt{\{} M \texttt{\}},
+\\& V_\texttt{Foo} \rightarrow \texttt{Foo},
+\\& V_\texttt{Bar} \rightarrow \texttt{Bar},
+\\& V_\texttt{method} \rightarrow \texttt{method},
+\\& V_\texttt{interface} \rightarrow \texttt{interface},
+\\& V_\texttt{\{} \rightarrow \texttt{\{},
+\\& V_\texttt{\}} \rightarrow \texttt{\}},
+\\& V_\texttt{;} \rightarrow \texttt{;},
+\\& S \rightarrow N,
+\\& S \rightarrow M,
+\\& S \rightarrow I,
+\\& S \rightarrow V_\texttt{Foo},
+\\& S \rightarrow V_\texttt{Bar},
+\\& S \rightarrow V_\texttt{method},
+\\& S \rightarrow V_\texttt{interface},
+\\& S \rightarrow V_\texttt{\{},
+\\& S \rightarrow V_\texttt{\}},
+\\& S \rightarrow V_\texttt{;}
+\\& \}
 \end{align*}
+\end{center}
 
 From the fragment grammar, we can now also generate a \textit{Fragment Language}, containing all fragments which can be produced by that grammar:
 \begin{align*}
