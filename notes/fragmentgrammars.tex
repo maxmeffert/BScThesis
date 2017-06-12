@@ -175,47 +175,46 @@ Our original language is now a subset of the fragment language:
 \mathcal{L}(G) \subseteq \mathcal{F}(G) 
 \end{align*}
 
-\newpage
+\section*{Megamodel}
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\small\ttfamily]
 Artifact < Entity
 Set      < Entity
-Grammar  < Artifact
+Grammar  < Set
 Language < Set
 Framgent < Artifact
 
-subsetOf   < Set * Set
+subsetOf   < Set * Set // subset or equals
 elementOf  < Artifact * Language
 conformsTo < Artifact * Artifact
-conformsTo < Language * Artifact
+conformsTo < Set * Artifact
 partOf     < Artifact * Artifact
 
+aFragmentGrammar : Grammar
+
 // an arbitrary grammar artifact
-aGrammarArtifact : Grammar
-aGrammarArtifact = "uri/to/grammar"
+aGrammar : Grammar
+aGrammar subsetOf aFragmentGrammar
 
 // a fragment of the grammar
 aFragmentLanguage : Language
-aFragmentLanguage conformsTo aGrammarArtifact
+aFragmentLanguage conformsTo aFragmentGrammar
 
 // a language generated be the grammar
 aLanguage : Language
-aLanguage = "uri/to/language"
 aLanguage subsetOf aFragmentLanguage
-aLanguage conformsTo aGrammarArtifact
+aLanguage conformsTo aGrammar
 
 // a artifact/word of the language
 aLanguageArtifact : Artifact
-aLangugaeArtifact = "uri/to/language/artifact"
 aLanguageArtifact elementOf aLanguage
-aLanguageArtifact conformsTo aGrammarArtifact
+aLanguageArtifact conformsTo aGrammar
 
 // a fragment of the artifact above
 aFragment : Fragment
-aFragment = "uri/to/language/artifact#fragment"
 aFragment elementOf aFragmentLanguage
+aFramgnet conformsTo aFragmentGrammar
 aFragment partOf aLanguageArtifact
-aFramgnet conformsTo aGrammarArtifact
 \end{lstlisting}
 
 \end{document}
