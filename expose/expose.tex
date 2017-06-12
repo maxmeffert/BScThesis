@@ -146,7 +146,8 @@ SQL/DML
 
 The motivating idea behind the thesis is that correspondence and conformance relationships between artifacts create trace-links left behind by transformations in the sense of \cite{DBLP:conf/sle/Lammel16}.
 Thus, it should be possible to recover these links with a model describing such relations.
-A technology capable of modeling such \textit{"linguistic architectures"}\cite{DBLP:conf/models/FavreLV12} is \megal\footnoteurl{http://www.softlang.org/megal/} \cite{DBLP:conf/ecmdafa/LammelV14}.
+A technology capable of modeling such \textit{"linguistic architectures"}\cite{DBLP:conf/models/FavreLV12} is $\megal$\footnoteurl{http://www.softlang.org/megal/} \cite{DBLP:conf/ecmdafa/LammelV14}.
+
 \section{Background}
 \label{section:Background}
 The thesis will be based but is not limited to aspects of the following topics:
@@ -162,12 +163,13 @@ Traceability support is one desired capability of $\megal$ and serves as main su
 \item
 \textbf{Megamodeling}
 The process of interrelating models, e.g. relationships between models, meta-models, meta-meta-models up to meta*-models.
-Megamodeling in the sense of $\megal$ mainly interrelates software languages and kindred objects.
+Megamodeling in the sense of $\megal$ mainly interrelates software languages and kindred objects \cite{DBLP:conf/models/FavreLV12}\cite{DBLP:conf/ecmdafa/LammelV14}.
 
 \item
 \textbf{Ontologies}
 The systematic modeling and representation of knowledge \cite{DBLP:series/ihis/GuarinoOS09}.
 Megamodels as used in the thesis are in fact some sorts of software linguistic ontologies, so ontologies may be covered as related work.
+Ontologies also utilize mereology.
 
 \item
 \textbf{Mereology}
@@ -266,7 +268,7 @@ This leads to the following research questions:
 \begin{enumerate}[RQ1]
 
 \item
-Is linguistic correspondence to some extend strictly mereologically induced?
+Is correspondence to some extend strictly mereologically induced?
 \begin{align*}
 &\forall a_1 \in L_1, a_2 \in L_2 \exists b_1 \in L_1, b_2 \in L_2 :
 \\&a_1 \correspondsToR{R} a_2
@@ -277,7 +279,7 @@ b_1 \properPartOf a_2
 \end{align*}
 
 \item
-Is linguistic conformance to some extend strictly mereologically induced?
+Is conformance to some extend strictly mereologically induced?
 \begin{align*}
 &\forall a_1 \in L_1, a_2 \in L_2 \exists b_1 \in L_1, b_2 \in L_2 :
 \\&a_1 \conformsTo a_2
@@ -372,7 +374,6 @@ This chapter will provide a discussion of empirical results gathered by the impl
 This chapter will summarize the thesis, pointing out possible limitations and future work.
 
 \end{enumerate}
-
 
 
 
