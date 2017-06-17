@@ -14,5 +14,7 @@
 *.glsdefs
 *.ist
 *.dvi
+*.nav
+*.snm
 
 .~lock.*

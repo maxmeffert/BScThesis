@@ -1,0 +1,72 @@
+\documentclass[runningheads,a4paper]{llncs}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[ngerman]{babel}
+\usepackage{enumerate}
+\usepackage{marvosym}
+\usepackage{gensymb}
+\usepackage[bookmarks,bookmarksopen,bookmarksdepth=2]{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{amsthm}
+\usepackage{qtree}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{mathrsfs}
+\usepackage{fancyhdr}
+
+\title{Syntaxtree Fragmentation}
+\author{Maximilian Meffert}
+\institute{}
+
+\definecolor{anti-flashwhite}{rgb}{0.95, 0.95, 0.96}
+
+\lstset{
+basicstyle=\it,
+backgroundcolor=\color{anti-flashwhite},
+mathescape
+}
+
+\lstdefinelanguage{pseudocode}{
+morekeywords={if,then,else,for,foreach,in,of}
+}
+
+\lstdefinestyle{mystyle}{
+basicstyle=\sffamily,
+backgroundcolor=\color{anti-flashwhite},
+tabsize=4,
+mathescape
+}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\textbf{DISCLAIMER}
+\\Proper Citation Missing!
+\end{center}
+
+\begin{align*}
+f(tree) &= {(tree,tree)} \cup \bigcup_{child \in children(tree)} f(child,tree)
+\\
+f(tree,parent) &= {(tree,tree), (tree,parent)} \cup \bigcup_{child \in children(tree)} f(child,tree)
+\end{align*}
+
+\begin{lstlisting}[language=pseudocode,style=mystyle]
+walk(node: Tree) = walk(node, emptyStack)
+walk(node: Tree, stack: Stack) =
+	M := M $\cup$ {(node,node)}
+	if ($\neg$isEmpty(stack)) 
+		M := M $\cup$ {(node,top(stack))}
+	push(stack, node)
+	foreach child in node.children:
+		walk(child, stack)	
+	pop(stack)
+	return M
+\end{lstlisting}
+
+
+
+\end{document}
