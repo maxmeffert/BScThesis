@@ -56,17 +56,36 @@
 
 \frame{\titlepage}
 
-\begin{frame}{Motivation}
-\centering
+\begin{frame}[allowframebreaks]{Motivation}
+\begin{center}
+\includegraphics[width=.6\textwidth]{companies.png}
+\newline
+\scriptsize
+The \textit{101companies} Human Resources Management System
+\end{center}
+Given an application-/domain-model, it can be ...
+\begin{itemize}
+\item ... \textbf{serialized}, e.g. to XML
+\item ... \textbf{persisted}, e.g. into a relational database
+\end{itemize}
+\newpage
+\begin{center}
+\includegraphics[width=.7\textwidth]{orx-cc-scenario.png}
+\newline
+O/R/X Correspondence \& Conformance Scenario
+\end{center}
+\newpage
+\begin{center}
 \includegraphics[width=.9\textwidth]{orx-correspondence-big-picture.png}
 \newline
-O/R/X Correspondence \& Conformance Links
+O/R/X Correspondence \& Conformance Artifact Links
+\end{center}
 \end{frame}
 
 \begin{frame}{Formal Background}
 \begin{itemize}
 \item
-\textbf{Parthood}\cite{DBLP:conf/sle/Lammel16}\cite{DBLP:journals/dke/Varzi96}
+\textbf{Parthood/Mereology}\cite{DBLP:conf/sle/Lammel16}\cite{DBLP:journals/dke/Varzi96}
 {\scriptsize
 \begin{align*}
 &x \partOf x
@@ -124,6 +143,11 @@ b_1 \partOf a_2
 \end{align*}
 }
 \end{enumerate}
+\begin{center}
+\tiny
+Note, these hypotheses may be problematic / to weak,
+\\because parthood is reflexive they are inherently true.
+\end{center}
 \end{frame}
 
 \begin{frame}{Research Questions}
@@ -162,16 +186,16 @@ b_1 \properPartOf a_2
 \small
 \begin{enumerate}[TO1]
 \item
-Implementation of a \megalxtext-extension capable of recovering traceability links representing parthood, correspondence and conformance relationships between code fragments.
+Implementation of a $\megalxtext$-extension capable of recovering traceability links representing parthood, correspondence and conformance relationships between code fragments.
 
 \item
 Implementation of a $\megalxtext$-extension allowing for an user to visually explore traceability links, i.e. parthood, correspondence and conformance relationships between code fragments
 
 \item
-Providing an extensive discussion comparing $\megal$ with related approaches on traceability recovery.
+Providing an extensive discussion comparing $\megal$\cite{DBLP:conf/models/FavreLV12} with related approaches on traceability recovery.
 
 \item
-Providing an extensive discussion comparing $\megal$ with related approaches on ontologies for software artifacts or software engineering in general.
+Providing an extensive discussion comparing $\megal$\cite{DBLP:conf/models/FavreLV12} with related approaches on ontologies for software artifacts or software engineering in general.
 
 \item
 Providing an answer for the research questions.
