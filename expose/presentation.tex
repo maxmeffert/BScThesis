@@ -52,11 +52,22 @@
 \newcommand{\megaltext}{\text{MegaL/Text}}
 \newcommand{\eclipse}{\text{eclipse}}
 
+
+\definecolor{anti-flashwhite}{rgb}{0.95, 0.95, 0.96}
+\lstset{
+basicstyle=\tiny,
+morekeywords={company,Company,id},
+keywordstyle=\itshape\color{red},
+backgroundcolor=\color{anti-flashwhite}
+}
+
 \begin{document}
 
 \frame{\titlepage}
 
-\begin{frame}[allowframebreaks]{Motivation}
+
+\begin{frame}[fragile,allowframebreaks]{Motivation}
+
 \begin{center}
 \includegraphics[width=.6\textwidth]{companies.png}
 \newline
@@ -68,18 +79,47 @@ Given an application-/domain-model, it can be ...
 \item ... \textbf{serialized}, e.g. to XML
 \item ... \textbf{persisted}, e.g. into a relational database
 \end{itemize}
+
 \newpage
+
 \begin{center}
 \includegraphics[width=.7\textwidth]{orx-cc-scenario.png}
 \newline
 O/R/X Correspondence \& Conformance Scenario
 \end{center}
+
 \newpage
+
 \begin{center}
 \includegraphics[width=.9\textwidth]{orx-correspondence-big-picture.png}
 \newline
 O/R/X Correspondence \& Conformance Artifact Links
 \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Example}
+\centering
+\begin{lstlisting}[caption={Company.xsd}]
+<xs:complexType name="company">
+	...
+	 <xs:attribute name="id" type="xs:int" use="required"/>
+	...
+</xs:complexType>
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Company.java}]
+@XmlRootElement(name="company")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Company {
+	@XmlAttribute
+	private int id;
+	...
+}
+\end{lstlisting}
+
+XSD-Java Correspondences
+
 \end{frame}
 
 \begin{frame}{Traceability}
