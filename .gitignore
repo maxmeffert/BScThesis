@@ -16,5 +16,5 @@
 *.dvi
 *.nav
 *.snm
-
+*.vrb
 .~lock.*
