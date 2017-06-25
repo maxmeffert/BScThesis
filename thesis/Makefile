@@ -1,9 +1,9 @@
 .PHONY: all
 
-all: ausarbeitung.pdf
+all: thesis.pdf
 
-ausarbeitung.pdf: ausarbeitung.tex 
-	pdflatex -src -interaction=nonstopmode ausarbeitung.tex
-	biber ausarbeitung.bcf
-	pdflatex -src -interaction=nonstopmode ausarbeitung.tex
-	pdflatex -src -interaction=nonstopmode ausarbeitung.tex
+thesis.pdf: thesis.tex 
+	pdflatex -src -interaction=nonstopmode thesis.tex
+	biber thesis.bcf
+	pdflatex -src -interaction=nonstopmode thesis.tex
+	pdflatex -src -interaction=nonstopmode thesis.tex

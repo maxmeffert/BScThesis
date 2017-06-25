@@ -1,15 +1,128 @@
-\chapter{Fundamentals}
-\lipsum[1]
+\chapter{Background}
+%\lipsum[1]
+TBD.
 
+\section{Mathematical Background}
+\subsection{Relations}
+A $n$-ary, $n \in \mathbb{N}$, relation is the subset of the Cartesian product of $n$ sets:
+\begin{align}
+R \subseteq A_1 \times ... \times A_n 
+= \{ (a_1,...,a_n) | a_1 \in A_1 \wedge ... \wedge a_n \in A_n \}
+\end{align} 
+and a binary relation is the subset of the Cartesian product between two sets:
+\begin{align}
+R \subseteq A \times B = \{ (a,b) | a \in A \wedge b \in B \}
+\end{align}
+
+\subsubsection{Homogeneous \& Heterogeneous Relations}
+A relation $R \subseteq A \times B$ is called homogeneous if $A = B$, otherwise it is called heterogeneous.
+However, an arbitrary relation $R \subseteq A \times B$ is also homogeneous in the sense of:
+\begin{align}
+R \subseteq A \times B \subseteq (A \cup B) \times (A \cup B)
+\end{align}
+
+
+\subsubsection{Composition}
+The composition $S \circ R \subseteq A \times D$ of two binary relations $R \subseteq A \times B$ and $S \subseteq C \times D$ is defined as:
+\begin{align}
+S \circ R := \{ (a,d) \in A \times D | \exists x \in B \cap C : (a,x) \in R \wedge (x,d) \in S \}
+\end{align}
+
+\subsubsection{Identity Relation}
+The relation $I$ over a set $A$ with:
+\begin{align}
+I &:= \{ (a,b) \in A \times A | a = b \} = \{ (a,a) | a \in A \} \subseteq A \times A
+\end{align}
+is called identity relation.
+
+\subsubsection{Exponentiation}
+The $n$-th power $R^n$ of a relation $R$ with $n \in \mathbb{N}$ is the product of its composition $n$-times with itself:
+\begin{align}
+R^n = \underbrace{R \circ ... \circ R}_{n}
+\end{align}
+and can be recursively defined with:
+\begin{align}
+R^{0} &:= I
+\\R^{n} &:= R \circ R^{n-1}
+\end{align}
+
+\subsubsection{Properties}
+A relation $R$ is called ...
+\begin{center}
+\begin{tabular}{ll}
+\textbf{Property} & \textbf{Requirement}\\
+bijective & $\forall b \in B \exists! a \in A: (a,b) \in R$\\
+function & $\forall a \in A \exists! b \in B: (a,b) \in R$\\
+reflexive & $\forall a \in A: (a,a) \in R$\\
+irreflexive & $\forall a \in A: (a,a) \not\in R$\\
+transitive & $\forall a,b,c \in A: (a,b) \in R \wedge (b,c) \in R \Rightarrow (a,c) \in R$\\
+intransitive & $\forall a,b,c \in A: (a,b) \in R \wedge (b,c) \in R \Rightarrow (a,c) \not\in R$\\
+symmetric & $\forall a,b \in A: (a,b) \in R \Rightarrow (b,a) \in R$\\
+asymmetric & $\forall a,b \in A: (a,b) \in R \Rightarrow (b,a) \not\in R$\\
+antisymmetric & $\forall a,b \in A: (a,b) \in R \wedge (b,a) \in R \Rightarrow a = b$\\
+\end{tabular}
+\end{center}
+
+\subsubsection{Closures}
+For a relation $R$ over a set $A$ its closure:
+\begin{itemize}
+\item
+$R \cup I$
+is called \textit{reflexive closure}
+
+\item
+$R^{+} := R^{1} \cup R^{2} \cup R^{3} \cup ...$
+is called \textit{transitive closure}
+\begin{align}
+(a,b) \in R^{+} 
+&\Leftrightarrow 
+(a,b) \in R^{1} \vee (a,b) \in R^{2} \vee (a,b) \in R^{3} \vee ...
+\\&\Leftrightarrow 
+\exists n \in \mathbb{N} : n \geq 1 \wedge (a,b) \in R^{n}
+\\&\Leftrightarrow 
+\exists n \in \mathbb{N} : n \geq 1 \wedge (a,b) \in R \circ R^{n-1}
+\\&\Leftrightarrow 
+\exists n \in \mathbb{N} : n \geq 1 \wedge [\exists x \in A : (a,x) \in R \wedge (x,b) \in R^{n-1} ]
+\\&\Leftrightarrow 
+\exists n \in \mathbb{N} \exists x \in A : n \geq 1 \wedge (a,x) \in R \wedge (x,b) \in R^{n-1}
+\end{align}
+
+\item
+$R^{*} := R^{+} \cup I$
+is called \textit{reflexive-transitive closure}
+\begin{align}
+(a,b) \in R^{*}
+&\Leftrightarrow 
+(a,b) \in R^{+} \vee (a,b) \in I
+\\&\Leftrightarrow 
+(a,b) \in R^{+} \vee a = b
+\end{align}
+\end{itemize}
+
+
+
+\section{Formal Languages \& Grammars}
+\subsection{Context-Free Languages \& Grammars}
 
 \section{Traceability}
-\lipsum[1]
+\cite{Winkler:2010:STR:1861285.1861287}
+%\lipsum[1]
+TBD.
+\subsection{Traceability Relationship}
+\subsection{Traceability Link}
+\subsection{Traceability Recovery}
+\subsection{Traceability Exploration}
 
 \section{Megamodeling}
-\lipsum[1]
+%\lipsum[1]
+TBD.
+
+\subsection{\megal}
+\subsubsection{\megalxtext}
 
 \section{Ontologies}
-\lipsum[1]
+%\lipsum[1]
+TBD.
 
 \section{Mereology}
 \begin{align}
@@ -20,24 +133,31 @@
 \\&x \partOf y \wedge y \partOf z \Rightarrow x \partOf z
 &\qquad \text{(Transitivity)}
 \end{align}
-\lipsum[1]
+%\lipsum[1]
+TBD.
 
 \section{Program Analysis}
-\lipsum[1]
+%\lipsum[1]
+TBD.
 
 \section{XML Data Binding}
-\lipsum[1]
+%\lipsum[1]
+TBD.
+
+
+\subsection{Java Architecture for XML Binding (JAXB)}
 
 \section{Object Relational Mapping}
-\lipsum[1]
+%\lipsum[1]
+TBD.
+
+
+
+\subsection{Java Persistence API (JPA)}
+
+\subsection{Hibernate}
 
 
 
 \section{Another Tool For Language Recognition (ANTLR)}
-
-\section{Java Architecture for XML Binding (JAXB)}
-
-\section{Java Persistence API (JPA)}
-
-\section{Hibernate}
 
