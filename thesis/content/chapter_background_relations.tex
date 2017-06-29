@@ -113,7 +113,8 @@ then $X$ is called \emph{supremum}/\emph{infimum} for $A$.
 Existence for supremum and infimum is guaranteed, because upper and lower bounds exist as shown above.
 Thus, for any non-empty selection $A \subset \powersetOf{S}$ of a power-set, $\mathbf{U}_A$ and $\mathbf{L}_A$ are not empty.
 So we need to proof, that $X = \bigcup\limits_{Y \in A} Y$ respectively $X = \bigcap\limits_{Y \in A} Y$ are in fact the smallest upper and the  largest lower bound.
-Or in other words: Is there another bound $X' \in \mathbf{U}_A$ or $X' \in \mathbf{L}_A$ with $X' \neq X$ so that $X' \subset X$ respectively $X \subset X'$ holds?
+Or in other words:
+Does another bound $X' \in \mathbf{U}_A$ respectively $X' \in \mathbf{L}_A$ exist with $X' \neq X$ and $X' \subset X$ respectively $X \subset X'$?
 \begin{enumerate}
 \item
 Supremum:
@@ -131,8 +132,6 @@ Thus, $X'$ cannot be a lower bound fo $A$ and $X = \inf A$.
 
 \end{enumerate}
 Supremum and Infimum are unique for any non-empty selection of sets in a universe and can be obtained by its union respectively its intersection.
-
-
 
 \begin{definition}[Cartesian Product]
 Let $U$ be a universe and $X_n \in \mathcal{P}(U)$ sets with $ i=1...n, n \in \mathbb{N}$, then:
@@ -154,6 +153,22 @@ Instead of writing $(x,y) \in R$ we may also use the shorter notation $xRy$.
 An arbitrary relation $R \subset A \times B$ is called \emph{homogeneous} if $A = B$, otherwise it is called \emph{heterogeneous}.
 However, an arbitrary relation $R \subset A \times B$ is also homogeneous in the sense of
 $R \subset A \times B \subset (A \cup B) \times (A \cup B)$.
+
+In order to clarify our notation, when we are specifically working with relations instead of ordinary sets, we use the symbols
+$\sqsubset$ for inclusion, $\sqcup$ for union and $\sqcap$ for intersection, i.e.:
+\begin{align}
+R \sqsubset S
+&:\Leftrightarrow
+\forall x,y [(x,y) \in R \Rightarrow (x,y) \in S]
+\\
+R \sqcup S
+&:=
+\{ (x,y) | (x,y) \in R \vee (x,y) \in S \}
+\\
+R \sqcap S
+&:=
+\{ (x,y) | (x,y) \in R \wedge (x,y) \in S \}
+\end{align}
 
 \begin{definition}[Properties of Relations]
 Let $R \subset A \times A$ and $S \subset A \times B$ be homogeneous or arbitrary relations, they may satisfy one or more of the following properties:
@@ -196,16 +211,6 @@ Let $R \subset A \times A$ and $S \subset A \times B$ be homogeneous or arbitrar
 \end{align}
 \end{definition}
 
-\begin{definition}[Reflexive Closure]
-Let $R$ be a homogeneous relation.
-\begin{align}
-R^\circ
-:= \inf \{ C | C \supset R \wedge C \text{ reflexive } \}
-= R \cup I
-\end{align}
-\end{definition}
-
-
 \begin{definition}[Composition of Binary Relations]
 The composition $S \circ R \subseteq A \times D$ of two binary relations $R \subseteq A \times B$ and $S \subseteq C \times D$ is defined as:
 \begin{align}
@@ -216,20 +221,39 @@ S \circ R := \{ (a,d) \in A \times D | \exists x \in B \cap C : (a,x) \in R \wed
 \begin{definition}[Identity Relation]
 The relation $I$ over a set $A$ with:
 \begin{align}
-I &:= \{ (a,b) \in A \times A | a = b \} = \{ (a,a) | a \in A \} \subseteq A \times A
+\mathbf{I} &:= \{ (a,b) \in A \times A | a = b \} = \{ (a,a) | a \in A \} \subseteq A \times A
 \end{align}
 is called identity relation.
 \end{definition}
 
-The $n$-th power $R^n$ of a relation $R$ with $n \in \mathbb{N}$ is the product of its composition $n$-times with itself:
+\begin{definition}[Exponentiation of Relations]
+The $n$-th power $R^n$ of a relation $R$ with $n \in \mathbb{N}$ is  recursively defined with:
 \begin{align}
-R^n = \underbrace{R \circ ... \circ R}_{n}
-\end{align}
-and can be recursively defined with:
-\begin{align}
-R^{0} &:= I
+R^{0} &:= \mathbf{I}
 \\R^{n} &:= R \circ R^{n-1}
 \end{align}
+\end{definition}
+
+
+\begin{definition}[Reflexive Closure]
+Let $R$ be a homogeneous relation.
+Then
+\begin{align}
+R^\circ
+:= \inf \{ S | R \sqsubset S \wedge S \text{ reflexive } \}
+= R \sqcup \mathbf{I}
+\end{align}
+is called \emph{reflexive closure} of $R$.
+\end{definition}
+
+The reflexive closure of a homogeneous relation $R$ is the infimum or largest lower bound of the set $A = \{ S | R \sqsubset S \wedge S \text{ reflexive } \}$ containing all reflexive relations, which include $R$.
+The smallest reflexive relation is $\mathbf{I}$.
+The smallest relation including $R$ is $R$ itself.
+So, for an arbitrary relation $R' \in A$ the inclusions $R \sqsubset R'$, $\mathbf{I} \sqsubset R'$ and $(R \sqcup \mathbf{I}) \sqsubset R'$ hold.
+Thus $R \sqcup \mathbf{I}$ is a lower bound for $A$ and $(R \sqcup \mathbf{I}) \sqsubset \inf A$ holds.
+Vice versa, $R \sqcup \mathbf{I}$ is an element of $A$ and any relation $R'' \sqsubset (R \sqcup \mathbf{I})$ does either not include $R$ or is not reflexive.
+Thus $R \sqcup \mathbf{I}$ is also the smallest relation in $A$ and $\inf A \sqsubset (R \sqcup \mathbf{I})$.
+From $(R \sqcup \mathbf{I}) \sqsubset \inf A$ and $\inf A \sqsubset (R \sqcup \mathbf{I})$ follows $\inf A = (R \sqcup \mathbf{I})$.
 
 
 \subsection{Closures}
