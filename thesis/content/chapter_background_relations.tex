@@ -8,15 +8,34 @@ A set is a collection of well distinguishable mathematical objects.
 Objects in a set are called elements of the set.
 A set does not contain two or more identical elements.
 The notation $x \in X$ denotes that $x$ is an element of the set $X$.
+The symbol $\emptyset$ denotes the \emph{empty set}, which contains no elements.
+The symbol $\universe$ denotes the universal set, which contains all elements.
 
 \begin{definition}[Inclusion]
 \label{definition:Inclusion}
 Let $X$ and $Y$ be a sets.
-$Y$ includes $X$ if and only if:
+$Y$ \emph{includes} $X$ if and only if:
 \begin{align}
 X \subset Y :\Leftrightarrow \forall x [x \in X \Rightarrow x \in Y]
 \end{align}
-Then $X$ is called \emph{subset} of $Y$ and $Y$ is called superset of $X$.
+Then $X$ is called \emph{subset} of $Y$ and $Y$ is called \emph{superset} of $X$.
+For an arbitrary set $Z \neq \emptyset$, the statement $\emptyset \subset Z$ is always true, respectively $Z \subset \emptyset$ is always false.
+\end{definition}
+
+\begin{definition}[Union]
+Let $X$ and $Y$ be a sets.
+\begin{align}
+X \cup Y &:= \{ x | x \in X \vee x \in Y \} 
+\end{align}
+$X \cup Y$ is called \emph{union} of $X$ and $Y$.
+\end{definition}
+
+\begin{definition}[Intersection]
+Let $X$ and $Y$ be a sets.
+\begin{align}
+X \cap Y &:= \{ x | x \in X \wedge x \in Y \} 
+\end{align}
+$X \cap Y$ is called \emph{intersection} of $X$ and $Y$.
 \end{definition}
 
 \begin{definition}[Power-Set]
@@ -27,24 +46,6 @@ Let $X$ be a set, then the \emph{power-set} of $X$ is defined as:
 \end{align}
 \end{definition}
 
-From now on we assume that there is a universal set, called \emph{universe}, containing all elements of interest.
-
-\begin{definition}[Union]
-Let $U$ be a universe and $X,Y \in \mathcal{P}(U)$.
-\begin{align}
-X \cup Y &:= \{ x | x \in X \vee x \in Y \} 
-\end{align}
-$X \cup Y$ is called \emph{union} of $X$ and $Y$.
-\end{definition}
-
-\begin{definition}[Intersection]
-Let $U$ be a universe and $X,Y \in \mathcal{P}(U)$.
-\begin{align}
-X \cap Y &:= \{ x | x \in X \wedge x \in Y \} 
-\end{align}
-$X \cap Y$ is called \emph{intersection} of $X$ and $Y$.
-\end{definition}
-
 The definition of inclusion provides an order for power-sets.
 So we may compare two sets $A$ and $B$ in the sense of \emph{smaller} and \emph{larger}, i.e.:
 \begin{align}
@@ -52,18 +53,18 @@ A \text{ is smaller than } B
 &\Leftrightarrow A \subset B
 \\
 A \text{ is larger than } B  
-&\Leftrightarrow A \supset B
+&\Leftrightarrow B \subset A
 \\
 A \text{ is the smallest subset of } B
-&\Leftrightarrow \forall C \in \mathcal{P}(B) : A \subset C
+&\Leftrightarrow \forall C \in \powersetOf{B} : A \subset C
 \\
 A \text{ is the largest subset of } B
-&\Leftrightarrow \forall C \in \mathcal{P}(B) : A \supset C
+&\Leftrightarrow \forall C \in \powersetOf{B} : C \subset A
 \end{align}
 
 
 \begin{definition}[Upper \& Lower Bound]
-Let $U$ be a universe, $X \in \mathcal{P}(U)$ be sets in the universe and $A \subset \mathcal{P}(U)$ subsets of the universe.
+Let $\universe$ be a universe, $X \in \powersetOfUniverse$ be a set in the universe and $A \subset \mathcal{P}(U), A \neq \emptyset,$ non-empty subsets in the universe.
 \begin{align}
 X \text{ is an \emph{upper bound} for } A
 &:\Leftrightarrow
@@ -71,44 +72,67 @@ X \text{ is an \emph{upper bound} for } A
 \\
 X \text{ is a \emph{lower bound} for } A
 &:\Leftrightarrow
-\forall Y \in A : Y \supset X
+\forall Y \in A : X \subset Y
 \end{align}
 We also define:
-\begin{itemize}
-\item
-$\mathbf{U}_A := \{ B \in \mathcal{P}(U) | \forall Y \in A : Y \subset B \}$
-as the set of all upper bounds of $A$
-\item
-$\mathbf{L}_A := \{ B \in \mathcal{P}(U) | \forall Y \in A : Y \supset B \}$
-as the set of all lower bounds of $A$
-\end{itemize}
+\begin{align}
+\mathbf{U}_A 
+&:= \{ U \in \powersetOfUniverse | \forall Y \in A : Y \subset U \}
+\\
+\mathbf{L}_A
+&:= \{ L \in \powersetOfUniverse | \forall Y \in A : L \subset Y \}
+\end{align}
+as sets of all upper/lower bounds for $A$.
 \end{definition}
+
+Because our definition of upper and lower bounds is based on power-sets, existence is guaranteed:
+Given an arbitrary set $S$, the $S$ and $\emptyset$ are always elements of $\powersetOf{S}$.
+For each element $Y$ of a non-empty selection $A \subset \powersetOf{S}$ of the power-set, $Y \subset S$ and $\emptyset \subset Y$ holds.
+So $S$ is an upper and $\emptyset$ is a lower bound for $A$.
 
 \begin{definition}[Supremum \& Infimum]
 \label{definition:SupremumAndInfimum}
-Let $U$ be a universe, $X \in \mathcal{P}(U)$ be sets in the universe and $A \subset \mathcal{P}(U)$ subsets of the universe.
+Let $\universe$ be a universe, $X \in \powersetOfUniverse$ be sets in the universe and $A \subset \powersetOfUniverse, A \neq \emptyset$ a non-empty selection of sets in the universe.
+If
 \begin{align}
-X = \sup A
-&\Leftrightarrow
-X \text{ is \emph{supremum} for} A
+X 
+= \sup A
+:= \bigcup\limits_{Y \in A} Y
 &:\Leftrightarrow
-X \in \mathbf{U}_A \wedge \forall Y \in \mathbf{U}_A : X \subset Y
+X \in \mathbf{U}_A \wedge \forall U \in \mathbf{U}_A : X \subset U
 \\
-X = \inf A
-&\Leftrightarrow
-X \text{ is \emph{infimum} for} A
+X
+= \inf A
+:= \bigcap\limits_{Y \in A} Y
 &:\Leftrightarrow
-X \in \mathbf{L}_A \wedge \forall Y \in \mathbf{L}_A : X \supset Y
+X \in \mathbf{L}_A \wedge \forall L \in \mathbf{L}_A : L \subset X
 \end{align}
-For arbitrary subsets $A \subset \mathcal{P}(U)$ supremum and infimum are:
-\begin{align}
-\sup A 
-&:= \bigcup\limits_{X \in A} X
-\\
-\inf A 
-&:= \bigcap\limits_{X \in A} X
-\end{align}
+then $X$ is called \emph{supremum}/\emph{infimum} for $A$.
 \end{definition}
+
+Existence for supremum and infimum is guaranteed, because upper and lower bounds exist as shown above.
+Thus, for any non-empty selection $A \subset \powersetOf{S}$ of a power-set, $\mathbf{U}_A$ and $\mathbf{L}_A$ are not empty.
+So we need to proof, that $X = \bigcup\limits_{Y \in A} Y$ respectively $X = \bigcap\limits_{Y \in A} Y$ are in fact the smallest upper and the  largest lower bound.
+Or in other words: Is there another bound $X' \in \mathbf{U}_A$ or $X' \in \mathbf{L}_A$ with $X' \neq X$ so that $X' \subset X$ respectively $X \subset X'$ holds?
+\begin{enumerate}
+\item
+Supremum:
+We assume $X' \in \mathbf{U}_A$ with $X' \neq X$ and $X' \subset X$ for $X = \bigcup\limits_{Y \in A} Y$ exists, then an element $x \in X$ exists, which is not element of $X'$.
+Because $X$ is the union of all sets in selection $A$, $x$ must be element of at least one of its sets.
+However, then $X'$ cannot include sets containing $x$.
+Thus, $X'$ cannot be an upper bound for $A$ and $X = \sup A$.
+
+\item
+Infimum:
+We assume $X' \in \mathbf{L}_A$ with $X' \neq X$ and $X \subset X'$ for $X = \bigcap\limits_{Y \in A} Y$ exists, then an element $x \in X'$ exists, which is not element of $X$.
+Because $X$ is the intersection of all sets in selection $A$, $x$ cannot be element of at least one of its sets.
+However, then $X'$ must include sets containing $x$.
+Thus, $X'$ cannot be a lower bound fo $A$ and $X = \inf A$.
+
+\end{enumerate}
+Supremum and Infimum are unique for any non-empty selection of sets in a universe and can be obtained by its union respectively its intersection.
+
+
 
 \begin{definition}[Cartesian Product]
 Let $U$ be a universe and $X_n \in \mathcal{P}(U)$ sets with $ i=1...n, n \in \mathbb{N}$, then:
@@ -123,21 +147,24 @@ A relation is a subset of a Cartesian product:
 \begin{align}
 R \subset X_1 \times ... \times X_n 
 \end{align}
-The relation of only two sets is called \emph{binary relation}:
+The relation of only two sets is called \emph{binary relation}.
+Instead of writing $(x,y) \in R$ we may also use the shorter notation $xRy$.
 \end{definition}
+
 An arbitrary relation $R \subset A \times B$ is called \emph{homogeneous} if $A = B$, otherwise it is called \emph{heterogeneous}.
 However, an arbitrary relation $R \subset A \times B$ is also homogeneous in the sense of
 $R \subset A \times B \subset (A \cup B) \times (A \cup B)$.
 
 \begin{definition}[Properties of Relations]
+Let $R \subset A \times A$ and $S \subset A \times B$ be homogeneous or arbitrary relations, they may satisfy one or more of the following properties:
 \begin{align}
 \emph{bijective} 
 &:\Leftrightarrow
-\forall b \in B \exists! a \in A: (a,b) \in R
+\forall b \in B \exists! a \in A: (a,b) \in S
 \\
 \emph{function} 
 &:\Leftrightarrow
-\forall a \in A \exists! b \in B: (a,b) \in R
+\forall a \in A \exists! b \in B: (a,b) \in S
 \\
 \emph{reflexive} 
 &:\Leftrightarrow
@@ -168,6 +195,16 @@ $R \subset A \times B \subset (A \cup B) \times (A \cup B)$.
 \forall a,b \in A: (a,b) \in R \wedge (b,a) \in R \Rightarrow a = b
 \end{align}
 \end{definition}
+
+\begin{definition}[Reflexive Closure]
+Let $R$ be a homogeneous relation.
+\begin{align}
+R^\circ
+:= \inf \{ C | C \supset R \wedge C \text{ reflexive } \}
+= R \cup I
+\end{align}
+\end{definition}
+
 
 \begin{definition}[Composition of Binary Relations]
 The composition $S \circ R \subseteq A \times D$ of two binary relations $R \subseteq A \times B$ and $S \subseteq C \times D$ is defined as:
