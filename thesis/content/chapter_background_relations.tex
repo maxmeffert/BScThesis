@@ -1,0 +1,232 @@
+\section{Relations}
+This section introduces the necessary aspects of mathematical relations for this thesis.
+The concept of relations is a generalization of semantic dependencies between two or more mathematical objects.
+This section is based on \cite{DBLP:books/sp/SchmidtS89}.
+
+Relations are based on set-theory. We also introduce the necessary constructs of set-theory in order to clarify terminology and notation.
+A set is a collection of well distinguishable mathematical objects.
+Objects in a set are called elements of the set.
+A set does not contain two or more identical elements.
+The notation $x \in X$ denotes that $x$ is an element of the set $X$.
+
+\begin{definition}[Inclusion]
+\label{definition:Inclusion}
+Let $X$ and $Y$ be a sets.
+$Y$ includes $X$ if and only if:
+\begin{align}
+X \subset Y :\Leftrightarrow \forall x [x \in X \Rightarrow x \in Y]
+\end{align}
+Then $X$ is called \emph{subset} of $Y$ and $Y$ is called superset of $X$.
+\end{definition}
+
+\begin{definition}[Power-Set]
+\label{definition:PowerSet}
+Let $X$ be a set, then the \emph{power-set} of $X$ is defined as:
+\begin{align}
+\mathcal{P}(X) := \{ Y | Y \subset X \}
+\end{align}
+\end{definition}
+
+From now on we assume that there is a universal set, called \emph{universe}, containing all elements of interest.
+
+\begin{definition}[Union]
+Let $U$ be a universe and $X,Y \in \mathcal{P}(U)$.
+\begin{align}
+X \cup Y &:= \{ x | x \in X \vee x \in Y \} 
+\end{align}
+$X \cup Y$ is called \emph{union} of $X$ and $Y$.
+\end{definition}
+
+\begin{definition}[Intersection]
+Let $U$ be a universe and $X,Y \in \mathcal{P}(U)$.
+\begin{align}
+X \cap Y &:= \{ x | x \in X \wedge x \in Y \} 
+\end{align}
+$X \cap Y$ is called \emph{intersection} of $X$ and $Y$.
+\end{definition}
+
+The definition of inclusion provides an order for power-sets.
+So we may compare two sets $A$ and $B$ in the sense of \emph{smaller} and \emph{larger}, i.e.:
+\begin{align}
+A \text{ is smaller than } B 
+&\Leftrightarrow A \subset B
+\\
+A \text{ is larger than } B  
+&\Leftrightarrow A \supset B
+\\
+A \text{ is the smallest subset of } B
+&\Leftrightarrow \forall C \in \mathcal{P}(B) : A \subset C
+\\
+A \text{ is the largest subset of } B
+&\Leftrightarrow \forall C \in \mathcal{P}(B) : A \supset C
+\end{align}
+
+
+\begin{definition}[Upper \& Lower Bound]
+Let $U$ be a universe, $X \in \mathcal{P}(U)$ be sets in the universe and $A \subset \mathcal{P}(U)$ subsets of the universe.
+\begin{align}
+X \text{ is an \emph{upper bound} for } A
+&:\Leftrightarrow
+\forall Y \in A : Y \subset X
+\\
+X \text{ is a \emph{lower bound} for } A
+&:\Leftrightarrow
+\forall Y \in A : Y \supset X
+\end{align}
+We also define:
+\begin{itemize}
+\item
+$\mathbf{U}_A := \{ B \in \mathcal{P}(U) | \forall Y \in A : Y \subset B \}$
+as the set of all upper bounds of $A$
+\item
+$\mathbf{L}_A := \{ B \in \mathcal{P}(U) | \forall Y \in A : Y \supset B \}$
+as the set of all lower bounds of $A$
+\end{itemize}
+\end{definition}
+
+\begin{definition}[Supremum \& Infimum]
+\label{definition:SupremumAndInfimum}
+Let $U$ be a universe, $X \in \mathcal{P}(U)$ be sets in the universe and $A \subset \mathcal{P}(U)$ subsets of the universe.
+\begin{align}
+X = \sup A
+&\Leftrightarrow
+X \text{ is \emph{supremum} for} A
+&:\Leftrightarrow
+X \in \mathbf{U}_A \wedge \forall Y \in \mathbf{U}_A : X \subset Y
+\\
+X = \inf A
+&\Leftrightarrow
+X \text{ is \emph{infimum} for} A
+&:\Leftrightarrow
+X \in \mathbf{L}_A \wedge \forall Y \in \mathbf{L}_A : X \supset Y
+\end{align}
+For arbitrary subsets $A \subset \mathcal{P}(U)$ supremum and infimum are:
+\begin{align}
+\sup A 
+&:= \bigcup\limits_{X \in A} X
+\\
+\inf A 
+&:= \bigcap\limits_{X \in A} X
+\end{align}
+\end{definition}
+
+\begin{definition}[Cartesian Product]
+Let $U$ be a universe and $X_n \in \mathcal{P}(U)$ sets with $ i=1...n, n \in \mathbb{N}$, then:
+\begin{align}
+X_1 \times ... \times X_n := \{ (x_1,..., x_n) \}
+\end{align} 
+is called \emph{Cartesian product}.
+\end{definition}
+
+\begin{definition}[Relation]
+A relation is a subset of a Cartesian product:
+\begin{align}
+R \subset X_1 \times ... \times X_n 
+\end{align}
+The relation of only two sets is called \emph{binary relation}:
+\end{definition}
+An arbitrary relation $R \subset A \times B$ is called \emph{homogeneous} if $A = B$, otherwise it is called \emph{heterogeneous}.
+However, an arbitrary relation $R \subset A \times B$ is also homogeneous in the sense of
+$R \subset A \times B \subset (A \cup B) \times (A \cup B)$.
+
+\begin{definition}[Properties of Relations]
+\begin{align}
+\emph{bijective} 
+&:\Leftrightarrow
+\forall b \in B \exists! a \in A: (a,b) \in R
+\\
+\emph{function} 
+&:\Leftrightarrow
+\forall a \in A \exists! b \in B: (a,b) \in R
+\\
+\emph{reflexive} 
+&:\Leftrightarrow
+\forall a \in A: (a,a) \in R
+\\
+\emph{irreflexive} 
+&:\Leftrightarrow
+\forall a \in A: (a,a) \not\in R
+\\
+\emph{transitive} 
+&:\Leftrightarrow
+\forall a,b,c \in A: (a,b) \in R \wedge (b,c) \in R \Rightarrow (a,c) \in R
+\\
+\emph{intransitive} 
+&:\Leftrightarrow
+\forall a,b,c \in A: (a,b) \in R \wedge (b,c) \in R \Rightarrow (a,c) \not\in R
+\\
+\emph{symmetric} 
+&:\Leftrightarrow
+\forall a,b \in A: (a,b) \in R \Rightarrow (b,a) \in R
+\\
+\emph{asymmetric} 
+&:\Leftrightarrow
+\forall a,b \in A: (a,b) \in R \Rightarrow (b,a) \not\in R
+\\
+\emph{antisymmetric} 
+&:\Leftrightarrow
+\forall a,b \in A: (a,b) \in R \wedge (b,a) \in R \Rightarrow a = b
+\end{align}
+\end{definition}
+
+\begin{definition}[Composition of Binary Relations]
+The composition $S \circ R \subseteq A \times D$ of two binary relations $R \subseteq A \times B$ and $S \subseteq C \times D$ is defined as:
+\begin{align}
+S \circ R := \{ (a,d) \in A \times D | \exists x \in B \cap C : (a,x) \in R \wedge (x,d) \in S \}
+\end{align}
+\end{definition}
+
+\begin{definition}[Identity Relation]
+The relation $I$ over a set $A$ with:
+\begin{align}
+I &:= \{ (a,b) \in A \times A | a = b \} = \{ (a,a) | a \in A \} \subseteq A \times A
+\end{align}
+is called identity relation.
+\end{definition}
+
+The $n$-th power $R^n$ of a relation $R$ with $n \in \mathbb{N}$ is the product of its composition $n$-times with itself:
+\begin{align}
+R^n = \underbrace{R \circ ... \circ R}_{n}
+\end{align}
+and can be recursively defined with:
+\begin{align}
+R^{0} &:= I
+\\R^{n} &:= R \circ R^{n-1}
+\end{align}
+
+
+\subsection{Closures}
+For a relation $R$ over a set $A$ its closure:
+\begin{itemize}
+\item
+$R \cup I$
+is called \textit{reflexive closure}
+
+\item
+$R^{+} := R^{1} \cup R^{2} \cup R^{3} \cup ...$
+is called \textit{transitive closure}
+\begin{align}
+(a,b) \in R^{+} 
+&\Leftrightarrow 
+(a,b) \in R^{1} \vee (a,b) \in R^{2} \vee (a,b) \in R^{3} \vee ...
+\\&\Leftrightarrow 
+\exists n \in \mathbb{N} : n \geq 1 \wedge (a,b) \in R^{n}
+\\&\Leftrightarrow 
+\exists n \in \mathbb{N} : n \geq 1 \wedge (a,b) \in R \circ R^{n-1}
+\\&\Leftrightarrow 
+\exists n \in \mathbb{N} : n \geq 1 \wedge [\exists x \in A : (a,x) \in R \wedge (x,b) \in R^{n-1} ]
+\\&\Leftrightarrow 
+\exists n \in \mathbb{N} \exists x \in A : n \geq 1 \wedge (a,x) \in R \wedge (x,b) \in R^{n-1}
+\end{align}
+
+\item
+$R^{*} := R^{+} \cup I$
+is called \textit{reflexive-transitive closure}
+\begin{align}
+(a,b) \in R^{*}
+&\Leftrightarrow 
+(a,b) \in R^{+} \vee (a,b) \in I
+\\&\Leftrightarrow 
+(a,b) \in R^{+} \vee a = b
+\end{align}
+\end{itemize}
