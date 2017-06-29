@@ -256,38 +256,12 @@ Thus $R \sqcup \mathbf{I}$ is also the smallest relation in $A$ and $\inf A \sqs
 From $(R \sqcup \mathbf{I}) \sqsubset \inf A$ and $\inf A \sqsubset (R \sqcup \mathbf{I})$ follows $\inf A = (R \sqcup \mathbf{I})$.
 
 
-\subsection{Closures}
-For a relation $R$ over a set $A$ its closure:
-\begin{itemize}
-\item
-$R \cup I$
-is called \textit{reflexive closure}
-
-\item
+\begin{definition}[Transitive Closure]
 $R^{+} := R^{1} \cup R^{2} \cup R^{3} \cup ...$
 is called \textit{transitive closure}
-\begin{align}
-(a,b) \in R^{+} 
-&\Leftrightarrow 
-(a,b) \in R^{1} \vee (a,b) \in R^{2} \vee (a,b) \in R^{3} \vee ...
-\\&\Leftrightarrow 
-\exists n \in \mathbb{N} : n \geq 1 \wedge (a,b) \in R^{n}
-\\&\Leftrightarrow 
-\exists n \in \mathbb{N} : n \geq 1 \wedge (a,b) \in R \circ R^{n-1}
-\\&\Leftrightarrow 
-\exists n \in \mathbb{N} : n \geq 1 \wedge [\exists x \in A : (a,x) \in R \wedge (x,b) \in R^{n-1} ]
-\\&\Leftrightarrow 
-\exists n \in \mathbb{N} \exists x \in A : n \geq 1 \wedge (a,x) \in R \wedge (x,b) \in R^{n-1}
-\end{align}
+\end{definition}
 
-\item
+\begin{definition}[Transitive-Reflexive Closure]
 $R^{*} := R^{+} \cup I$
 is called \textit{reflexive-transitive closure}
-\begin{align}
-(a,b) \in R^{*}
-&\Leftrightarrow 
-(a,b) \in R^{+} \vee (a,b) \in I
-\\&\Leftrightarrow 
-(a,b) \in R^{+} \vee a = b
-\end{align}
-\end{itemize}
+\end{definition}
