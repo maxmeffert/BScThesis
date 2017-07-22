@@ -1,12 +1,60 @@
 \section{Mereology}
-\cite{DBLP:journals/dke/Varzi96}
+Mereology is the logical study on the semantics of parthood.
+\textit{"As a formal theory, mereology is simply
+an attempt to set out the general principles underlying the relationships between a whole and its constituent parts [...]"} \cite{DBLP:journals/dke/Varzi96}.
+Achille C. Varzi describes a collection of formal theories, i.e. sets of distinct axioms, of Mereology in \cite{DBLP:journals/dke/Varzi96}, which will be summarized in this section.
+Note, that the terms relation, relationship and predicate may be used synonymously.
+
+\subsection{Parthood}
+First we define the intuitive notion of the parthood relationship:
+\begin{definition}[$\partOf$]
+Let $x$ and $y$ objects of interest.
+We define:
 \begin{align}
-&x \partOf x 
+x \partOf y
+:\Leftrightarrow
+x \text{ is a constituent part of } y
+\end{align}
+\end{definition}
+We further assume, that $\partOf$ satisfies the following properties:
+\begin{align}
+&\text{(P1)}
+\qquad x \partOf x 
 &\qquad \text{(Reflexivity)}
-\\&x \partOf y \wedge y \partOf x \Rightarrow x = y
+\\
+&\text{(P2)}
+\qquad x \partOf y \wedge y \partOf x \rightarrow x = y
 &\qquad \text{(Antisymmetry)}
-\\&x \partOf y \wedge y \partOf z \Rightarrow x \partOf z
+\\
+&\text{(P3)}
+\qquad x \partOf y \wedge y \partOf z \rightarrow x \partOf z
 &\qquad \text{(Transitivity)}
 \end{align}
-%\lipsum[1]
-TBD.
+Thus, $\partOf$ induces a partial order of things.
+
+However, since the reflexive parthood may be to week for some cases, we also define a stricter, irreflexive parthood relationship as follows:
+\begin{align}
+x \properPartOf y
+:\Leftrightarrow
+x \partOf y \wedge \neg(y \partOf x)
+\end{align}
+Proper parthood induces a strict partial order of things.
+
+In addition to the relationships above we introduce the following predicates in order to provide a more concise notation:
+\begin{align}
+x \overlaps y
+&:\Leftrightarrow
+\exists z : z \partOf x \wedge z \partOf y
+&\qquad \text{(Overlap)}
+\\
+x \underlaps y
+&:\Leftrightarrow
+\exists z : x \partOf z \wedge y \partOf z
+&\qquad \text{(Underlap)}
+\end{align}
+Overlap and Underlap model situations, where objects share a distinct part or belong to same distinct whole.
+
+\subsection{Supplementation}
+
+
+\subsection{Mereology Theories}
