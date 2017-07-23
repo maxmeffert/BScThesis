@@ -5,11 +5,11 @@ Mereology is the logical study on the semantics of parthood.
 an attempt to set out the general principles underlying the relationships between a whole and its constituent parts [...]"} \cite{DBLP:journals/dke/Varzi96}.
 Achille C. Varzi describes a collection of formal theories, i.e. sets of distinct axioms, of mereology in \cite{DBLP:journals/dke/Varzi96}, which will be summarized in this section.
 
+\ToDo{add paragraph with applications of mereology in computer science}
+
 The first part of this section will just introduce the axioms of mereology.
 Then, at the end of this section, we will use these axiom to build some of the theories described in \cite{DBLP:journals/dke/Varzi96}.
 Note, that the terms relation, relationship and predicate may be used synonymously throughout this section.
-
-\ToDo{add paragraph with applications of mereology in computer science}
 
 \subsection{Parthood}
 \label{subsection:Parthood}
@@ -135,7 +135,7 @@ Figure \ref{figure:SupplementaitonAxiomExample} depicts a schematic example of t
 \endscope
 \draw(0.5,2)node{\textbf{x}};
 \draw(3.5,2)node{\textbf{y}};
-\draw(0,1)node{z};
+\draw(0,1)node{$z$};
 \end{tikzpicture}
 \end{center}
 {
@@ -183,6 +183,7 @@ It models the intuitive notion, where all parts of one thing and all parts of an
 \\&\rightarrow
 \exists z \forall w (w \overlaps z \leftrightarrow (w \overlaps x \vee w \overlaps y))
 \end{split}
+\label{axiom:Sum}
 \end{align}
 The sum axiom reads:
 If things $x$ and $y$ are two parts of the same thing, then another thing $z$ exist, which only shares parts with things, which in turn share parts with $x$ or $y$.
@@ -209,7 +210,7 @@ Figure \ref{figure:SumAxiomExample} depicts a schematic example of the sum axiom
 \draw(0,1)node{$w_1$};
 \draw(2,1)node{$w_2$};
 \draw(4,1)node{$w_3$};
-\draw(2,0)node{\textbf{z = x + y}};
+\node[anchor=north] at (current bounding box.south) {$z = x + y$};
 \end{tikzpicture}
 \end{center}
 {
@@ -227,6 +228,7 @@ One can also observe similarities between the sum axiom and set-theoretic union 
 
 \subsubsection{Product}
 The sixth axiom, which can be assumed in an universe described by means of mereology, is the product axiom.
+It models the intuitive notion, where all things, which are parts of two things at the same time, are exactly the constituent parts of a third thing.
 \begin{align}
 &\text{(P6)}
 \quad
@@ -235,16 +237,53 @@ The sixth axiom, which can be assumed in an universe described by means of mereo
 \\&\rightarrow
 \exists z \forall w (w \partOf z \leftrightarrow (w \partOf x \wedge w \partOf y))
 \end{split}
+\label{axiom:Product}
 \end{align}
-
+The sum axiom reads:
+If things $x$ and $y$ share at least one part, then another thing $z$ exists, which only consists of parts, which in turn are parts of $x$ and $y$ at the same time.
+Then $z$ can be interpreted as the product of $x$ and $y$.
+This notion is captured by the following definition of the term $z = x \cdot y$:
 \begin{align}
 z = x \cdot y
 :\Leftrightarrow
 \forall w (w \partOf z \leftrightarrow (w \partOf x \wedge w \partOf y))
+\label{definition:Product}
 \end{align}
+Figure \ref{figure:ProductAxiomExample} depicts a schematic example of the product axiom.
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\scope
+\clip(1,1)circle(2 and 2);
+\fill[fill=gray!10,draw=black,thick](3,1)circle(2 and 2);
+\endscope
+\draw[draw=black,thick](1,1)circle(2 and 2);
+\draw[draw=black,thick](3,1)circle(2 and 2);
+\draw(0.5,2)node{\textbf{x}};
+\draw(3.5,2)node{\textbf{y}};
+\draw(2,2)node{$w_1$};
+\draw(2,1)node{$w_2$};
+\draw(2,0)node{$w_3$};
+\node[anchor=north] at (current bounding box.south) {$z = x \cdot y$};
+\end{tikzpicture}
+\end{center}
+{
+\scriptsize 
+This Venn-style diagram exemplifies the product axiom:
+$x$ and $y$ share arts.
+$z = x \cdot y$ is emphasized as gray area.
+All $w_i$ are part of $z$, if and only if they are part of $x$ and $y$.
+}
+\caption{A schematic example of the Product Axiom}
+\label{figure:ProductAxiomExample}
+\end{figure}
+
+One can also observe similarities between the sum axiom and set-theoretic intersection from figure \ref{figure:ProductAxiomExample} and the definition \ref{definition:Product}.
 
 \subsubsection{Difference}
 The seventh axiom, which can be assumed in an universe described by means of mereology, is the difference axiom.
+It models the intuitive notion, where things may be split, so that their constituent parts are regrouped into disjoint things, which share no parts.
 \begin{align}
 &\text{(P7)}
 \quad
@@ -253,13 +292,52 @@ The seventh axiom, which can be assumed in an universe described by means of mer
 \\&\rightarrow
 \exists z \forall w (w \partOf z \leftrightarrow (w \partOf x \wedge \neg(w \overlaps y)))
 \end{split}
+\label{axiom:Difference}
 \end{align}
-
+The difference axiom reads:
+If for things $x$ and $y$ a supplementary thing exists, which is part of $x$, but shares no parts with $y$, then another thing $z$ exists, consisting of parts, which are also part of $x$, but share no parts with $y$.
+Then $z$ can be interpreted as the difference between $x$ and $y$, in that order.
+This notion is captured by the following definition of the term $z = x - y$:
 \begin{align}
 z = x - y
 :\Leftrightarrow
 \forall w (w \partOf z \leftrightarrow (w \partOf x \wedge \neg(w \overlaps y)))
+\label{definition:Difference}
 \end{align}
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[draw=black,thick](1,1)circle(2 and 2);
+\draw[draw=black,thick](3,1)circle(2 and 2);
+\scope
+\clip(1,1)circle(2 and 2);
+\draw[fill=gray!10,draw=black,thick, even odd rule]
+(1,1)circle (2 and 2)
+(3,1)circle(2 and 2);
+\endscope
+\draw(0.5,2)node{\textbf{x}};
+\draw(3.5,2)node{\textbf{y}};
+\draw(-0.5,1)node{$w_1$};
+\draw(0.5,1)node{$w_2$};
+\draw(0,0)node{$w_3$};
+\node[anchor=north] at (current bounding box.south) {$z = x - y$};
+\end{tikzpicture}
+\end{center}
+{
+\scriptsize 
+This Venn-style diagram exemplifies the difference axiom:
+$x$ is not part of $y$ and parts of $x$ exists, which do not share parts with $y$.
+$z = x - y$ is emphasized as gray area.
+All $w_i$ are part of $z$, if and only if they are part of $x$ and do not share further parts with $y$.
+}
+\caption{A schematic example of the Difference Axiom}
+\label{figure:DifferenceAxiomExample}
+\end{figure}
+
+One can also observe again similarities between the sum axiom and set-theoretic difference from figure \ref{figure:DifferenceAxiomExample} and the definition \ref{definition:Difference}.
+
+\ToDo{Outline dependencies with supplementation axiom}
 
 \subsection{Universal Top \& Bottom}
 \label{subsection:UniversalTopAndBottom}
