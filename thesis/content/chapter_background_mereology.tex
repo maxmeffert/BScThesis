@@ -117,16 +117,57 @@ Thus, $x$ contains a part $z$ (emphasized as gray area), which shares no further
 
 One can also observe from figure \ref{fig:SupplementaitonAxiomExample}, that the supplementation axiom can be interpreted as analogue to set-theoretic difference.
 
-\subsection{Sum}
+\subsection{Sum, Product \& Difference}
 \label{subsection:Sum}
+\subsubsection{Sum}
 \begin{align}
 &\text{(P5)}
-\qquad
-\begin{split}
+\quad
+&\begin{split}
 &x \underlaps y 
 \\&\rightarrow
 \exists z \forall w (x \overlaps z \leftrightarrow (w \overlaps x \vee w \overlaps y))
 \end{split}
+\end{align}
+
+\begin{align}
+z = x + y
+:\Leftrightarrow
+\forall w (x \overlaps z \leftrightarrow (w \overlaps x \vee w \overlaps y))
+\end{align}
+
+\subsubsection{Product}
+\begin{align}
+&\text{(P6)}
+\quad
+&\begin{split}
+&x \overlaps y 
+\\&\rightarrow
+\exists z \forall w (x \partOf z \leftrightarrow (w \partOf x \wedge w \partOf y))
+\end{split}
+\end{align}
+
+\begin{align}
+z = x \cdot y
+:\Leftrightarrow
+\forall w (x \partOf z \leftrightarrow (w \partOf x \wedge w \partOf y))
+\end{align}
+
+\subsubsection{Difference}
+\begin{align}
+&\text{(P7)}
+\quad
+&\begin{split}
+&\exists z (z \partOf x \wedge \neg(z \overlaps y))
+\\&\rightarrow
+\exists z \forall w (x \partOf z \leftrightarrow (w \partOf x \wedge \neg(w \overlaps y)))
+\end{split}
+\end{align}
+
+\begin{align}
+z = x - y
+:\Leftrightarrow
+\forall w (x \partOf z \leftrightarrow (w \partOf x \wedge \neg(w \overlaps y)))
 \end{align}
 
 \subsection{Universal Top \& Bottom}
