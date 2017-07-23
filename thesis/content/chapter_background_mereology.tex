@@ -49,6 +49,25 @@ x \partOf y \wedge \neg(y \partOf x)
 \end{align}
 Proper parthood induces a strict partial order of things.
 
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[draw=black,thick](0,0)circle(2 and 2);
+\draw[draw=black,thick](-0.5,0)circle(1.5 and 1.5);
+\draw(-0.5,0)node{\textbf{x}};
+\draw(1.5,0)node{\textbf{y}};
+\node[anchor=north] at (current bounding box.south) {$x \properPartOf y$};
+\end{tikzpicture}
+\end{center}
+{
+\scriptsize 
+This Venn-style diagram depicts a schematic illustration of Proper Part:
+$x$ is certainly a part of $y$, however $y$ is not a part of $x$.
+}
+\caption{A schematic depiction of Proper Part}
+\label{figure:SchematicProperPart}
+\end{figure}
+
 In addition to the relationships above we introduce the following predicates in order to provide a more concise notation:
 \begin{align}
 x \overlaps y
@@ -304,6 +323,7 @@ z = x - y
 \forall w (w \partOf z \leftrightarrow (w \partOf x \wedge \neg(w \overlaps y)))
 \label{definition:Difference}
 \end{align}
+Figure \ref{figure:DifferenceAxiomExample} depicts a schematic example of the difference axiom.
 
 \begin{figure}[h!]
 \begin{center}
