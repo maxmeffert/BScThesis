@@ -44,6 +44,8 @@ However, since the reflexive parthood may be to week for some cases, we also def
 x \properPartOf y
 :\Leftrightarrow
 x \partOf y \wedge \neg(y \partOf x)
+&\qquad \text{(Proper Part)}
+\label{definition:ProperPart}
 \end{align}
 Proper parthood induces a strict partial order of things.
 
@@ -53,14 +55,58 @@ x \overlaps y
 &:\Leftrightarrow
 \exists z : z \partOf x \wedge z \partOf y
 &\qquad \text{(Overlap)}
+\label{definition:Overlap}
 \\
 x \underlaps y
 &:\Leftrightarrow
 \exists z : x \partOf z \wedge y \partOf z
 &\qquad \text{(Underlap)}
+\label{definition:Underlap}
 \end{align}
 Overlap models situations, where two things share at least on distinct part.
 Underlap models situations, where two things are part of the same distinct thing.
+Figure \ref{figure:SchematicOverlapAndUnderlap} illustrates both in a schematic fashion.
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\scope
+\clip(1,1)circle(2 and 2);
+\fill[fill=gray!10,draw=black,thick](3,1)circle(2 and 2);
+\endscope
+\draw[draw=black,thick](1,1)circle(2 and 2);
+\draw[draw=black,thick](3,1)circle(2 and 2);
+\draw(0.5,2)node{\textbf{x}};
+\draw(3.5,2)node{\textbf{y}};
+\draw(2,1)node{$z$};
+\node[anchor=north] at (current bounding box.south) {$x \overlaps y$};
+\end{tikzpicture}
+\hspace*{5mm}
+\begin{tikzpicture}[scale=0.8]
+\draw[fill=gray!10,draw=black,thick](0,0)rectangle(6,4);
+\draw[fill=white,draw=black,thick](1.5,2)circle(1 and 1);
+\draw[fill=white,draw=black,thick](4.5,2)circle(1 and 1);
+\draw(1.5,2)node{\textbf{x}};
+\draw(4.5,2)node{\textbf{y}};
+\draw(0.5,3.5)node{$z$};
+\node[anchor=north] at (current bounding box.south) {$x \underlaps y$};
+\end{tikzpicture}
+\end{center}
+{
+\scriptsize 
+These Venn-style diagrams depict schematic illustrations of Overlap \& Underlap:
+\begin{itemize}
+\item
+$x \overlaps y$:
+$x$ and $y$ share a distinct part $z$, which is emphasized as gray area.
+\item
+$x \underlaps y$:
+$x$ and $y$ are both parts of $z$, which is emphasized as gray area.
+\end{itemize}
+}
+\caption{A schematic depiction of Overlap \& Underlap}
+\label{figure:SchematicOverlapAndUnderlap}
+\end{figure}
 
 \subsection{Supplementation}
 \label{subsection:Supplementation}
@@ -127,7 +173,7 @@ The next three axioms allow for the notions of sum, product and difference in a 
 
 \subsubsection{Sum}
 The fifth axiom, which can be assumed in an universe described by means of mereology, is the sum axiom.
-It models the intuitive notion, where all parts of one thing and all parts of another thing are exactly the constituent parts of a third thing .
+It models the intuitive notion, where all parts of one thing and all parts of another thing are exactly the constituent parts of a third thing.
 
 \begin{align}
 &\text{(P5)}
@@ -173,13 +219,14 @@ $x$ and $y$ are part of $u$.
 $z = x + y$ is emphasized as gray area.
 All $w_i$ share parts with $z$, if and only if they share parts with $x$ or $y$.
 }
-\caption{A schematic example of the sum axiom}
+\caption{A schematic example of the Sum Axiom}
 \label{figure:SumAxiomExample}
 \end{figure}
 
 One can also observe similarities between the sum axiom and set-theoretic union from figure \ref{figure:SumAxiomExample} and the definition \ref{definition:Sum}.
 
 \subsubsection{Product}
+The sixth axiom, which can be assumed in an universe described by means of mereology, is the product axiom.
 \begin{align}
 &\text{(P6)}
 \quad
@@ -197,6 +244,7 @@ z = x \cdot y
 \end{align}
 
 \subsubsection{Difference}
+The seventh axiom, which can be assumed in an universe described by means of mereology, is the difference axiom.
 \begin{align}
 &\text{(P7)}
 \quad
@@ -215,6 +263,10 @@ z = x - y
 
 \subsection{Universal Top \& Bottom}
 \label{subsection:UniversalTopAndBottom}
+
+
+\subsection{Unrestricted Fusion}
+\label{subsection:UnrestrictedFusion}
 
 \subsection{Mereology Theories}
 \label{subsection:MereologyTheories}
