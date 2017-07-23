@@ -9,6 +9,7 @@ The first part of this section will just introduce the axioms of mereology.
 Then, at the end of this section, we will use these axiom to build some of the theories described in \cite{DBLP:journals/dke/Varzi96}.
 Note, that the terms relation, relationship and predicate may be used synonymously throughout this section.
 
+\ToDo{add paragraph with applications of mereology in computer science}
 
 \subsection{Parthood}
 \label{subsection:Parthood}
@@ -59,7 +60,7 @@ x \underlaps y
 &\qquad \text{(Underlap)}
 \end{align}
 Overlap models situations, where two things share at least on distinct part.
-Underlap models situations, where two things belong to the same distinct whole.
+Underlap models situations, where two things are part of the same distinct thing.
 
 \subsection{Supplementation}
 \label{subsection:Supplementation}
@@ -71,18 +72,20 @@ Namely, if this is the case, a third thing may exist, which is part of the forme
 \qquad
 \neg(x \partOf y) \rightarrow \exists z (z \partOf x \wedge \neg(z \overlaps y))
 \end{align}
-The supplementation axiom reads: If a thing $x$ is not part of another thing $y$, then at least one part of $x$ does not share further parts with $y$.
-Figure \ref{fig:SupplementaitonAxiomExample} exemplifies the supplementation axiom.
+The supplementation axiom reads:
+If a thing $x$ is not part of another thing $y$, then at least one part of $x$ does not share further parts with $y$.
+Figure \ref{figure:SupplementaitonAxiomExample} depicts a schematic example of the supplementation axiom.
 
 \begin{figure}[h!]
 \begin{center}
 \begin{tikzpicture}[scale=0.8]
-\draw(1,1)circle(2 and 2);
-\draw(3,1)circle(2 and 2);
+\draw[draw=black,thick](1,1)circle(2 and 2);
+\draw[draw=black,thick](3,1)circle(2 and 2);
 \scope
-\clip (-1,-1) rectangle (3,3)
-	  (3,1) circle (2 and 2);
-\fill[gray!10] (1,1) circle (2 and 2);
+\clip(1,1)circle(2 and 2);
+\draw[fill=gray!10,draw=black,thick, even odd rule]
+(1,1)circle (2 and 2)
+(3,1)circle(2 and 2);
 \endscope
 \draw(0.5,2)node{\textbf{x}};
 \draw(3.5,2)node{\textbf{y}};
@@ -93,10 +96,11 @@ Figure \ref{fig:SupplementaitonAxiomExample} exemplifies the supplementation axi
 \scriptsize 
 This Venn-style diagram exemplifies the supplementation axiom:
 $x$ is not part of $y$.
-Thus, $x$ contains a part $z$ (emphasized as gray area), which shares no further parts with $y$
+$z$ is emphasized as gray area.
+$x$ contains $z$, but $z$ shares no further parts with $y$.
 }
-\caption{Example for the Supplementation Axiom}
-\label{fig:SupplementaitonAxiomExample}
+\caption{A schematic example of the Supplementation Axiom}
+\label{figure:SupplementaitonAxiomExample}
 \end{figure}
 
 %\usetikzlibrary{calc}
@@ -115,26 +119,65 @@ Thus, $x$ contains a part $z$ (emphasized as gray area), which shares no further
 
 \ToDo{add paragraph explaining "strong" and "weak" supplementation}
 
-One can also observe from figure \ref{fig:SupplementaitonAxiomExample}, that the supplementation axiom can be interpreted as analogue to set-theoretic difference.
+One can also observe from figure \ref{figure:SupplementaitonAxiomExample}, that the supplementation axiom can be interpreted as analogue to set-theoretic difference.
 
 \subsection{Sum, Product \& Difference}
-\label{subsection:Sum}
+\label{subsection:SumProductAndDifference}
+The next three axioms allow for the notions of sum, product and difference in a mereological context.
+
 \subsubsection{Sum}
+The fifth axiom, which can be assumed in an universe described by means of mereology, is the sum axiom.
+It models the intuitive notion, where all parts of one thing and all parts of another thing are exactly the constituent parts of a third thing .
+
 \begin{align}
 &\text{(P5)}
 \quad
 &\begin{split}
 &x \underlaps y 
 \\&\rightarrow
-\exists z \forall w (x \overlaps z \leftrightarrow (w \overlaps x \vee w \overlaps y))
+\exists z \forall w (w \overlaps z \leftrightarrow (w \overlaps x \vee w \overlaps y))
 \end{split}
 \end{align}
-
+The sum axiom reads:
+If things $x$ and $y$ are two parts of the same thing, then another thing $z$ exist, which only shares parts with things, which in turn share parts with $x$ or $y$.
+Then $z$ can be interpreted as the sum of $x$ and $y$.
+This notion is captured by following definition of the term $z = x + y$:
 \begin{align}
 z = x + y
 :\Leftrightarrow
-\forall w (x \overlaps z \leftrightarrow (w \overlaps x \vee w \overlaps y))
+\forall w (w \overlaps z \leftrightarrow (w \overlaps x \vee w \overlaps y))
+\label{definition:Sum}
 \end{align}
+Figure \ref{figure:SumAxiomExample} depicts a schematic example of the sum axiom.
+\begin{figure}[h!]
+% http://www.texample.net/tikz/examples/set-operations-illustrated-with-venn-diagrams/
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[draw=black,thick](-2,-2) rectangle (6,4);
+\draw[fill=gray!10,draw=black,thick]
+(1,1)circle(2 and 2)
+(3,1)circle(2 and 2);
+\draw(0.5,2)node{\textbf{x}};
+\draw(3.5,2)node{\textbf{y}};
+\draw(-1,3)node{$u$};
+\draw(0,1)node{$w_1$};
+\draw(2,1)node{$w_2$};
+\draw(4,1)node{$w_3$};
+\draw(2,0)node{\textbf{z = x + y}};
+\end{tikzpicture}
+\end{center}
+{
+\scriptsize 
+This Venn-style diagram exemplifies the sum axiom:
+$x$ and $y$ are part of $u$.
+$z = x + y$ is emphasized as gray area.
+All $w_i$ share parts with $z$, if and only if they share parts with $x$ or $y$.
+}
+\caption{A schematic example of the sum axiom}
+\label{figure:SumAxiomExample}
+\end{figure}
+
+One can also observe similarities between the sum axiom and set-theoretic union from figure \ref{figure:SumAxiomExample} and the definition \ref{definition:Sum}.
 
 \subsubsection{Product}
 \begin{align}
@@ -143,14 +186,14 @@ z = x + y
 &\begin{split}
 &x \overlaps y 
 \\&\rightarrow
-\exists z \forall w (x \partOf z \leftrightarrow (w \partOf x \wedge w \partOf y))
+\exists z \forall w (w \partOf z \leftrightarrow (w \partOf x \wedge w \partOf y))
 \end{split}
 \end{align}
 
 \begin{align}
 z = x \cdot y
 :\Leftrightarrow
-\forall w (x \partOf z \leftrightarrow (w \partOf x \wedge w \partOf y))
+\forall w (w \partOf z \leftrightarrow (w \partOf x \wedge w \partOf y))
 \end{align}
 
 \subsubsection{Difference}
@@ -160,14 +203,14 @@ z = x \cdot y
 &\begin{split}
 &\exists z (z \partOf x \wedge \neg(z \overlaps y))
 \\&\rightarrow
-\exists z \forall w (x \partOf z \leftrightarrow (w \partOf x \wedge \neg(w \overlaps y)))
+\exists z \forall w (w \partOf z \leftrightarrow (w \partOf x \wedge \neg(w \overlaps y)))
 \end{split}
 \end{align}
 
 \begin{align}
 z = x - y
 :\Leftrightarrow
-\forall w (x \partOf z \leftrightarrow (w \partOf x \wedge \neg(w \overlaps y)))
+\forall w (w \partOf z \leftrightarrow (w \partOf x \wedge \neg(w \overlaps y)))
 \end{align}
 
 \subsection{Universal Top \& Bottom}
