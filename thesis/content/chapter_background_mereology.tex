@@ -359,12 +359,197 @@ One can also observe again similarities between the sum axiom and set-theoretic 
 
 \ToDo{Outline dependencies with supplementation axiom}
 
-\subsection{Universal Top \& Bottom}
-\label{subsection:UniversalTopAndBottom}
+\subsection{Universal Top, Complement \& Bottom}
+\label{subsection:UniversalTopComplementAndBottom}
+The sum axiom (P5) at \ref{axiom:Sum} gives immediate rise to the idea, that all things can be summed up to an universal thing and all things are part of it.
+This notion is captured by the top axiom:
+\begin{align}
+&\exists \top \forall x (x \partOf \top)
+&\qquad \text{(Top)}
+\label{axiom:Top}
+\end{align}
+Having an universe also facilitates the definition of a universal or absolute complement:
+\begin{align}
+&\complementOf{x} := \top - x
+&\qquad \text{(Complement)}
+\label{definition:Complement}
+\end{align}
+Figure \ref{figure:SchematicUniversalTopAndComplement} depicts a schematic illustration of an universal top and a complement.
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[fill=gray!10,draw=black,thick](0,0)rectangle(6,4);
+\draw[fill=white,draw=black,thick](3,2)circle(1 and 1);
+\draw(3,2)node{$x$};
+\draw(0.5,3.5)node{$\complementOf{x}$};
+\draw(-0.5,3.5)node{$\top$};
+\node[anchor=north] at (current bounding box.south) {$\complementOf{x} = \top - x$};
+\end{tikzpicture}
+\end{center}
+{
+\scriptsize 
+This Venn-style diagram illustrates universal top and a complement:
+Top $\top$ is the rectangle containing everything.
+The complement $\complementOf{x}$ of $x$ is emphasized as gray area.
+}
+\caption{A schematic illustration of Universal Top \& Complement}
+\label{figure:SchematicUniversalTopAndComplement}
+\end{figure}
+
+An universal top renders the underlap relationship as defined at \ref{definition:Underlap} trivially true, thus the mereological sum of two things as defined at \ref{definition:Sum} can never be undefined.
+In an algebraic sense, an universal top also provides an absorbing element for mereolgical sum and a neutral element for the mereoligcal product as defined at \ref{definition:Product}:
+\begin{align}
+\top &= \top + x = x + \top
+\\
+x &= \top \cdot x = x \cdot \top
+\end{align}
+
+Properties of the mereological complement can in part be observed from figure \ref{figure:SchematicUniversalTopAndComplement}.
+Obviously, in addition to the definition of complements, the following identity also holds:
+\begin{align}
+x = \top - \complementOf{x}
+\end{align}
+
+Less obvious properties may be the following equivalences incorporating complement, parthood and overlap:
+\begin{align}
+\begin{split}
+\forall x \forall y
+(x \partOf \complementOf{y} \leftrightarrow \neg(x \overlaps y))
+\\
+\forall x \forall y
+(x \partOf y \leftrightarrow \neg(x \overlaps \complementOf{y}))
+\end{split}
+\end{align}
+Figure \ref{figure:SchematicEquivalenceOfCopmlementParthoodAndOverlap} shows a schematic illustration of this equivalence.
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[fill=gray!10,draw=black,thick](0,0)rectangle(6,4);
+\draw[fill=white,draw=black,thick](3,2)circle(1.5 and 1.5);
+\draw[fill=white,draw=black,thick](2.5,2)circle(0.5 and 0.5);
+\draw(2.5,2)node{$x$};
+\draw(3.5,2)node{$y$};
+\draw(0.5,3.5)node{$\complementOf{y}$};
+\draw(-0.5,3.5)node{$\top$};
+\node[anchor=north] at (current bounding box.south) {$x \partOf \complementOf{y} \leftrightarrow \neg(x \overlaps y)$};
+\end{tikzpicture}
+\end{center}
+{
+\scriptsize 
+This Venn-style diagram illustrates the equivalence incorporating complement, parthood and overlap:
+Top $\top$ is the rectangle containing everything.
+$x$ is a proper part of $y$.
+The complement $\complementOf{y}$ of $y$ is emphasized as gray area.
+$x$ shares no parts with $\complementOf{y}$.
+}
+\caption{A schematic illustration the equivalence incorporating Complement, Parthood \& Overlap}
+\label{figure:SchematicEquivalenceOfCopmlementParthoodAndOverlap}
+\end{figure}
+Both equations follow directly from the definition of mereological difference by simple deduction, since $x \partOf \top$ is always true:
+\begin{align}
+\begin{split}
+\complementOf{x} = \top - x
+&\Leftrightarrow
+\forall y(y \partOf \complementOf{x} \leftrightarrow x \partOf \top \wedge \neg(y \overlaps x))
+\\&\Leftrightarrow
+\forall y(y \partOf \complementOf{x} \leftrightarrow \neg(y \overlaps x))
+\end{split}
+\label{equation:CPO1}
+\\
+\begin{split}
+x = \top - \complementOf{x} 
+&\Leftrightarrow
+\forall y(y \partOf x \leftrightarrow x \partOf \top \wedge \neg(y \overlaps \complementOf{x} ))
+\\&\Leftrightarrow
+\forall y(y \partOf x \leftrightarrow \neg(y \overlaps \complementOf{x} ))
+\end{split}
+\label{equation:CPO2}
+\end{align}
+
+A direct corollary is the identity of complement involution:
+\begin{align}
+\complementOf{(\complementOf{x})} = x
+\end{align}
+This identity is deduced by substitution of the equivalence above at \ref{equation:CPO1} and \ref{equation:CPO2}:
+\begin{align}
+\begin{split}
+\complementOf{(\complementOf{x})} = T - \complementOf{x}
+&\Leftrightarrow
+\forall y (y \partOf \complementOf{(\complementOf{x})} \leftrightarrow \neg(y \overlaps \complementOf{x}))
+\\&\Leftrightarrow
+\forall y (y \partOf \complementOf{(\complementOf{x})} \leftrightarrow y \partOf x)
+\\&\Leftrightarrow
+\complementOf{(\complementOf{x})} = x
+\end{split}
+\end{align}
+
+This property allows for a refinement of the definition for mereological difference, which again shows another similarity with set-theoretic difference:
+\begin{align}
+z = x - y = x \cdot \complementOf{y}
+\end{align}
+The proof is the same simple deduction as above:
+\begin{align}
+&\begin{split}
+z = x - y
+&\Leftrightarrow
+\forall w (w \partOf z \leftrightarrow w \partOf x \wedge \neg (w \overlaps y))
+\\&\Leftrightarrow
+\forall w (w \partOf z \leftrightarrow w \partOf x \wedge w \partOf \complementOf{y})
+\\&\Leftrightarrow
+z = x \cdot \complementOf{y}
+\end{split}
+\end{align}
+
+The notion of an universal top gives immediate rise to the question, whether a converse thing, an universal bottom, exists.
+The universal bottom for parthood satisfies:
+\begin{align}
+&\exists \bot \forall x (\bot \partOf x)
+&\qquad \text{(Bottom)}
+\end{align}
+An universal bottom renders the overlap relationship as defined at \ref{definition:Overlap} trivially true, thus the mereological product of two things can never be undefined.
+In an algebraic sense, an universal bottom provides an absorbing element for the mereological product and a neutral element for the mereological sum:
+\begin{align}
+\bot &= \bot \cdot x = x \cdot \bot
+\\
+x &= \bot + x = x + \bot
+\end{align}
+Moreover, it makes mereological difference sound.
+With an universal bottom the difference $x - x$ of only one thing is now possible:
+\begin{align}
+\begin{split}
+z = x - x
+&\Leftrightarrow
+z = x \cdot \complementOf{x}
+\\&\Leftrightarrow
+\forall y (y \partOf z \leftrightarrow y \partOf x \wedge y \partOf \complementOf{x})
+\\&\Leftrightarrow
+z = \bot
+\end{split}
+\end{align}
+The only thing, which is part of $x$ and its complement at the same time, is the universal bottom.
+Given this fact, now complements of top and bottom can also be determined:
+\begin{align}
+\complementOf{\top}
+&= \top - \top 
+= \bot
+\\
+\complementOf{\bot}
+&= \top - \bot 
+= \top - \complementOf{\top} 
+= \top \cdot \complementOf{(\complementOf{\top})}
+= \top \cdot \top
+= \top
+\end{align}
+
+However, the notion of an universal bottom or null thing is more controversial than the notion of an universal top \cite{DBLP:journals/dke/Varzi96}.
 
 
 \subsection{Unrestricted Fusion}
 \label{subsection:UnrestrictedFusion}
+
+\subsection{Atomic Parts}
+\label{subsection:AtomicParts}
 
 \subsection{Mereology Theories}
 \label{subsection:MereologyTheories}
