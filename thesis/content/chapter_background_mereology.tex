@@ -53,9 +53,9 @@ Proper parthood induces a strict partial order of things.
 \begin{center}
 \begin{tikzpicture}[scale=0.8]
 \draw[draw=black,thick](0,0)circle(2 and 2);
-\draw[draw=black,thick](-0.5,0)circle(1.5 and 1.5);
+\draw[fill=gray!10,draw=black,thick](-0.5,0)circle(1 and 1);
 \draw(-0.5,0)node{\textbf{x}};
-\draw(1.5,0)node{\textbf{y}};
+\draw(1,0)node{\textbf{y}};
 \node[anchor=north] at (current bounding box.south) {$x \properPartOf y$};
 \end{tikzpicture}
 \end{center}
@@ -67,6 +67,14 @@ $x$ is certainly a part of $y$, however $y$ is not a part of $x$.
 \caption{A schematic depiction of Proper Part}
 \label{figure:SchematicProperPart}
 \end{figure}
+
+\ToDo{Define and outline Identity}
+\begin{align}
+x = y
+:\Leftrightarrow
+x \partOf y \wedge y \partOf x
+\qquad \text{(Identity)}
+\end{align}
 
 In addition to the relationships above we introduce the following predicates in order to provide a more concise notation:
 \begin{align}
