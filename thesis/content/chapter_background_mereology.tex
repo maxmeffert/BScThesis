@@ -137,6 +137,24 @@ x \partOf y \wedge y \partOf x
 \qquad \text{(Identity)}
 \end{align}
 
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[draw=black,thick](0,0)circle(2 and 2);
+\draw(-1,0)node{\textbf{x}};
+\draw(1,0)node{\textbf{y}};
+\node[anchor=north] at (current bounding box.south) {$x = y$};
+\end{tikzpicture}
+\end{center}
+{
+\scriptsize 
+This Venn-style diagram depicts a schematic illustration of Identity/Equality:
+%$x$ is certainly a part of $y$, however $y$ is not a part of $x$.
+}
+\caption{A schematic depiction of Proper Part}
+\label{figure:SchematicEquality}
+\end{figure}
+
 \noindent
 The following equivalence for identity should also hold:
 \begin{align}
@@ -503,6 +521,8 @@ Both equations follow directly from the definition of mereological difference by
 &\Leftrightarrow
 \forall y(y \partOf \complementOf{x} \leftrightarrow x \partOf \top \wedge \neg(y \overlaps x))
 \\&\Leftrightarrow
+\forall y(y \partOf \complementOf{x} \leftrightarrow true \wedge \neg(y \overlaps x))
+\\&\Leftrightarrow
 \forall y(y \partOf \complementOf{x} \leftrightarrow \neg(y \overlaps x))
 \end{split}
 \label{equation:CPO1}
@@ -511,6 +531,8 @@ Both equations follow directly from the definition of mereological difference by
 x = \top - \complementOf{x} 
 &\Leftrightarrow
 \forall y(y \partOf x \leftrightarrow x \partOf \top \wedge \neg(y \overlaps \complementOf{x} ))
+\\&\Leftrightarrow
+\forall y(y \partOf x \leftrightarrow true \wedge \neg(y \overlaps \complementOf{x} ))
 \\&\Leftrightarrow
 \forall y(y \partOf x \leftrightarrow \neg(y \overlaps \complementOf{x} ))
 \end{split}
