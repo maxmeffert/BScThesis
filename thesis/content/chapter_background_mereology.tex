@@ -71,13 +71,6 @@ $x$ is certainly a part of $y$, however $y$ is not a part of $x$.
 \label{figure:SchematicProperPart}
 \end{figure}
 
-\ToDo{Define and outline Identity}
-\begin{align}
-x = y
-:\Leftrightarrow
-x \partOf y \wedge y \partOf x
-\qquad \text{(Identity)}
-\end{align}
 
 In addition to the relationships above we introduce the following predicates in order to provide a more concise notation:
 \begin{align}
@@ -134,6 +127,55 @@ $x$ and $y$ are both parts of $z$, which is emphasized as gray area.
 \caption{A schematic depiction of Overlap \& Underlap}
 \label{figure:SchematicOverlapAndUnderlap}
 \end{figure}
+
+\subsection{Identity \& Equality}
+\ToDo{Define and outline Identity/Equality. Note seems to be some problems with mereological equality of words, see \cite{SEP:Mereology}}
+\begin{align}
+x = y
+:\Leftrightarrow
+x \partOf y \wedge y \partOf x
+\qquad \text{(Identity)}
+\end{align}
+
+\noindent
+The following equivalence for identity should also hold:
+\begin{align}
+x = y
+\Leftrightarrow
+x \partOf y \wedge y \partOf x
+\Leftrightarrow
+\forall z (z \partOf x \leftrightarrow z \partOf y)
+\end{align}
+Proof could look as follows:
+\begin{align*}
+&\forall z (z \partOf x \leftrightarrow z \partOf y)
+\\&\Leftrightarrow
+\forall z
+((\neg(z \partOf x) \wedge \neg(z \partOf y)) \vee (z \partOf x \wedge z \partOf y))
+\\&\text{extend the forumlar with self-conjunction:} a \wedge a
+\\&\Leftrightarrow
+\forall u
+((\neg(u \partOf x) \wedge \neg(u \partOf y)) \vee (u \partOf x \wedge u \partOf y))
+\\&\quad\wedge
+\forall v
+((\neg(v \partOf x) \wedge \neg(v \partOf y)) \vee (v \partOf x \wedge v \partOf y))
+\\&\text{because of all-quantifaction the formular also holds for u := x and v := y}
+\\&\Leftrightarrow
+((\neg(x \partOf x) \wedge \neg(x \partOf y)) \vee (x \partOf x \wedge x \partOf y))
+\\&\quad\wedge
+((\neg(y \partOf x) \wedge \neg(y \partOf y)) \vee (y \partOf x \wedge y \partOf y))
+\\&\text{reflixivness eliminates some terms}
+\\&\Leftrightarrow
+((false \wedge \neg(x \partOf y)) \vee (true \wedge x \partOf y))
+\\&\quad\wedge
+((\neg(y \partOf x) \wedge false) \vee (y \partOf x \wedge true))
+\\&\Leftrightarrow
+false \vee x \partOf y \wedge false \vee y \partOf x
+\\&\Leftrightarrow
+x \partOf y \wedge y \partOf x
+\\&\Leftrightarrow
+x = y
+\end{align*}
 
 \subsection{Supplementation}
 \label{subsection:Supplementation}
