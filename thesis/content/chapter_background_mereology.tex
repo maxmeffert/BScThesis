@@ -28,14 +28,17 @@ x \text{ is a constituent part of } y
 \end{definition}
 We further assume, that $\partOf$ satisfies the following properties:
 \begin{align}
+\label{axiom:P1}
 &\text{(P1)}
 \qquad x \partOf x 
 &\qquad \text{(Reflexivity)}
 \\
+\label{axiom:P2}
 &\text{(P2)}
 \qquad x \partOf y \wedge y \partOf x \rightarrow x = y
 &\qquad \text{(Antisymmetry)}
 \\
+\label{axiom:P3}
 &\text{(P3)}
 \qquad x \partOf y \wedge y \partOf z \rightarrow x \partOf z
 &\qquad \text{(Transitivity)}
@@ -51,6 +54,7 @@ x \partOf y \wedge \neg(y \partOf x)
 \label{definition:ProperPart}
 \end{align}
 Proper parthood induces a strict partial order of things.
+Figure \ref{figure:SchematicProperPart} shows a schematic illustration of proper parts.
 
 \begin{figure}[h!]
 \begin{center}
@@ -128,14 +132,20 @@ $x$ and $y$ are both parts of $z$, which is emphasized as gray area.
 \label{figure:SchematicOverlapAndUnderlap}
 \end{figure}
 
-\subsection{Identity \& Equality}
 \ToDo{Define and outline Identity/Equality. Note seems to be some problems with mereological equality of words, see \cite{SEP:Mereology}}
+
+In axiom \ref{axiom:P2} (P2) we already used identity/equality "=" to describe antisymmetry.
+So we used first order logic \emph{with} identity/equality to define parthood.
+However, it is worthwhile noting, that parthood itself also allows for defining identity/equality \cite{SEP:Mereology}:
 \begin{align}
+\label{definition:MereologicalIdentityEquality}
 x = y
 :\Leftrightarrow
 x \partOf y \wedge y \partOf x
-\qquad \text{(Identity)}
+\qquad \text{(Identity/Equality)}
 \end{align}
+Note that identity and equality cannot be distinguished in the mereological context.
+Figure \ref{figure:SchematicEquality} shows a schematic depiction of identity/equality.
 
 \begin{figure}[h!]
 \begin{center}
@@ -146,54 +156,77 @@ x \partOf y \wedge y \partOf x
 \node[anchor=north] at (current bounding box.south) {$x = y$};
 \end{tikzpicture}
 \end{center}
+\begin{center}
 {
 \scriptsize 
-This Venn-style diagram depicts a schematic illustration of Identity/Equality:
-%$x$ is certainly a part of $y$, however $y$ is not a part of $x$.
+This Venn-style diagram depicts a schematic illustration of Identity/Equality.
 }
-\caption{A schematic depiction of Proper Part}
+\end{center}
+\caption{A schematic depiction of Identity/Equality}
 \label{figure:SchematicEquality}
 \end{figure}
 
-\noindent
-The following equivalence for identity should also hold:
+In any case, the right hand side of \ref{definition:MereologicalIdentityEquality} defines an equivalence relation due to $\partOf$ being a partial order.
+
+\begin{proof}
+Let $\prec$ be a partial order (reflexive, antisymmetric, transitive) and
+\begin{align*}
+x \approx y :\Leftrightarrow x \prec y \wedge y \prec x
+\end{align*}
+then $\approx$ is an equivalence relation (reflexive, symmetric, transitive).
+If $\approx$ is not an equivalence relation, then it is not reflexive, not symmetric or not transitive.
+However:
+\begin{enumerate}
+\item
+if $\approx$ is not reflexive:
+\begin{align*}
+\neg(x \approx x) 
+\Leftrightarrow
+\neg(x \prec x \wedge x \prec x)
+\Leftrightarrow
+\neg(x \prec x)
+\qquad\text{\lightning}
+\end{align*}
+\item
+if $\approx$ is not symmetric:
+\begin{align*}
+&\neg(x \approx y \rightarrow y \approx x)
+\\&\Leftrightarrow
+x \approx y \wedge \neg(y \approx x)
+\\&\Leftrightarrow
+(x \prec y \wedge y \prec x) \wedge \neg(y \prec x \wedge x \prec y)
+\\&\Leftrightarrow
+(x \prec y \wedge y \prec x) \wedge \neg(x \prec y \wedge y \prec x)
+\\&\Leftrightarrow
+(x \prec x) \wedge \neg(x \prec x)
+\qquad\text{\lightning}
+\end{align*}
+\item
+if $\approx$ is not transitive:
+\begin{align*}
+&\neg(x \approx z \wedge z \approx y \rightarrow x \approx y)
+\\&\Leftrightarrow
+x \approx z \wedge z \approx y \wedge \neg(x \approx y)
+\\&\Leftrightarrow
+(x \prec z \wedge z \prec x) \wedge (z \prec y \wedge y \prec z) \wedge \neg(x \prec y \wedge y \prec x)
+\\&\Leftrightarrow
+(x \prec z \wedge z \prec y \wedge y \prec z \wedge z \prec x) \wedge \neg(x \prec y \wedge y \prec x)
+\\&\Leftrightarrow
+(x \prec y \wedge y \prec x) \wedge \neg(x \prec y \wedge y \prec x)
+\\&\Leftrightarrow
+(x \prec x) \wedge \neg(x \prec x)
+\qquad\text{\lightning}
+\end{align*}
+\end{enumerate}
+\end{proof}
+
+We shall later see that identity/equality can also be extensionally determined:
 \begin{align}
 x = y
 \Leftrightarrow
-x \partOf y \wedge y \partOf x
-\Leftrightarrow
 \forall z (z \partOf x \leftrightarrow z \partOf y)
 \end{align}
-Proof could look as follows:
-\begin{align*}
-&\forall z (z \partOf x \leftrightarrow z \partOf y)
-\\&\Leftrightarrow
-\forall z
-((\neg(z \partOf x) \wedge \neg(z \partOf y)) \vee (z \partOf x \wedge z \partOf y))
-\\&\text{extend the forumlar with self-conjunction:} a \wedge a
-\\&\Leftrightarrow
-\forall u
-((\neg(u \partOf x) \wedge \neg(u \partOf y)) \vee (u \partOf x \wedge u \partOf y))
-\\&\quad\wedge
-\forall v
-((\neg(v \partOf x) \wedge \neg(v \partOf y)) \vee (v \partOf x \wedge v \partOf y))
-\\&\text{because of all-quantifaction the formular also holds for u := x and v := y}
-\\&\Leftrightarrow
-((\neg(x \partOf x) \wedge \neg(x \partOf y)) \vee (x \partOf x \wedge x \partOf y))
-\\&\quad\wedge
-((\neg(y \partOf x) \wedge \neg(y \partOf y)) \vee (y \partOf x \wedge y \partOf y))
-\\&\text{reflixivness eliminates some terms}
-\\&\Leftrightarrow
-((false \wedge \neg(x \partOf y)) \vee (true \wedge x \partOf y))
-\\&\quad\wedge
-((\neg(y \partOf x) \wedge false) \vee (y \partOf x \wedge true))
-\\&\Leftrightarrow
-false \vee x \partOf y \wedge false \vee y \partOf x
-\\&\Leftrightarrow
-x \partOf y \wedge y \partOf x
-\\&\Leftrightarrow
-x = y
-\end{align*}
+i.e. two things $x$ and $y$ identical or equal if and only if all parts of $x$ are parts of $y$ and vice versa.
 
 \subsection{Supplementation}
 \label{subsection:Supplementation}
