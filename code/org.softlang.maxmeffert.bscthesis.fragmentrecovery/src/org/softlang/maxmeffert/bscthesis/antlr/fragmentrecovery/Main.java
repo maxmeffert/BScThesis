@@ -16,15 +16,15 @@ public class Main {
 
 	
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, RecognitionException {
 		
 		CharStream input = CharStreams.fromFileName("./input/fragments/Company.java");
 		Lexer lexer = new Java8Lexer(input);
 		TokenStream tokens = new CommonTokenStream(lexer);
 		ParseTree parsetree = new Java8Parser(tokens).compilationUnit();
 	
-		Mereology<ParserRuleContext> m = new Mereology<ParserRuleContext>();
-		Stack<ParserRuleContext> stack = new Stack<ParserRuleContext>();
+		Mereology<ParserRuleContext> m = new Mereology<>();
+		Stack<ParserRuleContext> stack = new Stack<>();
 		
 		ParseTreeListener listener = new ParseTreeListener() {
 
@@ -60,7 +60,7 @@ public class Main {
 		
 		PrintStream out = System.out;
 		out = new PrintStream(new File("./out.txt"));
-		
+
 		for(ParserRuleContext p : m.getValues()) {
 			String pName = p.getClass().getSimpleName();
 			System.out.println(pName);
