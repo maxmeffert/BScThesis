@@ -50,4 +50,5 @@ public class FloydWarshall implements ISquareMatrixTransformation<Boolean, Boole
     public IAdjacencyMatrix map(IAdjacencyMatrix squareMatrix) {
         return reflexiveTransitiveClosureMatrix(squareMatrix);
     }
+
 }

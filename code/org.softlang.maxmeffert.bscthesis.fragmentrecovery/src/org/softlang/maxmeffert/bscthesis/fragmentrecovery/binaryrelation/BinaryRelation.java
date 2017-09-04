@@ -57,13 +57,18 @@ public class BinaryRelation<T extends Comparable<T>> implements IBinaryRelation<
     }
 
     @Override
-    public Set<T> getValues() {
+    public Iterable<T> getValues() {
         return index.keySet();
     }
 
     @Override
-    public Set<IPair<T, T>> getPairs() {
+    public Iterable<IPair<T, T>> getPairs() {
         return elements;
+    }
+
+    @Override
+    public IAdjacencyMatrix getAdjacencyMatrix() {
+        return adjacencyMatrix;
     }
 
     @Override
@@ -81,6 +86,11 @@ public class BinaryRelation<T extends Comparable<T>> implements IBinaryRelation<
     @Override
     public boolean contains(IPair<T, T> pair) {
         return contains(pair.getLeft(), pair.getRight());
+    }
+
+    @Override
+    public IBinaryRelation<T> map(java.util.function.Function<IAdjacencyMatrix, IAdjacencyMatrix> function) {
+        return new BinaryRelation<>(elements, index, adjacencyMatrix.map(function));
     }
 
     public IBinaryRelation<T> reflexiveTransitiveClosure() {

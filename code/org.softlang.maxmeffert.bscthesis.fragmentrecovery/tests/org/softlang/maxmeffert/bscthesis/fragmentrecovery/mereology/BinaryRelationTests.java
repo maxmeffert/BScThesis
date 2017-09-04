@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereology;
 
 import org.junit.jupiter.api.Test;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.BinaryRelation;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.IBinaryRelation;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.FloydWarshall;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.IPair;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.Pair;
 
@@ -20,7 +20,7 @@ class BinaryRelationTests {
         BinaryRelation<Integer> relation = new BinaryRelation<>(pairs);
 
         System.out.println(relation);
-        System.out.println(relation.reflexiveTransitiveClosure());
+        System.out.println(relation.map(new FloydWarshall()::map));
     }
 
 }
