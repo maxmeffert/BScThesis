@@ -4,6 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.base.Functions;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IPair;
 
 import java.util.Map;
 import java.util.Set;
@@ -12,9 +13,9 @@ import java.util.stream.Stream;
 
 public class BinaryRelation<T extends Comparable<T>> implements IBinaryRelation<T> {
 
-    public static <T> Map<T, Integer> toIndexMap(Set<IPair<T,T>> pairs) {
+    public static <T extends Comparable<T>> Map<T, Integer> toIndexMap(Set<IPair<T,T>> pairs) {
         return pairs.stream()
-            .flatMap(pair -> Stream.of(pair.getLeft(), pair.getRight()))
+            .flatMap(pair -> Stream.of(pair.getFirst(), pair.getSecond()))
             .distinct()
             .sorted()
             .collect(Collectors.toMap(Functions.identity(), new Function<T, Integer>() {
@@ -26,14 +27,14 @@ public class BinaryRelation<T extends Comparable<T>> implements IBinaryRelation<
             }));
     }
 
-    public static <T> BiMap<T, Integer> toIndexBiMap(Set<IPair<T,T>> pairs) {
+    public static <T extends Comparable<T>> BiMap<T, Integer> toIndexBiMap(Set<IPair<T,T>> pairs) {
         return HashBiMap.create(toIndexMap(pairs));
     }
 
-    public static <T> IAdjacencyMatrix toAdjacencyMatrix(Set<IPair<T,T>> pairs, BiMap<T, Integer> index) {
+    public static <T extends Comparable<T>> IAdjacencyMatrix toAdjacencyMatrix(Set<IPair<T,T>> pairs, BiMap<T, Integer> index) {
         IAdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix(index.size());
         for (IPair<T,T> pair : pairs) {
-            adjacencyMatrix = adjacencyMatrix.set(index.get(pair.getLeft()), index.get(pair.getRight()), true);
+            adjacencyMatrix = adjacencyMatrix.set(index.get(pair.getFirst()), index.get(pair.getSecond()), true);
         }
         return adjacencyMatrix;
     }
@@ -85,7 +86,7 @@ public class BinaryRelation<T extends Comparable<T>> implements IBinaryRelation<
 
     @Override
     public boolean contains(IPair<T, T> pair) {
-        return contains(pair.getLeft(), pair.getRight());
+        return contains(pair.getFirst(), pair.getSecond());
     }
 
     @Override

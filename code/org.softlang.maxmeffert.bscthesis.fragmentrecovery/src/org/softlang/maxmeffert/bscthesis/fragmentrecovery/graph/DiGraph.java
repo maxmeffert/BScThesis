@@ -1,10 +1,13 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
 
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+import com.google.common.collect.Streams;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.IAdjacencyMatrix;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class DiGraph<T extends Comparable<T>> implements IGraph<T>, IDiGraph<T> {
 
@@ -68,13 +71,13 @@ public class DiGraph<T extends Comparable<T>> implements IGraph<T>, IDiGraph<T> 
         }
     }
 
-    public static class Builder<T extends Comparable<T>> {
+    public static class Builder<T extends Comparable<T>> implements IGraphBuilder<T, DiGraph<T>> {
 
         public static <T extends Comparable<T>> Builder<T> get() {
             return new Builder<>();
         }
 
-        private final Map<T,Vertex<T>> vertices = Maps.newTreeMap();
+        private Map<T,Vertex<T>> vertices = Maps.newTreeMap();
 
         private Vertex<T> addVertexIfNotExists(T value) {
             if (!vertices.containsKey(value)) {
@@ -89,8 +92,24 @@ public class DiGraph<T extends Comparable<T>> implements IGraph<T>, IDiGraph<T> 
             sourceVertex.addTarget(targetVertex);
         }
 
+        @Override
+        public void add(IPair<T, T> edge) {
+            add(edge.getFirst(), edge.getSecond());
+        }
+
+        @Override
+        public void add(Iterable<IPair<T, T>> edges) {
+            for (IPair<T,T> edge : edges) {
+                add(edge);
+            }
+        }
+
         public DiGraph<T> build() {
-            return new DiGraph<>(vertices);
+            try {
+                return new DiGraph<>(vertices);
+            } finally {
+                vertices = Maps.newTreeMap();
+            }
         }
     }
 
@@ -105,8 +124,24 @@ public class DiGraph<T extends Comparable<T>> implements IGraph<T>, IDiGraph<T> 
     }
 
     @Override
+    public Set<IPair<T, T>> getEdges() {
+        Set<IPair<T,T>> edges = Sets.newTreeSet();
+        for (T source : getVertices()) {
+            for (T target : getTargetsOf(source)) {
+                edges.add(new Pair<>(source, target));
+            }
+        }
+        return edges;
+    }
+
+    @Override
     public Set<T> getAdjacentVerticesOf(T vertex) {
         return getTargetsOf(vertex);
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return vertices.isEmpty();
     }
 
     @Override

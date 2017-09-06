@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation;
 
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.*;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IPair;
 
 import java.util.Set;
 import java.util.function.Function;

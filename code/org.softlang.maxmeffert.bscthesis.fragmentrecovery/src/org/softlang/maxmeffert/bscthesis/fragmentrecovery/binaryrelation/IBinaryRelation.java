@@ -1,5 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation;
 
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IPair;
+
 import java.util.function.Function;
 
 public interface IBinaryRelation<T extends Comparable<T>> {

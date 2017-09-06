@@ -10,6 +10,7 @@ class DiGraphWalkerTest {
         DiGraph.Builder<Integer> builder = DiGraph.Builder.get();
         builder.add(1,2);
         builder.add(2,3);
+        builder.add(2,4);
 
         DiGraph<Integer> diGraph = builder.build();
 
@@ -45,13 +46,15 @@ class DiGraphWalkerTest {
 
 
         System.out.println();
-        DiGraph<Integer> closure = DiGraphs.transitiveClosureOf(diGraph);
+        DiGraph<Integer> closure = Graphs.transitiveClosureOf(diGraph, DiGraph.Builder::get);
 
         walker.walkDepthFirst((IGraph<Integer>) closure, 1, source -> {
             for (int target : closure.getTargetsOf(source)) {
                 System.out.println(source + " -> " + target);
             }
         });
+
+        System.out.println(Graphs.copyOf(closure, DiGraph.Builder::get).getEdges());
     }
 
 }

@@ -8,6 +8,10 @@ import java.util.function.Function;
 
 public class GraphWalker<T extends Comparable<T>> implements IGraphWalker<T> {
 
+    public static <T extends Comparable<T>> GraphWalker<T> get() {
+        return new GraphWalker<>();
+    }
+
     private boolean isWalkedVertex(T vertex, Set<T> walkedVertices) {
         return walkedVertices.contains(vertex);
     }
