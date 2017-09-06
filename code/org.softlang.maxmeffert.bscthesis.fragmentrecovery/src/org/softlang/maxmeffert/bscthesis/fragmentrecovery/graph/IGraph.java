@@ -1,7 +1,5 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
 
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.IAdjacencyMatrix;
-
 import java.util.Set;
 
 public interface IGraph<T extends Comparable<T>> {
@@ -12,6 +10,7 @@ public interface IGraph<T extends Comparable<T>> {
     boolean isEmpty();
     boolean containsVertex(T vertex);
     boolean containsEdge(T source, T target);
+    boolean containsEdge(IPair<T,T> edge);
     IAdjacencyMatrix toAdjacencyMatrix();
 
 }

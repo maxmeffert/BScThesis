@@ -1,7 +1,5 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
 
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.IAdjacencyMatrix;
-
 import java.util.Set;
 
 public class Graph<T extends Comparable<T>> implements IGraph<T> {
@@ -60,6 +58,11 @@ public class Graph<T extends Comparable<T>> implements IGraph<T> {
 
     @Override
     public boolean containsEdge(T source, T target) {
+        return false;
+    }
+
+    @Override
+    public boolean containsEdge(IPair<T, T> edge) {
         return false;
     }
 

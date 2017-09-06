@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.old;
 
 import com.google.common.collect.Maps;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.AdjacencyMatrix;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.IAdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.AdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IAdjacencyMatrix;
 
 import java.util.Map;
 

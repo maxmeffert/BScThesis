@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
 
 import java.util.function.Function;
 

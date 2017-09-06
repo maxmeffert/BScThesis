@@ -1,5 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation;
 
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IAdjacencyMatrix;
+
 public class FloydWarshall implements ISquareMatrixTransformation<Boolean, Boolean> {
 
 

@@ -4,6 +4,8 @@ import com.google.common.base.Function;
 import com.google.common.base.Functions;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.AdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IAdjacencyMatrix;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IPair;
 
 import java.util.Map;

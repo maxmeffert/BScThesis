@@ -1,18 +1,21 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.function.Consumer;
 
 class DiGraphWalkerTest {
 
     @Test
     void test() {
 
-        DiGraph.Builder<Integer> builder = DiGraph.Builder.get();
+        IGraphBuilder<Integer, DiGraph<Integer>> builder = DiGraph.Builder.get();
         builder.add(1,2);
         builder.add(2,3);
-        builder.add(2,4);
+        builder.add(3,4);
 
-        DiGraph<Integer> diGraph = builder.build();
+        IDiGraph<Integer> diGraph = builder.build();
 
         DiGraphWalker<Integer> walker = new DiGraphWalker<>();
 
@@ -37,24 +40,34 @@ class DiGraphWalkerTest {
 //        diGraph.closure();
 
 
-
-        walker.walkDepthFirst((IGraph<Integer>) diGraph, 1, source -> {
+        Consumer<Integer> print = source -> {
             for (int target : diGraph.getTargetsOf(source)) {
                 System.out.println(source + " -> " + target);
             }
-        });
+        };
+
+//        walker.walkDepthFirst((IGraph<Integer>) diGraph, 1, print);
 
 
         System.out.println();
         DiGraph<Integer> closure = Graphs.transitiveClosureOf(diGraph, DiGraph.Builder::get);
 
-        walker.walkDepthFirst((IGraph<Integer>) closure, 1, source -> {
-            for (int target : closure.getTargetsOf(source)) {
-                System.out.println(source + " -> " + target);
-            }
-        });
+//        walker.walkDepthFirst((IGraph<Integer>) closure, 1, print);
 
-        System.out.println(Graphs.copyOf(closure, DiGraph.Builder::get).getEdges());
+        IGraph<Integer> tc = TransitiveClosure.of(diGraph);
+
+
+//        walker.walkDepthFirst((IGraph<Integer>) tc, 1, print);
+
+        System.out.println(diGraph.getEdges());
+        System.out.println(closure.getEdges());
+        System.out.println(tc.getEdges());
+
+        for (IPair<Integer, Integer> edge : closure.getEdges()) {
+            Assertions.assertTrue(Graphs.transitiveClosureContainsEdge(diGraph, edge));
+            Assertions.assertTrue(tc.containsEdge(edge));
+        }
+
     }
 
 }

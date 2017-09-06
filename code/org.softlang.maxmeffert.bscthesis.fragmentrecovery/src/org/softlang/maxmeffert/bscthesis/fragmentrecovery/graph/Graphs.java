@@ -14,7 +14,7 @@ public class Graphs {
         return copyBuilderOf(graph, supplier).build();
     }
 
-    private static <T extends Comparable<T>, G extends IGraph<T>> IGraphBuilder<T,G> transitiveClosureBuilderOf(IGraph<T> graph, Supplier<IGraphBuilder<T,G>> supplier) {
+    public static <T extends Comparable<T>, G extends IGraph<T>> IGraphBuilder<T,G> transitiveClosureBuilderOf(IGraph<T> graph, Supplier<IGraphBuilder<T,G>> supplier) {
         IGraphBuilder<T,G> builder = copyBuilderOf(graph, supplier);
         graph.getVertices().forEach(vertex -> {
             GraphWalker.<T>get().walkDepthFirst(graph, vertex, v -> {
@@ -28,6 +28,14 @@ public class Graphs {
 
     public static <T extends Comparable<T>, G extends IGraph<T>> G transitiveClosureOf(IGraph<T> graph, Supplier<IGraphBuilder<T,G>> supplier) {
         return transitiveClosureBuilderOf(graph, supplier).build();
+    }
+
+    public static <T extends Comparable<T>> boolean transitiveClosureContainsEdge(IGraph<T> graph, T vertex1, T vertex2) {
+        return GraphWalker.<T>get().findDepthFirst(graph, vertex1, (v) -> vertex2.compareTo(v) == 0);
+    }
+
+    public static <T extends Comparable<T>> boolean transitiveClosureContainsEdge(IGraph<T> graph, IPair<T,T> edge) {
+        return transitiveClosureContainsEdge(graph, edge.getFirst(), edge.getSecond());
     }
 
 }
