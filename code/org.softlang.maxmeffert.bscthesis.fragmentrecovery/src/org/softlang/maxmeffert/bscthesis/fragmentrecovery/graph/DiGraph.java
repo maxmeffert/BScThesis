@@ -1,12 +1,12 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
 
 import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.IAdjacencyMatrix;
 
 import java.util.Map;
 import java.util.Set;
 
-public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
+public class DiGraph<T extends Comparable<T>> implements IGraph<T>, IDiGraph<T> {
 
     public static class Vertex<T extends Comparable<T>> implements Comparable<Vertex<T>> {
 
@@ -39,7 +39,7 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
                 return;
             }
             sources.put(source.getValue(), source);
-//            source.addTarget(this);
+            source.addTarget(this);
         }
 
         public Set<T> getTargets() {
@@ -59,7 +59,7 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
                 return;
             }
             targets.put(target.getValue(), target);
-//            target.addSource(this);
+            target.addSource(this);
         }
 
         @Override
@@ -68,10 +68,60 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
         }
     }
 
-    private final Map<T, Vertex<T>> vertices = Maps.newTreeMap();
+    public static class Builder<T extends Comparable<T>> {
+
+        public static <T extends Comparable<T>> Builder<T> get() {
+            return new Builder<>();
+        }
+
+        private final Map<T,Vertex<T>> vertices = Maps.newTreeMap();
+
+        private Vertex<T> addVertexIfNotExists(T value) {
+            if (!vertices.containsKey(value)) {
+                vertices.put(value, new Vertex<T>(value));
+            }
+            return vertices.get(value);
+        }
+
+        public void add(T source, T target) {
+            Vertex<T> sourceVertex = addVertexIfNotExists(source);
+            Vertex<T> targetVertex = addVertexIfNotExists(target);
+            sourceVertex.addTarget(targetVertex);
+        }
+
+        public DiGraph<T> build() {
+            return new DiGraph<>(vertices);
+        }
+    }
+
+    private final Map<T, Vertex<T>> vertices;
+
+    protected DiGraph(Map<T, Vertex<T>> vertices) {
+        this.vertices = vertices;
+    }
 
     public Set<T> getVertices() {
         return vertices.keySet();
+    }
+
+    @Override
+    public Set<T> getAdjacentVerticesOf(T vertex) {
+        return getTargetsOf(vertex);
+    }
+
+    @Override
+    public boolean containsVertex(T vertex) {
+        return vertices.containsKey(vertex);
+    }
+
+    @Override
+    public boolean containsEdge(T source, T target) {
+        return vertices.containsKey(source) && vertices.get(source).hasTarget(target);
+    }
+
+    @Override
+    public IAdjacencyMatrix toAdjacencyMatrix() {
+        return null;
     }
 
     @Override
@@ -90,44 +140,4 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
         }
         return vertices.get(value);
     }
-
-    @Override
-    public void add(T source, T target) {
-        getVertex(source).addTarget(getVertex(target));
-    }
-
-    @Override
-    public boolean contains(T source, T target) {
-        return vertices.containsKey(source) && vertices.get(source).hasTarget(target);
-    }
-
-    private void closure(T source, T target, Set<T> visited) {
-        visited.add(source);
-        add(source, target);
-        for (T targetOfTarget : getTargetsOf(target)) {
-            if (!visited.contains(targetOfTarget)
-                    && !contains(targetOfTarget, source)) {
-                closure(source, targetOfTarget, visited);
-            }
-        }
-    }
-
-    private void closure(T source, T target) {
-        closure(source, target, Sets.newTreeSet());
-//        System.out.println("closure("+ source+","+target+")");
-//        System.out.println(vertices.size());
-//        add(source, target);
-//        T[] targetofTargets = null;
-//        targetofTargets = getTargetsOf(target).toArray((T[]) new Integer[0]);
-//        for (T targetOfTarget : targetofTargets) {
-//            if (!contains(targetOfTarget, source)) {
-//                closure(targetOfTarget, source);
-//            }
-//        }
-    }
-
-    public void closure() {
-        getVertices().forEach(vertex -> closure(vertex, vertex));
-    }
-
 }

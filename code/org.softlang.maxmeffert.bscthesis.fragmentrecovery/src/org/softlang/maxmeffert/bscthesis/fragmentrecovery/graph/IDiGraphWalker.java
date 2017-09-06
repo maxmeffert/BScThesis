@@ -3,5 +3,6 @@ package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
 import java.util.function.Consumer;
 
 public interface IDiGraphWalker<T extends Comparable<T>> {
-    void walk(IDiGraph<T> diGraph, T start, Consumer<T> consumer);
+    void walkDepthFirst(IDiGraph<T> diGraph, T start, Consumer<T> consumer);
+    void walkBackDepthFirst(IDiGraph<T> diGraph, T start, Consumer<T> consumer);
 }

@@ -1,6 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
-
-import java.util.Set;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.old;
 
 public interface ITree<T extends Comparable<T>> extends Comparable<ITree<T>> {
 

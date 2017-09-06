@@ -8,7 +8,4 @@ public interface IDiGraph<T extends Comparable<T>> {
     Set<T> getSourcesOf(T target);
     Set<T> getTargetsOf(T source);
 
-    void add(T source, T target);
-    boolean contains(T source, T target);
-
 }

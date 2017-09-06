@@ -1,41 +1,54 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
 
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Streams;
 import org.junit.jupiter.api.Test;
 
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-
 class DiGraphWalkerTest {
-
-    void closure(IDiGraph<Integer> diGraph, int source, int target) {
-        System.out.println(source + "," + target);
-        diGraph.add(source, target);
-        for(int targetOfTarget : diGraph.getTargetsOf(target)) {
-            if (!diGraph.getTargetsOf(targetOfTarget).contains(source)) {
-                closure(diGraph, source, targetOfTarget);
-            }
-        }
-    }
 
     @Test
     void test() {
 
-        DiGraph<Integer> diGraph = new DiGraph<>();
-        diGraph.add(1,2);
-        diGraph.add(2,3);
+        DiGraph.Builder<Integer> builder = DiGraph.Builder.get();
+        builder.add(1,2);
+        builder.add(2,3);
+
+        DiGraph<Integer> diGraph = builder.build();
 
         DiGraphWalker<Integer> walker = new DiGraphWalker<>();
 
-        diGraph.getVertices().forEach(vertex -> closure(diGraph, vertex, vertex));
+//        diGraph.getVertices().forEach(vertex -> closure(diGraph, vertex, vertex));
+
+//        DiGraph.Builder<Integer> closureBuilder = DiGraph.Builder.get();
+//
+//        diGraph.getVertices().forEach(vertex -> {
+//            for (int target : diGraph.getTargetsOf(vertex)) {
+//                closureBuilder.add(vertex, target);
+//            }
+//        });
+//
+//        diGraph.getVertices().forEach(vertex -> {
+//            walker.walkDepthFirst((IGraph<Integer>) diGraph, vertex, v -> {
+//                if (!diGraph.getTargetsOf(v).contains(vertex)) {
+//                    closureBuilder.add(vertex, v);
+//                }
+//            });
+//        });
 
 //        diGraph.closure();
 
-        System.out.println();
 
-        walker.walk(diGraph, 1, source -> {
+
+        walker.walkDepthFirst((IGraph<Integer>) diGraph, 1, source -> {
             for (int target : diGraph.getTargetsOf(source)) {
+                System.out.println(source + " -> " + target);
+            }
+        });
+
+
+        System.out.println();
+        DiGraph<Integer> closure = DiGraphs.transitiveClosureOf(diGraph);
+
+        walker.walkDepthFirst((IGraph<Integer>) closure, 1, source -> {
+            for (int target : closure.getTargetsOf(source)) {
                 System.out.println(source + " -> " + target);
             }
         });

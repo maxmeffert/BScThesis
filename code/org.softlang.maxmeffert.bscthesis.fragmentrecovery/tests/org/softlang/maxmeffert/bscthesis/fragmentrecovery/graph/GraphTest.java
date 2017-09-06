@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
 
 import org.junit.jupiter.api.Test;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.old.DirectedGraph;
 
 class GraphTest {
 
