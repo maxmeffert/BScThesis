@@ -29,6 +29,7 @@ public class DirectedGraph<T extends Comparable<T>> implements IGraph<T> {
     }
 
     private void transitiveClosure(T left, T right) {
+        System.out.println(left+","+right);
         add(left, right);
         for (ITree<T> rightChild : nodes.get(right).getChildren()) {
             if (!rightChild.hasChild(left)) {

@@ -14,7 +14,7 @@ class DiGraphWalkerTest {
         diGraph.add(source, target);
         for(int targetOfTarget : diGraph.getTargetsOf(target)) {
             if (!diGraph.getTargetsOf(targetOfTarget).contains(source)) {
-                closure(diGraph, targetOfTarget, source);
+                closure(diGraph, source, targetOfTarget);
             }
         }
     }
@@ -28,9 +28,11 @@ class DiGraphWalkerTest {
 
         DiGraphWalker<Integer> walker = new DiGraphWalker<>();
 
-//        diGraph.getVertices().forEach(vertex -> closure(diGraph, vertex, vertex));
+        diGraph.getVertices().forEach(vertex -> closure(diGraph, vertex, vertex));
 
-        diGraph.closure();
+//        diGraph.closure();
+
+        System.out.println();
 
         walker.walk(diGraph, 1, source -> {
             for (int target : diGraph.getTargetsOf(source)) {

@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
 
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 
 import java.util.Map;
 import java.util.Set;
@@ -38,7 +39,7 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
                 return;
             }
             sources.put(source.getValue(), source);
-            source.addTarget(this);
+//            source.addTarget(this);
         }
 
         public Set<T> getTargets() {
@@ -58,7 +59,7 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
                 return;
             }
             targets.put(target.getValue(), target);
-            target.addSource(this);
+//            target.addSource(this);
         }
 
         @Override
@@ -100,16 +101,29 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
         return vertices.containsKey(source) && vertices.get(source).hasTarget(target);
     }
 
-    private void closure(T source, T target) {
-        System.out.println("closure("+ source+","+target+")");
+    private void closure(T source, T target, Set<T> visited) {
+        visited.add(source);
         add(source, target);
-        T[] targetofTargets = null;
-        targetofTargets = getTargetsOf(target).toArray((T[]) new Integer[0]);
-        for (T targetOfTarget : targetofTargets) {
-            if (!contains(targetOfTarget, source)) {
-                closure(targetOfTarget, source);
+        for (T targetOfTarget : getTargetsOf(target)) {
+            if (!visited.contains(targetOfTarget)
+                    && !contains(targetOfTarget, source)) {
+                closure(source, targetOfTarget, visited);
             }
         }
+    }
+
+    private void closure(T source, T target) {
+        closure(source, target, Sets.newTreeSet());
+//        System.out.println("closure("+ source+","+target+")");
+//        System.out.println(vertices.size());
+//        add(source, target);
+//        T[] targetofTargets = null;
+//        targetofTargets = getTargetsOf(target).toArray((T[]) new Integer[0]);
+//        for (T targetOfTarget : targetofTargets) {
+//            if (!contains(targetOfTarget, source)) {
+//                closure(targetOfTarget, source);
+//            }
+//        }
     }
 
     public void closure() {
