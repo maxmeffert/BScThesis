@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereology.old;
 
 import java.util.Collection;
 import java.util.HashMap;

@@ -306,6 +306,14 @@
             <path>
               <item name="org.softlang.maxmeffert.bscthesis.antlr.fragmentrecovery" type="b2602c69:ProjectViewProjectNode" />
               <item name="org.softlang.maxmeffert.bscthesis.fragmentrecovery" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="fragmentrecovery" type="462c0819:PsiDirectoryNode" />
+              <item name="mereology" type="462c0819:PsiDirectoryNode" />
+              <item name="old" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="org.softlang.maxmeffert.bscthesis.antlr.fragmentrecovery" type="b2602c69:ProjectViewProjectNode" />
+              <item name="org.softlang.maxmeffert.bscthesis.fragmentrecovery" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -361,11 +369,11 @@
       <recent name="org.softlang.maxmeffert.bscthesis.antlr.fragmentrecovery.mereology" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereology.old" />
       <recent name="org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph" />
       <recent name="org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.old" />
       <recent name="org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation" />
       <recent name="org.softlang.maxmeffert.bscthesis.fragmentrecovery" />
-      <recent name="org.softlang.maxmeffert.bscthesis.antlr.fragmentrecovery.mereology" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -729,6 +737,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="69" lean-forward="false" selection-start-line="0" selection-start-column="69" selection-end-line="0" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
