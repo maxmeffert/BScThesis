@@ -2,8 +2,8 @@ package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereologies;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.ISquareMatrix;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.SquareMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.relations.ISquareMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.relations.SquareMatrix;
 
 import static org.junit.jupiter.api.Assertions.*;
 

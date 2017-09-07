@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/binaryrelation/BinaryRelation.java" />
+    <bookmark url="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/relations/BinaryRelation.java" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0143abc0-72f0-44c7-aaf1-128f03a1af9c" name="Default" comment="" />
@@ -375,8 +375,8 @@
       <module name="org.softlang.maxmeffert.bscthesis.antlr.fragmentrecovery" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation" />
-      <option name="MAIN_CLASS_NAME" value="org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.AdjacencyMatrixTests" />
+      <option name="PACKAGE_NAME" value="org.softlang.maxmeffert.bscthesis.fragmentrecovery.relations" />
+      <option name="MAIN_CLASS_NAME" value="org.softlang.maxmeffert.bscthesis.fragmentrecovery.relations.AdjacencyMatrixTests" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -648,8 +648,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.225" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.225" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -714,7 +714,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/binaryrelation/SquareMatrix.java">
+    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/relations/SquareMatrix.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
@@ -722,7 +722,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/binaryrelation/ISquareMatrix.java">
+    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/relations/ISquareMatrix.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="15" selection-end-column="28" />
@@ -730,14 +730,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/binaryrelation/ISquareMatrixTransformation.java">
+    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/relations/ISquareMatrixTransformation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/org/softlang/maxmeffert/bscthesis/fragmentrecovery/binaryrelation/AdjacencyMatrixTests.java">
+    <entry file="file://$PROJECT_DIR$/tests/org/softlang/maxmeffert/bscthesis/fragmentrecovery/relations/AdjacencyMatrixTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
@@ -755,7 +755,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/binaryrelation/FloydWarshall.java">
+    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/relations/FloydWarshall.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
@@ -773,7 +773,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/binaryrelation/ReflexiveTransitiveClosure.java">
+    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/relations/ReflexiveTransitiveClosure.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
@@ -858,7 +858,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/binaryrelation/IBinaryRelation.java">
+    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/relations/IBinaryRelation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="20" column="82" lean-forward="false" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
@@ -874,7 +874,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/binaryrelation/BinaryRelation.java">
+    <entry file="file://$PROJECT_DIR$/src/org/softlang/maxmeffert/bscthesis/fragmentrecovery/relations/BinaryRelation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-165">
           <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
@@ -925,8 +925,8 @@
         <state relative-caret-position="75">
           <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding>
-            <element signature="e#400#401#0" expanded="false" />
-            <element signature="e#431#432#0" expanded="false" />
+            <element signature="e#395#396#0" expanded="false" />
+            <element signature="e#426#427#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.relations;
 
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.IAdjacencyMatrix;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.IPair;

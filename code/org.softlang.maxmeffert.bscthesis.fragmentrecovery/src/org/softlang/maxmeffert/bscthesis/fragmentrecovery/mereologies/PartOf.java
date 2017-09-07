@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereologies;
 
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.IPair;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.ReflexiveTransitiveClosure;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.relations.ReflexiveTransitiveClosure;
 
 import java.util.Set;
 

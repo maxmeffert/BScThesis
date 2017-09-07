@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.relations;
 
 import com.google.common.base.Function;
 import com.google.common.base.Functions;

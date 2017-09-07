@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.relations;
 
 public interface ISquareMatrixTransformation<T, R> {
 

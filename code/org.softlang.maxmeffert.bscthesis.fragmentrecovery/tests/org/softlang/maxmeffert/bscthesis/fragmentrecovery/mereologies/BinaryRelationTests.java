@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereologies;
 
 import org.junit.jupiter.api.Test;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.BinaryRelation;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.FloydWarshall;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.relations.BinaryRelation;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.relations.FloydWarshall;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.IPair;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.Pair;
 
