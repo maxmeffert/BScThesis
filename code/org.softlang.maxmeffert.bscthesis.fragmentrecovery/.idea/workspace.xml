@@ -315,7 +315,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="org.softlang.maxmeffert.bscthesis.fragmentrecovery" type="cbb8eebc:String" user="org.softlang.maxmeffert.bscthesis.fragmentrecovery" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
