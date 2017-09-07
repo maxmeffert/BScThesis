@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.mereologies;
 
-import org.softlang.maxmeffert.bscthesis.utils.IPair;
 import org.softlang.maxmeffert.bscthesis.relations.ReflexiveTransitiveClosure;
+import org.softlang.maxmeffert.bscthesis.utils.IPair;
 
 import java.util.Set;
 

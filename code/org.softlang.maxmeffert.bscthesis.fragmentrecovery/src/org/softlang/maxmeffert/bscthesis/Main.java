@@ -1,13 +1,13 @@
 package org.softlang.maxmeffert.bscthesis;
 
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.tree.*;
+import org.softlang.maxmeffert.bscthesis.mereologies.old.Mereology;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Stack;
-
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
-import org.softlang.maxmeffert.bscthesis.mereologies.old.Mereology;
 
 public class Main {
 
