@@ -182,4 +182,8 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
         return vertices.get(source).getTargets();
     }
 
+    @Override
+    public String toString() {
+        return getEdges().toString();
+    }
 }
