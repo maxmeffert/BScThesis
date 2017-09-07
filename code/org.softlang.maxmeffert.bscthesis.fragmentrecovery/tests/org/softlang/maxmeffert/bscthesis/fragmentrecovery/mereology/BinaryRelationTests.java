@@ -3,8 +3,8 @@ package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereology;
 import org.junit.jupiter.api.Test;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.BinaryRelation;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.FloydWarshall;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IPair;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.Pair;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.IPair;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.Pair;
 
 import java.util.HashSet;
 import java.util.Set;

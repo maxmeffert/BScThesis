@@ -1,8 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
-
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import java.util.Set;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
 
 public class ReflexiveTransitiveClosure<T extends Comparable<T>> extends GraphProxy<T> {
 

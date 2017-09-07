@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

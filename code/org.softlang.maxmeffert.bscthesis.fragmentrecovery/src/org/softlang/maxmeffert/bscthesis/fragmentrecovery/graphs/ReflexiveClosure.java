@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
 
 public class ReflexiveClosure<T extends Comparable<T>> extends GraphProxy<T> {
 

@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation;
 
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IAdjacencyMatrix;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IPair;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.IAdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.IPair;
 
 import java.util.function.Function;
 

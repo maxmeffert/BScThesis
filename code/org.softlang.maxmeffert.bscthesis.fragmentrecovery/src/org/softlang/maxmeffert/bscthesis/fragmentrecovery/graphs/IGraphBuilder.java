@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
 
 
 public interface IGraphBuilder<T extends Comparable<T>, G extends IGraph<T>> {

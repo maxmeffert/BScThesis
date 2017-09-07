@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.old;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.old;
 
 import java.util.function.Consumer;
 

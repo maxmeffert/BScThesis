@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation;
 
 import org.junit.jupiter.api.Test;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.AdjacencyMatrix;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IAdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.AdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.IAdjacencyMatrix;
 
 class AdjacencyMatrixTests {
 

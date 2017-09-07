@@ -1,6 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph;
-
-import java.util.Set;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
 
 public class TransitiveClosure<T extends Comparable<T>> extends GraphProxy<T> {
 

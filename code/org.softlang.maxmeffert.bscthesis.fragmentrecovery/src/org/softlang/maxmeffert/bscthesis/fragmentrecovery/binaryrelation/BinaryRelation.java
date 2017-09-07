@@ -4,9 +4,9 @@ import com.google.common.base.Function;
 import com.google.common.base.Functions;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.AdjacencyMatrix;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IAdjacencyMatrix;
-import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graph.IPair;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.AdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.IAdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.IPair;
 
 import java.util.Map;
 import java.util.Set;
