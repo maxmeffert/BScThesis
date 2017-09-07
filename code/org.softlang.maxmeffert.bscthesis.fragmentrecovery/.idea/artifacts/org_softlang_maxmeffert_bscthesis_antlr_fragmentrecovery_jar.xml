@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="org.softlang.maxmeffert.bscthesis.antlr.fragmentrecovery:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/org_softlang_maxmeffert_bscthesis_antlr_fragmentrecovery_jar</output-path>
+    <root id="archive" name="org.softlang.maxmeffert.bscthesis.antlr.fragmentrecovery.jar">
+      <element id="module-output" name="org.softlang.maxmeffert.bscthesis.antlr.fragmentrecovery" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/antlr-4.7-complete.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/guava-22.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/plugins/junit/lib/junit-jupiter-api-5.0.0-RC2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/plugins/junit/lib/opentest4j-1.0.0-RC1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
