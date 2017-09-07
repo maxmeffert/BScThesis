@@ -1,5 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
 
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils.IAdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils.IPair;
+
 import java.util.Set;
 
 public abstract class GraphProxy<T extends Comparable<T>> implements IGraph<T> {

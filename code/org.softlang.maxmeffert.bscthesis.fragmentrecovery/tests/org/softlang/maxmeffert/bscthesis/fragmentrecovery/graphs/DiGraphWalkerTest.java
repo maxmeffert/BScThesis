@@ -2,6 +2,7 @@ package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils.IPair;
 
 class DiGraphWalkerTest {
 

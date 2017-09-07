@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils;
 
 public class Pair<A extends Comparable<A>,B extends Comparable<B>> implements IPair<A,B> {
     private final A first;

@@ -1,5 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
 
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils.IPair;
+
 import java.util.function.Supplier;
 
 public class Graphs {

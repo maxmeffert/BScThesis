@@ -1,5 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
 
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils.IPair;
+
 public class ReflexiveTransitiveClosure<T extends Comparable<T>> extends GraphProxy<T> {
 
     public static <T extends Comparable<T>> ReflexiveTransitiveClosure<T> of(IGraph<T> graph) {

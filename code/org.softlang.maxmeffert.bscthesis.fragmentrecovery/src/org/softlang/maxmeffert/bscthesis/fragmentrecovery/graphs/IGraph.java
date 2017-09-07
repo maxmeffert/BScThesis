@@ -1,5 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
 
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils.IAdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils.IPair;
+
 import java.util.Set;
 
 public interface IGraph<T extends Comparable<T>> {

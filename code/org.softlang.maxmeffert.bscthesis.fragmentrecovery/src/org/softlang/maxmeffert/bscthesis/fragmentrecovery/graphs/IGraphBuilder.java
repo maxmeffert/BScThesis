@@ -1,6 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
 
 
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils.IPair;
+
 public interface IGraphBuilder<T extends Comparable<T>, G extends IGraph<T>> {
 
     void add(T vertex1, T vertex2);

@@ -2,6 +2,10 @@ package org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils.AdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils.IAdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils.IPair;
+import org.softlang.maxmeffert.bscthesis.fragmentrecovery.utils.Pair;
 
 import java.util.Map;
 import java.util.Set;
