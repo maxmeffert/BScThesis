@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereology;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereologies;
 
 import com.google.common.collect.Streams;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.IBinaryRelation;

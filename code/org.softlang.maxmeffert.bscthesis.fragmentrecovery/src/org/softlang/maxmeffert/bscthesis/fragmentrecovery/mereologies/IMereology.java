@@ -1,7 +1,6 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereology;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereologies;
 
 import java.util.Optional;
-import java.util.Set;
 
 public interface IMereology<T extends Comparable<T>> {
 

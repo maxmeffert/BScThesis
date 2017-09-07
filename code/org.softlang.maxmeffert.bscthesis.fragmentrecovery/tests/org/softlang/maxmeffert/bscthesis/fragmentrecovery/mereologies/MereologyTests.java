@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereology;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereologies;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,8 +24,8 @@ class MereologyTests {
 
     @Test
     void builder() {
-//        IMereology mereology = mereologyBuilder.build();
-//        assertTrue(mereology instanceof Mereology);
+//        IMereology mereologies = mereologyBuilder.build();
+//        assertTrue(mereologies instanceof Mereology);
     }
 
     @Test
@@ -35,24 +35,24 @@ class MereologyTests {
 
     @Test
     void isPartOf() {
-//        Mereology<Integer> mereology = mereologyBuilder.build();
-//        assertTrue(mereology.isPartOf(1,6));
+//        Mereology<Integer> mereologies = mereologyBuilder.build();
+//        assertTrue(mereologies.isPartOf(1,6));
     }
 
     @Test
     void isProperPartOf() {
 
-//        Mereology<Integer> mereology = mereologyBuilder.build();
-//        assertTrue(mereology.isProperPartOf(1,6));
-//        assertFalse(mereology.isProperPartOf(6,6));
+//        Mereology<Integer> mereologies = mereologyBuilder.build();
+//        assertTrue(mereologies.isProperPartOf(1,6));
+//        assertFalse(mereologies.isProperPartOf(6,6));
     }
 
     @Test
     void isAtomOf() {
-//        Mereology<Integer> mereology = mereologyBuilder.build();
-//        assertTrue(mereology.isAtomOf(1,6));
-//        assertFalse(mereology.isAtomOf(2,6));
-//        assertFalse(mereology.isAtomOf(6,6));
+//        Mereology<Integer> mereologies = mereologyBuilder.build();
+//        assertTrue(mereologies.isAtomOf(1,6));
+//        assertFalse(mereologies.isAtomOf(2,6));
+//        assertFalse(mereologies.isAtomOf(6,6));
     }
 
     @Test

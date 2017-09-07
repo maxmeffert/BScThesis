@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereology;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereologies;
 
 import org.junit.jupiter.api.Test;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.BinaryRelation;

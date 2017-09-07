@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereology;
+package org.softlang.maxmeffert.bscthesis.fragmentrecovery.mereologies;
 
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.graphs.IPair;
 import org.softlang.maxmeffert.bscthesis.fragmentrecovery.binaryrelation.ReflexiveTransitiveClosure;
