@@ -34,6 +34,11 @@ public abstract class GraphProxy<T extends Comparable<T>> implements IGraph<T> {
     }
 
     @Override
+    public boolean contains(IPair<T, T> pair) {
+        return graph.contains(pair);
+    }
+
+    @Override
     public boolean containsVertex(T vertex) {
         return graph.containsVertex(vertex);
     }
@@ -46,11 +51,6 @@ public abstract class GraphProxy<T extends Comparable<T>> implements IGraph<T> {
     @Override
     public boolean containsEdge(IPair<T, T> edge) {
         return graph.containsEdge(edge);
-    }
-
-    @Override
-    public IAdjacencyMatrix toAdjacencyMatrix() {
-        return graph.toAdjacencyMatrix();
     }
 
     @Override

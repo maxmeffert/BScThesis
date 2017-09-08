@@ -1,7 +1,11 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
+import com.google.common.collect.Maps;
+import org.softlang.maxmeffert.bscthesis.utils.AdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.utils.IAdjacencyMatrix;
 import org.softlang.maxmeffert.bscthesis.utils.IPair;
 
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class Graphs {
@@ -72,6 +76,21 @@ public class Graphs {
 
     public static <T extends Comparable<T>> boolean reflexiveTransitiveClosureContainsEdge(IGraph<T> graph, IPair<T,T> edge) {
         return reflexiveTransitiveClosureContainsEdge(graph, edge.getFirst(), edge.getSecond());
+    }
+
+    private static <T extends Comparable<T>> Map<T, Integer> buildVertexIndices(IGraph<T> graph) {
+        Map<T, Integer> indices = Maps.newTreeMap();
+        graph.getVertices().forEach(vertex -> indices.put(vertex, indices.size()));
+        return indices;
+    }
+
+    public static <T extends Comparable<T>> IAdjacencyMatrix toAdjacencyMatrix(IGraph<T> graph) {
+        IAdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix(graph.getVertices().size());
+        Map<T, Integer> indices = buildVertexIndices(graph);
+        for (IPair<T,T> edge : graph.getEdges()) {
+            adjacencyMatrix = adjacencyMatrix.set(indices.get(edge.getFirst()), indices.get(edge.getSecond()), true);
+        }
+        return adjacencyMatrix;
     }
 
 }

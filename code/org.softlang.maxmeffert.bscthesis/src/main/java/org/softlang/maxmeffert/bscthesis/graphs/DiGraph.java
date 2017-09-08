@@ -146,6 +146,11 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
     }
 
     @Override
+    public boolean contains(IPair<T, T> pair) {
+        return containsEdge(pair.getFirst(), pair.getSecond());
+    }
+
+    @Override
     public boolean containsVertex(T vertex) {
         return vertices.containsKey(vertex);
     }
@@ -158,22 +163,6 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
     @Override
     public boolean containsEdge(IPair<T, T> edge) {
         return containsEdge(edge.getFirst(), edge.getSecond());
-    }
-
-    private Map<T, Integer> buildVertexIndices() {
-        Map<T, Integer> indices = Maps.newTreeMap();
-        getVertices().forEach(vertex -> indices.put(vertex, indices.size()));
-        return indices;
-    }
-
-    @Override
-    public IAdjacencyMatrix toAdjacencyMatrix() {
-        IAdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix(vertices.size());
-        Map<T, Integer> indices = buildVertexIndices();
-        for (IPair<T,T> edge : getEdges()) {
-            adjacencyMatrix = adjacencyMatrix.set(indices.get(edge.getFirst()), indices.get(edge.getSecond()), true);
-        }
-        return adjacencyMatrix;
     }
 
     @Override

@@ -38,7 +38,10 @@ public class GraphWalker<T extends Comparable<T>> implements IGraphWalker<T> {
 
     @Override
     public void walkDepthFirst(final IGraph<T> graph, T startVertex, Consumer<T> vertexConsumer) {
-        walkDepthFirst(v -> graph.getAdjacentVerticesOf(v), startVertex,  vertexConsumer);
+        for (T vertex : DepthFirstIterableGraph.of(graph, startVertex)) {
+            vertexConsumer.accept(vertex);
+        }
+//        walkDepthFirst(v -> graph.getAdjacentVerticesOf(v), startVertex,  vertexConsumer);
     }
 
     private boolean findDepthFirst(Function<T, Iterable<T>> adjacentVertexProvider, T currentVertex, Predicate<T> vertexPredicate, Set<T> walkedVertices) {

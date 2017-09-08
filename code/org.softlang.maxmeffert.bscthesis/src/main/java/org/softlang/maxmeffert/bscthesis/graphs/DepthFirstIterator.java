@@ -51,7 +51,7 @@ public class DepthFirstIterator<T extends Comparable<T>> implements Iterator<T> 
         }
     }
 
-    private void addNextVerticesAdjacentVerticesOf(T vertex) {
+    private void addNextVerticesFromAdjacentVerticesOf(T vertex) {
         addNextVertices(nextVerticesProvider.apply(vertex));
     }
 
@@ -59,7 +59,7 @@ public class DepthFirstIterator<T extends Comparable<T>> implements Iterator<T> 
     public T next() {
         T nextVertex = nextVertices.pop();
         markAsDiscovered(nextVertex);
-        addNextVerticesAdjacentVerticesOf(nextVertex);
+        addNextVerticesFromAdjacentVerticesOf(nextVertex);
         return nextVertex;
     }
 }

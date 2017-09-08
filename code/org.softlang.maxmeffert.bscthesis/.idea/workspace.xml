@@ -2,10 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e33e4276-f7bf-49d7-8e0d-e2867f16495d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/IIterableGraph.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/Graph$Builder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/Graph.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/Graph.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterable.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterableGraph.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterator.class" afterPath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/DiGraph.class" afterPath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/DiGraph.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/GraphProxy.class" afterPath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/GraphProxy.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/GraphWalker.class" afterPath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/GraphWalker.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/Graphs.class" afterPath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/Graphs.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/IGraph.class" afterPath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/graphs/IGraph.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/mereologies/IMereology.class" afterPath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/mereologies/IMereology.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/mereologies/Mereology.class" afterPath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/mereologies/Mereology.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/utils/Pair.class" afterPath="$PROJECT_DIR$/out/production/classes/org/softlang/maxmeffert/bscthesis/utils/Pair.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/classes/org/softlang/maxmeffert/bscthesis/graphs/DiGraphWalkerTest.class" afterPath="$PROJECT_DIR$/out/test/classes/org/softlang/maxmeffert/bscthesis/graphs/DiGraphWalkerTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterator.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraph.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraph.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/GraphProxy.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/GraphProxy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/GraphWalker.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/GraphWalker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/Graphs.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/Graphs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/IGraph.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/IGraph.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/mereologies/IMereology.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/mereologies/IMereology.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/mereologies/Mereology.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/mereologies/Mereology.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/utils/Pair.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/utils/Pair.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraphWalkerTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraphWalkerTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,46 +54,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GraphWalker.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/GraphWalker.java">
+      <file leaf-file-name="ReflexiveTransitiveClosure.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/ReflexiveTransitiveClosure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DepthFirstIterator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterator.java">
+      <file leaf-file-name="GraphProxy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/GraphProxy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+            <state relative-caret-position="272">
+              <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1109#1110#0" expanded="true" />
-                <element signature="e#1155#1156#0" expanded="true" />
-                <element signature="e#1201#1202#0" expanded="true" />
-                <element signature="e#1259#1260#0" expanded="true" />
-                <element signature="e#1308#1309#0" expanded="true" />
-                <element signature="e#1352#1353#0" expanded="true" />
-                <element signature="e#1399#1400#0" expanded="true" />
-                <element signature="e#1445#1446#0" expanded="true" />
-                <element signature="e#1719#1720#0" expanded="true" />
-                <element signature="e#1786#1787#0" expanded="true" />
+                <element signature="e#848#849#0" expanded="true" />
+                <element signature="e#891#892#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DepthFirstIterable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterable.java">
+      <file leaf-file-name="DiGraph.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+            <state relative-caret-position="1290">
+              <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
               <folding>
-                <element signature="e#418#419#0" expanded="true" />
-                <element signature="e#482#483#0" expanded="true" />
+                <element signature="class#Vertex#0;class#DiGraph#0" expanded="false" />
+                <element signature="e#4101#4102#0" expanded="true" />
+                <element signature="e#4171#4172#0" expanded="true" />
+                <element signature="e#4512#4513#0" expanded="true" />
+                <element signature="e#4582#4583#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,8 +96,18 @@
       <file leaf-file-name="Graphs.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/Graphs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="332">
+              <caret line="41" column="68" lean-forward="false" selection-start-line="41" selection-start-column="68" selection-end-line="41" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GraphWalker.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/GraphWalker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="40" column="51" lean-forward="false" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -90,62 +116,44 @@
       <file leaf-file-name="IGraph.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/IGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DiGraph.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraph.java">
+      <file leaf-file-name="DepthFirstIterableGraph.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterableGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="86" column="39" lean-forward="false" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
+            <state relative-caret-position="255">
+              <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
               <folding>
-                <element signature="class#Vertex#0;class#DiGraph#0" expanded="false" />
+                <element signature="e#596#597#0" expanded="true" />
+                <element signature="e#683#684#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DiGraphWalker.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraphWalker.java">
+      <file leaf-file-name="TransitiveClosure.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/TransitiveClosure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GraphTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/org/softlang/maxmeffert/bscthesis/graphs/GraphTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state relative-caret-position="135">
+              <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#322#323#0" expanded="true" />
+                <element signature="e#350#351#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IFragmentRecoverer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/fragmentrecovery/IFragmentRecoverer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DiGraphWalkerTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DiGraphWalkerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraphWalkerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="39" column="28" lean-forward="false" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+            <state relative-caret-position="332">
+              <caret line="35" column="65" lean-forward="true" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -157,8 +165,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -521,11 +529,20 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/Main.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraph.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstGraphIterator.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/IIterableGraph.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/mereologies/IMereology.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/IGraph.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/utils/Pair.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/mereologies/Mereology.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/GraphProxy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/Graphs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraph.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterableGraph.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraphWalkerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/GraphWalker.java" />
       </list>
     </option>
   </component>
@@ -592,6 +609,24 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="bscthesis" type="462c0819:PsiDirectoryNode" />
               <item name="graphs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bscthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="mereologies" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bscthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
@@ -818,12 +853,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DiGraphWalkerTest_test - 2017.09.08 at 21h 46m 48s.xml">
-      <configuration name="DiGraphWalkerTest.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DiGraphWalkerTest_test - 2017.09.08 at 22h 13m 17s.xml">
-      <configuration name="DiGraphWalkerTest.test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DiGraphWalkerTest_test - 2017.09.08 at 22h 18m 02s.xml">
       <configuration name="DiGraphWalkerTest.test" configurationId="JUnit" />
     </history-entry>
@@ -848,10 +877,15 @@
     <history-entry file="DiGraphWalkerTest_test - 2017.09.08 at 22h 46m 09s.xml">
       <configuration name="DiGraphWalkerTest.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="DiGraphWalkerTest_test - 2017.09.08 at 23h 51m 15s.xml">
+      <configuration name="DiGraphWalkerTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiGraphWalkerTest_test - 2017.09.08 at 23h 51m 58s.xml">
+      <configuration name="DiGraphWalkerTest.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="1024" y="25" width="1926" height="1058" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -861,12 +895,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33017877" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33017877" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -984,40 +1018,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="86" column="39" lean-forward="false" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
-          <folding>
-            <element signature="class#Vertex#0;class#DiGraph#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/IGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/Graphs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/GraphWalker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraphWalker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1028,8 +1028,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        <state relative-caret-position="452">
+          <caret line="53" column="44" lean-forward="false" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1109#1110#0" expanded="true" />
@@ -1040,27 +1040,182 @@
             <element signature="e#1352#1353#0" expanded="true" />
             <element signature="e#1399#1400#0" expanded="true" />
             <element signature="e#1445#1446#0" expanded="true" />
-            <element signature="e#1719#1720#0" expanded="true" />
-            <element signature="e#1786#1787#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterable.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/IIterableGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+        <state relative-caret-position="30">
+          <caret line="2" column="87" lean-forward="false" selection-start-line="2" selection-start-column="87" selection-end-line="2" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/mereologies/IMereology.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
           <folding>
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/mereologies/PartOf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/ReflexiveTransitiveClosure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/utils/Pair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/mereologies/Mereology.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding>
+            <element signature="e#225#226#0" expanded="true" />
+            <element signature="e#253#254#0" expanded="true" />
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#493#494#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#691#692#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#773#774#0" expanded="true" />
+            <element signature="e#827#828#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#976#977#0" expanded="true" />
+            <element signature="e#1003#1004#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+            <element signature="e#1069#1070#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+            <element signature="e#1157#1158#0" expanded="true" />
+            <element signature="e#1212#1213#0" expanded="true" />
+            <element signature="e#1239#1240#0" expanded="true" />
+            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
+            <element signature="e#1399#1400#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/GraphProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+          <folding>
+            <element signature="e#848#849#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
+          <folding>
+            <element signature="class#Vertex#0;class#DiGraph#0" expanded="false" />
+            <element signature="e#4101#4102#0" expanded="true" />
+            <element signature="e#4171#4172#0" expanded="true" />
+            <element signature="e#4512#4513#0" expanded="true" />
+            <element signature="e#4582#4583#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/Graphs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="41" column="68" lean-forward="false" selection-start-line="41" selection-start-column="68" selection-end-line="41" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/ReflexiveClosure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/DepthFirstIterableGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding>
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#683#684#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/TransitiveClosure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="e#322#323#0" expanded="true" />
+            <element signature="e#350#351#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraphWalkerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="39" column="28" lean-forward="false" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        <state relative-caret-position="332">
+          <caret line="35" column="65" lean-forward="true" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/IGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/graphs/GraphWalker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="40" column="51" lean-forward="false" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
           <folding />
         </state>
       </provider>

@@ -13,9 +13,9 @@ class DiGraphWalkerTest {
 
         IGraphBuilder<Integer, DiGraph<Integer>> builder = DiGraph.Builder.get();
         builder.add(1,2);
-        builder.add(2,4);
-        builder.add(1,3);
-        builder.add(3,4);
+        builder.add(2,3);
+//        builder.add(1,3);
+//        builder.add(3,4);
 
         IGraph<Integer> diGraph = builder.build();
         IGraph<Integer> rtc1 = Graphs.reflexiveTransitiveClosureOf(diGraph, DiGraph.Builder::get);
@@ -38,7 +38,7 @@ class DiGraphWalkerTest {
             System.out.println(it.next());
         }
         System.out.println();
-        for (int i : new DepthFirstIterable<Integer>(diGraph, 1)) {
+        for (int i : new DepthFirstIterableGraph<>(diGraph, 1)) {
             System.out.println(i);
         }
 
