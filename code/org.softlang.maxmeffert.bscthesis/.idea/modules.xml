@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.softlang.maxmeffert.bscthesis.iml" filepath="$PROJECT_DIR$/.idea/modules/org.softlang.maxmeffert.bscthesis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.softlang.maxmeffert.bscthesis_main.iml" filepath="$PROJECT_DIR$/.idea/modules/org.softlang.maxmeffert.bscthesis_main.iml" group="org.softlang.maxmeffert.bscthesis" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.softlang.maxmeffert.bscthesis_test.iml" filepath="$PROJECT_DIR$/.idea/modules/org.softlang.maxmeffert.bscthesis_test.iml" group="org.softlang.maxmeffert.bscthesis" />
+    </modules>
+  </component>
+</project>

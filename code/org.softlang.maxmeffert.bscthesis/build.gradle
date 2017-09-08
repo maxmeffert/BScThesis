@@ -1,0 +1,17 @@
+group 'org.softlang.maxmeffert.bscthesis'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.antlr:antlr4:4.7"
+    compile "com.google.guava:guava:22.0"
+    testCompile "junit:junit:5.0"
+
+}
