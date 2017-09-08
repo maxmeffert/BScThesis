@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.softlang.maxmeffert.bscthesis.utils.IPair;
 
+import java.util.Iterator;
+
 class DiGraphWalkerTest {
 
     @Test
@@ -11,8 +13,8 @@ class DiGraphWalkerTest {
 
         IGraphBuilder<Integer, DiGraph<Integer>> builder = DiGraph.Builder.get();
         builder.add(1,2);
-        builder.add(2,3);
-        builder.add(3,1);
+        builder.add(2,4);
+        builder.add(1,3);
         builder.add(3,4);
 
         IGraph<Integer> diGraph = builder.build();
@@ -29,6 +31,15 @@ class DiGraphWalkerTest {
         for (IPair<Integer, Integer> edge : rtc1.getEdges()) {
             Assertions.assertTrue(Graphs.reflexiveTransitiveClosureContainsEdge(diGraph, edge));
             Assertions.assertTrue(rtc2.containsEdge(edge));
+        }
+
+        Iterator<Integer> it = DepthFirstIterator.of(diGraph, 1);
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+        System.out.println();
+        for (int i : new DepthFirstIterable<Integer>(diGraph, 1)) {
+            System.out.println(i);
         }
 
     }
