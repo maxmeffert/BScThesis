@@ -1,5 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSetMultimap;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Ordering;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.softlang.maxmeffert.bscthesis.utils.IPair;
@@ -42,6 +46,22 @@ class DiGraphWalkerTest {
             System.out.println(i);
         }
 
+
+
+    }
+
+    @Test
+    void test2() {
+        IGraphBuilder<Integer, DiGraph<Integer>> builder = DiGraph.Builder.get();
+        builder.add(1,2);
+        builder.add(2,3);
+
+        IGraph<Integer> graph = builder.build();
+
+        builder.add(3,4);
+
+        System.out.println(graph);
+        System.out.println(builder.build());
     }
 
 }

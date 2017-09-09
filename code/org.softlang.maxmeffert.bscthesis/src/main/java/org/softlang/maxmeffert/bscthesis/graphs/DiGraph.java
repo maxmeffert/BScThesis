@@ -1,9 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-import org.softlang.maxmeffert.bscthesis.utils.AdjacencyMatrix;
-import org.softlang.maxmeffert.bscthesis.utils.IAdjacencyMatrix;
+import com.google.common.collect.*;
 import org.softlang.maxmeffert.bscthesis.utils.IPair;
 import org.softlang.maxmeffert.bscthesis.utils.Pair;
 
@@ -72,25 +69,48 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
         }
     }
 
+    private static class Edge<T extends Comparable<T>> implements Comparable<Edge<T>> {
+
+        public static <T extends Comparable<T>> Edge<T> of(T source, T target) {
+            return new Edge<>(source, target);
+        }
+
+        private final T source;
+        private final T target;
+
+        public Edge(T source, T target) {
+            this.source = source;
+            this.target = target;
+        }
+
+        public T getSource() {
+            return source;
+        }
+
+        public T getTarget() {
+            return target;
+        }
+
+        @Override
+        public int compareTo(Edge<T> tEdge) {
+            int result = source.compareTo(tEdge.source);
+            if (result == 0) {
+                return target.compareTo(tEdge.target);
+            }
+            return result;
+        }
+    }
+
     public static class Builder<T extends Comparable<T>> implements IGraphBuilder<T, DiGraph<T>> {
 
         public static <T extends Comparable<T>> Builder<T> get() {
             return new Builder<>();
         }
-
-        private Map<T,Vertex<T>> vertices = Maps.newTreeMap();
-
-        private Vertex<T> addVertexIfNotExists(T value) {
-            if (!vertices.containsKey(value)) {
-                vertices.put(value, new Vertex<T>(value));
-            }
-            return vertices.get(value);
-        }
+        
+        private Set<Edge<T>> edges = Sets.newTreeSet();
 
         public void add(T source, T target) {
-            Vertex<T> sourceVertex = addVertexIfNotExists(source);
-            Vertex<T> targetVertex = addVertexIfNotExists(target);
-            sourceVertex.addTarget(targetVertex);
+            edges.add(Edge.of(source, target));
         }
 
         @Override
@@ -106,11 +126,17 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
         }
 
         public DiGraph<T> build() {
-            try {
-                return new DiGraph<>(vertices);
-            } finally {
-                vertices = Maps.newTreeMap();
+            Map<T,Vertex<T>> map = Maps.newTreeMap();
+            for (Edge<T> edge : edges) {
+                if (!map.containsKey(edge.getSource())) {
+                    map.put(edge.getSource(), new Vertex<>(edge.getSource()));
+                }
+                if (!map.containsKey(edge.getTarget())) {
+                    map.put(edge.getTarget(), new Vertex<>(edge.getTarget()));
+                }
+                map.get(edge.getSource()).addTarget(map.get(edge.getTarget()));
             }
+            return new DiGraph<>(map);
         }
     }
 
