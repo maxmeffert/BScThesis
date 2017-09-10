@@ -13,10 +13,6 @@ public class DepthFirstIterator<T extends Comparable<T>> implements Iterator<T> 
         return new DepthFirstIterator<>(nextVerticesProvider, startVertex);
     }
 
-    public static <T extends Comparable<T>> DepthFirstIterator<T> of(IGraph<T> graph, T startVertex) {
-        return of(v -> graph.getAdjacentVerticesOf(v), startVertex);
-    }
-
     private final Function<T, Iterable<T>> nextVerticesProvider;
     private final Set<T> discoveredVertices = Sets.newTreeSet();
     private final Stack<T> nextVertices = new Stack<>();
@@ -43,7 +39,7 @@ public class DepthFirstIterator<T extends Comparable<T>> implements Iterator<T> 
         discoveredVertices.add(vertex);
     }
 
-    private void addNextVertices(Iterable<T> vertices) {
+    private void addNextVerticesFrom(Iterable<T> vertices) {
         for (T vertex : vertices) {
             if (isNotDiscovered(vertex)) {
                 nextVertices.push(vertex);
@@ -52,7 +48,7 @@ public class DepthFirstIterator<T extends Comparable<T>> implements Iterator<T> 
     }
 
     private void addNextVerticesFromAdjacentVerticesOf(T vertex) {
-        addNextVertices(nextVerticesProvider.apply(vertex));
+        addNextVerticesFrom(nextVerticesProvider.apply(vertex));
     }
 
     @Override

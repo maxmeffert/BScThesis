@@ -1,11 +1,10 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import org.softlang.maxmeffert.bscthesis.utils.IAdjacencyMatrix;
 import org.softlang.maxmeffert.bscthesis.utils.IPair;
 
 import java.util.Set;
 
-public abstract class GraphProxy<T extends Comparable<T>> implements IGraph<T> {
+public class GraphProxy<T extends Comparable<T>> implements IGraph<T> {
 
     protected final IGraph<T> graph;
 
@@ -29,28 +28,18 @@ public abstract class GraphProxy<T extends Comparable<T>> implements IGraph<T> {
     }
 
     @Override
+    public int getVertexCount() {
+        return graph.getVertexCount();
+    }
+
+    @Override
+    public int getEdgeCount() {
+        return graph.getEdgeCount();
+    }
+
+    @Override
     public boolean isEmpty() {
         return graph.isEmpty();
-    }
-
-    @Override
-    public boolean contains(IPair<T, T> pair) {
-        return graph.contains(pair);
-    }
-
-    @Override
-    public boolean containsVertex(T vertex) {
-        return graph.containsVertex(vertex);
-    }
-
-    @Override
-    public boolean containsEdge(T source, T target) {
-        return graph.containsEdge(source, target);
-    }
-
-    @Override
-    public boolean containsEdge(IPair<T, T> edge) {
-        return graph.containsEdge(edge);
     }
 
     @Override

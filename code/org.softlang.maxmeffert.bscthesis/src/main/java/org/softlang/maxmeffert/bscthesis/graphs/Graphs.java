@@ -55,7 +55,7 @@ public class Graphs {
     }
 
     public static <T extends Comparable<T>> boolean reflexiveClosureContainsEdge(IGraph<T> graph, T vertex1, T vertex2) {
-        return vertex1.compareTo(vertex2) == 0 || graph.containsEdge(vertex1, vertex2);
+        return vertex1.compareTo(vertex2) == 0 || graph.getAdjacentVerticesOf(vertex1).contains(vertex2);
     }
 
     public static <T extends Comparable<T>> boolean reflexiveClosureContainsEdge(IGraph<T> graph, IPair<T,T> edge) {
@@ -71,7 +71,7 @@ public class Graphs {
     }
 
     public static <T extends Comparable<T>> boolean reflexiveTransitiveClosureContainsEdge(IGraph<T> graph, T vertex1, T vertex2) {
-        return GraphWalker.<T>get().findDepthFirst(graph, vertex1, (v) -> vertex2.compareTo(v) == 0);
+        return GraphWalker.<T>get().anyDepthFirst(graph, vertex1, (v) -> vertex2.compareTo(v) == 0);
     }
 
     public static <T extends Comparable<T>> boolean reflexiveTransitiveClosureContainsEdge(IGraph<T> graph, IPair<T,T> edge) {

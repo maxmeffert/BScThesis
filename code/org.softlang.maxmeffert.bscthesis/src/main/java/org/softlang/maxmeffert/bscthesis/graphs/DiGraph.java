@@ -1,11 +1,14 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import com.google.common.collect.*;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import org.softlang.maxmeffert.bscthesis.utils.IPair;
 import org.softlang.maxmeffert.bscthesis.utils.Pair;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 
 public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
 
@@ -69,7 +72,7 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
         }
     }
 
-    private static class Edge<T extends Comparable<T>> implements Comparable<Edge<T>> {
+    public static class Edge<T extends Comparable<T>> implements Comparable<Edge<T>> {
 
         public static <T extends Comparable<T>> Edge<T> of(T source, T target) {
             return new Edge<>(source, target);
@@ -106,7 +109,7 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
         public static <T extends Comparable<T>> Builder<T> get() {
             return new Builder<>();
         }
-        
+
         private Set<Edge<T>> edges = Sets.newTreeSet();
 
         public void add(T source, T target) {
@@ -125,24 +128,31 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
             }
         }
 
-        public DiGraph<T> build() {
-            Map<T,Vertex<T>> map = Maps.newTreeMap();
-            for (Edge<T> edge : edges) {
-                if (!map.containsKey(edge.getSource())) {
-                    map.put(edge.getSource(), new Vertex<>(edge.getSource()));
-                }
-                if (!map.containsKey(edge.getTarget())) {
-                    map.put(edge.getTarget(), new Vertex<>(edge.getTarget()));
-                }
-                map.get(edge.getSource()).addTarget(map.get(edge.getTarget()));
+        private Vertex<T> getAndPutVertexIfNotExists(T value, Map<T, Vertex<T>> map) {
+            if (!map.containsKey(value)) {
+                map.put(value, new Vertex<>(value));
             }
-            return new DiGraph<>(map);
+            return map.get(value);
+        }
+
+        public ImmutableSortedMap<T,Vertex<T>> buildVertexMap() {
+            SortedMap<T,Vertex<T>> map = Maps.newTreeMap();
+            for (Edge<T> edge : edges) {
+                Vertex<T> source = getAndPutVertexIfNotExists(edge.getSource(), map);
+                Vertex<T> target = getAndPutVertexIfNotExists(edge.getTarget(), map);
+                source.addTarget(target);
+            }
+            return ImmutableSortedMap.copyOfSorted(map);
+        }
+
+        public DiGraph<T> build() {
+            return new DiGraph<>(buildVertexMap());
         }
     }
 
-    private final Map<T, Vertex<T>> vertices;
+    private final ImmutableSortedMap<T, Vertex<T>> vertices;
 
-    protected DiGraph(Map<T, Vertex<T>> vertices) {
+    public DiGraph(ImmutableSortedMap<T, Vertex<T>> vertices) {
         this.vertices = vertices;
     }
 
@@ -167,28 +177,18 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
     }
 
     @Override
+    public int getVertexCount() {
+        return vertices.size();
+    }
+
+    @Override
+    public int getEdgeCount() {
+        return getEdges().size();
+    }
+
+    @Override
     public boolean isEmpty() {
         return vertices.isEmpty();
-    }
-
-    @Override
-    public boolean contains(IPair<T, T> pair) {
-        return containsEdge(pair.getFirst(), pair.getSecond());
-    }
-
-    @Override
-    public boolean containsVertex(T vertex) {
-        return vertices.containsKey(vertex);
-    }
-
-    @Override
-    public boolean containsEdge(T source, T target) {
-        return vertices.containsKey(source) && vertices.get(source).hasTarget(target);
-    }
-
-    @Override
-    public boolean containsEdge(IPair<T, T> edge) {
-        return containsEdge(edge.getFirst(), edge.getSecond());
     }
 
     @Override
