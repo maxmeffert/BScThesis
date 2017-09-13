@@ -2,6 +2,8 @@ package org.softlang.maxmeffert.bscthesis.graphs;
 
 import org.softlang.maxmeffert.bscthesis.utils.IPair;
 
+import java.util.Iterator;
+import java.util.Optional;
 import java.util.Set;
 
 public class GraphProxy<T extends Comparable<T>> implements IGraph<T> {
@@ -10,6 +12,11 @@ public class GraphProxy<T extends Comparable<T>> implements IGraph<T> {
 
     protected GraphProxy(IGraph<T> graph) {
         this.graph = graph;
+    }
+
+    @Override
+    public Optional<T> getFirstVertex() {
+        return graph.getFirstVertex();
     }
 
     @Override
@@ -45,5 +52,10 @@ public class GraphProxy<T extends Comparable<T>> implements IGraph<T> {
     @Override
     public String toString() {
         return graph.toString();
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return graph.iterator();
     }
 }

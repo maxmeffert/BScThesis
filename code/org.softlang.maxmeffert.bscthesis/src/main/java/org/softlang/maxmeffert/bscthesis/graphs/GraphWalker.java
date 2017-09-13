@@ -2,6 +2,7 @@ package org.softlang.maxmeffert.bscthesis.graphs;
 
 import com.google.common.collect.Streams;
 
+import java.util.Iterator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -10,6 +11,11 @@ public class GraphWalker<T extends Comparable<T>> implements IGraphWalker<T> {
 
     public static <T extends Comparable<T>> GraphWalker<T> get() {
         return new GraphWalker<>();
+    }
+
+    @Override
+    public Iterable<T> getDepthFirstWalk(Function<T, Iterable<T>> adjacentVertexProvider, T startVertex) {
+        return () -> DepthFirstIterator.of(adjacentVertexProvider, startVertex);
     }
 
     @Override

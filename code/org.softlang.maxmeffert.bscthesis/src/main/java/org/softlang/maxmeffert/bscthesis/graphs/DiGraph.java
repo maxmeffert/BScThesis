@@ -1,16 +1,15 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import com.google.common.collect.ImmutableSortedMap;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
+import com.google.common.collect.*;
 import org.softlang.maxmeffert.bscthesis.utils.IPair;
 import org.softlang.maxmeffert.bscthesis.utils.Pair;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.SortedMap;
 
-public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
+public class DiGraph<T extends Comparable<T>> extends AbstractGraph<T> implements IDiGraph<T> {
 
     public static class Vertex<T extends Comparable<T>> implements Comparable<Vertex<T>> {
 
@@ -70,6 +69,15 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
         public int compareTo(Vertex<T> tVertex) {
             return value.compareTo(tVertex.value);
         }
+
+        public boolean equals(Vertex<T> vertex) {
+            return compareTo(vertex) == 0;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            return false;
+        }
     }
 
     public static class Edge<T extends Comparable<T>> implements Comparable<Edge<T>> {
@@ -123,9 +131,12 @@ public class DiGraph<T extends Comparable<T>> implements IDiGraph<T> {
 
         @Override
         public void add(Iterable<IPair<T, T>> edges) {
-            for (IPair<T,T> edge : edges) {
-                add(edge);
-            }
+            Streams.stream(edges).forEach(this::add);
+        }
+
+        @Override
+        public void add(IGraph<T> graph) {
+            add(graph.getEdges());
         }
 
         private Vertex<T> getAndPutVertexIfNotExists(T value, Map<T, Vertex<T>> map) {

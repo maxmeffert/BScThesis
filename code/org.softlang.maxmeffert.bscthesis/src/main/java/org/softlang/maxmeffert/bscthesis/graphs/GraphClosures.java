@@ -8,50 +8,53 @@ import org.softlang.maxmeffert.bscthesis.utils.IPair;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class Graphs {
+public class GraphClosures {
 
-    public static <T extends Comparable<T>, G extends IGraph<T>> IGraphBuilder<T,G> copyBuilderOf(IGraph<T> graph, Supplier<IGraphBuilder<T,G>> supplier) {
-        IGraphBuilder<T,G> builder = supplier.get();
-        builder.add(graph.getEdges());
-        return builder;
+    public static <T extends Comparable<T>> IGraphBuilder<T, DiGraph<T>> diGraphBuilder() {
+        return DiGraph.Builder.get();
     }
+
+
 
     public static <T extends Comparable<T>, G extends IGraph<T>> G copyOf(IGraph<T> graph, Supplier<IGraphBuilder<T,G>> supplier) {
-        return copyBuilderOf(graph, supplier).build();
-    }
-
-    public static <T extends Comparable<T>, G extends IGraph<T>> IGraphBuilder<T,G> reflexiveTransitiveClosureBuilderOf(IGraph<T> graph, Supplier<IGraphBuilder<T,G>> supplier) {
-        IGraphBuilder<T,G> builder = copyBuilderOf(graph, supplier);
-        graph.getVertices().forEach(vertex -> {
-            GraphWalker.<T>get().walkDepthFirst(graph, vertex, v -> {
-                if (!graph.getAdjacentVerticesOf(v).contains(vertex)) {
-                    builder.add(vertex, v);
-                }
-            });
-        });
-        return builder;
+        IGraphBuilder<T,G> builder = supplier.get();
+        builder.add(graph.getEdges());
+        return builder.build();
     }
 
     public static <T extends Comparable<T>, G extends IGraph<T>> G reflexiveClosureOf(IGraph<T> graph, Supplier<IGraphBuilder<T,G>> supplier) {
-        IGraphBuilder<T,G> builder = copyBuilderOf(graph, supplier);
-        graph.getVertices().forEach(vertex -> builder.add(vertex, vertex));
+        IGraphBuilder<T,G> builder = supplier.get();
+        builder.add(graph.getEdges());
+        for (T vertex : graph.getVertices()) {
+            builder.add(vertex, vertex);
+        }
         return builder.build();
     }
 
     public static <T extends Comparable<T>, G extends IGraph<T>> G transitiveClosureOf(IGraph<T> graph, Supplier<IGraphBuilder<T,G>> supplier) {
-        IGraphBuilder<T,G> builder = copyBuilderOf(graph, supplier);
-        graph.getVertices().forEach(vertex -> {
-            GraphWalker.<T>get().walkDepthFirst(graph, vertex, v -> {
-                if (vertex.compareTo(v) != 0 && !graph.getAdjacentVerticesOf(v).contains(vertex)) {
+        IGraphBuilder<T,G> builder = supplier.get();
+        builder.add(graph.getEdges());
+        for (T vertex : graph.getVertices()) {
+            for (T v : GraphWalker.<T>get().getDepthFirstWalk(graph::getAdjacentVerticesOf, vertex)) {
+                if (!vertex.equals(v) && !graph.getAdjacentVerticesOf(v).contains(vertex)) {
                     builder.add(vertex, v);
                 }
-            });
-        });
+            }
+        }
         return builder.build();
     }
 
     public static <T extends Comparable<T>, G extends IGraph<T>> G reflexiveTransitiveClosureOf(IGraph<T> graph, Supplier<IGraphBuilder<T,G>> supplier) {
-        return reflexiveTransitiveClosureBuilderOf(graph, supplier).build();
+        IGraphBuilder<T,G> builder = supplier.get();
+        builder.add(graph.getEdges());
+        for (T vertex : graph.getVertices()) {
+            for (T v : GraphWalker.<T>get().getDepthFirstWalk(graph::getAdjacentVerticesOf, vertex)) {
+                if (!graph.getAdjacentVerticesOf(v).contains(vertex)) {
+                    builder.add(vertex, v);
+                }
+            }
+        }
+        return builder.build();
     }
 
     public static <T extends Comparable<T>> boolean reflexiveClosureContainsEdge(IGraph<T> graph, T vertex1, T vertex2) {
