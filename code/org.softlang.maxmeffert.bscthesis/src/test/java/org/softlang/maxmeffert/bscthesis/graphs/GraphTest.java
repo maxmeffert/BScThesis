@@ -12,8 +12,8 @@ import static org.mockito.Mockito.*;
 
 class GraphTest {
 
-    private SortedMap<Integer, Graph.Vertex<Integer>> verticesMock;
-    private Graph<Integer> graph;
+    private SortedMap verticesMock;
+    private Graph graph;
 
     @BeforeEach
     void setup() {
@@ -59,5 +59,7 @@ class GraphTest {
 
         verify(verticesMock).size();
     }
+
+
 
 }

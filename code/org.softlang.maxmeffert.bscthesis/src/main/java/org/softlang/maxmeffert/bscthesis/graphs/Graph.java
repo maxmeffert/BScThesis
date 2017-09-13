@@ -245,6 +245,10 @@ public class Graph<T extends Comparable<T>> implements IGraph<T> {
         public int compareTo(Vertex<T> tVertex) {
             return value.compareTo(tVertex.value);
         }
+
+        public T getValue() {
+            return value;
+        }
     }
 
     public static class Builder<T extends Comparable<T>> {
