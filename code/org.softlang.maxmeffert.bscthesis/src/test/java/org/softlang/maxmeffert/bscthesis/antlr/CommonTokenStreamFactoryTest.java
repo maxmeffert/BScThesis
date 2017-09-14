@@ -14,11 +14,11 @@ class CommonTokenStreamFactoryTest {
 
     private static final Lexer lexer = mock(Lexer.class);
 
-    private CommonTokenStreamFactory cut;
+    private AntlrCommonTokenStreamFactory cut;
 
     @BeforeEach
     void setup() {
-        cut = new CommonTokenStreamFactory();
+        cut = new AntlrCommonTokenStreamFactory();
     }
 
     @Test

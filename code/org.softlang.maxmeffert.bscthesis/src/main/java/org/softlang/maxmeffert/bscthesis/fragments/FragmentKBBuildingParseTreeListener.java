@@ -6,9 +6,11 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 
 public class FragmentKBBuildingParseTreeListener implements IFragmentKBBuildingParseTreeListener {
 
+    private final IFragmentKBBuilder fragmentKBBuilder;
     private final IFragmentFactory fragmentFactory;
 
-    public FragmentKBBuildingParseTreeListener(IFragmentFactory fragmentFactory) {
+    public FragmentKBBuildingParseTreeListener(IFragmentKBBuilder fragmentKBBuilder, IFragmentFactory fragmentFactory) {
+        this.fragmentKBBuilder = fragmentKBBuilder;
         this.fragmentFactory = fragmentFactory;
     }
 

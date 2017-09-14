@@ -14,7 +14,7 @@ class FragmentKBBuildingParseTreeListenerTest {
     @BeforeEach
     void setUp() {
         fragmentFactory = mock(IFragmentFactory.class);
-        cut = new FragmentKBBuildingParseTreeListener(fragmentFactory);
+        cut = new FragmentKBBuildingParseTreeListener(fragmentKBBuilder, fragmentFactory);
     }
 
     @Test

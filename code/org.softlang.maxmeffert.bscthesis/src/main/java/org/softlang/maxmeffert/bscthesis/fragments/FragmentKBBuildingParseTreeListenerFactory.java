@@ -10,6 +10,6 @@ public class FragmentKBBuildingParseTreeListenerFactory implements IFragmentKBBu
 
     @Override
     public IFragmentKBBuildingParseTreeListener newFragmentKBBuildingParseTreeListener() {
-        return new FragmentKBBuildingParseTreeListener(fragmentFactory);
+        return new FragmentKBBuildingParseTreeListener(fragmentKBBuilder, fragmentFactory);
     }
 }
