@@ -4,7 +4,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.softlang.maxmeffert.bscthesis.antlr.IParseTreeWalkerFactory;
+import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeWalkerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -15,7 +15,7 @@ class FragmentKBFactoryTest {
 
     private ParseTree parseTreeMock;
     private ParseTreeWalker parseTreeWalkerMock;
-    private IParseTreeWalkerFactory parseTreeWalkerFactoryMock;
+    private ISimpleParseTreeWalkerFactory parseTreeWalkerFactoryMock;
     private IFragmentKB fragmentKBMock;
     private IFragmentKBBuildingParseTreeListener fragmentKBBuildingParseTreeListenerMock;
     private IFragmentKBBuildingParseTreeListenerFactory fragmentKBBuildingParseTreeListenerFactoryMock;
@@ -25,7 +25,7 @@ class FragmentKBFactoryTest {
     void setup() {
         parseTreeMock = mock(ParseTree.class);
         parseTreeWalkerMock = mock(ParseTreeWalker.class);
-        parseTreeWalkerFactoryMock = mock(IParseTreeWalkerFactory.class);
+        parseTreeWalkerFactoryMock = mock(ISimpleParseTreeWalkerFactory.class);
         fragmentKBMock = mock(IFragmentKB.class);
         fragmentKBBuildingParseTreeListenerMock = mock(IFragmentKBBuildingParseTreeListener.class);
         fragmentKBBuildingParseTreeListenerFactoryMock = mock(IFragmentKBBuildingParseTreeListenerFactory.class);
