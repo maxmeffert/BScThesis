@@ -3,6 +3,7 @@ package org.softlang.maxmeffert.bscthesis.fragments;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
+import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTree;
 
 public class FragmentKBBuildingParseTreeListener implements IFragmentKBBuildingParseTreeListener {
 
@@ -17,23 +18,14 @@ public class FragmentKBBuildingParseTreeListener implements IFragmentKBBuildingP
         return null;
     }
 
+
     @Override
-    public void visitTerminal(TerminalNode node) {
+    public void enter(ISimpleParseTree parseTree) {
 
     }
 
     @Override
-    public void visitErrorNode(ErrorNode node) {
-
-    }
-
-    @Override
-    public void enterEveryRule(ParserRuleContext ctx) {
-
-    }
-
-    @Override
-    public void exitEveryRule(ParserRuleContext ctx) {
+    public void exit(ISimpleParseTree parseTree) {
 
     }
 }

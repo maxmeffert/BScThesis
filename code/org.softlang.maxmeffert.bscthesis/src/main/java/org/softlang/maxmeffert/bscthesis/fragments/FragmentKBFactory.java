@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.fragments;
 
-import org.antlr.v4.runtime.tree.*;
+import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTree;
+import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeWalker;
 import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeWalkerFactory;
 
 public class FragmentKBFactory implements IFragmentKBFactory {
@@ -14,11 +15,10 @@ public class FragmentKBFactory implements IFragmentKBFactory {
     }
 
     @Override
-    public IFragmentKB newFragmentKB(ParseTree parseTree) {
-//        SimpleParseTreeWalker parseTreeWalker = parseTreeWalkerFactory.newParseTreeWalker();
-//        IFragmentKBBuildingParseTreeListener fragmentKBBuildingParseTreeListener = fragmentKBBuildingParseTreeListenerFactory.newFragmentKBBuildingParseTreeListener();
-//        parseTreeWalker.walk(fragmentKBBuildingParseTreeListener, parseTree);
-//        return fragmentKBBuildingParseTreeListener.getFragmentKB();
-        return null;
+    public IFragmentKB newFragmentKB(ISimpleParseTree simpleParseTree) {
+        ISimpleParseTreeWalker parseTreeWalker = parseTreeWalkerFactory.newParseTreeWalker();
+        IFragmentKBBuildingParseTreeListener fragmentKBBuildingParseTreeListener = fragmentKBBuildingParseTreeListenerFactory.newFragmentKBBuildingParseTreeListener();
+        parseTreeWalker.walk(simpleParseTree, fragmentKBBuildingParseTreeListener);
+        return fragmentKBBuildingParseTreeListener.getFragmentKB();
     }
 }

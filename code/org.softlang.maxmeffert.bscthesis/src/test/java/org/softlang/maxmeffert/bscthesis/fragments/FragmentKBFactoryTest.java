@@ -1,9 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.fragments;
 
-import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTree;
+import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeWalker;
 import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeWalkerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -13,64 +13,64 @@ import static org.mockito.Mockito.*;
 class FragmentKBFactoryTest {
 
 
-    private ParseTree parseTreeMock;
-    private ParseTreeWalker parseTreeWalkerMock;
-    private ISimpleParseTreeWalkerFactory parseTreeWalkerFactoryMock;
-    private IFragmentKB fragmentKBMock;
-    private IFragmentKBBuildingParseTreeListener fragmentKBBuildingParseTreeListenerMock;
-    private IFragmentKBBuildingParseTreeListenerFactory fragmentKBBuildingParseTreeListenerFactoryMock;
+    private ISimpleParseTree simpleParseTree;
+    private ISimpleParseTreeWalker simpleParseTreeWalker;
+    private ISimpleParseTreeWalkerFactory simpleParseTreeWalkerFactory;
+    private IFragmentKB fragmentKB;
+    private IFragmentKBBuildingParseTreeListener fragmentKBBuildingParseTreeListener;
+    private IFragmentKBBuildingParseTreeListenerFactory fragmentKBBuildingParseTreeListenerFactory;
     private FragmentKBFactory cut;
 
     @BeforeEach
     void setup() {
-        parseTreeMock = mock(ParseTree.class);
-        parseTreeWalkerMock = mock(ParseTreeWalker.class);
-        parseTreeWalkerFactoryMock = mock(ISimpleParseTreeWalkerFactory.class);
-        fragmentKBMock = mock(IFragmentKB.class);
-        fragmentKBBuildingParseTreeListenerMock = mock(IFragmentKBBuildingParseTreeListener.class);
-        fragmentKBBuildingParseTreeListenerFactoryMock = mock(IFragmentKBBuildingParseTreeListenerFactory.class);
+        simpleParseTree = mock(ISimpleParseTree.class);
+        simpleParseTreeWalker = mock(ISimpleParseTreeWalker.class);
+        simpleParseTreeWalkerFactory = mock(ISimpleParseTreeWalkerFactory.class);
+        fragmentKB = mock(IFragmentKB.class);
+        fragmentKBBuildingParseTreeListener = mock(IFragmentKBBuildingParseTreeListener.class);
+        fragmentKBBuildingParseTreeListenerFactory = mock(IFragmentKBBuildingParseTreeListenerFactory.class);
 
-        cut = new FragmentKBFactory(parseTreeWalkerFactoryMock, fragmentKBBuildingParseTreeListenerFactoryMock);
+        cut = new FragmentKBFactory(simpleParseTreeWalkerFactory, fragmentKBBuildingParseTreeListenerFactory);
 
-        when(parseTreeWalkerFactoryMock.newParseTreeWalker())
-                .thenReturn(parseTreeWalkerMock);
+        when(simpleParseTreeWalkerFactory.newParseTreeWalker())
+                .thenReturn(simpleParseTreeWalker);
 
-        when(fragmentKBBuildingParseTreeListenerMock.getFragmentKB())
-                .thenReturn(fragmentKBMock);
+        when(fragmentKBBuildingParseTreeListener.getFragmentKB())
+                .thenReturn(fragmentKB);
 
-        when(fragmentKBBuildingParseTreeListenerFactoryMock.newFragmentKBBuildingParseTreeListener())
-                .thenReturn(fragmentKBBuildingParseTreeListenerMock);
+        when(fragmentKBBuildingParseTreeListenerFactory.newFragmentKBBuildingParseTreeListener())
+                .thenReturn(fragmentKBBuildingParseTreeListener);
     }
 
     @Test
     void newFragmentKBDoesNotReturnNull() {
-        assertNotNull(cut.newFragmentKB(parseTreeMock));
+        assertNotNull(cut.newFragmentKB(simpleParseTree));
     }
 
     @Test
     void newFragmentKBReturnsExpectedResult() {
-        assertSame(fragmentKBMock, cut.newFragmentKB(parseTreeMock));
+        assertSame(fragmentKB, cut.newFragmentKB(simpleParseTree));
     }
 
     @Test
     void newFragmentKBCreatesNewParseTreeWalker() {
-        cut.newFragmentKB(parseTreeMock);
+        cut.newFragmentKB(simpleParseTree);
 
-        verify(parseTreeWalkerFactoryMock).newParseTreeWalker();
+        verify(simpleParseTreeWalkerFactory).newParseTreeWalker();
     }
 
     @Test
     void newFragmentKBCreatesNewFragmentKBBuildingParseTreeListener() {
-        cut.newFragmentKB(parseTreeMock);
+        cut.newFragmentKB(simpleParseTree);
 
-        verify(fragmentKBBuildingParseTreeListenerFactoryMock).newFragmentKBBuildingParseTreeListener();
+        verify(fragmentKBBuildingParseTreeListenerFactory).newFragmentKBBuildingParseTreeListener();
     }
 
     @Test
     void newFragmentKBWalksOnParseTreeWithExpectedParameters() {
-        cut.newFragmentKB(parseTreeMock);
+        cut.newFragmentKB(simpleParseTree);
 
-        verify(parseTreeWalkerMock)
-                .walk(eq(fragmentKBBuildingParseTreeListenerMock), eq(parseTreeMock));
+        verify(simpleParseTreeWalker)
+                .walk(eq(simpleParseTree), eq(fragmentKBBuildingParseTreeListener));
     }
 }

@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.fragments;
 
-import org.antlr.v4.runtime.tree.ParseTreeListener;
+import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeWalkerListener;
 
-public interface IFragmentKBBuildingParseTreeListener extends ParseTreeListener {
+public interface IFragmentKBBuildingParseTreeListener extends ISimpleParseTreeWalkerListener {
 
     IFragmentKB getFragmentKB();
 }
