@@ -1,13 +1,11 @@
 package org.softlang.maxmeffert.bscthesis.antlr;
 
-public class AntlrConfigurationBuilderFactory implements IAntlrConfigurationBuilderFactory {
+import org.antlr.v4.runtime.Lexer;
+import org.antlr.v4.runtime.Parser;
 
+public class AntlrConfigurationBuilderFactory implements IAntlrConfigurationBuilderFactory {
     @Override
-    public IAntlrConfigurationBuilder newAntlrConfigurationBuilder() {
-        return new AntlrConfigurationBuilder(
-                new AntlrCharStreamFactory(),
-                null,
-                new AntlrCommonTokenStreamFactory(),
-                null);
+    public <TLexer extends Lexer, TParser extends Parser> IAntlrConfigurationBuilder<TLexer, TParser> newAntlrConfigurationBuilder() {
+        return new AntlrConfigurationBuilder<>(null,null,null, null, null);
     }
 }

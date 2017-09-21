@@ -1,9 +1,14 @@
 package org.softlang.maxmeffert.bscthesis.antlr;
 
-public interface IAntlrConfigurationBuilder {
-    IAntlrConfigurationBuilder withCharStreamFactory(IAntlrCharStreamFactory antlrCharStreamFactory);
-    IAntlrConfigurationBuilder withLexerFactory(IAntlrLexerFactory antlrLexerFactory);
-    IAntlrConfigurationBuilder withTokenStreamFactory(IAntlrTokenStreamFactory antlrTokenStreamFactory);
-    IAntlrConfigurationBuilder withParseTreeFactory(IAntlrParseTreeFactory antlrParseTreeFactory);
-    IAntlrConfiguration build();
+
+import org.antlr.v4.runtime.Lexer;
+import org.antlr.v4.runtime.Parser;
+
+public interface IAntlrConfigurationBuilder<TLexer extends Lexer, TParser extends Parser> {
+    IAntlrConfigurationBuilder<TLexer,TParser> withCharStreamFactory(IAntlrCharStreamFactory antlrCharStreamFactory);
+    IAntlrConfigurationBuilder<TLexer,TParser> withLexerFactory(IAntlrLexerFactory<TLexer> antlrLexerFactory);
+    IAntlrConfigurationBuilder<TLexer,TParser> withTokenStreamFactory(IAntlrTokenStreamFactory antlrTokenStreamFactory);
+    IAntlrConfigurationBuilder<TLexer,TParser> withParserFactory(IAntlrParserFactory<TParser> antlrParserFactory);
+    IAntlrConfigurationBuilder<TLexer,TParser> withParseTreeFactory(IAntlrParseTreeFactory<TParser> antlrParseTreeFactory);
+    IAntlrParsingConfiguration build();
 }

@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis;
+package org.softlang.maxmeffert.bscthesis.java8;
 // Generated from src/fragments/Java8.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 

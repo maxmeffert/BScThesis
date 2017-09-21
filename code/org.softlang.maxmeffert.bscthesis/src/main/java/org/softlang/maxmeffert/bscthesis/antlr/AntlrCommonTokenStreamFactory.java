@@ -4,9 +4,9 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.TokenStream;
 
-public class AntlrCommonTokenStreamFactory implements IAntlrTokenStreamFactory {
+public class AntlrCommonTokenStreamFactory implements IAntlrTokenStreamFactory<CommonTokenStream> {
     @Override
-    public TokenStream newTokenStream(Lexer lexer) {
+    public CommonTokenStream newTokenStream(Lexer lexer) {
         return new CommonTokenStream(lexer);
     }
 }

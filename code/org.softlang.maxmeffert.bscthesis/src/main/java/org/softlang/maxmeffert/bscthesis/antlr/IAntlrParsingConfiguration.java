@@ -1,7 +1,5 @@
 package org.softlang.maxmeffert.bscthesis.antlr;
 
-import org.antlr.v4.runtime.CharStream;
-
-public interface IAntlrConfiguration {
+public interface IAntlrParsingConfiguration {
     IAntlrParsingResult parse(String string);
 }
