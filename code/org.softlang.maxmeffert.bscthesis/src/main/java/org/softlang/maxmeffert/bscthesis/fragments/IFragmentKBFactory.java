@@ -1,9 +1,10 @@
 package org.softlang.maxmeffert.bscthesis.fragments;
 
-import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTree;
+import org.softlang.maxmeffert.bscthesis.textsources.ITextSource;
+import org.softlang.maxmeffert.bscthesis.trees.ITree;
 
 public interface IFragmentKBFactory {
 
-    IFragmentKB newFragmentKB(ISimpleParseTree simpleParseTree);
+    IFragmentKB newFragmentKB(ITree<ITextSource> simpleParseTree);
 
 }

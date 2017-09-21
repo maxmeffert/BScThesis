@@ -2,9 +2,6 @@ package org.softlang.maxmeffert.bscthesis.fragments;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTree;
-import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeWalker;
-import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeWalkerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
