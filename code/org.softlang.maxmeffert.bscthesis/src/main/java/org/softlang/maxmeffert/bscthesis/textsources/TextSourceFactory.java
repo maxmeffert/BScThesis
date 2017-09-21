@@ -1,5 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.textsources;
 
+import com.google.inject.Inject;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -9,6 +10,7 @@ public class TextSourceFactory implements ITextSourceFactory {
     private final ITextIntervalConverterFactory textIntervalConverterFactory;
     private final ITextProviderFactory textProviderFactory;
 
+    @Inject
     public TextSourceFactory(ITextSourceBuilderFactory textSourceBuilderFactory, ITextIntervalConverterFactory textIntervalConverterFactory, ITextProviderFactory textProviderFactory) {
         this.textSourceBuilderFactory = textSourceBuilderFactory;
         this.textIntervalConverterFactory = textIntervalConverterFactory;

@@ -1,5 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.simpleparsetrees;
 
+import com.google.inject.Inject;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingResult;
@@ -13,6 +14,7 @@ public class SimpleParseTreeFactory implements ISimpleParseTreeFactory {
     private final ITextSourceFactory textSourceFactory;
     private final ISimpleParseTreeNormalizerFactory simpleParseTreeNormalizerFactory;
 
+    @Inject
     public SimpleParseTreeFactory(ITreeFactory treeFactory, ITextSourceFactory textSourceFactory, ISimpleParseTreeNormalizerFactory simpleParseTreeNormalizerFactory) {
         this.treeFactory = treeFactory;
         this.textSourceFactory = textSourceFactory;

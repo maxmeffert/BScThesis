@@ -1,5 +1,9 @@
 package org.softlang.maxmeffert.bscthesis;
 
+import com.google.inject.Binder;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Module;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -8,10 +12,7 @@ import org.softlang.maxmeffert.bscthesis.antlr.*;
 import org.softlang.maxmeffert.bscthesis.mereologies.old.Mereology;
 import org.softlang.maxmeffert.bscthesis.simpleparsetrees.*;
 import org.softlang.maxmeffert.bscthesis.textsources.*;
-import org.softlang.maxmeffert.bscthesis.trees.ITree;
-import org.softlang.maxmeffert.bscthesis.trees.ITreeWalkerListener;
-import org.softlang.maxmeffert.bscthesis.trees.TreeFactory;
-import org.softlang.maxmeffert.bscthesis.trees.TreeWalkerFactory;
+import org.softlang.maxmeffert.bscthesis.trees.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +23,9 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		IAntlrConfigurationBuilderFactory antlrConfigurationBuilderFactory = new AntlrConfigurationBuilderFactory();
+		Injector injector = Guice.createInjector(new IoCModule());
+
+		IAntlrConfigurationBuilderFactory antlrConfigurationBuilderFactory = injector.getInstance(IAntlrConfigurationBuilderFactory.class);
 		IAntlrConfiguration antlrConfiguration = antlrConfigurationBuilderFactory.newAntlrConfigurationBuilder()
 				.withLexerFactory(charStream -> new Java8Lexer(charStream))
 				.withParseTreeFactory(tokenStream -> new Java8Parser(tokenStream).compilationUnit())
@@ -30,37 +33,11 @@ public class Main {
 
 		IAntlrParsingResult antlrParsingResult = antlrConfiguration.parse("class A {class A {}}");
 
-//		CharStream input = CharStreams.fromString("class A {class A {}}");
-//		Lexer lexer = new Java8Lexer(input);
-//		TokenStream tokenStream = new CommonTokenStream(lexer);
-//		ParseTree parseTree = new Java8Parser(tokenStream).compilationUnit();
-
-		SimpleParseTreeFactory parseTreeFactory = new SimpleParseTreeFactory(
-					new TreeFactory(),
-					new TextSourceFactory(
-					new TextSourceBuilderFactory(),
-					new TextIntervalConverterFactory(new TextIntervalFactory(), new AntlrIntervalFactory()),
-					new TextProviderFactory(new TextIntervalConverterFactory(new TextIntervalFactory(), new AntlrIntervalFactory()))
-				),
-				new SimpleParseTreeNormalizerFactory());
-//
-//		ISimpleParseTree parseTree = parseTreeFactory.newSimpleParseTree(tokenStream, antlrParseTree);
-//		parseTree = new SimpleParseTreeNormalizer().normalize(parseTree);
-//		ISimpleParseTreeWalker parseTreeWalker = new SimpleParseTreeWalker();
-//		parseTreeWalker.walk(parseTree, new ISimpleParseTreeWalkerListener() {
-//			@Override
-//			public void enter(ISimpleParseTree parseTree) {
-//				System.out.println(parseTree);
-//			}
-//
-//			@Override
-//			public void exit(ISimpleParseTree parseTree) {
-//
-//			}
-//		});
+		ISimpleParseTreeFactory parseTreeFactory = injector.getInstance(ISimpleParseTreeFactory.class);
 
 		ITree<ITextSource> tree = parseTreeFactory.newSimpleParseTree(antlrParsingResult);
-		new TreeWalkerFactory().<ITextSource>newTreeWalker().walk(tree, new ITreeWalkerListener<ITextSource>() {
+		ITreeWalker<ITextSource> treeWalker = injector.getInstance(ITreeWalkerFactory.class).newTreeWalker();
+		treeWalker.walk(tree, new ITreeWalkerListener<ITextSource>() {
 			@Override
 			public void enter(ITree<ITextSource> tree) {
 				System.out.println(tree);

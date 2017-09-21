@@ -12,6 +12,7 @@ repositories {
 dependencies {
     compile "org.antlr:antlr4:4.7"
     compile "com.google.guava:guava:22.0"
+    compile "com.google.inject:guice:4.0"
     testCompile "junit:junit:5.0"
     testCompile "org.mockito:mockito-core:2.+"
     testCompile 'org.hamcrest:hamcrest-library:1.3'
