@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.tuples;
 
-public class TupleFactory implements ITupleFactory {
+public class Tuples implements ITuples {
     @Override
     public <T1 extends Comparable<T1>, T2 extends Comparable<T2>> IPair<T1, T2> newPair(T1 first, T2 second) {
         return new Pair<>(first, second);

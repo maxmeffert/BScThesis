@@ -1,8 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import org.softlang.maxmeffert.bscthesis.tuples.IPair;
+import java.util.Map;
 
 public interface IGraphNode<TNode extends Comparable<TNode>, TEdge extends Comparable<TEdge>> extends Comparable<IGraphNode<TNode,TEdge>> {
     TNode getValue();
-    Iterable<IPair<TNode,TEdge>> getAdjacentEdges();
+    Iterable<TNode> getAdjacentNodes();
+    Map<TNode,TEdge> getAdjacentEdges();
 }
