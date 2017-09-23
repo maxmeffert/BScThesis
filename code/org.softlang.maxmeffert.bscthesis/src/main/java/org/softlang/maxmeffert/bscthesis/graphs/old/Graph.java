@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.graphs.old;
 
 import com.google.common.collect.*;
-import org.softlang.maxmeffert.bscthesis.utils.IPair;
+import org.softlang.maxmeffert.bscthesis.tuples.IPair;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -18,10 +18,14 @@ import org.softlang.maxmeffert.bscthesis.text.providers.ITextProviderFactory;
 import org.softlang.maxmeffert.bscthesis.text.providers.TextProviderFactory;
 import org.softlang.maxmeffert.bscthesis.text.sources.*;
 import org.softlang.maxmeffert.bscthesis.graphs.trees.*;
+import org.softlang.maxmeffert.bscthesis.tuples.ITupleFactory;
+import org.softlang.maxmeffert.bscthesis.tuples.TupleFactory;
 
 public class IoCGuiceModule extends AbstractModule {
     @Override
     protected void configure() {
+        bind(ITupleFactory.class).to(TupleFactory.class);
+
         bind(IAntlrCharStreamFactory.class).to(AntlrCharStreamFactory.class);
         bind(IAntlrIntervalFactory.class).to(AntlrIntervalFactory.class);
         bind(IAntlrTokenStreamFactory.class).to(AntlrCommonTokenStreamFactory.class);
