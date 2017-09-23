@@ -1,6 +1,5 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import com.google.common.collect.Maps;
 import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
 
 import java.util.SortedMap;
