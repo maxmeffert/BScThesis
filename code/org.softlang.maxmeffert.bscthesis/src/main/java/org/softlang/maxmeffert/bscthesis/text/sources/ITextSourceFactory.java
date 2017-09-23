@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.textsources;
+package org.softlang.maxmeffert.bscthesis.text.sources;
 
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;

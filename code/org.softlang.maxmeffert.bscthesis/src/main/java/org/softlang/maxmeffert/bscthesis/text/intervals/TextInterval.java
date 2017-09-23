@@ -1,4 +1,6 @@
-package org.softlang.maxmeffert.bscthesis.textsources;
+package org.softlang.maxmeffert.bscthesis.text.intervals;
+
+import org.softlang.maxmeffert.bscthesis.text.intervals.ITextInterval;
 
 public class TextInterval implements ITextInterval {
 

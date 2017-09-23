@@ -1,7 +1,10 @@
-package org.softlang.maxmeffert.bscthesis.textsources;
+package org.softlang.maxmeffert.bscthesis.text.providers;
 
 
 import org.antlr.v4.runtime.TokenStream;
+import org.softlang.maxmeffert.bscthesis.text.intervals.ITextInterval;
+import org.softlang.maxmeffert.bscthesis.text.intervals.ITextIntervalConverter;
+import org.softlang.maxmeffert.bscthesis.text.providers.ITextProvider;
 
 public class AntlrTokenStreamTextProvider implements ITextProvider {
 

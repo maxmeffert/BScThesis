@@ -1,7 +1,10 @@
-package org.softlang.maxmeffert.bscthesis.textsources;
+package org.softlang.maxmeffert.bscthesis.text.intervals;
 
 import org.antlr.v4.runtime.misc.Interval;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrIntervalFactory;
+import org.softlang.maxmeffert.bscthesis.text.intervals.ITextInterval;
+import org.softlang.maxmeffert.bscthesis.text.intervals.ITextIntervalConverter;
+import org.softlang.maxmeffert.bscthesis.text.intervals.ITextIntervalFactory;
 
 public class TextIntervalConverter implements ITextIntervalConverter {
 

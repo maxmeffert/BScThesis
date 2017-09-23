@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis;
+package org.softlang.maxmeffert.bscthesis.analyzer;
 
 import java.io.File;
 

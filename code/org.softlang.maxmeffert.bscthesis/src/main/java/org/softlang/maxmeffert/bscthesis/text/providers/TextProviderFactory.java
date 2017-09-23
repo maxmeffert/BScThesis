@@ -1,7 +1,11 @@
-package org.softlang.maxmeffert.bscthesis.textsources;
+package org.softlang.maxmeffert.bscthesis.text.providers;
 
 import com.google.inject.Inject;
 import org.antlr.v4.runtime.TokenStream;
+import org.softlang.maxmeffert.bscthesis.text.intervals.ITextIntervalConverterFactory;
+import org.softlang.maxmeffert.bscthesis.text.providers.AntlrTokenStreamTextProvider;
+import org.softlang.maxmeffert.bscthesis.text.providers.ITextProvider;
+import org.softlang.maxmeffert.bscthesis.text.providers.ITextProviderFactory;
 
 public class TextProviderFactory implements ITextProviderFactory {
 

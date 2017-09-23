@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingResult;
-import org.softlang.maxmeffert.bscthesis.textsources.*;
+import org.softlang.maxmeffert.bscthesis.text.sources.*;
 import org.softlang.maxmeffert.bscthesis.trees.ITree;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeFactory;
 

@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.textsources;
+package org.softlang.maxmeffert.bscthesis.text.sources;
 
 public class TextSourceBuilderFactory implements ITextSourceBuilderFactory {
     @Override

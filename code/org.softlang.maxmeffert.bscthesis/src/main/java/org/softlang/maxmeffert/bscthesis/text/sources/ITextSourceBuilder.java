@@ -1,4 +1,7 @@
-package org.softlang.maxmeffert.bscthesis.textsources;
+package org.softlang.maxmeffert.bscthesis.text.sources;
+
+import org.softlang.maxmeffert.bscthesis.text.intervals.ITextInterval;
+import org.softlang.maxmeffert.bscthesis.text.providers.ITextProvider;
 
 public interface ITextSourceBuilder {
     ITextInterval getTextInterval();

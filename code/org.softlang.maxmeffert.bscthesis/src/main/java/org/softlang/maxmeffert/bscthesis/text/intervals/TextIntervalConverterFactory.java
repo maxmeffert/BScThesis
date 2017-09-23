@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.textsources;
+package org.softlang.maxmeffert.bscthesis.text.intervals;
 
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrIntervalFactory;

@@ -10,7 +10,13 @@ import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeFactor
 import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeNormalizerFactory;
 import org.softlang.maxmeffert.bscthesis.simpleparsetrees.SimpleParseTreeFactory;
 import org.softlang.maxmeffert.bscthesis.simpleparsetrees.SimpleParseTreeNormalizerFactory;
-import org.softlang.maxmeffert.bscthesis.textsources.*;
+import org.softlang.maxmeffert.bscthesis.text.intervals.ITextIntervalConverterFactory;
+import org.softlang.maxmeffert.bscthesis.text.intervals.ITextIntervalFactory;
+import org.softlang.maxmeffert.bscthesis.text.intervals.TextIntervalConverterFactory;
+import org.softlang.maxmeffert.bscthesis.text.intervals.TextIntervalFactory;
+import org.softlang.maxmeffert.bscthesis.text.providers.ITextProviderFactory;
+import org.softlang.maxmeffert.bscthesis.text.providers.TextProviderFactory;
+import org.softlang.maxmeffert.bscthesis.text.sources.*;
 import org.softlang.maxmeffert.bscthesis.trees.*;
 
 public class IoCGuiceModule extends AbstractModule {

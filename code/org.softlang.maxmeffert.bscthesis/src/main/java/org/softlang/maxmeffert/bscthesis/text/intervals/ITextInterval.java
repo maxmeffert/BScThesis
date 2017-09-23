@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.textsources;
+package org.softlang.maxmeffert.bscthesis.text.intervals;
 
 public interface ITextInterval {
     int getStartPosition();

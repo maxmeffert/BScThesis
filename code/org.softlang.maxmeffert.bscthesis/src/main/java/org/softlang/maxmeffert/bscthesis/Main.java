@@ -6,7 +6,7 @@ import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingConfiguration;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingResult;
 import org.softlang.maxmeffert.bscthesis.ioc.IoCGuiceModule;
 import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeFactory;
-import org.softlang.maxmeffert.bscthesis.textsources.ITextSource;
+import org.softlang.maxmeffert.bscthesis.text.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.trees.ITree;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeWalker;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeWalkerFactory;
