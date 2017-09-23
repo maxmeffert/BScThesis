@@ -17,7 +17,7 @@ import org.softlang.maxmeffert.bscthesis.text.intervals.TextIntervalFactory;
 import org.softlang.maxmeffert.bscthesis.text.providers.ITextProviderFactory;
 import org.softlang.maxmeffert.bscthesis.text.providers.TextProviderFactory;
 import org.softlang.maxmeffert.bscthesis.text.sources.*;
-import org.softlang.maxmeffert.bscthesis.trees.*;
+import org.softlang.maxmeffert.bscthesis.graphs.trees.*;
 
 public class IoCGuiceModule extends AbstractModule {
     @Override

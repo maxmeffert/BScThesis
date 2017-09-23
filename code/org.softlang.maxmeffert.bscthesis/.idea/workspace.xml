@@ -1,42 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e33e4276-f7bf-49d7-8e0d-e2867f16495d" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/AntlrTokenStreamTextProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/providers/AntlrTokenStreamTextProvider.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/ITextInterval.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/intervals/ITextInterval.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/ITextIntervalConverter.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/intervals/ITextIntervalConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/ITextIntervalConverterFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/intervals/ITextIntervalConverterFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/ITextIntervalFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/intervals/ITextIntervalFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/ITextProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/providers/ITextProvider.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/ITextProviderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/providers/ITextProviderFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/ITextSource.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/sources/ITextSource.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/ITextSourceBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/sources/ITextSourceBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/ITextSourceBuilderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/sources/ITextSourceBuilderFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/ITextSourceFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/sources/ITextSourceFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/TextInterval.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/intervals/TextInterval.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/TextIntervalConverter.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/intervals/TextIntervalConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/TextIntervalConverterFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/intervals/TextIntervalConverterFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/TextIntervalFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/intervals/TextIntervalFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/TextProviderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/providers/TextProviderFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/TextSource.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/sources/TextSource.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/TextSourceBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/sources/TextSourceBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/TextSourceBuilderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/sources/TextSourceBuilderFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/TextSourceFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/sources/TextSourceFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/org.softlang.maxmeffert.bscthesis_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/org.softlang.maxmeffert.bscthesis_test.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ILanguage.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ILanguage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/Language.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/Language.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/Main.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/fragments/FragmentKBBuildingParseTreeListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/fragments/FragmentKBBuildingParseTreeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/fragments/FragmentKBFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/fragments/FragmentKBFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/fragments/IFragmentKBBuildingParseTreeListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/fragments/IFragmentKBBuildingParseTreeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/fragments/IFragmentKBFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/fragments/IFragmentKBFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ioc/IoCGuiceModule.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ioc/IoCGuiceModule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/simpleparsetrees/ISimpleParseTreeFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/simpleparsetrees/ISimpleParseTreeFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/simpleparsetrees/ISimpleParseTreeNormalizer.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/simpleparsetrees/ISimpleParseTreeNormalizer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/simpleparsetrees/SimpleParseTreeFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/simpleparsetrees/SimpleParseTreeFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/simpleparsetrees/SimpleParseTreeNormalizer.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/simpleparsetrees/SimpleParseTreeNormalizer.java" />
-    </list>
+    <list default="true" id="e33e4276-f7bf-49d7-8e0d-e2867f16495d" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -70,130 +35,15 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ILanguage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ILanguage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextSource.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/sources/TextSource.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextIntervalConverter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/intervals/TextIntervalConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DiGraphWalkerTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraphWalkerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Language.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/Language.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#266#267#0" expanded="true" />
-                <element signature="e#294#295#0" expanded="true" />
-                <element signature="e#362#363#0" expanded="true" />
-                <element signature="e#389#390#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IAnalyzer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/IAnalyzer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="61" lean-forward="false" selection-start-line="6" selection-start-column="61" selection-end-line="6" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Analyzer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/Analyzer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IoCGuiceModule.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ioc/IoCGuiceModule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="30" column="85" lean-forward="false" selection-start-line="30" selection-start-column="85" selection-end-line="30" selection-end-column="85" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -560,7 +410,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/TextSource.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/TextSourceBuilderFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/TextSourceBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/textsources/ITextIntervalConverterFactory.java" />
@@ -611,10 +460,11 @@
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ILanguage.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/test/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraphWalkerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/correspondences/ICorrespondenceDefinition.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-1" />
     <option name="y" value="25" />
     <option name="width" value="1602" />
@@ -672,45 +522,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="bscthesis" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bscthesis" type="462c0819:PsiDirectoryNode" />
-              <item name="text" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bscthesis" type="462c0819:PsiDirectoryNode" />
-              <item name="text" type="462c0819:PsiDirectoryNode" />
-              <item name="intervals" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bscthesis" type="462c0819:PsiDirectoryNode" />
-              <item name="text" type="462c0819:PsiDirectoryNode" />
-              <item name="providers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bscthesis" type="462c0819:PsiDirectoryNode" />
-              <item name="text" type="462c0819:PsiDirectoryNode" />
-              <item name="sources" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -738,6 +549,8 @@
       <recent name="org.softlang.maxmeffert.bscthesis.antlr" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.softlang.maxmeffert.bscthesis.analyzer" />
+      <recent name="org.softlang.maxmeffert.bscthesis.correspondences" />
       <recent name="org.softlang.maxmeffert.bscthesis.text.providers" />
       <recent name="org.softlang.maxmeffert.bscthesis.text.intervals" />
       <recent name="org.softlang.maxmeffert.bscthesis.antlr" />
@@ -1040,11 +853,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="25" width="1602" height="876" extended-state="6" />
+    <frame x="-1" y="25" width="1602" height="876" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26417527" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27224436" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1052,10 +865,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30495688" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38273194" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24833998" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25675675" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22135417" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1079,21 +892,21 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15261473" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15261473" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2650862" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27224436" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30495688" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30495688" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31034482" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26520813" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24833998" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25675675" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286638" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22135417" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1114,23 +927,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/simpleparsetrees/ISimpleParseTree.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/java8/Java8Lexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1466">
-          <caret line="139" column="11" lean-forward="false" selection-start-line="139" selection-start-column="11" selection-end-line="139" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/antlr4-runtime/4.7/47651ddc6b58d2718afef967f24a1c57c8fe639e/antlr4-runtime-4.7-sources.jar!/org/antlr/v4/runtime/CharStreams.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/antlr4-runtime/4.7/47651ddc6b58d2718afef967f24a1c57c8fe639e/antlr4-runtime-4.7-sources.jar!/org/antlr/v4/runtime/CharStream.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/text/providers/AntlrTokenStreamTextProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/antlr/IAntlrCharStreamFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1379,7 +1175,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/IAnalyzer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/analyzer/IAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="61" lean-forward="false" selection-start-line="6" selection-start-column="61" selection-end-line="6" selection-end-column="61" />
@@ -1387,7 +1183,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/Analyzer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/analyzer/Analyzer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
@@ -1464,10 +1260,50 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/org/softlang/maxmeffert/bscthesis/graphs/DiGraphWalkerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/softlang/maxmeffert/bscthesis/fragments/FragmentKBFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/correspondences/ICorrespondence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/correspondences/ICorrespondenceDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/conformances/IConformance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/conformances/IConformanceDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

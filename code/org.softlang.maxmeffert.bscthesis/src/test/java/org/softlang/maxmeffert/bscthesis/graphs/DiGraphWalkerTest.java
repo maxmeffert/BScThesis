@@ -2,6 +2,7 @@ package org.softlang.maxmeffert.bscthesis.graphs;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.softlang.maxmeffert.bscthesis.graphs.old.*;
 import org.softlang.maxmeffert.bscthesis.utils.IPair;
 
 class DiGraphWalkerTest {

@@ -2,6 +2,7 @@ package org.softlang.maxmeffert.bscthesis.graphs;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.softlang.maxmeffert.bscthesis.graphs.old.Graph;
 
 import java.util.Set;
 import java.util.SortedMap;
