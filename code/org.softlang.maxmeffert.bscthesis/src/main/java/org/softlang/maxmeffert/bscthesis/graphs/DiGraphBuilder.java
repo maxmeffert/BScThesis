@@ -16,9 +16,13 @@ public class DiGraphBuilder<TNode extends Comparable<TNode>, TEdge extends Compa
         this.nodeBuilders = nodeBuilders;
     }
 
+    private IDiGraphNodeBuilder<TNode,TEdge> newBuilder(TNode node) {
+        return diGraphNodeBuilderFactory.<TNode,TEdge>newDiGraphNodeBuilder().withValue(node);
+    }
+
     private IDiGraphNodeBuilder<TNode,TEdge> getBuilder(TNode node) {
         if (!nodeBuilders.containsKey(node)) {
-            nodeBuilders.put(node, diGraphNodeBuilderFactory.newDiGraphNodeBuilderWithValue(node));
+            nodeBuilders.put(node, newBuilder(node));
         }
         return nodeBuilders.get(node);
     }

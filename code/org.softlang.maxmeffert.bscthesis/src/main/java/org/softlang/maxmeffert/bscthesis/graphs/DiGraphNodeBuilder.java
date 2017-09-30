@@ -15,6 +15,21 @@ public class DiGraphNodeBuilder<TNode extends Comparable<TNode>, TEdge extends C
     }
 
     @Override
+    public TNode getValue() {
+        return value;
+    }
+
+    @Override
+    public SortedMap<TNode, TEdge> getSouceEdges() {
+        return sourceEdges;
+    }
+
+    @Override
+    public SortedMap<TNode, TEdge> getTargetEdges() {
+        return targetEdges;
+    }
+
+    @Override
     public IDiGraphNodeBuilder<TNode, TEdge> withValue(TNode value) {
         return new DiGraphNodeBuilder<>(value, sourceEdges, targetEdges);
     }
