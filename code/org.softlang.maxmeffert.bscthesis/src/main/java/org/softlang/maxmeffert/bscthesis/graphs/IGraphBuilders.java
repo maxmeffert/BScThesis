@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-public interface IGraphs {
+public interface IGraphBuilders {
 
     <TValue extends Comparable<TValue>> IGraphBuilder<TValue> newGraphBuilder();
     <TValue extends Comparable<TValue>> IDiGraphBuilder<TValue> newDiGraphBuilder();
