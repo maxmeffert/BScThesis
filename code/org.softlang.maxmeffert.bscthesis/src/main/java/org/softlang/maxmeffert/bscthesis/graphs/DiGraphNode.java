@@ -1,45 +1,44 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
 import com.google.common.collect.Iterables;
-import org.softlang.maxmeffert.bscthesis.collections.IPair;
 
 import java.util.SortedSet;
 
-public class DiGraphNode<TNode extends Comparable<TNode>> implements IDiGraphNode<TNode> {
+public class DiGraphNode<TValue extends Comparable<TValue>> implements IDiGraphNode<TValue> {
 
-    private final TNode value;
-    private final SortedSet<TNode> sourceNodes;
-    private final SortedSet<TNode> targetNodes;
+    private final TValue value;
+    private final SortedSet<TValue> sourceNodes;
+    private final SortedSet<TValue> targetNodes;
 
 
-    public DiGraphNode(TNode value, SortedSet<TNode> sourceNodes, SortedSet<TNode> targetNodes) {
+    public DiGraphNode(TValue value, SortedSet<TValue> sourceNodes, SortedSet<TValue> targetNodes) {
         this.value = value;
         this.sourceNodes = sourceNodes;
         this.targetNodes = targetNodes;
     }
 
     @Override
-    public Iterable<TNode> getSourceNodes() {
+    public Iterable<TValue> getSourceNodes() {
         return sourceNodes;
     }
 
     @Override
-    public Iterable<TNode> getTargetNodes() {
+    public Iterable<TValue> getTargetNodes() {
         return targetNodes;
     }
 
     @Override
-    public TNode getValue() {
+    public TValue getValue() {
         return value;
     }
 
     @Override
-    public Iterable<TNode> getAdjacentNodes() {
+    public Iterable<TValue> getAdjacentNodes() {
         return Iterables.concat(sourceNodes, targetNodes);
     }
 
     @Override
-    public int compareTo(IGraphNode<TNode> iGraphNode) {
+    public int compareTo(IGraphNode<TValue> iGraphNode) {
         return getValue().compareTo(iGraphNode.getValue());
     }
 }

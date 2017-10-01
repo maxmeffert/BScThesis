@@ -1,9 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-public class TreeBuilder<TNode extends Comparable<TNode>> implements ITreeBuilder<TNode> {
+public class TreeBuilder<TValue extends Comparable<TValue>> implements ITreeBuilder<TValue> {
 
     @Override
-    public ITree<TNode> build() {
+    public ITree<TValue> build() {
         return null;
     }
 }

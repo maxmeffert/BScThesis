@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.graphs;
 
 import java.util.Optional;
 
-public class TreeNode<TNode extends Comparable<TNode>> implements ITreeNode<TNode> {
+public class TreeNode<TValue extends Comparable<TValue>> implements ITreeNode<TValue> {
 
     @Override
     public boolean isRoot() {
@@ -25,37 +25,37 @@ public class TreeNode<TNode extends Comparable<TNode>> implements ITreeNode<TNod
     }
 
     @Override
-    public Optional<TNode> getParent() {
+    public Optional<TValue> getParent() {
         return null;
     }
 
     @Override
-    public Iterable<TNode> getChildren() {
+    public Iterable<TValue> getChildren() {
         return null;
     }
 
     @Override
-    public Iterable<TNode> getSourceNodes() {
+    public Iterable<TValue> getSourceNodes() {
         return null;
     }
 
     @Override
-    public Iterable<TNode> getTargetNodes() {
+    public Iterable<TValue> getTargetNodes() {
         return null;
     }
 
     @Override
-    public TNode getValue() {
+    public TValue getValue() {
         return null;
     }
 
     @Override
-    public Iterable<TNode> getAdjacentNodes() {
+    public Iterable<TValue> getAdjacentNodes() {
         return null;
     }
 
     @Override
-    public int compareTo(IGraphNode<TNode> tNodeIGraphNode) {
+    public int compareTo(IGraphNode<TValue> tNodeIGraphNode) {
         return 0;
     }
 }

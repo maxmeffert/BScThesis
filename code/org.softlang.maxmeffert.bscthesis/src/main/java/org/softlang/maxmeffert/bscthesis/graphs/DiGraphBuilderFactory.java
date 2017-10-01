@@ -15,7 +15,7 @@ public class DiGraphBuilderFactory implements IDiGraphBuilderFactory {
     }
 
     @Override
-    public <TNode extends Comparable<TNode>> IDiGraphBuilder<TNode> newDiGraphBuilder() {
-        return new DiGraphBuilder<TNode>(diGraphNodeBuilderFactory, collectionFactory, collectionFactory.newSortedMap());
+    public <TValue extends Comparable<TValue>> IDiGraphBuilder<TValue> newDiGraphBuilder() {
+        return new DiGraphBuilder<TValue>(diGraphNodeBuilderFactory, collectionFactory, collectionFactory.newSortedMap());
     }
 }

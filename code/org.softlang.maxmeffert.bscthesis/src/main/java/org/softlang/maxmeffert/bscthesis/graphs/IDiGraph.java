@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-public interface IDiGraph<TNode extends Comparable<TNode>> extends IGraph<TNode> {
-    Iterable<TNode> getSourceNodesOf(TNode node);
-    Iterable<TNode> getTargetNodesOf(TNode node);
+public interface IDiGraph<TValue extends Comparable<TValue>> extends IGraph<TValue> {
+    Iterable<TValue> getSourceNodesOf(TValue node);
+    Iterable<TValue> getTargetNodesOf(TValue node);
 }

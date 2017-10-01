@@ -13,8 +13,8 @@ public class DiGraphNodeBuilderFactory implements IDiGraphNodeBuilderFactory {
     }
 
     @Override
-    public <TNode extends Comparable<TNode>> IDiGraphNodeBuilder<TNode> newDiGraphNodeBuilder() {
-        return new DiGraphNodeBuilder<TNode>(null, collectionFactory.newSortedSet(), collectionFactory.newSortedSet());
+    public <TValue extends Comparable<TValue>> IDiGraphNodeBuilder<TValue> newDiGraphNodeBuilder() {
+        return new DiGraphNodeBuilder<TValue>(null, collectionFactory.newSortedSet(), collectionFactory.newSortedSet());
     }
 
 }

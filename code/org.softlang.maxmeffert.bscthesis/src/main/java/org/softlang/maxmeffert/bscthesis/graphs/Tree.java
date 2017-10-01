@@ -1,44 +1,42 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import org.softlang.maxmeffert.bscthesis.collections.IPair;
-
 import java.util.Optional;
 
-public class Tree<TNode extends Comparable<TNode>> implements ITree<TNode> {
+public class Tree<TValue extends Comparable<TValue>> implements ITree<TValue> {
 
 
     @Override
-    public TNode getRoot() {
+    public TValue getRoot() {
         return null;
     }
 
     @Override
-    public boolean isRoot(TNode tNode) {
+    public boolean isRoot(TValue tNode) {
         return false;
     }
 
     @Override
-    public boolean hasParent(TNode tNode) {
+    public boolean hasParent(TValue tNode) {
         return false;
     }
 
     @Override
-    public Optional<TNode> getParentOf(TNode tNode) {
+    public Optional<TValue> getParentOf(TValue tNode) {
         return null;
     }
 
     @Override
-    public Iterable<TNode> getChildrenOf(TNode tNode) {
+    public Iterable<TValue> getChildrenOf(TValue tNode) {
         return null;
     }
 
     @Override
-    public Iterable<TNode> getSourceNodesOf(TNode tNode) {
+    public Iterable<TValue> getSourceNodesOf(TValue tNode) {
         return null;
     }
 
     @Override
-    public Iterable<TNode> getTargetNodesOf(TNode tNode) {
+    public Iterable<TValue> getTargetNodesOf(TValue tNode) {
         return null;
     }
 
@@ -53,12 +51,12 @@ public class Tree<TNode extends Comparable<TNode>> implements ITree<TNode> {
     }
 
     @Override
-    public Iterable<TNode> getNodes() {
+    public Iterable<TValue> getNodes() {
         return null;
     }
 
     @Override
-    public Iterable<TNode> getAdjacentNodesOf(TNode tNode) {
+    public Iterable<TValue> getAdjacentNodesOf(TValue tNode) {
         return null;
     }
 }

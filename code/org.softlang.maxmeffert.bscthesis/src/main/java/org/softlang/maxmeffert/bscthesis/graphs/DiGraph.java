@@ -1,15 +1,12 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import org.softlang.maxmeffert.bscthesis.collections.IPair;
-
-import java.util.Map;
 import java.util.SortedMap;
 
-public class DiGraph<TNode extends Comparable<TNode>> implements IDiGraph<TNode> {
+public class DiGraph<TValue extends Comparable<TValue>> implements IDiGraph<TValue> {
 
-    private final SortedMap<TNode, IDiGraphNode<TNode>> nodes;
+    private final SortedMap<TValue, IDiGraphNode<TValue>> nodes;
 
-    public DiGraph(SortedMap<TNode, IDiGraphNode<TNode>> nodes) {
+    public DiGraph(SortedMap<TValue, IDiGraphNode<TValue>> nodes) {
         this.nodes = nodes;
     }
 
@@ -24,22 +21,22 @@ public class DiGraph<TNode extends Comparable<TNode>> implements IDiGraph<TNode>
     }
 
     @Override
-    public Iterable<TNode> getNodes() {
+    public Iterable<TValue> getNodes() {
         return nodes.keySet();
     }
 
     @Override
-    public Iterable<TNode> getAdjacentNodesOf(TNode tNode) {
+    public Iterable<TValue> getAdjacentNodesOf(TValue tNode) {
         return nodes.get(tNode).getAdjacentNodes();
     }
 
     @Override
-    public Iterable<TNode> getSourceNodesOf(TNode tNode) {
+    public Iterable<TValue> getSourceNodesOf(TValue tNode) {
         return nodes.get(tNode).getSourceNodes();
     }
 
     @Override
-    public Iterable<TNode> getTargetNodesOf(TNode tNode) {
+    public Iterable<TValue> getTargetNodesOf(TValue tNode) {
         return nodes.get(tNode).getTargetNodes();
     }
 }

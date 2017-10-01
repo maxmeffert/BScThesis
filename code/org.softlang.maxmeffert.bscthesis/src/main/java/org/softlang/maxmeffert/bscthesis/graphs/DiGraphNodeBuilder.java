@@ -2,38 +2,38 @@ package org.softlang.maxmeffert.bscthesis.graphs;
 
 import java.util.SortedSet;
 
-public class DiGraphNodeBuilder<TNode extends Comparable<TNode>> implements IDiGraphNodeBuilder<TNode> {
+public class DiGraphNodeBuilder<TValue extends Comparable<TValue>> implements IDiGraphNodeBuilder<TValue> {
 
-    private final TNode value;
-    private final SortedSet<TNode> sourceNodes;
-    private final SortedSet<TNode> targetNodes;
+    private final TValue value;
+    private final SortedSet<TValue> sourceNodes;
+    private final SortedSet<TValue> targetNodes;
 
 
-    public DiGraphNodeBuilder(TNode value, SortedSet<TNode> sourceNodes, SortedSet<TNode> targetNodes) {
+    public DiGraphNodeBuilder(TValue value, SortedSet<TValue> sourceNodes, SortedSet<TValue> targetNodes) {
         this.value = value;
         this.sourceNodes = sourceNodes;
         this.targetNodes = targetNodes;
     }
 
     @Override
-    public IDiGraphNodeBuilder<TNode> withValue(TNode value) {
+    public IDiGraphNodeBuilder<TValue> withValue(TValue value) {
         return new DiGraphNodeBuilder<>(value, sourceNodes, targetNodes);
     }
 
     @Override
-    public IDiGraphNodeBuilder<TNode> withSource(TNode source) {
+    public IDiGraphNodeBuilder<TValue> withSource(TValue source) {
         sourceNodes.add(source);
         return new DiGraphNodeBuilder<>(value, sourceNodes, targetNodes);
     }
 
     @Override
-    public IDiGraphNodeBuilder<TNode> withTarget(TNode target) {
+    public IDiGraphNodeBuilder<TValue> withTarget(TValue target) {
         targetNodes.add(target);
         return new DiGraphNodeBuilder<>(value, sourceNodes, targetNodes);
     }
 
     @Override
-    public IDiGraphNode<TNode> build() {
+    public IDiGraphNode<TValue> build() {
         return new DiGraphNode<>(value, sourceNodes, targetNodes);
     }
 }

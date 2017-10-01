@@ -2,11 +2,11 @@ package org.softlang.maxmeffert.bscthesis.graphs;
 
 import java.util.Optional;
 
-public interface ITreeNode<TNode extends Comparable<TNode>> extends IDiGraphNode<TNode> {
+public interface ITreeNode<TValue extends Comparable<TValue>> extends IDiGraphNode<TValue> {
     boolean isRoot();
     boolean isLeaf();
     boolean hasParent();
     boolean hasChildren();
-    Optional<TNode> getParent();
-    Iterable<TNode> getChildren();
+    Optional<TValue> getParent();
+    Iterable<TValue> getChildren();
 }

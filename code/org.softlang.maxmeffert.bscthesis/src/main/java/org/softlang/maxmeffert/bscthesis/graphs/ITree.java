@@ -2,16 +2,16 @@ package org.softlang.maxmeffert.bscthesis.graphs;
 
 import java.util.Optional;
 
-public interface ITree<TNode extends Comparable<TNode>> extends IDiGraph<TNode> {
+public interface ITree<TValue extends Comparable<TValue>> extends IDiGraph<TValue> {
 
-    TNode getRoot();
+    TValue getRoot();
 
-    boolean isRoot(TNode node);
+    boolean isRoot(TValue node);
 
-    boolean hasParent(TNode node);
+    boolean hasParent(TValue node);
 
-    Optional<TNode> getParentOf(TNode node);
+    Optional<TValue> getParentOf(TValue node);
 
-    Iterable<TNode> getChildrenOf(TNode node);
+    Iterable<TValue> getChildrenOf(TValue node);
 
 }

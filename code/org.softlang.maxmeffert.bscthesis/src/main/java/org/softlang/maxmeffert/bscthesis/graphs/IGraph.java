@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-public interface IGraph<TNode extends Comparable<TNode>> {
+public interface IGraph<TValue extends Comparable<TValue>> {
     boolean isEmpty();
     int getNodeCount();
-    Iterable<TNode> getNodes();
-    Iterable<TNode> getAdjacentNodesOf(TNode node);
+    Iterable<TValue> getNodes();
+    Iterable<TValue> getAdjacentNodesOf(TValue node);
 }

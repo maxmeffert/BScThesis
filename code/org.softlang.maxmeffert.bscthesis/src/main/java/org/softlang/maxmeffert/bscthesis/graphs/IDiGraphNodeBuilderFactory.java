@@ -2,6 +2,6 @@ package org.softlang.maxmeffert.bscthesis.graphs;
 
 public interface IDiGraphNodeBuilderFactory {
 
-    <TNode extends Comparable<TNode>> IDiGraphNodeBuilder<TNode> newDiGraphNodeBuilder();
+    <TValue extends Comparable<TValue>> IDiGraphNodeBuilder<TValue> newDiGraphNodeBuilder();
 
 }

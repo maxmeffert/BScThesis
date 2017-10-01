@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-public interface ITreeNodeBuilder<TNode extends Comparable<TNode>> {
-    ITreeNodeBuilder<TNode> withValue(TNode value);
-    ITreeNodeBuilder<TNode> withParent(TNode parent);
-    ITreeNodeBuilder<TNode> withChild(TNode child);
-    ITreeNode<TNode> build();
+public interface ITreeNodeBuilder<TValue extends Comparable<TValue>> {
+    ITreeNodeBuilder<TValue> withValue(TValue value);
+    ITreeNodeBuilder<TValue> withParent(TValue parent);
+    ITreeNodeBuilder<TValue> withChild(TValue child);
+    ITreeNode<TValue> build();
 }

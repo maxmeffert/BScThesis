@@ -1,31 +1,25 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
-import org.softlang.maxmeffert.bscthesis.collections.IPair;
-
-import java.util.Optional;
-import java.util.SortedSet;
-
-public class TreeNodeBuilder<TNode extends Comparable<TNode>> implements ITreeNodeBuilder<TNode> {
+public class TreeNodeBuilder<TValue extends Comparable<TValue>> implements ITreeNodeBuilder<TValue> {
 
 
     @Override
-    public ITreeNodeBuilder<TNode> withValue(TNode value) {
+    public ITreeNodeBuilder<TValue> withValue(TValue value) {
         return null;
     }
 
     @Override
-    public ITreeNodeBuilder<TNode> withParent(TNode parent) {
+    public ITreeNodeBuilder<TValue> withParent(TValue parent) {
         return null;
     }
 
     @Override
-    public ITreeNodeBuilder<TNode> withChild(TNode child) {
+    public ITreeNodeBuilder<TValue> withChild(TValue child) {
         return null;
     }
 
     @Override
-    public ITreeNode<TNode> build() {
+    public ITreeNode<TValue> build() {
         return null;
     }
 }

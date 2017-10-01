@@ -13,7 +13,7 @@ public class TreeNodeBuilderFactory implements ITreeNodeBuilderFactory {
     }
 
     @Override
-    public <TNode extends Comparable<TNode>> ITreeNodeBuilder<TNode> newTreeNodeBuilder() {
+    public <TValue extends Comparable<TValue>> ITreeNodeBuilder<TValue> newTreeNodeBuilder() {
         return new TreeNodeBuilder<>();
     }
 }
