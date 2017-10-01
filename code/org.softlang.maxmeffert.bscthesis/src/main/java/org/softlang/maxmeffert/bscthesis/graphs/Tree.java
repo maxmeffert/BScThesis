@@ -60,7 +60,7 @@ public class Tree<TValue extends Comparable<TValue>> implements ITree<TValue> {
 
     @Override
     public Iterable<TValue> getNodes() {
-        return null;
+        return nodes.keySet();
     }
 
     @Override
