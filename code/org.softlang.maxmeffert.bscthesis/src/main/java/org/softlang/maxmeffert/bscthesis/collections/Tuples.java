@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.tuples;
+package org.softlang.maxmeffert.bscthesis.collections;
 
 public class Tuples implements ITuples {
     @Override

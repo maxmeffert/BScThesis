@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.relations;
 
 
-import org.softlang.maxmeffert.bscthesis.tuples.IPair;
+import org.softlang.maxmeffert.bscthesis.collections.IPair;
 
 public class HomogeneousBinaryRelation<T extends Comparable<T>> implements IHomogeneousBinaryRelation<T> {
 

@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.graphs.old;
 
 
-import org.softlang.maxmeffert.bscthesis.tuples.IPair;
+import org.softlang.maxmeffert.bscthesis.collections.IPair;
 
 public interface IGraphBuilder<T extends Comparable<T>, G extends IGraph<T>> {
 

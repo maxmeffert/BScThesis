@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.tuples;
+package org.softlang.maxmeffert.bscthesis.collections;
 
 public class Pair<TFirst extends Comparable<TFirst>, TSecond extends Comparable<TSecond>> implements IPair<TFirst, TSecond> {
 

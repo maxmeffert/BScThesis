@@ -26,8 +26,8 @@ import org.softlang.maxmeffert.bscthesis.texts.providers.ITextProviderFactory;
 import org.softlang.maxmeffert.bscthesis.texts.providers.TextProviderFactory;
 import org.softlang.maxmeffert.bscthesis.texts.sources.*;
 import org.softlang.maxmeffert.bscthesis.graphs.oldtrees.*;
-import org.softlang.maxmeffert.bscthesis.tuples.ITuples;
-import org.softlang.maxmeffert.bscthesis.tuples.Tuples;
+import org.softlang.maxmeffert.bscthesis.collections.ITuples;
+import org.softlang.maxmeffert.bscthesis.collections.Tuples;
 
 public class IoCGuiceModule extends AbstractModule {
     @Override

@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.graphs.old;
 
-import org.softlang.maxmeffert.bscthesis.tuples.IPair;
+import org.softlang.maxmeffert.bscthesis.collections.IPair;
 
 import java.util.Optional;
 import java.util.Set;
