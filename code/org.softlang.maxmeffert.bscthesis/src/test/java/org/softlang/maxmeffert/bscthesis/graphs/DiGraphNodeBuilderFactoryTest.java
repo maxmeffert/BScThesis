@@ -50,9 +50,6 @@ class DiGraphNodeBuilderFactoryTest {
 
         verify(collectionFactory, times(2)).newSortedMap();
 
-        assertNull(instance.getValue());
-        assertSame(sourceEdges, instance.getSouceEdges());
-        assertSame(targetEdges, instance.getTargetEdges());
     }
 
 

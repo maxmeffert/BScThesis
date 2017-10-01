@@ -1,39 +1,41 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
+import com.google.common.collect.Iterables;
 import org.softlang.maxmeffert.bscthesis.collections.IPair;
 
-import java.util.Map;
+import java.util.Collections;
 import java.util.Optional;
 
-public class TreeNode<TNode extends Comparable<TNode>, TEdge extends Comparable<TEdge>> implements ITreeNode<TNode,TEdge> {
+public class TreeNode<TNode extends Comparable<TNode>> implements ITreeNode<TNode> {
 
-    private final TNode value;
-    private final Optional<IPair<TNode,TEdge>> parentEdge;
-    private final Iterable<IPair<TNode,TEdge>> childEdges;
 
-    public TreeNode(TNode value, Optional<IPair<TNode, TEdge>> parentEdge, Iterable<IPair<TNode, TEdge>> childEdges) {
-        this.value = value;
-        this.parentEdge = parentEdge;
-        this.childEdges = childEdges;
+    @Override
+    public boolean isRoot() {
+        return false;
     }
 
     @Override
-    public Optional<TNode> getParentNode() {
-        return Optional.empty();
+    public boolean isLeaf() {
+        return false;
     }
 
     @Override
-    public Iterable<TNode> getChildNodes() {
+    public boolean hasParent() {
+        return false;
+    }
+
+    @Override
+    public boolean hasChildren() {
+        return false;
+    }
+
+    @Override
+    public Optional<TNode> getParent() {
         return null;
     }
 
     @Override
-    public Optional<IPair<TNode, TEdge>> getParentEdge() {
-        return parentEdge;
-    }
-
-    @Override
-    public Iterable<IPair<TNode, TEdge>> getChildEdges() {
+    public Iterable<TNode> getChildren() {
         return null;
     }
 
@@ -48,16 +50,6 @@ public class TreeNode<TNode extends Comparable<TNode>, TEdge extends Comparable<
     }
 
     @Override
-    public Map<TNode, TEdge> getSourceEdges() {
-        return null;
-    }
-
-    @Override
-    public Map<TNode, TEdge> getTargetEdges() {
-        return null;
-    }
-
-    @Override
     public TNode getValue() {
         return null;
     }
@@ -68,12 +60,7 @@ public class TreeNode<TNode extends Comparable<TNode>, TEdge extends Comparable<
     }
 
     @Override
-    public Map<TNode, TEdge> getAdjacentEdges() {
-        return null;
-    }
-
-    @Override
-    public int compareTo(IGraphNode<TNode, TEdge> tNodeTEdgeIGraphNode) {
+    public int compareTo(IGraphNode<TNode> tNodeIGraphNode) {
         return 0;
     }
 }

@@ -1,53 +1,44 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import java.util.SortedMap;
+import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.collections.IPair;
 
-public class DiGraphNodeBuilder<TNode extends Comparable<TNode>, TEdge extends Comparable<TEdge>> implements IDiGraphNodeBuilder<TNode, TEdge> {
+import java.util.SortedSet;
 
+public class DiGraphNodeBuilder<TNode extends Comparable<TNode>> implements IDiGraphNodeBuilder<TNode> {
+
+    private final ICollectionFactory collectionFactory;
     private final TNode value;
-    private final SortedMap<TNode,TEdge> sourceEdges;
-    private final SortedMap<TNode,TEdge> targetEdges;
+    private final SortedSet<TNode> sourceNodes;
+    private final SortedSet<TNode> targetNodes;
 
-    public DiGraphNodeBuilder(TNode value, SortedMap<TNode, TEdge> sourceEdges, SortedMap<TNode, TEdge> targetEdges) {
+
+    public DiGraphNodeBuilder(ICollectionFactory collectionFactory, TNode value, SortedSet<TNode> sourceNodes, SortedSet<TNode> targetNodes) {
+        this.collectionFactory = collectionFactory;
         this.value = value;
-        this.sourceEdges = sourceEdges;
-        this.targetEdges = targetEdges;
+        this.sourceNodes = sourceNodes;
+        this.targetNodes = targetNodes;
     }
 
     @Override
-    public TNode getValue() {
-        return value;
+    public IDiGraphNodeBuilder<TNode> withValue(TNode value) {
+        return new DiGraphNodeBuilder<>(collectionFactory, value, sourceNodes, targetNodes);
     }
 
     @Override
-    public SortedMap<TNode, TEdge> getSouceEdges() {
-        return sourceEdges;
+    public IDiGraphNodeBuilder<TNode> withSource(TNode source) {
+        sourceNodes.add(source);
+        return new DiGraphNodeBuilder<>(collectionFactory, value, sourceNodes, targetNodes);
     }
 
     @Override
-    public SortedMap<TNode, TEdge> getTargetEdges() {
-        return targetEdges;
+    public IDiGraphNodeBuilder<TNode> withTarget(TNode target) {
+        targetNodes.add(target);
+        return new DiGraphNodeBuilder<>(collectionFactory, value, sourceNodes, targetNodes);
     }
 
     @Override
-    public IDiGraphNodeBuilder<TNode, TEdge> withValue(TNode value) {
-        return new DiGraphNodeBuilder<>(value, sourceEdges, targetEdges);
-    }
-
-    @Override
-    public IDiGraphNodeBuilder<TNode, TEdge> withSourceEdge(TNode source, TEdge edgeValue) {
-        sourceEdges.put(source, edgeValue);
-        return new DiGraphNodeBuilder<>(value, sourceEdges, targetEdges);
-    }
-
-    @Override
-    public IDiGraphNodeBuilder<TNode, TEdge> withTargetEdge(TNode target, TEdge edgeValue) {
-        targetEdges.put(target, edgeValue);
-        return new DiGraphNodeBuilder<>(value, sourceEdges, targetEdges);
-    }
-
-    @Override
-    public IDiGraphNode<TNode, TEdge> build() {
-        return new DiGraphNode<>(value, sourceEdges, targetEdges);
+    public IDiGraphNode<TNode> build() {
+        return new DiGraphNode<>(value, sourceNodes, targetNodes);
     }
 }

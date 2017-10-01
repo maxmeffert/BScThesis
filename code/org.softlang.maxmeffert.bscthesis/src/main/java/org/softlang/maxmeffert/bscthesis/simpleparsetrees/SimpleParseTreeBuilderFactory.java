@@ -14,6 +14,6 @@ public class SimpleParseTreeBuilderFactory implements ISimpleParseTreeBuilderFac
 
     @Override
     public ISimpleParseTreeBuilder newSimpleParseTreeBuilder() {
-        return new SimpleParseTreeBuilder(treeBuilderFactory.newTreeBuilder());
+        return new SimpleParseTreeBuilder();
     }
 }

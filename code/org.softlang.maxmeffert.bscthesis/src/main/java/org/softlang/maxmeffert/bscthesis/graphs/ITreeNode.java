@@ -1,12 +1,12 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import org.softlang.maxmeffert.bscthesis.collections.IPair;
-
 import java.util.Optional;
 
-public interface ITreeNode<TNode extends Comparable<TNode>, TEdge extends Comparable<TEdge>> extends IDiGraphNode<TNode,TEdge> {
-    Optional<TNode> getParentNode();
-    Iterable<TNode> getChildNodes();
-    Optional<IPair<TNode,TEdge>> getParentEdge();
-    Iterable<IPair<TNode,TEdge>> getChildEdges();
+public interface ITreeNode<TNode extends Comparable<TNode>> extends IDiGraphNode<TNode> {
+    boolean isRoot();
+    boolean isLeaf();
+    boolean hasParent();
+    boolean hasChildren();
+    Optional<TNode> getParent();
+    Iterable<TNode> getChildren();
 }

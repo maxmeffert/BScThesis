@@ -1,6 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.collections;
 
-public interface IMapping<K,V> {
-    Iterable<K> keys();
-    V get(K key);
+public interface IMapping<TKey extends Comparable<TKey>, TValue extends Comparable<TValue>> extends Iterable<IPair<TKey,TValue>> {
+    boolean isEmpty();
+    int size();
+    Iterable<TKey> getKeys();
+    Iterable<TValue> getValues();
+    TValue getValue(TKey key);
 }

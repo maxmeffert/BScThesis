@@ -49,7 +49,7 @@ public class Analyzer implements IAnalyzer {
         IAntlrParsingConfiguration antlrParsingConfiguration = antlrParsingConfigurations.newJava8Configuration();
         IAntlrParsingResult antlrParsingResult = antlrParsingConfiguration.parse(string1);
         ISimpleParseTree simpleParseTree = simpleParseTreeFactory.newSimpleParseTree2(antlrParsingResult);
-        IGraphWalker<ITextSource,Integer> graphWalker = graphWalkerFactory.newGraphWalker();
+        IGraphWalker<ITextSource> graphWalker = graphWalkerFactory.newGraphWalker();
         graphWalker.walk(simpleParseTree, simpleParseTree.getRoot(), new IGraphWalkerListener<ITextSource>() {
 
             @Override

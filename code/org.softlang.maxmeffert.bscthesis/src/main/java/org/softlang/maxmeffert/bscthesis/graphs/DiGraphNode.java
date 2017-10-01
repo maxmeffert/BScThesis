@@ -1,45 +1,32 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
 import com.google.common.collect.Iterables;
-import com.google.common.collect.Maps;
+import org.softlang.maxmeffert.bscthesis.collections.IPair;
 
-import java.util.Collections;
-import java.util.Map;
-import java.util.SortedMap;
+import java.util.SortedSet;
 
-public class DiGraphNode<TNode extends Comparable<TNode>,TEdge extends Comparable<TEdge>> implements IDiGraphNode<TNode,TEdge> {
+public class DiGraphNode<TNode extends Comparable<TNode>> implements IDiGraphNode<TNode> {
 
     private final TNode value;
-    private final SortedMap<TNode,TEdge> sourceEdges;
-    private final SortedMap<TNode,TEdge> targetEdges;
+    private final SortedSet<TNode> sourceNodes;
+    private final SortedSet<TNode> targetNodes;
 
-    public DiGraphNode(TNode value, SortedMap<TNode, TEdge> sourceEdges, SortedMap<TNode, TEdge> targetEdges) {
+
+    public DiGraphNode(TNode value, SortedSet<TNode> sourceNodes, SortedSet<TNode> targetNodes) {
         this.value = value;
-        this.sourceEdges = sourceEdges;
-        this.targetEdges = targetEdges;
+        this.sourceNodes = sourceNodes;
+        this.targetNodes = targetNodes;
     }
-
 
     @Override
     public Iterable<TNode> getSourceNodes() {
-        return sourceEdges.keySet();
+        return sourceNodes;
     }
 
     @Override
     public Iterable<TNode> getTargetNodes() {
-        return targetEdges.keySet();
+        return targetNodes;
     }
-
-    @Override
-    public Map<TNode, TEdge> getSourceEdges() {
-        return Collections.unmodifiableMap(sourceEdges);
-    }
-
-    @Override
-    public Map<TNode, TEdge> getTargetEdges() {
-        return Collections.unmodifiableMap(targetEdges);
-    }
-
 
     @Override
     public TNode getValue() {
@@ -48,20 +35,11 @@ public class DiGraphNode<TNode extends Comparable<TNode>,TEdge extends Comparabl
 
     @Override
     public Iterable<TNode> getAdjacentNodes() {
-        return Iterables.concat(getSourceNodes(), getTargetNodes());
+        return Iterables.concat(sourceNodes, targetNodes);
     }
 
     @Override
-    public Map<TNode, TEdge> getAdjacentEdges() {
-        Map<TNode,TEdge> map = Maps.newTreeMap();
-        map.putAll(getSourceEdges());
-        map.putAll(getTargetEdges());
-        return map;
-    }
-
-
-    @Override
-    public int compareTo(IGraphNode<TNode, TEdge> graphNode) {
-        return value.compareTo(graphNode.getValue());
+    public int compareTo(IGraphNode<TNode> iGraphNode) {
+        return getValue().compareTo(iGraphNode.getValue());
     }
 }

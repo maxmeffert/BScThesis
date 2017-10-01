@@ -5,7 +5,7 @@ import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
 
 import java.util.Set;
 
-public class DepthFirstSearchGraphWalker<TNode extends Comparable<TNode>, TEdge extends Comparable<TEdge>> implements IGraphWalker<TNode,TEdge> {
+public class DepthFirstSearchGraphWalker<TNode extends Comparable<TNode>> implements IGraphWalker<TNode> {
 
     private final ICollectionFactory collectionFactory;
 
@@ -13,7 +13,7 @@ public class DepthFirstSearchGraphWalker<TNode extends Comparable<TNode>, TEdge 
         this.collectionFactory = collectionFactory;
     }
 
-    private void walk(IGraph<TNode,TEdge> graph, TNode current, IGraphWalkerListener<TNode> graphWalkerListener, Set<TNode> discovered) {
+    private void walk(IGraph<TNode> graph, TNode current, IGraphWalkerListener<TNode> graphWalkerListener, Set<TNode> discovered) {
         discovered.add(current);
         graphWalkerListener.enter(current);
         for(TNode next : graph.getAdjacentNodesOf(current)) {
@@ -25,7 +25,7 @@ public class DepthFirstSearchGraphWalker<TNode extends Comparable<TNode>, TEdge 
     }
 
     @Override
-    public void walk(IGraph<TNode, TEdge> graph, TNode start, IGraphWalkerListener<TNode> graphWalkerListener) {
+    public void walk(IGraph<TNode> graph, TNode start, IGraphWalkerListener<TNode> graphWalkerListener) {
         walk(graph, start, graphWalkerListener, collectionFactory.newSortedSet());
     }
 }

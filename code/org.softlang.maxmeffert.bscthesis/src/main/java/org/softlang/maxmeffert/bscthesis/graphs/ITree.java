@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.graphs;
 
 import java.util.Optional;
 
-public interface ITree<TNode extends Comparable<TNode>, TEdge extends Comparable<TEdge>> extends IDiGraph<TNode,TEdge> {
+public interface ITree<TNode extends Comparable<TNode>> extends IDiGraph<TNode> {
 
     TNode getRoot();
 

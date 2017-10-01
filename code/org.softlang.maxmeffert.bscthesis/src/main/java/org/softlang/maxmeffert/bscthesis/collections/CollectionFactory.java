@@ -3,6 +3,7 @@ package org.softlang.maxmeffert.bscthesis.collections;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.SortedSet;
 
@@ -16,6 +17,11 @@ public class CollectionFactory implements ICollectionFactory {
     @Override
     public <K extends Comparable<K>, V> SortedMap<K, V> newSortedMap() {
         return Maps.newTreeMap();
+    }
+
+    @Override
+    public <TKey extends Comparable<TKey>, TValue extends Comparable<TValue>> IMapping<TKey, TValue> newMapping(Map<TKey, TValue> map) {
+        return null;
     }
 
     @Override

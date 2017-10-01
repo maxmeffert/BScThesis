@@ -1,13 +1,10 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import com.google.common.collect.Iterables;
+import org.softlang.maxmeffert.bscthesis.collections.IPair;
 
-import java.util.Map;
 import java.util.Optional;
 
-public class Tree<TNode extends Comparable<TNode>, TEdge extends Comparable<TEdge>> implements ITree<TNode, TEdge> {
-
-    private TNode root;
+public class Tree<TNode extends Comparable<TNode>> implements ITree<TNode> {
 
 
     @Override
@@ -46,16 +43,6 @@ public class Tree<TNode extends Comparable<TNode>, TEdge extends Comparable<TEdg
     }
 
     @Override
-    public Map<TNode, TEdge> getSourceEdgesOf(TNode tNode) {
-        return null;
-    }
-
-    @Override
-    public Map<TNode, TEdge> getTargetEdgesOf(TNode tNode) {
-        return null;
-    }
-
-    @Override
     public boolean isEmpty() {
         return false;
     }
@@ -72,11 +59,6 @@ public class Tree<TNode extends Comparable<TNode>, TEdge extends Comparable<TEdg
 
     @Override
     public Iterable<TNode> getAdjacentNodesOf(TNode tNode) {
-        return null;
-    }
-
-    @Override
-    public Map<TNode, TEdge> getAdjacentEdgesOf(TNode tNode) {
         return null;
     }
 }

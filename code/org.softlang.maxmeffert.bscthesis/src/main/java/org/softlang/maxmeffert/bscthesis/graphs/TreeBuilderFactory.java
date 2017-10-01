@@ -12,7 +12,7 @@ public class TreeBuilderFactory implements ITreeBuilderFactory {
     }
 
     @Override
-    public <TNode extends Comparable<TNode>, TEdge extends Comparable<TEdge>> ITreeBuilder<TNode, TEdge> newTreeBuilder() {
-        return new TreeBuilder<>(diGraphBuilderFactory.<TNode,TEdge>newDiGraphBuilder());
+    public <TNode extends Comparable<TNode>> ITreeBuilder<TNode> newTreeBuilder() {
+        return new TreeBuilder<>();
     }
 }
