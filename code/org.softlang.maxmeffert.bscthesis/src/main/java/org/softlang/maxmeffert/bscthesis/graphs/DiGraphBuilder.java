@@ -16,21 +16,37 @@ public class DiGraphBuilder<TValue extends Comparable<TValue>> implements IDiGra
         this.nodeBuilders = nodeBuilders;
     }
 
-    private IDiGraphNodeBuilder<TValue> newBuilder(TValue node) {
+    private IDiGraphNodeBuilder<TValue> newDiGraphNodeBuilder(TValue node) {
         return diGraphNodeBuilderFactory.<TValue>newDiGraphNodeBuilder().withValue(node);
     }
 
-    private IDiGraphNodeBuilder<TValue> getBuilder(TValue node) {
-        if (!nodeBuilders.containsKey(node)) {
-            nodeBuilders.put(node, newBuilder(node));
+    private void putDiGraphNodeBuilder(TValue value, IDiGraphNodeBuilder<TValue> diGraphNodeBuilder) {
+        nodeBuilders.put(value, diGraphNodeBuilder);
+    }
+
+    private IDiGraphNodeBuilder<TValue> getDiGraphNodeBuilder(TValue node) {
+        if (!hasDiGraphNodeBuilder(node)) {
+            putDiGraphNodeBuilder(node, newDiGraphNodeBuilder(node));
         }
         return nodeBuilders.get(node);
     }
 
+    private boolean hasDiGraphNodeBuilder(TValue node) {
+        return nodeBuilders.containsKey(node);
+    }
+
+    private void updateDiGraphNodeBuilderSource(TValue value, TValue source) {
+        putDiGraphNodeBuilder(value, getDiGraphNodeBuilder(value).withSource(source));
+    }
+
+    private void updateDiGraphNodeBuilderTarget(TValue value, TValue target) {
+        putDiGraphNodeBuilder(value, getDiGraphNodeBuilder(value).withTarget(target));
+    }
+
     @Override
     public IDiGraphBuilder<TValue> withEdge(TValue node1, TValue node2) {
-        getBuilder(node1).withTarget(node2);
-        getBuilder(node2).withSource(node1);
+        updateDiGraphNodeBuilderTarget(node1, node2);
+        updateDiGraphNodeBuilderSource(node2, node1);
         return this;
     }
 

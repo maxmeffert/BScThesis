@@ -14,6 +14,6 @@ public class TreeNodeBuilderFactory implements ITreeNodeBuilderFactory {
 
     @Override
     public <TValue extends Comparable<TValue>> ITreeNodeBuilder<TValue> newTreeNodeBuilder() {
-        return new TreeNodeBuilder<>();
+        return new TreeNodeBuilder<TValue>(null, null, collectionFactory.newSortedSet());
     }
 }

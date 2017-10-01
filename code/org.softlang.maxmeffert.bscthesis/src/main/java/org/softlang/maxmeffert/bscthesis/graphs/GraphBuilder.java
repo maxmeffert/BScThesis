@@ -21,16 +21,28 @@ public class GraphBuilder<TValue extends Comparable<TValue>> implements IGraphBu
     }
 
     private IGraphNodeBuilder<TValue> getGraphNodeBuilder(TValue value) {
-        if (!nodeBuilders.containsKey(value)) {
-            nodeBuilders.put(value, newGraphNodeBuilder(value));
+        if (!containsGraphNodeBuilder(value)) {
+            putGraphNodeBuilder(value,newGraphNodeBuilder(value));
         }
         return nodeBuilders.get(value);
     }
 
+    private void putGraphNodeBuilder(TValue value, IGraphNodeBuilder<TValue> graphNodeBuilder) {
+        nodeBuilders.put(value, graphNodeBuilder);
+    }
+
+    private boolean containsGraphNodeBuilder(TValue value) {
+        return nodeBuilders.containsKey(value);
+    }
+
+    private void updateGraphNodeBuilderAdjacentNode(TValue value, TValue adjacentNode) {
+        putGraphNodeBuilder(value, getGraphNodeBuilder(value).withAdjacentNode(adjacentNode));
+    }
+
     @Override
     public IGraphBuilder<TValue> withEdge(TValue node1, TValue node2) {
-        getGraphNodeBuilder(node1).withAdjacentNode(node2);
-        getGraphNodeBuilder(node2).withAdjacentNode(node1);
+        updateGraphNodeBuilderAdjacentNode(node1, node2);
+        updateGraphNodeBuilderAdjacentNode(node2, node1);
         return new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
     }
 
