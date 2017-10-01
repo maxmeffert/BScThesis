@@ -1,11 +1,13 @@
 package org.softlang.maxmeffert.bscthesis.correspondences;
 
+import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.fragments.IFragment;
 
 public class CorrespondenceFactory implements ICorrespondenceFactory {
 
     private final ICorrespondenceBuilderFactory correspondenceBuilderFactory;
 
+    @Inject
     public CorrespondenceFactory(ICorrespondenceBuilderFactory correspondenceBuilderFactory) {
         this.correspondenceBuilderFactory = correspondenceBuilderFactory;
     }

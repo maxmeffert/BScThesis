@@ -38,14 +38,28 @@ import org.softlang.maxmeffert.bscthesis.tuples.Tuples;
 public class IoCGuiceModule extends AbstractModule {
     @Override
     protected void configure() {
-        bind(ICollectionFactory.class).to(CollectionFactory.class);
+        configureAnalyzer();
+        configureAntlr();
+        configureArtifacts();
+        configureCollections();
+        configureConformances();
+        configureCorrespondences();
+        configureFragments();
+        configureGraphs();
+        configureLanguages();
+        configureMereologies();
+        configureRelations();
+        configureSimpleParseTrees();
+        configureTexts();
+        configureTuples();
+        configureUtils();
+    }
 
-        bind(IDiGraphBuilderFactory.class).to(DiGraphBuilderFactory.class);
-        bind(IDiGraphNodeBuilderFactory.class).to(DiGraphNodeBuilderFactory.class);
-        bind(IGraphWalkerFactory.class).to(GraphWalkerFactory.class);
+    private void configureAnalyzer() {
+        bind(IAnalyzer.class).to(Analyzer.class);
+    }
 
-        bind(ITuples.class).to(Tuples.class);
-
+    private void configureAntlr() {
         bind(IAntlrCharStreamFactory.class).to(AntlrCharStreamFactory.class);
         bind(IAntlrIntervalFactory.class).to(AntlrIntervalFactory.class);
         bind(IAntlrTokenStreamFactory.class).to(AntlrCommonTokenStreamFactory.class);
@@ -53,25 +67,70 @@ public class IoCGuiceModule extends AbstractModule {
         bind(IAntlrConfigurationFactory.class).to(AntlrConfigurationFactory.class);
 
         bind(IAntlrParsingConfigurations.class).to(AntlrParsingConfigurations.class);
+    }
 
+    private void configureArtifacts() {
+        bind(IArtifactFactory.class).to(ArtifactFactory.class);
+    }
+
+    private void configureCollections() {
+        bind(ICollectionFactory.class).to(CollectionFactory.class);
+    }
+
+    private void configureConformances() {
+
+    }
+
+    private void configureCorrespondences() {
+        bind(ICorrespondenceBuilderFactory.class).to(CorrespondenceBuilderFactory.class);
+        bind(ICorrespondenceFactory.class).to(CorrespondenceFactory.class);
+    }
+
+    private void configureFragments() {
+
+    }
+
+    private void configureGraphs() {
+        bind(IDiGraphBuilderFactory.class).to(DiGraphBuilderFactory.class);
+        bind(IDiGraphNodeBuilderFactory.class).to(DiGraphNodeBuilderFactory.class);
+        bind(IGraphWalkerFactory.class).to(GraphWalkerFactory.class);
+
+        bind(ITreeFactory.class).to(TreeFactory.class);
+        bind(ITreeWalkerFactory.class).to(TreeWalkerFactory.class);
+        bind(ITreeMapperFactory.class).to(TreeMapperFactory.class);
+    }
+
+    private void configureLanguages() {
+
+    }
+
+    private void configureMereologies() {
+
+    }
+
+    private void configureRelations() {
+
+    }
+
+    private void configureSimpleParseTrees() {
+        bind(ISimpleParseTreeNormalizerFactory.class).to(SimpleParseTreeNormalizerFactory.class);
+        bind(ISimpleParseTreeFactory.class).to(SimpleParseTreeFactory.class);
+    }
+
+    private void configureTexts() {
         bind(ITextIntervalFactory.class).to(TextIntervalFactory.class);
         bind(ITextIntervalConverterFactory.class).to(TextIntervalConverterFactory.class);
         bind(ITextProviderFactory.class).to(TextProviderFactory.class);
         bind(ITextSourceBuilderFactory.class).to(TextSourceBuilderFactory.class);
         bind(ITextSourceFactory.class).to(TextSourceFactory.class);
-
-        bind(ITreeFactory.class).to(TreeFactory.class);
-        bind(ITreeWalkerFactory.class).to(TreeWalkerFactory.class);
-        bind(ITreeMapperFactory.class).to(TreeMapperFactory.class);
-
-        bind(ISimpleParseTreeNormalizerFactory.class).to(SimpleParseTreeNormalizerFactory.class);
-        bind(ISimpleParseTreeFactory.class).to(SimpleParseTreeFactory.class);
-
-        bind(IArtifactFactory.class).to(ArtifactFactory.class);
-
-        bind(IAnalyzer.class).to(Analyzer.class);
-
-        bind(ICorrespondenceBuilderFactory.class).to(CorrespondenceBuilderFactory.class);
-        bind(ICorrespondenceFactory.class).to(CorrespondenceFactory.class);
     }
+
+    private void configureTuples() {
+        bind(ITuples.class).to(Tuples.class);
+    }
+
+    private void configureUtils() {
+
+    }
+
 }
