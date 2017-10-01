@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.graphs.trees;
+package org.softlang.maxmeffert.bscthesis.graphs.oldtrees;
 
 public class TreeWalker<T> implements ITreeWalker<T> {
 

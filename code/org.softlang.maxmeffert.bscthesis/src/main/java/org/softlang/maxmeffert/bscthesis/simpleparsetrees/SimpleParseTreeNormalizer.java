@@ -2,8 +2,8 @@ package org.softlang.maxmeffert.bscthesis.simpleparsetrees;
 
 import com.google.common.base.Strings;
 import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSource;
-import org.softlang.maxmeffert.bscthesis.graphs.trees.ITree;
-import org.softlang.maxmeffert.bscthesis.graphs.trees.Tree;
+import org.softlang.maxmeffert.bscthesis.graphs.oldtrees.ITree;
+import org.softlang.maxmeffert.bscthesis.graphs.oldtrees.Tree;
 
 import java.util.Collection;
 import java.util.Collections;

@@ -6,10 +6,11 @@ import org.softlang.maxmeffert.bscthesis.IAntlrParsingConfigurations;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingConfiguration;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingResult;
 import org.softlang.maxmeffert.bscthesis.correspondences.ICorrespondenceDefinition;
-import org.softlang.maxmeffert.bscthesis.graphs.trees.ITree;
-import org.softlang.maxmeffert.bscthesis.graphs.trees.ITreeWalker;
-import org.softlang.maxmeffert.bscthesis.graphs.trees.ITreeWalkerFactory;
-import org.softlang.maxmeffert.bscthesis.graphs.trees.ITreeWalkerListener;
+import org.softlang.maxmeffert.bscthesis.graphs.oldtrees.ITreeWalkerFactory;
+import org.softlang.maxmeffert.bscthesis.graphs.walkers.IGraphWalker;
+import org.softlang.maxmeffert.bscthesis.graphs.walkers.IGraphWalkerFactory;
+import org.softlang.maxmeffert.bscthesis.graphs.walkers.IGraphWalkerListener;
+import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTree;
 import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeFactory;
 import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSource;
 
@@ -21,14 +22,16 @@ public class Analyzer implements IAnalyzer {
     private final IAntlrParsingConfigurations antlrParsingConfigurations;
     private final ISimpleParseTreeFactory simpleParseTreeFactory;
     private final ITreeWalkerFactory treeWalkerFactory;
+    private final IGraphWalkerFactory graphWalkerFactory;
 
     private final Collection<ICorrespondenceDefinition> correspondenceDefinitions = Lists.newLinkedList();
 
     @Inject
-    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, ISimpleParseTreeFactory simpleParseTreeFactory, ITreeWalkerFactory treeWalkerFactory) {
+    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, ISimpleParseTreeFactory simpleParseTreeFactory, ITreeWalkerFactory treeWalkerFactory, IGraphWalkerFactory graphWalkerFactory) {
         this.antlrParsingConfigurations = antlrParsingConfigurations;
         this.simpleParseTreeFactory = simpleParseTreeFactory;
         this.treeWalkerFactory = treeWalkerFactory;
+        this.graphWalkerFactory = graphWalkerFactory;
     }
 
     @Override
@@ -45,18 +48,32 @@ public class Analyzer implements IAnalyzer {
     public void findCorrespondences(String string1, String string2) {
         IAntlrParsingConfiguration antlrParsingConfiguration = antlrParsingConfigurations.newJava8Configuration();
         IAntlrParsingResult antlrParsingResult = antlrParsingConfiguration.parse(string1);
-        ITree<ITextSource> simpleParseTree = simpleParseTreeFactory.newSimpleParseTree(antlrParsingResult);
-        ITreeWalker<ITextSource> treeWalker = treeWalkerFactory.newTreeWalker();
-        treeWalker.walk(simpleParseTree, new ITreeWalkerListener<ITextSource>() {
+        ISimpleParseTree simpleParseTree = simpleParseTreeFactory.newSimpleParseTree2(antlrParsingResult);
+        IGraphWalker<ITextSource,Integer> graphWalker = graphWalkerFactory.newGraphWalker();
+        graphWalker.walk(simpleParseTree, simpleParseTree.getRoot(), new IGraphWalkerListener<ITextSource>() {
+
             @Override
-            public void enter(ITree<ITextSource> tree) {
-                System.out.println(tree);
+            public void enter(ITextSource iTextSource) {
+                System.out.println(iTextSource);
             }
 
             @Override
-            public void exit(ITree<ITextSource> tree) {
+            public void exit(ITextSource iTextSource) {
 
             }
         });
+//        ITree<ITextSource> simpleParseTree = simpleParseTreeFactory.newSimpleParseTree(antlrParsingResult);
+//        ITreeWalker<ITextSource> treeWalker = treeWalkerFactory.newTreeWalker();
+//        treeWalker.walk(simpleParseTree, new ITreeWalkerListener<ITextSource>() {
+//            @Override
+//            public void enter(ITree<ITextSource> tree) {
+//                System.out.println(tree);
+//            }
+//
+//            @Override
+//            public void exit(ITree<ITextSource> tree) {
+//
+//            }
+//        });
     }
 }

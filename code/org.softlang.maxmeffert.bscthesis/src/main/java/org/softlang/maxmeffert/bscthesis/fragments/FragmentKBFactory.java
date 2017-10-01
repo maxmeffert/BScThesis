@@ -1,9 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.fragments;
 
 import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSource;
-import org.softlang.maxmeffert.bscthesis.graphs.trees.ITree;
-import org.softlang.maxmeffert.bscthesis.graphs.trees.ITreeWalker;
-import org.softlang.maxmeffert.bscthesis.graphs.trees.ITreeWalkerFactory;
+import org.softlang.maxmeffert.bscthesis.graphs.oldtrees.ITree;
+import org.softlang.maxmeffert.bscthesis.graphs.oldtrees.ITreeWalker;
+import org.softlang.maxmeffert.bscthesis.graphs.oldtrees.ITreeWalkerFactory;
 
 public class FragmentKBFactory implements IFragmentKBFactory {
 

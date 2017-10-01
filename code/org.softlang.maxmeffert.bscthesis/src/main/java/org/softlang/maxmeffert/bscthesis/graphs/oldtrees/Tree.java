@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.graphs.trees;
+package org.softlang.maxmeffert.bscthesis.graphs.oldtrees;
 
 import com.google.common.collect.Lists;
 

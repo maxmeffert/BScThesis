@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.graphs.trees;
+package org.softlang.maxmeffert.bscthesis.graphs.oldtrees;
 
 public interface ITreeFactory {
     <T> ITree<T> newTree();

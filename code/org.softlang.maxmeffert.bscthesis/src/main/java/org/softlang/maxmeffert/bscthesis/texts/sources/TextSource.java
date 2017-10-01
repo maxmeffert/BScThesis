@@ -32,4 +32,9 @@ public class TextSource implements ITextSource {
     public String toString() {
         return getText();
     }
+
+    @Override
+    public int compareTo(ITextSource iTextSource) {
+        return getText().compareTo(iTextSource.getText());
+    }
 }
