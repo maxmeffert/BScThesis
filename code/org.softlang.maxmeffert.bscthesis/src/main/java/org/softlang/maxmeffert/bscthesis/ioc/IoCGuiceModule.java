@@ -10,6 +10,8 @@ import org.softlang.maxmeffert.bscthesis.artifacts.ArtifactFactory;
 import org.softlang.maxmeffert.bscthesis.artifacts.IArtifactFactory;
 import org.softlang.maxmeffert.bscthesis.collections.CollectionFactory;
 import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.collections.ITuples;
+import org.softlang.maxmeffert.bscthesis.collections.Tuples;
 import org.softlang.maxmeffert.bscthesis.correspondences.CorrespondenceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.correspondences.CorrespondenceFactory;
 import org.softlang.maxmeffert.bscthesis.correspondences.ICorrespondenceBuilderFactory;
@@ -24,10 +26,10 @@ import org.softlang.maxmeffert.bscthesis.texts.intervals.TextIntervalConverterFa
 import org.softlang.maxmeffert.bscthesis.texts.intervals.TextIntervalFactory;
 import org.softlang.maxmeffert.bscthesis.texts.providers.ITextProviderFactory;
 import org.softlang.maxmeffert.bscthesis.texts.providers.TextProviderFactory;
-import org.softlang.maxmeffert.bscthesis.texts.sources.*;
-import org.softlang.maxmeffert.bscthesis.graphs.oldtrees.*;
-import org.softlang.maxmeffert.bscthesis.collections.ITuples;
-import org.softlang.maxmeffert.bscthesis.collections.Tuples;
+import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSourceBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSourceFactory;
+import org.softlang.maxmeffert.bscthesis.texts.sources.TextSourceBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.texts.sources.TextSourceFactory;
 
 public class IoCGuiceModule extends AbstractModule {
     @Override
@@ -85,14 +87,16 @@ public class IoCGuiceModule extends AbstractModule {
     }
 
     private void configureGraphs() {
+        bind(IGraphBuilderFactory.class).to(GraphBuilderFactory.class);
+        bind(IGraphNodeBuilderFactory.class).to(GraphNodeBuilderFactory.class);
+
         bind(IDiGraphBuilderFactory.class).to(DiGraphBuilderFactory.class);
         bind(IDiGraphNodeBuilderFactory.class).to(DiGraphNodeBuilderFactory.class);
-        bind(IGraphWalkerFactory.class).to(GraphWalkerFactory.class);
 
-        bind(ITreeFactory.class).to(TreeFactory.class);
+        bind(ITreeNodeBuilderFactory.class).to(TreeNodeBuilderFactory.class);
         bind(ITreeBuilderFactory.class).to(TreeBuilderFactory.class);
-        bind(ITreeWalkerFactory.class).to(TreeWalkerFactory.class);
-        bind(ITreeMapperFactory.class).to(TreeMapperFactory.class);
+
+        bind(IGraphWalkerFactory.class).to(GraphWalkerFactory.class);
     }
 
     private void configureLanguages() {

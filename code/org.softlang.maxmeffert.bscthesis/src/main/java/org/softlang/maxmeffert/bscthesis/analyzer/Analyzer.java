@@ -6,7 +6,6 @@ import org.softlang.maxmeffert.bscthesis.IAntlrParsingConfigurations;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingConfiguration;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingResult;
 import org.softlang.maxmeffert.bscthesis.correspondences.ICorrespondenceDefinition;
-import org.softlang.maxmeffert.bscthesis.graphs.oldtrees.ITreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.graphs.walkers.IGraphWalker;
 import org.softlang.maxmeffert.bscthesis.graphs.walkers.IGraphWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.graphs.walkers.IGraphWalkerListener;
@@ -21,16 +20,14 @@ public class Analyzer implements IAnalyzer {
 
     private final IAntlrParsingConfigurations antlrParsingConfigurations;
     private final ISimpleParseTreeFactory simpleParseTreeFactory;
-    private final ITreeWalkerFactory treeWalkerFactory;
     private final IGraphWalkerFactory graphWalkerFactory;
 
     private final Collection<ICorrespondenceDefinition> correspondenceDefinitions = Lists.newLinkedList();
 
     @Inject
-    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, ISimpleParseTreeFactory simpleParseTreeFactory, ITreeWalkerFactory treeWalkerFactory, IGraphWalkerFactory graphWalkerFactory) {
+    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, ISimpleParseTreeFactory simpleParseTreeFactory, IGraphWalkerFactory graphWalkerFactory) {
         this.antlrParsingConfigurations = antlrParsingConfigurations;
         this.simpleParseTreeFactory = simpleParseTreeFactory;
-        this.treeWalkerFactory = treeWalkerFactory;
         this.graphWalkerFactory = graphWalkerFactory;
     }
 
