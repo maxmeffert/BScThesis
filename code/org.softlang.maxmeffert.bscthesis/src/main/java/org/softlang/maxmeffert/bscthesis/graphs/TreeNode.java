@@ -1,13 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import com.google.common.collect.Iterables;
-import org.softlang.maxmeffert.bscthesis.collections.IPair;
-
-import java.util.Collections;
 import java.util.Optional;
 
 public class TreeNode<TNode extends Comparable<TNode>> implements ITreeNode<TNode> {
-
 
     @Override
     public boolean isRoot() {
