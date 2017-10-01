@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.graphs;
+package org.softlang.maxmeffert.bscthesis.collections;
 
 public interface IMapping<K,V> {
     Iterable<K> keys();
