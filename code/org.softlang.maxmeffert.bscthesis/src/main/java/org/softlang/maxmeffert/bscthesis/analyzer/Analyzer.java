@@ -1,17 +1,20 @@
 package org.softlang.maxmeffert.bscthesis.analyzer;
 
+import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.IAntlrParsingConfigurations;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingConfiguration;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingResult;
+import org.softlang.maxmeffert.bscthesis.correspondences.ICorrespondenceDefinition;
 import org.softlang.maxmeffert.bscthesis.graphs.trees.ITree;
 import org.softlang.maxmeffert.bscthesis.graphs.trees.ITreeWalker;
 import org.softlang.maxmeffert.bscthesis.graphs.trees.ITreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.graphs.trees.ITreeWalkerListener;
 import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeFactory;
-import org.softlang.maxmeffert.bscthesis.text.sources.ITextSource;
+import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSource;
 
 import java.io.File;
+import java.util.Collection;
 
 public class Analyzer implements IAnalyzer {
 
@@ -19,11 +22,18 @@ public class Analyzer implements IAnalyzer {
     private final ISimpleParseTreeFactory simpleParseTreeFactory;
     private final ITreeWalkerFactory treeWalkerFactory;
 
+    private final Collection<ICorrespondenceDefinition> correspondenceDefinitions = Lists.newLinkedList();
+
     @Inject
     public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, ISimpleParseTreeFactory simpleParseTreeFactory, ITreeWalkerFactory treeWalkerFactory) {
         this.antlrParsingConfigurations = antlrParsingConfigurations;
         this.simpleParseTreeFactory = simpleParseTreeFactory;
         this.treeWalkerFactory = treeWalkerFactory;
+    }
+
+    @Override
+    public void addCorrespondenceDefinition(ICorrespondenceDefinition correspondenceDefinition) {
+        correspondenceDefinitions.add(correspondenceDefinition);
     }
 
     @Override
