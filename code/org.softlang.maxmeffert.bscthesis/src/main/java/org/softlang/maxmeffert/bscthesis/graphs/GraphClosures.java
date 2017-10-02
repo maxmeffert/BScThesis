@@ -52,6 +52,7 @@ public class GraphClosures implements IGraphClosures {
                 }
             }
         }
+//        System.out.println(pairs);
         return pairs;
     }
 

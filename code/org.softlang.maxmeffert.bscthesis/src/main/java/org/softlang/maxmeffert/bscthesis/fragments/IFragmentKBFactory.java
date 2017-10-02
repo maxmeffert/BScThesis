@@ -5,6 +5,6 @@ import org.softlang.maxmeffert.bscthesis.trees.ITree;
 
 public interface IFragmentKBFactory {
 
-    IFragmentKB newFragmentKB(ITree<ITextSource> simpleParseTree);
+    IFragmentKB newFragmentKB(ITree<ITextSource> parseTree);
 
 }

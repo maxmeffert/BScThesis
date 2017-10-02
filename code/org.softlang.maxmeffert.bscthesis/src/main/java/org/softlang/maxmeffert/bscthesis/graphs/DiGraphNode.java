@@ -34,7 +34,8 @@ public class DiGraphNode<TValue extends Comparable<TValue>> implements IDiGraphN
 
     @Override
     public Iterable<TValue> getAdjacentNodes() {
-        return Iterables.concat(sourceNodes, targetNodes);
+        return targetNodes;
+//        return Iterables.concat(sourceNodes, targetNodes);
     }
 
     @Override

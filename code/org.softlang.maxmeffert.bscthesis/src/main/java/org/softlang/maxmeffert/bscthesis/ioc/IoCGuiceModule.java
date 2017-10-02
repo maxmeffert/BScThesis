@@ -8,6 +8,7 @@ import org.softlang.maxmeffert.bscthesis.analyzer.IAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.antlr.*;
 import org.softlang.maxmeffert.bscthesis.artifacts.ArtifactFactory;
 import org.softlang.maxmeffert.bscthesis.artifacts.IArtifactFactory;
+import org.softlang.maxmeffert.bscthesis.fragments.*;
 import org.softlang.maxmeffert.bscthesis.utils.*;
 import org.softlang.maxmeffert.bscthesis.correspondences.CorrespondenceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.correspondences.CorrespondenceFactory;
@@ -79,7 +80,10 @@ public class IoCGuiceModule extends AbstractModule {
     }
 
     private void configureFragments() {
-
+        bind(IFragmentFactory.class).to(FragmentFactory.class);
+        bind(IFragmentBuilderFactory.class).to(FragmentBuilderFactory.class);
+        bind(IFragmentKBFactory.class).to(FragmentKBFactory.class);
+        bind(IFragmentKBBuilderFactory.class).to(FragmentKBBuilderFactory.class);
     }
 
     private void configureGraphs() {

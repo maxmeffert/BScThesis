@@ -1,7 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.fragments;
 
-import org.antlr.v4.runtime.ParserRuleContext;
+import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSource;
+import org.softlang.maxmeffert.bscthesis.trees.ITree;
 
 public interface IFragmentFactory {
-    IFragment newFragmentFromParserRuleContext(ParserRuleContext parserRuleContext);
+    IFragment newFragmentFromParserTree(ITree<ITextSource> parseTree);
 }

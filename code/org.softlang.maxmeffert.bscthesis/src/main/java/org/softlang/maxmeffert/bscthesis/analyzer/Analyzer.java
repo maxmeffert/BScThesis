@@ -5,6 +5,9 @@ import org.softlang.maxmeffert.bscthesis.IAntlrParsingConfigurations;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingConfiguration;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingResult;
 import org.softlang.maxmeffert.bscthesis.correspondences.ICorrespondenceDefinition;
+import org.softlang.maxmeffert.bscthesis.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.fragments.IFragmentKB;
+import org.softlang.maxmeffert.bscthesis.fragments.IFragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.parsetrees.IParseTreeConverter;
 import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.trees.ITree;
@@ -20,13 +23,15 @@ public class Analyzer implements IAnalyzer {
     private final IAntlrParsingConfigurations antlrParsingConfigurations;
     private final IParseTreeConverter parseTreeConverter;
     private final ITreeWalkerFactory treeWalkerFactory;
+    private final IFragmentKBFactory fragmentKBFactory;
     private final List<ICorrespondenceDefinition> correspondenceDefinitions;
 
     @Inject
-    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, IParseTreeConverter parseTreeConverter, ITreeWalkerFactory treeWalkerFactory, List<ICorrespondenceDefinition> correspondenceDefinitions) {
+    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, IParseTreeConverter parseTreeConverter, ITreeWalkerFactory treeWalkerFactory, IFragmentKBFactory fragmentKBFactory, List<ICorrespondenceDefinition> correspondenceDefinitions) {
         this.antlrParsingConfigurations = antlrParsingConfigurations;
         this.parseTreeConverter = parseTreeConverter;
         this.treeWalkerFactory = treeWalkerFactory;
+        this.fragmentKBFactory = fragmentKBFactory;
         this.correspondenceDefinitions = correspondenceDefinitions;
     }
 
@@ -48,17 +53,23 @@ public class Analyzer implements IAnalyzer {
 
         ITree<ITextSource> textSourceTree = parseTreeConverter.toTextSourceTree(antlrParsingResult);
 
-        ITreeWalker<ITextSource> treeWalker = treeWalkerFactory.newTreeWalker();
-        treeWalker.walk(textSourceTree, new ITreeWalkerListener<ITextSource>() {
-            @Override
-            public void enter(ITree<ITextSource> tree) {
-                System.out.println(tree.getValue());
-            }
+        IFragmentKB fragmentKB = fragmentKBFactory.newFragmentKB(textSourceTree);
 
-            @Override
-            public void exit(ITree<ITextSource> tree) {
+        for (IFragment fragment : fragmentKB.getFragments()) {
+            System.out.println(fragment + "\t\t\t\t\t" + fragmentKB.getFragmentsOf(fragment));
+        }
 
-            }
-        });
+//        ITreeWalker<ITextSource> treeWalker = treeWalkerFactory.newTreeWalker();
+//        treeWalker.walk(textSourceTree, new ITreeWalkerListener<ITextSource>() {
+//            @Override
+//            public void enter(ITree<ITextSource> tree) {
+//                System.out.println(tree.getValue());
+//            }
+//
+//            @Override
+//            public void exit(ITree<ITextSource> tree) {
+//
+//            }
+//        });
     }
 }
