@@ -10,8 +10,6 @@ import org.softlang.maxmeffert.bscthesis.artifacts.ArtifactFactory;
 import org.softlang.maxmeffert.bscthesis.artifacts.IArtifactFactory;
 import org.softlang.maxmeffert.bscthesis.utils.CollectionFactory;
 import org.softlang.maxmeffert.bscthesis.utils.ICollectionFactory;
-import org.softlang.maxmeffert.bscthesis.utils.ITuples;
-import org.softlang.maxmeffert.bscthesis.utils.Tuples;
 import org.softlang.maxmeffert.bscthesis.correspondences.CorrespondenceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.correspondences.CorrespondenceFactory;
 import org.softlang.maxmeffert.bscthesis.correspondences.ICorrespondenceBuilderFactory;
@@ -53,7 +51,6 @@ public class IoCGuiceModule extends AbstractModule {
         configureParseTrees();
         configureTexts();
         configureTrees();
-        configureTuples();
         configureUtils();
     }
 
@@ -126,10 +123,6 @@ public class IoCGuiceModule extends AbstractModule {
     private void configureTrees() {
         bind(ITreeFactory.class).to(TreeFactory.class);
         bind(ITreeWalkerFactory.class).to(TreeWalkerFactory.class);
-    }
-
-    private void configureTuples() {
-        bind(ITuples.class).to(Tuples.class);
     }
 
     private void configureUtils() {
