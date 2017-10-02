@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.fragments;
 
 import org.softlang.maxmeffert.bscthesis.graphs.IDiGraphBuilder;
 import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
-import org.softlang.maxmeffert.bscthesis.graphs.IGraphClosures;
+import org.softlang.maxmeffert.bscthesis.graphs.closures.IGraphClosures;
 
 public class FragmentKBBuilder implements IFragmentKBBuilder {
 

@@ -1,6 +1,8 @@
-package org.softlang.maxmeffert.bscthesis.graphs;
+package org.softlang.maxmeffert.bscthesis.graphs.closures;
 
 import com.google.inject.Inject;
+import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
+import org.softlang.maxmeffert.bscthesis.graphs.IGraphBuilders;
 import org.softlang.maxmeffert.bscthesis.graphs.traversal.walks.IGraphWalkFactory;
 import org.softlang.maxmeffert.bscthesis.utils.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.utils.IComparableUtils;

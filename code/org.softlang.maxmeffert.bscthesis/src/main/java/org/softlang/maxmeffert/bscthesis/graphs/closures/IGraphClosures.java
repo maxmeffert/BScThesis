@@ -1,4 +1,6 @@
-package org.softlang.maxmeffert.bscthesis.graphs;
+package org.softlang.maxmeffert.bscthesis.graphs.closures;
+
+import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
 
 public interface IGraphClosures {
     <TValue extends Comparable<TValue>> IGraph<TValue> reflexiveClosureOf(IGraph<TValue> graph);

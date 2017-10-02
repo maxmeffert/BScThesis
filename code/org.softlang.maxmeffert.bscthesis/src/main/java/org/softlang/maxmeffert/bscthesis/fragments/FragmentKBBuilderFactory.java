@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.fragments;
 
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.graphs.IGraphBuilders;
-import org.softlang.maxmeffert.bscthesis.graphs.IGraphClosures;
+import org.softlang.maxmeffert.bscthesis.graphs.closures.IGraphClosures;
 
 public class FragmentKBBuilderFactory implements IFragmentKBBuilderFactory {
 

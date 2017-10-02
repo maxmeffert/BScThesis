@@ -9,6 +9,8 @@ import org.softlang.maxmeffert.bscthesis.antlr.*;
 import org.softlang.maxmeffert.bscthesis.artifacts.ArtifactFactory;
 import org.softlang.maxmeffert.bscthesis.artifacts.IArtifactFactory;
 import org.softlang.maxmeffert.bscthesis.fragments.*;
+import org.softlang.maxmeffert.bscthesis.graphs.closures.GraphClosures;
+import org.softlang.maxmeffert.bscthesis.graphs.closures.IGraphClosures;
 import org.softlang.maxmeffert.bscthesis.graphs.traversal.iterators.GraphIterators;
 import org.softlang.maxmeffert.bscthesis.graphs.traversal.iterators.IGraphIterators;
 import org.softlang.maxmeffert.bscthesis.graphs.traversal.walkers.GraphWalkerFactory;

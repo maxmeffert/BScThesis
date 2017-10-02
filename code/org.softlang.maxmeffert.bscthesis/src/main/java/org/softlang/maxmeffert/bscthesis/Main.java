@@ -1,12 +1,5 @@
 package org.softlang.maxmeffert.bscthesis;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
-import org.softlang.maxmeffert.bscthesis.graphs.IGraphBuilderFactory;
-import org.softlang.maxmeffert.bscthesis.graphs.IGraphClosures;
-import org.softlang.maxmeffert.bscthesis.ioc.IoCGuiceModule;
-
 public class Main {
 
 	public static void main(String[] args) {
