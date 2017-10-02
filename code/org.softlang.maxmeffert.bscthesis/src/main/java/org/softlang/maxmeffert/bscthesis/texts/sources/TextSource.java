@@ -8,6 +8,8 @@ public class TextSource implements ITextSource {
     private final ITextInterval textInterval;
     private final ITextProvider textProvider;
 
+    private String text;
+
     public TextSource(ITextInterval textInterval, ITextProvider textProvider) {
         this.textInterval = textInterval;
         this.textProvider = textProvider;
@@ -25,16 +27,23 @@ public class TextSource implements ITextSource {
 
     @Override
     public String getText() {
-        return getTextProvider().getText(getTextInterval());
+        if (text == null) {
+            text = getTextProvider().getText(getTextInterval());
+        }
+        return text;
     }
 
     @Override
     public String toString() {
-        return getText();
+        return getTextInterval() + " | " + getText();
     }
 
     @Override
     public int compareTo(ITextSource iTextSource) {
-        return getText().compareTo(iTextSource.getText());
+        int result = getTextInterval().compareTo(iTextSource.getTextInterval());
+        if (result == 0) {
+            result = getText().compareTo(iTextSource.getText());
+        }
+        return result;
     }
 }

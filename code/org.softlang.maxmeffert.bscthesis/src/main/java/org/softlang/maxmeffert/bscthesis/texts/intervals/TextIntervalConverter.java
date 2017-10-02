@@ -20,6 +20,6 @@ public class TextIntervalConverter implements ITextIntervalConverter {
 
     @Override
     public Interval toAntlrInterval(ITextInterval textInterval) {
-        return antlrIntervalFactory.newInterval(textInterval.getStartPosition(), textInterval.getStopPosition());
+        return antlrIntervalFactory.newInterval(textInterval.getStartPosition(), textInterval.getEndPosition());
     }
 }
