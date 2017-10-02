@@ -46,19 +46,14 @@ public class ParseTreeConverter implements IParseTreeConverter {
         return newTextSourceTree(antlrParsingResult.getTokenStream(), antlrParsingResult.getParseTree());
     }
 
-    private ISimpleParseTree normalize(ISimpleParseTree simpleParseTree) {
+    private ITree<ITextSource> normalize(ITree<ITextSource> simpleParseTree) {
         ITextSourceTreeNormalizer normalizer = simpleParseTreeNormalizerFactory.newSimpleParseTreeNormalizer();
         return normalizer.normalize(simpleParseTree);
     }
 
     @Override
-    public ISimpleParseTree toTextSourceTree(ITree<ITextSource> tree) {
-        return normalize(new SimpleParseTree(tree));
-    }
-
-    @Override
-    public ISimpleParseTree toTextSourceTree(IAntlrParsingResult antlrParsingResult) {
-        return toTextSourceTree(newTextSourceTree(antlrParsingResult));
+    public ITree<ITextSource> toTextSourceTree(IAntlrParsingResult antlrParsingResult) {
+        return normalize(newTextSourceTree(antlrParsingResult));
     }
 
 

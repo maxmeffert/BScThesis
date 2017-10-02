@@ -6,7 +6,6 @@ import org.softlang.maxmeffert.bscthesis.IAntlrParsingConfigurations;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingConfiguration;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingResult;
 import org.softlang.maxmeffert.bscthesis.correspondences.ICorrespondenceDefinition;
-import org.softlang.maxmeffert.bscthesis.parsetrees.ISimpleParseTree;
 import org.softlang.maxmeffert.bscthesis.parsetrees.IParseTreeConverter;
 import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.trees.ITree;
@@ -48,7 +47,7 @@ public class Analyzer implements IAnalyzer {
         IAntlrParsingConfiguration antlrParsingConfiguration = antlrParsingConfigurations.newJava8Configuration();
         IAntlrParsingResult antlrParsingResult = antlrParsingConfiguration.parse(string1);
 
-        ISimpleParseTree simpleParseTree = simpleParseTreeFactory.toTextSourceTree(antlrParsingResult);
+        ITree<ITextSource> simpleParseTree = simpleParseTreeFactory.toTextSourceTree(antlrParsingResult);
 
         ITreeWalker<ITextSource> treeWalker = treeWalkerFactory.newTreeWalker();
         treeWalker.walk(simpleParseTree, new ITreeWalkerListener<ITextSource>() {

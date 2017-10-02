@@ -19,19 +19,15 @@ public class TextSourceTreeNormalizer implements ITextSourceTreeNormalizer {
     }
 
     @Override
-    public ISimpleParseTree normalize(ISimpleParseTree simpleParseTree) {
-        return new SimpleParseTree(normalizeTextSourceTree(simpleParseTree));
-    }
-
-    private ITree<ITextSource> normalizeTextSourceTree(ITree<ITextSource> tree) {
-        ITree<ITextSource> normalizedTree = treeFactory.newTree(tree.getValue());
-        addNormalizedChildren(tree, normalizedTree);
+    public ITree<ITextSource> normalize(ITree<ITextSource> iTextSourceITree) {
+        ITree<ITextSource> normalizedTree = treeFactory.newTree(iTextSourceITree.getValue());
+        addNormalizedChildren(iTextSourceITree, normalizedTree);
         return normalizedTree;
     }
 
     private void addNormalizedChildren(ITree<ITextSource> simpleParseTree, ITree<ITextSource> normalizedTree) {
         for(ITree<ITextSource> child : simpleParseTree.getChildren()) {
-            ITree<ITextSource> normalizedChild = normalizeTextSourceTree(child);
+            ITree<ITextSource> normalizedChild = normalize(child);
             if (hasText(normalizedChild)) {
                 normalizedTree.addChildren(getAddableChildren(simpleParseTree, normalizedChild));
             }

@@ -6,7 +6,6 @@ import org.softlang.maxmeffert.bscthesis.trees.ITree;
 
 public interface IParseTreeConverter {
 
-    ISimpleParseTree toTextSourceTree(ITree<ITextSource> tree);
-    ISimpleParseTree toTextSourceTree(IAntlrParsingResult antlrParsingResult);
+    ITree<ITextSource> toTextSourceTree(IAntlrParsingResult antlrParsingResult);
 
 }
