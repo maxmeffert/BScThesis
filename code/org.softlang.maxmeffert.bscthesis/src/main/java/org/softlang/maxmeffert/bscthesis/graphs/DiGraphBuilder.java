@@ -44,10 +44,10 @@ public class DiGraphBuilder<TValue extends Comparable<TValue>> implements IDiGra
     }
 
     @Override
-    public IDiGraphBuilder<TValue> withEdge(TValue node1, TValue node2) {
-        updateDiGraphNodeBuilderTarget(node1, node2);
-        updateDiGraphNodeBuilderSource(node2, node1);
-        return this;
+    public IDiGraphBuilder<TValue> withEdge(TValue source, TValue target) {
+        updateDiGraphNodeBuilderTarget(source, target);
+        updateDiGraphNodeBuilderSource(target, source);
+        return new DiGraphBuilder<>(diGraphNodeBuilderFactory, collectionFactory, nodeBuilders);
     }
 
     private SortedMap<TValue, IDiGraphNode<TValue>> buildNodes() {
