@@ -1,65 +1,68 @@
 package org.softlang.maxmeffert.bscthesis.simpleparsetrees;
 
-import org.softlang.maxmeffert.bscthesis.graphs.ITree;
 import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSource;
-
-import java.util.Map;
-import java.util.Optional;
+import org.softlang.maxmeffert.bscthesis.trees.ITree;
 
 public class SimpleParseTree implements ISimpleParseTree {
 
-    @Override
-    public ITextSource getRoot() {
-        return null;
+    private final ITree<ITextSource> tree;
+
+    public SimpleParseTree(ITree<ITextSource> tree) {
+        this.tree = tree;
     }
 
     @Override
-    public boolean isRoot(ITextSource iTextSource) {
-        return false;
+    public ITextSource getValue() {
+        return tree.getValue();
     }
 
     @Override
-    public boolean hasParent(ITextSource iTextSource) {
-        return false;
+    public boolean hasParent() {
+        return tree.hasParent();
     }
 
     @Override
-    public Optional<ITextSource> getParentOf(ITextSource iTextSource) {
-        return null;
+    public boolean hasParent(ITree<ITextSource> parent) {
+        return tree.hasParent(parent);
     }
 
     @Override
-    public Iterable<ITextSource> getChildrenOf(ITextSource iTextSource) {
-        return null;
+    public ITree<ITextSource> getParent() {
+        return tree.getParent();
     }
 
     @Override
-    public Iterable<ITextSource> getSourceNodesOf(ITextSource iTextSource) {
-        return null;
+    public void setParent(ITree<ITextSource> parent) {
+        tree.setParent(parent);
     }
 
     @Override
-    public Iterable<ITextSource> getTargetNodesOf(ITextSource iTextSource) {
-        return null;
+    public boolean hasChildren() {
+        return tree.hasChildren();
     }
 
     @Override
-    public boolean isEmpty() {
-        return false;
+    public boolean hasChild(ITree<ITextSource> child) {
+        return tree.hasChild(child);
     }
 
     @Override
-    public int getNodeCount() {
-        return 0;
+    public Iterable<ITree<ITextSource>> getChildren() {
+        return tree.getChildren();
     }
 
     @Override
-    public Iterable<ITextSource> getNodes() {
-        return null;
+    public void addChild(ITree<ITextSource> child) {
+        tree.addChild(child);
     }
 
     @Override
-    public Iterable<ITextSource> getAdjacentNodesOf(ITextSource iTextSource) {
-        return null;
+    public void addChildren(Iterable<ITree<ITextSource>> children) {
+        tree.addChildren(children);
+    }
+
+    @Override
+    public int compareTo(ITree<ITextSource> iTextSourceITree) {
+        return tree.compareTo(iTextSourceITree);
     }
 }

@@ -6,12 +6,14 @@ import org.softlang.maxmeffert.bscthesis.IAntlrParsingConfigurations;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingConfiguration;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingResult;
 import org.softlang.maxmeffert.bscthesis.correspondences.ICorrespondenceDefinition;
-import org.softlang.maxmeffert.bscthesis.graphs.walkers.IGraphWalker;
 import org.softlang.maxmeffert.bscthesis.graphs.walkers.IGraphWalkerFactory;
-import org.softlang.maxmeffert.bscthesis.graphs.walkers.IGraphWalkerListener;
 import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTree;
 import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeFactory;
 import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSource;
+import org.softlang.maxmeffert.bscthesis.trees.ITree;
+import org.softlang.maxmeffert.bscthesis.trees.ITreeWalker;
+import org.softlang.maxmeffert.bscthesis.trees.ITreeWalkerFactory;
+import org.softlang.maxmeffert.bscthesis.trees.ITreeWalkerListener;
 
 import java.io.File;
 import java.util.Collection;
@@ -20,15 +22,15 @@ public class Analyzer implements IAnalyzer {
 
     private final IAntlrParsingConfigurations antlrParsingConfigurations;
     private final ISimpleParseTreeFactory simpleParseTreeFactory;
-    private final IGraphWalkerFactory graphWalkerFactory;
+    private final ITreeWalkerFactory treeWalkerFactory;
 
     private final Collection<ICorrespondenceDefinition> correspondenceDefinitions = Lists.newLinkedList();
 
     @Inject
-    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, ISimpleParseTreeFactory simpleParseTreeFactory, IGraphWalkerFactory graphWalkerFactory) {
+    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, ISimpleParseTreeFactory simpleParseTreeFactory, ITreeWalkerFactory treeWalkerFactory) {
         this.antlrParsingConfigurations = antlrParsingConfigurations;
         this.simpleParseTreeFactory = simpleParseTreeFactory;
-        this.graphWalkerFactory = graphWalkerFactory;
+        this.treeWalkerFactory = treeWalkerFactory;
     }
 
     @Override
@@ -43,34 +45,23 @@ public class Analyzer implements IAnalyzer {
 
     @Override
     public void findCorrespondences(String string1, String string2) {
+
         IAntlrParsingConfiguration antlrParsingConfiguration = antlrParsingConfigurations.newJava8Configuration();
         IAntlrParsingResult antlrParsingResult = antlrParsingConfiguration.parse(string1);
-        ISimpleParseTree simpleParseTree = simpleParseTreeFactory.newSimpleParseTree2(antlrParsingResult);
-        IGraphWalker<ITextSource> graphWalker = graphWalkerFactory.newGraphWalker();
-        graphWalker.walk(simpleParseTree, simpleParseTree.getRoot(), new IGraphWalkerListener<ITextSource>() {
 
+        ISimpleParseTree simpleParseTree = simpleParseTreeFactory.newSimpleParseTree(antlrParsingResult);
+
+        ITreeWalker<ITextSource> treeWalker = treeWalkerFactory.newTreeWalker();
+        treeWalker.walk(simpleParseTree, new ITreeWalkerListener<ITextSource>() {
             @Override
-            public void enter(ITextSource iTextSource) {
-                System.out.println(iTextSource);
+            public void enter(ITree<ITextSource> tree) {
+                System.out.println(tree.getValue());
             }
 
             @Override
-            public void exit(ITextSource iTextSource) {
+            public void exit(ITree<ITextSource> tree) {
 
             }
         });
-//        ITree<ITextSource> simpleParseTree = simpleParseTreeFactory.newSimpleParseTree(antlrParsingResult);
-//        ITreeWalker<ITextSource> treeWalker = treeWalkerFactory.newTreeWalker();
-//        treeWalker.walk(simpleParseTree, new ITreeWalkerListener<ITextSource>() {
-//            @Override
-//            public void enter(ITree<ITextSource> tree) {
-//                System.out.println(tree);
-//            }
-//
-//            @Override
-//            public void exit(ITree<ITextSource> tree) {
-//
-//            }
-//        });
     }
 }

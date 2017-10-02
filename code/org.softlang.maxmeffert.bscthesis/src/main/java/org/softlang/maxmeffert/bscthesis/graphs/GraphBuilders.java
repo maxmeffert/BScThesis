@@ -6,13 +6,11 @@ public class GraphBuilders implements IGraphBuilders {
 
     private final IGraphBuilderFactory graphBuilderFactory;
     private final IDiGraphBuilderFactory diGraphBuilderFactory;
-    private final ITreeBuilderFactory treeBuilderFactory;
 
     @Inject
-    public GraphBuilders(IGraphBuilderFactory graphBuilderFactory, IDiGraphBuilderFactory diGraphBuilderFactory, ITreeBuilderFactory treeBuilderFactory) {
+    public GraphBuilders(IGraphBuilderFactory graphBuilderFactory, IDiGraphBuilderFactory diGraphBuilderFactory) {
         this.graphBuilderFactory = graphBuilderFactory;
         this.diGraphBuilderFactory = diGraphBuilderFactory;
-        this.treeBuilderFactory = treeBuilderFactory;
     }
 
     @Override
@@ -25,8 +23,4 @@ public class GraphBuilders implements IGraphBuilders {
         return diGraphBuilderFactory.newDiGraphBuilder();
     }
 
-    @Override
-    public <TValue extends Comparable<TValue>> ITreeBuilder<TValue> newTreeBuilder() {
-        return treeBuilderFactory.newTreeBuilder();
-    }
 }

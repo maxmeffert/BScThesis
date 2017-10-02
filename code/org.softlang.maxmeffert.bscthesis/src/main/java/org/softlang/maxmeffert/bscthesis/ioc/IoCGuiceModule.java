@@ -30,6 +30,10 @@ import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSourceBuilderFactory
 import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSourceFactory;
 import org.softlang.maxmeffert.bscthesis.texts.sources.TextSourceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.texts.sources.TextSourceFactory;
+import org.softlang.maxmeffert.bscthesis.trees.ITreeFactory;
+import org.softlang.maxmeffert.bscthesis.trees.ITreeWalkerFactory;
+import org.softlang.maxmeffert.bscthesis.trees.TreeFactory;
+import org.softlang.maxmeffert.bscthesis.trees.TreeWalkerFactory;
 
 public class IoCGuiceModule extends AbstractModule {
     @Override
@@ -47,6 +51,7 @@ public class IoCGuiceModule extends AbstractModule {
         configureRelations();
         configureSimpleParseTrees();
         configureTexts();
+        configureTrees();
         configureTuples();
         configureUtils();
     }
@@ -93,9 +98,6 @@ public class IoCGuiceModule extends AbstractModule {
         bind(IDiGraphBuilderFactory.class).to(DiGraphBuilderFactory.class);
         bind(IDiGraphNodeBuilderFactory.class).to(DiGraphNodeBuilderFactory.class);
 
-        bind(ITreeNodeBuilderFactory.class).to(TreeNodeBuilderFactory.class);
-        bind(ITreeBuilderFactory.class).to(TreeBuilderFactory.class);
-
         bind(IGraphWalkerFactory.class).to(GraphWalkerFactory.class);
     }
 
@@ -113,7 +115,6 @@ public class IoCGuiceModule extends AbstractModule {
 
     private void configureSimpleParseTrees() {
         bind(ISimpleParseTreeNormalizerFactory.class).to(SimpleParseTreeNormalizerFactory.class);
-        bind(ISimpleParseTreeBuilderFactory.class).to(SimpleParseTreeBuilderFactory.class);
         bind(ISimpleParseTreeFactory.class).to(SimpleParseTreeFactory.class);
     }
 
@@ -123,6 +124,11 @@ public class IoCGuiceModule extends AbstractModule {
         bind(ITextProviderFactory.class).to(TextProviderFactory.class);
         bind(ITextSourceBuilderFactory.class).to(TextSourceBuilderFactory.class);
         bind(ITextSourceFactory.class).to(TextSourceFactory.class);
+    }
+
+    private void configureTrees() {
+        bind(ITreeFactory.class).to(TreeFactory.class);
+        bind(ITreeWalkerFactory.class).to(TreeWalkerFactory.class);
     }
 
     private void configureTuples() {
