@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.simpleparsetrees;
+package org.softlang.maxmeffert.bscthesis.parsetrees;
 
 public interface ITextSourceTreeNormalizerFactory {
     ITextSourceTreeNormalizer newSimpleParseTreeNormalizer();

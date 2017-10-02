@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.simpleparsetrees;
+package org.softlang.maxmeffert.bscthesis.parsetrees;
 
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingResult;
 import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSource;

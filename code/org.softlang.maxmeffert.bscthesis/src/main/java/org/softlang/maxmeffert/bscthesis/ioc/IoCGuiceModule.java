@@ -19,7 +19,7 @@ import org.softlang.maxmeffert.bscthesis.correspondences.ICorrespondenceFactory;
 import org.softlang.maxmeffert.bscthesis.graphs.*;
 import org.softlang.maxmeffert.bscthesis.graphs.walkers.GraphWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.graphs.walkers.IGraphWalkerFactory;
-import org.softlang.maxmeffert.bscthesis.simpleparsetrees.*;
+import org.softlang.maxmeffert.bscthesis.parsetrees.*;
 import org.softlang.maxmeffert.bscthesis.texts.intervals.ITextIntervalConverterFactory;
 import org.softlang.maxmeffert.bscthesis.texts.intervals.ITextIntervalFactory;
 import org.softlang.maxmeffert.bscthesis.texts.intervals.TextIntervalConverterFactory;

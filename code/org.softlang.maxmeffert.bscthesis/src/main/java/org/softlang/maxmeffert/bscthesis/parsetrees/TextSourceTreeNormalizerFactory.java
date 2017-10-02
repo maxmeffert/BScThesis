@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.simpleparsetrees;
+package org.softlang.maxmeffert.bscthesis.parsetrees;
 
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
