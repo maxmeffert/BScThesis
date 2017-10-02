@@ -1,18 +1,21 @@
 package org.softlang.maxmeffert.bscthesis.simpleparsetrees;
 
-import com.google.common.base.Strings;
+import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.trees.ITree;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeFactory;
-
-import java.util.Collections;
+import org.softlang.maxmeffert.bscthesis.utils.IStringUtils;
 
 public class SimpleParseTreeNormalizer implements ISimpleParseTreeNormalizer {
 
     private final ITreeFactory treeFactory;
+    private final ICollectionFactory collectionFactory;
+    private final IStringUtils stringUtils;
 
-    public SimpleParseTreeNormalizer(ITreeFactory treeFactory) {
+    public SimpleParseTreeNormalizer(ITreeFactory treeFactory, ICollectionFactory collectionFactory, IStringUtils stringUtils) {
         this.treeFactory = treeFactory;
+        this.collectionFactory = collectionFactory;
+        this.stringUtils = stringUtils;
     }
 
     @Override
@@ -39,7 +42,7 @@ public class SimpleParseTreeNormalizer implements ISimpleParseTreeNormalizer {
         if (hasAddableGrandChildren(parent, child)) {
             return child.getChildren();
         }
-        return Collections.singleton(child);
+        return collectionFactory.newSingleton(child);
     }
 
     private boolean hasAddableGrandChildren(ITree<ITextSource> parent, ITree<ITextSource> child) {
@@ -47,7 +50,7 @@ public class SimpleParseTreeNormalizer implements ISimpleParseTreeNormalizer {
     }
 
     private boolean hasText(ITree<ITextSource> tree) {
-        return !Strings.isNullOrEmpty(tree.getValue().getText());
+        return !stringUtils.isNullOrEmpty(tree.getValue().getText());
     }
 
     private boolean haveSameText(ITree<ITextSource> tree1, ITree<ITextSource> tree2) {

@@ -4,15 +4,17 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
-import java.util.List;
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.SortedSet;
+import java.util.*;
 
 public class CollectionFactory implements ICollectionFactory {
 
     @Override
-    public <T extends Comparable<T>> List<T> newList() {
+    public <T> Collection<T> newSingleton(T value) {
+        return Collections.singleton(value);
+    }
+
+    @Override
+    public <T> List<T> newList() {
         return Lists.newLinkedList();
     }
 

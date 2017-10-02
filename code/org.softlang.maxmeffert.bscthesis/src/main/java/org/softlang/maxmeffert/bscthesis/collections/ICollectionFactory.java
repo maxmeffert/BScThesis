@@ -3,7 +3,8 @@ package org.softlang.maxmeffert.bscthesis.collections;
 import java.util.*;
 
 public interface ICollectionFactory {
-    <T extends Comparable<T>> List<T> newList();
+    <T> Collection<T> newSingleton(T value);
+    <T> List<T> newList();
     <T extends Comparable<T>> SortedSet<T> newSortedSet();
     <TKey extends Comparable<TKey>, TValue> SortedMap<TKey, TValue> newSortedMap();
     <TKey extends Comparable<TKey>, TValue extends Comparable<TValue>> IMapping<TKey,TValue> newMapping(Map<TKey,TValue> map);

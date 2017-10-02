@@ -34,6 +34,8 @@ import org.softlang.maxmeffert.bscthesis.trees.ITreeFactory;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.trees.TreeFactory;
 import org.softlang.maxmeffert.bscthesis.trees.TreeWalkerFactory;
+import org.softlang.maxmeffert.bscthesis.utils.IStringUtils;
+import org.softlang.maxmeffert.bscthesis.utils.StringUtils;
 
 public class IoCGuiceModule extends AbstractModule {
     @Override
@@ -136,7 +138,7 @@ public class IoCGuiceModule extends AbstractModule {
     }
 
     private void configureUtils() {
-
+        bind(IStringUtils.class).to(StringUtils.class);
     }
 
 }
