@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.graphs.walkers;
+package org.softlang.maxmeffert.bscthesis.graphs;
 
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;

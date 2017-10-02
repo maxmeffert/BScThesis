@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.graphs.walkers;
+package org.softlang.maxmeffert.bscthesis.graphs;
 
 public interface IGraphWalkerListener<TValue extends Comparable<TValue>> {
     void enter(TValue node);

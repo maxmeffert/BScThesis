@@ -1,7 +1,6 @@
-package org.softlang.maxmeffert.bscthesis.graphs.walkers;
+package org.softlang.maxmeffert.bscthesis.graphs;
 
 import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
-import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
 
 import java.util.Set;
 

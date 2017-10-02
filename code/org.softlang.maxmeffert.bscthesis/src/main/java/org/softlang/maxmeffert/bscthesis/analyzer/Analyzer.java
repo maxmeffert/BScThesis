@@ -19,15 +19,15 @@ import java.util.Collection;
 public class Analyzer implements IAnalyzer {
 
     private final IAntlrParsingConfigurations antlrParsingConfigurations;
-    private final IParseTreeConverter simpleParseTreeFactory;
+    private final IParseTreeConverter parseTreeConverter;
     private final ITreeWalkerFactory treeWalkerFactory;
 
     private final Collection<ICorrespondenceDefinition> correspondenceDefinitions = Lists.newLinkedList();
 
     @Inject
-    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, IParseTreeConverter simpleParseTreeFactory, ITreeWalkerFactory treeWalkerFactory) {
+    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, IParseTreeConverter parseTreeConverter, ITreeWalkerFactory treeWalkerFactory) {
         this.antlrParsingConfigurations = antlrParsingConfigurations;
-        this.simpleParseTreeFactory = simpleParseTreeFactory;
+        this.parseTreeConverter = parseTreeConverter;
         this.treeWalkerFactory = treeWalkerFactory;
     }
 
@@ -47,10 +47,10 @@ public class Analyzer implements IAnalyzer {
         IAntlrParsingConfiguration antlrParsingConfiguration = antlrParsingConfigurations.newJava8Configuration();
         IAntlrParsingResult antlrParsingResult = antlrParsingConfiguration.parse(string1);
 
-        ITree<ITextSource> simpleParseTree = simpleParseTreeFactory.toTextSourceTree(antlrParsingResult);
+        ITree<ITextSource> textSourceTree = parseTreeConverter.toTextSourceTree(antlrParsingResult);
 
         ITreeWalker<ITextSource> treeWalker = treeWalkerFactory.newTreeWalker();
-        treeWalker.walk(simpleParseTree, new ITreeWalkerListener<ITextSource>() {
+        treeWalker.walk(textSourceTree, new ITreeWalkerListener<ITextSource>() {
             @Override
             public void enter(ITree<ITextSource> tree) {
                 System.out.println(tree.getValue());
