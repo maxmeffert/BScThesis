@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
-import org.softlang.maxmeffert.bscthesis.collections.IPair;
+import org.softlang.maxmeffert.bscthesis.utils.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.utils.IPair;
 
 import java.util.SortedMap;
 

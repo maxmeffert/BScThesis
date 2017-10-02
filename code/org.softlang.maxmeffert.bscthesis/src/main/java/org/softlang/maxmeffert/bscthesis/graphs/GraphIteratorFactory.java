@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.utils.ICollectionFactory;
 
 public class GraphIteratorFactory implements IGraphIteratorFactory {
     private final ICollectionFactory collectionFactory;

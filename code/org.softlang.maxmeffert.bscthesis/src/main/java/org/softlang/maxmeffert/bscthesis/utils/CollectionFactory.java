@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.collections;
+package org.softlang.maxmeffert.bscthesis.utils;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;

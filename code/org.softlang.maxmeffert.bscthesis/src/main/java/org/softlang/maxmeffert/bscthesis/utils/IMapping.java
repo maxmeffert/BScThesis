@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.collections;
+package org.softlang.maxmeffert.bscthesis.utils;
 
 public interface IMapping<TKey extends Comparable<TKey>, TValue extends Comparable<TValue>> extends Iterable<IPair<TKey,TValue>> {
     boolean isEmpty();

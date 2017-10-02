@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import org.softlang.maxmeffert.bscthesis.collections.IPair;
+import org.softlang.maxmeffert.bscthesis.utils.IPair;
 
 public interface IGraphBuilder<TValue extends Comparable<TValue>> {
     IGraphBuilder<TValue> withEdge(TValue node1, TValue node2);

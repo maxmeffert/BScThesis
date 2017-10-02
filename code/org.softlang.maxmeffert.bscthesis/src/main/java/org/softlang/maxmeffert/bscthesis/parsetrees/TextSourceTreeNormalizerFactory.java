@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.parsetrees;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.utils.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeFactory;
 import org.softlang.maxmeffert.bscthesis.utils.IStringUtils;
 

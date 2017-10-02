@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
-import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.utils.ICollectionFactory;
 
 import java.util.Set;
 

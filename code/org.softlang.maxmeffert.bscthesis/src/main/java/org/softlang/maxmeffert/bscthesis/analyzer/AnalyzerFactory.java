@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.analyzer;
 
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.IAntlrParsingConfigurations;
-import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.utils.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.parsetrees.IParseTreeConverter;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeWalkerFactory;
 

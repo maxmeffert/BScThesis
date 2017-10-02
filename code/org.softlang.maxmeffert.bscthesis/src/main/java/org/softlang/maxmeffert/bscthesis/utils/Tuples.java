@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.collections;
+package org.softlang.maxmeffert.bscthesis.utils;
 
 @Deprecated
 public class Tuples implements ITuples {
