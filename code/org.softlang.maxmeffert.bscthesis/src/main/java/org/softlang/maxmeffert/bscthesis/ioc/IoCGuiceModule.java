@@ -131,6 +131,7 @@ public class IoCGuiceModule extends AbstractModule {
         bind(ICollectionFactory.class).to(CollectionFactory.class);
         bind(IStringUtils.class).to(StringUtils.class);
         bind(IIterableUtils.class).to(IterableUtils.class);
+        bind(IComparableUtils.class).to(ComparableUtils.class);
     }
 
 }
