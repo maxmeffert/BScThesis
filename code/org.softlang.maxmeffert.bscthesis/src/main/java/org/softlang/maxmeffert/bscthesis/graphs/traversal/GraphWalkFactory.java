@@ -1,6 +1,7 @@
-package org.softlang.maxmeffert.bscthesis.graphs;
+package org.softlang.maxmeffert.bscthesis.graphs.traversal;
 
 import com.google.inject.Inject;
+import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
 
 public class GraphWalkFactory implements IGraphWalkFactory {
 

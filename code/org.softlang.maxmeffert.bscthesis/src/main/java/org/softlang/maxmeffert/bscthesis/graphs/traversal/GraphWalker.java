@@ -1,5 +1,6 @@
-package org.softlang.maxmeffert.bscthesis.graphs;
+package org.softlang.maxmeffert.bscthesis.graphs.traversal;
 
+import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
 import org.softlang.maxmeffert.bscthesis.utils.ICollectionFactory;
 
 import java.util.Set;

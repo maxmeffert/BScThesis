@@ -1,16 +1,17 @@
-package org.softlang.maxmeffert.bscthesis.graphs;
+package org.softlang.maxmeffert.bscthesis.graphs.traversal;
 
 import java.util.SortedSet;
 import java.util.Stack;
+import java.util.function.Function;
 
-public class GraphIterator<TValue extends Comparable<TValue>> implements IGraphIterator<TValue> {
+public class GeneralGraphIterator<TValue extends Comparable<TValue>> implements IGraphIterator<TValue> {
 
-    private final IGraph<TValue> graph;
+    private final Function<TValue, Iterable<TValue>> nodeProvider;
     private final Stack<TValue> nextNodes;
     private final SortedSet<TValue> discoveredNodes;
 
-    public GraphIterator(IGraph<TValue> graph, Stack<TValue> nextNodes, SortedSet<TValue> discoveredNodes) {
-        this.graph = graph;
+    public GeneralGraphIterator(Function<TValue, Iterable<TValue>> nodeProvider, Stack<TValue> nextNodes, SortedSet<TValue> discoveredNodes) {
+        this.nodeProvider = nodeProvider;
         this.nextNodes = nextNodes;
         this.discoveredNodes = discoveredNodes;
     }
@@ -30,7 +31,7 @@ public class GraphIterator<TValue extends Comparable<TValue>> implements IGraphI
     }
 
     private void pushNextNodesOntoStack(TValue node) {
-        for(TValue adjacentNode : graph.getAdjacentNodesOf(node)) {
+        for(TValue adjacentNode : nodeProvider.apply(node)) {
             if (isNotMarkedAsDiscovered(adjacentNode)) {
                 nextNodes.push(adjacentNode);
             }

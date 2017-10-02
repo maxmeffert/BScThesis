@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.graphs;
+package org.softlang.maxmeffert.bscthesis.graphs.traversal;
 
 import java.util.Iterator;
 

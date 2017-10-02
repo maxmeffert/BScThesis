@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
 import com.google.inject.Inject;
+import org.softlang.maxmeffert.bscthesis.graphs.traversal.IGraphWalkFactory;
 import org.softlang.maxmeffert.bscthesis.utils.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.utils.IComparableUtils;
 import org.softlang.maxmeffert.bscthesis.utils.IIterableUtils;
@@ -25,16 +26,6 @@ public class GraphClosures implements IGraphClosures {
         this.comparableUtils = comparableUtils;
     }
 
-    private <TValue extends Comparable<TValue>> IGraphBuilder<TValue> newGraphBuilder() {
-        return graphBuilders.newGraphBuilder();
-    }
-
-    private <TValue extends Comparable<TValue>> IGraphBuilder<TValue> newGraphBuilder(IGraph<TValue> graph) {
-        IGraphBuilder<TValue> builder = graphBuilders.newGraphBuilder();
-
-        return builder;
-    }
-
     private <TValue extends Comparable<TValue>> Iterable<IPair<TValue,TValue>> getReflexiveEdges(IGraph<TValue> graph) {
         SortedSet<IPair<TValue,TValue>> pairs = collectionFactory.newSortedSet();
         for(TValue node : graph.getNodes()) {
@@ -52,7 +43,7 @@ public class GraphClosures implements IGraphClosures {
                 }
             }
         }
-//        System.out.println(pairs);
+        System.out.println(pairs);
         return pairs;
     }
 

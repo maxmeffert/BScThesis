@@ -1,4 +1,6 @@
-package org.softlang.maxmeffert.bscthesis.graphs;
+package org.softlang.maxmeffert.bscthesis.graphs.traversal;
+
+import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
 
 import java.util.Iterator;
 
@@ -16,6 +18,6 @@ public class GraphWalk<TValue extends Comparable<TValue>> implements IGraphWalk<
 
     @Override
     public Iterator<TValue> iterator() {
-        return graphIteratorFactory.newGraphIterator(graph, startNode);
+        return graphIteratorFactory.newUndirectedGraphIterator(graph, startNode);
     }
 }
