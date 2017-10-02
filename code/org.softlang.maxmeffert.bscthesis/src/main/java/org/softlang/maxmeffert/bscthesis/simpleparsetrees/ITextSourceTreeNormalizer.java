@@ -1,5 +1,5 @@
 package org.softlang.maxmeffert.bscthesis.simpleparsetrees;
 
-public interface ISimpleParseTreeNormalizer {
+public interface ITextSourceTreeNormalizer {
     ISimpleParseTree normalize(ISimpleParseTree simpleParseTree);
 }

@@ -6,13 +6,13 @@ import org.softlang.maxmeffert.bscthesis.trees.ITree;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeFactory;
 import org.softlang.maxmeffert.bscthesis.utils.IStringUtils;
 
-public class SimpleParseTreeNormalizer implements ISimpleParseTreeNormalizer {
+public class TextSourceTreeNormalizer implements ITextSourceTreeNormalizer {
 
     private final ITreeFactory treeFactory;
     private final ICollectionFactory collectionFactory;
     private final IStringUtils stringUtils;
 
-    public SimpleParseTreeNormalizer(ITreeFactory treeFactory, ICollectionFactory collectionFactory, IStringUtils stringUtils) {
+    public TextSourceTreeNormalizer(ITreeFactory treeFactory, ICollectionFactory collectionFactory, IStringUtils stringUtils) {
         this.treeFactory = treeFactory;
         this.collectionFactory = collectionFactory;
         this.stringUtils = stringUtils;

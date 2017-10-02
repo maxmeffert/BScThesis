@@ -9,14 +9,14 @@ import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSourceFactory;
 import org.softlang.maxmeffert.bscthesis.trees.ITree;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeFactory;
 
-public class SimpleParseTreeFactory implements ISimpleParseTreeFactory {
+public class SimpleParseTreeFactory implements IParseTreeConverter {
 
     private final ITreeFactory treeFactory;
     private final ITextSourceFactory textSourceFactory;
-    private final ISimpleParseTreeNormalizerFactory simpleParseTreeNormalizerFactory;
+    private final ITextSourceTreeNormalizerFactory simpleParseTreeNormalizerFactory;
 
     @Inject
-    public SimpleParseTreeFactory(ITreeFactory treeFactory, ITextSourceFactory textSourceFactory, ISimpleParseTreeNormalizerFactory simpleParseTreeNormalizerFactory) {
+    public SimpleParseTreeFactory(ITreeFactory treeFactory, ITextSourceFactory textSourceFactory, ITextSourceTreeNormalizerFactory simpleParseTreeNormalizerFactory) {
         this.treeFactory = treeFactory;
         this.textSourceFactory = textSourceFactory;
         this.simpleParseTreeNormalizerFactory = simpleParseTreeNormalizerFactory;
@@ -47,34 +47,34 @@ public class SimpleParseTreeFactory implements ISimpleParseTreeFactory {
     }
 
     private ISimpleParseTree normalize(ISimpleParseTree simpleParseTree) {
-        ISimpleParseTreeNormalizer normalizer = simpleParseTreeNormalizerFactory.newSimpleParseTreeNormalizer();
+        ITextSourceTreeNormalizer normalizer = simpleParseTreeNormalizerFactory.newSimpleParseTreeNormalizer();
         return normalizer.normalize(simpleParseTree);
     }
 
     @Override
-    public ISimpleParseTree newSimpleParseTree(ITree<ITextSource> tree) {
+    public ISimpleParseTree toTextSourceTree(ITree<ITextSource> tree) {
         return normalize(new SimpleParseTree(tree));
     }
 
     @Override
-    public ISimpleParseTree newSimpleParseTree(IAntlrParsingResult antlrParsingResult) {
-        return newSimpleParseTree(newTextSourceTree(antlrParsingResult));
+    public ISimpleParseTree toTextSourceTree(IAntlrParsingResult antlrParsingResult) {
+        return toTextSourceTree(newTextSourceTree(antlrParsingResult));
     }
 
 
 
 //    @Override
-//    public ITree<ITextSource> newSimpleParseTree(TokenStream tokenStream, ParseTree parseTree) {
+//    public ITree<ITextSource> toTextSourceTree(TokenStream tokenStream, ParseTree parseTree) {
 //        ITree<ITextSource> tree = treeFactory.newTreeWithValue(newTextSource(tokenStream, parseTree));
 //        for (int i=0; i<parseTree.getChildCount(); i++) {
-//            tree.addChild(newSimpleParseTree(tokenStream, parseTree.getChild(i)));
+//            tree.addChild(toTextSourceTree(tokenStream, parseTree.getChild(i)));
 //        }
 //        return simpleParseTreeNormalizerFactory.newSimpleParseTreeNormalizer().normalize(tree);
 //    }
 //
 //    @Override
-//    public ITree<ITextSource> newSimpleParseTree(IAntlrParsingResult antlrParsingResult) {
-//        return newSimpleParseTree(antlrParsingResult.getTokenStream(), antlrParsingResult.getParseTree());
+//    public ITree<ITextSource> toTextSourceTree(IAntlrParsingResult antlrParsingResult) {
+//        return toTextSourceTree(antlrParsingResult.getTokenStream(), antlrParsingResult.getParseTree());
 //    }
 
 

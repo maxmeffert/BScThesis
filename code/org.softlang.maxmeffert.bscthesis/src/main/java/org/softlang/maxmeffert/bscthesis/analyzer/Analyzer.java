@@ -6,9 +6,8 @@ import org.softlang.maxmeffert.bscthesis.IAntlrParsingConfigurations;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingConfiguration;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingResult;
 import org.softlang.maxmeffert.bscthesis.correspondences.ICorrespondenceDefinition;
-import org.softlang.maxmeffert.bscthesis.graphs.walkers.IGraphWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTree;
-import org.softlang.maxmeffert.bscthesis.simpleparsetrees.ISimpleParseTreeFactory;
+import org.softlang.maxmeffert.bscthesis.simpleparsetrees.IParseTreeConverter;
 import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.trees.ITree;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeWalker;
@@ -21,13 +20,13 @@ import java.util.Collection;
 public class Analyzer implements IAnalyzer {
 
     private final IAntlrParsingConfigurations antlrParsingConfigurations;
-    private final ISimpleParseTreeFactory simpleParseTreeFactory;
+    private final IParseTreeConverter simpleParseTreeFactory;
     private final ITreeWalkerFactory treeWalkerFactory;
 
     private final Collection<ICorrespondenceDefinition> correspondenceDefinitions = Lists.newLinkedList();
 
     @Inject
-    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, ISimpleParseTreeFactory simpleParseTreeFactory, ITreeWalkerFactory treeWalkerFactory) {
+    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, IParseTreeConverter simpleParseTreeFactory, ITreeWalkerFactory treeWalkerFactory) {
         this.antlrParsingConfigurations = antlrParsingConfigurations;
         this.simpleParseTreeFactory = simpleParseTreeFactory;
         this.treeWalkerFactory = treeWalkerFactory;
@@ -49,7 +48,7 @@ public class Analyzer implements IAnalyzer {
         IAntlrParsingConfiguration antlrParsingConfiguration = antlrParsingConfigurations.newJava8Configuration();
         IAntlrParsingResult antlrParsingResult = antlrParsingConfiguration.parse(string1);
 
-        ISimpleParseTree simpleParseTree = simpleParseTreeFactory.newSimpleParseTree(antlrParsingResult);
+        ISimpleParseTree simpleParseTree = simpleParseTreeFactory.toTextSourceTree(antlrParsingResult);
 
         ITreeWalker<ITextSource> treeWalker = treeWalkerFactory.newTreeWalker();
         treeWalker.walk(simpleParseTree, new ITreeWalkerListener<ITextSource>() {

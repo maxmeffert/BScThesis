@@ -5,21 +5,21 @@ import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeFactory;
 import org.softlang.maxmeffert.bscthesis.utils.IStringUtils;
 
-public class SimpleParseTreeNormalizerFactory implements ISimpleParseTreeNormalizerFactory {
+public class TextSourceTreeNormalizerFactory implements ITextSourceTreeNormalizerFactory {
 
     private final ITreeFactory treeFactory;
     private final ICollectionFactory collectionFactory;
     private final IStringUtils stringUtils;
 
     @Inject
-    public SimpleParseTreeNormalizerFactory(ITreeFactory treeFactory, ICollectionFactory collectionFactory, IStringUtils stringUtils) {
+    public TextSourceTreeNormalizerFactory(ITreeFactory treeFactory, ICollectionFactory collectionFactory, IStringUtils stringUtils) {
         this.treeFactory = treeFactory;
         this.collectionFactory = collectionFactory;
         this.stringUtils = stringUtils;
     }
 
     @Override
-    public ISimpleParseTreeNormalizer newSimpleParseTreeNormalizer() {
-        return new SimpleParseTreeNormalizer(treeFactory, collectionFactory, stringUtils);
+    public ITextSourceTreeNormalizer newSimpleParseTreeNormalizer() {
+        return new TextSourceTreeNormalizer(treeFactory, collectionFactory, stringUtils);
     }
 }
