@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
 import org.softlang.maxmeffert.bscthesis.utils.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.utils.IPair;
 
 import java.util.SortedMap;
 
@@ -48,6 +49,31 @@ public class DiGraphBuilder<TValue extends Comparable<TValue>> implements IDiGra
         updateDiGraphNodeBuilderTarget(source, target);
         updateDiGraphNodeBuilderSource(target, source);
         return new DiGraphBuilder<>(diGraphNodeBuilderFactory, collectionFactory, nodeBuilders);
+    }
+
+    @Override
+    public IDiGraphBuilder<TValue> withEdge(IPair<TValue, TValue> edge) {
+        return withEdge(edge.getFirst(), edge.getSecond());
+    }
+
+    @Override
+    public IDiGraphBuilder<TValue> withEdges(Iterable<IPair<TValue, TValue>> edges) {
+        IDiGraphBuilder<TValue> builder = new DiGraphBuilder<>(diGraphNodeBuilderFactory, collectionFactory, nodeBuilders);
+        for(IPair<TValue,TValue> edge : edges) {
+            builder = builder.withEdge(edge);
+        }
+        return builder;
+    }
+
+    @Override
+    public IDiGraphBuilder<TValue> withGraph(IDiGraph<TValue> diGraph) {
+        IDiGraphBuilder<TValue> builder = new DiGraphBuilder<>(diGraphNodeBuilderFactory, collectionFactory, nodeBuilders);
+        for(TValue source : diGraph.getNodes()) {
+            for (TValue target : diGraph.getTargetNodesOf(source)) {
+                builder = builder.withEdge(source, target);
+            }
+        }
+        return builder;
     }
 
     private SortedMap<TValue, IDiGraphNode<TValue>> buildNodes() {

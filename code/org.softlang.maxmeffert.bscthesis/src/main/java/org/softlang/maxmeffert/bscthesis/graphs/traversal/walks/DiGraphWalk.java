@@ -5,7 +5,7 @@ import org.softlang.maxmeffert.bscthesis.graphs.traversal.iterators.IGraphIterat
 
 import java.util.Iterator;
 
-public class DiGraphWalk<TValue extends Comparable<TValue>> implements IGraphWalk<TValue> {
+public class DiGraphWalk<TValue extends Comparable<TValue>> implements IDiGraphWalk<TValue> {
 
     private final IDiGraph<TValue> diGraph;
     private final TValue startNode;

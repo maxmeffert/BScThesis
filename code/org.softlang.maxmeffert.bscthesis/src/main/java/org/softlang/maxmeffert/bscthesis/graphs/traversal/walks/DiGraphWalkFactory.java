@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.graphs.traversal.walks;
 
 import org.softlang.maxmeffert.bscthesis.graphs.IDiGraph;
+import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
 import org.softlang.maxmeffert.bscthesis.graphs.traversal.iterators.IGraphIterators;
 
 public class DiGraphWalkFactory implements IDiGraphWalkFactory {
@@ -12,7 +13,8 @@ public class DiGraphWalkFactory implements IDiGraphWalkFactory {
     }
 
     @Override
-    public <TValue extends Comparable<TValue>> IGraphWalk<TValue> newDiGraphWalk(IDiGraph<TValue> diGraph, TValue startNode) {
+    public <TValue extends Comparable<TValue>> IDiGraphWalk<TValue> newDiGraphWalk(IDiGraph<TValue> diGraph, TValue startNode) {
         return new DiGraphWalk<>(diGraph, startNode, graphIteratorFactory);
     }
+
 }

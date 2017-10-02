@@ -21,7 +21,7 @@ public class GraphWalks implements IGraphWalks {
     }
 
     @Override
-    public <TValue extends Comparable<TValue>> IGraphWalk<TValue> newDiGraphWalk(IDiGraph<TValue> diGraph, TValue startNode) {
+    public <TValue extends Comparable<TValue>> IDiGraphWalk<TValue> newDiGraphWalk(IDiGraph<TValue> diGraph, TValue startNode) {
         return diGraphWalkFactory.newDiGraphWalk(diGraph, startNode);
     }
 }
