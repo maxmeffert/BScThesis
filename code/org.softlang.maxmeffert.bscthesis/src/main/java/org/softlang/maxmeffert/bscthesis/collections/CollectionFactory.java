@@ -19,6 +19,11 @@ public class CollectionFactory implements ICollectionFactory {
     }
 
     @Override
+    public <T> Stack<T> newStack() {
+        return new Stack<>();
+    }
+
+    @Override
     public <T extends Comparable<T>> SortedSet<T> newSortedSet() {
         return Sets.newTreeSet();
     }

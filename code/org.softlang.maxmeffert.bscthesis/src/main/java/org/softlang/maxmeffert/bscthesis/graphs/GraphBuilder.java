@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
 import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.collections.IPair;
 
 import java.util.SortedMap;
 
@@ -43,6 +44,22 @@ public class GraphBuilder<TValue extends Comparable<TValue>> implements IGraphBu
     public IGraphBuilder<TValue> withEdge(TValue node1, TValue node2) {
         updateGraphNodeBuilderAdjacentNode(node1, node2);
         updateGraphNodeBuilderAdjacentNode(node2, node1);
+        return new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
+    }
+
+    @Override
+    public IGraphBuilder<TValue> withEdges(Iterable<IPair<TValue, TValue>> edges) {
+        return new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
+    }
+
+    @Override
+    public IGraphBuilder<TValue> withGraph(IGraph<TValue> graph) {
+        IGraphBuilder<TValue> builder = new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
+        for(TValue node : graph.getNodes()) {
+            for (TValue adjacentNode : graph.getAdjacentNodesOf(node)) {
+                builder = builder.withEdge(node, adjacentNode);
+            }
+        }
         return new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
     }
 

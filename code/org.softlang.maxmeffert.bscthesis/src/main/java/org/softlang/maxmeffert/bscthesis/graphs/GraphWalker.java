@@ -4,11 +4,11 @@ import org.softlang.maxmeffert.bscthesis.collections.ICollectionFactory;
 
 import java.util.Set;
 
-public class DepthFirstSearchGraphWalker<TValue extends Comparable<TValue>> implements IGraphWalker<TValue> {
+public class GraphWalker<TValue extends Comparable<TValue>> implements IGraphWalker<TValue> {
 
     private final ICollectionFactory collectionFactory;
 
-    public DepthFirstSearchGraphWalker(ICollectionFactory collectionFactory) {
+    public GraphWalker(ICollectionFactory collectionFactory) {
         this.collectionFactory = collectionFactory;
     }
 

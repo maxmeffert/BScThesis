@@ -13,6 +13,6 @@ public class GraphWalkerFactory implements IGraphWalkerFactory {
 
     @Override
     public <TValue extends Comparable<TValue>> IGraphWalker<TValue> newGraphWalker() {
-        return new DepthFirstSearchGraphWalker<>(collectionFactory);
+        return new GraphWalker<>(collectionFactory);
     }
 }

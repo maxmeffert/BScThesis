@@ -5,6 +5,7 @@ import java.util.*;
 public interface ICollectionFactory {
     <T> Collection<T> newSingleton(T value);
     <T> List<T> newList();
+    <T> Stack<T> newStack();
     <T extends Comparable<T>> SortedSet<T> newSortedSet();
     <TKey extends Comparable<TKey>, TValue> SortedMap<TKey, TValue> newSortedMap();
     <TKey extends Comparable<TKey>, TValue extends Comparable<TValue>> IMapping<TKey,TValue> newMapping(Map<TKey,TValue> map);
