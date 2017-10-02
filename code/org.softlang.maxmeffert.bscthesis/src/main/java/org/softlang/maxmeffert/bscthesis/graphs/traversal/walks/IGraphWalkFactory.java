@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.graphs.traversal;
+package org.softlang.maxmeffert.bscthesis.graphs.traversal.walks;
 
 import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
 

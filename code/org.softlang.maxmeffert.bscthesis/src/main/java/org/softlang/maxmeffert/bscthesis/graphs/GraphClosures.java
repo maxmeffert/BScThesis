@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.graphs;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.graphs.traversal.IGraphWalkFactory;
+import org.softlang.maxmeffert.bscthesis.graphs.traversal.walks.IGraphWalkFactory;
 import org.softlang.maxmeffert.bscthesis.utils.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.utils.IComparableUtils;
 import org.softlang.maxmeffert.bscthesis.utils.IIterableUtils;

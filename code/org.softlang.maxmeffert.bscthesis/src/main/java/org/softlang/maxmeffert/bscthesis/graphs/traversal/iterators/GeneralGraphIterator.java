@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.graphs.traversal;
+package org.softlang.maxmeffert.bscthesis.graphs.traversal.iterators;
 
 import java.util.SortedSet;
 import java.util.Stack;

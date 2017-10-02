@@ -1,14 +1,15 @@
-package org.softlang.maxmeffert.bscthesis.graphs.traversal;
+package org.softlang.maxmeffert.bscthesis.graphs.traversal.walks;
 
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
+import org.softlang.maxmeffert.bscthesis.graphs.traversal.iterators.IGraphIterators;
 
 public class GraphWalkFactory implements IGraphWalkFactory {
 
-    private final IGraphIteratorFactory graphIteratorFactory;
+    private final IGraphIterators graphIteratorFactory;
 
     @Inject
-    public GraphWalkFactory(IGraphIteratorFactory graphIteratorFactory) {
+    public GraphWalkFactory(IGraphIterators graphIteratorFactory) {
         this.graphIteratorFactory = graphIteratorFactory;
     }
 

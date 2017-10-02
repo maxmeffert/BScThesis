@@ -9,7 +9,12 @@ import org.softlang.maxmeffert.bscthesis.antlr.*;
 import org.softlang.maxmeffert.bscthesis.artifacts.ArtifactFactory;
 import org.softlang.maxmeffert.bscthesis.artifacts.IArtifactFactory;
 import org.softlang.maxmeffert.bscthesis.fragments.*;
-import org.softlang.maxmeffert.bscthesis.graphs.traversal.*;
+import org.softlang.maxmeffert.bscthesis.graphs.traversal.iterators.GraphIterators;
+import org.softlang.maxmeffert.bscthesis.graphs.traversal.iterators.IGraphIterators;
+import org.softlang.maxmeffert.bscthesis.graphs.traversal.walkers.GraphWalkerFactory;
+import org.softlang.maxmeffert.bscthesis.graphs.traversal.walkers.IGraphWalkerFactory;
+import org.softlang.maxmeffert.bscthesis.graphs.traversal.walks.GraphWalkFactory;
+import org.softlang.maxmeffert.bscthesis.graphs.traversal.walks.IGraphWalkFactory;
 import org.softlang.maxmeffert.bscthesis.utils.*;
 import org.softlang.maxmeffert.bscthesis.correspondences.CorrespondenceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.correspondences.CorrespondenceFactory;
@@ -92,7 +97,7 @@ public class IoCGuiceModule extends AbstractModule {
         bind(IDiGraphBuilderFactory.class).to(DiGraphBuilderFactory.class);
         bind(IDiGraphNodeBuilderFactory.class).to(DiGraphNodeBuilderFactory.class);
 
-        bind(IGraphIteratorFactory.class).to(GraphIteratorFactory.class);
+        bind(IGraphIterators.class).to(GraphIterators.class);
         bind(IGraphWalkFactory.class).to(GraphWalkFactory.class);
         bind(IGraphWalkerFactory.class).to(GraphWalkerFactory.class);
 
