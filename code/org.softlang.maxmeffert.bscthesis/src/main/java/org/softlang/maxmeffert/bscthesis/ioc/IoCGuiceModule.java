@@ -117,7 +117,7 @@ public class IoCGuiceModule extends AbstractModule {
 
     private void configureSimpleParseTrees() {
         bind(ITextSourceTreeNormalizerFactory.class).to(TextSourceTreeNormalizerFactory.class);
-        bind(IParseTreeConverter.class).to(SimpleParseTreeFactory.class);
+        bind(IParseTreeConverter.class).to(ParseTreeConverter.class);
     }
 
     private void configureTexts() {

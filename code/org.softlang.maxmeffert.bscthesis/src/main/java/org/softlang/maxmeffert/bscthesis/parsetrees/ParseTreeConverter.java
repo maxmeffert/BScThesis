@@ -9,14 +9,14 @@ import org.softlang.maxmeffert.bscthesis.texts.sources.ITextSourceFactory;
 import org.softlang.maxmeffert.bscthesis.trees.ITree;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeFactory;
 
-public class SimpleParseTreeFactory implements IParseTreeConverter {
+public class ParseTreeConverter implements IParseTreeConverter {
 
     private final ITreeFactory treeFactory;
     private final ITextSourceFactory textSourceFactory;
     private final ITextSourceTreeNormalizerFactory simpleParseTreeNormalizerFactory;
 
     @Inject
-    public SimpleParseTreeFactory(ITreeFactory treeFactory, ITextSourceFactory textSourceFactory, ITextSourceTreeNormalizerFactory simpleParseTreeNormalizerFactory) {
+    public ParseTreeConverter(ITreeFactory treeFactory, ITextSourceFactory textSourceFactory, ITextSourceTreeNormalizerFactory simpleParseTreeNormalizerFactory) {
         this.treeFactory = treeFactory;
         this.textSourceFactory = textSourceFactory;
         this.simpleParseTreeNormalizerFactory = simpleParseTreeNormalizerFactory;
