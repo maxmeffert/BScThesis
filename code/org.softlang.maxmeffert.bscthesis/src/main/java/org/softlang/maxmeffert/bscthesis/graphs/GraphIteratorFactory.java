@@ -13,6 +13,6 @@ public class GraphIteratorFactory implements IGraphIteratorFactory {
 
     @Override
     public <TValue extends Comparable<TValue>> IGraphIterator<TValue> newGraphIterator(IGraph<TValue> graph, TValue startNode) {
-        return new GraphIterator<>(graph, startNode, collectionFactory.newSortedSet(), collectionFactory.newStack());
+        return new GraphIterator<>(graph, collectionFactory.newStackWith(startNode), collectionFactory.newSortedSet());
     }
 }

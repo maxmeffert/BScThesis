@@ -47,9 +47,17 @@ public class GraphBuilder<TValue extends Comparable<TValue>> implements IGraphBu
         return new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
     }
 
+    public IGraphBuilder<TValue> withEdge(IPair<TValue, TValue> edge) {
+        return withEdge(edge.getFirst(), edge.getSecond());
+    }
+
     @Override
     public IGraphBuilder<TValue> withEdges(Iterable<IPair<TValue, TValue>> edges) {
-        return new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
+        IGraphBuilder<TValue> builder = new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
+        for(IPair<TValue,TValue> edge : edges) {
+            builder = withEdge(edge);
+        }
+        return builder;
     }
 
     @Override

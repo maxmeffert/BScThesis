@@ -8,8 +8,7 @@ import org.softlang.maxmeffert.bscthesis.analyzer.IAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.antlr.*;
 import org.softlang.maxmeffert.bscthesis.artifacts.ArtifactFactory;
 import org.softlang.maxmeffert.bscthesis.artifacts.IArtifactFactory;
-import org.softlang.maxmeffert.bscthesis.utils.CollectionFactory;
-import org.softlang.maxmeffert.bscthesis.utils.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.utils.*;
 import org.softlang.maxmeffert.bscthesis.correspondences.CorrespondenceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.correspondences.CorrespondenceFactory;
 import org.softlang.maxmeffert.bscthesis.correspondences.ICorrespondenceBuilderFactory;
@@ -32,8 +31,6 @@ import org.softlang.maxmeffert.bscthesis.trees.ITreeFactory;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.trees.TreeFactory;
 import org.softlang.maxmeffert.bscthesis.trees.TreeWalkerFactory;
-import org.softlang.maxmeffert.bscthesis.utils.IStringUtils;
-import org.softlang.maxmeffert.bscthesis.utils.StringUtils;
 
 public class IoCGuiceModule extends AbstractModule {
     @Override
@@ -92,7 +89,12 @@ public class IoCGuiceModule extends AbstractModule {
         bind(IDiGraphBuilderFactory.class).to(DiGraphBuilderFactory.class);
         bind(IDiGraphNodeBuilderFactory.class).to(DiGraphNodeBuilderFactory.class);
 
+        bind(IGraphIteratorFactory.class).to(GraphIteratorFactory.class);
+        bind(IGraphWalkFactory.class).to(GraphWalkFactory.class);
         bind(IGraphWalkerFactory.class).to(GraphWalkerFactory.class);
+
+        bind(IGraphBuilders.class).to(GraphBuilders.class);
+        bind(IGraphClosures.class).to(GraphClosures.class);
     }
 
     private void configureLanguages() {
@@ -128,6 +130,7 @@ public class IoCGuiceModule extends AbstractModule {
     private void configureUtils() {
         bind(ICollectionFactory.class).to(CollectionFactory.class);
         bind(IStringUtils.class).to(StringUtils.class);
+        bind(IIterableUtils.class).to(IterableUtils.class);
     }
 
 }

@@ -24,6 +24,15 @@ public class CollectionFactory implements ICollectionFactory {
     }
 
     @Override
+    public <T> Stack<T> newStackWith(T... initialValues) {
+        Stack<T> stack = newStack();
+        for(T value : initialValues) {
+            stack.push(value);
+        }
+        return stack;
+    }
+
+    @Override
     public <T extends Comparable<T>> SortedSet<T> newSortedSet() {
         return Sets.newTreeSet();
     }
@@ -31,11 +40,6 @@ public class CollectionFactory implements ICollectionFactory {
     @Override
     public <K extends Comparable<K>, V> SortedMap<K, V> newSortedMap() {
         return Maps.newTreeMap();
-    }
-
-    @Override
-    public <TKey extends Comparable<TKey>, TValue extends Comparable<TValue>> IMapping<TKey, TValue> newMapping(Map<TKey, TValue> map) {
-        return null;
     }
 
     @Override
