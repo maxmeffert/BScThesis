@@ -21,7 +21,7 @@ public class GraphIterators implements IGraphIterators {
 
     @Override
     public <TValue extends Comparable<TValue>> IGraphIterator<TValue> newDirectedGraphIterator(IDiGraph<TValue> graph, TValue startNode) {
-        return new GeneralGraphIterator<>(graph::getSourceNodesOf, collectionFactory.newStackWith(startNode), collectionFactory.newSortedSet());
+        return new GeneralGraphIterator<>(graph::getTargetNodesOf, collectionFactory.newStackWith(startNode), collectionFactory.newSortedSet());
     }
 
 

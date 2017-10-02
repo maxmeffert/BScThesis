@@ -54,7 +54,7 @@ public class DiGraphClosureFactory implements IDiGraphClosureFactory {
     }
 
     private <TValue extends Comparable<TValue>> boolean areAdjacent(IDiGraph<TValue> diGraph, TValue node1, TValue node2) {
-        return iterableUtils.contains(diGraph.getSourceNodesOf(node1), node2) || iterableUtils.contains(diGraph.getSourceNodesOf(node2), node1);
+        return iterableUtils.contains(diGraph.getTargetNodesOf(node1), node2) || iterableUtils.contains(diGraph.getTargetNodesOf(node2), node1);
     }
 
     private <TValue extends Comparable<TValue>> boolean areEqual(TValue node1, TValue node2) {

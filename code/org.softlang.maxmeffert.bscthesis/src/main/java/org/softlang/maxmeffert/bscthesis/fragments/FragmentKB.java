@@ -1,23 +1,23 @@
 package org.softlang.maxmeffert.bscthesis.fragments;
 
-import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
+import org.softlang.maxmeffert.bscthesis.graphs.IDiGraph;
 
 public class FragmentKB implements IFragmentKB {
 
-    private final IGraph<IFragment> graph;
+    private final IDiGraph<IFragment> diGraph;
 
-    public FragmentKB(IGraph<IFragment> graph) {
-        this.graph = graph;
+    public FragmentKB(IDiGraph<IFragment> graph) {
+        this.diGraph = graph;
     }
 
     @Override
     public Iterable<IFragment> getFragments() {
-        return graph.getNodes();
+        return diGraph.getNodes();
     }
 
     @Override
     public Iterable<IFragment> getFragmentsOf(IFragment fragment) {
-        return graph.getAdjacentNodesOf(fragment);
+        return diGraph.getSourceNodesOf(fragment);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.fragments;
 
+import org.softlang.maxmeffert.bscthesis.graphs.IDiGraph;
 import org.softlang.maxmeffert.bscthesis.graphs.IDiGraphBuilder;
-import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
 import org.softlang.maxmeffert.bscthesis.graphs.closures.IGraphClosures;
 
 public class FragmentKBBuilder implements IFragmentKBBuilder {
@@ -16,10 +16,11 @@ public class FragmentKBBuilder implements IFragmentKBBuilder {
 
     @Override
     public IFragmentKBBuilder fragmentOf(IFragment component, IFragment composite) {
+        System.out.println(component + " fragmentOf " + composite);
         return new FragmentKBBuilder(graphClosures, diGraphBuilder.withEdge(component, composite));
     }
 
-    private IGraph<IFragment> buildFragmentGraph() {
+    private IDiGraph<IFragment> buildFragmentGraph() {
         return graphClosures.reflexiveTransitiveDiGraphClosureOf(diGraphBuilder.build());
     }
 
