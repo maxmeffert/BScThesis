@@ -51,7 +51,7 @@ public class IoCGuiceModule extends AbstractModule {
         configureLanguages();
         configureMereologies();
         configureRelations();
-        configureSimpleParseTrees();
+        configureParseTrees();
         configureTexts();
         configureTrees();
         configureTuples();
@@ -115,7 +115,7 @@ public class IoCGuiceModule extends AbstractModule {
 
     }
 
-    private void configureSimpleParseTrees() {
+    private void configureParseTrees() {
         bind(ITextSourceTreeNormalizerFactory.class).to(TextSourceTreeNormalizerFactory.class);
         bind(IParseTreeConverter.class).to(ParseTreeConverter.class);
     }
