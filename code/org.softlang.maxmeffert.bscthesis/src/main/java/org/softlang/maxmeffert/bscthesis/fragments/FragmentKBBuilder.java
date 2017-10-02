@@ -16,7 +16,7 @@ public class FragmentKBBuilder implements IFragmentKBBuilder {
 
     @Override
     public IFragmentKBBuilder fragmentOf(IFragment component, IFragment composite) {
-        System.out.println(component + " fragmentOf " + composite);
+//        System.out.println(component + " fragmentOf " + composite);
         return new FragmentKBBuilder(graphClosures, diGraphBuilder.withEdge(component, composite));
     }
 

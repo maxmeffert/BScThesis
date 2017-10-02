@@ -45,7 +45,7 @@ public class GraphClosureFactory implements IGraphClosureFactory {
                 }
             }
         }
-        System.out.println(pairs);
+//        System.out.println(pairs);
         return pairs;
     }
 

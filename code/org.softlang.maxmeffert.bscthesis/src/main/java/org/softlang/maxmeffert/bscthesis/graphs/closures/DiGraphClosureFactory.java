@@ -45,7 +45,7 @@ public class DiGraphClosureFactory implements IDiGraphClosureFactory {
                 }
             }
         }
-        System.out.println(pairs);
+//        System.out.println(pairs);
         return pairs;
     }
 
