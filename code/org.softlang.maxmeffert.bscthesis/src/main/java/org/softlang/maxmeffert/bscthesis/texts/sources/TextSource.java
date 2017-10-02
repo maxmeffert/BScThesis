@@ -35,7 +35,7 @@ public class TextSource implements ITextSource {
 
     @Override
     public String toString() {
-        return getTextInterval() + " | " + getText();
+        return getText() + " @ " + getTextInterval();
     }
 
     @Override

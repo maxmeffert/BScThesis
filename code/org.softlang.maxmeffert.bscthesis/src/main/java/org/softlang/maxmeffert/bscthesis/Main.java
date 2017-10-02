@@ -4,8 +4,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		CCAnalyzer analyzer = CCAnalyzer.create();
-//		analyzer.findCorrespondences("class A {class A {}}","");
-		analyzer.findCorrespondences("class A {}","");
+		analyzer.findCorrespondences("class A {class A {}}","");
+//		analyzer.findCorrespondences("class A {}","");
 
 //		Injector injector = Guice.createInjector(new IoCGuiceModule());
 //		IGraphBuilderFactory graphBuilderFactory = injector.getInstance(IGraphBuilderFactory.class);
