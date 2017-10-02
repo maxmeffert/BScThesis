@@ -72,6 +72,7 @@ public class TreeBuilder<TValue extends Comparable<TValue>> implements ITreeBuil
         ITree<TValue> tree = child.build();
         addTreeNodeBuildersFromTree(tree);
         updateTreeNodeBuilderParent(tree.getRoot(), root);
+        updateTreeNodeBuilderChildren(root,tree.getRoot());
         return new TreeBuilder<>(collectionFactory, treeNodeBuilderFactory, root, nodeBuilders);
     }
 
@@ -80,7 +81,6 @@ public class TreeBuilder<TValue extends Comparable<TValue>> implements ITreeBuil
         for (TValue value : nodeBuilders.keySet()) {
             nodes.put(value, nodeBuilders.get(value).build());
         }
-        System.out.println(nodes);
         return nodes;
     }
 

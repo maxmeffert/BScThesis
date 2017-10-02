@@ -22,10 +22,10 @@ public class Main {
 					.withValue(2)
 				)
 				.withChild(treeBuilderFactory.<Integer>newTreeBuilder()
-					.withValue(2)
+					.withValue(3)
 				)
 				.withChild(treeBuilderFactory.<Integer>newTreeBuilder()
-					.withValue(2)
+					.withValue(4)
 				)
 				.build();
 
