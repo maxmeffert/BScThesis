@@ -1,5 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.graphs.traversal.walks;
 
+import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.graphs.IDiGraph;
 import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
 import org.softlang.maxmeffert.bscthesis.graphs.traversal.iterators.IGraphIterators;
@@ -8,6 +9,7 @@ public class DiGraphWalkFactory implements IDiGraphWalkFactory {
 
     private final IGraphIterators graphIteratorFactory;
 
+    @Inject
     public DiGraphWalkFactory(IGraphIterators graphIteratorFactory) {
         this.graphIteratorFactory = graphIteratorFactory;
     }

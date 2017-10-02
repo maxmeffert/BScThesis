@@ -20,7 +20,7 @@ public class FragmentKBBuilder implements IFragmentKBBuilder {
     }
 
     private IGraph<IFragment> buildFragmentGraph() {
-        return graphClosures.reflexiveTransitiveClosureOf(diGraphBuilder.build());
+        return graphClosures.reflexiveTransitiveDiGraphClosureOf(diGraphBuilder.build());
     }
 
     @Override

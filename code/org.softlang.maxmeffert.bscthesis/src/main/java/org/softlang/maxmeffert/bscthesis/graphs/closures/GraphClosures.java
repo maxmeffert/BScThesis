@@ -1,5 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.graphs.closures;
 
+import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.graphs.IDiGraph;
 import org.softlang.maxmeffert.bscthesis.graphs.IGraph;
 
@@ -8,6 +9,7 @@ public class GraphClosures implements IGraphClosures {
     private final IGraphClosureFactory graphClosureFactory;
     private final IDiGraphClosureFactory diGraphClosureFactory;
 
+    @Inject
     public GraphClosures(IGraphClosureFactory graphClosureFactory, IDiGraphClosureFactory diGraphClosureFactory) {
         this.graphClosureFactory = graphClosureFactory;
         this.diGraphClosureFactory = diGraphClosureFactory;
