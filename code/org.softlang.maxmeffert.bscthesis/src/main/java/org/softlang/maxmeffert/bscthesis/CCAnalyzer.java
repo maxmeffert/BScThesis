@@ -3,6 +3,7 @@ package org.softlang.maxmeffert.bscthesis;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.softlang.maxmeffert.bscthesis.analyzer.IAnalyzer;
+import org.softlang.maxmeffert.bscthesis.analyzer.IAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ioc.IoCGuiceModule;
 
 import java.io.File;
@@ -11,8 +12,8 @@ public class CCAnalyzer {
 
     public static CCAnalyzer create() {
         Injector injector = Guice.createInjector(new IoCGuiceModule());
-        IAnalyzer analyzer = injector.getInstance(IAnalyzer.class);
-        return new CCAnalyzer(analyzer);
+        IAnalyzerFactory analyzerFactory = injector.getInstance(IAnalyzerFactory.class);
+        return new CCAnalyzer(analyzerFactory.newAnalyzer());
     }
 
     private final IAnalyzer analyzer;

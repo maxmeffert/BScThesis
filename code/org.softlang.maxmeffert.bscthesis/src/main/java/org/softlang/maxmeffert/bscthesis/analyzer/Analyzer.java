@@ -1,6 +1,5 @@
 package org.softlang.maxmeffert.bscthesis.analyzer;
 
-import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.IAntlrParsingConfigurations;
 import org.softlang.maxmeffert.bscthesis.antlr.IAntlrParsingConfiguration;
@@ -14,21 +13,21 @@ import org.softlang.maxmeffert.bscthesis.trees.ITreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.trees.ITreeWalkerListener;
 
 import java.io.File;
-import java.util.Collection;
+import java.util.List;
 
 public class Analyzer implements IAnalyzer {
 
     private final IAntlrParsingConfigurations antlrParsingConfigurations;
     private final IParseTreeConverter parseTreeConverter;
     private final ITreeWalkerFactory treeWalkerFactory;
-
-    private final Collection<ICorrespondenceDefinition> correspondenceDefinitions = Lists.newLinkedList();
+    private final List<ICorrespondenceDefinition> correspondenceDefinitions;
 
     @Inject
-    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, IParseTreeConverter parseTreeConverter, ITreeWalkerFactory treeWalkerFactory) {
+    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, IParseTreeConverter parseTreeConverter, ITreeWalkerFactory treeWalkerFactory, List<ICorrespondenceDefinition> correspondenceDefinitions) {
         this.antlrParsingConfigurations = antlrParsingConfigurations;
         this.parseTreeConverter = parseTreeConverter;
         this.treeWalkerFactory = treeWalkerFactory;
+        this.correspondenceDefinitions = correspondenceDefinitions;
     }
 
     @Override

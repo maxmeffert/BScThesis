@@ -4,7 +4,9 @@ import com.google.inject.AbstractModule;
 import org.softlang.maxmeffert.bscthesis.AntlrParsingConfigurations;
 import org.softlang.maxmeffert.bscthesis.IAntlrParsingConfigurations;
 import org.softlang.maxmeffert.bscthesis.analyzer.Analyzer;
+import org.softlang.maxmeffert.bscthesis.analyzer.AnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.analyzer.IAnalyzer;
+import org.softlang.maxmeffert.bscthesis.analyzer.IAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.antlr.*;
 import org.softlang.maxmeffert.bscthesis.artifacts.ArtifactFactory;
 import org.softlang.maxmeffert.bscthesis.artifacts.IArtifactFactory;
@@ -59,7 +61,7 @@ public class IoCGuiceModule extends AbstractModule {
     }
 
     private void configureAnalyzer() {
-        bind(IAnalyzer.class).to(Analyzer.class);
+        bind(IAnalyzerFactory.class).to(AnalyzerFactory.class);
     }
 
     private void configureAntlr() {
