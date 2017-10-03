@@ -3,7 +3,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery;
 public class Main {
 
 	public static void main(String[] args) {
-		CCAnalyzer analyzer = CCAnalyzer.create();
+		CCRecoveryAnalyzer analyzer = CCRecoveryAnalyzer.create();
 		analyzer.findCorrespondences("class A {class A {}}","");
 //		analyzer.findCorrespondences("class A {}","");
 
