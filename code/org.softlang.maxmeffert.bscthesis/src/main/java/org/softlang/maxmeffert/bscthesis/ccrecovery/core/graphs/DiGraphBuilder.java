@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
 
 import java.util.SortedMap;
 
@@ -52,14 +52,14 @@ public class DiGraphBuilder<TValue extends Comparable<TValue>> implements IDiGra
     }
 
     @Override
-    public IDiGraphBuilder<TValue> withEdge(IPair<TValue, TValue> edge) {
+    public IDiGraphBuilder<TValue> withEdge(IComparablePair<TValue, TValue> edge) {
         return withEdge(edge.getFirst(), edge.getSecond());
     }
 
     @Override
-    public IDiGraphBuilder<TValue> withEdges(Iterable<IPair<TValue, TValue>> edges) {
+    public IDiGraphBuilder<TValue> withEdges(Iterable<IComparablePair<TValue, TValue>> edges) {
         IDiGraphBuilder<TValue> builder = new DiGraphBuilder<>(diGraphNodeBuilderFactory, collectionFactory, nodeBuilders);
-        for(IPair<TValue,TValue> edge : edges) {
+        for(IComparablePair<TValue,TValue> edge : edges) {
             builder = builder.withEdge(edge);
         }
         return builder;

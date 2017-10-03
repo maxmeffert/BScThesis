@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
 
 import java.util.SortedMap;
 
@@ -47,14 +47,14 @@ public class GraphBuilder<TValue extends Comparable<TValue>> implements IGraphBu
         return new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
     }
 
-    public IGraphBuilder<TValue> withEdge(IPair<TValue, TValue> edge) {
+    public IGraphBuilder<TValue> withEdge(IComparablePair<TValue, TValue> edge) {
         return withEdge(edge.getFirst(), edge.getSecond());
     }
 
     @Override
-    public IGraphBuilder<TValue> withEdges(Iterable<IPair<TValue, TValue>> edges) {
+    public IGraphBuilder<TValue> withEdges(Iterable<IComparablePair<TValue, TValue>> edges) {
         IGraphBuilder<TValue> builder = new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
-        for(IPair<TValue,TValue> edge : edges) {
+        for(IComparablePair<TValue,TValue> edge : edges) {
             builder = withEdge(edge);
         }
         return builder;

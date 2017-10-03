@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples;
 
-public interface IPair<A extends Comparable<A>,B extends Comparable<B>> extends Comparable<IPair<A,B>>{
-    A getFirst();
-    B getSecond();
+public interface IPair<T1, T2> {
+    T1 getFirst();
+    T2 getSecond();
 }

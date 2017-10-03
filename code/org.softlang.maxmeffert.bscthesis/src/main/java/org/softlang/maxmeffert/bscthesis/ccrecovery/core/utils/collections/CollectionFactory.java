@@ -3,10 +3,8 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.ITriple;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.Pair;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.Triple;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.*;
 
 import java.util.*;
 
@@ -47,12 +45,32 @@ public class CollectionFactory implements ICollectionFactory {
     }
 
     @Override
-    public <T1 extends Comparable<T1>, T2 extends Comparable<T2>> IPair<T1, T2> newPair(T1 first, T2 second) {
+    public <T1, T2> IPair<T1, T2> newPair(T1 first, T2 second) {
         return new Pair<>(first, second);
     }
 
     @Override
-    public <T1 extends Comparable<T1>, T2 extends Comparable<T2>, T3 extends Comparable<T3>> ITriple<T1, T2, T3> newTriple(T1 first, T2 second, T3 third) {
-        return new Triple<>(first, second, third);
+    public <T1 extends Comparable<T1>, T2 extends Comparable<T2>> IComparablePair<T1, T2> newComparablePair(T1 first, T2 second) {
+        return new ComparablePair<>(first, second);
+    }
+
+    @Override
+    public <T1 extends Comparable<T1>, T2 extends Comparable<T2>, T3 extends Comparable<T3>> IComparableTriple<T1, T2, T3> newComparableTriple(T1 first, T2 second, T3 third) {
+        return new ComparableTriple<>(first, second, third);
+    }
+
+    @Override
+    public <T> ICollectionView<T> newCollectionView(Collection<T> collection) {
+        return new CollectionView<>(collection);
+    }
+
+    @Override
+    public <T> ISetView<T> newSetView(Set<T> set) {
+        return new SetView<>(set);
+    }
+
+    @Override
+    public <K, V> IMapView<K, V> newMapView(Map<K, V> map) {
+        return new MapView<>(map);
     }
 }

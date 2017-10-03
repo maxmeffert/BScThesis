@@ -7,7 +7,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walks.
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.IComparableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IIterableUtils;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
 
 import java.util.SortedSet;
 
@@ -28,20 +28,20 @@ public class DiGraphClosureFactory implements IDiGraphClosureFactory {
         this.comparableUtils = comparableUtils;
     }
 
-    private <TValue extends Comparable<TValue>> Iterable<IPair<TValue,TValue>> getReflexiveEdges(IDiGraph<TValue> diGraph) {
-        SortedSet<IPair<TValue,TValue>> pairs = collectionFactory.newSortedSet();
+    private <TValue extends Comparable<TValue>> Iterable<IComparablePair<TValue,TValue>> getReflexiveEdges(IDiGraph<TValue> diGraph) {
+        SortedSet<IComparablePair<TValue,TValue>> pairs = collectionFactory.newSortedSet();
         for(TValue node : diGraph.getNodes()) {
-            pairs.add(collectionFactory.newPair(node,node));
+            pairs.add(collectionFactory.newComparablePair(node,node));
         }
         return pairs;
     }
 
-    private <TValue extends Comparable<TValue>> Iterable<IPair<TValue,TValue>> getTransitiveEdges(IDiGraph<TValue> diGraph) {
-        SortedSet<IPair<TValue,TValue>> pairs = collectionFactory.newSortedSet();
+    private <TValue extends Comparable<TValue>> Iterable<IComparablePair<TValue,TValue>> getTransitiveEdges(IDiGraph<TValue> diGraph) {
+        SortedSet<IComparablePair<TValue,TValue>> pairs = collectionFactory.newSortedSet();
         for (TValue node : diGraph.getNodes()) {
             for (TValue transitiveNode : diGraphWalkFactory.newDiGraphWalk(diGraph, node)) {
                 if (canAddAdjacentPair(diGraph, node, transitiveNode)) {
-                    pairs.add(collectionFactory.newPair(node, transitiveNode));
+                    pairs.add(collectionFactory.newComparablePair(node, transitiveNode));
                 }
             }
         }
