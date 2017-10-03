@@ -1,9 +1,17 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
+
 import java.util.Iterator;
 import java.util.Set;
 
-public class Mereology<T extends Comparable<T>> implements IMereology<T> {
+public class Mereology<TValue extends Comparable<TValue>> implements IMereology<TValue> {
+
+    private final IDiGraph<TValue> diGraph;
+
+    public Mereology(IDiGraph<TValue> diGraph) {
+        this.diGraph = diGraph;
+    }
 
     @Override
     public boolean isEmpty() {
@@ -11,72 +19,72 @@ public class Mereology<T extends Comparable<T>> implements IMereology<T> {
     }
 
     @Override
-    public boolean contains(T value) {
+    public boolean contains(TValue value) {
         return false;
     }
 
     @Override
-    public boolean isPartOf(T left, T right) {
+    public boolean isPartOf(TValue left, TValue right) {
         return false;
     }
 
     @Override
-    public boolean isProperPartOf(T left, T right) {
+    public boolean isProperPartOf(TValue left, TValue right) {
         return false;
     }
 
     @Override
-    public boolean isAtomOf(T left, T right) {
+    public boolean isAtomOf(TValue left, TValue right) {
         return false;
     }
 
     @Override
-    public boolean isAtom(T value) {
+    public boolean isAtom(TValue value) {
         return false;
     }
 
     @Override
-    public boolean isFusion(T value) {
+    public boolean isFusion(TValue value) {
         return false;
     }
 
     @Override
-    public boolean isBottom(T value) {
+    public boolean isBottom(TValue value) {
         return false;
     }
 
     @Override
-    public boolean isTop(T value) {
+    public boolean isTop(TValue value) {
         return false;
     }
 
     @Override
-    public T getBottom() {
+    public TValue getBottom() {
         return null;
     }
 
     @Override
-    public T getTop() {
+    public TValue getTop() {
         return null;
     }
 
     @Override
-    public Set<T> getProperPartsOf(T value) {
+    public Set<TValue> getProperPartsOf(TValue value) {
         return null;
     }
 
     @Override
-    public Set<T> getPartsOf(T value) {
+    public Set<TValue> getPartsOf(TValue value) {
         return null;
     }
 
     @Override
-    public Set<T> getAtomsOf(T value) {
+    public Set<TValue> getAtomsOf(TValue value) {
         return null;
     }
 
     @Override
-    public Iterator<T> iterator() {
+    public Iterator<TValue> iterator() {
         return null;
     }
 }
