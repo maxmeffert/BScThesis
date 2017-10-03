@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.IMapView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.ISetView;
 
 public class DiGraph<TValue extends Comparable<TValue>> implements IDiGraph<TValue> {
 
@@ -21,22 +22,22 @@ public class DiGraph<TValue extends Comparable<TValue>> implements IDiGraph<TVal
     }
 
     @Override
-    public Iterable<TValue> getNodes() {
+    public ISetView<TValue> getNodes() {
         return nodes.keySet();
     }
 
     @Override
-    public Iterable<TValue> getAdjacentNodesOf(TValue tNode) {
+    public ISetView<TValue> getAdjacentNodesOf(TValue tNode) {
         return nodes.get(tNode).getAdjacentNodes();
     }
 
     @Override
-    public Iterable<TValue> getSourceNodesOf(TValue tNode) {
+    public ISetView<TValue> getSourceNodesOf(TValue tNode) {
         return nodes.get(tNode).getSourceNodes();
     }
 
     @Override
-    public Iterable<TValue> getTargetNodesOf(TValue tNode) {
+    public ISetView<TValue> getTargetNodesOf(TValue tNode) {
         return nodes.get(tNode).getTargetNodes();
     }
 }

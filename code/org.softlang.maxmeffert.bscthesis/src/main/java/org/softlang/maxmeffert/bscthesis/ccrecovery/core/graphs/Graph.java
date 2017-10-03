@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.IMapView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.ISetView;
 
 public class Graph<TValue extends Comparable<TValue>> implements IGraph<TValue> {
 
@@ -21,12 +22,12 @@ public class Graph<TValue extends Comparable<TValue>> implements IGraph<TValue> 
     }
 
     @Override
-    public Iterable<TValue> getNodes() {
+    public ISetView<TValue> getNodes() {
         return nodes.keySet();
     }
 
     @Override
-    public Iterable<TValue> getAdjacentNodesOf(TValue tValue) {
+    public ISetView<TValue> getAdjacentNodesOf(TValue tValue) {
         return nodes.get(tValue).getAdjacentNodes();
     }
 }

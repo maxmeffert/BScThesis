@@ -17,7 +17,7 @@ public class DiGraphNodeBuilderFactory implements IDiGraphNodeBuilderFactory {
 
     @Override
     public <TValue extends Comparable<TValue>> IDiGraphNodeBuilder<TValue> newDiGraphNodeBuilder() {
-        return new DiGraphNodeBuilder<TValue>(collectionFactory, iterableUtils, null, collectionFactory.newSortedSet(), collectionFactory.newSortedSet());
+        return new DiGraphNodeBuilder<TValue>(collectionFactory, null, collectionFactory.newSortedSet(), collectionFactory.newSortedSet());
     }
 
 }
