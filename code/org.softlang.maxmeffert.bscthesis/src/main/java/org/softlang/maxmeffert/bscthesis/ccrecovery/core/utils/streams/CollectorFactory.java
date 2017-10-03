@@ -1,6 +1,7 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.streams;
 
 import com.google.inject.Inject;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 
 import java.util.SortedSet;
 import java.util.stream.Collector;

@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.streams;
 
 import java.util.SortedSet;
 import java.util.stream.Collector;

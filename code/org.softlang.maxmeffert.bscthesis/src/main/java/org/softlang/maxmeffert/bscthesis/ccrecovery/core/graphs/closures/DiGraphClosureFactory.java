@@ -5,7 +5,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraphBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walks.IDiGraphWalkFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.IComparableUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.IComparableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IIterableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
 

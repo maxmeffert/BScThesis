@@ -6,12 +6,10 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IIterab
 
 public class DiGraphNodeBuilderFactory implements IDiGraphNodeBuilderFactory {
 
-    private final IIterableUtils iterableUtils;
     private final ICollectionFactory collectionFactory;
 
     @Inject
-    public DiGraphNodeBuilderFactory(IIterableUtils iterableUtils, ICollectionFactory collectionFactory) {
-        this.iterableUtils = iterableUtils;
+    public DiGraphNodeBuilderFactory(ICollectionFactory collectionFactory) {
         this.collectionFactory = collectionFactory;
     }
 
