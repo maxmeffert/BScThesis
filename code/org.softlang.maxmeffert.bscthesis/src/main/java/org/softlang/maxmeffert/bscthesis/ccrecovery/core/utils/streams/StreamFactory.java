@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.streams;
 
 import com.google.common.collect.Streams;
 

@@ -1,8 +1,12 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.ITriple;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.Pair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.Triple;
 
 import java.util.*;
 

@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.relations;
 
 import org.junit.jupiter.api.Test;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.AdjacencyMatrix;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.IAdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.old.AdjacencyMatrix;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.old.IAdjacencyMatrix;
 
 class AdjacencyMatrixTests {
 

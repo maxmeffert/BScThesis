@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.IPair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
 
 public interface IGraphBuilder<TValue extends Comparable<TValue>> {
     IGraphBuilder<TValue> withEdge(TValue node1, TValue node2);

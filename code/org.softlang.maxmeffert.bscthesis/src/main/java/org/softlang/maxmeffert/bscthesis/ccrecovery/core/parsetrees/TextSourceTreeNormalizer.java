@@ -1,10 +1,10 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.IStringUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.IStringUtils;
 
 public class TextSourceTreeNormalizer implements ITextSourceTreeNormalizer {
 

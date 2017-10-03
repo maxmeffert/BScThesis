@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 
 public class TreeFactory implements ITreeFactory {
 

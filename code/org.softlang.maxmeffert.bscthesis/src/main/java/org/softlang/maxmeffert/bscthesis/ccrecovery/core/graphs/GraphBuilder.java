@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.ICollectionFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.IPair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
 
 import java.util.SortedMap;
 

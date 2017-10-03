@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views;
 
 import java.util.Collection;
 import java.util.Iterator;

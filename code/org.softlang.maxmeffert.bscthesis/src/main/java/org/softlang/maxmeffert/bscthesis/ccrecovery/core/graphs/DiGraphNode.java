@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.IIterableUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IIterableUtils;
 
 import java.util.SortedSet;
 

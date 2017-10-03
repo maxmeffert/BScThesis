@@ -15,7 +15,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.MereologyBu
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalConverterFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.TreeWalkerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer.AnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer.IAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.artifacts.ArtifactFactory;
@@ -41,6 +40,14 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourc
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.TreeFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.CollectionFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ComparableUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.IComparableUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IIterableUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IterableUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.IStringUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.StringUtils;
 
 public class IoCGuiceModule extends AbstractModule {
     @Override

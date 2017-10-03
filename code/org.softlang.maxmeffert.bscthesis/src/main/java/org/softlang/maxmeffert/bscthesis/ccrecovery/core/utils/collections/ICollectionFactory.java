@@ -1,4 +1,7 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections;
+
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.ITriple;
 
 import java.util.*;
 

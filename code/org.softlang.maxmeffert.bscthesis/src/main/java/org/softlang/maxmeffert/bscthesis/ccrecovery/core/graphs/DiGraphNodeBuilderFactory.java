@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.ICollectionFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.IIterableUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IIterableUtils;
 
 public class DiGraphNodeBuilderFactory implements IDiGraphNodeBuilderFactory {
 

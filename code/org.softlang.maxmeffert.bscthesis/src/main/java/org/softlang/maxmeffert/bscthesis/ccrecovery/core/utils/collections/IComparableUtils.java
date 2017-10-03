@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections;
 
 public interface IComparableUtils {
     <T extends Comparable<T>> boolean areEqual(T a, T b);

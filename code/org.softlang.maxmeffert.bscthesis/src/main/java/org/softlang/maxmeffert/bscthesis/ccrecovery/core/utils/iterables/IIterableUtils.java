@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables;
 
 public interface IIterableUtils {
     <TValue> boolean contains(Iterable<TValue> iterable, TValue value);
