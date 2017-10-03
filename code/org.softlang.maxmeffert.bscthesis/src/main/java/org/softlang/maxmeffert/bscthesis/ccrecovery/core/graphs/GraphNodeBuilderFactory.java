@@ -14,6 +14,6 @@ public class GraphNodeBuilderFactory implements IGraphNodeBuilderFactory {
 
     @Override
     public <TValue extends Comparable<TValue>> IGraphNodeBuilder<TValue> newGraphNodeBuilder() {
-        return new GraphNodeBuilder<TValue>(null, collectionFactory.newSortedSet());
+        return new GraphNodeBuilder<TValue>(collectionFactory, null, collectionFactory.newSortedSet());
     }
 }

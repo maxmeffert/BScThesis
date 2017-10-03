@@ -35,4 +35,9 @@ public class CollectionView<TValue> implements ICollectionView<TValue> {
     public Iterator<TValue> iterator() {
         return collection.iterator();
     }
+
+    @Override
+    public String toString() {
+        return collection.toString();
+    }
 }

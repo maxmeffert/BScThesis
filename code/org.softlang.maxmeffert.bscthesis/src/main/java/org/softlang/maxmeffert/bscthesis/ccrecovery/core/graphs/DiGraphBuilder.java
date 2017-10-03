@@ -2,6 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.IMapView;
 
 import java.util.SortedMap;
 
@@ -76,12 +77,12 @@ public class DiGraphBuilder<TValue extends Comparable<TValue>> implements IDiGra
         return builder;
     }
 
-    private SortedMap<TValue, IDiGraphNode<TValue>> buildNodes() {
+    private IMapView<TValue, IDiGraphNode<TValue>> buildNodes() {
         SortedMap<TValue, IDiGraphNode<TValue>> nodes = collectionFactory.newSortedMap();
         for (TValue key : nodeBuilders.keySet()) {
             nodes.put(key, nodeBuilders.get(key).build());
         }
-        return nodes;
+        return collectionFactory.newMapView(nodes);
     }
 
     @Override

@@ -1,12 +1,12 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
-import java.util.SortedMap;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.IMapView;
 
 public class Graph<TValue extends Comparable<TValue>> implements IGraph<TValue> {
 
-    private final SortedMap<TValue, IGraphNode<TValue>> nodes;
+    private final IMapView<TValue, IGraphNode<TValue>> nodes;
 
-    public Graph(SortedMap<TValue, IGraphNode<TValue>> nodes) {
+    public Graph(IMapView<TValue, IGraphNode<TValue>> nodes) {
         this.nodes = nodes;
     }
 

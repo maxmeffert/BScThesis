@@ -8,10 +8,10 @@ public class DiGraphNode<TValue extends Comparable<TValue>> implements IDiGraphN
 
     private final IIterableUtils iterableUtils;
     private final TValue value;
-    private final SortedSet<TValue> sourceNodes;
-    private final SortedSet<TValue> targetNodes;
+    private final Iterable<TValue> sourceNodes;
+    private final Iterable<TValue> targetNodes;
 
-    public DiGraphNode(IIterableUtils iterableUtils, TValue value, SortedSet<TValue> sourceNodes, SortedSet<TValue> targetNodes) {
+    public DiGraphNode(IIterableUtils iterableUtils, TValue value, Iterable<TValue> sourceNodes, Iterable<TValue> targetNodes) {
         this.iterableUtils = iterableUtils;
         this.value = value;
         this.sourceNodes = sourceNodes;

@@ -1,12 +1,12 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
-import java.util.SortedMap;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.IMapView;
 
 public class DiGraph<TValue extends Comparable<TValue>> implements IDiGraph<TValue> {
 
-    private final SortedMap<TValue, IDiGraphNode<TValue>> nodes;
+    private final IMapView<TValue, IDiGraphNode<TValue>> nodes;
 
-    public DiGraph(SortedMap<TValue, IDiGraphNode<TValue>> nodes) {
+    public DiGraph(IMapView<TValue, IDiGraphNode<TValue>> nodes) {
         this.nodes = nodes;
     }
 

@@ -26,6 +26,21 @@ public class MapView<TKey,TValue> implements IMapView<TKey,TValue> {
     }
 
     @Override
+    public TValue get(TKey tKey) {
+        return map.get(tKey);
+    }
+
+    @Override
+    public ISetView<TKey> keySet() {
+        return new SetView<>(map.keySet());
+    }
+
+    @Override
+    public ICollectionView<TValue> values() {
+        return new CollectionView<>(map.values());
+    }
+
+    @Override
     public int size() {
         return map.size();
     }

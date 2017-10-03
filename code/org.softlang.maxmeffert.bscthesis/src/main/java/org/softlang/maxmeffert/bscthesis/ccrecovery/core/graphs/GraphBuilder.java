@@ -2,6 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.IMapView;
 
 import java.util.SortedMap;
 
@@ -71,12 +72,12 @@ public class GraphBuilder<TValue extends Comparable<TValue>> implements IGraphBu
         return new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
     }
 
-    private SortedMap<TValue, IGraphNode<TValue>> buildGraphNodes() {
+    private IMapView<TValue, IGraphNode<TValue>> buildGraphNodes() {
         SortedMap<TValue, IGraphNode<TValue>> nodes = collectionFactory.newSortedMap();
         for (TValue value : nodeBuilders.keySet()) {
             nodes.put(value, getGraphNodeBuilder(value).build());
         }
-        return nodes;
+        return collectionFactory.newMapView(nodes);
     }
 
     @Override
