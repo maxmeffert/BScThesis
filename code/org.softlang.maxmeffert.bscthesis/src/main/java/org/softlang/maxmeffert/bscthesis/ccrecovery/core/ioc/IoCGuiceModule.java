@@ -10,6 +10,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.closures.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walks.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.MereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalConverterFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.TreeWalkerFactory;
@@ -121,7 +123,7 @@ public class IoCGuiceModule extends AbstractModule {
     }
 
     private void configureMereologies() {
-
+        bind(IMereologyBuilderFactory.class).to(MereologyBuilderFactory.class);
     }
 
     private void configureRelations() {

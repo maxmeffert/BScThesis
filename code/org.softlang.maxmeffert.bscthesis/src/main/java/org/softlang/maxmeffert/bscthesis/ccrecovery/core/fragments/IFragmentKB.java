@@ -4,6 +4,6 @@ public interface IFragmentKB {
 
     Iterable<IFragment> getFragments();
     Iterable<IFragment> getFragmentsOf(IFragment fragment);
-    boolean fragmentOf(IFragment component, IFragment composite);
+    boolean isFragmentOf(IFragment component, IFragment composite);
 
 }

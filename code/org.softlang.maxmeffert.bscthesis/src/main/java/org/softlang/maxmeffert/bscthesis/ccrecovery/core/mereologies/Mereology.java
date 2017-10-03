@@ -13,9 +13,10 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
         this.diGraph = diGraph;
     }
 
+
     @Override
     public boolean isEmpty() {
-        return false;
+        return diGraph.isEmpty();
     }
 
     @Override
@@ -24,17 +25,17 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
     }
 
     @Override
-    public boolean isPartOf(TValue left, TValue right) {
+    public boolean isPartOf(TValue part, TValue fusion) {
         return false;
     }
 
     @Override
-    public boolean isProperPartOf(TValue left, TValue right) {
+    public boolean isProperPartOf(TValue properPart, TValue fusion) {
         return false;
     }
 
     @Override
-    public boolean isAtomOf(TValue left, TValue right) {
+    public boolean isAtomOf(TValue atom, TValue fusion) {
         return false;
     }
 
@@ -69,22 +70,22 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
     }
 
     @Override
-    public Set<TValue> getProperPartsOf(TValue value) {
+    public Iterable<TValue> getElements() {
+        return diGraph.getNodes();
+    }
+
+    @Override
+    public Iterable<TValue> getProperPartsOf(TValue value) {
         return null;
     }
 
     @Override
-    public Set<TValue> getPartsOf(TValue value) {
-        return null;
+    public Iterable<TValue> getPartsOf(TValue value) {
+        return diGraph.getSourceNodesOf(value);
     }
 
     @Override
-    public Set<TValue> getAtomsOf(TValue value) {
-        return null;
-    }
-
-    @Override
-    public Iterator<TValue> iterator() {
+    public Iterable<TValue> getAtomsOf(TValue value) {
         return null;
     }
 }

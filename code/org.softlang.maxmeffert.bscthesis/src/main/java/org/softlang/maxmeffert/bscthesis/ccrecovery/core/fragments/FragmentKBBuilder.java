@@ -1,31 +1,28 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraphBuilder;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.closures.IGraphClosures;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereology;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilder;
 
 public class FragmentKBBuilder implements IFragmentKBBuilder {
 
-    private final IGraphClosures graphClosures;
-    private final IDiGraphBuilder<IFragment> diGraphBuilder;
+    private final IMereologyBuilder<IFragment> mereologyBuilder;
 
-    public FragmentKBBuilder(IGraphClosures graphClosures, IDiGraphBuilder<IFragment> diGraphBuilder) {
-        this.graphClosures = graphClosures;
-        this.diGraphBuilder = diGraphBuilder;
+    public FragmentKBBuilder(IMereologyBuilder<IFragment> mereologyBuilder) {
+        this.mereologyBuilder = mereologyBuilder;
     }
 
     @Override
     public IFragmentKBBuilder fragmentOf(IFragment component, IFragment composite) {
-//        System.out.println(component + " fragmentOf " + composite);
-        return new FragmentKBBuilder(graphClosures, diGraphBuilder.withEdge(component, composite));
+//        System.out.println(component + " isFragmentOf " + composite);
+        return new FragmentKBBuilder(mereologyBuilder.partOf(component, composite));
     }
 
-    private IDiGraph<IFragment> buildFragmentGraph() {
-        return graphClosures.reflexiveTransitiveDiGraphClosureOf(diGraphBuilder.build());
+    private IMereology<IFragment> buildMereology() {
+        return mereologyBuilder.build();
     }
 
     @Override
     public IFragmentKB build() {
-        return new FragmentKB(buildFragmentGraph());
+        return new FragmentKB(buildMereology());
     }
 }

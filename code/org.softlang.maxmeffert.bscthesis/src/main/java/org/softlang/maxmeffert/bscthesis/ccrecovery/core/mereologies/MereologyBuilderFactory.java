@@ -17,6 +17,6 @@ public class MereologyBuilderFactory implements IMereologyBuilderFactory {
 
     @Override
     public <TValue extends Comparable<TValue>> IMereologyBuilder<TValue> newMereologyBuilder() {
-        return new MereologyBuilder<>(diGraphClosureFactory, diGraphBuilderFactory.newDiGraphBuilder());
+        return new MereologyBuilder<>(diGraphClosureFactory, diGraphBuilderFactory.<TValue>newDiGraphBuilder());
     }
 }

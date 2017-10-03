@@ -1,20 +1,19 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies;
 
-import java.util.Set;
-
-public interface IMereology<T extends Comparable<T>> extends Iterable<T> {
+public interface IMereology<TValue extends Comparable<TValue>> {
 	boolean isEmpty();
-	boolean contains(T value);
-	boolean isPartOf(T left, T right);
-	boolean isProperPartOf(T left, T right);
-	boolean isAtomOf(T left, T right);
-	boolean isAtom(T value);
-	boolean isFusion(T value);
-	boolean isBottom(T value);
-	boolean isTop(T value);
-	T getBottom();
-	T getTop();
-	Set<T> getProperPartsOf(T value);
-	Set<T> getPartsOf(T value);
-	Set<T> getAtomsOf(T value);
+	boolean contains(TValue value);
+	boolean isPartOf(TValue part, TValue fusion);
+	boolean isProperPartOf(TValue properPart, TValue fusion);
+	boolean isAtomOf(TValue atom, TValue fusion);
+	boolean isAtom(TValue value);
+	boolean isFusion(TValue value);
+	boolean isBottom(TValue value);
+	boolean isTop(TValue value);
+	TValue getBottom();
+	TValue getTop();
+	Iterable<TValue> getElements();
+	Iterable<TValue> getProperPartsOf(TValue value);
+	Iterable<TValue> getPartsOf(TValue value);
+	Iterable<TValue> getAtomsOf(TValue value);
 }
