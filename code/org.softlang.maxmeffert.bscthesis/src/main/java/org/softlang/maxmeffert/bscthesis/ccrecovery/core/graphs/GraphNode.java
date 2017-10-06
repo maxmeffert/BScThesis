@@ -1,13 +1,13 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.ISetView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.ISortedSetView;
 
 public class GraphNode<TNode extends Comparable<TNode>> implements IGraphNode<TNode> {
 
     private final TNode value;
-    private final ISetView<TNode> adjacentNodes;
+    private final ISortedSetView<TNode> adjacentNodes;
 
-    public GraphNode(TNode value, ISetView<TNode> adjacentNodes) {
+    public GraphNode(TNode value, ISortedSetView<TNode> adjacentNodes) {
         this.value = value;
         this.adjacentNodes = adjacentNodes;
     }
@@ -18,7 +18,7 @@ public class GraphNode<TNode extends Comparable<TNode>> implements IGraphNode<TN
     }
 
     @Override
-    public ISetView<TNode> getAdjacentNodes() {
+    public ISortedSetView<TNode> getAdjacentNodes() {
         return adjacentNodes;
     }
 

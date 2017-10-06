@@ -1,9 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.ISetView;
 
-import java.util.Iterator;
-import java.util.Set;
+import java.util.Optional;
 
 public class Mereology<TValue extends Comparable<TValue>> implements IMereology<TValue> {
 
@@ -21,22 +21,22 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
 
     @Override
     public boolean contains(TValue value) {
-        return false;
+        return diGraph.getNodes().contains(value);
     }
 
     @Override
     public boolean isPartOf(TValue part, TValue fusion) {
-        return false;
+        return getPartsOf(fusion).contains(part);
     }
 
     @Override
     public boolean isProperPartOf(TValue properPart, TValue fusion) {
-        return false;
+        return getProperPartsOf(fusion).contains(properPart);
     }
 
     @Override
     public boolean isAtomOf(TValue atom, TValue fusion) {
-        return false;
+        return getAtomsOf(fusion).contains(atom);
     }
 
     @Override
@@ -60,32 +60,32 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
     }
 
     @Override
-    public TValue getBottom() {
+    public Optional<TValue> getBottom() {
         return null;
     }
 
     @Override
-    public TValue getTop() {
+    public Optional<TValue> getTop() {
         return null;
     }
 
     @Override
-    public Iterable<TValue> getElements() {
+    public ISetView<TValue> getElements() {
         return diGraph.getNodes();
     }
 
     @Override
-    public Iterable<TValue> getProperPartsOf(TValue value) {
+    public ISetView<TValue> getProperPartsOf(TValue value) {
         return null;
     }
 
     @Override
-    public Iterable<TValue> getPartsOf(TValue value) {
+    public ISetView<TValue> getPartsOf(TValue value) {
         return diGraph.getSourceNodesOf(value);
     }
 
     @Override
-    public Iterable<TValue> getAtomsOf(TValue value) {
+    public ISetView<TValue> getAtomsOf(TValue value) {
         return null;
     }
 }

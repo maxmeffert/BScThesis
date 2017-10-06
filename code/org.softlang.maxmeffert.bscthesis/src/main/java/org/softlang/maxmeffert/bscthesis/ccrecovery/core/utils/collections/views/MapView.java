@@ -16,32 +16,22 @@ public class MapView<TKey,TValue> implements IMapView<TKey,TValue> {
     }
 
     @Override
-    public boolean containsKey(TKey tKey) {
-        return map.containsKey(tKey);
-    }
-
-    @Override
-    public boolean containsValue(TValue tValue) {
-        return map.containsValue(tValue);
-    }
-
-    @Override
-    public TValue get(TKey tKey) {
-        return map.get(tKey);
-    }
-
-    @Override
-    public ISetView<TKey> keySet() {
-        return new SetView<>(map.keySet());
-    }
-
-    @Override
-    public ICollectionView<TValue> values() {
-        return new CollectionView<>(map.values());
-    }
-
-    @Override
     public int size() {
         return map.size();
+    }
+
+    @Override
+    public IView<TKey> keys() {
+        return new View<>(map.keySet());
+    }
+
+    @Override
+    public IView<TValue> values() {
+        return new View<>(map.values());
+    }
+
+    @Override
+    public TValue get(TKey key) {
+        return map.get(key);
     }
 }

@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.IMapView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.IMapView;
 
 import java.util.SortedMap;
 

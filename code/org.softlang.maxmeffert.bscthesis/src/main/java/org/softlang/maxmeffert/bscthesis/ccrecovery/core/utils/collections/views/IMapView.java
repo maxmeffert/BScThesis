@@ -2,10 +2,8 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.view
 
 public interface IMapView<TKey,TValue> {
     boolean isEmpty();
-    boolean containsKey(TKey key);
-    boolean containsValue(TValue value);
+    IView<TKey> keys();
+    IView<TValue> values();
     TValue get(TKey key);
-    ISetView<TKey> keySet();
-    ICollectionView<TValue> values();
     int size();
 }

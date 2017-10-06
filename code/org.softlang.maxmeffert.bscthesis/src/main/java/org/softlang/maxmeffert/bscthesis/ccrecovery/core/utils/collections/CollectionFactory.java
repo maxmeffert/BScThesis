@@ -3,12 +3,20 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.*;
 
 import java.util.*;
 
 public class CollectionFactory implements ICollectionFactory {
+
+    private final ICollectionViewFactory collectionViewFactory;
+
+    @Inject
+    public CollectionFactory(ICollectionViewFactory collectionViewFactory) {
+        this.collectionViewFactory = collectionViewFactory;
+    }
 
     @Override
     public <T> Collection<T> newSingleton(T value) {
@@ -61,16 +69,31 @@ public class CollectionFactory implements ICollectionFactory {
 
     @Override
     public <T> ICollectionView<T> newCollectionView(Collection<T> collection) {
-        return new CollectionView<>(collection);
+        return collectionViewFactory.newCollectionView(collection);
+    }
+
+    @Override
+    public <T> IListView<T> newListView(List<T> list) {
+        return collectionViewFactory.newListView(list);
     }
 
     @Override
     public <T> ISetView<T> newSetView(Set<T> set) {
-        return new SetView<>(set);
+        return collectionViewFactory.newSetView(set);
+    }
+
+    @Override
+    public <T extends Comparable<T>> ISortedSetView<T> newSortedSetView(SortedSet<T> sortedSet) {
+        return collectionViewFactory.newSortedSetView(sortedSet);
     }
 
     @Override
     public <K, V> IMapView<K, V> newMapView(Map<K, V> map) {
-        return new MapView<>(map);
+        return collectionViewFactory.newMapView(map);
+    }
+
+    @Override
+    public <K extends Comparable<K>, V> ISortedMapView<K, V> newSortedMapView(SortedMap<K, V> sortedMap) {
+        return collectionViewFactory.newSortedMapView(sortedMap);
     }
 }
