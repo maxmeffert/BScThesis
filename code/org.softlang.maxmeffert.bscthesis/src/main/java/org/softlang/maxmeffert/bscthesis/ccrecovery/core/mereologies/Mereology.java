@@ -4,6 +4,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class Mereology<TValue extends Comparable<TValue>> implements IMereology<TValue> {
 
@@ -26,12 +27,13 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
 
     @Override
     public boolean isPartOf(TValue part, TValue fusion) {
-        return getPartsOf(fusion).contains(part);
+        return diGraph.getSourceNodesOf(fusion).contains(part);
+//        return getPartsOf(fusion).contains(part);
     }
 
     @Override
     public boolean isProperPartOf(TValue properPart, TValue fusion) {
-        return getProperPartsOf(fusion).contains(properPart);
+        return isPartOf(properPart, fusion) && !isPartOf(fusion, properPart);
     }
 
     @Override
@@ -60,13 +62,28 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
     }
 
     @Override
+    public boolean all(Predicate<TValue> predicate) {
+        return getElements().all(predicate);
+    }
+
+    @Override
+    public boolean any(Predicate<TValue> predicate) {
+        return getElements().any(predicate);
+    }
+
+    @Override
+    public boolean none(Predicate<TValue> predicate) {
+        return getElements().none(predicate);
+    }
+
+    @Override
     public Optional<TValue> getBottom() {
-        return null;
+        return Optional.empty();
     }
 
     @Override
     public Optional<TValue> getTop() {
-        return null;
+        return Optional.empty();
     }
 
     @Override
@@ -76,16 +93,22 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
 
     @Override
     public IView<TValue> getProperPartsOf(TValue value) {
-        return null;
+        return filter(element -> isProperPartOf(element, value));
     }
 
     @Override
     public IView<TValue> getPartsOf(TValue value) {
-        return diGraph.getSourceNodesOf(value);
+        return filter(element -> isPartOf(element, value));
+//        return diGraph.getSourceNodesOf(value);
     }
 
     @Override
     public IView<TValue> getAtomsOf(TValue value) {
-        return null;
+        return filter(element -> isAtomOf(element,value));
+    }
+
+    @Override
+    public IView<TValue> filter(Predicate<TValue> predicate) {
+        return diGraph.filter(predicate);
     }
 }

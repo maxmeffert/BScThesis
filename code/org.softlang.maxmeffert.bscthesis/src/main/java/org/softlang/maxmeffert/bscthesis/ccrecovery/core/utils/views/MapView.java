@@ -1,13 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views;
 
-import com.sun.javafx.tk.TKClipboard;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.Pair;
 
-import java.util.Iterator;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 public class MapView<TKey,TValue> extends View<IPair<TKey,TValue>> implements IMapView<TKey,TValue> {
 

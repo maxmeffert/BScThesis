@@ -92,6 +92,6 @@ public class View<TValue> implements IView<TValue> {
 
     @Override
     public String toString() {
-        return iterable.toString();
+        return Iterables.toString(iterable);
     }
 }

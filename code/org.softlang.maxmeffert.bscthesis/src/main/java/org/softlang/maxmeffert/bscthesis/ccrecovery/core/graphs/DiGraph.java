@@ -4,6 +4,8 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IMapView;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
+import java.util.function.Predicate;
+
 public class DiGraph<TValue extends Comparable<TValue>> implements IDiGraph<TValue> {
 
     private final IMapView<TValue, IDiGraphNode<TValue>> nodes;
@@ -30,6 +32,11 @@ public class DiGraph<TValue extends Comparable<TValue>> implements IDiGraph<TVal
     @Override
     public IView<TValue> getAdjacentNodesOf(TValue tNode) {
         return nodes.valueOf(tNode).getAdjacentNodes();
+    }
+
+    @Override
+    public IView<TValue> filter(Predicate<TValue> predicate) {
+        return getNodes().filter(predicate);
     }
 
     @Override
