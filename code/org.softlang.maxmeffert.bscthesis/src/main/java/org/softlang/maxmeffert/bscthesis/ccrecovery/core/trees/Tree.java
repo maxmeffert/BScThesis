@@ -57,7 +57,7 @@ public class Tree<TValue extends Comparable<TValue>> implements ITree<TValue> {
     }
 
     @Override
-    public Iterable<ITree<TValue>> getChildren() {
+    public List<ITree<TValue>> getChildren() {
         return children;
     }
 
@@ -81,8 +81,29 @@ public class Tree<TValue extends Comparable<TValue>> implements ITree<TValue> {
         }
     }
 
+    private int compareChildrenTo(List<ITree<TValue>> children) {
+        if (getChildren().size() < children.size()) {
+            return -1;
+        }
+        if (getChildren().size() > children.size()) {
+            return 1;
+        }
+        int result = 0;
+        for (int i=0; i < getChildren().size(); i++) {
+            result = getChildren().get(i).compareTo(children.get(i));
+            if (result != 0) {
+                return result;
+            }
+        }
+        return result;
+    }
+
     @Override
     public int compareTo(ITree<TValue> iTree) {
-        return getValue().compareTo(iTree.getValue());
+        int result = getValue().compareTo(iTree.getValue());
+        if (result == 0) {
+            result = compareChildrenTo(iTree.getChildren());
+        }
+        return result;
     }
 }

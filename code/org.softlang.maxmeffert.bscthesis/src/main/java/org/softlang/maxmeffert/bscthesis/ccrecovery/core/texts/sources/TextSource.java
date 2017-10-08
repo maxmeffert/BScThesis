@@ -21,6 +21,16 @@ public class TextSource implements ITextSource {
         return textInterval;
     }
 
+    @Override
+    public int getStartPosition() {
+        return getTextInterval().getStartPosition();
+    }
+
+    @Override
+    public int getEndPosition() {
+        return getTextInterval().getEndPosition();
+    }
+
     public ITextProvider getTextProvider() {
         return textProvider;
     }
@@ -31,6 +41,41 @@ public class TextSource implements ITextSource {
             text = getTextProvider().getText(getTextInterval());
         }
         return text;
+    }
+
+    @Override
+    public boolean contains(ITextSource iTextSource) {
+        return getTextInterval().contains(iTextSource.getTextInterval()) && contains(iTextSource.getText());
+    }
+
+    @Override
+    public boolean properlyContains(ITextSource iTextSource) {
+        return getTextInterval().properlyContains(iTextSource.getTextInterval()) && contains(iTextSource.getText());
+    }
+
+    @Override
+    public boolean contains(String text) {
+        return getText().contains(text);
+    }
+
+    @Override
+    public boolean properlyContains(String text) {
+        return  contains(text) && !(startsWith(text) || endsWith(text));
+    }
+
+    @Override
+    public boolean startsWith(String text) {
+        return getText().startsWith(text);
+    }
+
+    @Override
+    public boolean endsWith(String text) {
+        return getText().endsWith(text);
+    }
+
+    @Override
+    public boolean matches(String regex) {
+        return getText().matches(regex);
     }
 
     @Override
@@ -45,5 +90,13 @@ public class TextSource implements ITextSource {
             result = getText().compareTo(iTextSource.getText());
         }
         return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ITextSource) {
+            return compareTo((ITextSource) obj) == 0;
+        }
+        return false;
     }
 }

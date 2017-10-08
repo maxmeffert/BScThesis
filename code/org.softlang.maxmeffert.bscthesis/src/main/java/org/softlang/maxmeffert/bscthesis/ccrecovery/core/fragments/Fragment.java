@@ -44,12 +44,27 @@ public class Fragment implements IFragment {
 
     @Override
     public boolean contains(IFragment iFragment) {
-        return getTextInterval().contains(iFragment.getTextInterval());
+        return getTextSource().contains(iFragment.getTextSource());
     }
 
     @Override
     public boolean properlyContains(IFragment iFragment) {
-        return getTextInterval().properlyContains(iFragment.getTextInterval());
+        return getTextSource().properlyContains(iFragment.getTextSource());
+    }
+
+    @Override
+    public boolean startsWith(String prefix) {
+        return getTextSource().startsWith(prefix);
+    }
+
+    @Override
+    public boolean endsWith(String suffix) {
+        return getTextSource().endsWith(suffix);
+    }
+
+    @Override
+    public boolean matches(String regex) {
+        return getTextSource().matches(regex);
     }
 
     @Override

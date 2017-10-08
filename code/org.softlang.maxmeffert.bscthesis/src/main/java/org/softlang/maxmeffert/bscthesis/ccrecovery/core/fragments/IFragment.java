@@ -13,4 +13,7 @@ public interface IFragment extends Comparable<IFragment> {
     int getTextEndPosition();
     boolean contains(IFragment iFragment);
     boolean properlyContains(IFragment iFragment);
+    boolean startsWith(String prefix);
+    boolean endsWith(String suffix);
+    boolean matches(String regex);
 }
