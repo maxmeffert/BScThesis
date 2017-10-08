@@ -29,16 +29,16 @@ public class DiGraph<TValue extends Comparable<TValue>> implements IDiGraph<TVal
 
     @Override
     public IView<TValue> getAdjacentNodesOf(TValue tNode) {
-        return nodes.get(tNode).getAdjacentNodes();
+        return nodes.valueOf(tNode).getAdjacentNodes();
     }
 
     @Override
     public IView<TValue> getSourceNodesOf(TValue tNode) {
-        return nodes.get(tNode).getSourceNodes();
+        return nodes.valueOf(tNode).getSourceNodes();
     }
 
     @Override
     public IView<TValue> getTargetNodesOf(TValue tNode) {
-        return nodes.get(tNode).getTargetNodes();
+        return nodes.valueOf(tNode).getTargetNodes();
     }
 }

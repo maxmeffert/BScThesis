@@ -28,6 +28,6 @@ public class Graph<TValue extends Comparable<TValue>> implements IGraph<TValue> 
 
     @Override
     public IView<TValue> getAdjacentNodesOf(TValue tValue) {
-        return nodes.get(tValue).getAdjacentNodes();
+        return nodes.valueOf(tValue).getAdjacentNodes();
     }
 }

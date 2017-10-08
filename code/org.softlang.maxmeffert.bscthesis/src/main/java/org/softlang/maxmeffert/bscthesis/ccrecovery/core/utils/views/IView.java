@@ -2,6 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views;
 
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public interface IView<TValue> extends Iterable<TValue> {
     boolean isEmpty();
@@ -15,4 +16,5 @@ public interface IView<TValue> extends Iterable<TValue> {
     IView<TValue>  filter(Predicate<TValue> predicate);
     <TResult> IView<TResult> map(Function<TValue,TResult> function);
     int size();
+    Stream<TValue> stream();
 }

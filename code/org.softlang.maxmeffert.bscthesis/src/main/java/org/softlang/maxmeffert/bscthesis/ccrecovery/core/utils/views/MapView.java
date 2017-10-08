@@ -1,12 +1,20 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views;
 
-import java.util.Map;
+import com.sun.javafx.tk.TKClipboard;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.Pair;
 
-public class MapView<TKey,TValue> implements IMapView<TKey,TValue> {
+import java.util.Iterator;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
+public class MapView<TKey,TValue> extends View<IPair<TKey,TValue>> implements IMapView<TKey,TValue> {
 
     private final Map<TKey,TValue> map;
 
     public MapView(Map<TKey, TValue> map) {
+        super(map.entrySet().stream().map(entry -> (IPair<TKey,TValue>) new Pair<>(entry.getKey(), entry.getValue())));
         this.map = map;
     }
 
@@ -31,7 +39,8 @@ public class MapView<TKey,TValue> implements IMapView<TKey,TValue> {
     }
 
     @Override
-    public TValue get(TKey key) {
+    public TValue valueOf(TKey key) {
         return map.get(key);
     }
+
 }

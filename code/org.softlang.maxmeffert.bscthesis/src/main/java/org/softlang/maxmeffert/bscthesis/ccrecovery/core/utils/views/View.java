@@ -37,47 +37,52 @@ public class View<TValue> implements IView<TValue> {
 
     @Override
     public boolean containsAll(Iterable<TValue> iterable) {
-        return Streams.stream(iterable).allMatch(x -> contains(x));
+        return stream().allMatch(x -> contains(x));
     }
 
     @Override
     public boolean containsAny(Iterable<TValue> iterable) {
-        return Streams.stream(iterable).anyMatch(x -> contains(x));
+        return stream().anyMatch(x -> contains(x));
     }
 
     @Override
     public boolean containsNone(Iterable<TValue> iterable) {
-        return Streams.stream(iterable).noneMatch(x -> contains(x));
+        return stream().noneMatch(x -> contains(x));
     }
 
     @Override
     public boolean all(Predicate<TValue> predicate) {
-        return Streams.stream(this).allMatch(predicate);
+        return stream().allMatch(predicate);
     }
 
     @Override
     public boolean any(Predicate<TValue> predicate) {
-        return Streams.stream(this).anyMatch(predicate);
+        return stream().anyMatch(predicate);
     }
 
     @Override
     public boolean none(Predicate<TValue> predicate) {
-        return Streams.stream(this).noneMatch(predicate);
+        return stream().noneMatch(predicate);
     }
 
     @Override
     public IView<TValue> filter(Predicate<TValue> predicate) {
-        return new View<>(Streams.stream(this).filter(predicate));
+        return new View<>(stream().filter(predicate));
     }
 
     @Override
     public <TResult> IView<TResult> map(Function<TValue, TResult> function) {
-        return new View<>(Streams.stream(this).map(function));
+        return new View<>(stream().map(function));
     }
 
     @Override
     public int size() {
         return Iterables.size(iterable);
+    }
+
+    @Override
+    public Stream<TValue> stream() {
+        return Streams.stream(this);
     }
 
     @Override
