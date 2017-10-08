@@ -22,7 +22,17 @@ public class FragmentKB implements IFragmentKB {
     }
 
     @Override
-    public boolean isFragmentOf(IFragment component, IFragment composite) {
-        return mereology.isPartOf(component, composite);
+    public IView<IFragment> getProperFragmentsOf(IFragment fragment) {
+        return mereology.getProperPartsOf(fragment);
+    }
+
+    @Override
+    public boolean isFragmentOf(IFragment fragment, IFragment total) {
+        return mereology.isPartOf(fragment, total);
+    }
+
+    @Override
+    public boolean isProperFragmentOf(IFragment fragment, IFragment total) {
+        return mereology.isProperPartOf(fragment, total);
     }
 }

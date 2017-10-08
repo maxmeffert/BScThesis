@@ -11,4 +11,6 @@ public interface IFragment extends Comparable<IFragment> {
     ITextInterval getTextInterval();
     int getTextStartPosition();
     int getTextEndPosition();
+    boolean contains(IFragment iFragment);
+    boolean properlyContains(IFragment iFragment);
 }

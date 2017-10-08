@@ -43,6 +43,16 @@ public class Fragment implements IFragment {
     }
 
     @Override
+    public boolean contains(IFragment iFragment) {
+        return getTextInterval().contains(iFragment.getTextInterval());
+    }
+
+    @Override
+    public boolean properlyContains(IFragment iFragment) {
+        return getTextInterval().properlyContains(iFragment.getTextInterval());
+    }
+
+    @Override
     public String toString() {
         return getTextSource().toString();
     }

@@ -99,7 +99,6 @@ public class IoCGuiceModule extends AbstractModule {
 
     private void configureFragments() {
         bind(IFragmentFactory.class).to(FragmentFactory.class);
-        bind(IFragmentBuilderFactory.class).to(FragmentBuilderFactory.class);
         bind(IFragmentKBFactory.class).to(FragmentKBFactory.class);
         bind(IFragmentKBBuilderFactory.class).to(FragmentKBBuilderFactory.class);
     }
