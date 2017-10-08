@@ -5,10 +5,19 @@ import com.google.common.collect.Streams;
 
 import java.util.Iterator;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class View<TValue> implements IView<TValue> {
 
     private final Iterable<TValue> iterable;
+
+    public View(Stream<TValue> stream) {
+        this(stream.iterator());
+    }
+
+    public View(Iterator<TValue> iterator) {
+        this(() -> iterator);
+    }
 
     public View(Iterable<TValue> iterable) {
         this.iterable = iterable;
@@ -56,7 +65,7 @@ public class View<TValue> implements IView<TValue> {
 
     @Override
     public IView<TValue> filter(Predicate<TValue> predicate) {
-        return new View<>(() -> Streams.stream(this).filter(predicate).iterator());
+        return new View<>(Streams.stream(this).filter(predicate));
     }
 
     @Override
