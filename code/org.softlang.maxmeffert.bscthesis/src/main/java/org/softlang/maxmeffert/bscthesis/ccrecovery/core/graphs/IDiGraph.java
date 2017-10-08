@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.ISortedSetView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
 public interface IDiGraph<TValue extends Comparable<TValue>> extends IGraph<TValue> {
-    ISortedSetView<TValue> getSourceNodesOf(TValue node);
-    ISortedSetView<TValue> getTargetNodesOf(TValue node);
+    IView<TValue> getSourceNodesOf(TValue node);
+    IView<TValue> getTargetNodesOf(TValue node);
 }

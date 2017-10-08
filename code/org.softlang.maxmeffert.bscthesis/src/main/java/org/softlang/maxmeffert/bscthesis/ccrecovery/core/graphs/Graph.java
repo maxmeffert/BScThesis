@@ -1,14 +1,13 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.ISetView;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.ISortedMapView;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.ISortedSetView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IMapView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
 public class Graph<TValue extends Comparable<TValue>> implements IGraph<TValue> {
 
-    private final ISortedMapView<TValue, IGraphNode<TValue>> nodes;
+    private final IMapView<TValue, IGraphNode<TValue>> nodes;
 
-    public Graph(ISortedMapView<TValue, IGraphNode<TValue>> nodes) {
+    public Graph(IMapView<TValue, IGraphNode<TValue>> nodes) {
         this.nodes = nodes;
     }
 
@@ -23,12 +22,12 @@ public class Graph<TValue extends Comparable<TValue>> implements IGraph<TValue> 
     }
 
     @Override
-    public ISetView<TValue> getNodes() {
-        return nodes.keySet();
+    public IView<TValue> getNodes() {
+        return nodes.keys();
     }
 
     @Override
-    public ISortedSetView<TValue> getAdjacentNodesOf(TValue tValue) {
+    public IView<TValue> getAdjacentNodesOf(TValue tValue) {
         return nodes.get(tValue).getAdjacentNodes();
     }
 }

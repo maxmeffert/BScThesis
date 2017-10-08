@@ -2,7 +2,8 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.IMapView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IMapView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IViewFactory;
 
 import java.util.SortedMap;
 
@@ -10,11 +11,13 @@ public class DiGraphBuilder<TValue extends Comparable<TValue>> implements IDiGra
 
     private final IDiGraphNodeBuilderFactory diGraphNodeBuilderFactory;
     private final ICollectionFactory collectionFactory;
+    private final IViewFactory viewFactory;
     private final SortedMap<TValue, IDiGraphNodeBuilder<TValue>> nodeBuilders;
 
-    public DiGraphBuilder(IDiGraphNodeBuilderFactory diGraphNodeBuilderFactory, ICollectionFactory collectionFactory, SortedMap<TValue, IDiGraphNodeBuilder<TValue>> nodeBuilders) {
+    public DiGraphBuilder(IDiGraphNodeBuilderFactory diGraphNodeBuilderFactory, ICollectionFactory collectionFactory, IViewFactory viewFactory, SortedMap<TValue, IDiGraphNodeBuilder<TValue>> nodeBuilders) {
         this.diGraphNodeBuilderFactory = diGraphNodeBuilderFactory;
         this.collectionFactory = collectionFactory;
+        this.viewFactory = viewFactory;
         this.nodeBuilders = nodeBuilders;
     }
 
@@ -49,7 +52,7 @@ public class DiGraphBuilder<TValue extends Comparable<TValue>> implements IDiGra
     public IDiGraphBuilder<TValue> withEdge(TValue source, TValue target) {
         updateDiGraphNodeBuilderTarget(source, target);
         updateDiGraphNodeBuilderSource(target, source);
-        return new DiGraphBuilder<>(diGraphNodeBuilderFactory, collectionFactory, nodeBuilders);
+        return new DiGraphBuilder<>(diGraphNodeBuilderFactory, collectionFactory, viewFactory, nodeBuilders);
     }
 
     @Override
@@ -59,7 +62,7 @@ public class DiGraphBuilder<TValue extends Comparable<TValue>> implements IDiGra
 
     @Override
     public IDiGraphBuilder<TValue> withEdges(Iterable<IComparablePair<TValue, TValue>> edges) {
-        IDiGraphBuilder<TValue> builder = new DiGraphBuilder<>(diGraphNodeBuilderFactory, collectionFactory, nodeBuilders);
+        IDiGraphBuilder<TValue> builder = new DiGraphBuilder<>(diGraphNodeBuilderFactory, collectionFactory, viewFactory, nodeBuilders);
         for(IComparablePair<TValue,TValue> edge : edges) {
             builder = builder.withEdge(edge);
         }
@@ -68,7 +71,7 @@ public class DiGraphBuilder<TValue extends Comparable<TValue>> implements IDiGra
 
     @Override
     public IDiGraphBuilder<TValue> withGraph(IDiGraph<TValue> diGraph) {
-        IDiGraphBuilder<TValue> builder = new DiGraphBuilder<>(diGraphNodeBuilderFactory, collectionFactory, nodeBuilders);
+        IDiGraphBuilder<TValue> builder = new DiGraphBuilder<>(diGraphNodeBuilderFactory, collectionFactory, viewFactory, nodeBuilders);
         for(TValue source : diGraph.getNodes()) {
             for (TValue target : diGraph.getTargetNodesOf(source)) {
                 builder = builder.withEdge(source, target);
@@ -82,7 +85,7 @@ public class DiGraphBuilder<TValue extends Comparable<TValue>> implements IDiGra
         for (TValue key : nodeBuilders.keySet()) {
             nodes.put(key, nodeBuilders.get(key).build());
         }
-        return collectionFactory.newMapView(nodes);
+        return viewFactory.newMapView(nodes);
     }
 
     @Override

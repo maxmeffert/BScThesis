@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.ISetView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
 import java.util.Optional;
 
@@ -16,8 +16,8 @@ public interface IMereology<TValue extends Comparable<TValue>> {
 	boolean isTop(TValue value);
 	Optional<TValue> getBottom();
 	Optional<TValue> getTop();
-	ISetView<TValue> getElements();
-	ISetView<TValue> getProperPartsOf(TValue value);
-	ISetView<TValue> getPartsOf(TValue value);
-	ISetView<TValue> getAtomsOf(TValue value);
+	IView<TValue> getElements();
+	IView<TValue> getProperPartsOf(TValue value);
+	IView<TValue> getPartsOf(TValue value);
+	IView<TValue> getAtomsOf(TValue value);
 }

@@ -1,13 +1,12 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparableTriple;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.ICollectionViewFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
 
 import java.util.*;
 
-public interface ICollectionFactory extends ICollectionViewFactory {
+public interface ICollectionFactory {
     <T> Collection<T> newSingleton(T value);
     <T> List<T> newList();
     <T> Stack<T> newStack();

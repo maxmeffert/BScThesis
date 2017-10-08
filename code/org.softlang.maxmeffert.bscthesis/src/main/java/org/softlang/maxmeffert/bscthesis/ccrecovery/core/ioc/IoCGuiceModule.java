@@ -48,6 +48,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IIterab
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IterableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.IStringUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.StringUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IViewFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.ViewFactory;
 
 public class IoCGuiceModule extends AbstractModule {
     @Override
@@ -160,6 +162,7 @@ public class IoCGuiceModule extends AbstractModule {
         bind(IStringUtils.class).to(StringUtils.class);
         bind(IIterableUtils.class).to(IterableUtils.class);
         bind(IComparableUtils.class).to(ComparableUtils.class);
+        bind(IViewFactory.class).to(ViewFactory.class);
     }
 
 }

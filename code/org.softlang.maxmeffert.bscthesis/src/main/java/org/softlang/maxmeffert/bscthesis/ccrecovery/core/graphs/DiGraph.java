@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.IMapView;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.ISetView;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.ISortedSetView;
+
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IMapView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
 public class DiGraph<TValue extends Comparable<TValue>> implements IDiGraph<TValue> {
 
@@ -23,22 +23,22 @@ public class DiGraph<TValue extends Comparable<TValue>> implements IDiGraph<TVal
     }
 
     @Override
-    public ISetView<TValue> getNodes() {
-        return nodes.keySet();
+    public IView<TValue> getNodes() {
+        return nodes.keys();
     }
 
     @Override
-    public ISortedSetView<TValue> getAdjacentNodesOf(TValue tNode) {
+    public IView<TValue> getAdjacentNodesOf(TValue tNode) {
         return nodes.get(tNode).getAdjacentNodes();
     }
 
     @Override
-    public ISortedSetView<TValue> getSourceNodesOf(TValue tNode) {
+    public IView<TValue> getSourceNodesOf(TValue tNode) {
         return nodes.get(tNode).getSourceNodes();
     }
 
     @Override
-    public ISortedSetView<TValue> getTargetNodesOf(TValue tNode) {
+    public IView<TValue> getTargetNodesOf(TValue tNode) {
         return nodes.get(tNode).getTargetNodes();
     }
 }

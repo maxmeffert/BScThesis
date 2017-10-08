@@ -1,26 +1,28 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.ISortedSetView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
 public class DiGraphNode<TValue extends Comparable<TValue>> implements IDiGraphNode<TValue> {
 
     private final TValue value;
-    private final ISortedSetView<TValue> sourceNodes;
-    private final ISortedSetView<TValue> targetNodes;
+    private final IView<TValue> sourceNodes;
+    private final IView<TValue> targetNodes;
+    private final IView<TValue> adjacentNodes;
 
-    public DiGraphNode(TValue value, ISortedSetView<TValue> sourceNodes, ISortedSetView<TValue> targetNodes) {
+    public DiGraphNode(TValue value, IView<TValue> sourceNodes, IView<TValue> targetNodes, IView<TValue> adjacentNodes) {
         this.value = value;
         this.sourceNodes = sourceNodes;
         this.targetNodes = targetNodes;
+        this.adjacentNodes = adjacentNodes;
     }
 
     @Override
-    public ISortedSetView<TValue> getSourceNodes() {
+    public IView<TValue> getSourceNodes() {
         return sourceNodes;
     }
 
     @Override
-    public ISortedSetView<TValue> getTargetNodes() {
+    public IView<TValue> getTargetNodes() {
         return targetNodes;
     }
 
@@ -30,8 +32,8 @@ public class DiGraphNode<TValue extends Comparable<TValue>> implements IDiGraphN
     }
 
     @Override
-    public ISortedSetView<TValue> getAdjacentNodes() {
-        return sourceNodes.union(targetNodes);
+    public IView<TValue> getAdjacentNodes() {
+        return adjacentNodes;
     }
 
     @Override

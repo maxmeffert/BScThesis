@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.ISetView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
 import java.util.Optional;
 
@@ -70,22 +70,22 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
     }
 
     @Override
-    public ISetView<TValue> getElements() {
+    public IView<TValue> getElements() {
         return diGraph.getNodes();
     }
 
     @Override
-    public ISetView<TValue> getProperPartsOf(TValue value) {
+    public IView<TValue> getProperPartsOf(TValue value) {
         return null;
     }
 
     @Override
-    public ISetView<TValue> getPartsOf(TValue value) {
+    public IView<TValue> getPartsOf(TValue value) {
         return diGraph.getSourceNodesOf(value);
     }
 
     @Override
-    public ISetView<TValue> getAtomsOf(TValue value) {
+    public IView<TValue> getAtomsOf(TValue value) {
         return null;
     }
 }

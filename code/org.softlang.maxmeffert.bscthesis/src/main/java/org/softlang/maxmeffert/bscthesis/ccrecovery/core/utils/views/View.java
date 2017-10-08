@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Streams;
@@ -67,5 +67,10 @@ public class View<TValue> implements IView<TValue> {
     @Override
     public Iterator<TValue> iterator() {
         return iterable.iterator();
+    }
+
+    @Override
+    public String toString() {
+        return iterable.toString();
     }
 }

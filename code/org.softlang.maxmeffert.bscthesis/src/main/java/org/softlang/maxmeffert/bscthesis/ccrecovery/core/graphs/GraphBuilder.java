@@ -2,7 +2,8 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.IMapView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IMapView;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IViewFactory;
 
 import java.util.SortedMap;
 
@@ -10,11 +11,13 @@ public class GraphBuilder<TValue extends Comparable<TValue>> implements IGraphBu
 
     private final IGraphNodeBuilderFactory graphNodeBuilderFactory;
     private final ICollectionFactory collectionFactory;
+    private final IViewFactory viewFactory;
     private final SortedMap<TValue, IGraphNodeBuilder<TValue>> nodeBuilders;
 
-    public GraphBuilder(IGraphNodeBuilderFactory graphNodeBuilderFactory, ICollectionFactory collectionFactory, SortedMap<TValue, IGraphNodeBuilder<TValue>> nodeBuilders) {
+    public GraphBuilder(IGraphNodeBuilderFactory graphNodeBuilderFactory, ICollectionFactory collectionFactory, IViewFactory viewFactory, SortedMap<TValue, IGraphNodeBuilder<TValue>> nodeBuilders) {
         this.graphNodeBuilderFactory = graphNodeBuilderFactory;
         this.collectionFactory = collectionFactory;
+        this.viewFactory = viewFactory;
         this.nodeBuilders = nodeBuilders;
     }
 
@@ -45,7 +48,7 @@ public class GraphBuilder<TValue extends Comparable<TValue>> implements IGraphBu
     public IGraphBuilder<TValue> withEdge(TValue node1, TValue node2) {
         updateGraphNodeBuilderAdjacentNode(node1, node2);
         updateGraphNodeBuilderAdjacentNode(node2, node1);
-        return new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
+        return new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, viewFactory, nodeBuilders);
     }
 
     public IGraphBuilder<TValue> withEdge(IComparablePair<TValue, TValue> edge) {
@@ -54,7 +57,7 @@ public class GraphBuilder<TValue extends Comparable<TValue>> implements IGraphBu
 
     @Override
     public IGraphBuilder<TValue> withEdges(Iterable<IComparablePair<TValue, TValue>> edges) {
-        IGraphBuilder<TValue> builder = new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
+        IGraphBuilder<TValue> builder = new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, viewFactory, nodeBuilders);
         for(IComparablePair<TValue,TValue> edge : edges) {
             builder = withEdge(edge);
         }
@@ -63,13 +66,13 @@ public class GraphBuilder<TValue extends Comparable<TValue>> implements IGraphBu
 
     @Override
     public IGraphBuilder<TValue> withGraph(IGraph<TValue> graph) {
-        IGraphBuilder<TValue> builder = new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
+        IGraphBuilder<TValue> builder = new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, viewFactory, nodeBuilders);
         for(TValue node : graph.getNodes()) {
             for (TValue adjacentNode : graph.getAdjacentNodesOf(node)) {
                 builder = builder.withEdge(node, adjacentNode);
             }
         }
-        return new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, nodeBuilders);
+        return new GraphBuilder<>(graphNodeBuilderFactory, collectionFactory, viewFactory, nodeBuilders);
     }
 
     private IMapView<TValue, IGraphNode<TValue>> buildGraphNodes() {
@@ -77,7 +80,7 @@ public class GraphBuilder<TValue extends Comparable<TValue>> implements IGraphBu
         for (TValue value : nodeBuilders.keySet()) {
             nodes.put(value, getGraphNodeBuilder(value).build());
         }
-        return collectionFactory.newMapView(nodes);
+        return viewFactory.newMapView(nodes);
     }
 
     @Override

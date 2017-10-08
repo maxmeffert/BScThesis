@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views;
 
 import java.util.Map;
 

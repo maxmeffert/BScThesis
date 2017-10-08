@@ -5,17 +5,13 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.views.old.*;
 
 import java.util.*;
 
 public class CollectionFactory implements ICollectionFactory {
 
-    private final ICollectionViewFactory collectionViewFactory;
-
     @Inject
-    public CollectionFactory(ICollectionViewFactory collectionViewFactory) {
-        this.collectionViewFactory = collectionViewFactory;
+    public CollectionFactory() {
     }
 
     @Override
@@ -65,35 +61,5 @@ public class CollectionFactory implements ICollectionFactory {
     @Override
     public <T1 extends Comparable<T1>, T2 extends Comparable<T2>, T3 extends Comparable<T3>> IComparableTriple<T1, T2, T3> newComparableTriple(T1 first, T2 second, T3 third) {
         return new ComparableTriple<>(first, second, third);
-    }
-
-    @Override
-    public <T> ICollectionView<T> newCollectionView(Collection<T> collection) {
-        return collectionViewFactory.newCollectionView(collection);
-    }
-
-    @Override
-    public <T> IListView<T> newListView(List<T> list) {
-        return collectionViewFactory.newListView(list);
-    }
-
-    @Override
-    public <T> ISetView<T> newSetView(Set<T> set) {
-        return collectionViewFactory.newSetView(set);
-    }
-
-    @Override
-    public <T extends Comparable<T>> ISortedSetView<T> newSortedSetView(SortedSet<T> sortedSet) {
-        return collectionViewFactory.newSortedSetView(sortedSet);
-    }
-
-    @Override
-    public <K, V> IMapView<K, V> newMapView(Map<K, V> map) {
-        return collectionViewFactory.newMapView(map);
-    }
-
-    @Override
-    public <K extends Comparable<K>, V> ISortedMapView<K, V> newSortedMapView(SortedMap<K, V> sortedMap) {
-        return collectionViewFactory.newSortedMapView(sortedMap);
     }
 }
