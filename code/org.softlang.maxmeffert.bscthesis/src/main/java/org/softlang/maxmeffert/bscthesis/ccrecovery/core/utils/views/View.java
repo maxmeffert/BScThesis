@@ -2,7 +2,6 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Streams;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.Tree;
 
 import java.util.Iterator;
 import java.util.Optional;
@@ -68,6 +67,7 @@ public class View<TValue> implements IView<TValue> {
 
     @Override
     public Optional<TValue> first() {
+        //noinspection LoopStatementThatDoesntLoop
         for (TValue value : iterable) {
             return Optional.of(value);
         }

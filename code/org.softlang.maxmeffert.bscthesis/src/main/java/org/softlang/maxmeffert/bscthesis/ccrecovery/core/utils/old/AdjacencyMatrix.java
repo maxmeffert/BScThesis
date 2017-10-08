@@ -49,13 +49,13 @@ public class AdjacencyMatrix implements IAdjacencyMatrix {
 
     @Override
     public String toString() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i< size; i++) {
             for (int j = 0; j< size; j++) {
-                result += values[i][j] ? 1 : 0 ;
+                result.append(values[i][j] ? 1 : 0);
             }
-            result += "\n";
+            result.append("\n");
         }
-        return result;
+        return result.toString();
     }
 }

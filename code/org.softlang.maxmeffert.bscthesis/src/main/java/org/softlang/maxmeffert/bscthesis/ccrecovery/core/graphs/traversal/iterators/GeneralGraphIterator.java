@@ -38,8 +38,8 @@ public class GeneralGraphIterator<TValue extends Comparable<TValue>> implements 
         }
     }
 
-    private boolean markAsDiscovered(TValue next) {
-        return discoveredNodes.add(next);
+    private void markAsDiscovered(TValue next) {
+        discoveredNodes.add(next);
     }
 
     private boolean isNotMarkedAsDiscovered(TValue value) {

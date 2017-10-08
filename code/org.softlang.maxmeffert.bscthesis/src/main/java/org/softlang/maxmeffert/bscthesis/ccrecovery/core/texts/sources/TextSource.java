@@ -1,5 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources;
 
+import com.sun.istack.internal.NotNull;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextInterval;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.ITextProvider;
 
@@ -20,7 +21,6 @@ public class TextSource implements ITextSource {
         return textInterval;
     }
 
-    @Override
     public ITextProvider getTextProvider() {
         return textProvider;
     }
@@ -39,7 +39,7 @@ public class TextSource implements ITextSource {
     }
 
     @Override
-    public int compareTo(ITextSource iTextSource) {
+    public int compareTo(@NotNull  ITextSource iTextSource) {
         int result = getTextInterval().compareTo(iTextSource.getTextInterval());
         if (result == 0) {
             result = getText().compareTo(iTextSource.getText());

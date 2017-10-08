@@ -1,7 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables;
 
 import com.google.common.collect.Iterables;
-import com.google.common.collect.Streams;
 
 public class IterableUtils implements IIterableUtils {
     @Override

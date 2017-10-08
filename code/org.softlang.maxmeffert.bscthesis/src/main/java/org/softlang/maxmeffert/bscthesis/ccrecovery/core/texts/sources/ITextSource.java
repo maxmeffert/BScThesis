@@ -5,6 +5,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.ITextPr
 
 public interface ITextSource extends Comparable<ITextSource> {
     ITextInterval getTextInterval();
-    ITextProvider getTextProvider();
+
     String getText();
 }
