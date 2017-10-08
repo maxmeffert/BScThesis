@@ -1,5 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public interface IView<TValue> extends Iterable<TValue> {
@@ -12,5 +13,6 @@ public interface IView<TValue> extends Iterable<TValue> {
     boolean any(Predicate<TValue> predicate);
     boolean none(Predicate<TValue> predicate);
     IView<TValue>  filter(Predicate<TValue> predicate);
+    <TResult> IView<TResult> map(Function<TValue,TResult> function);
     int size();
 }

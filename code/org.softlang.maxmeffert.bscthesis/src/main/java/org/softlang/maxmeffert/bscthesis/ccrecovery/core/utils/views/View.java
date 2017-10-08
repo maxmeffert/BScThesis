@@ -2,8 +2,10 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Streams;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.Tree;
 
 import java.util.Iterator;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -66,6 +68,11 @@ public class View<TValue> implements IView<TValue> {
     @Override
     public IView<TValue> filter(Predicate<TValue> predicate) {
         return new View<>(Streams.stream(this).filter(predicate));
+    }
+
+    @Override
+    public <TResult> IView<TResult> map(Function<TValue, TResult> function) {
+        return new View<>(Streams.stream(this).map(function));
     }
 
     @Override
