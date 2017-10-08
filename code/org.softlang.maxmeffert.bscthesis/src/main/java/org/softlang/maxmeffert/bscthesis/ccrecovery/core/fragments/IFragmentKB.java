@@ -1,9 +1,11 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
+
 public interface IFragmentKB {
 
-    Iterable<IFragment> getFragments();
-    Iterable<IFragment> getFragmentsOf(IFragment fragment);
+    IView<IFragment> getFragments();
+    IView<IFragment> getFragmentsOf(IFragment fragment);
     boolean isFragmentOf(IFragment component, IFragment composite);
 
 }
