@@ -3,9 +3,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IMapView;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
-import java.util.function.Predicate;
-
-public class Graph<TValue extends Comparable<TValue>> implements IGraph<TValue> {
+public class Graph<TValue extends Comparable<TValue>> extends AbstractGraph<TValue> implements IGraph<TValue> {
 
     private final IMapView<TValue, IGraphNode<TValue>> nodes;
 
@@ -20,7 +18,7 @@ public class Graph<TValue extends Comparable<TValue>> implements IGraph<TValue> 
 
     @Override
     public int getNodeCount() {
-        return nodes.size();
+        return nodes.count();
     }
 
     @Override
@@ -33,8 +31,4 @@ public class Graph<TValue extends Comparable<TValue>> implements IGraph<TValue> 
         return nodes.valueOf(tValue).getAdjacentNodes();
     }
 
-    @Override
-    public IView<TValue> filter(Predicate<TValue> predicate) {
-        return getNodes().filter(predicate);
-    }
 }

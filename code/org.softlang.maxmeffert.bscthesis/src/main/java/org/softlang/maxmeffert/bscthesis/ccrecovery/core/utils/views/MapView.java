@@ -20,7 +20,7 @@ public class MapView<TKey,TValue> extends View<IPair<TKey,TValue>> implements IM
     }
 
     @Override
-    public int size() {
+    public int count() {
         return map.size();
     }
 

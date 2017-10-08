@@ -5,6 +5,7 @@ import com.google.common.collect.Streams;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.Tree;
 
 import java.util.Iterator;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -66,6 +67,23 @@ public class View<TValue> implements IView<TValue> {
     }
 
     @Override
+    public Optional<TValue> first() {
+        for (TValue value : iterable) {
+            return Optional.of(value);
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<TValue> last() {
+        Optional<TValue> result = Optional.empty();
+        for(TValue value : iterable) {
+            result = Optional.of(value);
+        }
+        return result;
+    }
+
+    @Override
     public IView<TValue> filter(Predicate<TValue> predicate) {
         return new View<>(stream().filter(predicate));
     }
@@ -76,7 +94,7 @@ public class View<TValue> implements IView<TValue> {
     }
 
     @Override
-    public int size() {
+    public int count() {
         return Iterables.size(iterable);
     }
 

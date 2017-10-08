@@ -14,7 +14,6 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
         this.diGraph = diGraph;
     }
 
-
     @Override
     public boolean isEmpty() {
         return diGraph.isEmpty();
@@ -28,7 +27,6 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
     @Override
     public boolean isPartOf(TValue part, TValue fusion) {
         return diGraph.getSourceNodesOf(fusion).contains(part);
-//        return getPartsOf(fusion).contains(part);
     }
 
     @Override
@@ -42,48 +40,48 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
     }
 
     @Override
-    public boolean isAtom(TValue value) {
-        return false;
+    public boolean isAtom(TValue atom) {
+        return any(element -> isAtomOf(atom, element));
     }
 
     @Override
-    public boolean isFusion(TValue value) {
-        return false;
+    public boolean isFusion(TValue fusion) {
+        return any(element -> isProperPartOf(element, fusion));
     }
 
     @Override
-    public boolean isBottom(TValue value) {
-        return false;
+    public boolean isBottom(TValue bottom) {
+        return all(element -> isPartOf(bottom, element));
     }
 
     @Override
-    public boolean isTop(TValue value) {
-        return false;
+    public boolean isTop(TValue top) {
+        return all(element -> isPartOf(element, top));
     }
 
     @Override
     public boolean all(Predicate<TValue> predicate) {
-        return getElements().all(predicate);
+        return diGraph.all(predicate);
     }
 
     @Override
     public boolean any(Predicate<TValue> predicate) {
-        return getElements().any(predicate);
+        return diGraph.any(predicate);
     }
 
     @Override
     public boolean none(Predicate<TValue> predicate) {
-        return getElements().none(predicate);
+        return diGraph.none(predicate);
     }
 
     @Override
     public Optional<TValue> getBottom() {
-        return Optional.empty();
+        return filter(element -> isBottom(element)).first();
     }
 
     @Override
     public Optional<TValue> getTop() {
-        return Optional.empty();
+        return filter(element -> isTop(element)).first();
     }
 
     @Override
@@ -99,7 +97,6 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
     @Override
     public IView<TValue> getPartsOf(TValue value) {
         return filter(element -> isPartOf(element, value));
-//        return diGraph.getSourceNodesOf(value);
     }
 
     @Override
@@ -109,6 +106,6 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
 
     @Override
     public IView<TValue> filter(Predicate<TValue> predicate) {
-        return diGraph.filter(predicate);
+        return diGraph.filterNodes(predicate);
     }
 }
