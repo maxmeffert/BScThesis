@@ -6,5 +6,5 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import java.util.Collection;
 
 public interface ILanguageFactory {
-    ILanguage newLanguate(String name, IParser parser);
+    ILanguage newLanguage(String name, IParser parser);
 }

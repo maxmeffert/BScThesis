@@ -1,7 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrConfiguration;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrConfigurationFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguageFactory;
@@ -24,6 +23,6 @@ public class Languages implements ILanguages {
 
     @Override
     public ILanguage getJava8() {
-        return languageFactory.newLanguate("Java8", parserFactory.newParser(antlrConfigurationFactory.newAntlrConfiguration(Java8Lexer::new, Java8Parser::new, Java8Parser::compilationUnit)));
+        return languageFactory.newLanguage("Java8", parserFactory.newParser(antlrConfigurationFactory.newAntlrConfiguration(Java8Lexer::new, Java8Parser::new, Java8Parser::compilationUnit)));
     }
 }

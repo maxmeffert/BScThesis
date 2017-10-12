@@ -2,29 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a94f89d9-8b1d-4d84-bc1a-7708f7fa2d16" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/CCRecovery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/ICCRecovery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoC.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/CCRecovery.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinitionFactory.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionBuilderFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCGuiceModule.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceAnalyzer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceAnalyzerFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceAnalyzer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceAnalyzerFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinitionFactory.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/Artifact.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/ArtifactFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/IArtifact.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/IArtifactFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionBuilderFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinitionBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinitionBuilderFactory.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Languages.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Languages.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Main.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/Analyzer.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/Analyzer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/AnalyzerFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/AnalyzerFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/IAnalyzer.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/IAnalyzer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/Artifact.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/Artifact.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/ArtifactFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/ArtifactFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/IArtifact.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/IArtifact.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/IArtifactFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/IArtifactFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/CCRecovery.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/CCRecovery.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/ICCRecovery.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/ICCRecovery.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinition.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinition.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinition.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinitionBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinitionBuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/FragmentKBFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/FragmentKBFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/IFragmentKBFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/IFragmentKBFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/Language.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/Language.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/ILanguageFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/ILanguageFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/LanguageFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/LanguageFactory.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -43,11 +49,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Main.java">
+      <file leaf-file-name="FragmentKBFactory.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/FragmentKBFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+            <state relative-caret-position="45">
+              <caret line="3" column="51" lean-forward="false" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Analyzer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/Analyzer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IFragmentKBFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/IFragmentKBFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,24 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IoCConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java">
+      <file leaf-file-name="ParserFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/parsers/ParserFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="56" column="21" lean-forward="false" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
-              <folding>
-                <element signature="e#5956#5957#0" expanded="true" />
-                <element signature="e#6016#6017#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ICCRecovery.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/ICCRecovery.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="132" lean-forward="false" selection-start-line="16" selection-start-column="132" selection-end-line="16" selection-end-column="132" />
+            <state relative-caret-position="150">
+              <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,82 +96,54 @@
       <file leaf-file-name="CCRecovery.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/CCRecovery.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+            <state relative-caret-position="94">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1312#1313#0" expanded="true" />
-                <element signature="e#1361#1362#0" expanded="true" />
+                <element signature="e#1152#1153#0" expanded="true" />
+                <element signature="e#1201#1202#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IoC.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoC.java">
+      <file leaf-file-name="IAnalyzerFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/IAnalyzerFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#413#414#0" expanded="true" />
-                <element signature="e#467#468#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ICorrespondenceDefinitionBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinitionBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="90" lean-forward="false" selection-start-line="8" selection-start-column="90" selection-end-line="8" selection-end-column="90" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CorrespondenceDefinitionBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="83" lean-forward="false" selection-start-line="22" selection-start-column="83" selection-end-line="22" selection-end-column="83" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AntlrConfigurationFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/antlr/AntlrConfigurationFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="20" column="78" lean-forward="false" selection-start-line="20" selection-start-column="78" selection-end-line="20" selection-end-column="78" />
+            <state relative-caret-position="30">
+              <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IAntlrConfiguration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/antlr/IAntlrConfiguration.java">
+      <file leaf-file-name="IoCConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="191">
+              <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnalyzerFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/AnalyzerFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="96" lean-forward="false" selection-start-line="3" selection-start-column="96" selection-end-line="3" selection-end-column="96" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#584#585#0" expanded="true" />
+                <element signature="e#650#651#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ILanguages.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/ILanguages.java">
+      <file leaf-file-name="IAnalyzer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/IAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+            <state relative-caret-position="120">
+              <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -540,13 +525,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/texts/sources/ITextSource.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/texts/sources/TextSource.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/IFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/Fragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/trees/ITree.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/trees/Tree.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/IFragmentKBFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/antlr/IAntlrCharStreamFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/parsers/IParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/parsers/AntlrParser.java" />
@@ -559,38 +538,44 @@
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/ILanguageBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/ILanguageFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/LanguageBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/LanguageFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/ILanguage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/IAntlrConfigurations.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/ILanguages.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/AntlrConfigurations.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Languages.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/Language.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/AnalyzerFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/antlr/AntlrCharStreamFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/StringArtifact.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/IArtifact.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/Artifact.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/FragmentKBFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/IArtifactFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/ArtifactFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinition.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinition.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinitionFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionBuilderFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/IAnalyzer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/Analyzer.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/CCRecovery.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinitionBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/ICCRecoveryFacade.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/CCRecoveryFacade.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/CCRecovery.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCGuiceModule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/LanguageFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinition.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinition.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinitionFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceAnalyzer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceAnalyzer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceAnalyzerFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceAnalyzerFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/ICCRecovery.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/FragmentKBFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/IFragmentKBFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/IAnalyzer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/Analyzer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/AnalyzerFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/CCRecovery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java" />
       </list>
     </option>
   </component>
@@ -665,6 +650,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ccrecovery" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="analyzer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ccrecovery" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="ccrecovery" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -675,7 +670,37 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ccrecovery" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="correspondences" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ccrecovery" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ccrecovery" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="ioc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ccrecovery" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="languages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
@@ -855,7 +880,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1926" height="1058" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -865,7 +889,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286638" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286638" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286638" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -927,94 +951,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/IFragmentKB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="68" lean-forward="false" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/texts/sources/TextSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="62" column="70" lean-forward="false" selection-start-line="62" selection-start-column="70" selection-end-line="62" selection-end-column="70" />
-          <folding>
-            <element signature="e#774#775#0" expanded="false" />
-            <element signature="e#833#834#0" expanded="false" />
-            <element signature="e#882#883#0" expanded="false" />
-            <element signature="e#939#940#0" expanded="false" />
-            <element signature="e#1639#1640#0" expanded="false" />
-            <element signature="e#1686#1687#0" expanded="false" />
-            <element signature="e#1752#1753#0" expanded="false" />
-            <element signature="e#1831#1832#0" expanded="false" />
-            <element signature="e#1891#1892#0" expanded="false" />
-            <element signature="e#1940#1941#0" expanded="false" />
-            <element signature="e#1998#1999#0" expanded="false" />
-            <element signature="e#2045#2046#0" expanded="false" />
-            <element signature="e#2103#2104#0" expanded="false" />
-            <element signature="e#2150#2151#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/IFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/trees/ITree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/trees/Tree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="103" column="23" lean-forward="false" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/Fragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
-          <folding>
-            <element signature="e#1197#1198#0" expanded="false" />
-            <element signature="e#1271#1272#0" expanded="false" />
-            <element signature="e#1489#1490#0" expanded="false" />
-            <element signature="e#1546#1547#0" expanded="false" />
-            <element signature="e#1606#1607#0" expanded="false" />
-            <element signature="e#1661#1662#0" expanded="false" />
-            <element signature="e#1719#1720#0" expanded="false" />
-            <element signature="e#1772#1773#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/IFragmentKBFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/antlr/AntlrConfigurationBuilderFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/antlr/AntlrConfigurationBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-41">
@@ -1076,70 +1012,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/parsers/IParserFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="62" lean-forward="false" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/parsers/ParserFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-            <element signature="e#527#528#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/ILanguageFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/LanguageFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-          <folding>
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#330#331#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/Language.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding>
-            <element signature="e#413#414#0" expanded="true" />
-            <element signature="e#440#441#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
-            <element signature="e#517#518#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/ILanguage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="8" column="55" lean-forward="false" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/AnalyzerFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1173,27 +1049,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/Artifact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="32" column="60" lean-forward="true" selection-start-line="32" selection-start-column="60" selection-end-line="32" selection-end-column="60" />
-          <folding>
-            <element signature="e#710#711#0" expanded="true" />
-            <element signature="e#741#742#0" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
-            <element signature="e#826#827#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/IArtifact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="13" column="57" lean-forward="false" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/antlr/AntlrCharStreamFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1205,94 +1060,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/IArtifactFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="12" column="71" lean-forward="false" selection-start-line="12" selection-start-column="71" selection-end-line="12" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/ArtifactFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/FragmentKBFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="36" column="53" lean-forward="false" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
-          <folding>
-            <marker date="1507829077749" expanded="true" signature="1640:1647" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="61" lean-forward="false" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/Correspondence.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinitionFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionBuilderFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="92" lean-forward="false" selection-start-line="16" selection-start-column="92" selection-end-line="16" selection-end-column="92" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#872#873#0" expanded="true" />
-            <element signature="e#925#926#0" expanded="true" />
-            <element signature="e#957#958#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/Analyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="773">
-          <caret line="79" column="1" lean-forward="true" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/IAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="116" lean-forward="false" selection-start-line="11" selection-start-column="116" selection-end-line="11" selection-end-column="116" />
           <folding />
         </state>
       </provider>
@@ -1345,19 +1116,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="90" lean-forward="false" selection-start-line="8" selection-start-column="90" selection-end-line="8" selection-end-column="90" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="83" lean-forward="false" selection-start-line="22" selection-start-column="83" selection-end-line="22" selection-end-column="83" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1366,27 +1125,6 @@
         <state relative-caret-position="105">
           <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="71" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/ICCRecovery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="132" lean-forward="false" selection-start-line="16" selection-start-column="132" selection-end-line="16" selection-end-column="132" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="56" column="21" lean-forward="false" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
-          <folding>
-            <element signature="e#5956#5957#0" expanded="true" />
-            <element signature="e#6016#6017#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1402,25 +1140,282 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/CCRecovery.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/Language.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/ILanguageFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/parsers/IParserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="62" lean-forward="false" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/languages/LanguageFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="52" lean-forward="false" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1312#1313#0" expanded="true" />
-            <element signature="e#1361#1362#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="83" lean-forward="false" selection-start-line="22" selection-start-column="83" selection-end-line="22" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionBuilderFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="92" lean-forward="false" selection-start-line="16" selection-start-column="92" selection-end-line="16" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceDefinitionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="144" lean-forward="false" selection-start-line="8" selection-start-column="144" selection-end-line="8" selection-end-column="144" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinitionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="76" lean-forward="false" selection-start-line="10" selection-start-column="76" selection-end-line="10" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="36" column="52" lean-forward="false" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1009#1010#0" expanded="true" />
+            <element signature="e#1094#1095#0" expanded="true" />
+            <element signature="e#1153#1154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="42" lean-forward="false" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="29" column="9" lean-forward="false" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/ICorrespondenceAnalyzerFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="56" lean-forward="false" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceAnalyzerFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+            <element signature="e#639#640#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/ICCRecovery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+          <caret line="20" column="91" lean-forward="false" selection-start-line="20" selection-start-column="91" selection-end-line="20" selection-end-column="91" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/IFragmentKBFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/IAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/ArtifactFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/CCRecovery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#1152#1153#0" expanded="true" />
+            <element signature="e#1201#1202#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/IAnalyzerFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/Analyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/analyzer/AnalyzerFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="96" lean-forward="false" selection-start-line="3" selection-start-column="96" selection-end-line="3" selection-end-column="96" />
+          <folding>
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/IArtifactFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/Artifact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/parsers/ParserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/artifacts/IArtifact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/FragmentKBFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="51" lean-forward="false" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>

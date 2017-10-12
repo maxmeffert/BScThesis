@@ -3,19 +3,18 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 
-import java.util.Collection;
 import java.util.function.BiPredicate;
 
 public class CorrespondenceDefinition implements ICorrespondenceDefinition {
 
     private final ILanguage language1;
     private final ILanguage language2;
-    private final Collection<BiPredicate<IFragment, IFragment>> predicates;
+    private final BiPredicate<IFragment, IFragment> predicate;
 
-    public CorrespondenceDefinition(ILanguage language1, ILanguage language2, Collection<BiPredicate<IFragment, IFragment>> predicates) {
+    public CorrespondenceDefinition(ILanguage language1, ILanguage language2, BiPredicate<IFragment, IFragment> predicate) {
         this.language1 = language1;
         this.language2 = language2;
-        this.predicates = predicates;
+        this.predicate = predicate;
     }
 
     @Override
@@ -29,12 +28,12 @@ public class CorrespondenceDefinition implements ICorrespondenceDefinition {
     }
 
     @Override
-    public boolean accept(ILanguage language1, ILanguage language2) {
-        return getLanguage1().equals(language1) && getLanguage2().equals(language2);
+    public BiPredicate<IFragment, IFragment> getPredicate() {
+        return predicate;
     }
 
     @Override
     public boolean accept(IFragment fragment1, IFragment fragment2) {
-        return predicates.stream().anyMatch(predicate -> predicate.test(fragment1,fragment2));
+        return predicate.test(fragment1, fragment2);
     }
 }

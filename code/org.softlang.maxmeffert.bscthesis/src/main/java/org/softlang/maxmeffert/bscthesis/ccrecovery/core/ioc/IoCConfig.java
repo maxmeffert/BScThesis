@@ -1,8 +1,10 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc;
 
 import com.google.inject.AbstractModule;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.Languages;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.ILanguages;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.Languages;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer.AnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer.IAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
@@ -10,6 +12,10 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.closures.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators.GraphIterators;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators.IGraphIterators;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walkers.GraphWalkerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walkers.IGraphWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walks.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguageFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.LanguageFactory;
@@ -17,21 +23,11 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyB
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.MereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalConverterFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourceBuilderFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.TreeWalkerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer.AnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer.IAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.artifacts.ArtifactFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.artifacts.IArtifactFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTreeConverter;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.ITextSourceTreeNormalizerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.ParseTreeConverter;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.TextSourceTreeNormalizerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators.GraphIterators;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators.IGraphIterators;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walkers.GraphWalkerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walkers.IGraphWalkerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalConverterFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.TextIntervalConverterFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.TextIntervalFactory;
@@ -39,13 +35,15 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.ITextPr
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.TextProviderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSourceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSourceFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.TreeFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.TreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.CollectionFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.ComparableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.ComparableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.IComparableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IIterableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IterableUtils;
@@ -59,7 +57,6 @@ public class IoCConfig extends AbstractModule {
     protected void configure() {
         configureAnalyzer();
         configureAntlr();
-        configureArtifacts();
         configureCCRecovery();
         configureConformances();
         configureCorrespondences();
@@ -88,10 +85,6 @@ public class IoCConfig extends AbstractModule {
         bind(ILanguages.class).to(Languages.class);
     }
 
-    private void configureArtifacts() {
-        bind(IArtifactFactory.class).to(ArtifactFactory.class);
-    }
-
     private void configureCCRecovery() {
         bind(ICCRecovery.class).to(CCRecovery.class);
     }
@@ -101,7 +94,8 @@ public class IoCConfig extends AbstractModule {
     }
 
     private void configureCorrespondences() {
-        bind(ICorrespondenceDefinitionBuilderFactory.class).to(CorrespondenceDefinitionBuilderFactory.class);
+        bind(ICorrespondenceAnalyzerFactory.class).to(CorrespondenceAnalyzerFactory.class);
+        bind(ICorrespondenceDefinitionFactory.class).to(CorrespondenceDefinitionFactory.class);
         bind(ICorrespondenceBuilderFactory.class).to(CorrespondenceBuilderFactory.class);
         bind(ICorrespondenceFactory.class).to(CorrespondenceFactory.class);
     }

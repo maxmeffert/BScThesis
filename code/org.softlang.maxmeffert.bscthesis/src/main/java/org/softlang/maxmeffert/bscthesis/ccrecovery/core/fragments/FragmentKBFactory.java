@@ -1,11 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.artifacts.IArtifact;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
-
-import java.io.IOException;
 
 public class FragmentKBFactory implements IFragmentKBFactory {
 
@@ -32,8 +29,4 @@ public class FragmentKBFactory implements IFragmentKBFactory {
         return addFragments(fragmentKBBuilderFactory.newFragmentKBBuilder(), parseTree).build();
     }
 
-    @Override
-    public IFragmentKB newFragmentKB(IArtifact iArtifact) throws IOException {
-        return newFragmentKB(iArtifact.getParseTree());
-    }
 }
