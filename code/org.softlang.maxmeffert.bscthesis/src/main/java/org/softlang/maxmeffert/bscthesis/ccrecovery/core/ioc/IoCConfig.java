@@ -45,6 +45,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.Colle
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.ComparableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.IComparableUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.inputstreams.IInputStreamFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.inputstreams.InputStreamFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IIterableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IterableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.IStringUtils;
@@ -79,8 +81,7 @@ public class IoCConfig extends AbstractModule {
         bind(IAntlrCharStreamFactory.class).to(AntlrCharStreamFactory.class);
         bind(IAntlrIntervalFactory.class).to(AntlrIntervalFactory.class);
         bind(IAntlrTokenStreamFactory.class).to(AntlrCommonTokenStreamFactory.class);
-        bind(IAntlrConfigurationBuilderFactory.class).to(AntlrConfigurationBuilderFactory.class);
-        bind(IAntlrConfigurationFactory.class).to(AntlrConfigurationFactory.class);
+        bind(IAntlrParsingConfigurationFactory.class).to(AntlrParsingConfigurationFactory.class);
 
         bind(ILanguages.class).to(Languages.class);
     }
@@ -165,6 +166,7 @@ public class IoCConfig extends AbstractModule {
         bind(IIterableUtils.class).to(IterableUtils.class);
         bind(IComparableUtils.class).to(ComparableUtils.class);
         bind(IViewFactory.class).to(ViewFactory.class);
+        bind(IInputStreamFactory.class).to(InputStreamFactory.class);
     }
 
 }

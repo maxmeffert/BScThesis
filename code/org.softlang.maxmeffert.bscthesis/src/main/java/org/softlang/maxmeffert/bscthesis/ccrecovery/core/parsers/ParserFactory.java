@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrConfiguration;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParsingConfiguration;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTreeConverter;
 
 public class ParserFactory implements IParserFactory {
@@ -14,7 +14,7 @@ public class ParserFactory implements IParserFactory {
     }
 
     @Override
-    public IParser newParser(IAntlrConfiguration antlrConfiguration) {
+    public IParser newParser(IAntlrParsingConfiguration antlrConfiguration) {
         return new AntlrParser(parseTreeConverter, antlrConfiguration);
     }
 }

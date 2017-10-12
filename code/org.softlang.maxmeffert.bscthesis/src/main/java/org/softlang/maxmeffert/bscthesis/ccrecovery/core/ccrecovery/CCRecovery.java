@@ -26,11 +26,11 @@ public class CCRecovery implements ICCRecovery {
     private final ICCAnalyzerFactory ccAnalyzerFactory;
     private final ILanguageFactory languageFactory;
     private final IParserFactory parserFactory;
-    private final IAntlrConfigurationFactory antlrConfigurationFactory;
+    private final IAntlrParsingConfigurationFactory antlrConfigurationFactory;
     private final ICorrespondenceDefinitionFactory correspondenceDefinitionFactory;
 
     @Inject
-    public CCRecovery(ICCAnalyzerFactory analyzerFactory, ILanguageFactory languageFactory, IParserFactory parserFactory, IAntlrConfigurationFactory antlrConfigurationFactory, ICorrespondenceDefinitionFactory correspondenceDefinitionFactory) {
+    public CCRecovery(ICCAnalyzerFactory analyzerFactory, ILanguageFactory languageFactory, IParserFactory parserFactory, IAntlrParsingConfigurationFactory antlrConfigurationFactory, ICorrespondenceDefinitionFactory correspondenceDefinitionFactory) {
         this.ccAnalyzerFactory = analyzerFactory;
         this.languageFactory = languageFactory;
         this.parserFactory = parserFactory;
@@ -40,7 +40,7 @@ public class CCRecovery implements ICCRecovery {
 
     @Override
     public <TLexer extends Lexer, TParser extends Parser> ILanguage defineLanguage(String name, IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory) {
-        IAntlrConfiguration antlrConfiguration = antlrConfigurationFactory.newAntlrConfiguration(antlrLexerFactory, antlrParserFactory, antlrParseTreeFactory);
+        IAntlrParsingConfiguration antlrConfiguration = antlrConfigurationFactory.newAntlrConfiguration(antlrLexerFactory, antlrParserFactory, antlrParseTreeFactory);
         IParser parser = parserFactory.newParser(antlrConfiguration);
         return languageFactory.newLanguage(name, parser);
     }

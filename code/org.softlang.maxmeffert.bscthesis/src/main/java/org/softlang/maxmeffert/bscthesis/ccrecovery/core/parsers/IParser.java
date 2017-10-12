@@ -10,9 +10,5 @@ import java.net.URI;
 import java.net.URL;
 
 public interface IParser {
-    ITree<ITextSource> parse(String string);
-    ITree<ITextSource> parse(File file) throws IOException;
     ITree<ITextSource> parse(InputStream inputStream) throws IOException;
-    ITree<ITextSource> parse(URI uri) throws IOException;
-    ITree<ITextSource> parse(URL url) throws IOException;
 }

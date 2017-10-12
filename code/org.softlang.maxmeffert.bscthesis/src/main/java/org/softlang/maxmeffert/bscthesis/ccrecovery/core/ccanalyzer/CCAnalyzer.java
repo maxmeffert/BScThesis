@@ -3,17 +3,19 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer;
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinition;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.inputstreams.IInputStreamFactory;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 public class CCAnalyzer implements ICCAnalyzer {
 
+    private final IInputStreamFactory inputStreamFactory;
     private final ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory;
 
     @Inject
-    public CCAnalyzer(ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory) {
+    public CCAnalyzer(IInputStreamFactory inputStreamFactory, ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory) {
+        this.inputStreamFactory = inputStreamFactory;
         this.correspondenceAnalyzerFactory = correspondenceAnalyzerFactory;
     }
 
@@ -25,7 +27,7 @@ public class CCAnalyzer implements ICCAnalyzer {
 
     @Override
     public void findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String artifact1, String artifact2) throws IOException {
-        findCorrespondences(correspondenceDefinition, new ByteArrayInputStream(artifact1.getBytes()), new ByteArrayInputStream(artifact2.getBytes()));
+        findCorrespondences(correspondenceDefinition, inputStreamFactory.newInputStream(artifact1), inputStreamFactory.newInputStream(artifact2));
     }
 
 }

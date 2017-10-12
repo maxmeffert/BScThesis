@@ -6,13 +6,10 @@ import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
-import java.net.URL;
 
-public class AntlrConfiguration implements IAntlrConfiguration {
+public class AntlrParsingConfiguration implements IAntlrParsingConfiguration {
 
     private final IAntlrCharStreamFactory antlrCharStreamFactory;
     private final IAntlrLexerFactory antlrLexerFactory;
@@ -20,7 +17,7 @@ public class AntlrConfiguration implements IAntlrConfiguration {
     private final IAntlrParserFactory antlrParserFactory;
     private final IAntlrParseTreeFactory antlrParseTreeFactory;
 
-    public AntlrConfiguration(IAntlrCharStreamFactory antlrCharStreamFactory, IAntlrLexerFactory antlrLexerFactory, IAntlrTokenStreamFactory antlrTokenStreamFactory, IAntlrParserFactory antlrParserFactory, IAntlrParseTreeFactory antlrParseTreeFactory) {
+    public AntlrParsingConfiguration(IAntlrCharStreamFactory antlrCharStreamFactory, IAntlrLexerFactory antlrLexerFactory, IAntlrTokenStreamFactory antlrTokenStreamFactory, IAntlrParserFactory antlrParserFactory, IAntlrParseTreeFactory antlrParseTreeFactory) {
         this.antlrCharStreamFactory = antlrCharStreamFactory;
         this.antlrLexerFactory = antlrLexerFactory;
         this.antlrTokenStreamFactory = antlrTokenStreamFactory;
@@ -28,7 +25,9 @@ public class AntlrConfiguration implements IAntlrConfiguration {
         this.antlrParseTreeFactory = antlrParseTreeFactory;
     }
 
-    private IAntlrParsingResult parse(CharStream charStream) {
+    @Override
+    public IAntlrParsingResult parse(InputStream inputStream) throws IOException {
+        CharStream charStream = antlrCharStreamFactory.newCharStream(inputStream);
         Lexer lexer = antlrLexerFactory.newLexer(charStream);
         TokenStream tokenStream = antlrTokenStreamFactory.newTokenStream(lexer);
         Parser parser = antlrParserFactory.newParser(tokenStream);
@@ -36,28 +35,4 @@ public class AntlrConfiguration implements IAntlrConfiguration {
         return new AntlrParsingResult(tokenStream, parseTree);
     }
 
-    @Override
-    public IAntlrParsingResult parse(String string) {
-        return parse(antlrCharStreamFactory.newCharStream(string));
-    }
-
-    @Override
-    public IAntlrParsingResult parse(File file) throws IOException {
-        return parse(antlrCharStreamFactory.newCharStream(file));
-    }
-
-    @Override
-    public IAntlrParsingResult parse(InputStream inputStream) throws IOException {
-        return parse(antlrCharStreamFactory.newCharStream(inputStream));
-    }
-
-    @Override
-    public IAntlrParsingResult parse(URI uri) throws IOException {
-        return parse(antlrCharStreamFactory.newCharStream(uri));
-    }
-
-    @Override
-    public IAntlrParsingResult parse(URL url) throws IOException {
-        return parse(antlrCharStreamFactory.newCharStream(url));
-    }
 }

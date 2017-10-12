@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrConfigurationFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParsingConfigurationFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguageFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
@@ -12,10 +12,10 @@ public class Languages implements ILanguages {
 
     private final ILanguageFactory languageFactory;
     private final IParserFactory parserFactory;
-    private final IAntlrConfigurationFactory antlrConfigurationFactory;
+    private final IAntlrParsingConfigurationFactory antlrConfigurationFactory;
 
     @Inject
-    public Languages(ILanguageFactory languageFactory, IParserFactory parserFactory, IAntlrConfigurationFactory antlrConfigurationFactory) {
+    public Languages(ILanguageFactory languageFactory, IParserFactory parserFactory, IAntlrParsingConfigurationFactory antlrConfigurationFactory) {
         this.languageFactory = languageFactory;
         this.parserFactory = parserFactory;
         this.antlrConfigurationFactory = antlrConfigurationFactory;
