@@ -1,23 +1,26 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.IAntlrParsingConfigurations;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.ILanguages;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentKBFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTreeConverter;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 
 public class AnalyzerFactory implements IAnalyzerFactory {
 
-    private final IAntlrParsingConfigurations antlrParsingConfigurations;
+    private final ILanguages antlrParsingConfigurations;
+    private final IParserFactory parserFactory;
     private final IParseTreeConverter parseTreeConverter;
     private final ITreeWalkerFactory treeWalkerFactory;
     private final IFragmentKBFactory fragmentKBFactory;
     private final ICollectionFactory collectionFactory;
 
     @Inject
-    public AnalyzerFactory(IAntlrParsingConfigurations antlrParsingConfigurations, IParseTreeConverter parseTreeConverter, ITreeWalkerFactory treeWalkerFactory, IFragmentKBFactory fragmentKBFactory, ICollectionFactory collectionFactory) {
+    public AnalyzerFactory(ILanguages antlrParsingConfigurations, IParserFactory parserFactory, IParseTreeConverter parseTreeConverter, ITreeWalkerFactory treeWalkerFactory, IFragmentKBFactory fragmentKBFactory, ICollectionFactory collectionFactory) {
         this.antlrParsingConfigurations = antlrParsingConfigurations;
+        this.parserFactory = parserFactory;
         this.parseTreeConverter = parseTreeConverter;
         this.treeWalkerFactory = treeWalkerFactory;
         this.fragmentKBFactory = fragmentKBFactory;
@@ -26,6 +29,6 @@ public class AnalyzerFactory implements IAnalyzerFactory {
 
     @Override
     public IAnalyzer newAnalyzer() {
-        return new Analyzer(antlrParsingConfigurations, parseTreeConverter, treeWalkerFactory, fragmentKBFactory, collectionFactory.newList());
+        return new Analyzer(antlrParsingConfigurations, fragmentKBFactory, collectionFactory.newList());
     }
 }

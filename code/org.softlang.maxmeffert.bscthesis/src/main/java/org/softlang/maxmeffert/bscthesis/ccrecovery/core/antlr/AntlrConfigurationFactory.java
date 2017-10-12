@@ -18,7 +18,7 @@ public class AntlrConfigurationFactory implements IAntlrConfigurationFactory {
     }
 
     @Override
-    public <TLexer extends Lexer, TParser extends Parser> IAntlrParsingConfiguration newAntlrConfiguration(IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory) {
+    public <TLexer extends Lexer, TParser extends Parser> IAntlrConfiguration newAntlrConfiguration(IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory) {
         return antlrConfigurationBuilderFactory.<TLexer, TParser>newAntlrConfigurationBuilder()
                 .withCharStreamFactory(antlrCharStreamFactory)
                 .withTokenStreamFactory(antlrTokenStreamFactory)

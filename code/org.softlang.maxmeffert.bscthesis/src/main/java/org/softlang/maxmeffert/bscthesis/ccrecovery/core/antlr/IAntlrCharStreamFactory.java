@@ -9,10 +9,9 @@ import java.net.URI;
 import java.net.URL;
 
 public interface IAntlrCharStreamFactory {
-    CharStream newCharStreamFromString(String string);
-    CharStream newCharStreamFromFile(File file) throws IOException;
-    CharStream newCharStreamFromFilename(String filename) throws IOException;
-    CharStream newCharStreamFromInputStream(InputStream inputStream) throws IOException;
-    CharStream newCharStreamFromURI(URI uri) throws IOException;
-    CharStream newCharStreamFromURL(URL url) throws IOException;
+    CharStream newCharStream(String string);
+    CharStream newCharStream(File file) throws IOException;
+    CharStream newCharStream(InputStream inputStream) throws IOException;
+    CharStream newCharStream(URI uri) throws IOException;
+    CharStream newCharStream(URL url) throws IOException;
 }

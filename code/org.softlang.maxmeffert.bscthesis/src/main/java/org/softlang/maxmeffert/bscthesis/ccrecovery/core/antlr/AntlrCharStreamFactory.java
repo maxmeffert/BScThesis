@@ -11,32 +11,27 @@ import java.net.URL;
 
 public class AntlrCharStreamFactory implements IAntlrCharStreamFactory {
     @Override
-    public CharStream newCharStreamFromString(String string) {
+    public CharStream newCharStream(String string) {
         return CharStreams.fromString(string);
     }
 
     @Override
-    public CharStream newCharStreamFromFile(File file) throws IOException {
-        return newCharStreamFromFilename(file.getName());
-    }
+    public CharStream newCharStream(File file) throws IOException {
+        return CharStreams.fromFileName(file.getName());    }
+
 
     @Override
-    public CharStream newCharStreamFromFilename(String filename) throws IOException {
-        return CharStreams.fromFileName(filename);
-    }
-
-    @Override
-    public CharStream newCharStreamFromInputStream(InputStream inputStream) throws IOException {
+    public CharStream newCharStream(InputStream inputStream) throws IOException {
         return CharStreams.fromStream(inputStream);
     }
 
     @Override
-    public CharStream newCharStreamFromURI(URI uri) throws IOException {
-        return newCharStreamFromURL(uri.toURL());
+    public CharStream newCharStream(URI uri) throws IOException {
+        return newCharStream(uri.toURL());
     }
 
     @Override
-    public CharStream newCharStreamFromURL(URL url) throws IOException {
-        return newCharStreamFromInputStream(url.openStream());
+    public CharStream newCharStream(URL url) throws IOException {
+        return newCharStream(url.openStream());
     }
 }

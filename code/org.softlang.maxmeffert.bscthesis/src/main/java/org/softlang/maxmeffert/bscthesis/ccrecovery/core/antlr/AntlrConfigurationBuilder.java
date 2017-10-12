@@ -45,7 +45,7 @@ public class AntlrConfigurationBuilder<TLexer extends Lexer, TParser extends Par
     }
 
     @Override
-    public IAntlrParsingConfiguration build() {
+    public IAntlrConfiguration build() {
         return new AntlrConfiguration(antlrCharStreamFactory, antlrLexerFactory, antlrTokenStreamFactory, antlrParserFactory, antlrParseTreeFactory);
     }
 }

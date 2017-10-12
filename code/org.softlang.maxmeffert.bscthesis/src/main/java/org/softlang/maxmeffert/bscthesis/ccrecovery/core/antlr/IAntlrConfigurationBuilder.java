@@ -10,5 +10,5 @@ public interface IAntlrConfigurationBuilder<TLexer extends Lexer, TParser extend
     IAntlrConfigurationBuilder<TLexer,TParser> withTokenStreamFactory(IAntlrTokenStreamFactory antlrTokenStreamFactory);
     IAntlrConfigurationBuilder<TLexer,TParser> withParserFactory(IAntlrParserFactory<TParser> antlrParserFactory);
     IAntlrConfigurationBuilder<TLexer,TParser> withParseTreeFactory(IAntlrParseTreeFactory<TParser> antlrParseTreeFactory);
-    IAntlrParsingConfiguration build();
+    IAntlrConfiguration build();
 }

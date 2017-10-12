@@ -1,33 +1,38 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
-
-import java.io.File;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 
 public class Language implements ILanguage {
+
+    private final String name;
+    private final IParser parser;
+
+    public Language(String name, IParser parser) {
+        this.name = name;
+        this.parser = parser;
+    }
+
+
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
-    public boolean accept(String string) {
+    public IParser getParser() {
+        return parser;
+    }
+
+    @Override
+    public int compareTo(ILanguage iLanguage) {
+        return getName().compareTo(iLanguage.getName());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ILanguage) {
+            return compareTo((ILanguage) obj) == 0;
+        }
         return false;
-    }
-
-    @Override
-    public boolean acceptFile(File file) {
-        return false;
-    }
-
-    @Override
-    public ITree<ITextSource> parse(String string) {
-        return null;
-    }
-
-    @Override
-    public ITree<ITextSource> parseFile(File file) {
-        return null;
     }
 }

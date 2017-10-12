@@ -3,8 +3,8 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery;
 public class Main {
 
 	public static void main(String[] args) {
-		CCRecoveryAnalyzer analyzer = CCRecoveryAnalyzer.create();
-		analyzer.findCorrespondences("class A {class A {}}","");
+		CCRecovery ccRecovery = CCRecovery.create();
+		ccRecovery.findCorrespondences("class A {class A {}}","");
 //		analyzer.findCorrespondences("class A {}","");
 
 //		Injector injector = Guice.createInjector(new IoCGuiceModule());

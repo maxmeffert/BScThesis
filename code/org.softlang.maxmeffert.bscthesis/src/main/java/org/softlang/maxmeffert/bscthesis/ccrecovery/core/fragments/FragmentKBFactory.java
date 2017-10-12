@@ -32,7 +32,6 @@ public class FragmentKBFactory implements IFragmentKBFactory {
 
     @Override
     public IFragmentKB newFragmentKB(IArtifact iArtifact) {
-        iArtifact.getLocation().get
         return null;
     }
 }

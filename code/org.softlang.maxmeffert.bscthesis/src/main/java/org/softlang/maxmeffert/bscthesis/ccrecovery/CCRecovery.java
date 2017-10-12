@@ -8,17 +8,17 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer.IAnalyzer;
 
 import java.io.File;
 
-public class CCRecoveryAnalyzer {
+public class CCRecovery {
 
-    public static CCRecoveryAnalyzer create() {
+    public static CCRecovery create() {
         Injector injector = Guice.createInjector(new IoCGuiceModule());
         IAnalyzerFactory analyzerFactory = injector.getInstance(IAnalyzerFactory.class);
-        return new CCRecoveryAnalyzer(analyzerFactory.newAnalyzer());
+        return new CCRecovery(analyzerFactory.newAnalyzer());
     }
 
     private final IAnalyzer analyzer;
 
-    public CCRecoveryAnalyzer(IAnalyzer analyzer) {
+    public CCRecovery(IAnalyzer analyzer) {
         this.analyzer = analyzer;
     }
 

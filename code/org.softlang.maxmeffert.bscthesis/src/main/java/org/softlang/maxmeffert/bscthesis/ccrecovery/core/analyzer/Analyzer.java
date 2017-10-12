@@ -1,16 +1,13 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.IAntlrParsingConfigurations;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParsingConfiguration;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParsingResult;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.ILanguages;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinition;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentKB;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentKBFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTreeConverter;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
 
 import java.io.File;
@@ -18,17 +15,13 @@ import java.util.List;
 
 public class Analyzer implements IAnalyzer {
 
-    private final IAntlrParsingConfigurations antlrParsingConfigurations;
-    private final IParseTreeConverter parseTreeConverter;
-    private final ITreeWalkerFactory treeWalkerFactory;
+    private final ILanguages languages;
     private final IFragmentKBFactory fragmentKBFactory;
     private final List<ICorrespondenceDefinition> correspondenceDefinitions;
 
     @Inject
-    public Analyzer(IAntlrParsingConfigurations antlrParsingConfigurations, IParseTreeConverter parseTreeConverter, ITreeWalkerFactory treeWalkerFactory, IFragmentKBFactory fragmentKBFactory, List<ICorrespondenceDefinition> correspondenceDefinitions) {
-        this.antlrParsingConfigurations = antlrParsingConfigurations;
-        this.parseTreeConverter = parseTreeConverter;
-        this.treeWalkerFactory = treeWalkerFactory;
+    public Analyzer(ILanguages languages, IFragmentKBFactory fragmentKBFactory, List<ICorrespondenceDefinition> correspondenceDefinitions) {
+        this.languages = languages;
         this.fragmentKBFactory = fragmentKBFactory;
         this.correspondenceDefinitions = correspondenceDefinitions;
     }
@@ -46,10 +39,7 @@ public class Analyzer implements IAnalyzer {
     @Override
     public void findCorrespondences(String string1, String string2) {
 
-        IAntlrParsingConfiguration antlrParsingConfiguration = antlrParsingConfigurations.newJava8Configuration();
-        IAntlrParsingResult antlrParsingResult = antlrParsingConfiguration.parse(string1);
-
-        ITree<ITextSource> textSourceTree = parseTreeConverter.toTextSourceTree(antlrParsingResult);
+        ITree<ITextSource> textSourceTree = languages.getJava8().getParser().parse(string1);
 
         IFragmentKB fragmentKB = fragmentKBFactory.newFragmentKB(textSourceTree);
 

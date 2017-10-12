@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc;
 
 import com.google.inject.AbstractModule;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.AntlrParsingConfigurations;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.IAntlrParsingConfigurations;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.Languages;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.ILanguages;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.CorrespondenceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceBuilderFactory;
@@ -10,8 +10,12 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.closures.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walks.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguageFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.LanguageFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.MereologyBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalConverterFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.TreeWalkerFactory;
@@ -63,7 +67,7 @@ public class IoCGuiceModule extends AbstractModule {
         configureGraphs();
         configureLanguages();
         configureMereologies();
-        configureRelations();
+        configureParsers();
         configureParseTrees();
         configureTexts();
         configureTrees();
@@ -81,7 +85,7 @@ public class IoCGuiceModule extends AbstractModule {
         bind(IAntlrConfigurationBuilderFactory.class).to(AntlrConfigurationBuilderFactory.class);
         bind(IAntlrConfigurationFactory.class).to(AntlrConfigurationFactory.class);
 
-        bind(IAntlrParsingConfigurations.class).to(AntlrParsingConfigurations.class);
+        bind(ILanguages.class).to(Languages.class);
     }
 
     private void configureArtifacts() {
@@ -127,15 +131,15 @@ public class IoCGuiceModule extends AbstractModule {
     }
 
     private void configureLanguages() {
-
+        bind(ILanguageFactory.class).to(LanguageFactory.class);
     }
 
     private void configureMereologies() {
         bind(IMereologyBuilderFactory.class).to(MereologyBuilderFactory.class);
     }
 
-    private void configureRelations() {
-
+    private void configureParsers() {
+        bind(IParserFactory.class).to(ParserFactory.class);
     }
 
     private void configureParseTrees() {
