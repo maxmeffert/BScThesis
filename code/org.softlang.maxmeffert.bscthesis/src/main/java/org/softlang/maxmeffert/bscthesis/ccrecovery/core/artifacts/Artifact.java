@@ -1,18 +1,21 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.artifacts;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 
-import java.net.URI;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class Artifact implements IArtifact {
 
     private final ILanguage language;
-    private final URI location;
-    private String contents;
+    private final InputStream contents;
 
-    public Artifact(ILanguage language, URI location) {
+    public Artifact(ILanguage language, InputStream contents) {
         this.language = language;
-        this.location = location;
+        this.contents = contents;
     }
 
     @Override
@@ -21,8 +24,13 @@ public class Artifact implements IArtifact {
     }
 
     @Override
-    public URI getLocation() {
-        return location;
+    public InputStream getContents() {
+        return contents;
+    }
+
+    @Override
+    public ITree<ITextSource> getParseTree() throws IOException {
+        return getLanguage().getParser().parse(getContents());
     }
 
 }

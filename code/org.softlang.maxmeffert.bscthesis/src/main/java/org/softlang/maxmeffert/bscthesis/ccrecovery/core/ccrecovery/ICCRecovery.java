@@ -1,0 +1,18 @@
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery;
+
+import org.antlr.v4.runtime.Lexer;
+import org.antlr.v4.runtime.Parser;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrLexerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParseTreeFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParserFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinition;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinitionBuilder;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
+
+import java.io.IOException;
+
+public interface ICCRecovery {
+    <TLexer extends Lexer, TParser extends Parser> ILanguage defineLanguage(String name, IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory);
+    ICorrespondenceDefinitionBuilder defineCorrespondence();
+    void findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String string1, String string2) throws IOException;
+}

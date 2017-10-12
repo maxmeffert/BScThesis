@@ -4,8 +4,9 @@ import com.google.inject.AbstractModule;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.Languages;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.ILanguages;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.CorrespondenceFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.closures.*;
@@ -31,8 +32,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterat
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators.IGraphIterators;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walkers.GraphWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walkers.IGraphWalkerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.CorrespondenceBuilderFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.TextIntervalConverterFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.TextIntervalFactory;
@@ -55,12 +54,13 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.StringUti
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IViewFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.ViewFactory;
 
-public class IoCGuiceModule extends AbstractModule {
+public class IoCConfig extends AbstractModule {
     @Override
     protected void configure() {
         configureAnalyzer();
         configureAntlr();
         configureArtifacts();
+        configureCCRecovery();
         configureConformances();
         configureCorrespondences();
         configureFragments();
@@ -92,11 +92,16 @@ public class IoCGuiceModule extends AbstractModule {
         bind(IArtifactFactory.class).to(ArtifactFactory.class);
     }
 
+    private void configureCCRecovery() {
+        bind(ICCRecovery.class).to(CCRecovery.class);
+    }
+
     private void configureConformances() {
 
     }
 
     private void configureCorrespondences() {
+        bind(ICorrespondenceDefinitionBuilderFactory.class).to(CorrespondenceDefinitionBuilderFactory.class);
         bind(ICorrespondenceBuilderFactory.class).to(CorrespondenceBuilderFactory.class);
         bind(ICorrespondenceFactory.class).to(CorrespondenceFactory.class);
     }

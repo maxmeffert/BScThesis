@@ -5,6 +5,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.artifacts.IArtifact;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 
+import java.io.IOException;
+
 public class FragmentKBFactory implements IFragmentKBFactory {
 
     private final IFragmentKBBuilderFactory fragmentKBBuilderFactory;
@@ -31,7 +33,7 @@ public class FragmentKBFactory implements IFragmentKBFactory {
     }
 
     @Override
-    public IFragmentKB newFragmentKB(IArtifact iArtifact) {
-        return null;
+    public IFragmentKB newFragmentKB(IArtifact iArtifact) throws IOException {
+        return newFragmentKB(iArtifact.getParseTree());
     }
 }

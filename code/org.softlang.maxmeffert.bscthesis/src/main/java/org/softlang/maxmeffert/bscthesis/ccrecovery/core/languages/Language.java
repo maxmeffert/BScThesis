@@ -12,7 +12,6 @@ public class Language implements ILanguage {
         this.parser = parser;
     }
 
-
     @Override
     public String getName() {
         return name;
@@ -25,7 +24,7 @@ public class Language implements ILanguage {
 
     @Override
     public int compareTo(ILanguage iLanguage) {
-        return getName().compareTo(iLanguage.getName());
+        return getName().toLowerCase().compareTo(iLanguage.getName().toLowerCase());
     }
 
     @Override
