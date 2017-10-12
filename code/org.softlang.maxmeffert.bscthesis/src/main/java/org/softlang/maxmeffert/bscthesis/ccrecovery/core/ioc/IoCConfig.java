@@ -3,8 +3,8 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc;
 import com.google.inject.AbstractModule;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.ILanguages;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.Languages;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer.AnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer.IAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer.CCAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer.ICCAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
@@ -72,7 +72,7 @@ public class IoCConfig extends AbstractModule {
     }
 
     private void configureAnalyzer() {
-        bind(IAnalyzerFactory.class).to(AnalyzerFactory.class);
+        bind(ICCAnalyzerFactory.class).to(CCAnalyzerFactory.class);
     }
 
     private void configureAntlr() {

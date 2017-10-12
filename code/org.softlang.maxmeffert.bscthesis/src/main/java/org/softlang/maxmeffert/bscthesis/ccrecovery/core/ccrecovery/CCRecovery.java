@@ -3,7 +3,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery;
 import com.google.inject.Inject;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer.IAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer.ICCAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinition;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinitionFactory;
@@ -23,15 +23,15 @@ public class CCRecovery implements ICCRecovery {
         return IoC.get(ICCRecovery.class);
     }
 
-    private final IAnalyzerFactory analyzerFactory;
+    private final ICCAnalyzerFactory ccAnalyzerFactory;
     private final ILanguageFactory languageFactory;
     private final IParserFactory parserFactory;
     private final IAntlrConfigurationFactory antlrConfigurationFactory;
     private final ICorrespondenceDefinitionFactory correspondenceDefinitionFactory;
 
     @Inject
-    public CCRecovery(IAnalyzerFactory analyzerFactory, ILanguageFactory languageFactory, IParserFactory parserFactory, IAntlrConfigurationFactory antlrConfigurationFactory, ICorrespondenceDefinitionFactory correspondenceDefinitionFactory) {
-        this.analyzerFactory = analyzerFactory;
+    public CCRecovery(ICCAnalyzerFactory analyzerFactory, ILanguageFactory languageFactory, IParserFactory parserFactory, IAntlrConfigurationFactory antlrConfigurationFactory, ICorrespondenceDefinitionFactory correspondenceDefinitionFactory) {
+        this.ccAnalyzerFactory = analyzerFactory;
         this.languageFactory = languageFactory;
         this.parserFactory = parserFactory;
         this.antlrConfigurationFactory = antlrConfigurationFactory;
@@ -53,6 +53,6 @@ public class CCRecovery implements ICCRecovery {
 
     @Override
     public void findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String artifact1, String artifact2) throws IOException {
-        analyzerFactory.newAnalyzer().findCorrespondences(correspondenceDefinition, artifact1, artifact2);
+        ccAnalyzerFactory.newCCAnalyzer().findCorrespondences(correspondenceDefinition, artifact1, artifact2);
     }
 }

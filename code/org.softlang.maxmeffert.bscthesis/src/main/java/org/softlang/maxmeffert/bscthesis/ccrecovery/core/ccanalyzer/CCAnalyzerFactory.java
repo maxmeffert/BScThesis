@@ -1,19 +1,19 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer;
 
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
 
-public class AnalyzerFactory implements IAnalyzerFactory {
+public class CCAnalyzerFactory implements ICCAnalyzerFactory {
 
     private final ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory;
 
     @Inject
-    public AnalyzerFactory(ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory) {
+    public CCAnalyzerFactory(ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory) {
         this.correspondenceAnalyzerFactory = correspondenceAnalyzerFactory;
     }
 
     @Override
-    public IAnalyzer newAnalyzer() {
-        return new Analyzer(correspondenceAnalyzerFactory);
+    public ICCAnalyzer newCCAnalyzer() {
+        return new CCAnalyzer(correspondenceAnalyzerFactory);
     }
 }

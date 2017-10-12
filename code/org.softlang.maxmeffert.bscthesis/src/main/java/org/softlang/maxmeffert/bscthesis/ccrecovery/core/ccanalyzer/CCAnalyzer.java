@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.analyzer;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer;
 
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
@@ -8,12 +8,12 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Analyzer implements IAnalyzer {
+public class CCAnalyzer implements ICCAnalyzer {
 
     private final ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory;
 
     @Inject
-    public Analyzer(ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory) {
+    public CCAnalyzer(ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory) {
         this.correspondenceAnalyzerFactory = correspondenceAnalyzerFactory;
     }
 
