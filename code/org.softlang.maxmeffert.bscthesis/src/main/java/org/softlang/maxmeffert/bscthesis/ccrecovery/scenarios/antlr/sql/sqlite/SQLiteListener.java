@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languagedefinitions.sql.sqlite;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.sql.sqlite;
 // Generated from SQLite.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 

@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources;
 
 import com.google.inject.Inject;
+import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalConverterFactory;
@@ -28,6 +29,18 @@ public class TextSourceFactory implements ITextSourceFactory {
 
     private ITextProvider newTextProvider(TokenStream tokenStream) {
         return textProviderFactory.newTextProvider(tokenStream);
+    }
+
+    private ITextProvider newTextProvider(CharStream charStream) {
+        return textProviderFactory.newTextProvider(charStream);
+    }
+
+    @Override
+    public ITextSource newTextSource(CharStream charStream, ParseTree parseTree) {
+        return textSourceBuilderFactory.newSourceInfoBuilder()
+                .withTextInterval(newTextInterval(parseTree))
+                .withTextProvider(newTextProvider(charStream))
+                .build();
     }
 
     @Override

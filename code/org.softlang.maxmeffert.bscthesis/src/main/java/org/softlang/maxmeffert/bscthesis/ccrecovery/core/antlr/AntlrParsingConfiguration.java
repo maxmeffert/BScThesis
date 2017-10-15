@@ -1,13 +1,10 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr;
 
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.atn.ATNConfigSet;
-import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.BitSet;
 
 public class AntlrParsingConfiguration implements IAntlrParsingConfiguration {
 
@@ -52,7 +49,7 @@ public class AntlrParsingConfiguration implements IAntlrParsingConfiguration {
         TokenStream tokenStream = newTokenStream(lexer);
         Parser parser = newParser(tokenStream);
         ParseTree parseTree = newParseTree(parser);
-        return new AntlrParsingResult(tokenStream, parseTree);
+        return new AntlrParsingResult(charStream, tokenStream, parseTree);
     }
 
 }

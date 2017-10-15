@@ -37,14 +37,17 @@ public class CorrespondenceAnalyzer implements ICorrespondenceAnalyzer {
     public Set<ICorrespondence> analyze(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws IOException, ParserException {
         Set<ICorrespondence> correspondences = new TreeSet<>();
         IFragmentKB fragmentKB1 = newFragmentKB(correspondenceDefinition.getLanguage1(), artifact1);
+
         IFragmentKB fragmentKB2 = newFragmentKB(correspondenceDefinition.getLanguage2(), artifact2);
         for(IFragment fragment1 : fragmentKB1.getFragments()) {
+//            System.out.println(fragment1);
+
             for (IFragment fragment2 : fragmentKB2.getFragments()) {
                 if (correspondenceDefinition.accept(fragment1, fragment2)) {
                     correspondences.add(correspondenceFactory.newCorrespondence(correspondenceDefinition, fragment1, fragment2));
                 }
             }
         }
-        return null;
+        return correspondences;
     }
 }

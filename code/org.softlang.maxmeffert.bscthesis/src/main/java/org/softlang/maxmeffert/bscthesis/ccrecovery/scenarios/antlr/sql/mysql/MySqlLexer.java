@@ -1,9 +1,7 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languagedefinitions.sql.mysql;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.sql.mysql;
 // Generated from MySqlLexer.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;

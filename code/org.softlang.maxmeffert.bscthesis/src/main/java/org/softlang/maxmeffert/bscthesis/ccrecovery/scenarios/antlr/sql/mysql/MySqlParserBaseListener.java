@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languagedefinitions.sql.mysql;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.sql.mysql;
 // Generated from MySqlParser.g4 by ANTLR 4.7
 
 import org.antlr.v4.runtime.ParserRuleContext;

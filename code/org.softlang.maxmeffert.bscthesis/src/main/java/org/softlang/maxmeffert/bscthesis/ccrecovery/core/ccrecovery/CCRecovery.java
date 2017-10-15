@@ -5,6 +5,7 @@ import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer.ICCAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondence;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinition;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinitionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ISimilarity;
@@ -19,6 +20,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.inputstreams.IInp
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Set;
 
 public class CCRecovery implements ICCRecovery {
 
@@ -67,12 +69,12 @@ public class CCRecovery implements ICCRecovery {
 
 
     @Override
-    public void findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String artifact1, String artifact2) throws IOException, ParserException {
-        ccAnalyzerFactory.newCCAnalyzer().findCorrespondences(correspondenceDefinition, artifact1, artifact2);
+    public Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String artifact1, String artifact2) throws IOException, ParserException {
+        return ccAnalyzerFactory.newCCAnalyzer().findCorrespondences(correspondenceDefinition, artifact1, artifact2);
     }
 
     @Override
-    public void findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws IOException, ParserException {
-        ccAnalyzerFactory.newCCAnalyzer().findCorrespondences(correspondenceDefinition, artifact1, artifact2);
+    public Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws IOException, ParserException {
+        return ccAnalyzerFactory.newCCAnalyzer().findCorrespondences(correspondenceDefinition, artifact1, artifact2);
     }
 }
