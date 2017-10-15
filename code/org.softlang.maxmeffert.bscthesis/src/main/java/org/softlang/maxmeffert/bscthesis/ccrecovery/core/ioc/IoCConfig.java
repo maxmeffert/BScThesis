@@ -1,11 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc;
 
 import com.google.inject.AbstractModule;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.ILanguages;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.Languages;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer.CCAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer.ICCAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.*;
@@ -82,8 +80,6 @@ public class IoCConfig extends AbstractModule {
         bind(IAntlrIntervalFactory.class).to(AntlrIntervalFactory.class);
         bind(IAntlrTokenStreamFactory.class).to(AntlrCommonTokenStreamFactory.class);
         bind(IAntlrParsingConfigurationFactory.class).to(AntlrParsingConfigurationFactory.class);
-
-        bind(ILanguages.class).to(Languages.class);
     }
 
     private void configureCCRecovery() {

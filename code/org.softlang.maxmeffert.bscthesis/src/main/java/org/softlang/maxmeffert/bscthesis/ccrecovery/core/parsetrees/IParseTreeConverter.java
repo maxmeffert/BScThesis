@@ -6,6 +6,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSour
 
 public interface IParseTreeConverter {
 
-    ITree<ITextSource> toTextSourceTree(IAntlrParsingResult antlrParsingResult);
+    ITree<ITextSource> toTextSourceTree(IAntlrParsingResult antlrParsingResult) throws ParseTreeConverterException;
 
 }

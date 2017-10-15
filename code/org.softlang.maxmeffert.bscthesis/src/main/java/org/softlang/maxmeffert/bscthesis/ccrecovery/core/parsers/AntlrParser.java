@@ -2,6 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParsingConfiguration;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTreeConverter;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.ParseTreeConverterException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 
@@ -20,7 +21,12 @@ public class AntlrParser implements IParser {
 
     @Override
     public ITree<ITextSource> parse(InputStream inputStream) throws IOException {
-        return parseTreeConverter.toTextSourceTree(antlrConfiguration.parse(inputStream));
+        try {
+            return parseTreeConverter.toTextSourceTree(antlrConfiguration.parse(inputStream));
+        } catch (ParseTreeConverterException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

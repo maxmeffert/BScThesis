@@ -6,6 +6,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorres
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.Java8Lexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.Java8Parser;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.XMLLexer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.XMLParser;
 
 import java.io.IOException;
 
@@ -15,8 +17,10 @@ public class Main {
 		ICCRecovery ccRecovery = CCRecovery.create();
 
 		ILanguage java8 = ccRecovery.defineLanguage("Java8", Java8Lexer::new, Java8Parser::new, Java8Parser::compilationUnit);
+		ILanguage xml = ccRecovery.defineLanguage("XML", XMLLexer::new, XMLParser::new, XMLParser::document);
 
-		ICorrespondenceDefinition correspondenceDefinition = ccRecovery.defineCorrespondence(java8, java8, (f1,f2) -> {
+
+		ICorrespondenceDefinition correspondenceDefinition = ccRecovery.defineCorrespondence(java8, xml, (f1,f2) -> {
 			System.out.println(f1 +","+ f2);
 			return true;
 		});

@@ -2,6 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees;
 
 import com.google.inject.Inject;
 import org.antlr.v4.runtime.TokenStream;
+import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParsingResult;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
@@ -34,7 +35,18 @@ public class ParseTreeConverter implements IParseTreeConverter {
         return newTree(newTextSource(tokenStream, parseTree));
     }
 
-    private ITree<ITextSource> newTextSourceTree(TokenStream tokenStream, ParseTree parseTree) {
+    private ParseTreeConverterException newParseTreeConverterException(ErrorNode errorNode) {
+        return new ParseTreeConverterException("ErrorNode for " + errorNode.getText() + " at " + errorNode.getSourceInterval());
+    }
+
+    private ParseTreeConverterException newParseTreeConverterException(ParseTree parseTree) {
+        return newParseTreeConverterException((ErrorNode) parseTree);
+    }
+
+    private ITree<ITextSource> newTextSourceTree(TokenStream tokenStream, ParseTree parseTree) throws ParseTreeConverterException {
+        if (parseTree instanceof ErrorNode) {
+            throw newParseTreeConverterException(parseTree);
+        }
         ITree<ITextSource> tree = newTree(tokenStream, parseTree);
         for (int i=0; i<parseTree.getChildCount(); i++) {
             tree.addChild(newTextSourceTree(tokenStream, parseTree.getChild(i)));
@@ -42,7 +54,7 @@ public class ParseTreeConverter implements IParseTreeConverter {
         return tree;
     }
 
-    private ITree<ITextSource> newTextSourceTree(IAntlrParsingResult antlrParsingResult) {
+    private ITree<ITextSource> newTextSourceTree(IAntlrParsingResult antlrParsingResult) throws ParseTreeConverterException {
         return newTextSourceTree(antlrParsingResult.getTokenStream(), antlrParsingResult.getParseTree());
     }
 
@@ -52,25 +64,8 @@ public class ParseTreeConverter implements IParseTreeConverter {
     }
 
     @Override
-    public ITree<ITextSource> toTextSourceTree(IAntlrParsingResult antlrParsingResult) {
+    public ITree<ITextSource> toTextSourceTree(IAntlrParsingResult antlrParsingResult) throws ParseTreeConverterException {
         return normalize(newTextSourceTree(antlrParsingResult));
     }
-
-
-
-//    @Override
-//    public ITree<ITextSource> toTextSourceTree(TokenStream tokenStream, ParseTree parseTree) {
-//        ITree<ITextSource> tree = treeFactory.newTreeWithValue(newTextSource(tokenStream, parseTree));
-//        for (int i=0; i<parseTree.getChildCount(); i++) {
-//            tree.addChild(toTextSourceTree(tokenStream, parseTree.getChild(i)));
-//        }
-//        return simpleParseTreeNormalizerFactory.newSimpleParseTreeNormalizer().normalize(tree);
-//    }
-//
-//    @Override
-//    public ITree<ITextSource> toTextSourceTree(IAntlrParsingResult antlrParsingResult) {
-//        return toTextSourceTree(antlrParsingResult.getTokenStream(), antlrParsingResult.getParseTree());
-//    }
-
 
 }
