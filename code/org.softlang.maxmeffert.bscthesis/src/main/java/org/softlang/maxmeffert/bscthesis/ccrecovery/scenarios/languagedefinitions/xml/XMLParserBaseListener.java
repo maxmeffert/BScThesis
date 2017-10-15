@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languagedefinitions.xml;
 
 // Generated from XMLParser.g4 by ANTLR 4.7
 
