@@ -6,15 +6,17 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTreeCo
 
 public class ParserFactory implements IParserFactory {
 
+    private final IParserResultFactory parserResultFactory;
     private final IParseTreeConverter parseTreeConverter;
 
     @Inject
-    public ParserFactory(IParseTreeConverter parseTreeConverter) {
+    public ParserFactory(IParserResultFactory parserResultFactory, IParseTreeConverter parseTreeConverter) {
+        this.parserResultFactory = parserResultFactory;
         this.parseTreeConverter = parseTreeConverter;
     }
 
     @Override
     public IParser newParser(IAntlrParsingConfiguration antlrConfiguration) {
-        return new AntlrParser(parseTreeConverter, antlrConfiguration);
+        return new AntlrParser(parserResultFactory, parseTreeConverter, antlrConfiguration);
     }
 }

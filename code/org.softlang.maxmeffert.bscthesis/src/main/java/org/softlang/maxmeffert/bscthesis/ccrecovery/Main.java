@@ -4,6 +4,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinition;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.Java8Lexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.Java8Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.XMLLexer;
@@ -13,7 +14,7 @@ import java.io.IOException;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ParserException {
 		ICCRecovery ccRecovery = CCRecovery.create();
 
 		ILanguage java8 = ccRecovery.defineLanguage("Java8", Java8Lexer::new, Java8Parser::new, Java8Parser::compilationUnit);

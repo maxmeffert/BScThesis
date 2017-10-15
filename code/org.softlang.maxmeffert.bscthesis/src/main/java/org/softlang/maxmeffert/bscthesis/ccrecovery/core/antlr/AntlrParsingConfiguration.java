@@ -38,9 +38,7 @@ public class AntlrParsingConfiguration implements IAntlrParsingConfiguration {
     }
 
     private Parser newParser(TokenStream tokenStream) {
-        Parser parser = antlrParserFactory.newParser(tokenStream);
-        parser.removeErrorListeners();
-        return parser;
+        return antlrParserFactory.newParser(tokenStream);
     }
 
     private ParseTree newParseTree(Parser parser) {

@@ -20,7 +20,9 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.LanguageFacto
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.MereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserResultFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserResultFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTreeConverter;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.ITextSourceTreeNormalizerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.ParseTreeConverter;
@@ -135,6 +137,7 @@ public class IoCConfig extends AbstractModule {
     }
 
     private void configureParsers() {
+        bind(IParserResultFactory.class).to(ParserResultFactory.class);
         bind(IParserFactory.class).to(ParserFactory.class);
     }
 

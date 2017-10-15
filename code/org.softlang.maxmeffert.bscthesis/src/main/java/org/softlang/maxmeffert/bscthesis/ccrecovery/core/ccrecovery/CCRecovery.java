@@ -13,6 +13,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguageFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 
 import java.io.IOException;
 import java.util.function.BiPredicate;
@@ -52,7 +53,7 @@ public class CCRecovery implements ICCRecovery {
 
 
     @Override
-    public void findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String artifact1, String artifact2) throws IOException {
+    public void findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String artifact1, String artifact2) throws IOException, ParserException {
         ccAnalyzerFactory.newCCAnalyzer().findCorrespondences(correspondenceDefinition, artifact1, artifact2);
     }
 }

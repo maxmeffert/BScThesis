@@ -8,25 +8,36 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Optional;
 
 public class AntlrParser implements IParser {
 
+    private final IParserResultFactory parserResultFactory;
     private final IParseTreeConverter parseTreeConverter;
     private final IAntlrParsingConfiguration antlrConfiguration;
 
-    public AntlrParser(IParseTreeConverter parseTreeConverter, IAntlrParsingConfiguration antlrConfiguration) {
+    public AntlrParser(IParserResultFactory parserResultFactory, IParseTreeConverter parseTreeConverter, IAntlrParsingConfiguration antlrConfiguration) {
+        this.parserResultFactory = parserResultFactory;
         this.parseTreeConverter = parseTreeConverter;
         this.antlrConfiguration = antlrConfiguration;
     }
 
     @Override
-    public ITree<ITextSource> parse(InputStream inputStream) throws IOException {
+    public ITree<ITextSource> parse(InputStream inputStream) throws IOException, ParserException {
         try {
             return parseTreeConverter.toTextSourceTree(antlrConfiguration.parse(inputStream));
         } catch (ParseTreeConverterException e) {
-            e.printStackTrace();
+            throw new ParserException(e.getMessage());
         }
-        return null;
+    }
+
+    @Override
+    public IParserResult tryParse(InputStream inputStream) throws IOException {
+        try {
+            return parserResultFactory.accepted(parse(inputStream));
+        } catch (ParserException parserException) {
+            return parserResultFactory.notAccepted(parserException);
+        }
     }
 
 }
