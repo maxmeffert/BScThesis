@@ -8,7 +8,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.Java8Lexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.Java8Parser;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.model.Company;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc.model.Company;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.XMLParser;
 

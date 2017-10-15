@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.model;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
