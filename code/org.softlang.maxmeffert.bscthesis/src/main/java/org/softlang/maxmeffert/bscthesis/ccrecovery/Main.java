@@ -16,9 +16,12 @@ public class Main {
 
 		ILanguage java8 = ccRecovery.defineLanguage("Java8", Java8Lexer::new, Java8Parser::new, Java8Parser::compilationUnit);
 
-		ICorrespondenceDefinition correspondenceDefinition = ccRecovery.defineCorrespondence(java8, java8, (f1,f2) -> true);
+		ICorrespondenceDefinition correspondenceDefinition = ccRecovery.defineCorrespondence(java8, java8, (f1,f2) -> {
+			System.out.println(f1 +","+ f2);
+			return true;
+		});
 
-		ccRecovery.findCorrespondences(correspondenceDefinition,"class A {class A {}}","");
+		ccRecovery.findCorrespondences(correspondenceDefinition,"class A {class A {}}","class A {class A {}}");
  	}
 
 }

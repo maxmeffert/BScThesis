@@ -5,15 +5,17 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentKBFa
 
 public class CorrespondenceAnalyzerFactory implements ICorrespondenceAnalyzerFactory {
 
+    private final ICorrespondenceFactory correspondenceFactory;
     private final IFragmentKBFactory fragmentKBFactory;
 
     @Inject
-    public CorrespondenceAnalyzerFactory(IFragmentKBFactory fragmentKBFactory) {
+    public CorrespondenceAnalyzerFactory(ICorrespondenceFactory correspondenceFactory, IFragmentKBFactory fragmentKBFactory) {
+        this.correspondenceFactory = correspondenceFactory;
         this.fragmentKBFactory = fragmentKBFactory;
     }
 
     @Override
     public ICorrespondenceAnalyzer newCorrespondenceAnalyzer() {
-        return new CorrespondenceAnalyzer(fragmentKBFactory);
+        return new CorrespondenceAnalyzer(correspondenceFactory, fragmentKBFactory);
     }
 }

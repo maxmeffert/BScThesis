@@ -14,10 +14,6 @@ public class CorrespondenceFactory implements ICorrespondenceFactory {
 
     @Override
     public ICorrespondence newCorrespondence(ICorrespondenceDefinition correspondenceDefinition, IFragment fragment1, IFragment fragment2) {
-        return correspondenceBuilderFactory.newCorrespondenceBuilder()
-                .withCorrespondenceDefinition(correspondenceDefinition)
-                .withFragment1(fragment1)
-                .withFragment2(fragment2)
-                .build();
+        return new Correspondence(correspondenceDefinition, fragment1, fragment2);
     }
 }

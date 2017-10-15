@@ -28,4 +28,26 @@ public class Correspondence implements ICorrespondence {
     public IFragment getFragment2() {
         return fragment2;
     }
+
+    @Override
+    public int compareTo(ICorrespondence iCorrespondence) {
+        int result = getFragment1().compareTo(iCorrespondence.getFragment1());
+        if (result == 0) {
+            result = getFragment2().compareTo(iCorrespondence.getFragment2());
+        }
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ICorrespondence) {
+            return compareTo((ICorrespondence) obj) == 0;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + getFragment1() + "," + getFragment2() + ")";
+    }
 }
