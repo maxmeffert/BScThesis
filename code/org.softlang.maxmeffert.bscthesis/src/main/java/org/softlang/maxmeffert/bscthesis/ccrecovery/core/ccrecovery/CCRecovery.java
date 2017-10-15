@@ -7,16 +7,18 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer.ICCAnalyzerF
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinition;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinitionFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc.IoC;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguageFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.inputstreams.IInputStreamFactory;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.function.BiPredicate;
+import java.io.InputStream;
 
 public class CCRecovery implements ICCRecovery {
 
@@ -24,6 +26,7 @@ public class CCRecovery implements ICCRecovery {
         return IoC.get(ICCRecovery.class);
     }
 
+    private final IInputStreamFactory inputStreamFactory;
     private final ICCAnalyzerFactory ccAnalyzerFactory;
     private final ILanguageFactory languageFactory;
     private final IParserFactory parserFactory;
@@ -31,12 +34,23 @@ public class CCRecovery implements ICCRecovery {
     private final ICorrespondenceDefinitionFactory correspondenceDefinitionFactory;
 
     @Inject
-    public CCRecovery(ICCAnalyzerFactory analyzerFactory, ILanguageFactory languageFactory, IParserFactory parserFactory, IAntlrParsingConfigurationFactory antlrConfigurationFactory, ICorrespondenceDefinitionFactory correspondenceDefinitionFactory) {
+    public CCRecovery(IInputStreamFactory inputStreamFactory, ICCAnalyzerFactory analyzerFactory, ILanguageFactory languageFactory, IParserFactory parserFactory, IAntlrParsingConfigurationFactory antlrConfigurationFactory, ICorrespondenceDefinitionFactory correspondenceDefinitionFactory) {
+        this.inputStreamFactory = inputStreamFactory;
         this.ccAnalyzerFactory = analyzerFactory;
         this.languageFactory = languageFactory;
         this.parserFactory = parserFactory;
         this.antlrConfigurationFactory = antlrConfigurationFactory;
         this.correspondenceDefinitionFactory = correspondenceDefinitionFactory;
+    }
+
+    @Override
+    public InputStream getInputStream(String string) {
+        return inputStreamFactory.newInputStream(string);
+    }
+
+    @Override
+    public InputStream getInputStream(File file) throws IOException {
+        return inputStreamFactory.newInputStream(file);
     }
 
     @Override
@@ -47,13 +61,18 @@ public class CCRecovery implements ICCRecovery {
     }
 
     @Override
-    public ICorrespondenceDefinition defineCorrespondence(ILanguage language1, ILanguage language2, BiPredicate<IFragment, IFragment> predicate) {
-        return correspondenceDefinitionFactory.newCorrespondenceDefinition(language1,language2, predicate);
+    public ICorrespondenceDefinition defineCorrespondence(ILanguage language1, ILanguage language2, ISimilarity similarity) {
+        return correspondenceDefinitionFactory.newCorrespondenceDefinition(language1,language2, similarity);
     }
 
 
     @Override
     public void findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String artifact1, String artifact2) throws IOException, ParserException {
+        ccAnalyzerFactory.newCCAnalyzer().findCorrespondences(correspondenceDefinition, artifact1, artifact2);
+    }
+
+    @Override
+    public void findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws IOException, ParserException {
         ccAnalyzerFactory.newCCAnalyzer().findCorrespondences(correspondenceDefinition, artifact1, artifact2);
     }
 }

@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc;
+package softlanginc;
 
 import java.io.File;
 import java.util.EnumSet;
@@ -7,9 +7,9 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc.model.Company;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc.model.Department;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc.model.Employee;
+import softlanginc.model.Company;
+import softlanginc.model.Department;
+import softlanginc.model.Employee;
 
 public class HibernateUtils {
 

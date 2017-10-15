@@ -1,6 +1,6 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc;
+package softlanginc;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc.model.Company;
+import softlanginc.model.Company;
 
 import java.io.File;
 import java.io.IOException;

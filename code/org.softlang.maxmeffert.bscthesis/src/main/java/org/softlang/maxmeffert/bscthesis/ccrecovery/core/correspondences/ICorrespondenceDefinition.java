@@ -8,6 +8,5 @@ import java.util.function.BiPredicate;
 public interface ICorrespondenceDefinition {
     ILanguage getLanguage1();
     ILanguage getLanguage2();
-    BiPredicate<IFragment,IFragment> getPredicate();
     boolean accept(IFragment fragment1, IFragment fragment2);
 }

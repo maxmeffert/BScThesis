@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc.model;
+package softlanginc.model;
 
 import java.util.Collection;
 import java.util.LinkedList;

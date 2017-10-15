@@ -1,8 +1,8 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc;
+package softlanginc;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc.model.Company;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc.model.Department;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc.model.Employee;
+import softlanginc.model.Company;
+import softlanginc.model.Department;
+import softlanginc.model.Employee;
 
 import javax.xml.bind.*;
 import javax.xml.transform.Result;
