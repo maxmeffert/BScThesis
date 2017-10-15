@@ -6,11 +6,11 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorres
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.Java8Lexer;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.Java8Parser;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java8.Java8Lexer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java8.Java8Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.softlanginc.model.Company;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.XMLLexer;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.XMLParser;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.XMLLexer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.XMLParser;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
