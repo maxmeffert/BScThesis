@@ -22,14 +22,14 @@ public class Main {
 		ILanguage xml = ccRecovery.defineLanguage("XML", XMLLexer::new, XMLParser::new, XMLParser::document);
 
 
-		ICorrespondenceDefinition correspondenceDefinition = ccRecovery.defineCorrespondence(java8, java8, (f1,f2) -> {
+		ICorrespondenceDefinition correspondenceDefinition = ccRecovery.defineCorrespondence(java8, xml, (f1,f2) -> {
 			System.out.println(f1 +","+ f2);
 			return true;
 		});
 
 
         InputStream artifact1 = ccRecovery.getInputStream(new File("./src/scenarios/java/softlanginc/model/Company.java"));
-        InputStream artifact2 = ccRecovery.getInputStream("class A {class A {}}");
+        InputStream artifact2 = ccRecovery.getInputStream(new File("./xml/companies.xml"));
 
 		ccRecovery.findCorrespondences(correspondenceDefinition, artifact1, artifact2);
 

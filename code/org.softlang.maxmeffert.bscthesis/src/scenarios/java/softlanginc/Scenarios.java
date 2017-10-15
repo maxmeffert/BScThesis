@@ -33,22 +33,23 @@ public class Scenarios {
 		JAXBUtils.marshal(company, xmlFile);
 	}
 	
-	public static void main(String[] args) {
-		JPAUtils.openConnection();
-		EntityManager em = JPAUtils.getEntityManager();
-		try {
-			generateDDL();
-			generateXSD();
-			Company company = initSoftlangInc(em);
-			marshal(company);
-		} catch (JAXBException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		finally {
-			JPAUtils.closeConnection();
-		}
+	public static void main(String[] args) throws JAXBException {
+//		JPAUtils.openConnection();
+//		EntityManager em = JPAUtils.getEntityManager();
+//		try {
+//			generateDDL();
+//			generateXSD();
+//			Company company = initSoftlangInc(em);
+//			marshal(company);
+//		} catch (JAXBException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		finally {
+//			JPAUtils.closeConnection();
+//		}
+		JAXBUtils.marshal(SoftlangInc.getCompany(), xmlFile);
 	}
 
 }
