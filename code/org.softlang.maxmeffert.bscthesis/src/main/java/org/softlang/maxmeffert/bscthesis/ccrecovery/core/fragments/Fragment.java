@@ -4,6 +4,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIn
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 
+import java.util.List;
+
 public class Fragment implements IFragment {
 
     private final ITree<ITextSource> parseTree;
@@ -20,6 +22,11 @@ public class Fragment implements IFragment {
     @Override
     public String getText() {
         return getTextSource().getText();
+    }
+
+    @Override
+    public List<String> getTokens() {
+        return getTextSource().getTokens();
     }
 
     @Override

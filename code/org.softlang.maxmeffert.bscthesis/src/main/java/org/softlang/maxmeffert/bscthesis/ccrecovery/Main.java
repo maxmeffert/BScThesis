@@ -34,6 +34,7 @@ public class Main {
 		Set<ICorrespondence> correspondenceSet = ccRecovery.findCorrespondences(correspondenceDefinition, artifact1, artifact2);
 
         System.out.println(correspondenceSet);
+        System.out.println(correspondenceSet.size());
 
  	}
 

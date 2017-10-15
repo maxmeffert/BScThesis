@@ -14,12 +14,6 @@ public class TextProviderFactory implements ITextProviderFactory {
         this.textIntervalConverterFactory = textIntervalConverterFactory;
     }
 
-
-    @Override
-    public ITextProvider newTextProvider(CharStream charStream) {
-        return new AntlrCharStreamTextProvider(charStream, textIntervalConverterFactory.newTextIntervalConverter());
-    }
-
     @Override
     public ITextProvider newTextProvider(TokenStream tokenStream) {
         return new AntlrTokenStreamTextProvider(tokenStream, textIntervalConverterFactory.newTextIntervalConverter());

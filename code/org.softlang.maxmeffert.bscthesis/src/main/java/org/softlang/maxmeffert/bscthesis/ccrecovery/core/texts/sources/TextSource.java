@@ -4,12 +4,15 @@ import com.sun.istack.internal.NotNull;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextInterval;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.ITextProvider;
 
+import java.util.List;
+
 public class TextSource implements ITextSource {
 
     private final ITextInterval textInterval;
     private final ITextProvider textProvider;
 
     private String text;
+    private List<String> tokens;
 
     public TextSource(ITextInterval textInterval, ITextProvider textProvider) {
         this.textInterval = textInterval;
@@ -42,6 +45,15 @@ public class TextSource implements ITextSource {
         }
         return text;
     }
+
+    @Override
+    public List<String> getTokens() {
+        if (tokens == null) {
+            tokens = getTextProvider().getTokens(getTextInterval());
+        }
+        return tokens;
+    }
+
 
     @Override
     public boolean contains(ITextSource iTextSource) {

@@ -4,9 +4,12 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIn
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 
+import java.util.List;
+
 public interface IFragment extends Comparable<IFragment> {
     ITree<ITextSource> getParseTree();
     String getText();
+    List<String> getTokens();
     ITextSource getTextSource();
     ITextInterval getTextInterval();
     int getTextStartPosition();

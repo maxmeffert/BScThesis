@@ -33,9 +33,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.TextInt
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.TextIntervalFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.ITextProviderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.TextProviderFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSourceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSourceFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourceBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeWalkerFactory;
@@ -150,7 +148,6 @@ public class IoCConfig extends AbstractModule {
         bind(ITextIntervalFactory.class).to(TextIntervalFactory.class);
         bind(ITextIntervalConverterFactory.class).to(TextIntervalConverterFactory.class);
         bind(ITextProviderFactory.class).to(TextProviderFactory.class);
-        bind(ITextSourceBuilderFactory.class).to(TextSourceBuilderFactory.class);
         bind(ITextSourceFactory.class).to(TextSourceFactory.class);
     }
 
