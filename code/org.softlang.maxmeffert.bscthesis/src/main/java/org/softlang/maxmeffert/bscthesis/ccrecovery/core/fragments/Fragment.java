@@ -1,21 +1,23 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTree;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextInterval;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tokensequences.ITokenSequence;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 
 import java.util.List;
 
 public class Fragment implements IFragment {
 
-    private final ITree<ITextSource> parseTree;
+    private final IParseTree parseTree;
 
-    public Fragment(ITree<ITextSource> parseTree) {
+    public Fragment(IParseTree parseTree) {
         this.parseTree = parseTree;
     }
 
     @Override
-    public ITree<ITextSource> getParseTree() {
+    public IParseTree getParseTree() {
         return parseTree;
     }
 
@@ -25,13 +27,13 @@ public class Fragment implements IFragment {
     }
 
     @Override
-    public List<String> getTokens() {
+    public ITokenSequence getTokens() {
         return getTextSource().getTokens();
     }
 
     @Override
     public ITextSource getTextSource() {
-        return getParseTree().getValue();
+        return getParseTree().getTextSource();
     }
 
     @Override

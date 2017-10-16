@@ -27,11 +27,20 @@ public class JaxbJavaXmlSimilarity implements ISimilarity {
     }
 
     private Optional<String> getJavaClassName(IFragment fragment) {
-        return getFirstAfterLowerCaseMatch(fragment.getTokens(), "class");
+        Optional<Integer> index = fragment.getTokens().tryGetFirstIndexOf("class");
+        if (index.isPresent()) {
+            return fragment.getTokens().tryGet(index.get()+1);
+        }
+        return Optional.empty();
     }
 
     private Optional<String> getXMLElementName(IFragment fragment) {
-        return getFirstAfterLowerCaseMatch(fragment.getTokens(), "<");
+        int index = fragment.getTokens().getFirstIndexOf("<");
+        if (index == -1 || index+1 >= fragment.getTokens().size()) {
+            return Optional.empty();
+        }
+        return Optional.of(fragment.getTokens().get(index+1));
+//        return getFirstAfterLowerCaseMatch(fragment.getTokens(), "<");
     }
 
     private boolean acceptJavaClassNameXMLElementNameSimilarity(IFragment javaFragment, IFragment xmlFragment) {

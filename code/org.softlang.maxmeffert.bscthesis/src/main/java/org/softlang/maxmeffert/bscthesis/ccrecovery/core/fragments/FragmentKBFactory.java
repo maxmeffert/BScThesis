@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
 
 import com.google.inject.Inject;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTree;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 
@@ -15,9 +16,9 @@ public class FragmentKBFactory implements IFragmentKBFactory {
         this.fragmentFactory = fragmentFactory;
     }
 
-    private IFragmentKBBuilder addFragments(IFragmentKBBuilder fragmentKBBuilder, ITree<ITextSource> parseTree) {
+    private IFragmentKBBuilder addFragments(IFragmentKBBuilder fragmentKBBuilder, IParseTree parseTree) {
         IFragment composite = fragmentFactory.newFragmentFromParserTree(parseTree);
-        for(ITree<ITextSource> child : parseTree.getChildren()) {
+        for(IParseTree child : parseTree.getChildren()) {
             IFragment component = fragmentFactory.newFragmentFromParserTree(child);
             fragmentKBBuilder = addFragments(fragmentKBBuilder.fragmentOf(component, composite), child);
         }
@@ -25,7 +26,7 @@ public class FragmentKBFactory implements IFragmentKBFactory {
     }
 
     @Override
-    public IFragmentKB newFragmentKB(ITree<ITextSource> parseTree) {
+    public IFragmentKB newFragmentKB(IParseTree parseTree) {
         return addFragments(fragmentKBBuilderFactory.newFragmentKBBuilder(), parseTree).build();
     }
 

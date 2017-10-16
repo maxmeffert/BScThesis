@@ -23,10 +23,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserResultFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserResultFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTreeConverter;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.ITextSourceTreeNormalizerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.ParseTreeConverter;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.TextSourceTreeNormalizerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalConverterFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.TextIntervalConverterFactory;
@@ -35,6 +32,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.ITextPr
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.TextProviderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSourceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourceFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tokensequences.ITokenSequenceFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tokensequences.TokenSequenceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.TreeFactory;
@@ -68,6 +67,7 @@ public class IoCConfig extends AbstractModule {
         configureParseTrees();
         configureTexts();
         configureTrees();
+        configureTokens();
         configureUtils();
     }
 
@@ -140,7 +140,8 @@ public class IoCConfig extends AbstractModule {
     }
 
     private void configureParseTrees() {
-        bind(ITextSourceTreeNormalizerFactory.class).to(TextSourceTreeNormalizerFactory.class);
+        bind(IParseTreeFactory.class).to(ParseTreeFactory.class);
+        bind(IParseTreeNormalizerFactory.class).to(ParseTreeNormalizerFactory.class);
         bind(IParseTreeConverter.class).to(ParseTreeConverter.class);
     }
 
@@ -154,6 +155,10 @@ public class IoCConfig extends AbstractModule {
     private void configureTrees() {
         bind(ITreeFactory.class).to(TreeFactory.class);
         bind(ITreeWalkerFactory.class).to(TreeWalkerFactory.class);
+    }
+
+    private void configureTokens() {
+        bind(ITokenSequenceFactory.class).to(TokenSequenceFactory.class);
     }
 
     private void configureUtils() {

@@ -1,15 +1,16 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTree;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 
 public class ParserResult implements IParserResult {
 
     private final boolean hasAcceptedInput;
-    private final ITree<ITextSource> parseTree;
+    private final IParseTree parseTree;
     private final ParserException parserException;
 
-    public ParserResult(boolean hasAcceptedInput, ITree<ITextSource> parseTree, ParserException parserException) {
+    public ParserResult(boolean hasAcceptedInput, IParseTree parseTree, ParserException parserException) {
         this.hasAcceptedInput = hasAcceptedInput;
         this.parseTree = parseTree;
         this.parserException = parserException;
@@ -26,7 +27,7 @@ public class ParserResult implements IParserResult {
     }
 
     @Override
-    public ITree<ITextSource> getParseTree() {
+    public IParseTree getParseTree() {
         return parseTree;
     }
 

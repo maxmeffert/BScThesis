@@ -4,6 +4,8 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers;
 import org.antlr.v4.runtime.TokenStream;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalConverter;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextInterval;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tokensequences.ITokenSequence;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tokensequences.ITokenSequenceFactory;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,10 +14,12 @@ public class AntlrTokenStreamTextProvider implements ITextProvider {
 
     private final TokenStream tokenStream;
     private final ITextIntervalConverter textIntervalConverter;
+    private final ITokenSequenceFactory tokenSequenceFactory;
 
-    public AntlrTokenStreamTextProvider(TokenStream tokenStream, ITextIntervalConverter textIntervalConverter) {
+    public AntlrTokenStreamTextProvider(TokenStream tokenStream, ITextIntervalConverter textIntervalConverter, ITokenSequenceFactory tokenSequenceFactory) {
         this.tokenStream = tokenStream;
         this.textIntervalConverter = textIntervalConverter;
+        this.tokenSequenceFactory = tokenSequenceFactory;
     }
 
     @Override
@@ -24,17 +28,7 @@ public class AntlrTokenStreamTextProvider implements ITextProvider {
     }
 
     @Override
-    public List<String> getTokens(ITextInterval textInterval) {
-        List<String> tokens = new LinkedList<>();
-        if (textInterval.getStartPosition() == textInterval.getEndPosition()) {
-            tokens.add(getText(textInterval));
-            return tokens;
-        }
-        if (0 <= textInterval.getStartPosition() && textInterval.getEndPosition() <= tokenStream.size()) {
-            for (int i=textInterval.getStartPosition(); i < textInterval.getEndPosition(); i++) {
-                tokens.add(tokenStream.get(i).getText());
-            }
-        }
-        return tokens;
+    public ITokenSequence getTokens(ITextInterval textInterval) {
+        return tokenSequenceFactory.newTokenSequence(tokenStream, textInterval);
     }
 }

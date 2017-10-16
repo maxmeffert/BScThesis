@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParsingConfiguration;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTree;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTreeConverter;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.ParseTreeConverterException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
@@ -23,9 +24,9 @@ public class AntlrParser implements IParser {
     }
 
     @Override
-    public ITree<ITextSource> parse(InputStream inputStream) throws IOException, ParserException {
+    public IParseTree parse(InputStream inputStream) throws IOException, ParserException {
         try {
-            return parseTreeConverter.toTextSourceTree(antlrConfiguration.parse(inputStream));
+            return parseTreeConverter.toParseTree(antlrConfiguration.parse(inputStream));
         } catch (ParseTreeConverterException e) {
             throw new ParserException(e.getMessage());
         }
