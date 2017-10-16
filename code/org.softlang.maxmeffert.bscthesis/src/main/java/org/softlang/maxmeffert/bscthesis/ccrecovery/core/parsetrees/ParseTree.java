@@ -3,18 +3,21 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ParseTree implements IParseTree {
 
     private final String name;
     private final ITextSource textSource;
+    private final Class<? extends org.antlr.v4.runtime.tree.ParseTree> antlrType;
 
     private final List<IParseTree> children;
     private IParseTree parent;
 
-    public ParseTree(String name, ITextSource textSource, List<IParseTree> children) {
+    public ParseTree(String name, ITextSource textSource, Class<? extends org.antlr.v4.runtime.tree.ParseTree> antlrType, List<IParseTree> children) {
         this.name = name;
         this.textSource = textSource;
+        this.antlrType = antlrType;
         this.children = children;
     }
 
@@ -29,6 +32,11 @@ public class ParseTree implements IParseTree {
     }
 
     @Override
+    public Class<? extends org.antlr.v4.runtime.tree.ParseTree> getAntlrType() {
+        return antlrType;
+    }
+
+    @Override
     public boolean hasParent() {
         return parent != null;
     }
@@ -39,8 +47,8 @@ public class ParseTree implements IParseTree {
     }
 
     @Override
-    public IParseTree getParent() {
-        return parent;
+    public Optional<IParseTree> getParent() {
+        return Optional.ofNullable(parent);
     }
 
     @Override

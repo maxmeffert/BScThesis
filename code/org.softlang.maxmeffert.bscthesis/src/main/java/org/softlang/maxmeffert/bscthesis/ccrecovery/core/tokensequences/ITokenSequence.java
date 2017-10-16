@@ -11,4 +11,6 @@ public interface ITokenSequence {
     int getFirstIndexOf(String token);
     Optional<Integer> tryGetFirstIndexOf(String token);
     int getLastIndexOf(String token);
+    boolean matches(String... patterns);
+    String[] toArray();
 }

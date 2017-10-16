@@ -10,6 +10,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.Java8L
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.Java8Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.xml.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.xml.XMLParser;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.similarities.Java8ParseTreeFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.similarities.JaxbJavaXmlSimilarity;
 
 import javax.xml.bind.JAXBException;
@@ -21,7 +22,7 @@ public class Main {
 	public static void main(String[] args) throws IOException, ParserException, JAXBException {
 		ICCRecovery ccRecovery = CCRecovery.create();
 
-		ILanguage java8 = ccRecovery.defineLanguage("Java8", Java8Lexer::new, Java8Parser::new, Java8Parser::compilationUnit);
+		ILanguage java8 = ccRecovery.defineLanguage("Java8", Java8Lexer::new, Java8Parser::new, new Java8ParseTreeFactory());
 		ILanguage xml = ccRecovery.defineLanguage("XML", XMLLexer::new, XMLParser::new, XMLParser::document);
 
 

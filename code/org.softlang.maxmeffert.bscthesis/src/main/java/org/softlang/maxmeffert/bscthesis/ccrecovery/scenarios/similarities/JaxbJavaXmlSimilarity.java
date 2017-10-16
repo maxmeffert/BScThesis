@@ -1,13 +1,19 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.similarities;
 
+import com.google.common.base.Joiner;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.Java8Parser;
 
 import java.util.Iterator;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class JaxbJavaXmlSimilarity implements ISimilarity {
+
+    private JavaFragmentMatcher javaFragmentMatcher = new JavaFragmentMatcher();
 
     private <T> Optional<T> getFirstAfterMatch(Iterator<T> iterator, Predicate<T> predicate) {
         while(iterator.hasNext()) {
@@ -51,8 +57,46 @@ public class JaxbJavaXmlSimilarity implements ISimilarity {
                 && javaClassName.get().toLowerCase().equals(xmlElementName.get().toLowerCase());
     }
 
+    private boolean isClassDeclaration(String text) {
+//        System.out.println(text);
+        Pattern pattern = Pattern.compile("class(?<ClassIdentifier>\\w+)\\{\\S+}");
+        Matcher matcher = pattern.matcher(text);
+
+        boolean found = matcher.find();
+        if (found) {
+            System.out.println(matcher.group("ClassIdentifier"));
+        }
+
+        return found;
+    }
+
+    private Pattern pattern = Pattern.compile("^public\\s(?<ResultType>\\w+)\\s(?<MethodIdentifier>\\w+)\\s\\(\\s(\\S*\\s)*\\)\\s\\{\\s(\\S*\\s)*}");
+
+    private boolean isMethodDeclaration(String text) {
+        Matcher matcher = pattern.matcher(text);
+        boolean found = matcher.find();
+        if (found) {
+            System.out.println(matcher.group("ResultType"));
+            System.out.println(matcher.group("MethodIdentifier"));
+        }
+
+        return found;
+    }
+
     @Override
     public boolean accept(IFragment javaFragment, IFragment xmlFragment) {
-        return acceptJavaClassNameXMLElementNameSimilarity(javaFragment, xmlFragment);
+        javaFragmentMatcher.newJavaFragment(javaFragment);
+//        if (javaFragment.getTokens().matches("public","\\w+","\\w+","\\(","\\)")) {
+//        String text = Joiner.on(" ").join(javaFragment.getTokens().toArray());
+//        if (isMethodDeclaration(text)) {
+//            System.out.println(text);
+////            System.out.println(pattern.matcher(text).matches());
+//        }
+
+//        if (javaFragment.getParseTree().getAntlrType().equals(Java8Parser.NormalClassDeclarationContext.class)) {
+//            System.out.println("asdf");
+//            return false;
+//        }
+        return false; //acceptJavaClassNameXMLElementNameSimilarity(javaFragment, xmlFragment);
     }
 }

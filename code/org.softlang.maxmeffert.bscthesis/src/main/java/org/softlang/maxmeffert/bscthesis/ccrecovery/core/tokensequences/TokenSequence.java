@@ -60,4 +60,29 @@ public class TokenSequence implements ITokenSequence {
     public int getLastIndexOf(String token) {
         return tokens.lastIndexOf(token);
     }
+
+    @Override
+    public boolean matches(String... patterns) {
+        for(int i=0; i < size()-patterns.length; i++) {
+            boolean match = true;
+            for (int j=0; j < patterns.length; j++) {
+                match &= get(i+j).matches(patterns[j]);
+
+//                System.out.println(get(i+j));
+//                System.out.println(match);
+                if (!match) {
+                    return false;
+                }
+            }
+            if (match) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public String[] toArray() {
+        return tokens.toArray(new String[]{});
+    }
 }

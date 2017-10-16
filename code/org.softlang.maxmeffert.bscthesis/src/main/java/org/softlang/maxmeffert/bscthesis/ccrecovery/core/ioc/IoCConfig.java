@@ -142,7 +142,7 @@ public class IoCConfig extends AbstractModule {
     private void configureParseTrees() {
         bind(IParseTreeFactory.class).to(ParseTreeFactory.class);
         bind(IParseTreeNormalizerFactory.class).to(ParseTreeNormalizerFactory.class);
-        bind(IParseTreeConverter.class).to(ParseTreeConverter.class);
+        bind(IParseTreeConverterFactory.class).to(ParseTreeConverterFactory.class);
     }
 
     private void configureTexts() {

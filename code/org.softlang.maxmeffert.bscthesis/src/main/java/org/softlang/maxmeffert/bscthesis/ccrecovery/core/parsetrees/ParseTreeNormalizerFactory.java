@@ -7,14 +7,12 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.IStringUt
 
 public class ParseTreeNormalizerFactory implements IParseTreeNormalizerFactory {
 
-    private final ITreeFactory treeFactory;
     private final IParseTreeFactory parseTreeFactory;
     private final ICollectionFactory collectionFactory;
     private final IStringUtils stringUtils;
 
     @Inject
-    public ParseTreeNormalizerFactory(ITreeFactory treeFactory, IParseTreeFactory parseTreeFactory, ICollectionFactory collectionFactory, IStringUtils stringUtils) {
-        this.treeFactory = treeFactory;
+    public ParseTreeNormalizerFactory(IParseTreeFactory parseTreeFactory, ICollectionFactory collectionFactory, IStringUtils stringUtils) {
         this.parseTreeFactory = parseTreeFactory;
         this.collectionFactory = collectionFactory;
         this.stringUtils = stringUtils;
@@ -22,6 +20,6 @@ public class ParseTreeNormalizerFactory implements IParseTreeNormalizerFactory {
 
     @Override
     public IParseTreeNormalizer newSimpleParseTreeNormalizer() {
-        return new ParseTreeNormalizer(treeFactory, parseTreeFactory, collectionFactory, stringUtils);
+        return new ParseTreeNormalizer(parseTreeFactory, collectionFactory, stringUtils);
     }
 }

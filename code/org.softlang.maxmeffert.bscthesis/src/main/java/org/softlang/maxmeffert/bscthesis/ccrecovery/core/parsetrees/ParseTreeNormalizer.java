@@ -6,30 +6,32 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.IStringUt
 
 public class ParseTreeNormalizer implements IParseTreeNormalizer {
 
-    private final ITreeFactory treeFactory;
     private final IParseTreeFactory parseTreeFactory;
     private final ICollectionFactory collectionFactory;
     private final IStringUtils stringUtils;
 
-    public ParseTreeNormalizer(ITreeFactory treeFactory, IParseTreeFactory parseTreeFactory, ICollectionFactory collectionFactory, IStringUtils stringUtils) {
-        this.treeFactory = treeFactory;
+    public ParseTreeNormalizer(IParseTreeFactory parseTreeFactory, ICollectionFactory collectionFactory, IStringUtils stringUtils) {
         this.parseTreeFactory = parseTreeFactory;
         this.collectionFactory = collectionFactory;
         this.stringUtils = stringUtils;
     }
 
+    private IParseTree newParseTree(IParseTree parseTree) {
+        return parseTreeFactory.newParseTree(parseTree.getName(), parseTree.getAntlrType(), parseTree.getTextSource());
+    }
+
     @Override
-    public IParseTree normalize(IParseTree iTextSourceITree) {
-        IParseTree normalizedTree = parseTreeFactory.newParseTree(iTextSourceITree.getName(), iTextSourceITree.getTextSource());
-        addNormalizedChildren(iTextSourceITree, normalizedTree);
+    public IParseTree normalize(IParseTree parseTree) {
+        IParseTree normalizedTree = newParseTree(parseTree);
+        addNormalizedChildren(parseTree, normalizedTree);
         return normalizedTree;
     }
 
-    private void addNormalizedChildren(IParseTree simpleParseTree, IParseTree normalizedTree) {
-        for(IParseTree child : simpleParseTree.getChildren()) {
+    private void addNormalizedChildren(IParseTree parseTree, IParseTree normalizedTree) {
+        for(IParseTree child : parseTree.getChildren()) {
             IParseTree normalizedChild = normalize(child);
             if (hasText(normalizedChild)) {
-                normalizedTree.addChildren(getAddableChildren(simpleParseTree, normalizedChild));
+                normalizedTree.addChildren(getAddableChildren(parseTree, normalizedChild));
             }
         }
     }
