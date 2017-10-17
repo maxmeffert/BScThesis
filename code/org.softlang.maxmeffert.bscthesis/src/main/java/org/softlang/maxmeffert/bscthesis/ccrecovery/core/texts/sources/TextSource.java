@@ -3,9 +3,6 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources;
 import com.sun.istack.internal.NotNull;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextInterval;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.ITextProvider;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tokensequences.ITokenSequence;
-
-import java.util.List;
 
 public class TextSource implements ITextSource {
 
@@ -13,7 +10,6 @@ public class TextSource implements ITextSource {
     private final ITextProvider textProvider;
 
     private String text;
-    private ITokenSequence tokens;
 
     public TextSource(ITextInterval textInterval, ITextProvider textProvider) {
         this.textInterval = textInterval;
@@ -45,14 +41,6 @@ public class TextSource implements ITextSource {
             text = getTextProvider().getText(getTextInterval());
         }
         return text;
-    }
-
-    @Override
-    public ITokenSequence getTokens() {
-        if (tokens == null) {
-            tokens = getTextProvider().getTokens(getTextInterval());
-        }
-        return tokens;
     }
 
 

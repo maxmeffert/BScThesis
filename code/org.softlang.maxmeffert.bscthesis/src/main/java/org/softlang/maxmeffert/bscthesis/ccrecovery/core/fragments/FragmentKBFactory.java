@@ -1,9 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTree;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 
 public class FragmentKBFactory implements IFragmentKBFactory {
 

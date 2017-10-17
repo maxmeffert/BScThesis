@@ -7,7 +7,10 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer.ICCAnalyzerF
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.FragmentKBBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.FragmentKBFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentKBBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.closures.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators.GraphIterators;
@@ -23,7 +26,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserResultFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserResultFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalConverterFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.TextIntervalConverterFactory;
@@ -32,8 +34,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.ITextPr
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.TextProviderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSourceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourceFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tokensequences.ITokenSequenceFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tokensequences.TokenSequenceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.TreeFactory;
@@ -64,10 +64,8 @@ public class IoCConfig extends AbstractModule {
         configureLanguages();
         configureMereologies();
         configureParsers();
-        configureParseTrees();
         configureTexts();
         configureTrees();
-        configureTokens();
         configureUtils();
     }
 
@@ -138,12 +136,6 @@ public class IoCConfig extends AbstractModule {
         bind(IParserFactory.class).to(ParserFactory.class);
     }
 
-    private void configureParseTrees() {
-        bind(IParseTreeFactory.class).to(ParseTreeFactory.class);
-        bind(IParseTreeNormalizerFactory.class).to(ParseTreeNormalizerFactory.class);
-        bind(IParseTreeConverterFactory.class).to(ParseTreeConverterFactory.class);
-    }
-
     private void configureTexts() {
         bind(ITextIntervalFactory.class).to(TextIntervalFactory.class);
         bind(ITextIntervalConverterFactory.class).to(TextIntervalConverterFactory.class);
@@ -156,9 +148,6 @@ public class IoCConfig extends AbstractModule {
         bind(ITreeWalkerFactory.class).to(TreeWalkerFactory.class);
     }
 
-    private void configureTokens() {
-        bind(ITokenSequenceFactory.class).to(TokenSequenceFactory.class);
-    }
 
     private void configureUtils() {
         bind(ICollectionFactory.class).to(CollectionFactory.class);
