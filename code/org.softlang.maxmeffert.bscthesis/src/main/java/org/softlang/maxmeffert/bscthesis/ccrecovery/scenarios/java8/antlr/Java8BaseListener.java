@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.antlr;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.antlr;
 // Generated from src/fragments/Java8.g4 by ANTLR 4.7
 
 import org.antlr.v4.runtime.ParserRuleContext;

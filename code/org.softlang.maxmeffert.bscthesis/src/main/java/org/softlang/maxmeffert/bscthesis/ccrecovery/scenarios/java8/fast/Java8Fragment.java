@@ -1,14 +1,14 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.fast;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fast;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fast.FragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fast.IFragmentAST;
 
 import java.util.List;
 
-public class JavaFragment extends FragmentAST {
+public class Java8Fragment extends FragmentAST {
     private final String identifier;
 
-    public JavaFragment(String identifier, List<IFragmentAST> children) {
+    public Java8Fragment(String identifier, List<IFragmentAST> children) {
         super(children);
         this.identifier = identifier;
     }
