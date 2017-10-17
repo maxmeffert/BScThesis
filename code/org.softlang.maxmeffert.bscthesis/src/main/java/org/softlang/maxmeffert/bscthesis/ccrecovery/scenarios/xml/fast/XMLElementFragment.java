@@ -1,26 +1,27 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fast;
 
-import com.google.common.collect.Lists;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
-
+import java.util.LinkedList;
 import java.util.List;
 
 public class XMLElementFragment extends XMLFragment {
 
-    private final String name;
-    private final List<XMLElementFragment> elements;
-
-    public XMLElementFragment(String name, String text, List<XMLElementFragment> elements) {
-        super(text, Lists.newLinkedList(elements));
-        this.name = name;
-        this.elements = elements;
-    }
+    private String name;
+    private List<XMLElementFragment> elements = new LinkedList<>();
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public List<XMLElementFragment> getElements() {
         return elements;
+    }
+
+    public void addElement(XMLElementFragment element) {
+        elements.add(element);
+        addChild(element);
     }
 }

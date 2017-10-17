@@ -1,26 +1,28 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fast;
 
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
-
+import java.util.LinkedList;
 import java.util.List;
 
 public class Java8ClassFragment extends Java8Fragment {
 
-    private final List<Java8FieldFragment> fields;
-    private final List<Java8MethodFragment> methods;
-
-    public Java8ClassFragment(String identifier, String text, List<Java8FieldFragment> fields, List<Java8MethodFragment> methods) {
-        super(identifier, text, Lists.newLinkedList(Iterables.concat(fields, methods)));
-        this.fields = fields;
-        this.methods = methods;
-    }
+    private List<Java8FieldFragment> fields = new LinkedList<>();
+    private List<Java8MethodFragment> methods = new LinkedList<>();
 
     public List<Java8FieldFragment> getFields() {
         return fields;
     }
 
+    public void addField(Java8FieldFragment field) {
+        fields.add(field);
+        addChild(field);
+    }
+
     public List<Java8MethodFragment> getMethods() {
         return methods;
+    }
+
+    public void addMethod(Java8MethodFragment method) {
+        methods.add(method);
+        addChild(method);
     }
 }

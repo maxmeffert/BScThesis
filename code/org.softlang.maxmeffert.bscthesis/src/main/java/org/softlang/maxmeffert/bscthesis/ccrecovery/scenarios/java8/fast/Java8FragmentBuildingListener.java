@@ -2,13 +2,11 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fast;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.Interval;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.antlr.Java8BaseListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.antlr.Java8Parser;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Stack;
 
 public class Java8FragmentBuildingListener extends Java8BaseListener implements IFragmentBuildingListener {
@@ -21,13 +19,6 @@ public class Java8FragmentBuildingListener extends Java8BaseListener implements 
 
     private IFragment rootFragment;
 
-    private <T> List<T> popAllInto(Stack<T> stack, List<T> list) {
-        while(!stack.isEmpty()) {
-            list.add(stack.pop());
-        }
-        return list;
-    }
-
     private String textof(ParserRuleContext parserRuleContext) {
         int a = parserRuleContext.start.getStartIndex();
         int b = parserRuleContext.stop.getStopIndex();
@@ -36,24 +27,40 @@ public class Java8FragmentBuildingListener extends Java8BaseListener implements 
 
     @Override
     public void exitFieldDeclaration(Java8Parser.FieldDeclarationContext ctx) {
-        super.exitFieldDeclaration(ctx);
         for (Java8Parser.VariableDeclaratorContext vctx : ctx.variableDeclaratorList().variableDeclarator()) {
-            fields.push(java8FragmentFactory.newJava8FieldFragment(vctx.variableDeclaratorId().Identifier().getText(), textof(ctx)));
+            String identifier = vctx.variableDeclaratorId().Identifier().getText();
+            String text = textof(ctx);
+            Java8FieldFragment java8FieldFragment = java8FragmentFactory.newJava8FieldFragment();
+            java8FieldFragment.setIdentifier(identifier);
+            java8FieldFragment.setText(text);
+            fields.push(java8FieldFragment);
         }
     }
 
     @Override
     public void exitMethodDeclaration(Java8Parser.MethodDeclarationContext ctx) {
-        super.exitMethodDeclaration(ctx);
-        methods.push(java8FragmentFactory.newJava8MethodFragment(ctx.methodHeader().methodDeclarator().Identifier().getText(), textof(ctx)));
+        String identifier = ctx.methodHeader().methodDeclarator().Identifier().getText();
+        String text = textof(ctx);
+        Java8MethodFragment java8MethodFragment = java8FragmentFactory.newJava8MethodFragment();
+        java8MethodFragment.setIdentifier(identifier);
+        java8MethodFragment.setText(text);
+        methods.push(java8MethodFragment);
     }
 
     @Override
     public void exitNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) {
-        super.exitNormalClassDeclaration(ctx);
-        List<Java8MethodFragment> methods = popAllInto(this.methods, new LinkedList<>());
-        List<Java8FieldFragment> fields = popAllInto(this.fields, new LinkedList<>());
-        classes.push(java8FragmentFactory.newJava8ClassFragment(ctx.Identifier().getText(), fields, methods, textof(ctx)));
+        String identifier = ctx.Identifier().getText();
+        String text = textof(ctx);
+        Java8ClassFragment java8ClassFragment = java8FragmentFactory.newJava8ClassFragment();
+        java8ClassFragment.setIdentifier(identifier);
+        java8ClassFragment.setText(text);
+        while (!methods.isEmpty()) {
+            java8ClassFragment.addMethod(methods.pop());
+        }
+        while (!fields.isEmpty()) {
+            java8ClassFragment.addField(fields.pop());
+        }
+        classes.push(java8ClassFragment);
     }
 
     @Override

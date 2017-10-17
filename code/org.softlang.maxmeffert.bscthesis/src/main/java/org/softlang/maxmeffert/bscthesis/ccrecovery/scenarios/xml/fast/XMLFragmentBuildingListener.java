@@ -36,16 +36,25 @@ public class XMLFragmentBuildingListener extends XMLParserBaseListener implement
         super.exitElement(ctx);
         String name = ctx.Name(0).getText();
         String text = textof(ctx);
-        List<XMLElementFragment> elements = popAllInto(xmlElementFragments, new LinkedList<>());
-        xmlElementFragments.push(xmlFragmentFactory.newXMLElementFragment(name, text, elements));
+        XMLElementFragment xmlElementFragment = xmlFragmentFactory.newXMLElementFragment();
+        xmlElementFragment.setName(ctx.Name(0).toString());
+        xmlElementFragment.setText(textof(ctx));
+        while (!xmlElementFragments.isEmpty()) {
+            xmlElementFragment.addElement(xmlElementFragments.pop());
+        }
+        xmlElementFragments.push(xmlElementFragment);
     }
 
     @Override
     public void exitDocument(XMLParser.DocumentContext ctx) {
         super.exitDocument(ctx);
         String text = textof(ctx);
-        List<XMLElementFragment> elements = popAllInto(xmlElementFragments, new LinkedList<>());
-        xmlDocumentFragments.push(xmlFragmentFactory.newXMLDocumentFragment(text, elements));
+        XMLDocumentFragment xmlDocumentFragment = xmlFragmentFactory.newXMLDocumentFragment();
+        xmlDocumentFragment.setText(textof(ctx));
+        while(!xmlElementFragments.isEmpty()) {
+            xmlDocumentFragment.addElement(xmlElementFragments.pop());
+        }
+        xmlDocumentFragments.push(xmlDocumentFragment);
     }
 
     @Override
