@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.xml;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr;
 
 // Generated from XMLLexer.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.Lexer;

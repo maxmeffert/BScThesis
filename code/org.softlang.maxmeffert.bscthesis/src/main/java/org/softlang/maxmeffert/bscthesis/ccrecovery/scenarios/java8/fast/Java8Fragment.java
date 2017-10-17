@@ -17,8 +17,4 @@ public class Java8Fragment extends Fragment {
         return identifier;
     }
 
-    @Override
-    public String toString() {
-        return identifier;
-    }
 }

@@ -34,4 +34,9 @@ public class Fragment implements IFragment {
         }
         return false;
     }
+
+    @Override
+    public final String toString() {
+        return getText();
+    }
 }

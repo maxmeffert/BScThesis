@@ -9,6 +9,9 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.antlr.Java8L
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.antlr.Java8Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fast.Java8FragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.similarities.JaxbJavaXmlSimilarity;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLLexer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLParser;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fast.XMLFragmentBuildingListener;
 
 import java.io.File;
 import java.io.InputStream;
@@ -20,14 +23,14 @@ public class Main {
 		ICCRecovery ccRecovery = CCRecovery.create();
 
 		ILanguage java8 = ccRecovery.defineLanguage("Java8", Java8Lexer::new, Java8Parser::new, Java8Parser::compilationUnit, new Java8FragmentBuildingListener());
-//		ILanguage xml = ccRecovery.defineLanguage("XML", XMLLexer::new, XMLParser::new, XMLParser::document);
+		ILanguage xml = ccRecovery.defineLanguage("XML", XMLLexer::new, XMLParser::new, XMLParser::document, new XMLFragmentBuildingListener());
 
 
-		ICorrespondenceDefinition correspondenceDefinition = ccRecovery.defineCorrespondence(java8, java8, new JaxbJavaXmlSimilarity());
+		ICorrespondenceDefinition correspondenceDefinition = ccRecovery.defineCorrespondence(java8, xml, new JaxbJavaXmlSimilarity());
 
 
         InputStream artifact1 = ccRecovery.getInputStream(new File("./src/scenarios/java/softlanginc/model/Company.java"));
-        InputStream artifact2 = ccRecovery.getInputStream(new File("./src/scenarios/java/softlanginc/model/Company.java")); ccRecovery.getInputStream(new File("./xml/companies.xml"));
+        InputStream artifact2 = ccRecovery.getInputStream(new File("./xml/companies.xml"));
 
 		Set<ICorrespondence> correspondenceSet = ccRecovery.findCorrespondences(correspondenceDefinition, artifact1, artifact2);
 
