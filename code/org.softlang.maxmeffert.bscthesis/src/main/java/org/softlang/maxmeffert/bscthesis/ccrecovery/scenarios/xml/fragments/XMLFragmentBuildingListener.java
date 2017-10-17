@@ -11,12 +11,18 @@ public class XMLFragmentBuildingListener extends XMLParserBaseListener implement
 
     private final XMLFragmentFactory xmlFragmentFactory = new XMLFragmentFactory();
 
+    private Stack<XMLAttributeFragment> xmlAttributeFragments = new Stack<>();
     private Stack<XMLElementFragment> xmlElementFragments = new Stack<>();
     private Stack<XMLDocumentFragment> xmlDocumentFragments = new Stack<>();
 
     @Override
+    public void exitAttribute(XMLParser.AttributeContext ctx) {
+        xmlAttributeFragments.push(xmlFragmentFactory.newXMLAttributeFragment(ctx));
+    }
+
+    @Override
     public void exitElement(XMLParser.ElementContext ctx) {
-        xmlElementFragments.push(xmlFragmentFactory.newXMLElementFragment(ctx, xmlElementFragments));
+        xmlElementFragments.push(xmlFragmentFactory.newXMLElementFragment(ctx, xmlElementFragments, xmlAttributeFragments));
     }
 
     @Override

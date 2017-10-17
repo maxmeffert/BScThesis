@@ -15,7 +15,7 @@ public class XMLFragmentFactory extends BaseFragmentFactory {
     public XMLDocumentFragment newXMLDocumentFragment(XMLParser.DocumentContext documentContext, Stack<XMLElementFragment> xmlElementFragments) {
         XMLDocumentFragment xmlDocumentFragment = newXMLDocumentFragment(documentContext);
         while (!xmlElementFragments.isEmpty()) {
-            xmlDocumentFragment.addElement(xmlElementFragments.pop());
+            xmlDocumentFragment.addXMLElementFragment(xmlElementFragments.pop());
         }
         return xmlDocumentFragment;
     }
@@ -23,13 +23,26 @@ public class XMLFragmentFactory extends BaseFragmentFactory {
     public XMLElementFragment newXMLElementFragment(XMLParser.ElementContext elementContext) {
         XMLElementFragment xmlElementFragment = initialize(new XMLElementFragment(), elementContext);
         xmlElementFragment.setName(elementContext.Name(0).getText());
-        return xmlElementFragment;
-    }
-    public XMLElementFragment newXMLElementFragment(XMLParser.ElementContext elementContext, Stack<XMLElementFragment> xmlElementFragments) {
-        XMLElementFragment xmlElementFragment = newXMLElementFragment(elementContext);
-        while (!xmlElementFragments.isEmpty()) {
-            xmlElementFragment.addElement(xmlElementFragments.pop());
+        if (elementContext.content() != null) {
+            xmlElementFragment.setContent(elementContext.content().getText());
         }
         return xmlElementFragment;
+    }
+    public XMLElementFragment newXMLElementFragment(XMLParser.ElementContext elementContext, Stack<XMLElementFragment> xmlElementFragments, Stack<XMLAttributeFragment> xmlAttributeFragments) {
+        XMLElementFragment xmlElementFragment = newXMLElementFragment(elementContext);
+        while (!xmlElementFragments.isEmpty()) {
+            xmlElementFragment.addXMLElementFragment(xmlElementFragments.pop());
+        }
+        while (!xmlAttributeFragments.isEmpty()) {
+            xmlElementFragment.addXMLAttributeFragment(xmlAttributeFragments.pop());
+        }
+        return xmlElementFragment;
+    }
+
+    public XMLAttributeFragment newXMLAttributeFragment(XMLParser.AttributeContext attributeContext) {
+        XMLAttributeFragment xmlAttributeFragment = initialize(new XMLAttributeFragment(), attributeContext);
+        xmlAttributeFragment.setName(attributeContext.Name().getText());
+        xmlAttributeFragment.setValue(attributeContext.STRING().getText());
+        return xmlAttributeFragment;
     }
 }

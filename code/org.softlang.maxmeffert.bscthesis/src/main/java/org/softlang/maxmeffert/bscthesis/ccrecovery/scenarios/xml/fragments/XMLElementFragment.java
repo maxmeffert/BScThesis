@@ -3,25 +3,35 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments;
 import java.util.LinkedList;
 import java.util.List;
 
-public class XMLElementFragment extends XMLFragment {
+public class XMLElementFragment extends NamedXMLFragment {
 
-    private String name;
-    private List<XMLElementFragment> elements = new LinkedList<>();
+    private String content;
+    private List<XMLElementFragment> xmlElementFragments = new LinkedList<>();
+    private List<XMLAttributeFragment> xmlAttributeFragments = new LinkedList<>();
 
-    public String getName() {
-        return name;
+    public String getContent() {
+        return content;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public List<XMLElementFragment> getElements() {
-        return elements;
+    public List<XMLElementFragment> getXmlElementFragments() {
+        return xmlElementFragments;
     }
 
-    public void addElement(XMLElementFragment element) {
-        elements.add(element);
-        addChild(element);
+    public void addXMLElementFragment(XMLElementFragment xmlElementFragment) {
+        xmlElementFragments.add(xmlElementFragment);
+        addChild(xmlElementFragment);
+    }
+
+    public List<XMLAttributeFragment> getXmlAttributeFragments() {
+        return xmlAttributeFragments;
+    }
+
+    public void addXMLAttributeFragment(XMLAttributeFragment xmlAttributeFragment) {
+        xmlAttributeFragments.add(xmlAttributeFragment);
+        addChild(xmlAttributeFragment);
     }
 }

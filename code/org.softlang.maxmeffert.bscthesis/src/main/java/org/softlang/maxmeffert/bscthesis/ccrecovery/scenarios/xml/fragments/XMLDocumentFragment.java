@@ -4,14 +4,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class XMLDocumentFragment extends XMLFragment {
-    private List<XMLElementFragment> elements = new LinkedList<>();
+    private List<XMLElementFragment> xmlElementFragments = new LinkedList<>();
 
-    public List<XMLElementFragment> getElements() {
-        return elements;
+    public List<XMLElementFragment> getXmlElementFragments() {
+        return xmlElementFragments;
     }
 
-    public void addElement(XMLElementFragment element) {
-        elements.add(element);
-        addChild(element);
+    public void addXMLElementFragment(XMLElementFragment xmlElementFragment) {
+        xmlElementFragments.add(xmlElementFragment);
+        addChild(xmlElementFragment);
     }
 }
