@@ -8,7 +8,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParserFacto
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondence;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinition;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ISimilarity;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 
 import java.io.File;
