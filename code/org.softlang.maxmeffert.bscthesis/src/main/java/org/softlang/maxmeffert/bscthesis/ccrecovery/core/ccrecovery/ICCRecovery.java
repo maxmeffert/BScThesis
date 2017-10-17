@@ -7,7 +7,9 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParseTreeFa
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondence;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinition;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ISimilarity;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 
@@ -20,6 +22,9 @@ public interface ICCRecovery {
     InputStream getInputStream(String string);
     InputStream getInputStream(File file) throws IOException;
     <TLexer extends Lexer, TParser extends Parser> ILanguage defineLanguage(String name, IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener);
+
+    IFragment getFragmentAST(ILanguage language, InputStream inputStream) throws IOException, ParserException;
+
     ICorrespondenceDefinition defineCorrespondence(ILanguage language1, ILanguage language2, ISimilarity similarity);
     Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String string1, String string2) throws Exception;
     Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws Exception;

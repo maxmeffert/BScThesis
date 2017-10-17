@@ -8,7 +8,9 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondence;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinition;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinitionFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ISimilarity;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc.IoC;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
@@ -57,6 +59,11 @@ public class CCRecovery implements ICCRecovery {
     public <TLexer extends Lexer, TParser extends Parser> ILanguage defineLanguage(String name, IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener) {
         IParser parser = parserFactory.newParser(antlrLexerFactory, antlrParserFactory, antlrParseTreeFactory, fragmentBuildingListener);
         return languageFactory.newLanguage(name, parser);
+    }
+
+    @Override
+    public IFragment getFragmentAST(ILanguage language, InputStream inputStream) throws IOException, ParserException {
+        return language.getParser().parse(inputStream);
     }
 
     @Override

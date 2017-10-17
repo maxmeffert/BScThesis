@@ -11,23 +11,43 @@ public class XMLFragmentBuildingListener extends XMLParserBaseListener implement
 
     private final XMLFragmentFactory xmlFragmentFactory = new XMLFragmentFactory();
 
-    private Stack<XMLAttributeFragment> xmlAttributeFragments = new Stack<>();
     private Stack<XMLElementFragment> xmlElementFragments = new Stack<>();
     private Stack<XMLDocumentFragment> xmlDocumentFragments = new Stack<>();
 
     @Override
     public void exitAttribute(XMLParser.AttributeContext ctx) {
-        xmlAttributeFragments.push(xmlFragmentFactory.newXMLAttributeFragment(ctx));
+        if (!xmlElementFragments.isEmpty()) {
+            xmlElementFragments.peek().addXMLAttributeFragment(xmlFragmentFactory.newXMLAttributeFragment(ctx));
+        }
+    }
+
+    @Override
+    public void enterElement(XMLParser.ElementContext ctx) {
+        XMLElementFragment xmlElementFragment = xmlFragmentFactory.newXMLElementFragment(ctx);
+        if (!xmlElementFragments.isEmpty()) {
+            xmlElementFragments.peek().addXMLElementFragment(xmlElementFragment);
+        }
+        xmlElementFragments.push(xmlElementFragment);
     }
 
     @Override
     public void exitElement(XMLParser.ElementContext ctx) {
-        xmlElementFragments.push(xmlFragmentFactory.newXMLElementFragment(ctx, xmlElementFragments, xmlAttributeFragments));
+
+        if (xmlElementFragments.size() > 1) {
+            xmlElementFragments.pop();
+        }
     }
 
     @Override
     public void exitDocument(XMLParser.DocumentContext ctx) {
-        xmlDocumentFragments.push(xmlFragmentFactory.newXMLDocumentFragment(ctx, xmlElementFragments));
+        XMLDocumentFragment xmlDocumentFragment = xmlFragmentFactory.newXMLDocumentFragment(ctx);
+        xmlDocumentFragment.setXmlElementFragment(xmlElementFragments.pop());
+        xmlDocumentFragments.push(xmlDocumentFragment);
+    }
+
+    @Override
+    public void exitProlog(XMLParser.PrologContext ctx) {
+//        xmlAttributeFragments.clear();
     }
 
     @Override

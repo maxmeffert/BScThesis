@@ -2,8 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
-
-import java.util.function.BiPredicate;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
 
 public class CorrespondenceDefinition implements ICorrespondenceDefinition {
 
@@ -29,6 +28,6 @@ public class CorrespondenceDefinition implements ICorrespondenceDefinition {
 
     @Override
     public boolean accept(IFragment fragment1, IFragment fragment2) {
-        return similarity.accept(fragment1, fragment2);
+        return similarity.contains(fragment1, fragment2);
     }
 }
