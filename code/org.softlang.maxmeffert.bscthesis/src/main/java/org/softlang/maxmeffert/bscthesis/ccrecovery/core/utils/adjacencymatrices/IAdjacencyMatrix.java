@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.old;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.adjacencymatrices;
 
 import java.util.function.Function;
 
