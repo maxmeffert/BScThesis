@@ -1,11 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fast;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.Fragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.BaseFragment;
 
-import java.util.List;
-
-public class Java8Fragment extends Fragment {
+public class Java8Fragment extends BaseFragment {
     private String identifier;
 
     public String getIdentifier() {

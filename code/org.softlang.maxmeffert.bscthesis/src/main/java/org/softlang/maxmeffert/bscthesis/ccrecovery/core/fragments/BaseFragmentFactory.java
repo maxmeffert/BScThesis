@@ -11,4 +11,9 @@ public abstract class BaseFragmentFactory {
         return parserRuleContext.getStart().getInputStream().getText(Interval.of(a,b));
     }
 
+    protected <TFragment extends IFragment> TFragment initialize(TFragment fragment, ParserRuleContext parserRuleContext) {
+        fragment.setText(textOf(parserRuleContext));
+        return fragment;
+    }
+
 }

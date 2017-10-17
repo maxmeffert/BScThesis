@@ -1,10 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fast;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.Fragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.BaseFragment;
 
-import java.util.List;
-
-public class XMLFragment extends Fragment {
+public class XMLFragment extends BaseFragment {
 
 }

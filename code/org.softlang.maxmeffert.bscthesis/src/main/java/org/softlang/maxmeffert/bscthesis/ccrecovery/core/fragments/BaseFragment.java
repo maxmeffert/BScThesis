@@ -3,7 +3,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Fragment implements IFragment {
+public abstract class BaseFragment implements IFragment {
 
     private String text;
     private IFragment parent;

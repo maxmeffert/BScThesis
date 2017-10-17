@@ -11,26 +11,23 @@ public class Java8FragmentFactory extends BaseFragmentFactory {
 
     public List<Java8FieldFragment> newJava8FieldFragment(Java8Parser.FieldDeclarationContext fieldDeclarationContext) {
         List<Java8FieldFragment> java8FieldFragments = new LinkedList<>();
-        for (Java8Parser.VariableDeclaratorContext vctx : fieldDeclarationContext.variableDeclaratorList().variableDeclarator()) {
-            Java8FieldFragment java8FieldFragment = new Java8FieldFragment();
-            java8FieldFragment.setText(textOf(fieldDeclarationContext));
-            java8FieldFragment.setIdentifier(vctx.variableDeclaratorId().Identifier().getText());
+        for (Java8Parser.VariableDeclaratorContext variableDeclaratorContext : fieldDeclarationContext.variableDeclaratorList().variableDeclarator()) {
+            Java8FieldFragment java8FieldFragment = initialize(new Java8FieldFragment(), fieldDeclarationContext);
+            java8FieldFragment.setIdentifier(variableDeclaratorContext.variableDeclaratorId().Identifier().getText());
             java8FieldFragments.add(java8FieldFragment);
         }
         return java8FieldFragments;
     }
 
     public Java8MethodFragment newJava8MethodFragment(Java8Parser.MethodDeclarationContext methodDeclarationContext) {
-        Java8MethodFragment java8MethodFragment = new Java8MethodFragment();
+        Java8MethodFragment java8MethodFragment = initialize(new Java8MethodFragment(), methodDeclarationContext);
         java8MethodFragment.setIdentifier(methodDeclarationContext.methodHeader().methodDeclarator().Identifier().getText());
-        java8MethodFragment.setText(textOf(methodDeclarationContext));
         return java8MethodFragment;
     }
 
     public Java8ClassFragment newJava8ClassFragment(Java8Parser.NormalClassDeclarationContext normalClassDeclarationContext) {
-        Java8ClassFragment java8ClassFragment = new Java8ClassFragment();
+        Java8ClassFragment java8ClassFragment = initialize(new Java8ClassFragment(), normalClassDeclarationContext);
         java8ClassFragment.setIdentifier(normalClassDeclarationContext.Identifier().getText());
-        java8ClassFragment.setText(textOf(normalClassDeclarationContext));
         return java8ClassFragment;
     }
 
