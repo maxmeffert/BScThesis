@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fast;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments;
 
 import java.util.LinkedList;
 import java.util.List;

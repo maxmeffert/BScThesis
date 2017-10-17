@@ -2,10 +2,10 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.similarities;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fast.Java8FieldFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fast.Java8Fragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fast.XMLElementFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fast.XMLFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments.Java8FieldFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments.Java8Fragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLElementFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLFragment;
 
 public class JaxbJavaXmlSimilarity implements ISimilarity {
 

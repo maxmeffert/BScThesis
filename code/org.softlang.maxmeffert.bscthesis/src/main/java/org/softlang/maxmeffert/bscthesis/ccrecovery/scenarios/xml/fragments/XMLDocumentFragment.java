@@ -1,20 +1,10 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fast;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class XMLElementFragment extends XMLFragment {
-
-    private String name;
+public class XMLDocumentFragment extends XMLFragment {
     private List<XMLElementFragment> elements = new LinkedList<>();
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public List<XMLElementFragment> getElements() {
         return elements;

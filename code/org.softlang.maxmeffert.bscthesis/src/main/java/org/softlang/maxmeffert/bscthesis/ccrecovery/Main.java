@@ -7,11 +7,11 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorres
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.antlr.Java8Lexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.antlr.Java8Parser;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fast.Java8FragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments.Java8FragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.similarities.JaxbJavaXmlSimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLParser;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fast.XMLFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLFragmentBuildingListener;
 
 import java.io.File;
 import java.io.InputStream;
