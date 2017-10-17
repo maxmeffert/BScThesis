@@ -1,5 +1,6 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
 public interface IFragmentKB {

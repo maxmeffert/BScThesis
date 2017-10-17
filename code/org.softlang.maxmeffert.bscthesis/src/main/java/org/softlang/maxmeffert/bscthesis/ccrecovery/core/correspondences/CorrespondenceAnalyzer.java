@@ -1,13 +1,11 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentKB;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentKBFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKB;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserResult;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Set;
 import java.util.TreeSet;

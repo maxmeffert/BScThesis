@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs;
 
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilderFactory;

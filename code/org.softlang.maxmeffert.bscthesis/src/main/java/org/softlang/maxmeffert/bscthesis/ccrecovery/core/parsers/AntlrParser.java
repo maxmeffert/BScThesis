@@ -8,7 +8,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentBuildingListener;
 
 import java.io.IOException;
 import java.io.InputStream;

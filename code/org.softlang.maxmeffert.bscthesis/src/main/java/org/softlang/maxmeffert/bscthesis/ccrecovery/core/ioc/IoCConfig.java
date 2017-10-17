@@ -7,10 +7,10 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer.ICCAnalyzerF
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.FragmentKBBuilderFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.FragmentKBFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentKBBuilderFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentKBFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.FragmentKBBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.FragmentKBFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.closures.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators.GraphIterators;
