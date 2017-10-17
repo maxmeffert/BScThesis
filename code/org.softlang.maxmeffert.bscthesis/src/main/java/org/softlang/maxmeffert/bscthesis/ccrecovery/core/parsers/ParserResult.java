@@ -1,5 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTree;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSource;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
@@ -7,13 +8,13 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 public class ParserResult implements IParserResult {
 
     private final boolean hasAcceptedInput;
-    private final IParseTree parseTree;
-    private final ParserException parserException;
+    private final IFragment fragmentAST;
+    private final Exception exception;
 
-    public ParserResult(boolean hasAcceptedInput, IParseTree parseTree, ParserException parserException) {
+    public ParserResult(boolean hasAcceptedInput, IFragment fragmentAST, Exception exception) {
         this.hasAcceptedInput = hasAcceptedInput;
-        this.parseTree = parseTree;
-        this.parserException = parserException;
+        this.fragmentAST = fragmentAST;
+        this.exception = exception;
     }
 
     @Override
@@ -27,12 +28,12 @@ public class ParserResult implements IParserResult {
     }
 
     @Override
-    public IParseTree getParseTree() {
-        return parseTree;
+    public IFragment getFragmentAST() {
+        return fragmentAST;
     }
 
     @Override
-    public ParserException getParserException() {
-        return parserException;
+    public Exception getParserException() {
+        return exception;
     }
 }

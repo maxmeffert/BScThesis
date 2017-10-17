@@ -22,22 +22,21 @@ public class CorrespondenceAnalyzer implements ICorrespondenceAnalyzer {
         this.fragmentKBFactory = fragmentKBFactory;
     }
 
-    private IFragmentKB newFragmentKB(IParserResult parserResult) throws ParserException {
+    private IFragmentKB newFragmentKB(IParserResult parserResult) throws Exception {
         if (parserResult.hasNotAcceptedInput()) {
             throw parserResult.getParserException();
         }
-        return fragmentKBFactory.newFragmentKB(parserResult.getParseTree());
+        return fragmentKBFactory.newFragmentKB(parserResult.getFragmentAST());
     }
 
-    private IFragmentKB newFragmentKB(ILanguage language, InputStream artifact) throws IOException, ParserException {
+    private IFragmentKB newFragmentKB(ILanguage language, InputStream artifact) throws Exception {
         return newFragmentKB(language.getParser().tryParse(artifact));
     }
 
     @Override
-    public Set<ICorrespondence> analyze(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws IOException, ParserException {
+    public Set<ICorrespondence> analyze(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws Exception {
         Set<ICorrespondence> correspondences = new TreeSet<>();
         IFragmentKB fragmentKB1 = newFragmentKB(correspondenceDefinition.getLanguage1(), artifact1);
-
         IFragmentKB fragmentKB2 = newFragmentKB(correspondenceDefinition.getLanguage2(), artifact2);
         for(IFragment fragment1 : fragmentKB1.getFragments()) {
 //            System.out.println(fragment1);

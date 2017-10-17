@@ -24,12 +24,12 @@ public class CCAnalyzer implements ICCAnalyzer {
 
 
     @Override
-    public Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws IOException, ParserException {
+    public Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws Exception {
         return correspondenceAnalyzerFactory.newCorrespondenceAnalyzer().analyze(correspondenceDefinition, artifact1, artifact2);
     }
 
     @Override
-    public Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String artifact1, String artifact2) throws IOException, ParserException {
+    public Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String artifact1, String artifact2) throws Exception {
         return findCorrespondences(correspondenceDefinition, inputStreamFactory.newInputStream(artifact1), inputStreamFactory.newInputStream(artifact2));
     }
 

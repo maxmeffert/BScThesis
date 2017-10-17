@@ -79,7 +79,7 @@ public class IoCConfig extends AbstractModule {
         bind(IAntlrCharStreamFactory.class).to(AntlrCharStreamFactory.class);
         bind(IAntlrIntervalFactory.class).to(AntlrIntervalFactory.class);
         bind(IAntlrTokenStreamFactory.class).to(AntlrCommonTokenStreamFactory.class);
-        bind(IAntlrParsingConfigurationFactory.class).to(AntlrParsingConfigurationFactory.class);
+        bind(IAntlrParseTreeWalkerFactory.class).to(AntlrParseTreeWalkerFactory.class);
     }
 
     private void configureCCRecovery() {
@@ -98,7 +98,6 @@ public class IoCConfig extends AbstractModule {
     }
 
     private void configureFragments() {
-        bind(IFragmentFactory.class).to(FragmentFactory.class);
         bind(IFragmentKBFactory.class).to(FragmentKBFactory.class);
         bind(IFragmentKBBuilderFactory.class).to(FragmentKBBuilderFactory.class);
     }

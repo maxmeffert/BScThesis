@@ -1,23 +1,27 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParsingConfiguration;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTreeConverter;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsetrees.IParseTreeConverterFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
 
 public class ParserFactory implements IParserFactory {
 
+    private final IAntlrCharStreamFactory antlrCharStreamFactory;
+    private final IAntlrTokenStreamFactory antlrTokenStreamFactory;
+    private final IAntlrParseTreeWalkerFactory antlrParseTreeWalkerFactory;
     private final IParserResultFactory parserResultFactory;
-    private final IParseTreeConverterFactory parseTreeConverterFactory;
 
     @Inject
-    public ParserFactory(IParserResultFactory parserResultFactory, IParseTreeConverterFactory parseTreeConverterFactory) {
+    public ParserFactory(IAntlrCharStreamFactory antlrCharStreamFactory, IAntlrTokenStreamFactory antlrTokenStreamFactory, IAntlrParseTreeWalkerFactory antlrParseTreeWalkerFactory, IParserResultFactory parserResultFactory) {
+        this.antlrCharStreamFactory = antlrCharStreamFactory;
+        this.antlrTokenStreamFactory = antlrTokenStreamFactory;
+        this.antlrParseTreeWalkerFactory = antlrParseTreeWalkerFactory;
         this.parserResultFactory = parserResultFactory;
-        this.parseTreeConverterFactory = parseTreeConverterFactory;
     }
 
+
     @Override
-    public IParser newParser(IAntlrParsingConfiguration antlrConfiguration) {
-        return new AntlrParser(parserResultFactory, parseTreeConverterFactory.newParseTreeConverter(), antlrConfiguration);
+    public IParser newParser(IAntlrLexerFactory antlrLexerFactory, IAntlrParserFactory antlrParserFactory, IAntlrParseTreeFactory antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener) {
+        return new AntlrParser(antlrCharStreamFactory, antlrLexerFactory, antlrTokenStreamFactory, antlrParserFactory, antlrParseTreeFactory, antlrParseTreeWalkerFactory, fragmentBuildingListener, parserResultFactory);
     }
 }

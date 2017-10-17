@@ -8,26 +8,23 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITree;
 public class FragmentKBFactory implements IFragmentKBFactory {
 
     private final IFragmentKBBuilderFactory fragmentKBBuilderFactory;
-    private final IFragmentFactory fragmentFactory;
 
     @Inject
-    public FragmentKBFactory(IFragmentKBBuilderFactory fragmentKBBuilderFactory, IFragmentFactory fragmentFactory) {
+    public FragmentKBFactory(IFragmentKBBuilderFactory fragmentKBBuilderFactory) {
         this.fragmentKBBuilderFactory = fragmentKBBuilderFactory;
-        this.fragmentFactory = fragmentFactory;
     }
 
-    private IFragmentKBBuilder addFragments(IFragmentKBBuilder fragmentKBBuilder, IParseTree parseTree) {
-        IFragment composite = fragmentFactory.newFragmentFromParserTree(parseTree);
-        for(IParseTree child : parseTree.getChildren()) {
-            IFragment component = fragmentFactory.newFragmentFromParserTree(child);
-            fragmentKBBuilder = addFragments(fragmentKBBuilder.fragmentOf(component, composite), child);
+    private IFragmentKBBuilder newFragmentKB(IFragmentKBBuilder fragmentKBBuilder, IFragment fragment) {
+        for (IFragment child : fragment.getChildren()) {
+//            System.out.println(child);
+            fragmentKBBuilder = newFragmentKB(fragmentKBBuilder.fragmentOf(child, fragment), child);
         }
         return fragmentKBBuilder;
     }
 
     @Override
-    public IFragmentKB newFragmentKB(IParseTree parseTree) {
-        return addFragments(fragmentKBBuilderFactory.newFragmentKBBuilder(), parseTree).build();
+    public IFragmentKB newFragmentKB(IFragment fragment) {
+        return newFragmentKB(fragmentKBBuilderFactory.newFragmentKBBuilder(), fragment).build();
     }
 
 }

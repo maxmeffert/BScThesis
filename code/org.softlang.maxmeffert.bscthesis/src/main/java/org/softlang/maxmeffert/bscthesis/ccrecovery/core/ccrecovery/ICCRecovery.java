@@ -9,6 +9,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorres
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinition;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 
@@ -21,8 +22,8 @@ import java.util.function.BiPredicate;
 public interface ICCRecovery {
     InputStream getInputStream(String string);
     InputStream getInputStream(File file) throws IOException;
-    <TLexer extends Lexer, TParser extends Parser> ILanguage defineLanguage(String name, IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory);
+    <TLexer extends Lexer, TParser extends Parser> ILanguage defineLanguage(String name, IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener);
     ICorrespondenceDefinition defineCorrespondence(ILanguage language1, ILanguage language2, ISimilarity similarity);
-    Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String string1, String string2) throws IOException, ParserException;
-    Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws IOException, ParserException;
+    Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String string1, String string2) throws Exception;
+    Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws Exception;
 }
