@@ -1,9 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.similarities;
 
-import com.google.common.base.Joiner;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.Java8Parser;
 
 import java.util.Iterator;
 import java.util.Optional;

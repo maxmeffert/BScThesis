@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.similarities;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fast.IFragmentAST;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.Java8BaseListener;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.Java8Parser;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.antlr.Java8BaseListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.antlr.Java8Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.fast.JavaClassFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.fast.JavaFragmentFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.antlr.java8.fast.JavaMethodFragment;
