@@ -25,7 +25,10 @@ public interface ICCRecovery {
 
     IFragment getFragmentAST(ILanguage language, InputStream inputStream) throws IOException, ParserException;
 
+    @Deprecated
     ICorrespondenceDefinition defineCorrespondence(ILanguage language1, ILanguage language2, ISimilarity similarity);
+    @Deprecated
     Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String string1, String string2) throws Exception;
+    @Deprecated
     Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws Exception;
 }
