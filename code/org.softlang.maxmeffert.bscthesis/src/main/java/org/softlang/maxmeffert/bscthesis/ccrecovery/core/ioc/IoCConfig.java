@@ -78,6 +78,7 @@ public class IoCConfig extends AbstractModule {
         bind(IAntlrIntervalFactory.class).to(AntlrIntervalFactory.class);
         bind(IAntlrTokenStreamFactory.class).to(AntlrCommonTokenStreamFactory.class);
         bind(IAntlrParseTreeWalkerFactory.class).to(AntlrParseTreeWalkerFactory.class);
+        bind(IAntlrParseTreeErrorNodeListenerFactory.class).to(AntlrParseTreeErrorNodeListerFactory.class);
     }
 
     private void configureCCRecovery() {
