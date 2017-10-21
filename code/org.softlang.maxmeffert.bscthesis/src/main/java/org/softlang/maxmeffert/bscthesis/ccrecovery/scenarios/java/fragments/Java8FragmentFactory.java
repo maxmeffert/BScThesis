@@ -1,7 +1,7 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.BaseFragmentFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.antlr.Java8Parser;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.antlr.java8.Java8Parser;
 
 import java.util.LinkedList;
 import java.util.List;

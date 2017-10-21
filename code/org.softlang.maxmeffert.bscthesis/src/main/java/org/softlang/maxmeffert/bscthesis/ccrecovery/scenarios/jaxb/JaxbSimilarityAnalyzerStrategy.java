@@ -3,8 +3,8 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzerStrategy;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments.Java8ClassFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments.Java8FieldFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.Java8ClassFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.Java8FieldFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLAttributeFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLDocumentFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLElementFragment;
@@ -45,17 +45,21 @@ public class JaxbSimilarityAnalyzerStrategy implements ISimilarityAnalyzerStrate
         }
     }
 
+    private void analyzeJavaClassXMLElementSimilarities(ISimilarity similarity, Java8ClassFragment java8ClassFragment, List<XMLElementFragment> xmlElementFragments) {
+        for (XMLElementFragment xmlElementFragment : xmlElementFragments) {
+            analyzeJavaClassXMLElementSimilarities(similarity, java8ClassFragment, xmlElementFragment);
+        }
+    }
+
     private void analyzeJavaClassXMLElementSimilarities(ISimilarity similarity, Java8ClassFragment java8ClassFragment, XMLElementFragment xmlElementFragment) {
         if (similar(java8ClassFragment, xmlElementFragment)) {
-
             similarity.add(java8ClassFragment, xmlElementFragment);
-
             for (Java8FieldFragment java8FieldFragment : java8ClassFragment.getJava8FieldFragments()) {
                 analyzeJavaFieldXMLAttributeSimilarities(similarity, java8FieldFragment, xmlElementFragment.getXmlAttributeFragments());
                 analyzeJavaFieldsXMLElementSimilarities(similarity, java8FieldFragment, xmlElementFragment.getXmlElementFragments());
             }
-
         }
+        analyzeJavaClassXMLElementSimilarities(similarity, java8ClassFragment, xmlElementFragment.getXmlElementFragments());
     }
 
     private void analyzeJavaClassXMLDocumentSimilarities(ISimilarity similarity, Java8ClassFragment java8ClassFragment, XMLDocumentFragment xmlDocumentFragment) {
