@@ -51,34 +51,59 @@ public class Java8FragmentFactory extends BaseFragmentFactory {
         return javaClassFragment;
     }
 
-    private JavaModifierFragment newJavaModifierFragment(Java8Parser.AnnotationContext annotationContext) {
-        return null;
+    private JavaAnnotationFragment newJavaAnnotationFragment(Java8Parser.AnnotationContext annotationContext) {
+        JavaAnnotationFragment javaAnnotationFragment = initialize(new JavaAnnotationFragment(), annotationContext);
+        if (annotationContext.normalAnnotation() != null) {
+            Java8Parser.NormalAnnotationContext normalAnnotationContext = annotationContext.normalAnnotation();
+            javaAnnotationFragment.setIdentifier(normalAnnotationContext.typeName().getText());
+            for (Java8Parser.ElementValuePairContext elementValuePairContext : normalAnnotationContext.elementValuePairList().elementValuePair()) {
+                JavaAnnotationValueFragment javaAnnotationValueFragment = initialize(new JavaAnnotationValueFragment(), elementValuePairContext);
+                javaAnnotationValueFragment.setIdentifier(elementValuePairContext.Identifier().getText());
+                javaAnnotationValueFragment.setValue(elementValuePairContext.elementValue().getText());
+                javaAnnotationFragment.addValue(javaAnnotationValueFragment);
+            }
+        }
+        else if (annotationContext.markerAnnotation() != null) {
+            Java8Parser.MarkerAnnotationContext markerAnnotationContext = annotationContext.markerAnnotation();
+            javaAnnotationFragment.setIdentifier(markerAnnotationContext.typeName().getText());
+        }
+        else if(annotationContext.singleElementAnnotation() != null) {
+            Java8Parser.SingleElementAnnotationContext singleElementAnnotationContext = annotationContext.singleElementAnnotation();
+            javaAnnotationFragment.setIdentifier(singleElementAnnotationContext.typeName().getText());
+        }
+        return javaAnnotationFragment;
     }
 
     public JavaModifierFragment newJavaModifierFragment(Java8Parser.ClassModifierContext classModifierContext) {
-        if (classModifierContext.annotation() != null) {
-            return newJavaModifierFragment(classModifierContext.annotation());
-        }
         JavaModifierFragment javaModifierFragment = initialize(new JavaModifierFragment(), classModifierContext);
-        javaModifierFragment.setName(classModifierContext.getText());
+        if (classModifierContext.annotation() != null) {
+            javaModifierFragment.setJavaAnnotationFragment(newJavaAnnotationFragment(classModifierContext.annotation()));
+        }
+        else {
+            javaModifierFragment.setName(classModifierContext.getText());
+        }
         return javaModifierFragment;
     }
 
     public JavaModifierFragment newJavaModifierFragment(Java8Parser.FieldModifierContext fieldModifierContext) {
-        if (fieldModifierContext.annotation() != null) {
-            return newJavaModifierFragment(fieldModifierContext.annotation());
-        }
         JavaModifierFragment javaModifierFragment = initialize(new JavaModifierFragment(), fieldModifierContext);
-        javaModifierFragment.setName(fieldModifierContext.getText());
+        if (fieldModifierContext.annotation() != null) {
+            javaModifierFragment.setJavaAnnotationFragment(newJavaAnnotationFragment(fieldModifierContext.annotation()));
+        }
+        else {
+            javaModifierFragment.setName(fieldModifierContext.getText());
+        }
         return javaModifierFragment;
     }
 
     public JavaModifierFragment newJavaModifierFragment(Java8Parser.MethodModifierContext methodModifierContext) {
-        if (methodModifierContext.annotation() != null) {
-            return newJavaModifierFragment(methodModifierContext.annotation());
-        }
         JavaModifierFragment javaModifierFragment = initialize(new JavaModifierFragment(), methodModifierContext);
-        javaModifierFragment.setName(methodModifierContext.getText());
+        if (methodModifierContext.annotation() != null) {
+            javaModifierFragment.setJavaAnnotationFragment(newJavaAnnotationFragment(methodModifierContext.annotation()));
+        }
+        else {
+            javaModifierFragment.setName(methodModifierContext.getText());
+        }
         return javaModifierFragment;
     }
 }

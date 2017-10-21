@@ -3,9 +3,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzerStrategy;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.JavaClassFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.JavaFieldFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.JavaMethodFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLAttributeFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLDocumentFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLElementFragment;
@@ -30,6 +28,13 @@ public class JaxbSimilarityAnalyzerStrategy implements ISimilarityAnalyzerStrate
     }
 
     private boolean similar(JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment) {
+        for (JavaModifierFragment javaModifierFragment : javaClassFragment.getJavaModifierFragments()) {
+            if (javaModifierFragment.isAnnotation()) {
+                JavaAnnotationFragment javaAnnotationFragment = javaModifierFragment.getJavaAnnotationFragment();
+                System.out.println(javaAnnotationFragment.getIdentifier());
+                System.out.println(javaAnnotationFragment.getJavaAnnotationValueFragments());
+            }
+        }
         return lowerCaseEquals(javaClassFragment.getIdentifier(), xmlElementFragment.getName());
     }
 
