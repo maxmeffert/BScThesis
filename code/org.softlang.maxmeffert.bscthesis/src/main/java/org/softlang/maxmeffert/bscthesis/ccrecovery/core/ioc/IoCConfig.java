@@ -37,10 +37,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.ITextPr
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.TextProviderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSourceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourceFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.ITreeWalkerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.TreeFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.trees.TreeWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.CollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.ComparableUtils;
@@ -67,7 +63,6 @@ public class IoCConfig extends AbstractModule {
         configureMereologies();
         configureParsers();
         configureTexts();
-        configureTrees();
         configureUtils();
         configureSimilarities();
     }
@@ -143,11 +138,6 @@ public class IoCConfig extends AbstractModule {
         bind(ITextIntervalConverterFactory.class).to(TextIntervalConverterFactory.class);
         bind(ITextProviderFactory.class).to(TextProviderFactory.class);
         bind(ITextSourceFactory.class).to(TextSourceFactory.class);
-    }
-
-    private void configureTrees() {
-        bind(ITreeFactory.class).to(TreeFactory.class);
-        bind(ITreeWalkerFactory.class).to(TreeWalkerFactory.class);
     }
 
 
