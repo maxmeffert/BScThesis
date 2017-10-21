@@ -14,7 +14,7 @@ public class Main {
 
 		ICCRecoveryScenarios iccRecoveryScenarios = CCRecoveryScenarios.create();
 
-		InputStream java8Artifact = new FileInputStream("./src/scenarios/java/softlanginc/model/Company.java");
+		InputStream java8Artifact = new FileInputStream("./src/main/java/org/softlang/companies/model/Company.java");
 		InputStream xmlArtifact = new FileInputStream("./xml/companies.xml");
 
 		iccRecoveryScenarios.getJaxbCorrespondences(java8Artifact, xmlArtifact);

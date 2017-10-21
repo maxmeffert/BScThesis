@@ -1,6 +1,6 @@
-package softlanginc;
+package org.softlang.companies;
 
-import softlanginc.model.Company;
+import org.softlang.companies.model.Company;
 
 import java.io.File;
 import java.io.IOException;

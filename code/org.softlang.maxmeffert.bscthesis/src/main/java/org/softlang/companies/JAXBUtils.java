@@ -1,8 +1,8 @@
-package softlanginc;
+package org.softlang.companies;
 
-import softlanginc.model.Company;
-import softlanginc.model.Department;
-import softlanginc.model.Employee;
+import org.softlang.companies.model.Company;
+import org.softlang.companies.model.Department;
+import org.softlang.companies.model.Employee;
 
 import javax.xml.bind.*;
 import javax.xml.transform.Result;

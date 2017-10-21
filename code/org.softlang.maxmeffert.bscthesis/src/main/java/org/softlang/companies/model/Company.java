@@ -1,4 +1,4 @@
-package softlanginc.model;
+package org.softlang.companies.model;
 
 import java.util.Collection;
 import java.util.LinkedList;

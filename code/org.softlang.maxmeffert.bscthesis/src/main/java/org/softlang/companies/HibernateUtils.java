@@ -1,4 +1,4 @@
-package softlanginc;
+package org.softlang.companies;
 
 import java.io.File;
 import java.util.EnumSet;
@@ -7,9 +7,9 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
-import softlanginc.model.Company;
-import softlanginc.model.Department;
-import softlanginc.model.Employee;
+import org.softlang.companies.model.Company;
+import org.softlang.companies.model.Department;
+import org.softlang.companies.model.Employee;
 
 public class HibernateUtils {
 

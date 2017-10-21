@@ -1,4 +1,4 @@
-package softlanginc.model;
+package org.softlang.companies.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
