@@ -1,6 +1,5 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.similarities;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.similarities;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments.Java8ClassFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments.Java8FieldFragment;
