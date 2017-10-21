@@ -45,7 +45,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.ViewFactory
 public class IoCConfig extends AbstractModule {
     @Override
     protected void configure() {
-        configureAnalyzer();
         configureAntlr();
         configureCCRecovery();
         configureConformances();
@@ -61,9 +60,6 @@ public class IoCConfig extends AbstractModule {
     private void configureSimilarities() {
         bind(ISimilarityFactory.class).to(SimilaritiyFactory.class);
         bind(ISimilarityAnalyzerFactory.class).to(SimilarityAnalyzerFactory.class);
-    }
-
-    private void configureAnalyzer() {
     }
 
     private void configureAntlr() {
