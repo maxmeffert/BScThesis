@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast;
 
 public class XMLDocumentFragmentAST extends XMLFragmentAST {
     private XMLElementFragmentAST xmlElementFragment;
