@@ -9,7 +9,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarit
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.antlr.Java8Lexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.antlr.Java8Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments.Java8FragmentBuildingListener;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.similarities.JaxbSimilarityAnalyzerStrategy;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbSimilarityAnalyzerStrategy;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLFragmentBuildingListener;
