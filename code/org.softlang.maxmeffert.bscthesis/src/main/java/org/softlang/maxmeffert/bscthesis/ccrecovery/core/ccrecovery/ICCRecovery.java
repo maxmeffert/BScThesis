@@ -20,24 +20,11 @@ import java.io.InputStream;
 import java.util.Set;
 
 public interface ICCRecovery {
-    @Deprecated
-    InputStream getInputStream(String string);
 
-    @Deprecated
-    InputStream getInputStream(File file) throws IOException;
     <TLexer extends Lexer, TParser extends Parser> ILanguage defineLanguage(String name, IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener);
 
     IFragment getFragmentAST(ILanguage language, InputStream inputStream) throws IOException, ParserException;
 
     ISimilarityAnalyzer getSimilarityAnalyzer();
 
-    @Deprecated
-    ISimilarity analyzeSimilarities(IFragment fragment1, IFragment fragment2);
-
-    @Deprecated
-    ICorrespondenceDefinition defineCorrespondence(ILanguage language1, ILanguage language2, ISimilarity similarity);
-    @Deprecated
-    Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, String string1, String string2) throws Exception;
-    @Deprecated
-    Set<ICorrespondence> findCorrespondences(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws Exception;
 }
