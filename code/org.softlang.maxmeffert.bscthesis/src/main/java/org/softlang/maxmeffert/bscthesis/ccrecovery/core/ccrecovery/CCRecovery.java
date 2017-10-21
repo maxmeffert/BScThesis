@@ -19,7 +19,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzerStrategy;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.inputstreams.IInputStreamFactory;
 
 import java.io.File;
@@ -72,8 +72,8 @@ public class CCRecovery implements ICCRecovery {
     }
 
     @Override
-    public ISimilarity analyzeSimilarities(IFragment fragment1, IFragment fragment2, ISimilarityAnalyzerStrategy similarityAnalyzerStrategy) {
-        ISimilarityAnalyzer similarityAnalyzer = similarityAnalyzerFactory.newSimilarityAnalyzer(similarityAnalyzerStrategy);
+    public ISimilarity analyzeSimilarities(IFragment fragment1, IFragment fragment2, ISimilarityHeuristic similarityHeuristic) {
+        ISimilarityAnalyzer similarityAnalyzer = similarityAnalyzerFactory.newSimilarityAnalyzer(similarityHeuristic);
         return similarityAnalyzer.analyze(fragment1, fragment2);
     }
 

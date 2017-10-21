@@ -5,17 +5,17 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 public class SimilarityAnalyzer implements ISimilarityAnalyzer {
 
     private final ISimilarityFactory similarityFactory;
-    private final ISimilarityAnalyzerStrategy similarityAnalyzerStrategy;
+    private final ISimilarityHeuristic similarityHeuristic;
 
-    public SimilarityAnalyzer(ISimilarityFactory similarityFactory, ISimilarityAnalyzerStrategy similarityAnalyzerStrategy) {
+    public SimilarityAnalyzer(ISimilarityFactory similarityFactory, ISimilarityHeuristic similarityAnalyzerStrategy) {
         this.similarityFactory = similarityFactory;
-        this.similarityAnalyzerStrategy = similarityAnalyzerStrategy;
+        this.similarityHeuristic = similarityAnalyzerStrategy;
     }
 
     @Override
     public ISimilarity analyze(IFragment fragment1, IFragment fragment2) {
         ISimilarity similarity = similarityFactory.newSimilarity();
-        similarityAnalyzerStrategy.analyze(similarity, fragment1, fragment2);
+        similarityHeuristic.analyze(similarity, fragment1, fragment2);
         return similarity;
     }
 }

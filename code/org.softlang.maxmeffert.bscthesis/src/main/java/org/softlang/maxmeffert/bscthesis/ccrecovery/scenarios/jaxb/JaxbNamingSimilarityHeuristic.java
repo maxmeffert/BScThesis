@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzerStrategy;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLAttributeFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLDocumentFragment;
@@ -10,7 +10,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLE
 
 import java.util.List;
 
-public class JaxbSimilarityAnalyzerStrategy implements ISimilarityAnalyzerStrategy{
+public class JaxbNamingSimilarityHeuristic implements ISimilarityHeuristic {
 
     private static String[] JavaAccessorPrefixes = new String[] {"get", "set", "is"};
 
