@@ -2,33 +2,21 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondence;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceDefinition;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzer;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.Similarity;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.SimilarityAnalyzer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.antlr.Java8Lexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.antlr.Java8Parser;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments.Java8ClassFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments.Java8FieldFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java8.fragments.Java8FragmentBuildingListener;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.similarities.JaxbJavaXmlSimilarity;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.similarities.JaxbJavaXmlSimilarityAnalyzerStrategy;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.similarities.JaxbSimilarityAnalyzerStrategy;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLParser;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLAttributeFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLDocumentFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLElementFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLFragmentBuildingListener;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Set;
 
 public class Main {
 
@@ -44,8 +32,7 @@ public class Main {
 		IFragment java8fragmentAST = ccRecovery.getFragmentAST(java8, java8Artifact);
 		IFragment xmlfragmentAST = ccRecovery.getFragmentAST(xml, xmlArtifact);
 
-		ISimilarityAnalyzer similarityAnalyzer = new SimilarityAnalyzer(new JaxbJavaXmlSimilarityAnalyzerStrategy());
-		ISimilarity similarity = similarityAnalyzer.analyze(java8fragmentAST, xmlfragmentAST);
+		ISimilarity similarity = ccRecovery.analyzeSimilarities(new JaxbSimilarityAnalyzerStrategy(), java8fragmentAST, xmlfragmentAST);
 
 		System.out.println(similarity);
 		System.out.println(similarity.size());

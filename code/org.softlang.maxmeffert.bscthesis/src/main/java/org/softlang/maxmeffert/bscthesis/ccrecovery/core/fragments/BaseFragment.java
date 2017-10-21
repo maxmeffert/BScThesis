@@ -114,6 +114,7 @@ public abstract class BaseFragment implements IFragment {
 
     @Override
     public final String toString() {
-        return getText();
+        return getClass().getSimpleName();
+//        return getText();
     }
 }

@@ -26,6 +26,10 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserResultFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserResultFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.SimilaritiyFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.SimilarityAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalConverterFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.TextIntervalConverterFactory;
@@ -67,6 +71,12 @@ public class IoCConfig extends AbstractModule {
         configureTexts();
         configureTrees();
         configureUtils();
+        configureSimilarities();
+    }
+
+    private void configureSimilarities() {
+        bind(ISimilarityFactory.class).to(SimilaritiyFactory.class);
+        bind(ISimilarityAnalyzerFactory.class).to(SimilarityAnalyzerFactory.class);
     }
 
     private void configureAnalyzer() {

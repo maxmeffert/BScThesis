@@ -17,6 +17,9 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguageFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzerStrategy;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.inputstreams.IInputStreamFactory;
 
 import java.io.File;
@@ -35,14 +38,16 @@ public class CCRecovery implements ICCRecovery {
     private final ILanguageFactory languageFactory;
     private final IParserFactory parserFactory;
     private final ICorrespondenceDefinitionFactory correspondenceDefinitionFactory;
+    private final ISimilarityAnalyzerFactory similarityAnalyzerFactory;
 
     @Inject
-    public CCRecovery(IInputStreamFactory inputStreamFactory, ICCAnalyzerFactory analyzerFactory, ILanguageFactory languageFactory, IParserFactory parserFactory, ICorrespondenceDefinitionFactory correspondenceDefinitionFactory) {
+    public CCRecovery(IInputStreamFactory inputStreamFactory, ICCAnalyzerFactory analyzerFactory, ILanguageFactory languageFactory, IParserFactory parserFactory, ICorrespondenceDefinitionFactory correspondenceDefinitionFactory, ISimilarityAnalyzerFactory similarityAnalyzerFactory) {
         this.inputStreamFactory = inputStreamFactory;
         this.ccAnalyzerFactory = analyzerFactory;
         this.languageFactory = languageFactory;
         this.parserFactory = parserFactory;
         this.correspondenceDefinitionFactory = correspondenceDefinitionFactory;
+        this.similarityAnalyzerFactory = similarityAnalyzerFactory;
     }
 
     @Override
@@ -64,6 +69,12 @@ public class CCRecovery implements ICCRecovery {
     @Override
     public IFragment getFragmentAST(ILanguage language, InputStream inputStream) throws IOException, ParserException {
         return language.getParser().parse(inputStream);
+    }
+
+    @Override
+    public ISimilarity analyzeSimilarities(ISimilarityAnalyzerStrategy similarityAnalyzerStrategy, IFragment fragment1, IFragment fragment2) {
+        ISimilarityAnalyzer similarityAnalyzer = similarityAnalyzerFactory.newSimilarityAnalyzer(similarityAnalyzerStrategy);
+        return similarityAnalyzer.analyze(fragment1, fragment2);
     }
 
     @Override

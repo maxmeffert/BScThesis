@@ -12,6 +12,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzerStrategy;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +25,8 @@ public interface ICCRecovery {
     <TLexer extends Lexer, TParser extends Parser> ILanguage defineLanguage(String name, IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener);
 
     IFragment getFragmentAST(ILanguage language, InputStream inputStream) throws IOException, ParserException;
+
+    ISimilarity analyzeSimilarities(ISimilarityAnalyzerStrategy similarityAnalyzerStrategy, IFragment fragment1, IFragment fragment2);
 
     @Deprecated
     ICorrespondenceDefinition defineCorrespondence(ILanguage language1, ILanguage language2, ISimilarity similarity);
