@@ -26,7 +26,7 @@ public interface ICCRecovery {
 
     IFragment getFragmentAST(ILanguage language, InputStream inputStream) throws IOException, ParserException;
 
-    ISimilarity analyzeSimilarities(ISimilarityAnalyzerStrategy similarityAnalyzerStrategy, IFragment fragment1, IFragment fragment2);
+    ISimilarity analyzeSimilarities(IFragment fragment1, IFragment fragment2, ISimilarityAnalyzerStrategy similarityAnalyzerStrategy);
 
     @Deprecated
     ICorrespondenceDefinition defineCorrespondence(ILanguage language1, ILanguage language2, ISimilarity similarity);

@@ -5,6 +5,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarit
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzerStrategy;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.JavaClassFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.JavaFieldFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.JavaMethodFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLAttributeFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLDocumentFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLElementFragment;
@@ -13,8 +14,19 @@ import java.util.List;
 
 public class JaxbSimilarityAnalyzerStrategy implements ISimilarityAnalyzerStrategy{
 
+    private static String[] JavaAccessorPrefixes = new String[] {"get", "set", "is"};
+
     private boolean lowerCaseEquals(String a, String b) {
         return a.toLowerCase().equals(b.toLowerCase());
+    }
+
+    private boolean lowerCaseEqualsWithoutPrefix(String a, String b, String[] prefixes) {
+        for(String prefix : prefixes) {
+            if (a.length() > prefix.length() && a.startsWith(prefix)) {
+                return lowerCaseEquals(a.substring(prefix.length(), a.length()), b);
+            }
+        }
+        return lowerCaseEquals(a,b);
     }
 
     private boolean similar(JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment) {
@@ -25,23 +37,63 @@ public class JaxbSimilarityAnalyzerStrategy implements ISimilarityAnalyzerStrate
         return lowerCaseEquals(javaFieldFragment.getIdentifier(), xmlElementFragment.getName());
     }
 
+    private boolean similar(JavaMethodFragment javaMethodFragment, XMLElementFragment xmlElementFragment) {
+        return lowerCaseEqualsWithoutPrefix(javaMethodFragment.getIdentifier(), xmlElementFragment.getName(), JavaAccessorPrefixes);
+    }
+
     private boolean similar(JavaFieldFragment javaFieldFragment, XMLAttributeFragment xmlAttributeFragment) {
         return lowerCaseEquals(javaFieldFragment.getIdentifier(), xmlAttributeFragment.getName());
     }
 
-    private void analyzeJavaFieldsXMLElementSimilarities(ISimilarity similarity, JavaFieldFragment javaFieldFragment, List<XMLElementFragment> xmlElementFragments) {
+    private boolean similar(JavaMethodFragment javaMethodFragment, XMLAttributeFragment xmlAttributeFragment) {
+        return lowerCaseEqualsWithoutPrefix(javaMethodFragment.getIdentifier(), xmlAttributeFragment.getName(), JavaAccessorPrefixes);
+    }
+
+    private void analyzeJavaFieldXMLElementSimilarities(ISimilarity similarity, JavaFieldFragment javaFieldFragment, XMLElementFragment xmlElementFragment) {
+        if (similar(javaFieldFragment, xmlElementFragment)) {
+            similarity.add(javaFieldFragment, xmlElementFragment);
+        }
+    }
+
+    private void analyzeJavaFieldXMLElementSimilarities(ISimilarity similarity, JavaFieldFragment javaFieldFragment, List<XMLElementFragment> xmlElementFragments) {
         for (XMLElementFragment xmlElementFragment : xmlElementFragments) {
-            if (similar(javaFieldFragment, xmlElementFragment)) {
-                similarity.add(javaFieldFragment, xmlElementFragment);
-            }
+            analyzeJavaFieldXMLElementSimilarities(similarity, javaFieldFragment, xmlElementFragment);
+        }
+    }
+
+    private void analyzeJavaMethodXMLElementSimilarities(ISimilarity similarity, JavaMethodFragment javaMethodFragment, XMLElementFragment xmlElementFragment) {
+        if (similar(javaMethodFragment, xmlElementFragment)) {
+            similarity.add(javaMethodFragment, xmlElementFragment);
+        }
+    }
+
+    private void analyzeJavaMethodXMLElementSimilarities(ISimilarity similarity, JavaMethodFragment javaMethodFragment, List<XMLElementFragment> xmlElementFragments) {
+        for (XMLElementFragment xmlElementFragment : xmlElementFragments) {
+            analyzeJavaMethodXMLElementSimilarities(similarity, javaMethodFragment, xmlElementFragment);
+        }
+    }
+
+    private void analyzeJavaFieldXMLAttributeSimilarities(ISimilarity similarity, JavaFieldFragment javaFieldFragment, XMLAttributeFragment xmlAttributeFragment) {
+        if (similar(javaFieldFragment, xmlAttributeFragment)) {
+            similarity.add(javaFieldFragment, xmlAttributeFragment);
         }
     }
 
     private void analyzeJavaFieldXMLAttributeSimilarities(ISimilarity similarity, JavaFieldFragment javaFieldFragment, List<XMLAttributeFragment> xmlAttributeFragments) {
         for (XMLAttributeFragment xmlAttributeFragment : xmlAttributeFragments) {
-            if (similar(javaFieldFragment, xmlAttributeFragment)) {
-                similarity.add(javaFieldFragment, xmlAttributeFragment);
-            }
+            analyzeJavaFieldXMLAttributeSimilarities(similarity, javaFieldFragment, xmlAttributeFragment);
+        }
+    }
+
+    private void analyzeJavaMethodXMLAttributeSimilarities(ISimilarity similarity, JavaMethodFragment javaMethodFragment, XMLAttributeFragment xmlAttributeFragment) {
+        if (similar(javaMethodFragment, xmlAttributeFragment)) {
+            similarity.add(javaMethodFragment, xmlAttributeFragment);
+        }
+    }
+
+    private void analyzeJavaMethodXMLAttributeSimilarities(ISimilarity similarity, JavaMethodFragment javaMethodFragment, List<XMLAttributeFragment> xmlAttributeFragments) {
+        for (XMLAttributeFragment xmlAttributeFragment : xmlAttributeFragments) {
+            analyzeJavaMethodXMLAttributeSimilarities(similarity, javaMethodFragment, xmlAttributeFragment);
         }
     }
 
@@ -56,7 +108,11 @@ public class JaxbSimilarityAnalyzerStrategy implements ISimilarityAnalyzerStrate
             similarity.add(javaClassFragment, xmlElementFragment);
             for (JavaFieldFragment javaFieldFragment : javaClassFragment.getJavaFieldFragments()) {
                 analyzeJavaFieldXMLAttributeSimilarities(similarity, javaFieldFragment, xmlElementFragment.getXmlAttributeFragments());
-                analyzeJavaFieldsXMLElementSimilarities(similarity, javaFieldFragment, xmlElementFragment.getXmlElementFragments());
+                analyzeJavaFieldXMLElementSimilarities(similarity, javaFieldFragment, xmlElementFragment.getXmlElementFragments());
+            }
+            for (JavaMethodFragment javaMethodFragment : javaClassFragment.getJavaMethodFragments()) {
+                analyzeJavaMethodXMLAttributeSimilarities(similarity, javaMethodFragment, xmlElementFragment.getXmlAttributeFragments());
+                analyzeJavaMethodXMLElementSimilarities(similarity, javaMethodFragment, xmlElementFragment.getXmlElementFragments());
             }
         }
         analyzeJavaClassXMLElementSimilarities(similarity, javaClassFragment, xmlElementFragment.getXmlElementFragments());

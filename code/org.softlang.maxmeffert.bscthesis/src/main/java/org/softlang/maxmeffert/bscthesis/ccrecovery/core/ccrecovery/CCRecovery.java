@@ -72,7 +72,7 @@ public class CCRecovery implements ICCRecovery {
     }
 
     @Override
-    public ISimilarity analyzeSimilarities(ISimilarityAnalyzerStrategy similarityAnalyzerStrategy, IFragment fragment1, IFragment fragment2) {
+    public ISimilarity analyzeSimilarities(IFragment fragment1, IFragment fragment2, ISimilarityAnalyzerStrategy similarityAnalyzerStrategy) {
         ISimilarityAnalyzer similarityAnalyzer = similarityAnalyzerFactory.newSimilarityAnalyzer(similarityAnalyzerStrategy);
         return similarityAnalyzer.analyze(fragment1, fragment2);
     }

@@ -32,7 +32,7 @@ public class Main {
 		IFragment java8fragmentAST = ccRecovery.getFragmentAST(java8, java8Artifact);
 		IFragment xmlfragmentAST = ccRecovery.getFragmentAST(xml, xmlArtifact);
 
-		ISimilarity similarity = ccRecovery.analyzeSimilarities(new JaxbSimilarityAnalyzerStrategy(), java8fragmentAST, xmlfragmentAST);
+		ISimilarity similarity = ccRecovery.analyzeSimilarities(java8fragmentAST, xmlfragmentAST, new JaxbSimilarityAnalyzerStrategy());
 
 		System.out.println(similarity);
 		System.out.println(similarity.size());
