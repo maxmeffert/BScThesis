@@ -3,7 +3,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc.IoC;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzer;
@@ -31,22 +31,43 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
         this.ccRecovery = ccRecovery;
     }
 
+    private IParser getJava8Parser() {
+        return ccRecovery.getParser(Java8Lexer::new, Java8Parser::new, Java8Parser::compilationUnit, new Java8FragmentBuildingListener());
+    }
+
+    private IParser getXmlParser() {
+        return ccRecovery.getParser(XMLLexer::new, XMLParser::new, XMLParser::document, new XMLFragmentBuildingListener());
+    }
+
+
+    private ISimilarityAnalyzer getSimilarityAnalyzer() {
+        return ccRecovery.getSimilarityAnalyzer();
+    }
+
+    private ISimilarityAnalyzer getJaxbSimilarityAnalyzer() {
+        ISimilarityAnalyzer similarityAnalyzer = getSimilarityAnalyzer();
+        similarityAnalyzer.addSimilarityHeuristic(new JaxbNamingSimilarityHeuristic());
+        similarityAnalyzer.addSimilarityHeuristic(new JaxbAnnotationSimilarityHeuristic());
+        return similarityAnalyzer;
+    }
 
     @Override
     public void getJaxbCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException {
-        ILanguage java8 = ccRecovery.defineLanguage("Java8", Java8Lexer::new, Java8Parser::new, Java8Parser::compilationUnit, new Java8FragmentBuildingListener());
-        ILanguage xml = ccRecovery.defineLanguage("XML", XMLLexer::new, XMLParser::new, XMLParser::document, new XMLFragmentBuildingListener());
+        IParser java8Parser = getJava8Parser();
+        IParser xmlParser = getXmlParser();
 
-        IFragment java8fragmentAST = ccRecovery.getFragmentAST(java8, javaInputStream);
-        IFragment xmlfragmentAST = ccRecovery.getFragmentAST(xml, xmlInputStream);
+        IFragment java8FragmentAST = java8Parser.parse(javaInputStream);
+        IFragment xmlFragmentAST = xmlParser.parse(xmlInputStream);
 
-        ISimilarityAnalyzer similarityAnalyzer = ccRecovery.getSimilarityAnalyzer();
-        similarityAnalyzer.addSimilarityHeuristic(new JaxbNamingSimilarityHeuristic());
-        similarityAnalyzer.addSimilarityHeuristic(new JaxbAnnotationSimilarityHeuristic());
-
-        ISimilarity similarity = similarityAnalyzer.analyze(java8fragmentAST, xmlfragmentAST);
+        ISimilarityAnalyzer similarityAnalyzer = getJaxbSimilarityAnalyzer();
+        ISimilarity similarity = similarityAnalyzer.analyze(java8FragmentAST, xmlFragmentAST);
 
         System.out.println(similarity);
         System.out.println(similarity.size());
     }
+
+
+
+
+
 }
