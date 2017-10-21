@@ -23,6 +23,7 @@ public interface ICCRecovery {
     @Deprecated
     InputStream getInputStream(String string);
 
+    @Deprecated
     InputStream getInputStream(File file) throws IOException;
     <TLexer extends Lexer, TParser extends Parser> ILanguage defineLanguage(String name, IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener);
 

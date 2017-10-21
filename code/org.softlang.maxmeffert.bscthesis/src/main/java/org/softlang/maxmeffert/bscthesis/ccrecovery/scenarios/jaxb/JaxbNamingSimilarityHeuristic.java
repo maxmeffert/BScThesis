@@ -23,13 +23,6 @@ public class JaxbNamingSimilarityHeuristic extends BaseJaxbSimilarityHeuristic {
 
     @Override
     protected boolean similar(JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment) {
-//        for (JavaModifierFragment javaModifierFragment : javaClassFragment.getJavaModifierFragments()) {
-//            if (javaModifierFragment.isAnnotation()) {
-//                JavaAnnotationFragment javaAnnotationFragment = javaModifierFragment.getJavaAnnotationFragment();
-//                System.out.println(javaAnnotationFragment.getIdentifier());
-//                System.out.println(javaAnnotationFragment.getJavaAnnotationValueFragments());
-//            }
-//        }
         return lowerCaseEquals(javaClassFragment.getIdentifier(), xmlElementFragment.getName());
     }
 
