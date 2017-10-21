@@ -17,62 +17,62 @@ public class JaxbSimilarityAnalyzerStrategy implements ISimilarityAnalyzerStrate
         return a.toLowerCase().equals(b.toLowerCase());
     }
 
-    private boolean similar(JavaClassFragment java8ClassFragment, XMLElementFragment xmlElementFragment) {
-        return lowerCaseEquals(java8ClassFragment.getIdentifier(), xmlElementFragment.getName());
+    private boolean similar(JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment) {
+        return lowerCaseEquals(javaClassFragment.getIdentifier(), xmlElementFragment.getName());
     }
 
-    private boolean similar(JavaFieldFragment java8FieldFragment, XMLElementFragment xmlElementFragment) {
-        return lowerCaseEquals(java8FieldFragment.getIdentifier(), xmlElementFragment.getName());
+    private boolean similar(JavaFieldFragment javaFieldFragment, XMLElementFragment xmlElementFragment) {
+        return lowerCaseEquals(javaFieldFragment.getIdentifier(), xmlElementFragment.getName());
     }
 
-    private boolean similar(JavaFieldFragment java8FieldFragment, XMLAttributeFragment xmlAttributeFragment) {
-        return lowerCaseEquals(java8FieldFragment.getIdentifier(), xmlAttributeFragment.getName());
+    private boolean similar(JavaFieldFragment javaFieldFragment, XMLAttributeFragment xmlAttributeFragment) {
+        return lowerCaseEquals(javaFieldFragment.getIdentifier(), xmlAttributeFragment.getName());
     }
 
-    private void analyzeJavaFieldsXMLElementSimilarities(ISimilarity similarity, JavaFieldFragment java8FieldFragment, List<XMLElementFragment> xmlElementFragments) {
+    private void analyzeJavaFieldsXMLElementSimilarities(ISimilarity similarity, JavaFieldFragment javaFieldFragment, List<XMLElementFragment> xmlElementFragments) {
         for (XMLElementFragment xmlElementFragment : xmlElementFragments) {
-            if (similar(java8FieldFragment, xmlElementFragment)) {
-                similarity.add(java8FieldFragment, xmlElementFragment);
+            if (similar(javaFieldFragment, xmlElementFragment)) {
+                similarity.add(javaFieldFragment, xmlElementFragment);
             }
         }
     }
 
-    private void analyzeJavaFieldXMLAttributeSimilarities(ISimilarity similarity, JavaFieldFragment java8FieldFragment, List<XMLAttributeFragment> xmlAttributeFragments) {
+    private void analyzeJavaFieldXMLAttributeSimilarities(ISimilarity similarity, JavaFieldFragment javaFieldFragment, List<XMLAttributeFragment> xmlAttributeFragments) {
         for (XMLAttributeFragment xmlAttributeFragment : xmlAttributeFragments) {
-            if (similar(java8FieldFragment, xmlAttributeFragment)) {
-                similarity.add(java8FieldFragment, xmlAttributeFragment);
+            if (similar(javaFieldFragment, xmlAttributeFragment)) {
+                similarity.add(javaFieldFragment, xmlAttributeFragment);
             }
         }
     }
 
-    private void analyzeJavaClassXMLElementSimilarities(ISimilarity similarity, JavaClassFragment java8ClassFragment, List<XMLElementFragment> xmlElementFragments) {
+    private void analyzeJavaClassXMLElementSimilarities(ISimilarity similarity, JavaClassFragment javaClassFragment, List<XMLElementFragment> xmlElementFragments) {
         for (XMLElementFragment xmlElementFragment : xmlElementFragments) {
-            analyzeJavaClassXMLElementSimilarities(similarity, java8ClassFragment, xmlElementFragment);
+            analyzeJavaClassXMLElementSimilarities(similarity, javaClassFragment, xmlElementFragment);
         }
     }
 
-    private void analyzeJavaClassXMLElementSimilarities(ISimilarity similarity, JavaClassFragment java8ClassFragment, XMLElementFragment xmlElementFragment) {
-        if (similar(java8ClassFragment, xmlElementFragment)) {
-            similarity.add(java8ClassFragment, xmlElementFragment);
-            for (JavaFieldFragment java8FieldFragment : java8ClassFragment.getJava8FieldFragments()) {
-                analyzeJavaFieldXMLAttributeSimilarities(similarity, java8FieldFragment, xmlElementFragment.getXmlAttributeFragments());
-                analyzeJavaFieldsXMLElementSimilarities(similarity, java8FieldFragment, xmlElementFragment.getXmlElementFragments());
+    private void analyzeJavaClassXMLElementSimilarities(ISimilarity similarity, JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment) {
+        if (similar(javaClassFragment, xmlElementFragment)) {
+            similarity.add(javaClassFragment, xmlElementFragment);
+            for (JavaFieldFragment javaFieldFragment : javaClassFragment.getJavaFieldFragments()) {
+                analyzeJavaFieldXMLAttributeSimilarities(similarity, javaFieldFragment, xmlElementFragment.getXmlAttributeFragments());
+                analyzeJavaFieldsXMLElementSimilarities(similarity, javaFieldFragment, xmlElementFragment.getXmlElementFragments());
             }
         }
-        analyzeJavaClassXMLElementSimilarities(similarity, java8ClassFragment, xmlElementFragment.getXmlElementFragments());
+        analyzeJavaClassXMLElementSimilarities(similarity, javaClassFragment, xmlElementFragment.getXmlElementFragments());
     }
 
-    private void analyzeJavaClassXMLDocumentSimilarities(ISimilarity similarity, JavaClassFragment java8ClassFragment, XMLDocumentFragment xmlDocumentFragment) {
+    private void analyzeJavaClassXMLDocumentSimilarities(ISimilarity similarity, JavaClassFragment javaClassFragment, XMLDocumentFragment xmlDocumentFragment) {
         XMLElementFragment xmlElementFragment = xmlDocumentFragment.getXmlElementFragment();
-        analyzeJavaClassXMLElementSimilarities(similarity, java8ClassFragment, xmlElementFragment);
+        analyzeJavaClassXMLElementSimilarities(similarity, javaClassFragment, xmlElementFragment);
     }
 
     @Override
     public void analyze(ISimilarity similarity, IFragment fragment1, IFragment fragment2) {
         if (fragment1 instanceof JavaClassFragment && fragment2 instanceof XMLDocumentFragment) {
-            JavaClassFragment java8ClassFragment = (JavaClassFragment) fragment1;
+            JavaClassFragment javaClassFragment = (JavaClassFragment) fragment1;
             XMLDocumentFragment xmlDocumentFragment = (XMLDocumentFragment) fragment2;
-            analyzeJavaClassXMLDocumentSimilarities(similarity, java8ClassFragment, xmlDocumentFragment);
+            analyzeJavaClassXMLDocumentSimilarities(similarity, javaClassFragment, xmlDocumentFragment);
         }
     }
 }
