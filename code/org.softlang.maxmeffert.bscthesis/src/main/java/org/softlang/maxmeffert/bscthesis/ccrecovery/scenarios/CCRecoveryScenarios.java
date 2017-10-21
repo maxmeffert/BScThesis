@@ -10,8 +10,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarit
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.antlr.java8.Java8Lexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.antlr.java8.Java8Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.Java8FragmentBuildingListener;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbAnnotationSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbNamingSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbCorrespondenceAnnotationSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbCorrespondenceNamingSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLFragmentBuildingListener;
@@ -46,8 +46,8 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
 
     private ISimilarityAnalyzer getJaxbSimilarityAnalyzer() {
         ISimilarityAnalyzer similarityAnalyzer = getSimilarityAnalyzer();
-        similarityAnalyzer.addSimilarityHeuristic(new JaxbNamingSimilarityHeuristic());
-        similarityAnalyzer.addSimilarityHeuristic(new JaxbAnnotationSimilarityHeuristic());
+        similarityAnalyzer.addSimilarityHeuristic(new JaxbCorrespondenceNamingSimilarityHeuristic());
+        similarityAnalyzer.addSimilarityHeuristic(new JaxbCorrespondenceAnnotationSimilarityHeuristic());
         return similarityAnalyzer;
     }
 

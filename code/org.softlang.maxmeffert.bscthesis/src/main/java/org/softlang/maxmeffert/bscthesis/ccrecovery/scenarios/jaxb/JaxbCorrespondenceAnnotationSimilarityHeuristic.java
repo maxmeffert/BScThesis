@@ -4,7 +4,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLAttributeFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLElementFragment;
 
-public class JaxbAnnotationSimilarityHeuristic extends BaseJaxbSimilarityHeuristic {
+public class JaxbCorrespondenceAnnotationSimilarityHeuristic extends BaseJaxbSimilarityHeuristic {
     @Override
     protected boolean similar(JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment) {
         for (JavaModifierFragment javaModifierFragment : javaClassFragment.getJavaModifierFragments()) {
