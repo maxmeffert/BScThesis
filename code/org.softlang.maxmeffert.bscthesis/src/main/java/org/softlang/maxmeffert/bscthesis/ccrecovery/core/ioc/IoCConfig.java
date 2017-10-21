@@ -29,14 +29,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarit
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.SimilaritiyFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.SimilarityAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalConverterFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.ITextIntervalFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.TextIntervalConverterFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.intervals.TextIntervalFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.ITextProviderFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.providers.TextProviderFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.ITextSourceFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.texts.sources.TextSourceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.CollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.ComparableUtils;
@@ -62,7 +54,6 @@ public class IoCConfig extends AbstractModule {
         configureGraphs();
         configureMereologies();
         configureParsers();
-        configureTexts();
         configureUtils();
         configureSimilarities();
     }
@@ -131,13 +122,6 @@ public class IoCConfig extends AbstractModule {
     private void configureParsers() {
         bind(IParserResultFactory.class).to(ParserResultFactory.class);
         bind(IParserFactory.class).to(ParserFactory.class);
-    }
-
-    private void configureTexts() {
-        bind(ITextIntervalFactory.class).to(TextIntervalFactory.class);
-        bind(ITextIntervalConverterFactory.class).to(TextIntervalConverterFactory.class);
-        bind(ITextProviderFactory.class).to(TextProviderFactory.class);
-        bind(ITextSourceFactory.class).to(TextSourceFactory.class);
     }
 
 
