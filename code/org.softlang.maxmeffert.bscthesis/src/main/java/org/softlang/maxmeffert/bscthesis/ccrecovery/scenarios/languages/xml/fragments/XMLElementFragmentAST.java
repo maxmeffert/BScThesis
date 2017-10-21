@@ -3,11 +3,11 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fra
 import java.util.LinkedList;
 import java.util.List;
 
-public class XMLElementFragment extends NamedXMLFragment {
+public class XMLElementFragmentAST extends NamedXMLFragmentAST {
 
     private String content;
-    private List<XMLElementFragment> xmlElementFragments = new LinkedList<>();
-    private List<XMLAttributeFragment> xmlAttributeFragments = new LinkedList<>();
+    private List<XMLElementFragmentAST> xmlElementFragments = new LinkedList<>();
+    private List<XMLAttributeFragmentAST> xmlAttributeFragments = new LinkedList<>();
 
     public String getContent() {
         return content;
@@ -17,20 +17,20 @@ public class XMLElementFragment extends NamedXMLFragment {
         this.content = content;
     }
 
-    public List<XMLElementFragment> getXmlElementFragments() {
+    public List<XMLElementFragmentAST> getXmlElementFragments() {
         return xmlElementFragments;
     }
 
-    public void addXMLElementFragment(XMLElementFragment xmlElementFragment) {
+    public void addXMLElementFragment(XMLElementFragmentAST xmlElementFragment) {
         xmlElementFragments.add(xmlElementFragment);
         addChild(xmlElementFragment);
     }
 
-    public List<XMLAttributeFragment> getXmlAttributeFragments() {
+    public List<XMLAttributeFragmentAST> getXmlAttributeFragments() {
         return xmlAttributeFragments;
     }
 
-    public void addXMLAttributeFragment(XMLAttributeFragment xmlAttributeFragment) {
+    public void addXMLAttributeFragment(XMLAttributeFragmentAST xmlAttributeFragment) {
         xmlAttributeFragments.add(xmlAttributeFragment);
         addChild(xmlAttributeFragment);
     }

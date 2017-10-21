@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 
 public interface ICorrespondenceFactory {
-    ICorrespondence newCorrespondence(IFragment fragment1, IFragment fragment2);
+    ICorrespondence newCorrespondence(IFragmentAST fragment1, IFragmentAST fragment2);
 }

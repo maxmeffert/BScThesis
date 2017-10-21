@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTBuildingListener;
 
 public interface IParserFactory {
-    IParser newParser(IAntlrLexerFactory antlrLexerFactory, IAntlrParserFactory antlrParserFactory, IAntlrParseTreeFactory antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener);
+    IParser newParser(IAntlrLexerFactory antlrLexerFactory, IAntlrParserFactory antlrParserFactory, IAntlrParseTreeFactory antlrParseTreeFactory, IFragmentASTBuildingListener fragmentBuildingListener);
 }

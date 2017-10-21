@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 
 public class FragmentKBFactory implements IFragmentKBFactory {
 
@@ -12,8 +12,8 @@ public class FragmentKBFactory implements IFragmentKBFactory {
         this.fragmentKBBuilderFactory = fragmentKBBuilderFactory;
     }
 
-    private IFragmentKBBuilder newFragmentKB(IFragmentKBBuilder fragmentKBBuilder, IFragment fragment) {
-        for (IFragment child : fragment.getChildren()) {
+    private IFragmentKBBuilder newFragmentKB(IFragmentKBBuilder fragmentKBBuilder, IFragmentAST fragment) {
+        for (IFragmentAST child : fragment.getChildren()) {
 //            System.out.println(child);
             fragmentKBBuilder = newFragmentKB(fragmentKBBuilder.fragmentOf(child, fragment), child);
         }
@@ -21,7 +21,7 @@ public class FragmentKBFactory implements IFragmentKBFactory {
     }
 
     @Override
-    public IFragmentKB newFragmentKB(IFragment fragment) {
+    public IFragmentKB newFragmentKB(IFragmentAST fragment) {
         return newFragmentKB(fragmentKBBuilderFactory.newFragmentKBBuilder(), fragment).build();
     }
 

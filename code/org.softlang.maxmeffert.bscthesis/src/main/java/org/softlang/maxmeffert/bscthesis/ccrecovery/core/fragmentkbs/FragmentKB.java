@@ -1,39 +1,39 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereology;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
 public class FragmentKB implements IFragmentKB {
 
-    private final IMereology<IFragment> mereology;
+    private final IMereology<IFragmentAST> mereology;
 
-    public FragmentKB(IMereology<IFragment> mereology) {
+    public FragmentKB(IMereology<IFragmentAST> mereology) {
         this.mereology = mereology;
     }
 
     @Override
-    public IView<IFragment> getFragments() {
+    public IView<IFragmentAST> getFragments() {
         return mereology.getElements();
     }
 
     @Override
-    public IView<IFragment> getFragmentsOf(IFragment fragment) {
+    public IView<IFragmentAST> getFragmentsOf(IFragmentAST fragment) {
         return mereology.getPartsOf(fragment);
     }
 
     @Override
-    public IView<IFragment> getProperFragmentsOf(IFragment fragment) {
+    public IView<IFragmentAST> getProperFragmentsOf(IFragmentAST fragment) {
         return mereology.getProperPartsOf(fragment);
     }
 
     @Override
-    public boolean isFragmentOf(IFragment fragment, IFragment total) {
+    public boolean isFragmentOf(IFragmentAST fragment, IFragmentAST total) {
         return mereology.isPartOf(fragment, total);
     }
 
     @Override
-    public boolean isProperFragmentOf(IFragment fragment, IFragment total) {
+    public boolean isProperFragmentOf(IFragmentAST fragment, IFragmentAST total) {
         return mereology.isProperPartOf(fragment, total);
     }
 }

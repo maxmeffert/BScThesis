@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.jaxb;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XMLAttributeFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XMLElementFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XMLAttributeFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XMLElementFragmentAST;
 
 public class JaxbXmlCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimilarityHeuristic {
 
@@ -22,27 +22,27 @@ public class JaxbXmlCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimi
     }
 
     @Override
-    protected boolean similar(JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment) {
+    protected boolean similar(JavaClassFragmentAST javaClassFragment, XMLElementFragmentAST xmlElementFragment) {
         return lowerCaseEquals(javaClassFragment.getIdentifier(), xmlElementFragment.getName());
     }
 
     @Override
-    protected boolean similar(JavaFieldFragment javaFieldFragment, XMLElementFragment xmlElementFragment) {
+    protected boolean similar(JavaFieldFragmentAST javaFieldFragment, XMLElementFragmentAST xmlElementFragment) {
         return lowerCaseEquals(javaFieldFragment.getIdentifier(), xmlElementFragment.getName());
     }
 
     @Override
-    protected boolean similar(JavaMethodFragment javaMethodFragment, XMLElementFragment xmlElementFragment) {
+    protected boolean similar(JavaMethodFragmentAST javaMethodFragment, XMLElementFragmentAST xmlElementFragment) {
         return lowerCaseEqualsWithoutPrefix(javaMethodFragment.getIdentifier(), xmlElementFragment.getName(), JavaAccessorPrefixes);
     }
 
     @Override
-    protected boolean similar(JavaFieldFragment javaFieldFragment, XMLAttributeFragment xmlAttributeFragment) {
+    protected boolean similar(JavaFieldFragmentAST javaFieldFragment, XMLAttributeFragmentAST xmlAttributeFragment) {
         return lowerCaseEquals(javaFieldFragment.getIdentifier(), xmlAttributeFragment.getName());
     }
 
     @Override
-    protected boolean similar(JavaMethodFragment javaMethodFragment, XMLAttributeFragment xmlAttributeFragment) {
+    protected boolean similar(JavaMethodFragmentAST javaMethodFragment, XMLAttributeFragmentAST xmlAttributeFragment) {
         return lowerCaseEqualsWithoutPrefix(javaMethodFragment.getIdentifier(), xmlAttributeFragment.getName(), JavaAccessorPrefixes);
     }
 }

@@ -1,9 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments;
 
-public class JavaModifierFragment extends JavaFragment {
+public class JavaModifierFragmentAST extends JavaFragmentAST {
 
     private String name;
-    private JavaAnnotationFragment javaAnnotationFragment;
+    private JavaAnnotationFragmentAST javaAnnotationFragment;
 
 
     public String getName() {
@@ -18,11 +18,11 @@ public class JavaModifierFragment extends JavaFragment {
         return javaAnnotationFragment != null;
     }
 
-    public JavaAnnotationFragment getJavaAnnotationFragment() {
+    public JavaAnnotationFragmentAST getJavaAnnotationFragment() {
         return javaAnnotationFragment;
     }
 
-    public void setJavaAnnotationFragment(JavaAnnotationFragment javaAnnotationFragment) {
+    public void setJavaAnnotationFragment(JavaAnnotationFragmentAST javaAnnotationFragment) {
         this.javaAnnotationFragment = javaAnnotationFragment;
     }
 }

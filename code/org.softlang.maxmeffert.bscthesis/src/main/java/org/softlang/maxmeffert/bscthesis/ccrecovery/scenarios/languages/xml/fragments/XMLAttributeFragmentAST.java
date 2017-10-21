@@ -1,7 +1,6 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments;
 
-public class JavaAnnotationValueFragment extends IdentifiedJavaFragment {
-
+public class XMLAttributeFragmentAST extends NamedXMLFragmentAST {
     private String value;
 
     public String getValue() {

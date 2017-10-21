@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 
 public interface IFragmentKBFactory {
-    IFragmentKB newFragmentKB(IFragment fragment);
+    IFragmentKB newFragmentKB(IFragmentAST fragment);
 }

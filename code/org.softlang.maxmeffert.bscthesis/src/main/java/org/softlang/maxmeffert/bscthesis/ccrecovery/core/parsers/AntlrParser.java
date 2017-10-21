@@ -8,8 +8,8 @@ import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTBuildingListener;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,10 +24,10 @@ public class AntlrParser implements IParser {
     private final IAntlrParseTreeFactory antlrParseTreeFactory;
     private final IAntlrParseTreeErrorNodeListenerFactory antlreParseTreeErrorNodeListenerFactory;
     private final IAntlrParseTreeWalkerFactory antlrParseTreeWalkerFactory;
-    private final IFragmentBuildingListener fragmentBuildingListener;
+    private final IFragmentASTBuildingListener fragmentBuildingListener;
     private final IParserResultFactory parserResultFactory;
 
-    public AntlrParser(IAntlrCharStreamFactory antlrCharStreamFactory, IAntlrLexerFactory antlrLexerFactory, IAntlrTokenStreamFactory antlrTokenStreamFactory, IAntlrParserFactory antlrParserFactory, IAntlrParseTreeFactory antlrParseTreeFactory, IAntlrParseTreeErrorNodeListenerFactory antlreParseTreeErrorNodeListenerFactory, IAntlrParseTreeWalkerFactory antlrParseTreeWalkerFactory, IFragmentBuildingListener fragmentBuildingListener, IParserResultFactory parserResultFactory) {
+    public AntlrParser(IAntlrCharStreamFactory antlrCharStreamFactory, IAntlrLexerFactory antlrLexerFactory, IAntlrTokenStreamFactory antlrTokenStreamFactory, IAntlrParserFactory antlrParserFactory, IAntlrParseTreeFactory antlrParseTreeFactory, IAntlrParseTreeErrorNodeListenerFactory antlreParseTreeErrorNodeListenerFactory, IAntlrParseTreeWalkerFactory antlrParseTreeWalkerFactory, IFragmentASTBuildingListener fragmentBuildingListener, IParserResultFactory parserResultFactory) {
         this.antlrCharStreamFactory = antlrCharStreamFactory;
         this.antlrLexerFactory = antlrLexerFactory;
         this.antlrTokenStreamFactory = antlrTokenStreamFactory;
@@ -58,9 +58,9 @@ public class AntlrParser implements IParser {
         return antlrParseTreeErrorNodeListener.getErrorNodes();
     }
 
-    private IFragment applyFragmentBuildingListener(ParseTreeWalker parseTreeWalker, ParseTree parseTree) {
+    private IFragmentAST applyFragmentBuildingListener(ParseTreeWalker parseTreeWalker, ParseTree parseTree) {
         parseTreeWalker.walk(fragmentBuildingListener, parseTree);
-        return fragmentBuildingListener.getFragment();
+        return fragmentBuildingListener.getFragmentAST();
     }
 
     private void checkForErrorNodes(ParseTreeWalker parseTreeWalker, ParseTree parseTree) throws ParserException {
@@ -71,7 +71,7 @@ public class AntlrParser implements IParser {
     }
 
     @Override
-    public IFragment parse(InputStream inputStream) throws IOException, ParserException {
+    public IFragmentAST parse(InputStream inputStream) throws IOException, ParserException {
         ParseTree parseTree = createParserTree(inputStream);
         ParseTreeWalker parseTreeWalker = createParseTreeWalker();
         checkForErrorNodes(parseTreeWalker, parseTree);

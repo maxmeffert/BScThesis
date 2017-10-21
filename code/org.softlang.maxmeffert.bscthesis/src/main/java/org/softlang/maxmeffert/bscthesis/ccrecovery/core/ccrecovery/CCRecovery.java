@@ -6,7 +6,7 @@ import org.antlr.v4.runtime.Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrLexerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParseTreeFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParserFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc.IoC;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
@@ -29,7 +29,7 @@ public class CCRecovery implements ICCRecovery {
     }
 
     @Override
-    public <TLexer extends Lexer, TParser extends Parser> IParser getParser(IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener) {
+    public <TLexer extends Lexer, TParser extends Parser> IParser getParser(IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory, IFragmentASTBuildingListener fragmentBuildingListener) {
         return parserFactory.newParser(antlrLexerFactory, antlrParserFactory, antlrParseTreeFactory, fragmentBuildingListener);
     }
 

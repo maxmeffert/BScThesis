@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 
 public interface ICorrespondence extends Comparable<ICorrespondence> {
-    IFragment getFragment1();
-    IFragment getFragment2();
+    IFragmentAST getFragment1();
+    IFragmentAST getFragment2();
 }

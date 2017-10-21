@@ -1,10 +1,10 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 
 public interface IFragmentKBBuilder {
 
-    IFragmentKBBuilder fragmentOf(IFragment component, IFragment composite);
+    IFragmentKBBuilder fragmentOf(IFragmentAST component, IFragmentAST composite);
     IFragmentKB build();
 
 }

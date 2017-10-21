@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class SimilarityAnalyzer implements ISimilarityAnalyzer {
     }
 
     @Override
-    public ISimilarity analyze(IFragment fragment1, IFragment fragment2) {
+    public ISimilarity analyze(IFragmentAST fragment1, IFragmentAST fragment2) {
         ISimilarity similarity = similarityFactory.newSimilarity();
         for(ISimilarityHeuristic similarityHeuristic : similarityHeuristics) {
             similarityHeuristic.analyze(similarity, fragment1, fragment2);

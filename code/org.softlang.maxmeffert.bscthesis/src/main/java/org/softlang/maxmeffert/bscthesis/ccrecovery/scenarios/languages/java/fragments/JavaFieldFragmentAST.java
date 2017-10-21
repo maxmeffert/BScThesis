@@ -1,5 +1,4 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments;
 
-
-public class JavaMethodFragment extends TypedJavaFragment {
+public class JavaFieldFragmentAST extends TypedJavaFragmentAST {
 }

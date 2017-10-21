@@ -1,24 +1,24 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 
 public class Correspondence implements ICorrespondence {
 
-    private final IFragment fragment1;
-    private final IFragment fragment2;
+    private final IFragmentAST fragment1;
+    private final IFragmentAST fragment2;
 
-    public Correspondence(IFragment fragment1, IFragment fragment2) {
+    public Correspondence(IFragmentAST fragment1, IFragmentAST fragment2) {
         this.fragment1 = fragment1;
         this.fragment2 = fragment2;
     }
 
     @Override
-    public IFragment getFragment1() {
+    public IFragmentAST getFragment1() {
         return fragment1;
     }
 
     @Override
-    public IFragment getFragment2() {
+    public IFragmentAST getFragment2() {
         return fragment2;
     }
 

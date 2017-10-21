@@ -1,18 +1,18 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLParserBaseListener;
 
 import java.util.Stack;
 
-public class XMLFragmentBuildingListener extends XMLParserBaseListener implements IFragmentBuildingListener {
+public class XMLFragmentASTBuildingListener extends XMLParserBaseListener implements IFragmentASTBuildingListener {
 
-    private final XMLFragmentFactory xmlFragmentFactory = new XMLFragmentFactory();
+    private final XMLFragmentASTFactory xmlFragmentFactory = new XMLFragmentASTFactory();
 
-    private Stack<XMLElementFragment> xmlElementFragments = new Stack<>();
-    private Stack<XMLDocumentFragment> xmlDocumentFragments = new Stack<>();
+    private Stack<XMLElementFragmentAST> xmlElementFragments = new Stack<>();
+    private Stack<XMLDocumentFragmentAST> xmlDocumentFragments = new Stack<>();
 
     @Override
     public void exitAttribute(XMLParser.AttributeContext ctx) {
@@ -23,7 +23,7 @@ public class XMLFragmentBuildingListener extends XMLParserBaseListener implement
 
     @Override
     public void enterElement(XMLParser.ElementContext ctx) {
-        XMLElementFragment xmlElementFragment = xmlFragmentFactory.newXMLElementFragment(ctx);
+        XMLElementFragmentAST xmlElementFragment = xmlFragmentFactory.newXMLElementFragment(ctx);
         if (!xmlElementFragments.isEmpty()) {
             xmlElementFragments.peek().addXMLElementFragment(xmlElementFragment);
         }
@@ -40,7 +40,7 @@ public class XMLFragmentBuildingListener extends XMLParserBaseListener implement
 
     @Override
     public void exitDocument(XMLParser.DocumentContext ctx) {
-        XMLDocumentFragment xmlDocumentFragment = xmlFragmentFactory.newXMLDocumentFragment(ctx);
+        XMLDocumentFragmentAST xmlDocumentFragment = xmlFragmentFactory.newXMLDocumentFragment(ctx);
         xmlDocumentFragment.setXmlElementFragment(xmlElementFragments.pop());
         xmlDocumentFragments.push(xmlDocumentFragment);
     }
@@ -51,7 +51,7 @@ public class XMLFragmentBuildingListener extends XMLParserBaseListener implement
     }
 
     @Override
-    public IFragment getFragment() {
+    public IFragmentAST getFragmentAST() {
         return xmlDocumentFragments.peek();
     }
 }

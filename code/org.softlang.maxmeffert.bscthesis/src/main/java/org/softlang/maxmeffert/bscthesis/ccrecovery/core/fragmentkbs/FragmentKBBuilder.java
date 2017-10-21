@@ -1,24 +1,24 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereology;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilder;
 
 public class FragmentKBBuilder implements IFragmentKBBuilder {
 
-    private final IMereologyBuilder<IFragment> mereologyBuilder;
+    private final IMereologyBuilder<IFragmentAST> mereologyBuilder;
 
-    public FragmentKBBuilder(IMereologyBuilder<IFragment> mereologyBuilder) {
+    public FragmentKBBuilder(IMereologyBuilder<IFragmentAST> mereologyBuilder) {
         this.mereologyBuilder = mereologyBuilder;
     }
 
     @Override
-    public IFragmentKBBuilder fragmentOf(IFragment component, IFragment composite) {
+    public IFragmentKBBuilder fragmentOf(IFragmentAST component, IFragmentAST composite) {
 //        System.out.println(component + " isFragmentOf " + composite);
         return new FragmentKBBuilder(mereologyBuilder.partOf(component, composite));
     }
 
-    private IMereology<IFragment> buildMereology() {
+    private IMereology<IFragmentAST> buildMereology() {
         return mereologyBuilder.build();
     }
 

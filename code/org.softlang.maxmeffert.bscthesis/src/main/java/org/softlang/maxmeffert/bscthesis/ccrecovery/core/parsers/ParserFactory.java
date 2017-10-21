@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers;
 
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTBuildingListener;
 
 public class ParserFactory implements IParserFactory {
 
@@ -23,7 +23,7 @@ public class ParserFactory implements IParserFactory {
 
 
     @Override
-    public IParser newParser(IAntlrLexerFactory antlrLexerFactory, IAntlrParserFactory antlrParserFactory, IAntlrParseTreeFactory antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener) {
+    public IParser newParser(IAntlrLexerFactory antlrLexerFactory, IAntlrParserFactory antlrParserFactory, IAntlrParseTreeFactory antlrParseTreeFactory, IFragmentASTBuildingListener fragmentBuildingListener) {
         return new AntlrParser(antlrCharStreamFactory, antlrLexerFactory, antlrTokenStreamFactory, antlrParserFactory, antlrParseTreeFactory, antlreParseTreeErrorNodeListenerFactory, antlrParseTreeWalkerFactory, fragmentBuildingListener, parserResultFactory);
     }
 }
