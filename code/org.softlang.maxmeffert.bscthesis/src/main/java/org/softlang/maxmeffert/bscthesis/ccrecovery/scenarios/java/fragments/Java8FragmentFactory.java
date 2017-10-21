@@ -9,10 +9,10 @@ import java.util.Stack;
 
 public class Java8FragmentFactory extends BaseFragmentFactory {
 
-    public List<Java8FieldFragment> newJava8FieldFragment(Java8Parser.FieldDeclarationContext fieldDeclarationContext) {
-        List<Java8FieldFragment> java8FieldFragments = new LinkedList<>();
+    public List<JavaFieldFragment> newJavaFieldFragment(Java8Parser.FieldDeclarationContext fieldDeclarationContext) {
+        List<JavaFieldFragment> java8FieldFragments = new LinkedList<>();
         for (Java8Parser.VariableDeclaratorContext variableDeclaratorContext : fieldDeclarationContext.variableDeclaratorList().variableDeclarator()) {
-            Java8FieldFragment java8FieldFragment = initialize(new Java8FieldFragment(), fieldDeclarationContext);
+            JavaFieldFragment java8FieldFragment = initialize(new JavaFieldFragment(), fieldDeclarationContext);
             java8FieldFragment.setIdentifier(variableDeclaratorContext.variableDeclaratorId().Identifier().getText());
             java8FieldFragment.setType(fieldDeclarationContext.unannType().getText());
             java8FieldFragments.add(java8FieldFragment);
@@ -20,25 +20,25 @@ public class Java8FragmentFactory extends BaseFragmentFactory {
         return java8FieldFragments;
     }
 
-    public Java8MethodFragment newJava8MethodFragment(Java8Parser.MethodDeclarationContext methodDeclarationContext) {
-        Java8MethodFragment java8MethodFragment = initialize(new Java8MethodFragment(), methodDeclarationContext);
+    public JavaMethodFragment newJavaMethodFragment(Java8Parser.MethodDeclarationContext methodDeclarationContext) {
+        JavaMethodFragment java8MethodFragment = initialize(new JavaMethodFragment(), methodDeclarationContext);
         java8MethodFragment.setIdentifier(methodDeclarationContext.methodHeader().methodDeclarator().Identifier().getText());
         java8MethodFragment.setType(methodDeclarationContext.methodHeader().result().getText());
         return java8MethodFragment;
     }
 
-    public Java8ClassFragment newJava8ClassFragment(Java8Parser.NormalClassDeclarationContext normalClassDeclarationContext) {
-        Java8ClassFragment java8ClassFragment = initialize(new Java8ClassFragment(), normalClassDeclarationContext);
+    public JavaClassFragment newJavaClassFragment(Java8Parser.NormalClassDeclarationContext normalClassDeclarationContext) {
+        JavaClassFragment java8ClassFragment = initialize(new JavaClassFragment(), normalClassDeclarationContext);
         java8ClassFragment.setIdentifier(normalClassDeclarationContext.Identifier().getText());
         return java8ClassFragment;
     }
 
-    public Java8ClassFragment newJava8ClassFragment(
+    public JavaClassFragment newJavaClassFragment(
             Java8Parser.NormalClassDeclarationContext normalClassDeclarationContext,
-            Stack<Java8ModifierFragment> java8ModifierFragments,
-            Stack<Java8FieldFragment> java8FieldFragments,
-            Stack<Java8MethodFragment> java8MethodFragments) {
-        Java8ClassFragment java8ClassFragment = newJava8ClassFragment(normalClassDeclarationContext);
+            Stack<JavaModifierFragment> java8ModifierFragments,
+            Stack<JavaFieldFragment> java8FieldFragments,
+            Stack<JavaMethodFragment> java8MethodFragments) {
+        JavaClassFragment java8ClassFragment = newJavaClassFragment(normalClassDeclarationContext);
         while (!java8ModifierFragments.isEmpty()) {
             java8ClassFragment.addJava8ModifierFragment(java8ModifierFragments.pop());
         }
@@ -51,33 +51,33 @@ public class Java8FragmentFactory extends BaseFragmentFactory {
         return java8ClassFragment;
     }
 
-    private Java8ModifierFragment newJava8ModifierFragment(Java8Parser.AnnotationContext annotationContext) {
+    private JavaModifierFragment newJavaModifierFragment(Java8Parser.AnnotationContext annotationContext) {
         return null;
     }
 
-    public Java8ModifierFragment newJava8ModifierFragment(Java8Parser.ClassModifierContext classModifierContext) {
+    public JavaModifierFragment newJavaModifierFragment(Java8Parser.ClassModifierContext classModifierContext) {
         if (classModifierContext.annotation() != null) {
-            return newJava8ModifierFragment(classModifierContext.annotation());
+            return newJavaModifierFragment(classModifierContext.annotation());
         }
-        Java8ModifierFragment java8ModifierFragment = initialize(new Java8ModifierFragment(), classModifierContext);
+        JavaModifierFragment java8ModifierFragment = initialize(new JavaModifierFragment(), classModifierContext);
         java8ModifierFragment.setName(classModifierContext.getText());
         return java8ModifierFragment;
     }
 
-    public Java8ModifierFragment newJava8ModifierFragment(Java8Parser.FieldModifierContext fieldModifierContext) {
+    public JavaModifierFragment newJavaModifierFragment(Java8Parser.FieldModifierContext fieldModifierContext) {
         if (fieldModifierContext.annotation() != null) {
-            return newJava8ModifierFragment(fieldModifierContext.annotation());
+            return newJavaModifierFragment(fieldModifierContext.annotation());
         }
-        Java8ModifierFragment java8ModifierFragment = initialize(new Java8ModifierFragment(), fieldModifierContext);
+        JavaModifierFragment java8ModifierFragment = initialize(new JavaModifierFragment(), fieldModifierContext);
         java8ModifierFragment.setName(fieldModifierContext.getText());
         return java8ModifierFragment;
     }
 
-    public Java8ModifierFragment newJava8ModifierFragment(Java8Parser.MethodModifierContext methodModifierContext) {
+    public JavaModifierFragment newJavaModifierFragment(Java8Parser.MethodModifierContext methodModifierContext) {
         if (methodModifierContext.annotation() != null) {
-            return newJava8ModifierFragment(methodModifierContext.annotation());
+            return newJavaModifierFragment(methodModifierContext.annotation());
         }
-        Java8ModifierFragment java8ModifierFragment = initialize(new Java8ModifierFragment(), methodModifierContext);
+        JavaModifierFragment java8ModifierFragment = initialize(new JavaModifierFragment(), methodModifierContext);
         java8ModifierFragment.setName(methodModifierContext.getText());
         return java8ModifierFragment;
     }

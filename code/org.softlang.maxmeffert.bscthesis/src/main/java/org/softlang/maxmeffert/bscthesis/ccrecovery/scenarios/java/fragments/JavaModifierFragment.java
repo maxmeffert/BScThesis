@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments;
 
-public class Java8ModifierFragment extends Java8Fragment {
+public class JavaModifierFragment extends JavaFragment {
     private String name;
 
     public String getName() {

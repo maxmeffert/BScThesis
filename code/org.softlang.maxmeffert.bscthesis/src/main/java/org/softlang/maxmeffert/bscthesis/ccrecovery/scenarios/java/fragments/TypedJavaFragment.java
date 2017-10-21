@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments;
 
-public abstract class TypedJava8Fragment extends ModifiedJava8Fragment {
+public abstract class TypedJavaFragment extends ModifiedJavaFragment {
     private String type;
 
     public String getType() {
