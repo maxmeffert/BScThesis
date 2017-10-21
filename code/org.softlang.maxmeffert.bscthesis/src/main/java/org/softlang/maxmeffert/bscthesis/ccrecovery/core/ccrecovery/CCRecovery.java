@@ -3,10 +3,11 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery;
 import com.google.inject.Inject;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrLexerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParseTreeFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc.IoC;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguageFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzer;
@@ -18,13 +19,11 @@ public class CCRecovery implements ICCRecovery {
         return IoC.get(ICCRecovery.class);
     }
 
-    private final ILanguageFactory languageFactory;
     private final IParserFactory parserFactory;
     private final ISimilarityAnalyzerFactory similarityAnalyzerFactory;
 
     @Inject
-    public CCRecovery(ILanguageFactory languageFactory, IParserFactory parserFactory, ISimilarityAnalyzerFactory similarityAnalyzerFactory) {
-        this.languageFactory = languageFactory;
+    public CCRecovery(IParserFactory parserFactory, ISimilarityAnalyzerFactory similarityAnalyzerFactory) {
         this.parserFactory = parserFactory;
         this.similarityAnalyzerFactory = similarityAnalyzerFactory;
     }

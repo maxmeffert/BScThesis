@@ -16,6 +16,6 @@ public class CorrespondenceAnalyzerFactory implements ICorrespondenceAnalyzerFac
 
     @Override
     public ICorrespondenceAnalyzer newCorrespondenceAnalyzer() {
-        return new CorrespondenceAnalyzer(correspondenceFactory, fragmentKBFactory);
+        return new CorrespondenceAnalyzer(fragmentKBFactory);
     }
 }

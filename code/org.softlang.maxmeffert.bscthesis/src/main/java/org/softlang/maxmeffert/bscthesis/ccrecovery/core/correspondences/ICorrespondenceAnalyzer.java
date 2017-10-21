@@ -7,7 +7,5 @@ import java.io.InputStream;
 import java.util.Set;
 
 public interface ICorrespondenceAnalyzer {
-    @Deprecated
-    Set<ICorrespondence> analyze(ICorrespondenceDefinition correspondenceDefinition, InputStream artifact1, InputStream artifact2) throws Exception;
     Set<ICorrespondence> analyze(ISimilarity similarity, IFragment fragment1, IFragment fragment2);
 }

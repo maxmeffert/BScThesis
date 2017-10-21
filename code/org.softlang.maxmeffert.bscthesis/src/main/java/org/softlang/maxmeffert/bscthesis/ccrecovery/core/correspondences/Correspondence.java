@@ -4,19 +4,12 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 
 public class Correspondence implements ICorrespondence {
 
-    private final ICorrespondenceDefinition correspondenceDefinition;
     private final IFragment fragment1;
     private final IFragment fragment2;
 
-    public Correspondence(ICorrespondenceDefinition correspondenceDefinition, IFragment fragment1, IFragment fragment2) {
-        this.correspondenceDefinition = correspondenceDefinition;
+    public Correspondence(IFragment fragment1, IFragment fragment2) {
         this.fragment1 = fragment1;
         this.fragment2 = fragment2;
-    }
-
-    @Override
-    public ICorrespondenceDefinition getDefinition() {
-        return correspondenceDefinition;
     }
 
     @Override

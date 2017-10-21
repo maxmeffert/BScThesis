@@ -2,11 +2,12 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc;
 
 import com.google.inject.AbstractModule;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer.CCAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccanalyzer.ICCAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.CorrespondenceAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.CorrespondenceFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.FragmentKBBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.FragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBBuilderFactory;
@@ -18,8 +19,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterat
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walkers.GraphWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walkers.IGraphWalkerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walks.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguageFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.LanguageFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.MereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
@@ -65,7 +64,6 @@ public class IoCConfig extends AbstractModule {
         configureCorrespondences();
         configureFragments();
         configureGraphs();
-        configureLanguages();
         configureMereologies();
         configureParsers();
         configureTexts();
@@ -80,7 +78,6 @@ public class IoCConfig extends AbstractModule {
     }
 
     private void configureAnalyzer() {
-        bind(ICCAnalyzerFactory.class).to(CCAnalyzerFactory.class);
     }
 
     private void configureAntlr() {
@@ -101,8 +98,6 @@ public class IoCConfig extends AbstractModule {
 
     private void configureCorrespondences() {
         bind(ICorrespondenceAnalyzerFactory.class).to(CorrespondenceAnalyzerFactory.class);
-        bind(ICorrespondenceDefinitionFactory.class).to(CorrespondenceDefinitionFactory.class);
-        bind(ICorrespondenceBuilderFactory.class).to(CorrespondenceBuilderFactory.class);
         bind(ICorrespondenceFactory.class).to(CorrespondenceFactory.class);
     }
 
@@ -132,10 +127,6 @@ public class IoCConfig extends AbstractModule {
         bind(IGraphClosureFactory.class).to(GraphClosureFactory.class);
         bind(IDiGraphClosureFactory.class).to(DiGraphClosureFactory.class);
         bind(IGraphClosures.class).to(GraphClosures.class);
-    }
-
-    private void configureLanguages() {
-        bind(ILanguageFactory.class).to(LanguageFactory.class);
     }
 
     private void configureMereologies() {
