@@ -6,9 +6,11 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.antlr.java8.Java8Lexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.antlr.java8.Java8Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.Java8FragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbAnnotationSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbNamingSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLParser;
@@ -32,7 +34,11 @@ public class Main {
 		IFragment java8fragmentAST = ccRecovery.getFragmentAST(java8, java8Artifact);
 		IFragment xmlfragmentAST = ccRecovery.getFragmentAST(xml, xmlArtifact);
 
-		ISimilarity similarity = ccRecovery.analyzeSimilarities(java8fragmentAST, xmlfragmentAST, new JaxbNamingSimilarityHeuristic());
+		ISimilarityAnalyzer similarityAnalyzer = ccRecovery.getSimilarityAnalyzer();
+		similarityAnalyzer.addSimilarityHeuristic(new JaxbNamingSimilarityHeuristic());
+		similarityAnalyzer.addSimilarityHeuristic(new JaxbAnnotationSimilarityHeuristic());
+
+		ISimilarity similarity = similarityAnalyzer.analyze(java8fragmentAST, xmlfragmentAST);
 
 		System.out.println(similarity);
 		System.out.println(similarity.size());

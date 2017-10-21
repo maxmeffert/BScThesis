@@ -12,7 +12,7 @@ public class SimilarityAnalyzerFactory implements ISimilarityAnalyzerFactory {
     }
 
     @Override
-    public ISimilarityAnalyzer newSimilarityAnalyzer(ISimilarityHeuristic similarityHeuristic) {
-        return new SimilarityAnalyzer(similarityFactory, similarityHeuristic);
+    public ISimilarityAnalyzer newSimilarityAnalyzer() {
+        return new SimilarityAnalyzer(similarityFactory);
     }
 }

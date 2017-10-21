@@ -2,20 +2,29 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class SimilarityAnalyzer implements ISimilarityAnalyzer {
 
     private final ISimilarityFactory similarityFactory;
-    private final ISimilarityHeuristic similarityHeuristic;
+    private final List<ISimilarityHeuristic> similarityHeuristics = new LinkedList<>();
 
-    public SimilarityAnalyzer(ISimilarityFactory similarityFactory, ISimilarityHeuristic similarityAnalyzerStrategy) {
+    public SimilarityAnalyzer(ISimilarityFactory similarityFactory) {
         this.similarityFactory = similarityFactory;
-        this.similarityHeuristic = similarityAnalyzerStrategy;
+    }
+
+    @Override
+    public void addSimilarityHeuristic(ISimilarityHeuristic similarityHeuristic) {
+        similarityHeuristics.add(similarityHeuristic);
     }
 
     @Override
     public ISimilarity analyze(IFragment fragment1, IFragment fragment2) {
         ISimilarity similarity = similarityFactory.newSimilarity();
-        similarityHeuristic.analyze(similarity, fragment1, fragment2);
+        for(ISimilarityHeuristic similarityHeuristic : similarityHeuristics) {
+            similarityHeuristic.analyze(similarity, fragment1, fragment2);
+        }
         return similarity;
     }
 }

@@ -12,7 +12,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.languages.ILanguage;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzer;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,12 +22,16 @@ import java.util.Set;
 public interface ICCRecovery {
     @Deprecated
     InputStream getInputStream(String string);
+
     InputStream getInputStream(File file) throws IOException;
     <TLexer extends Lexer, TParser extends Parser> ILanguage defineLanguage(String name, IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener);
 
     IFragment getFragmentAST(ILanguage language, InputStream inputStream) throws IOException, ParserException;
 
-    ISimilarity analyzeSimilarities(IFragment fragment1, IFragment fragment2, ISimilarityHeuristic similarityHeuristic);
+    ISimilarityAnalyzer getSimilarityAnalyzer();
+
+    @Deprecated
+    ISimilarity analyzeSimilarities(IFragment fragment1, IFragment fragment2);
 
     @Deprecated
     ICorrespondenceDefinition defineCorrespondence(ILanguage language1, ILanguage language2, ISimilarity similarity);
