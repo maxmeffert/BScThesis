@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc.IoC;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
@@ -10,8 +10,10 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarit
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.antlr.java8.Java8Lexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.antlr.java8.Java8Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.Java8FragmentBuildingListener;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbCorrespondenceAnnotationSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbCorrespondenceNamingSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbXmlCorrespondenceAnnotationSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbXmlCorrespondenceNamingSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.jaxb.JaxbXsdCorrespondenceNamingSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.antlr.XMLParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLFragmentBuildingListener;
@@ -22,7 +24,7 @@ import java.io.InputStream;
 public class CCRecoveryScenarios implements ICCRecoveryScenarios {
 
     public static ICCRecoveryScenarios create() {
-        return new CCRecoveryScenarios(IoC.get(ICCRecovery.class));
+        return new CCRecoveryScenarios(CCRecovery.create());
     }
 
     private final ICCRecovery ccRecovery;
@@ -44,23 +46,21 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
         return ccRecovery.getSimilarityAnalyzer();
     }
 
-    private ISimilarityAnalyzer getJaxbSimilarityAnalyzer() {
+    private ISimilarityAnalyzer getJaxbCorrespondenceSimilarityAnalyzer() {
         ISimilarityAnalyzer similarityAnalyzer = getSimilarityAnalyzer();
-        similarityAnalyzer.addSimilarityHeuristic(new JaxbCorrespondenceNamingSimilarityHeuristic());
-        similarityAnalyzer.addSimilarityHeuristic(new JaxbCorrespondenceAnnotationSimilarityHeuristic());
+        similarityAnalyzer.addSimilarityHeuristic(new JaxbXmlCorrespondenceNamingSimilarityHeuristic());
+        similarityAnalyzer.addSimilarityHeuristic(new JaxbXmlCorrespondenceAnnotationSimilarityHeuristic());
+        similarityAnalyzer.addSimilarityHeuristic(new JaxbXsdCorrespondenceNamingSimilarityHeuristic());
+        similarityAnalyzer.addSimilarityHeuristic(new JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic());
         return similarityAnalyzer;
     }
 
     @Override
     public void getJaxbCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException {
-        IParser java8Parser = getJava8Parser();
-        IParser xmlParser = getXmlParser();
+        IFragment java8FragmentAST = getJava8Parser().parse(javaInputStream);
+        IFragment xmlFragmentAST = getXmlParser().parse(xmlInputStream);
 
-        IFragment java8FragmentAST = java8Parser.parse(javaInputStream);
-        IFragment xmlFragmentAST = xmlParser.parse(xmlInputStream);
-
-        ISimilarityAnalyzer similarityAnalyzer = getJaxbSimilarityAnalyzer();
-        ISimilarity similarity = similarityAnalyzer.analyze(java8FragmentAST, xmlFragmentAST);
+        ISimilarity similarity = getJaxbCorrespondenceSimilarityAnalyzer().analyze(java8FragmentAST, xmlFragmentAST);
 
         System.out.println(similarity);
         System.out.println(similarity.size());

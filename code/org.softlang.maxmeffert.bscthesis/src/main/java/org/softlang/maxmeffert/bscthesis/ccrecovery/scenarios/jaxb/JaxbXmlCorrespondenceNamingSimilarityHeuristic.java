@@ -4,7 +4,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.java.fragments.*;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLAttributeFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.xml.fragments.XMLElementFragment;
 
-public class JaxbCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimilarityHeuristic {
+public class JaxbXmlCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimilarityHeuristic {
 
     private static String[] JavaAccessorPrefixes = new String[] {"get", "set", "is"};
 
