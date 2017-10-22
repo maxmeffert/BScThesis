@@ -6,19 +6,23 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraphFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.CCRecoveryScenarios;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException, ParserException {
 
-//		ICCRecoveryScenarios iccRecoveryScenarios = CCRecoveryScenarios.create();
-//
-//		InputStream java8Artifact = new FileInputStream("./src/main/java/org/softlang/companies/model/Company.java");
-//		InputStream xmlArtifact = new FileInputStream("./xml/companies.xml");
-//
-//		iccRecoveryScenarios.getJaxbCorrespondences(java8Artifact, xmlArtifact);
+		ICCRecoveryScenarios iccRecoveryScenarios = CCRecoveryScenarios.create();
+
+		InputStream java8Artifact = new FileInputStream("./src/main/java/org/softlang/companies/model/Company.java");
+		InputStream xmlArtifact = new FileInputStream("./xml/companies.xml");
+
+		iccRecoveryScenarios.getJaxbCorrespondences(java8Artifact, xmlArtifact);
 
 		IDiGraph<Integer> diGraph = new DiGraph<>();
 		diGraph.addEdge(1,2);

@@ -2,18 +2,20 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc;
 
 import com.google.inject.AbstractModule;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.BinaryRelationFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelationFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.CorrespondenceAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.CorrespondenceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraphFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraphFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.FragmentKBBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.FragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraphFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraphFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.MereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
@@ -32,8 +34,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IIterab
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IterableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.IStringUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.StringUtils;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IViewFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.ViewFactory;
 
 public class IoCConfig extends AbstractModule {
     @Override
@@ -48,6 +48,7 @@ public class IoCConfig extends AbstractModule {
         configureParsers();
         configureUtils();
         configureSimilarities();
+        bind(IBinaryRelationFactory.class).to(BinaryRelationFactory.class);
     }
 
     private void configureSimilarities() {
@@ -100,7 +101,6 @@ public class IoCConfig extends AbstractModule {
         bind(IStringUtils.class).to(StringUtils.class);
         bind(IIterableUtils.class).to(IterableUtils.class);
         bind(IComparableUtils.class).to(ComparableUtils.class);
-        bind(IViewFactory.class).to(ViewFactory.class);
     }
 
 }
