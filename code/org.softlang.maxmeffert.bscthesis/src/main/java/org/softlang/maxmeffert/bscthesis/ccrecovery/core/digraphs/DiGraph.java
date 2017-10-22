@@ -139,21 +139,6 @@ public class DiGraph<TValue extends Comparable<TValue>>  implements IDiGraph<TVa
     }
 
     @Override
-    public boolean allNodes(Predicate<TValue> predicate) {
-        return false;
-    }
-
-    @Override
-    public boolean anyNodes(Predicate<TValue> predicate) {
-        return false;
-    }
-
-    @Override
-    public boolean noneNodes(Predicate<TValue> predicate) {
-        return false;
-    }
-
-    @Override
     public IDiGraph<TValue> getCopy() {
         IDiGraph<TValue> copy = new DiGraph<>();
         copy.addEdges(getEdges());

@@ -5,6 +5,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
 
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class BinaryRelation<T extends Comparable<T>> extends SortedSetProxy<IComparablePair<T,T>> implements IBinaryRelation<T> {
 
@@ -74,15 +76,37 @@ public class BinaryRelation<T extends Comparable<T>> extends SortedSetProxy<ICom
     }
 
     @Override
-    public void add(T a, T b) {
-        diGraph.addEdge(a, b);
+    public boolean add(T a, T b) {
+        boolean changed = diGraph.addEdge(a, b);
         updateEdges();
+        return changed;
     }
 
     @Override
-    public void remove(T a, T b) {
-        diGraph.removeEdge(a, b);
+    public boolean remove(T a, T b) {
+        boolean changed = diGraph.removeEdge(a, b);
         updateEdges();
+        return changed;
+    }
+
+    @Override
+    public boolean contains(T a, T b) {
+        return diGraph.hasEdge(a, b);
+    }
+
+    @Override
+    public SortedSet<T> getDomainElements() {
+        return diGraph.getNodes();
+    }
+
+    @Override
+    public SortedSet<T> getDomainElements(Predicate<T> predicate) {
+        return getDomainElements().stream().filter(predicate).collect(Collectors.toCollection(Sets::newTreeSet));
+    }
+
+    @Override
+    public IBinaryRelation<T> getCopy() {
+        return new BinaryRelation<>(diGraph.getCopy());
     }
 
     @Override

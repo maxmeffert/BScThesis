@@ -1,17 +1,19 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraphFactory;
+import com.google.inject.Inject;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelationFactory;
 
 public class MereologyBuilderFactory implements IMereologyBuilderFactory {
 
-    private final IDiGraphFactory diGraphFactory;
+    private final IBinaryRelationFactory binaryRelationFactory;
 
-    public MereologyBuilderFactory(IDiGraphFactory diGraphFactory) {
-        this.diGraphFactory = diGraphFactory;
+    @Inject
+    public MereologyBuilderFactory(IBinaryRelationFactory binaryRelationFactory) {
+        this.binaryRelationFactory = binaryRelationFactory;
     }
 
     @Override
     public <TValue extends Comparable<TValue>> IMereologyBuilder<TValue> newMereologyBuilder() {
-        return new MereologyBuilder<>(diGraphFactory.<TValue>newDiGraph());
+        return new MereologyBuilder<>(binaryRelationFactory.<TValue>newBinaryRelation());
     }
 }

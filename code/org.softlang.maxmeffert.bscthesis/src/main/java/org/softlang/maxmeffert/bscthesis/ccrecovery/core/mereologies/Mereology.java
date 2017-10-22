@@ -1,32 +1,32 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies;
 
 import com.google.common.collect.Iterables;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
 
 import java.util.Optional;
 import java.util.function.Predicate;
 
 public class Mereology<TValue extends Comparable<TValue>> implements IMereology<TValue> {
 
-    private final IDiGraph<TValue> diGraph;
+    private final IBinaryRelation<TValue> binaryRelation;
 
-    public Mereology(IDiGraph<TValue> diGraph) {
-        this.diGraph = diGraph;
+    public Mereology(IBinaryRelation<TValue> binaryRelation) {
+        this.binaryRelation = binaryRelation;
     }
 
     @Override
     public boolean isEmpty() {
-        return diGraph.isEmpty();
+        return binaryRelation.isEmpty();
     }
 
     @Override
     public boolean contains(TValue value) {
-        return diGraph.hasNode(value);
+        return binaryRelation.getDomainElements().contains(value);
     }
 
     @Override
     public boolean isPartOf(TValue part, TValue fusion) {
-        return diGraph.hasEdge(part, fusion);
+        return binaryRelation.contains(part, fusion);
     }
 
     @Override
@@ -61,17 +61,17 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
 
     @Override
     public boolean all(Predicate<TValue> predicate) {
-        return diGraph.allNodes(predicate);
+        return binaryRelation.getDomainElements().stream().allMatch(predicate);
     }
 
     @Override
     public boolean any(Predicate<TValue> predicate) {
-        return diGraph.anyNodes(predicate);
+        return binaryRelation.getDomainElements().stream().anyMatch(predicate);
     }
 
     @Override
     public boolean none(Predicate<TValue> predicate) {
-        return diGraph.noneNodes(predicate);
+        return binaryRelation.getDomainElements().stream().noneMatch(predicate);
     }
 
     @Override
@@ -92,7 +92,7 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
 
     @Override
     public Iterable<TValue> getElements() {
-        return diGraph.getNodes();
+        return binaryRelation.getDomainElements();
     }
 
     @Override
@@ -112,6 +112,6 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
 
     @Override
     public Iterable<TValue> filter(Predicate<TValue> predicate) {
-        return diGraph.getNodes(predicate);
+        return binaryRelation.getDomainElements(predicate);
     }
 }
