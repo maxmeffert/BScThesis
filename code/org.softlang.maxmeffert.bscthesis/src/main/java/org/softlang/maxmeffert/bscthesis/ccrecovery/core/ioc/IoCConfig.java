@@ -30,8 +30,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.Colle
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.ComparableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.IComparableUtils;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.IStringUtils;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.strings.StringUtils;
 
 public class IoCConfig extends AbstractModule {
     @Override
@@ -96,7 +94,6 @@ public class IoCConfig extends AbstractModule {
 
     private void configureUtils() {
         bind(ICollectionFactory.class).to(CollectionFactory.class);
-        bind(IStringUtils.class).to(StringUtils.class);
         bind(IComparableUtils.class).to(ComparableUtils.class);
     }
 
