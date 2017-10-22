@@ -20,23 +20,33 @@ public class DiGraphNode<TValue extends Comparable<TValue>> implements IDiGraphN
     }
 
     @Override
-    public Iterable<TValue> getSourceNodes() {
+    public SortedSet<TValue> getSourceNodes() {
         return sourceNodes;
     }
 
     @Override
-    public Iterable<TValue> getTargetNodes() {
+    public SortedSet<TValue> getTargetNodes() {
         return targetNodes;
     }
 
     @Override
-    public void addSourceNode(TValue value) {
-        sourceNodes.add(value);
+    public void addSourceNode(TValue source) {
+        sourceNodes.add(source);
     }
 
     @Override
-    public void addTargetNode(TValue value) {
-        targetNodes.add(value);
+    public void removeSourceNode(TValue source) {
+        sourceNodes.remove(source);
+    }
+
+    @Override
+    public void addTargetNode(TValue target) {
+        targetNodes.add(target);
+    }
+
+    @Override
+    public void removeTargetNode(TValue target) {
+        targetNodes.remove(target);
     }
 
     @Override

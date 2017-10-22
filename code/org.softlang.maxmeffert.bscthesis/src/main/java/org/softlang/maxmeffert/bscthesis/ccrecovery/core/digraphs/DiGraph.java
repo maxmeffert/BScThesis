@@ -4,7 +4,6 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.ComparablePair;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
 
 import java.util.SortedMap;
 import java.util.SortedSet;
@@ -16,17 +15,17 @@ public class DiGraph<TValue extends Comparable<TValue>>  implements IDiGraph<TVa
     private final SortedMap<TValue, IDiGraphNode<TValue>> nodes = Maps.newTreeMap();
 
     @Override
-    public Iterable<TValue> getNodes() {
-        return nodes.keySet();
+    public SortedSet<TValue> getNodes() {
+        return Sets.newTreeSet(nodes.keySet());
     }
 
     @Override
-    public Iterable<TValue> getNodes(Predicate<TValue> predicate) {
+    public SortedSet<TValue> getNodes(Predicate<TValue> predicate) {
         return nodes.keySet().stream().filter(predicate).collect(Collectors.toCollection(Sets::newTreeSet));
     }
 
     @Override
-    public Iterable<IPair<TValue, TValue>> getEdges() {
+    public SortedSet<IComparablePair<TValue, TValue>> getEdges() {
         SortedSet<IComparablePair<TValue,TValue>> edges = Sets.newTreeSet();
         for(TValue node : getNodes()) {
             for(TValue source : getSourceNodesOf(node)) {
@@ -36,27 +35,27 @@ public class DiGraph<TValue extends Comparable<TValue>>  implements IDiGraph<TVa
                 edges.add(new ComparablePair<>(node, target));
             }
         }
-        return (Iterable) edges;
+        return edges;
     }
 
     @Override
-    public Iterable<TValue> getSourceNodesOf(TValue value) {
+    public SortedSet<TValue> getSourceNodesOf(TValue value) {
         return nodes.get(value).getSourceNodes();
     }
 
     @Override
-    public Iterable<TValue> getTargetNodesOf(TValue value) {
+    public SortedSet<TValue> getTargetNodesOf(TValue value) {
         return nodes.get(value).getTargetNodes();
     }
 
     @Override
-    public Iterable<TValue> getSourceWalk(TValue start) {
-        return () -> new DiGraphSourceIterator<>(this, start);
+    public SortedSet<TValue> getSourceWalk(TValue start) {
+        return Sets.newTreeSet(() -> new DiGraphSourceIterator<>(this, start));
     }
 
     @Override
-    public Iterable<TValue> getTargetWalk(TValue start) {
-        return () -> new DiGraphTargetIterator<>(this, start);
+    public SortedSet<TValue> getTargetWalk(TValue start) {
+        return Sets.newTreeSet(() -> new DiGraphTargetIterator<>(this, start));
     }
 
     private IDiGraphNode<TValue> getNode(TValue value) {
@@ -67,23 +66,58 @@ public class DiGraph<TValue extends Comparable<TValue>>  implements IDiGraph<TVa
     }
 
     @Override
-    public void addEdge(TValue sourceValue, TValue targetValue) {
+    public boolean addEdge(TValue sourceValue, TValue targetValue) {
         IDiGraphNode<TValue> source = getNode(sourceValue);
         IDiGraphNode<TValue> target = getNode(targetValue);
         source.addTargetNode(targetValue);
         target.addSourceNode(sourceValue);
+        return true;
     }
 
     @Override
-    public void addEdge(IPair<TValue, TValue> edge) {
-        addEdge(edge.getFirst(), edge.getSecond());
+    public boolean addEdge(IComparablePair<TValue, TValue> edge) {
+        return addEdge(edge.getFirst(), edge.getSecond());
     }
 
     @Override
-    public void addEdges(Iterable<IPair<TValue, TValue>> edges) {
-        for (IPair<TValue,TValue> edge : edges) {
-            addEdge(edge);
+    public boolean addEdges(Iterable<? extends IComparablePair<TValue, TValue>> edges) {
+        boolean changed = false;
+        for (IComparablePair<TValue,TValue> edge : edges) {
+            changed |= addEdge(edge);
         }
+        return changed;
+    }
+
+    @Override
+    public boolean removeEdge(TValue sourceValue, TValue targetValue) {
+        if (!hasEdge(sourceValue, targetValue)) {
+            return false;
+        }
+        IDiGraphNode<TValue> source = nodes.get(sourceValue);
+        IDiGraphNode<TValue> target = nodes.get(targetValue);
+        source.removeTargetNode(targetValue);
+        target.removeSourceNode(sourceValue);
+        if (source.getSourceNodes().isEmpty() && source.getTargetNodes().isEmpty()) {
+            nodes.remove(sourceValue, source);
+        }
+        if (target.getSourceNodes().isEmpty() && source.getTargetNodes().isEmpty()) {
+            nodes.remove(targetValue, target);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean removeEdge(IComparablePair<TValue, TValue> edge) {
+        return removeEdge(edge.getFirst(), edge.getSecond());
+    }
+
+    @Override
+    public boolean removeEdges(Iterable<? extends IComparablePair<TValue, TValue>> edges) {
+        boolean changed = false;
+        for (IComparablePair<TValue,TValue> edge : edges) {
+            changed |= removeEdge(edge);
+        }
+        return changed;
     }
 
     @Override
@@ -159,6 +193,11 @@ public class DiGraph<TValue extends Comparable<TValue>>  implements IDiGraph<TVa
     @Override
     public IDiGraph<TValue> getReflexiveTransitiveClosure() {
         return getReflexiveClosure().getTransitiveClosure();
+    }
+
+    @Override
+    public void clear() {
+        nodes.clear();
     }
 
 

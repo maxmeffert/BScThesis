@@ -1,6 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.BinaryRelationFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraphFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 
@@ -25,9 +28,15 @@ public class Main {
 		IDiGraph<Integer> reflexiveClosure = diGraph.getReflexiveClosure();
 		IDiGraph<Integer> transitiveClosure = diGraph.getTransitiveClosure();
 
-		System.out.println(diGraph.getEdges());
-		System.out.println(reflexiveClosure.getEdges());
-		System.out.println(transitiveClosure.getEdges());
+		IBinaryRelation<Integer> br = new BinaryRelationFactory(new DiGraphFactory()).newBinaryRelation();
+		br.add(1,2);
+		br.add(2,3);
+		br.add(2,1);
+		br.remove(3,4);
+
+		System.out.println(br);
+		System.out.println(br.getReflexiveClosure());
+		System.out.println(br.getTransitiveClosure());
 
  	}
 
