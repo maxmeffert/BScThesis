@@ -132,7 +132,10 @@ public class DiGraph<TValue extends Comparable<TValue>>  implements IDiGraph<TVa
 
     @Override
     public boolean hasEdge(TValue source, TValue target) {
-        if (!hasNode(source) && !hasNode(target)) {
+        if (!hasNode(source)) {
+            return false;
+        }
+        if (!hasNode(target)) {
             return false;
         }
         return nodes.get(source).isSourceOf(target);

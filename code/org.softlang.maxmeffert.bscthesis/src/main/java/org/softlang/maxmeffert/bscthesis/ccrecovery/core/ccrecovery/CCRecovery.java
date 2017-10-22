@@ -6,6 +6,8 @@ import org.antlr.v4.runtime.Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrLexerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParseTreeFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParserFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc.IoC;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
@@ -21,11 +23,13 @@ public class CCRecovery implements ICCRecovery {
 
     private final IParserFactory parserFactory;
     private final IFragmentASTAnalyzerFactory similarityAnalyzerFactory;
+    private final ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory;
 
     @Inject
-    public CCRecovery(IParserFactory parserFactory, IFragmentASTAnalyzerFactory similarityAnalyzerFactory) {
+    public CCRecovery(IParserFactory parserFactory, IFragmentASTAnalyzerFactory similarityAnalyzerFactory, ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory) {
         this.parserFactory = parserFactory;
         this.similarityAnalyzerFactory = similarityAnalyzerFactory;
+        this.correspondenceAnalyzerFactory = correspondenceAnalyzerFactory;
     }
 
     @Override
@@ -36,6 +40,11 @@ public class CCRecovery implements ICCRecovery {
     @Override
     public IFragmentASTAnalyzer getFragmentASTAnalyzer() {
         return similarityAnalyzerFactory.newFragmentASTAnalyzer();
+    }
+
+    @Override
+    public ICorrespondenceAnalyzer getCorrespondenceAnalyzer() {
+        return correspondenceAnalyzerFactory.newCorrespondenceAnalyzer();
     }
 
 

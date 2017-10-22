@@ -3,6 +3,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
@@ -46,6 +47,10 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
         return ccRecovery.getFragmentASTAnalyzer();
     }
 
+    private ICorrespondenceAnalyzer getCorrespondenceAnalyzer() {
+        return ccRecovery.getCorrespondenceAnalyzer();
+    }
+
     private IFragmentASTAnalyzer getJaxbCorrespondenceSimilarityAnalyzer() {
         IFragmentASTAnalyzer analyzer = getFragmentASTAnalyzer();
         analyzer.addSimilarityHeuristic(new JaxbXmlCorrespondenceNamingSimilarityHeuristic());
@@ -61,9 +66,12 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
         IFragmentAST xmlFragmentAST = getXmlParser().parse(xmlInputStream);
 
         IBinaryRelation<IFragmentAST> similarities = getJaxbCorrespondenceSimilarityAnalyzer().analyze(java8FragmentAST, xmlFragmentAST);
+        IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyze(similarities, java8FragmentAST, xmlFragmentAST);
 
         System.out.println(similarities);
         System.out.println(similarities.size());
+        System.out.println(correspondences);
+        System.out.println(correspondences.size());
     }
 
 

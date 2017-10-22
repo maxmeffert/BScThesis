@@ -9,5 +9,6 @@ public class XMLDocumentFragmentAST extends XMLFragmentAST {
 
     public void setXmlElementFragment(XMLElementFragmentAST xmlElementFragment) {
         this.xmlElementFragment = xmlElementFragment;
+        addChild(xmlElementFragment);
     }
 }

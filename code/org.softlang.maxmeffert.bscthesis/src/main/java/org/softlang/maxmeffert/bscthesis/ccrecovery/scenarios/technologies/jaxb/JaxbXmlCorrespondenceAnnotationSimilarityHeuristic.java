@@ -10,8 +10,8 @@ public class JaxbXmlCorrespondenceAnnotationSimilarityHeuristic extends BaseJaxb
         for (JavaModifierFragmentAST javaModifierFragment : javaClassFragment.getJavaModifierFragments()) {
             if (javaModifierFragment.isAnnotation()) {
                 JavaAnnotationFragmentAST javaAnnotationFragment = javaModifierFragment.getJavaAnnotationFragment();
-                System.out.println(javaAnnotationFragment.getIdentifier());
-                System.out.println(javaAnnotationFragment.getJavaAnnotationValueFragments());
+//                System.out.println(javaAnnotationFragment.getIdentifier());
+//                System.out.println(javaAnnotationFragment.getJavaAnnotationValueFragments());
             }
         }
         return false;

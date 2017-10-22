@@ -4,6 +4,7 @@ import com.google.common.collect.Iterables;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
 
 import java.util.Optional;
+import java.util.SortedSet;
 import java.util.function.Predicate;
 
 public class Mereology<TValue extends Comparable<TValue>> implements IMereology<TValue> {
@@ -75,6 +76,21 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
     }
 
     @Override
+    public boolean allPartsOf(TValue value, Predicate<TValue> predicate) {
+        return getPartsOf(value).stream().allMatch(predicate);
+    }
+
+    @Override
+    public boolean anyPartsOf(TValue value, Predicate<TValue> predicate) {
+        return getPartsOf(value).stream().anyMatch(predicate);
+    }
+
+    @Override
+    public boolean nonePartsOf(TValue value, Predicate<TValue> predicate) {
+        return getPartsOf(value).stream().noneMatch(predicate);
+    }
+
+    @Override
     public Optional<TValue> getBottom() {
         for (TValue bottom : filter(element-> isBottom(element))) {
             return Optional.of(bottom);
@@ -91,27 +107,27 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
     }
 
     @Override
-    public Iterable<TValue> getElements() {
+    public SortedSet<TValue> getElements() {
         return binaryRelation.getDomainElements();
     }
 
     @Override
-    public Iterable<TValue> getProperPartsOf(TValue value) {
+    public SortedSet<TValue> getProperPartsOf(TValue value) {
         return filter(element -> isProperPartOf(element, value));
     }
 
     @Override
-    public Iterable<TValue> getPartsOf(TValue value) {
+    public SortedSet<TValue> getPartsOf(TValue value) {
         return filter(element -> isPartOf(element, value));
     }
 
     @Override
-    public Iterable<TValue> getAtomsOf(TValue value) {
+    public SortedSet<TValue> getAtomsOf(TValue value) {
         return filter(element -> isAtomOf(element,value));
     }
 
     @Override
-    public Iterable<TValue> filter(Predicate<TValue> predicate) {
+    public SortedSet<TValue> filter(Predicate<TValue> predicate) {
         return binaryRelation.getDomainElements(predicate);
     }
 }

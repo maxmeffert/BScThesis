@@ -5,6 +5,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinary
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKB;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tuples.IPair;
 
 public class CorrespondenceAnalyzer implements ICorrespondenceAnalyzer {
 
@@ -16,11 +17,10 @@ public class CorrespondenceAnalyzer implements ICorrespondenceAnalyzer {
         this.fragmentKBFactory = fragmentKBFactory;
     }
 
-    private boolean correspondsTo(IFragmentAST fragmentAST1, IFragmentKB fragmentKB1, IFragmentAST fragmentAST2, IFragmentKB fragmentKB2) {
-        Iterable<IFragmentAST> fragmentsOfF1 = fragmentKB1.getFragmentsOf(fragmentAST1);
-        Iterable<IFragmentAST> fragmentsOfF2 = fragmentKB2.getFragmentsOf(fragmentAST2);
-//                    boolean correspondsTo = fragmentsOfF1.all( ff1 -> fragmentsOfF2.any( ff2 -> similarity.contains(ff1,ff2)));
-        return false;
+    private boolean correspondsTo(IBinaryRelation<IFragmentAST> similarities, IFragmentAST fragmentAST1, IFragmentKB fragmentKB1, IFragmentAST fragmentAST2, IFragmentKB fragmentKB2) {
+        return similarities.contains(fragmentAST1, fragmentAST2)
+                && fragmentKB1.anyFragmentsOf(fragmentAST1, f1 -> fragmentKB2.anyFragmentsOf(fragmentAST2, f2 -> similarities.contains(f1,f2)))
+                && fragmentKB2.anyFragmentsOf(fragmentAST2, f2 -> fragmentKB1.anyFragmentsOf(fragmentAST1, f1 -> similarities.contains(f1,f2)));
     }
 
 
@@ -28,12 +28,12 @@ public class CorrespondenceAnalyzer implements ICorrespondenceAnalyzer {
         IBinaryRelation<IFragmentAST> correspondences = createBinaryRelation();
         for (IFragmentAST fragmentAST1 : fragmentKB1.getFragments()) {
             for (IFragmentAST fragmentAST2 : fragmentKB2.getFragments()) {
-                if (similarities.contains(fragmentAST1, fragmentAST2)
-                        && correspondsTo(fragmentAST1, fragmentKB1, fragmentAST2, fragmentKB2)) {
+                if (correspondsTo(similarities, fragmentAST1, fragmentKB1, fragmentAST2, fragmentKB2)) {
                     correspondences.add(fragmentAST1, fragmentAST2);
                 }
             }
         }
+
         return correspondences;
     }
 

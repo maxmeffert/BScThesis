@@ -24,23 +24,23 @@ public class Main {
 
 		iccRecoveryScenarios.getJaxbCorrespondences(java8Artifact, xmlArtifact);
 
-		IDiGraph<Integer> diGraph = new DiGraph<>();
-		diGraph.addEdge(1,2);
-		diGraph.addEdge(2,3);
-		diGraph.addEdge(2,1);
-
-		IDiGraph<Integer> reflexiveClosure = diGraph.getReflexiveClosure();
-		IDiGraph<Integer> transitiveClosure = diGraph.getTransitiveClosure();
-
-		IBinaryRelation<Integer> br = new BinaryRelationFactory(new DiGraphFactory()).newBinaryRelation();
-		br.add(1,2);
-		br.add(2,3);
-		br.add(2,1);
-		br.remove(3,4);
-
-		System.out.println(br);
-		System.out.println(br.getReflexiveClosure());
-		System.out.println(br.getTransitiveClosure());
+//		IDiGraph<Integer> diGraph = new DiGraph<>();
+//		diGraph.addEdge(1,2);
+//		diGraph.addEdge(2,3);
+//		diGraph.addEdge(2,1);
+//
+//		IDiGraph<Integer> reflexiveClosure = diGraph.getReflexiveClosure();
+//		IDiGraph<Integer> transitiveClosure = diGraph.getTransitiveClosure();
+//
+//		IBinaryRelation<Integer> br = new BinaryRelationFactory(new DiGraphFactory()).newBinaryRelation();
+//		br.add(1,2);
+//		br.add(2,3);
+//		br.add(2,1);
+//		br.remove(3,4);
+//
+//		System.out.println(br);
+//		System.out.println(br.getReflexiveClosure());
+//		System.out.println(br.getTransitiveClosure());
 
  	}
 
