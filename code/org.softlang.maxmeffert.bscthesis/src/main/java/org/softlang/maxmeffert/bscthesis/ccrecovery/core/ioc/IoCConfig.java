@@ -7,11 +7,11 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinary
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.CorrespondenceAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.CorrespondenceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraphFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraphFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.FragmentASTAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.FragmentKBBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.FragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBBuilderFactory;
@@ -22,8 +22,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserResultFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserResultFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.FragmentASTAnalyzerFactory;
 
 public class IoCConfig extends AbstractModule {
     @Override
@@ -33,10 +31,14 @@ public class IoCConfig extends AbstractModule {
         configureConformances();
         configureCorrespondences();
         configureFragments();
-        configureGraphs();
+        configureDiGraphs();
         configureMereologies();
         configureParsers();
         configureSimilarities();
+        configureBinaryRelations();
+    }
+
+    private void configureBinaryRelations() {
         bind(IBinaryRelationFactory.class).to(BinaryRelationFactory.class);
     }
 
@@ -62,7 +64,6 @@ public class IoCConfig extends AbstractModule {
 
     private void configureCorrespondences() {
         bind(ICorrespondenceAnalyzerFactory.class).to(CorrespondenceAnalyzerFactory.class);
-        bind(ICorrespondenceFactory.class).to(CorrespondenceFactory.class);
     }
 
     private void configureFragments() {
@@ -70,7 +71,7 @@ public class IoCConfig extends AbstractModule {
         bind(IFragmentKBBuilderFactory.class).to(FragmentKBBuilderFactory.class);
     }
 
-    private void configureGraphs() {
+    private void configureDiGraphs() {
         bind(IDiGraphFactory.class).to(DiGraphFactory.class);
     }
 
