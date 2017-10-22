@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies;
 
 import com.google.common.collect.Iterables;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraph;
 
 import java.util.Optional;
 import java.util.function.Predicate;

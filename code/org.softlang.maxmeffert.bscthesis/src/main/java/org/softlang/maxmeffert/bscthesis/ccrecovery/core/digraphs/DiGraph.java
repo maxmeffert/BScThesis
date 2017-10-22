@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
@@ -9,7 +9,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuple
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.function.Predicate;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class DiGraph<TValue extends Comparable<TValue>>  implements IDiGraph<TValue> {

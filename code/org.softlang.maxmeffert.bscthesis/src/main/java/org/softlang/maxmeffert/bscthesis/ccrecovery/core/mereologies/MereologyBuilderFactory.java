@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraphFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraphFactory;
 
 public class MereologyBuilderFactory implements IMereologyBuilderFactory {
 

@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs;
 
 public class DiGraphSourceIterator<TValue extends Comparable<TValue>> extends DiGraphIterator<TValue> {
 

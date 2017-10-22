@@ -1,7 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
-
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.DiGraphIterator;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs;
 
 public class DiGraphTargetIterator<TValue extends Comparable<TValue>> extends DiGraphIterator {
 

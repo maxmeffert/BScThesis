@@ -1,15 +1,10 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.DiGraph;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.CCRecoveryScenarios;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 public class Main {
 

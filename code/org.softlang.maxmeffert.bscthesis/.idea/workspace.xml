@@ -2,66 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a94f89d9-8b1d-4d84-bc1a-7708f7fa2d16" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphIterator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphSourceIterator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphTargetIterator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/DiGraph.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/DiGraphNode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IDiGraph.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IDiGraphNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/AbstractGraph.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/AbstractGraph.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/AbstractGraphNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/AbstractGraphNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/DiGraphBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphBuilderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/DiGraphBuilderFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphNodeBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/DiGraphNodeBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphNodeBuilderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/DiGraphNodeBuilderFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/Graph.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/Graph.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/GraphBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/GraphBuilderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphBuilderFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/GraphBuilders.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphBuilders.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/GraphNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/GraphNodeBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphNodeBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/GraphNodeBuilderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphNodeBuilderFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IDiGraphBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphBuilderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IDiGraphBuilderFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphNodeBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IDiGraphNodeBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphNodeBuilderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IDiGraphNodeBuilderFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IGraph.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraph.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IGraphBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraphBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IGraphBuilderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraphBuilderFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IGraphBuilders.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraphBuilders.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IGraphNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraphNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IGraphNodeBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraphNodeBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IGraphNodeBuilderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraphNodeBuilderFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraphFactory.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/DiGraphClosureFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/GraphClosureFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/GraphClosures.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/IDiGraphClosureFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/IGraphClosureFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/IGraphClosures.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/AbstractGraph.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/AbstractGraphNode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/DiGraph.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/DiGraphBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/DiGraphBuilderFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/DiGraphNode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/DiGraphNodeBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/DiGraphNodeBuilderFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/Graph.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphBuilderFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphBuilders.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphNode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphNodeBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphNodeBuilderFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IDiGraph.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IDiGraphBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IDiGraphBuilderFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IDiGraphNode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IDiGraphNodeBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IDiGraphNodeBuilderFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraph.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraphBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraphBuilderFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraphBuilders.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraphNode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraphNodeBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/IGraphNodeBuilderFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/iterators/GeneralGraphIterator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/iterators/GraphIterators.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/iterators/IGraphIterator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/iterators/IGraphIterators.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walkers/GraphWalker.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walkers/GraphWalkerFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walkers/IGraphWalker.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walkers/IGraphWalkerFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walkers/IGraphWalkerListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/DiGraphWalk.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/DiGraphWalkFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/GraphWalk.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/GraphWalkFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/GraphWalks.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/IDiGraphWalk.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/IDiGraphWalkFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/IGraphWalk.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/IGraphWalkFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/IGraphWalks.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraph.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraph.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphIterator.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraphIterator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraphNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphSourceIterator.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraphSourceIterator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphTargetIterator.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraphTargetIterator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraph.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/IDiGraph.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/IDiGraphFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/IDiGraphNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Main.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceAnalyzer.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceAnalyzer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragmentkbs/FragmentKB.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragmentkbs/FragmentKB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragmentkbs/IFragmentKB.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragmentkbs/IFragmentKB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraph.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraph.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/DiGraphClosureFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/DiGraphClosureFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/GraphClosureFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/GraphClosureFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/GraphClosures.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/GraphClosures.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/IDiGraphClosureFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/IDiGraphClosureFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/IGraphClosureFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/IGraphClosureFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/iterators/GraphIterators.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/iterators/GraphIterators.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/iterators/IGraphIterators.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/iterators/IGraphIterators.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walkers/GraphWalker.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walkers/GraphWalker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walkers/IGraphWalker.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walkers/IGraphWalker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/DiGraphWalk.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/DiGraphWalk.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/DiGraphWalkFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/DiGraphWalkFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/GraphWalk.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/GraphWalk.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/GraphWalkFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/GraphWalkFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/GraphWalks.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/GraphWalks.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/IDiGraphWalkFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/IDiGraphWalkFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/IGraphWalkFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/IGraphWalkFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/IGraphWalks.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/traversal/walks/IGraphWalks.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/mereologies/IMereology.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/mereologies/IMereology.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/mereologies/Mereology.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/mereologies/Mereology.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/mereologies/MereologyBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/mereologies/MereologyBuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/mereologies/MereologyBuilderFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/mereologies/MereologyBuilderFactory.java" />
@@ -87,36 +91,36 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="DiGraph.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraph.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraph.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="25" column="105" lean-forward="false" selection-start-line="25" selection-start-column="105" selection-end-line="25" selection-end-column="105" />
+              <caret line="24" column="105" lean-forward="false" selection-start-line="24" selection-start-column="105" selection-end-line="24" selection-end-column="105" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#824#825#0" expanded="true" />
-                <element signature="e#861#862#0" expanded="true" />
-                <element signature="e#1642#1643#0" expanded="true" />
-                <element signature="e#1698#1699#0" expanded="true" />
-                <element signature="e#1774#1775#0" expanded="true" />
-                <element signature="e#1830#1831#0" expanded="true" />
-                <element signature="e#1903#1904#0" expanded="true" />
-                <element signature="e#1972#1973#0" expanded="true" />
-                <element signature="e#2045#2046#0" expanded="true" />
-                <element signature="e#2114#2115#0" expanded="true" />
-                <element signature="e#2670#2671#0" expanded="true" />
-                <element signature="e#2728#2729#0" expanded="true" />
-                <element signature="e#2948#2949#0" expanded="true" />
-                <element signature="e#2976#2977#0" expanded="true" />
-                <element signature="e#3034#3035#0" expanded="true" />
-                <element signature="e#3081#3082#0" expanded="true" />
-                <element signature="e#3376#3377#0" expanded="true" />
-                <element signature="e#3404#3405#0" expanded="true" />
-                <element signature="e#3478#3479#0" expanded="true" />
-                <element signature="e#3506#3507#0" expanded="true" />
-                <element signature="e#3581#3582#0" expanded="true" />
-                <element signature="e#3609#3610#0" expanded="true" />
-                <element signature="e#4802#4803#0" expanded="true" />
-                <element signature="e#4869#4870#0" expanded="true" />
+                <element signature="e#791#792#0" expanded="true" />
+                <element signature="e#828#829#0" expanded="true" />
+                <element signature="e#1609#1610#0" expanded="true" />
+                <element signature="e#1665#1666#0" expanded="true" />
+                <element signature="e#1741#1742#0" expanded="true" />
+                <element signature="e#1797#1798#0" expanded="true" />
+                <element signature="e#1870#1871#0" expanded="true" />
+                <element signature="e#1939#1940#0" expanded="true" />
+                <element signature="e#2012#2013#0" expanded="true" />
+                <element signature="e#2081#2082#0" expanded="true" />
+                <element signature="e#2637#2638#0" expanded="true" />
+                <element signature="e#2695#2696#0" expanded="true" />
+                <element signature="e#2915#2916#0" expanded="true" />
+                <element signature="e#2943#2944#0" expanded="true" />
+                <element signature="e#3001#3002#0" expanded="true" />
+                <element signature="e#3048#3049#0" expanded="true" />
+                <element signature="e#3343#3344#0" expanded="true" />
+                <element signature="e#3371#3372#0" expanded="true" />
+                <element signature="e#3445#3446#0" expanded="true" />
+                <element signature="e#3473#3474#0" expanded="true" />
+                <element signature="e#3548#3549#0" expanded="true" />
+                <element signature="e#3576#3577#0" expanded="true" />
+                <element signature="e#4769#4770#0" expanded="true" />
+                <element signature="e#4836#4837#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,8 +133,8 @@
               <caret line="89" column="32" lean-forward="false" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1034#1035#0" expanded="true" />
-                <element signature="e#1101#1102#0" expanded="true" />
+                <element signature="e#1036#1037#0" expanded="true" />
+                <element signature="e#1103#1104#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,26 +159,55 @@
             <state relative-caret-position="210">
               <caret line="14" column="61" lean-forward="true" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
               <folding>
-                <element signature="e#348#349#0" expanded="true" />
-                <element signature="e#400#401#0" expanded="true" />
-                <element signature="e#567#575#0" expanded="true" />
+                <element signature="e#350#351#0" expanded="true" />
+                <element signature="e#402#403#0" expanded="true" />
+                <element signature="e#569#577#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CorrespondenceAnalyzer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CorrespondenceAnalyzer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IoCConfig.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="84" column="61" lean-forward="false" selection-start-line="84" selection-start-column="61" selection-end-line="84" selection-end-column="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4741#4742#0" expanded="true" />
+                <element signature="e#4809#4810#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DiGraphFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraphFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="82" lean-forward="false" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
-              <folding />
+              <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+              <folding>
+                <element signature="e#217#218#0" expanded="true" />
+                <element signature="e#255#256#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="IDiGraphFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphFactory.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/IDiGraphFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
               <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
@@ -189,27 +222,17 @@
             <state relative-caret-position="255">
               <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding>
-                <element signature="e#351#352#0" expanded="true" />
-                <element signature="e#389#390#0" expanded="true" />
-                <element signature="e#637#638#0" expanded="true" />
-                <element signature="e#716#717#0" expanded="true" />
+                <element signature="e#353#354#0" expanded="true" />
+                <element signature="e#391#392#0" expanded="true" />
+                <element signature="e#639#640#0" expanded="true" />
+                <element signature="e#718#719#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IDiGraphNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="IDiGraph.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraph.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/IDiGraph.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
               <caret line="8" column="59" lean-forward="false" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
@@ -220,23 +243,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DiGraphClosureFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/closures/DiGraphClosureFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-570">
-              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -636,7 +649,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/CCScenarios.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ccrecovery/ICCRecovery.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/jaxb/JaxbNamingSimilarityHeuristic.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/jaxb/JaxbCorrespondenceNamingSimilarityHeuristic.java" />
@@ -661,7 +673,6 @@
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/BaseFragmentFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/BaseFragmentASTFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragmentasts/BaseFragmentASTFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java" />
         <option value="$PROJECT_DIR$/src/101companies/java/softlanginc/model/Company.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/softlanginc/model/Company.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/old/GraphBuilder.java" />
@@ -687,6 +698,8 @@
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/mereologies/MereologyBuilderFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceAnalyzer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java" />
       </list>
     </option>
   </component>
@@ -772,7 +785,18 @@
               <item name="softlang" type="462c0819:PsiDirectoryNode" />
               <item name="ccrecovery" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="graphs" type="462c0819:PsiDirectoryNode" />
+              <item name="digraphs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="softlang" type="462c0819:PsiDirectoryNode" />
+              <item name="ccrecovery" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="ioc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
@@ -1041,12 +1065,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28663793" sideWeight="0.50426894" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28663793" sideWeight="0.49573106" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28663793" sideWeight="0.49573106" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32004312" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23639274" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23639274" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286638" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1106,22 +1130,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/utils/collections/CollectionUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="14" lean-forward="false" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/companies/model/Company.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1192,10 +1200,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding>
-            <element signature="e#719#720#0" expanded="false" />
-            <element signature="e#770#771#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1203,12 +1208,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding>
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#279#280#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1264,12 +1264,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#718#719#0" expanded="false" />
-            <element signature="e#753#754#0" expanded="false" />
-            <element signature="e#829#830#0" expanded="false" />
-            <element signature="e#892#893#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1301,10 +1296,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="e#796#797#0" expanded="false" />
-            <element signature="e#884#885#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1376,10 +1368,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding>
-            <element signature="e#816#817#0" expanded="false" />
-            <element signature="e#904#905#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1391,25 +1380,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphTargetIterator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraphTargetIterator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#235#236#0" expanded="true" />
+            <element signature="e#272#273#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphSourceIterator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraphSourceIterator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
           <folding>
-            <element signature="e#245#246#0" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
+            <element signature="e#247#248#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1438,14 +1427,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphIterator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraphIterator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#752#753#0" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
+            <element signature="e#754#755#0" expanded="true" />
+            <element signature="e#797#798#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1458,23 +1447,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraphNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraphNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="58" column="31" lean-forward="false" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1110#1111#0" expanded="true" />
-            <element signature="e#1161#1162#0" expanded="true" />
-            <element signature="e#1223#1224#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1325#1326#0" expanded="true" />
-            <element signature="e#1365#1366#0" expanded="true" />
+            <element signature="e#1112#1113#0" expanded="true" />
+            <element signature="e#1163#1164#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+            <element signature="e#1265#1266#0" expanded="true" />
+            <element signature="e#1327#1328#0" expanded="true" />
+            <element signature="e#1367#1368#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/IDiGraphNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
@@ -1495,15 +1484,15 @@
         <state relative-caret-position="255">
           <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding>
-            <element signature="e#351#352#0" expanded="true" />
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#637#638#0" expanded="true" />
-            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#718#719#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraph.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/IDiGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="59" lean-forward="false" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
@@ -1513,36 +1502,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/DiGraph.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="25" column="105" lean-forward="false" selection-start-line="25" selection-start-column="105" selection-end-line="25" selection-end-column="105" />
+          <caret line="24" column="105" lean-forward="false" selection-start-line="24" selection-start-column="105" selection-end-line="24" selection-end-column="105" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#824#825#0" expanded="true" />
-            <element signature="e#861#862#0" expanded="true" />
-            <element signature="e#1642#1643#0" expanded="true" />
-            <element signature="e#1698#1699#0" expanded="true" />
-            <element signature="e#1774#1775#0" expanded="true" />
-            <element signature="e#1830#1831#0" expanded="true" />
-            <element signature="e#1903#1904#0" expanded="true" />
-            <element signature="e#1972#1973#0" expanded="true" />
-            <element signature="e#2045#2046#0" expanded="true" />
-            <element signature="e#2114#2115#0" expanded="true" />
-            <element signature="e#2670#2671#0" expanded="true" />
-            <element signature="e#2728#2729#0" expanded="true" />
-            <element signature="e#2948#2949#0" expanded="true" />
-            <element signature="e#2976#2977#0" expanded="true" />
-            <element signature="e#3034#3035#0" expanded="true" />
-            <element signature="e#3081#3082#0" expanded="true" />
-            <element signature="e#3376#3377#0" expanded="true" />
-            <element signature="e#3404#3405#0" expanded="true" />
-            <element signature="e#3478#3479#0" expanded="true" />
-            <element signature="e#3506#3507#0" expanded="true" />
-            <element signature="e#3581#3582#0" expanded="true" />
-            <element signature="e#3609#3610#0" expanded="true" />
-            <element signature="e#4802#4803#0" expanded="true" />
-            <element signature="e#4869#4870#0" expanded="true" />
+            <element signature="e#791#792#0" expanded="true" />
+            <element signature="e#828#829#0" expanded="true" />
+            <element signature="e#1609#1610#0" expanded="true" />
+            <element signature="e#1665#1666#0" expanded="true" />
+            <element signature="e#1741#1742#0" expanded="true" />
+            <element signature="e#1797#1798#0" expanded="true" />
+            <element signature="e#1870#1871#0" expanded="true" />
+            <element signature="e#1939#1940#0" expanded="true" />
+            <element signature="e#2012#2013#0" expanded="true" />
+            <element signature="e#2081#2082#0" expanded="true" />
+            <element signature="e#2637#2638#0" expanded="true" />
+            <element signature="e#2695#2696#0" expanded="true" />
+            <element signature="e#2915#2916#0" expanded="true" />
+            <element signature="e#2943#2944#0" expanded="true" />
+            <element signature="e#3001#3002#0" expanded="true" />
+            <element signature="e#3048#3049#0" expanded="true" />
+            <element signature="e#3343#3344#0" expanded="true" />
+            <element signature="e#3371#3372#0" expanded="true" />
+            <element signature="e#3445#3446#0" expanded="true" />
+            <element signature="e#3473#3474#0" expanded="true" />
+            <element signature="e#3548#3549#0" expanded="true" />
+            <element signature="e#3576#3577#0" expanded="true" />
+            <element signature="e#4769#4770#0" expanded="true" />
+            <element signature="e#4836#4837#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1553,8 +1542,8 @@
           <caret line="89" column="32" lean-forward="false" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1034#1035#0" expanded="true" />
-            <element signature="e#1101#1102#0" expanded="true" />
+            <element signature="e#1036#1037#0" expanded="true" />
+            <element signature="e#1103#1104#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1570,7 +1559,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/graphs/IDiGraphFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/IDiGraphFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
@@ -1583,18 +1572,43 @@
         <state relative-caret-position="210">
           <caret line="14" column="61" lean-forward="true" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
           <folding>
-            <element signature="e#348#349#0" expanded="true" />
-            <element signature="e#400#401#0" expanded="true" />
-            <element signature="e#567#575#0" expanded="true" />
+            <element signature="e#350#351#0" expanded="true" />
+            <element signature="e#402#403#0" expanded="true" />
+            <element signature="e#569#577#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/correspondences/CorrespondenceAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/digraphs/DiGraphFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="82" lean-forward="false" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
-          <folding />
+          <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+          <folding>
+            <element signature="e#217#218#0" expanded="true" />
+            <element signature="e#255#256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/ioc/IoCConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="84" column="61" lean-forward="false" selection-start-line="84" selection-start-column="61" selection-end-line="84" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4741#4742#0" expanded="true" />
+            <element signature="e#4809#4810#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

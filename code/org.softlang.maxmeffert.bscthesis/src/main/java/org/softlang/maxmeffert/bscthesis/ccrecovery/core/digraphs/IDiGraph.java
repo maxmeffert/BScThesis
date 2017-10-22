@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IPair;
 

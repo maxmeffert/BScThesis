@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraph;
 
 public class MereologyBuilder<TValue extends Comparable<TValue>> implements IMereologyBuilder<TValue> {
 

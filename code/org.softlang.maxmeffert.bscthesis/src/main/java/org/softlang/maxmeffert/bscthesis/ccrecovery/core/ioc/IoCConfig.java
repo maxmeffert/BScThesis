@@ -12,13 +12,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.FragmentKBB
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.FragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.closures.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.old.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators.GraphIterators;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators.IGraphIterators;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walkers.GraphWalkerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walkers.IGraphWalkerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walks.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraphFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraphFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.MereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
@@ -87,26 +82,7 @@ public class IoCConfig extends AbstractModule {
     }
 
     private void configureGraphs() {
-        bind(IGraphBuilderFactory.class).to(GraphBuilderFactory.class);
-        bind(IGraphNodeBuilderFactory.class).to(GraphNodeBuilderFactory.class);
-
-        bind(IDiGraphBuilderFactory.class).to(DiGraphBuilderFactory.class);
-        bind(IDiGraphNodeBuilderFactory.class).to(DiGraphNodeBuilderFactory.class);
-
-        bind(IGraphBuilders.class).to(GraphBuilders.class);
-
-        bind(IGraphIterators.class).to(GraphIterators.class);
-
-        bind(IGraphWalkerFactory.class).to(GraphWalkerFactory.class);
-
-        bind(IGraphWalkFactory.class).to(GraphWalkFactory.class);
-        bind(IDiGraphWalkFactory.class).to(DiGraphWalkFactory.class);
-        bind(IGraphWalks.class).to(GraphWalks.class);
-
-
-        bind(IGraphClosureFactory.class).to(GraphClosureFactory.class);
-        bind(IDiGraphClosureFactory.class).to(DiGraphClosureFactory.class);
-        bind(IGraphClosures.class).to(GraphClosures.class);
+        bind(IDiGraphFactory.class).to(DiGraphFactory.class);
     }
 
     private void configureMereologies() {

@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs;
 
 public interface IDiGraphNode<TValue extends Comparable<TValue>> {
     TValue getValue();

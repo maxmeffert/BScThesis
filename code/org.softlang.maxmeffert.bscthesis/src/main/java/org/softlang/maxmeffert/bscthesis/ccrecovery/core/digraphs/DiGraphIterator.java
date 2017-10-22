@@ -1,21 +1,24 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs;
 
+import com.google.common.collect.Sets;
+
+import java.util.Iterator;
 import java.util.SortedSet;
 import java.util.Stack;
-import java.util.function.Function;
 
-public class GeneralGraphIterator<TValue extends Comparable<TValue>> implements IGraphIterator<TValue> {
+public abstract class DiGraphIterator<TValue extends Comparable<TValue>> implements Iterator<TValue> {
 
-    private final Function<TValue, Iterable<TValue>> nodeProvider;
-    private final Stack<TValue> nextNodes;
-    private final SortedSet<TValue> discoveredNodes;
+    protected abstract Iterable<TValue> getNextNodes(IDiGraph<TValue> diGraph, TValue currentNode);
 
-    public GeneralGraphIterator(Function<TValue, Iterable<TValue>> nodeProvider, Stack<TValue> nextNodes, SortedSet<TValue> discoveredNodes) {
-        this.nodeProvider = nodeProvider;
-        this.nextNodes = nextNodes;
-        this.discoveredNodes = discoveredNodes;
+    private final IDiGraph<TValue> diGraph;
+
+    private final Stack<TValue> nextNodes = new Stack<>();
+    private final SortedSet<TValue> discoveredNodes = Sets.newTreeSet();
+
+    public DiGraphIterator(IDiGraph<TValue> diGraph, TValue start) {
+        this.diGraph = diGraph;
+        nextNodes.push(start);
     }
-
 
     @Override
     public boolean hasNext() {
@@ -31,7 +34,7 @@ public class GeneralGraphIterator<TValue extends Comparable<TValue>> implements 
     }
 
     private void pushNextNodesOntoStack(TValue node) {
-        for(TValue adjacentNode : nodeProvider.apply(node)) {
+        for(TValue adjacentNode : getNextNodes(diGraph, node)) {
             if (isNotMarkedAsDiscovered(adjacentNode)) {
                 nextNodes.push(adjacentNode);
             }
