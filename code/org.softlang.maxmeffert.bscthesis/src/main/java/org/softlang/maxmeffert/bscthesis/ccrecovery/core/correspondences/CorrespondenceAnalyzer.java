@@ -1,9 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKB;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -17,7 +17,7 @@ public class CorrespondenceAnalyzer implements ICorrespondenceAnalyzer {
     }
 
     @Override
-    public Set<ICorrespondence> analyze(ISimilarity similarity, IFragmentAST fragment1, IFragmentAST fragment2) {
+    public Set<ICorrespondence> analyze(IBinaryRelation<IFragmentAST> similarity, IFragmentAST fragment1, IFragmentAST fragment2) {
         Set<ICorrespondence> correspondences = new TreeSet<>();
         IFragmentKB fragmentKB1 = fragmentKBFactory.newFragmentKB(fragment1);
         IFragmentKB fragmentKB2 = fragmentKBFactory.newFragmentKB(fragment2);
