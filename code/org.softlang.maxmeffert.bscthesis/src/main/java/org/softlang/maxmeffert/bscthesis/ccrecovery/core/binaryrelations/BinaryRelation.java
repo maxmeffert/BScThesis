@@ -2,13 +2,13 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations;
 
 import com.google.common.collect.Sets;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraph;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tuples.IPair;
 
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class BinaryRelation<T extends Comparable<T>> extends SortedSetProxy<IComparablePair<T,T>> implements IBinaryRelation<T> {
+public class BinaryRelation<T extends Comparable<T>> extends SortedSetProxy<IPair<T,T>> implements IBinaryRelation<T> {
 
     private final IDiGraph<T> diGraph;
 
@@ -24,7 +24,7 @@ public class BinaryRelation<T extends Comparable<T>> extends SortedSetProxy<ICom
     }
 
     @Override
-    public boolean add(IComparablePair<T, T> ttiComparablePair) {
+    public boolean add(IPair<T, T> ttiComparablePair) {
         boolean changed = diGraph.addEdge(ttiComparablePair);
         updateEdges();
         return changed;
@@ -33,17 +33,17 @@ public class BinaryRelation<T extends Comparable<T>> extends SortedSetProxy<ICom
     @Override
     public boolean remove(Object obj) {
         boolean changed = false;
-        if (obj instanceof IComparablePair) {
-            changed = diGraph.removeEdge((IComparablePair<T, T>) obj);
+        if (obj instanceof IPair) {
+            changed = diGraph.removeEdge((IPair<T, T>) obj);
             updateEdges();
         }
         return changed;
     }
 
     @Override
-    public boolean addAll(Collection<? extends IComparablePair<T, T>> collection) {
+    public boolean addAll(Collection<? extends IPair<T, T>> collection) {
         boolean changed = false;
-        for (IComparablePair<T,T> edge : collection) {
+        for (IPair<T,T> edge : collection) {
             changed |= add(edge);
         }
         return changed;

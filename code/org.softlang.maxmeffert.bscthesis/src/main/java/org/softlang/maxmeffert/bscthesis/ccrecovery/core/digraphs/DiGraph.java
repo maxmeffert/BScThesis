@@ -2,8 +2,8 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.ComparablePair;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tuples.Pair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tuples.IPair;
 
 import java.util.SortedMap;
 import java.util.SortedSet;
@@ -25,14 +25,14 @@ public class DiGraph<TValue extends Comparable<TValue>>  implements IDiGraph<TVa
     }
 
     @Override
-    public SortedSet<IComparablePair<TValue, TValue>> getEdges() {
-        SortedSet<IComparablePair<TValue,TValue>> edges = Sets.newTreeSet();
+    public SortedSet<IPair<TValue, TValue>> getEdges() {
+        SortedSet<IPair<TValue,TValue>> edges = Sets.newTreeSet();
         for(TValue node : getNodes()) {
             for(TValue source : getSourceNodesOf(node)) {
-                edges.add(new ComparablePair<>(source, node));
+                edges.add(new Pair<>(source, node));
             }
             for (TValue target: getTargetNodesOf(node)) {
-                edges.add(new ComparablePair<>(node, target));
+                edges.add(new Pair<>(node, target));
             }
         }
         return edges;
@@ -75,14 +75,14 @@ public class DiGraph<TValue extends Comparable<TValue>>  implements IDiGraph<TVa
     }
 
     @Override
-    public boolean addEdge(IComparablePair<TValue, TValue> edge) {
+    public boolean addEdge(IPair<TValue, TValue> edge) {
         return addEdge(edge.getFirst(), edge.getSecond());
     }
 
     @Override
-    public boolean addEdges(Iterable<? extends IComparablePair<TValue, TValue>> edges) {
+    public boolean addEdges(Iterable<? extends IPair<TValue, TValue>> edges) {
         boolean changed = false;
-        for (IComparablePair<TValue,TValue> edge : edges) {
+        for (IPair<TValue,TValue> edge : edges) {
             changed |= addEdge(edge);
         }
         return changed;
@@ -107,14 +107,14 @@ public class DiGraph<TValue extends Comparable<TValue>>  implements IDiGraph<TVa
     }
 
     @Override
-    public boolean removeEdge(IComparablePair<TValue, TValue> edge) {
+    public boolean removeEdge(IPair<TValue, TValue> edge) {
         return removeEdge(edge.getFirst(), edge.getSecond());
     }
 
     @Override
-    public boolean removeEdges(Iterable<? extends IComparablePair<TValue, TValue>> edges) {
+    public boolean removeEdges(Iterable<? extends IPair<TValue, TValue>> edges) {
         boolean changed = false;
-        for (IComparablePair<TValue,TValue> edge : edges) {
+        for (IPair<TValue,TValue> edge : edges) {
             changed |= removeEdge(edge);
         }
         return changed;
