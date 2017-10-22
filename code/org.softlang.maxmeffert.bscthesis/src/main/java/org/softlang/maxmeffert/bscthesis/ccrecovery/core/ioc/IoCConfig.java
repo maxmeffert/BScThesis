@@ -28,8 +28,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.Similariti
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.SimilarityAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.CollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.ComparableUtils;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.IComparableUtils;
 
 public class IoCConfig extends AbstractModule {
     @Override
@@ -94,7 +92,6 @@ public class IoCConfig extends AbstractModule {
 
     private void configureUtils() {
         bind(ICollectionFactory.class).to(CollectionFactory.class);
-        bind(IComparableUtils.class).to(ComparableUtils.class);
     }
 
 }
