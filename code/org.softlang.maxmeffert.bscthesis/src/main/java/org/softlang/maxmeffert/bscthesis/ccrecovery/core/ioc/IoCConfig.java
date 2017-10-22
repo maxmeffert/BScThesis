@@ -22,8 +22,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserResultFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserResultFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.SimilarityAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.FragmentASTAnalyzerFactory;
 
 public class IoCConfig extends AbstractModule {
     @Override
@@ -41,7 +41,7 @@ public class IoCConfig extends AbstractModule {
     }
 
     private void configureSimilarities() {
-        bind(ISimilarityAnalyzerFactory.class).to(SimilarityAnalyzerFactory.class);
+        bind(IFragmentASTAnalyzerFactory.class).to(FragmentASTAnalyzerFactory.class);
     }
 
     private void configureAntlr() {

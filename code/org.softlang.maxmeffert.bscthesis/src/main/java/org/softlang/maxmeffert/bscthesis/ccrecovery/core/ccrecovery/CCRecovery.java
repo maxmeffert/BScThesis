@@ -10,8 +10,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentA
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc.IoC;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzer;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTAnalyzer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTAnalyzerFactory;
 
 public class CCRecovery implements ICCRecovery {
 
@@ -20,10 +20,10 @@ public class CCRecovery implements ICCRecovery {
     }
 
     private final IParserFactory parserFactory;
-    private final ISimilarityAnalyzerFactory similarityAnalyzerFactory;
+    private final IFragmentASTAnalyzerFactory similarityAnalyzerFactory;
 
     @Inject
-    public CCRecovery(IParserFactory parserFactory, ISimilarityAnalyzerFactory similarityAnalyzerFactory) {
+    public CCRecovery(IParserFactory parserFactory, IFragmentASTAnalyzerFactory similarityAnalyzerFactory) {
         this.parserFactory = parserFactory;
         this.similarityAnalyzerFactory = similarityAnalyzerFactory;
     }
@@ -34,8 +34,8 @@ public class CCRecovery implements ICCRecovery {
     }
 
     @Override
-    public ISimilarityAnalyzer getSimilarityAnalyzer() {
-        return similarityAnalyzerFactory.newSimilarityAnalyzer();
+    public IFragmentASTAnalyzer getFragmentASTAnalyzer() {
+        return similarityAnalyzerFactory.newFragmentASTAnalyzer();
     }
 
 

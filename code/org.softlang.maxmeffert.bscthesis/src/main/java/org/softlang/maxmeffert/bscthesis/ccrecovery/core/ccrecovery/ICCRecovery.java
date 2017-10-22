@@ -7,12 +7,12 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParseTreeFa
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityAnalyzer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTAnalyzer;
 
 public interface ICCRecovery {
 
     <TLexer extends Lexer, TParser extends Parser> IParser getParser(IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory, IFragmentASTBuildingListener fragmentBuildingListener);
 
-    ISimilarityAnalyzer getSimilarityAnalyzer();
+    IFragmentASTAnalyzer getFragmentASTAnalyzer();
 
 }
