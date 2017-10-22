@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walks;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.old.IDiGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.old.IGraph;
 
 public interface IGraphWalks {
     <TValue extends Comparable<TValue>> IGraphWalk<TValue> newGraphWalk(IGraph<TValue> graph, TValue startNode);

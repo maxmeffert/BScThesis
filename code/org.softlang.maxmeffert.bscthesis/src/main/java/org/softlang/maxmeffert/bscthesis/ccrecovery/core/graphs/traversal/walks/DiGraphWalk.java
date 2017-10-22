@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walks;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.old.IDiGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators.IGraphIterators;
 
 import java.util.Iterator;

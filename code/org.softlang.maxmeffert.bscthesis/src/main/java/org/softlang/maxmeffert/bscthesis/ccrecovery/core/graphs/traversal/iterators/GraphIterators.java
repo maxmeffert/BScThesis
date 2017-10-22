@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.old.IDiGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.old.IGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 
 public class GraphIterators implements IGraphIterators {

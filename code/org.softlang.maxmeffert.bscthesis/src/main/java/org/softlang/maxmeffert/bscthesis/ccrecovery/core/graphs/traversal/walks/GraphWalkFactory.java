@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walks;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.old.IGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.iterators.IGraphIterators;
 
 public class GraphWalkFactory implements IGraphWalkFactory {

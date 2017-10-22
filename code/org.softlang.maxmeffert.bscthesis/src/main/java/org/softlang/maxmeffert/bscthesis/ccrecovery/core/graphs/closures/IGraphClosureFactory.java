@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.closures;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.old.IGraph;
 
 public interface IGraphClosureFactory {
     <TValue extends Comparable<TValue>> IGraph<TValue> reflexiveGraphClosureOf(IGraph<TValue> graph);

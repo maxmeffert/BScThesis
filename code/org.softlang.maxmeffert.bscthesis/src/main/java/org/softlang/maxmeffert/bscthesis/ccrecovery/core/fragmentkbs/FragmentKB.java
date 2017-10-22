@@ -2,7 +2,6 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereology;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
 public class FragmentKB implements IFragmentKB {
 
@@ -13,17 +12,17 @@ public class FragmentKB implements IFragmentKB {
     }
 
     @Override
-    public IView<IFragmentAST> getFragments() {
+    public Iterable<IFragmentAST> getFragments() {
         return mereology.getElements();
     }
 
     @Override
-    public IView<IFragmentAST> getFragmentsOf(IFragmentAST fragment) {
+    public Iterable<IFragmentAST> getFragmentsOf(IFragmentAST fragment) {
         return mereology.getPartsOf(fragment);
     }
 
     @Override
-    public IView<IFragmentAST> getProperFragmentsOf(IFragmentAST fragment) {
+    public Iterable<IFragmentAST> getProperFragmentsOf(IFragmentAST fragment) {
         return mereology.getProperPartsOf(fragment);
     }
 

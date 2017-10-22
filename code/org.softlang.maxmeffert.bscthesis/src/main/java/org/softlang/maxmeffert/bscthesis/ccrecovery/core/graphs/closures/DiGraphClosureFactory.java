@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.closures;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraphBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.old.IDiGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.old.IDiGraphBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walks.IDiGraphWalkFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.IComparableUtils;

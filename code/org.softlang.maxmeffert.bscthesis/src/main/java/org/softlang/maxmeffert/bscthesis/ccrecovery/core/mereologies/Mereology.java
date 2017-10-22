@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies;
 
+import com.google.common.collect.Iterables;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IDiGraph;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -21,12 +21,12 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
 
     @Override
     public boolean contains(TValue value) {
-        return diGraph.getNodes().contains(value);
+        return diGraph.hasNode(value);
     }
 
     @Override
     public boolean isPartOf(TValue part, TValue fusion) {
-        return diGraph.getSourceNodesOf(fusion).contains(part);
+        return diGraph.hasEdge(part, fusion);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
 
     @Override
     public boolean isAtomOf(TValue atom, TValue fusion) {
-        return getAtomsOf(fusion).contains(atom);
+        return Iterables.contains(getAtomsOf(fusion), atom);
     }
 
     @Override
@@ -61,51 +61,57 @@ public class Mereology<TValue extends Comparable<TValue>> implements IMereology<
 
     @Override
     public boolean all(Predicate<TValue> predicate) {
-        return diGraph.all(predicate);
+        return diGraph.allNodes(predicate);
     }
 
     @Override
     public boolean any(Predicate<TValue> predicate) {
-        return diGraph.any(predicate);
+        return diGraph.anyNodes(predicate);
     }
 
     @Override
     public boolean none(Predicate<TValue> predicate) {
-        return diGraph.none(predicate);
+        return diGraph.noneNodes(predicate);
     }
 
     @Override
     public Optional<TValue> getBottom() {
-        return filter(element -> isBottom(element)).first();
+        for (TValue bottom : filter(element-> isBottom(element))) {
+            return Optional.of(bottom);
+        }
+        return Optional.empty();
     }
 
     @Override
     public Optional<TValue> getTop() {
-        return filter(element -> isTop(element)).first();
+        for (TValue top : filter(element-> isTop(element))) {
+            return Optional.of(top);
+        }
+        return Optional.empty();
     }
 
     @Override
-    public IView<TValue> getElements() {
+    public Iterable<TValue> getElements() {
         return diGraph.getNodes();
     }
 
     @Override
-    public IView<TValue> getProperPartsOf(TValue value) {
+    public Iterable<TValue> getProperPartsOf(TValue value) {
         return filter(element -> isProperPartOf(element, value));
     }
 
     @Override
-    public IView<TValue> getPartsOf(TValue value) {
+    public Iterable<TValue> getPartsOf(TValue value) {
         return filter(element -> isPartOf(element, value));
     }
 
     @Override
-    public IView<TValue> getAtomsOf(TValue value) {
+    public Iterable<TValue> getAtomsOf(TValue value) {
         return filter(element -> isAtomOf(element,value));
     }
 
     @Override
-    public IView<TValue> filter(Predicate<TValue> predicate) {
-        return diGraph.filterNodes(predicate);
+    public Iterable<TValue> filter(Predicate<TValue> predicate) {
+        return diGraph.getNodes(predicate);
     }
 }

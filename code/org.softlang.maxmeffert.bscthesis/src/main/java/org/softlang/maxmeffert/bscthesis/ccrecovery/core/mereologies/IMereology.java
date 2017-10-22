@@ -1,7 +1,5 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
-
 import java.util.Optional;
 import java.util.function.Predicate;
 
@@ -20,9 +18,9 @@ public interface IMereology<TValue extends Comparable<TValue>> {
 	boolean none(Predicate<TValue> predicate);
 	Optional<TValue> getBottom();
 	Optional<TValue> getTop();
-	IView<TValue> getElements();
-	IView<TValue> getProperPartsOf(TValue value);
-	IView<TValue> getPartsOf(TValue value);
-	IView<TValue> getAtomsOf(TValue value);
-	IView<TValue> filter(Predicate<TValue> predicate);
+	Iterable<TValue> getElements();
+	Iterable<TValue> getProperPartsOf(TValue value);
+	Iterable<TValue> getPartsOf(TValue value);
+	Iterable<TValue> getAtomsOf(TValue value);
+	Iterable<TValue> filter(Predicate<TValue> predicate);
 }

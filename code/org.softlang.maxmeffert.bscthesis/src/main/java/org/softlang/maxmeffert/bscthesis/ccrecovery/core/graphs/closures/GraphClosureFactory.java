@@ -1,13 +1,13 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.closures;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IGraph;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.old.IGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.traversal.walks.IGraphWalkFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.comparables.IComparableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.iterables.IIterableUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.IGraphBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs.old.IGraphBuilderFactory;
 
 import java.util.SortedSet;
 

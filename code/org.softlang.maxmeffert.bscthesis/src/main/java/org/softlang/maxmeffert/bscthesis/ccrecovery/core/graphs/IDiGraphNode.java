@@ -1,8 +1,13 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
-
-public interface IDiGraphNode<TValue extends Comparable<TValue>> extends IGraphNode<TValue> {
-    IView<TValue> getSourceNodes();
-    IView<TValue> getTargetNodes();
+public interface IDiGraphNode<TValue extends Comparable<TValue>> {
+    TValue getValue();
+    Iterable<TValue> getSourceNodes();
+    Iterable<TValue> getTargetNodes();
+    void addSourceNode(TValue value);
+    void addTargetNode(TValue value);
+    boolean hasSource(TValue source);
+    boolean hasTarget(TValue target);
+    boolean isSourceOf(TValue target);
+    boolean isTargetOf(TValue source);
 }

@@ -1,29 +1,17 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.graphs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
+import com.google.common.collect.Sets;
+
+import java.util.SortedSet;
 
 public class DiGraphNode<TValue extends Comparable<TValue>> implements IDiGraphNode<TValue> {
 
     private final TValue value;
-    private final IView<TValue> sourceNodes;
-    private final IView<TValue> targetNodes;
-    private final IView<TValue> adjacentNodes;
+    private final SortedSet<TValue> sourceNodes = Sets.newTreeSet();
+    private final SortedSet<TValue> targetNodes = Sets.newTreeSet();
 
-    public DiGraphNode(TValue value, IView<TValue> sourceNodes, IView<TValue> targetNodes, IView<TValue> adjacentNodes) {
+    public DiGraphNode(TValue value) {
         this.value = value;
-        this.sourceNodes = sourceNodes;
-        this.targetNodes = targetNodes;
-        this.adjacentNodes = adjacentNodes;
-    }
-
-    @Override
-    public IView<TValue> getSourceNodes() {
-        return sourceNodes;
-    }
-
-    @Override
-    public IView<TValue> getTargetNodes() {
-        return targetNodes;
     }
 
     @Override
@@ -32,12 +20,44 @@ public class DiGraphNode<TValue extends Comparable<TValue>> implements IDiGraphN
     }
 
     @Override
-    public IView<TValue> getAdjacentNodes() {
-        return adjacentNodes;
+    public Iterable<TValue> getSourceNodes() {
+        return sourceNodes;
     }
 
     @Override
-    public int compareTo(IGraphNode<TValue> iGraphNode) {
-        return getValue().compareTo(iGraphNode.getValue());
+    public Iterable<TValue> getTargetNodes() {
+        return targetNodes;
     }
+
+    @Override
+    public void addSourceNode(TValue value) {
+        sourceNodes.add(value);
+    }
+
+    @Override
+    public void addTargetNode(TValue value) {
+        targetNodes.add(value);
+    }
+
+    @Override
+    public boolean hasSource(TValue source) {
+        return sourceNodes.contains(source);
+    }
+
+    @Override
+    public boolean hasTarget(TValue target) {
+        return targetNodes.contains(target);
+    }
+
+    @Override
+    public boolean isSourceOf(TValue target) {
+        return hasTarget(target);
+    }
+
+    @Override
+    public boolean isTargetOf(TValue source) {
+        return hasSource(source);
+    }
+
+
 }

@@ -4,7 +4,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKB
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarity;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.views.IView;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -25,12 +24,12 @@ public class CorrespondenceAnalyzer implements ICorrespondenceAnalyzer {
         for (IFragmentAST f1 : fragmentKB1.getFragments()) {
             for (IFragmentAST f2 : fragmentKB2.getFragments()) {
                 if (similarity.contains(f1, f2)) {
-                    IView<IFragmentAST> fragmentsOfF1 = fragmentKB1.getFragmentsOf(f1);
-                    IView<IFragmentAST> fragmentsOfF2 = fragmentKB2.getFragmentsOf(f2);
-                    boolean correspondsTo = fragmentsOfF1.all( ff1 -> fragmentsOfF2.any( ff2 -> similarity.contains(ff1,ff2)));
-                    if (correspondsTo) {
-                        // add correspondence
-                    }
+                    Iterable<IFragmentAST> fragmentsOfF1 = fragmentKB1.getFragmentsOf(f1);
+                    Iterable<IFragmentAST> fragmentsOfF2 = fragmentKB2.getFragmentsOf(f2);
+//                    boolean correspondsTo = fragmentsOfF1.all( ff1 -> fragmentsOfF2.any( ff2 -> similarity.contains(ff1,ff2)));
+//                    if (correspondsTo) {
+//                        // add correspondence
+//                    }
                 }
             }
         }
