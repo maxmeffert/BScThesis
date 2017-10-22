@@ -26,8 +26,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarit
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.ISimilarityFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.SimilaritiyFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.similarities.SimilarityAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.CollectionFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.ICollectionFactory;
 
 public class IoCConfig extends AbstractModule {
     @Override
@@ -40,7 +38,6 @@ public class IoCConfig extends AbstractModule {
         configureGraphs();
         configureMereologies();
         configureParsers();
-        configureUtils();
         configureSimilarities();
         bind(IBinaryRelationFactory.class).to(BinaryRelationFactory.class);
     }
@@ -89,9 +86,5 @@ public class IoCConfig extends AbstractModule {
         bind(IParserFactory.class).to(ParserFactory.class);
     }
 
-
-    private void configureUtils() {
-        bind(ICollectionFactory.class).to(CollectionFactory.class);
-    }
 
 }
