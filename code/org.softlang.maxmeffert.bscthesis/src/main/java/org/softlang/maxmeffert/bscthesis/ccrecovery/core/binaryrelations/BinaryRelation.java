@@ -4,83 +4,21 @@ import com.google.common.collect.Sets;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.utils.collections.tuples.IComparablePair;
 
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.SortedSet;
+import java.util.*;
 
-public class BinaryRelation<T extends Comparable<T>> implements IBinaryRelation<T> {
+public class BinaryRelation<T extends Comparable<T>> extends SortedSetProxy<IComparablePair<T,T>> implements IBinaryRelation<T> {
 
     private final IDiGraph<T> diGraph;
-    private SortedSet<IComparablePair<T,T>> edges = Sets.newTreeSet();
 
     public BinaryRelation(IDiGraph<T> diGraph) {
+        super(Sets.newTreeSet());
         this.diGraph = diGraph;
         updateEdges();
     }
 
     private void updateEdges() {
-        edges = diGraph.getEdges();
-    }
-
-    @Override
-    public Comparator<? super IComparablePair<T, T>> comparator() {
-        return edges.comparator();
-    }
-
-    @Override
-    public SortedSet<IComparablePair<T, T>> subSet(IComparablePair<T, T> ttiComparablePair, IComparablePair<T, T> e1) {
-        return edges.subSet(ttiComparablePair, e1);
-    }
-
-    @Override
-    public SortedSet<IComparablePair<T, T>> headSet(IComparablePair<T, T> ttiComparablePair) {
-        return edges.headSet(ttiComparablePair);
-    }
-
-    @Override
-    public SortedSet<IComparablePair<T, T>> tailSet(IComparablePair<T, T> ttiComparablePair) {
-        return edges.tailSet(ttiComparablePair);
-    }
-
-    @Override
-    public IComparablePair<T, T> first() {
-        return edges.first();
-    }
-
-    @Override
-    public IComparablePair<T, T> last() {
-        return edges.last();
-    }
-
-    @Override
-    public int size() {
-        return edges.size();
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return edges.isEmpty();
-    }
-
-    @Override
-    public boolean contains(Object o) {
-        return edges.contains(o);
-    }
-
-    @Override
-    public Iterator<IComparablePair<T, T>> iterator() {
-        return edges.iterator();
-    }
-
-    @Override
-    public Object[] toArray() {
-        return edges.toArray();
-    }
-
-    @Override
-    public <T> T[] toArray(T[] ts) {
-        return edges.toArray(ts);
+        sortedSet.clear();
+        sortedSet.addAll(diGraph.getEdges());
     }
 
     @Override
@@ -98,11 +36,6 @@ public class BinaryRelation<T extends Comparable<T>> implements IBinaryRelation<
             updateEdges();
         }
         return changed;
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> collection) {
-        return edges.containsAll(collection);
     }
 
     @Override
@@ -138,11 +71,6 @@ public class BinaryRelation<T extends Comparable<T>> implements IBinaryRelation<
     public void clear() {
         diGraph.clear();
         updateEdges();
-    }
-
-    @Override
-    public String toString() {
-        return edges.toString();
     }
 
     @Override
