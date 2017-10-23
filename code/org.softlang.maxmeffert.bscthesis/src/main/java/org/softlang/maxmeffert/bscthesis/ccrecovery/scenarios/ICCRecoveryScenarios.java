@@ -9,9 +9,12 @@ import java.io.InputStream;
 
 public interface ICCRecoveryScenarios {
 
-
     IBinaryRelation<IFragmentAST> getWeakJaxbCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException;
 
     IBinaryRelation<IFragmentAST> getStrictJaxbCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException;
+
+    IBinaryRelation<IFragmentAST> getWeakHibernateCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException;
+
+    IBinaryRelation<IFragmentAST> getStrictHibernateCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException;
 
 }
