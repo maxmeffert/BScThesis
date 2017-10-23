@@ -10,8 +10,8 @@ import javax.xml.bind.JAXBException;
 
 public class Scenarios {
 	
-	private static final String xmlOutputPath = "./xml";
-	private static final String sqlOutputPath = "./sql";
+	private static final String xmlOutputPath = "./artifacts";
+	private static final String sqlOutputPath = "./artifacts";
 	private static final File xmlFile = new File(xmlOutputPath + "/companies.xml");
 	private static final File xsdFile = new File(xmlOutputPath + "/companies.xsd");
 	private static final File ddlFile = new File(sqlOutputPath + "/companies.ddl.sql");

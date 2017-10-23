@@ -15,7 +15,7 @@ public class Main {
 		ICCRecoveryScenarios iccRecoveryScenarios = CCRecoveryScenarios.create();
 
 		InputStream java8Artifact = new FileInputStream("./src/main/java/org/softlang/companies/model/Company.java");
-		InputStream xmlArtifact = new FileInputStream("./xml/companies.xml");
+		InputStream xmlArtifact = new FileInputStream("./artifacts/companies.xml");
 
 		iccRecoveryScenarios.getWeakJaxbCorrespondences(java8Artifact, xmlArtifact);
 

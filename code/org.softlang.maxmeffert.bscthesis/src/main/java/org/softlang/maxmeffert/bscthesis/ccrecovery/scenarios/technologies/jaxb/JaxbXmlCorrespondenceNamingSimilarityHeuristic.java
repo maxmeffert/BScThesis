@@ -44,10 +44,6 @@ public class JaxbXmlCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimi
     }
 
     private boolean areSimilar(String javaIdentifier, String xmlName) {
-        if (xmlName.equals("department")) {
-            System.out.println(javaIdentifier);
-            System.out.println(xmlName);
-        }
         return areEqual(javaIdentifier,xmlName)
                 || areLowerCaseEqual(javaIdentifier,xmlName)
                 || areLowerCaseEqual(removePluralSuffix(javaIdentifier), xmlName)
