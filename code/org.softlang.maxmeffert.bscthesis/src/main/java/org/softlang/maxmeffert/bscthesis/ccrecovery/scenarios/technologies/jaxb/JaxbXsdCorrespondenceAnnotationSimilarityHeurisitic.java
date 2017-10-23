@@ -14,17 +14,29 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 public class JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic extends BaseJaxbSimilarityHeuristic {
 
+    private boolean hasXsAttributeSimilarity(JavaAnnotationFragmentAST javaAnnotationFragment, XMLElementFragmentAST xmlElementFragmentAST) {
+        return XmlFragmentASTUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
+    }
+
+    private boolean hasXsElementSimilarity(JavaAnnotationFragmentAST javaAnnotationFragment, XMLElementFragmentAST xmlElementFragmentAST) {
+        return XmlFragmentASTUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
+    }
+
+    private boolean hasXsComplexTypeSimilarity(JavaAnnotationFragmentAST javaAnnotationFragment, XMLElementFragmentAST xmlElementFragmentAST) {
+        return XmlFragmentASTUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
+    }
+
     private boolean hasJaxbAnnotationSimilarity(JavaAnnotationFragmentAST javaAnnotationFragment, XMLElementFragmentAST xmlElementFragmentAST) {
         if (JaxbStringUtils.equalsAnyJaxbAnnotationName(javaAnnotationFragment.getIdentifier())) {
             if (javaAnnotationFragment.hasNamedParameter("name")) {
                 if (XmlFragmentASTUtils.isXsComplexTypeTag(xmlElementFragmentAST)) {
-                    return XmlFragmentASTUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
+                    return hasXsComplexTypeSimilarity(javaAnnotationFragment, xmlElementFragmentAST);
                 }
                 else if (XmlFragmentASTUtils.isXsElementTag(xmlElementFragmentAST)) {
-                    return XmlFragmentASTUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
+                    return hasXsElementSimilarity(javaAnnotationFragment, xmlElementFragmentAST);
                 }
                 else if (XmlFragmentASTUtils.isXsAttributeTag(xmlElementFragmentAST)) {
-                    return XmlFragmentASTUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
+                    return hasXsAttributeSimilarity(javaAnnotationFragment, xmlElementFragmentAST);
                 }
             }
         }
