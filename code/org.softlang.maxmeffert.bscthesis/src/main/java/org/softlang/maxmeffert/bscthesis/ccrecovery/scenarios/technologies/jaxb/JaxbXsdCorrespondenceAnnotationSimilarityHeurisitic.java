@@ -4,6 +4,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fra
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLAttributeFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.StringUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.XmlFragmentASTUtils;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -24,51 +25,21 @@ public class JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic extends BaseJax
             XmlAttributeAnnotationName
     };
 
-    private static final String XmlNamespaceSeparator = ":";
-    private static final String XsComplexTypeTagName = "complexType";
-    private static final String XsElementTagName = "element";
-    private static final String XsAttributeTagName = "attribute";
-
-    private String removeXmlNamespacePrefix(String string) {
-        int indexOfXmlNamespaceSeparator = string.indexOf(XmlNamespaceSeparator);
-        if (indexOfXmlNamespaceSeparator > -1) {
-            return string.substring(indexOfXmlNamespaceSeparator+1, string.length());
-        }
-        return string;
-    }
-
-    private boolean isXsComplexTypeTag(XMLElementFragmentAST xmlElementFragmentAST) {
-        return StringUtils.areLowerCaseEqual(removeXmlNamespacePrefix(xmlElementFragmentAST.getName()), XsComplexTypeTagName);
-    }
-
-    private boolean isXsElementTag(XMLElementFragmentAST xmlElementFragmentAST) {
-        return StringUtils.areLowerCaseEqual(removeXmlNamespacePrefix(xmlElementFragmentAST.getName()), XsElementTagName);
-    }
-
-    private boolean isXsAttributeTag(XMLElementFragmentAST xmlElementFragmentAST) {
-        return StringUtils.areLowerCaseEqual(removeXmlNamespacePrefix(xmlElementFragmentAST.getName()), XsAttributeTagName);
-    }
-
     private boolean equalsAnyJaxbAnnotationName(JavaAnnotationFragmentAST javaAnnotationFragmentAST) {
         return StringUtils.equalsAny(javaAnnotationFragmentAST.getIdentifier(), JaxbAnnotationNames);
-    }
-
-    private boolean hasAttribute(XMLElementFragmentAST xmlElementFragmentAST, String attributeName, String attributeValue) {
-        return xmlElementFragmentAST.getXmlAttributeFragments().stream()
-                .anyMatch(attribute -> StringUtils.areEqual(attribute.getName(), attributeName) && StringUtils.areEqual(attribute.getValue(), attributeValue));
     }
 
     private boolean hasJaxbAnnotationSimilarity(JavaAnnotationFragmentAST javaAnnotationFragment, XMLElementFragmentAST xmlElementFragmentAST) {
         if (equalsAnyJaxbAnnotationName(javaAnnotationFragment)) {
             if (javaAnnotationFragment.hasNamedParameter("name")) {
-                if (isXsComplexTypeTag(xmlElementFragmentAST)) {
-                    return hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
+                if (XmlFragmentASTUtils.isXsComplexTypeTag(xmlElementFragmentAST)) {
+                    return XmlFragmentASTUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
                 }
-                else if (isXsElementTag(xmlElementFragmentAST)) {
-                    return hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
+                else if (XmlFragmentASTUtils.isXsElementTag(xmlElementFragmentAST)) {
+                    return XmlFragmentASTUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
                 }
-                else if (isXsAttributeTag(xmlElementFragmentAST)) {
-                    return hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
+                else if (XmlFragmentASTUtils.isXsAttributeTag(xmlElementFragmentAST)) {
+                    return XmlFragmentASTUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
                 }
             }
         }
