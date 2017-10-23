@@ -21,6 +21,7 @@ public class JaxbXsdCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimi
         }
         return string;
     }
+
     private String removeXmlNamespacePrefix(String string) {
         int indexOfXmlNamespaceSeparator = string.indexOf(XmlNamespaceSeparator);
         if (indexOfXmlNamespaceSeparator > -1) {
@@ -39,17 +40,18 @@ public class JaxbXsdCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimi
         return areEqual(a, b);
     }
 
-    private boolean isXsComplexTypeTag(String string) {
-        return areLowerCaseEqual(removeXmlNamespacePrefix(string), XsComplexTypeTagName);
+    private boolean isXsComplexTypeTag(XMLElementFragmentAST xmlElementFragmentAST) {
+        return areLowerCaseEqual(removeXmlNamespacePrefix(xmlElementFragmentAST.getName()), XsComplexTypeTagName);
     }
 
-    private boolean isXsElementTag(String string) {
-        return areLowerCaseEqual(removeXmlNamespacePrefix(string), XsElementTagName);
+    private boolean isXsElementTag(XMLElementFragmentAST xmlElementFragmentAST) {
+        return areLowerCaseEqual(removeXmlNamespacePrefix(xmlElementFragmentAST.getName()), XsElementTagName);
     }
 
-    private boolean isXsAttributeTag(String string) {
-        return areLowerCaseEqual(removeXmlNamespacePrefix(string), XsAttributeTagName);
+    private boolean isXsAttributeTag(XMLElementFragmentAST xmlElementFragmentAST) {
+        return areLowerCaseEqual(removeXmlNamespacePrefix(xmlElementFragmentAST.getName()), XsAttributeTagName);
     }
+
 
     private boolean hasXsComplexTypeSimilarity(IdentifiedJavaFragmentAST identifiedJavaFragmentAST, XMLElementFragmentAST xmlElementFragmentAST) {
         return xmlElementFragmentAST.getXmlAttributeFragments().stream()
@@ -70,14 +72,13 @@ public class JaxbXsdCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimi
     }
 
     private boolean hasJaxbNamingSimilarity(IdentifiedJavaFragmentAST identifiedJavaFragmentAST, XMLElementFragmentAST xmlElementFragmentAST) {
-        String name = xmlElementFragmentAST.getName();
-        if (isXsComplexTypeTag(name)) {
+        if (isXsComplexTypeTag(xmlElementFragmentAST)) {
             return hasXsComplexTypeSimilarity(identifiedJavaFragmentAST, xmlElementFragmentAST);
         }
-        else if (isXsElementTag(name)) {
+        else if (isXsElementTag(xmlElementFragmentAST)) {
             return hasXsElementSimilarity(identifiedJavaFragmentAST, xmlElementFragmentAST);
         }
-        else if (isXsAttributeTag(name)) {
+        else if (isXsAttributeTag(xmlElementFragmentAST)) {
             return hasXsAttributeSimilarity(identifiedJavaFragmentAST, xmlElementFragmentAST);
         }
         return false;

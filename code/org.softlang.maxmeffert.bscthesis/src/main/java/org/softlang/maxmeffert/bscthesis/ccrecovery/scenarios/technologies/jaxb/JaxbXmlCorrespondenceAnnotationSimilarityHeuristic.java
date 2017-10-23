@@ -25,7 +25,7 @@ public class JaxbXmlCorrespondenceAnnotationSimilarityHeuristic extends BaseJaxb
         XmlAttributeAnnotationName
     };
 
-    private String unquote(String string) {
+    private String removeQuotes(String string) {
         if (string.startsWith("\"") && string.endsWith("\"")
                 || string.startsWith("'") && string.endsWith("'")) {
             return string.substring(1, string.length()-1);
@@ -46,15 +46,13 @@ public class JaxbXmlCorrespondenceAnnotationSimilarityHeuristic extends BaseJaxb
         return equalsAny(string, JaxbAnnotationNames);
     }
 
-    private boolean similar(JavaAnnotationFragmentAST javaAnnotationFragment, NamedXMLFragmentAST namedXMLFragment) {
+    private boolean hasJaxbAnnotationSimilarity(JavaAnnotationFragmentAST javaAnnotationFragment, NamedXMLFragmentAST namedXMLFragment) {
         String identifier = javaAnnotationFragment.getIdentifier();
         String name = namedXMLFragment.getName();
-//        System.out.println(identifier);
-//        System.out.println(name);
         if (equalsAnyJaxbAnnotationName(identifier)) {
             Map<String,String> namedParameters = javaAnnotationFragment.getNamedParameters();
             if (namedParameters.containsKey("name")) {
-                return name.equals(unquote(namedParameters.get("name")));
+                return name.equals(removeQuotes(namedParameters.get("name")));
             }
         }
         return false;
@@ -63,7 +61,7 @@ public class JaxbXmlCorrespondenceAnnotationSimilarityHeuristic extends BaseJaxb
     private boolean hasJaxbAnnotationSimilarity(ModifiedJavaFragmentAST modifiedJavaFragmentAST, NamedXMLFragmentAST namedXMLFragmentAST) {
         for (JavaModifierFragmentAST javaModifierFragment : modifiedJavaFragmentAST.getJavaModifierFragments()) {
             if (javaModifierFragment.isAnnotation()) {
-                if (similar(javaModifierFragment.getJavaAnnotationFragment(), namedXMLFragmentAST)) {
+                if (hasJaxbAnnotationSimilarity(javaModifierFragment.getJavaAnnotationFragment(), namedXMLFragmentAST)) {
                     return true;
                 }
             }

@@ -24,6 +24,14 @@ public class JavaAnnotationFragmentAST extends IdentifiedJavaFragmentAST {
         namedParameters.put(name, value);
     }
 
+    public boolean hasNamedParameter(String name) {
+        return namedParameters.containsKey(name);
+    }
+
+    public String getNamedParamterValue(String name) {
+        return namedParameters.get(name);
+    }
+
     public void addUnnamedParameter(String value) {
         unnamedParameters.add(value);
     }
