@@ -6,43 +6,87 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.frag
 
 public class JaxbXmlCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimilarityHeuristic {
 
-    private static String[] JavaAccessorPrefixes = new String[] {"get", "set", "is"};
+    private static final String[] JavaAccessorPrefixes = new String[] {"get", "set", "is"};
+    private static final String PluralSuffix = "s";
 
-    private boolean lowerCaseEquals(String a, String b) {
-        return a.toLowerCase().equals(b.toLowerCase());
-    }
-
-    private boolean lowerCaseEqualsWithoutPrefix(String a, String b, String[] prefixes) {
+    private String removeAnyPrefix(String string, String[] prefixes) {
         for(String prefix : prefixes) {
-            if (a.length() > prefix.length() && a.startsWith(prefix)) {
-                return lowerCaseEquals(a.substring(prefix.length(), a.length()), b);
+            if (string.length() > prefix.length() && string.startsWith(prefix)) {
+                return string.substring(prefix.length(), string.length());
             }
         }
-        return lowerCaseEquals(a,b);
+        return string;
+    }
+
+    private String removeAnySuffix(String string, String[] suffixes) {
+        for(String suffix : suffixes) {
+            if (string.length() > suffix.length() && string.endsWith(suffix)) {
+                return string.substring(0, string.length()-suffix.length());
+            }
+        }
+        return string;
+    }
+
+    private String removeAnyJavaAccessorPrefix(String string) {
+        return removeAnyPrefix(string, JavaAccessorPrefixes);
+    }
+
+    private String removePluralSuffix(String string) {
+        return removeAnySuffix(string, new String[] { PluralSuffix });
+    }
+
+    private boolean areEqual(String a, String b) {
+        return a.equals(b);
+    }
+
+    private boolean areLowerCaseEqual(String a, String b) {
+        return areEqual(a.toLowerCase(), b.toLowerCase());
+    }
+
+    private boolean areSimilar(String javaIdentifier, String xmlName) {
+        if (xmlName.equals("department")) {
+            System.out.println(javaIdentifier);
+            System.out.println(xmlName);
+        }
+        return areEqual(javaIdentifier,xmlName)
+                || areLowerCaseEqual(javaIdentifier,xmlName)
+                || areLowerCaseEqual(removePluralSuffix(javaIdentifier), xmlName)
+                || areLowerCaseEqual(removeAnyJavaAccessorPrefix(javaIdentifier), xmlName)
+                || areLowerCaseEqual(removeAnyJavaAccessorPrefix(removePluralSuffix(javaIdentifier)), xmlName);
     }
 
     @Override
     protected boolean similar(JavaClassFragmentAST javaClassFragment, XMLElementFragmentAST xmlElementFragment) {
-        return lowerCaseEquals(javaClassFragment.getIdentifier(), xmlElementFragment.getName());
+        String identifier = javaClassFragment.getIdentifier();
+        String name = xmlElementFragment.getName();
+        return areSimilar(identifier, name);
     }
 
     @Override
     protected boolean similar(JavaFieldFragmentAST javaFieldFragment, XMLElementFragmentAST xmlElementFragment) {
-        return lowerCaseEquals(javaFieldFragment.getIdentifier(), xmlElementFragment.getName());
+        String identifier = javaFieldFragment.getIdentifier();
+        String name = xmlElementFragment.getName();
+        return areSimilar(identifier, name);
     }
 
     @Override
     protected boolean similar(JavaMethodFragmentAST javaMethodFragment, XMLElementFragmentAST xmlElementFragment) {
-        return lowerCaseEqualsWithoutPrefix(javaMethodFragment.getIdentifier(), xmlElementFragment.getName(), JavaAccessorPrefixes);
+        String identifier = javaMethodFragment.getIdentifier();
+        String name = xmlElementFragment.getName();
+        return areSimilar(identifier, name);
     }
 
     @Override
     protected boolean similar(JavaFieldFragmentAST javaFieldFragment, XMLAttributeFragmentAST xmlAttributeFragment) {
-        return lowerCaseEquals(javaFieldFragment.getIdentifier(), xmlAttributeFragment.getName());
+        String identifier = javaFieldFragment.getIdentifier();
+        String name = xmlAttributeFragment.getName();
+        return areSimilar(identifier, name);
     }
 
     @Override
     protected boolean similar(JavaMethodFragmentAST javaMethodFragment, XMLAttributeFragmentAST xmlAttributeFragment) {
-        return lowerCaseEqualsWithoutPrefix(javaMethodFragment.getIdentifier(), xmlAttributeFragment.getName(), JavaAccessorPrefixes);
+        String identifier = javaMethodFragment.getIdentifier();
+        String name = xmlAttributeFragment.getName();
+        return areSimilar(identifier, name);
     }
 }

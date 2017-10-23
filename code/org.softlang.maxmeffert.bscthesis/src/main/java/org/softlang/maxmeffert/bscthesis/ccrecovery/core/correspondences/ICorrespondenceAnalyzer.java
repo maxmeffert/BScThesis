@@ -4,5 +4,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinary
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 
 public interface ICorrespondenceAnalyzer {
-    IBinaryRelation<IFragmentAST> analyze(IBinaryRelation<IFragmentAST> similarity, IFragmentAST fragment1, IFragmentAST fragment2);
+    IBinaryRelation<IFragmentAST> analyzeWeakCorrespondences(IBinaryRelation<IFragmentAST> similarity, IFragmentAST fragment1, IFragmentAST fragment2);
+    IBinaryRelation<IFragmentAST> analyzeStrictCorrespondences(IBinaryRelation<IFragmentAST> similarity, IFragmentAST fragment1, IFragmentAST fragment2);
 }

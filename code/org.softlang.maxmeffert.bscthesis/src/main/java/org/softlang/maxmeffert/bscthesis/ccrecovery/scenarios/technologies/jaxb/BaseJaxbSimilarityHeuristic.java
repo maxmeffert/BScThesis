@@ -24,6 +24,7 @@ public abstract class BaseJaxbSimilarityHeuristic implements IFragmentASTAnalyze
         if (similar(javaFieldFragment, xmlElementFragment)) {
             similarity.add(javaFieldFragment, xmlElementFragment);
         }
+        analyzeJavaFieldXMLElementSimilarities(similarity, javaFieldFragment, xmlElementFragment.getXmlElementFragments());
     }
 
     private void analyzeJavaFieldXMLElementSimilarities(IBinaryRelation<IFragmentAST> similarity, JavaFieldFragmentAST javaFieldFragment, List<XMLElementFragmentAST> xmlElementFragments) {
@@ -36,6 +37,7 @@ public abstract class BaseJaxbSimilarityHeuristic implements IFragmentASTAnalyze
         if (similar(javaMethodFragment, xmlElementFragment)) {
             similarity.add(javaMethodFragment, xmlElementFragment);
         }
+        analyzeJavaMethodXMLElementSimilarities(similarity, javaMethodFragment, xmlElementFragment.getXmlElementFragments());
     }
 
     private void analyzeJavaMethodXMLElementSimilarities(IBinaryRelation<IFragmentAST> similarity, JavaMethodFragmentAST javaMethodFragment, List<XMLElementFragmentAST> xmlElementFragments) {

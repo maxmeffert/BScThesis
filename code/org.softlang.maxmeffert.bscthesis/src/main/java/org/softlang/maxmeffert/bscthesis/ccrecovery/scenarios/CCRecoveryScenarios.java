@@ -60,22 +60,39 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
         return analyzer;
     }
 
+    private IBinaryRelation<IFragmentAST> getJaxbCorrespondenceSimilarities(IFragmentAST java8FragmentAST, IFragmentAST xmlFragmentAST) {
+        return getJaxbCorrespondenceSimilarityAnalyzer().analyze(java8FragmentAST, xmlFragmentAST);
+    }
+
     @Override
-    public void getJaxbCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException {
+    public IBinaryRelation<IFragmentAST> getWeakJaxbCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException {
         IFragmentAST java8FragmentAST = getJava8Parser().parse(javaInputStream);
         IFragmentAST xmlFragmentAST = getXmlParser().parse(xmlInputStream);
 
-        IBinaryRelation<IFragmentAST> similarities = getJaxbCorrespondenceSimilarityAnalyzer().analyze(java8FragmentAST, xmlFragmentAST);
-        IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyze(similarities, java8FragmentAST, xmlFragmentAST);
+        IBinaryRelation<IFragmentAST> similarities = getJaxbCorrespondenceSimilarities(java8FragmentAST, xmlFragmentAST);
+        IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyzeWeakCorrespondences(similarities, java8FragmentAST, xmlFragmentAST);
 
         System.out.println(similarities);
         System.out.println(similarities.size());
         System.out.println(correspondences);
         System.out.println(correspondences.size());
+        return correspondences;
     }
 
+    @Override
+    public IBinaryRelation<IFragmentAST> getStrictJaxbCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException {
+        IFragmentAST java8FragmentAST = getJava8Parser().parse(javaInputStream);
+        IFragmentAST xmlFragmentAST = getXmlParser().parse(xmlInputStream);
 
+        IBinaryRelation<IFragmentAST> similarities = getJaxbCorrespondenceSimilarities(java8FragmentAST, xmlFragmentAST);
+        IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyzeStrictCorrespondences(similarities, java8FragmentAST, xmlFragmentAST);
 
+        System.out.println(similarities);
+        System.out.println(similarities.size());
+        System.out.println(correspondences);
+        System.out.println(correspondences.size());
+        return correspondences;
+    }
 
 
 }
