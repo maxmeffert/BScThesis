@@ -21,35 +21,29 @@ public class Scenarios {
 		return JPAUtils.insert(em, SoftlangInc.getCompany());
 	}
 	
-	private static void generateDDL() {
-		HibernateUtils.generateDDL(ddlFile);
+	private static void generateDDL() throws IOException {
+		JPAUtils.openConnection();
+		EntityManager em = JPAUtils.getEntityManager();
+		try {
+			HibernateUtils.generateDDL(ddlFile);
+		}
+		finally {
+			JPAUtils.closeConnection();
+		}
 	}
 	
 	private static void generateXSD() throws IOException, JAXBException {
 		JAXBUtils.generateSchema(xsdFile);
 	}
-	
-	private static void marshal(Company company) throws JAXBException {
-		JAXBUtils.marshal(company, xmlFile);
-	}
-	
-	public static void main(String[] args) throws JAXBException {
-//		JPAUtils.openConnection();
-//		EntityManager em = JPAUtils.getEntityManager();
-//		try {
-//			generateDDL();
-//			generateXSD();
-//			Company company = initSoftlangInc(em);
-//			marshal(company);
-//		} catch (JAXBException e) {
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		finally {
-//			JPAUtils.closeConnection();
-//		}
+
+	private static void generateXML() throws IOException, JAXBException {
 		JAXBUtils.marshal(SoftlangInc.getCompany(), xmlFile);
+	}
+
+	public static void main(String[] args) throws JAXBException, IOException {
+//		generateDDL();
+		generateXML();
+		generateXSD();
 	}
 
 }
