@@ -7,6 +7,9 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.frag
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragmentAST;
 
 public class JaxbXsdCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimilarityHeuristic {
+
+
+
     @Override
     protected boolean similar(JavaClassFragmentAST javaClassFragment, XMLElementFragmentAST xmlElementFragment) {
         return false;

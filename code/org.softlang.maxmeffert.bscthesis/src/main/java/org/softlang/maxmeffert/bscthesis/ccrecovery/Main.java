@@ -1,5 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.CCRecoveryScenarios;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
@@ -15,9 +17,12 @@ public class Main {
 		ICCRecoveryScenarios iccRecoveryScenarios = CCRecoveryScenarios.create();
 
 		InputStream java8Artifact = new FileInputStream("./src/main/java/org/softlang/companies/model/Company.java");
-		InputStream xmlArtifact = new FileInputStream("./artifacts/companies.xml");
+		InputStream xmlArtifact = new FileInputStream("./artifacts/companies.xsd");
 
-		iccRecoveryScenarios.getWeakJaxbCorrespondences(java8Artifact, xmlArtifact);
+		IBinaryRelation<IFragmentAST> correspondences = iccRecoveryScenarios.getWeakJaxbCorrespondences(java8Artifact, xmlArtifact);
+
+		System.out.println(correspondences);
+		System.out.println(correspondences.size());
 
  	}
 
