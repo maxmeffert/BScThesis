@@ -71,6 +71,7 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
 
         IBinaryRelation<IFragmentAST> similarities = getJaxbCorrespondenceSimilarities(java8FragmentAST, xmlFragmentAST);
         IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyzeWeakCorrespondences(similarities, java8FragmentAST, xmlFragmentAST);
+
         return correspondences;
     }
 
@@ -81,6 +82,7 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
 
         IBinaryRelation<IFragmentAST> similarities = getJaxbCorrespondenceSimilarities(java8FragmentAST, xmlFragmentAST);
         IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyzeStrictCorrespondences(similarities, java8FragmentAST, xmlFragmentAST);
+
         return correspondences;
     }
 

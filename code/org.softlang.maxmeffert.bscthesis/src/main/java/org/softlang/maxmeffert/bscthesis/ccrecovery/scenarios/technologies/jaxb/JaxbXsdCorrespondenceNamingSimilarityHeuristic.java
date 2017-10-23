@@ -12,9 +12,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.XmlFragmentA
 public class JaxbXsdCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimilarityHeuristic {
 
     private boolean hasXsComplexTypeSimilarity(IdentifiedJavaFragmentAST identifiedJavaFragmentAST, XMLElementFragmentAST xmlElementFragmentAST) {
-        return xmlElementFragmentAST.getXmlAttributeFragments().stream()
-                .anyMatch(attribute -> StringUtils.areLowerCaseEqual(attribute.getName(), "name")
-                        && StringUtils.areLowerCaseEqual(StringUtils.removeQuotes(attribute.getValue()), identifiedJavaFragmentAST.getIdentifier()));
+        return XmlFragmentASTUtils.hasAttribute(xmlElementFragmentAST, "name", identifiedJavaFragmentAST.getIdentifier());
     }
 
     private boolean hasXsElementSimilarity(IdentifiedJavaFragmentAST identifiedJavaFragmentAST, XMLElementFragmentAST xmlElementFragmentAST) {

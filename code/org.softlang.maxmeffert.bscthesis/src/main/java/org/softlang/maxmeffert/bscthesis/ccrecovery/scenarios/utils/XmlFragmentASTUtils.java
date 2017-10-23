@@ -1,6 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLAttributeFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragmentAST;
+
+import java.util.function.Predicate;
 
 public class XmlFragmentASTUtils {
 
@@ -16,9 +19,12 @@ public class XmlFragmentASTUtils {
         return XmlStringUtils.isXsAttributeTag(xmlElementFragmentAST.getName());
     }
 
+    public static boolean hasAttribute(XMLElementFragmentAST xmlElementFragmentAST, Predicate<XMLAttributeFragmentAST> predicate) {
+        return xmlElementFragmentAST.getXmlAttributeFragments().stream().anyMatch(predicate);
+    }
+
     public static boolean hasAttribute(XMLElementFragmentAST xmlElementFragmentAST, String attributeName, String attributeValue) {
-        return xmlElementFragmentAST.getXmlAttributeFragments().stream()
-                .anyMatch(attribute -> StringUtils.areEqual(attribute.getName(), attributeName) && StringUtils.areEqual(StringUtils.removeQuotes(attribute.getValue()), attributeValue));
+        return hasAttribute(xmlElementFragmentAST, attribute -> StringUtils.areLowerCaseEqual(attribute.getName(), attributeName) && StringUtils.areLowerCaseEqual(StringUtils.removeQuotes(attribute.getValue()), attributeValue));
     }
 
 }
