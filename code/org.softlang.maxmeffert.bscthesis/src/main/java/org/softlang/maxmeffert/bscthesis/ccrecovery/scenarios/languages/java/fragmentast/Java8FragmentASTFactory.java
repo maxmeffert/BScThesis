@@ -9,21 +9,31 @@ import java.util.Stack;
 
 public class Java8FragmentASTFactory extends BaseFragmentASTFactory {
 
-    public List<JavaFieldFragmentAST> newJavaFieldFragment(Java8Parser.FieldDeclarationContext fieldDeclarationContext) {
+    public List<JavaFieldFragmentAST> newJavaFieldFragment(Java8Parser.FieldDeclarationContext fieldDeclarationContext, Stack<JavaModifierFragmentAST> javaModifierFragments) {
         List<JavaFieldFragmentAST> javaFieldFragments = new LinkedList<>();
         for (Java8Parser.VariableDeclaratorContext variableDeclaratorContext : fieldDeclarationContext.variableDeclaratorList().variableDeclarator()) {
             JavaFieldFragmentAST javaFieldFragment = initialize(new JavaFieldFragmentAST(), fieldDeclarationContext);
             javaFieldFragment.setIdentifier(variableDeclaratorContext.variableDeclaratorId().Identifier().getText());
             javaFieldFragment.setType(fieldDeclarationContext.unannType().getText());
+
+            while (!javaModifierFragments.isEmpty()) {
+                javaFieldFragment.addJavaModifierFragment(javaModifierFragments.pop());
+            }
+
             javaFieldFragments.add(javaFieldFragment);
         }
         return javaFieldFragments;
     }
 
-    public JavaMethodFragmentAST newJavaMethodFragment(Java8Parser.MethodDeclarationContext methodDeclarationContext) {
+    public JavaMethodFragmentAST newJavaMethodFragment(Java8Parser.MethodDeclarationContext methodDeclarationContext, Stack<JavaModifierFragmentAST> javaModifierFragments) {
         JavaMethodFragmentAST javaMethodFragment = initialize(new JavaMethodFragmentAST(), methodDeclarationContext);
         javaMethodFragment.setIdentifier(methodDeclarationContext.methodHeader().methodDeclarator().Identifier().getText());
         javaMethodFragment.setType(methodDeclarationContext.methodHeader().result().getText());
+
+        while (!javaModifierFragments.isEmpty()) {
+            javaMethodFragment.addJavaModifierFragment(javaModifierFragments.pop());
+        }
+
         return javaMethodFragment;
     }
 
@@ -57,10 +67,9 @@ public class Java8FragmentASTFactory extends BaseFragmentASTFactory {
             Java8Parser.NormalAnnotationContext normalAnnotationContext = annotationContext.normalAnnotation();
             javaAnnotationFragment.setIdentifier(normalAnnotationContext.typeName().getText());
             for (Java8Parser.ElementValuePairContext elementValuePairContext : normalAnnotationContext.elementValuePairList().elementValuePair()) {
-                JavaAnnotationValueFragmentAST javaAnnotationValueFragment = initialize(new JavaAnnotationValueFragmentAST(), elementValuePairContext);
-                javaAnnotationValueFragment.setIdentifier(elementValuePairContext.Identifier().getText());
-                javaAnnotationValueFragment.setValue(elementValuePairContext.elementValue().getText());
-                javaAnnotationFragment.addValue(javaAnnotationValueFragment);
+                String namedParameterName = elementValuePairContext.Identifier().getText();
+                String namedParameterValue = elementValuePairContext.elementValue().getText();
+                javaAnnotationFragment.addNamedParameter(namedParameterName, namedParameterValue);
             }
         }
         else if (annotationContext.markerAnnotation() != null) {
@@ -70,6 +79,7 @@ public class Java8FragmentASTFactory extends BaseFragmentASTFactory {
         else if(annotationContext.singleElementAnnotation() != null) {
             Java8Parser.SingleElementAnnotationContext singleElementAnnotationContext = annotationContext.singleElementAnnotation();
             javaAnnotationFragment.setIdentifier(singleElementAnnotationContext.typeName().getText());
+            javaAnnotationFragment.addUnnamedParameter(singleElementAnnotationContext.elementValue().getText());
         }
         return javaAnnotationFragment;
     }

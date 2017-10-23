@@ -38,14 +38,14 @@ public class Java8FragmentASTBuildingListener extends Java8BaseListener implemen
 
     @Override
     public void exitFieldDeclaration(Java8Parser.FieldDeclarationContext ctx) {
-        for (JavaFieldFragmentAST javaFieldFragment : java8FragmentFactory.newJavaFieldFragment(ctx)) {
+        for (JavaFieldFragmentAST javaFieldFragment : java8FragmentFactory.newJavaFieldFragment(ctx, javaFieldModifierFragments)) {
             javaFieldFragments.push(javaFieldFragment);
         }
     }
 
     @Override
     public void exitMethodDeclaration(Java8Parser.MethodDeclarationContext ctx) {
-        javaMethodFragments.push(java8FragmentFactory.newJavaMethodFragment(ctx));
+        javaMethodFragments.push(java8FragmentFactory.newJavaMethodFragment(ctx, javaMethodModifierFragments));
     }
 
     @Override
