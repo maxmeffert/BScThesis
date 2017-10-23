@@ -1,6 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.jaxb;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.*;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.NamedXMLFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLAttributeFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.JavaStringUtils;
@@ -16,38 +17,32 @@ public class JaxbXmlCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimi
                 || StringUtils.areLowerCaseEqual(JavaStringUtils.removeAnyJavaAccessorPrefix(StringUtils.removePluralSuffix(javaIdentifier)), xmlName);
     }
 
+    private boolean hasJaxbNamingSimilarities(IdentifiedJavaFragmentAST identifiedJavaFragmentAST, NamedXMLFragmentAST namedXMLFragmentAST) {
+        return hasJaxbNamingSimilarities(identifiedJavaFragmentAST.getIdentifier(), namedXMLFragmentAST.getName());
+    }
+
     @Override
     protected boolean similar(JavaClassFragmentAST javaClassFragment, XMLElementFragmentAST xmlElementFragment) {
-        String identifier = javaClassFragment.getIdentifier();
-        String name = xmlElementFragment.getName();
-        return hasJaxbNamingSimilarities(identifier, name);
+        return hasJaxbNamingSimilarities(javaClassFragment, xmlElementFragment);
     }
 
     @Override
     protected boolean similar(JavaFieldFragmentAST javaFieldFragment, XMLElementFragmentAST xmlElementFragment) {
-        String identifier = javaFieldFragment.getIdentifier();
-        String name = xmlElementFragment.getName();
-        return hasJaxbNamingSimilarities(identifier, name);
+        return hasJaxbNamingSimilarities(javaFieldFragment, xmlElementFragment);
     }
 
     @Override
     protected boolean similar(JavaMethodFragmentAST javaMethodFragment, XMLElementFragmentAST xmlElementFragment) {
-        String identifier = javaMethodFragment.getIdentifier();
-        String name = xmlElementFragment.getName();
-        return hasJaxbNamingSimilarities(identifier, name);
+        return hasJaxbNamingSimilarities(javaMethodFragment, xmlElementFragment);
     }
 
     @Override
     protected boolean similar(JavaFieldFragmentAST javaFieldFragment, XMLAttributeFragmentAST xmlAttributeFragment) {
-        String identifier = javaFieldFragment.getIdentifier();
-        String name = xmlAttributeFragment.getName();
-        return hasJaxbNamingSimilarities(identifier, name);
+        return hasJaxbNamingSimilarities(javaFieldFragment, xmlAttributeFragment);
     }
 
     @Override
     protected boolean similar(JavaMethodFragmentAST javaMethodFragment, XMLAttributeFragmentAST xmlAttributeFragment) {
-        String identifier = javaMethodFragment.getIdentifier();
-        String name = xmlAttributeFragment.getName();
-        return hasJaxbNamingSimilarities(identifier, name);
+        return hasJaxbNamingSimilarities(javaMethodFragment, xmlAttributeFragment);
     }
 }
