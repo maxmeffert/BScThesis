@@ -6,6 +6,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fra
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaMethodFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLAttributeFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.StringUtils;
 
 public class JaxbXsdCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimilarityHeuristic {
 
@@ -13,14 +14,6 @@ public class JaxbXsdCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimi
     private static final String XsComplexTypeTagName = "complexType";
     private static final String XsElementTagName = "element";
     private static final String XsAttributeTagName = "attribute";
-
-    private String removeQuotes(String string) {
-        if (string.startsWith("\"") && string.endsWith("\"")
-                || string.startsWith("'") && string.endsWith("'")) {
-            return string.substring(1, string.length()-1);
-        }
-        return string;
-    }
 
     private String removeXmlNamespacePrefix(String string) {
         int indexOfXmlNamespaceSeparator = string.indexOf(XmlNamespaceSeparator);
@@ -30,45 +23,35 @@ public class JaxbXsdCorrespondenceNamingSimilarityHeuristic extends BaseJaxbSimi
         return string;
     }
 
-    private boolean areEqual(String a, String b) {
-        return a.equals(b);
-    }
-
-    private boolean areLowerCaseEqual(String a, String b) {
-        a = a.toLowerCase();
-        b = b.toLowerCase();
-        return areEqual(a, b);
-    }
-
     private boolean isXsComplexTypeTag(XMLElementFragmentAST xmlElementFragmentAST) {
-        return areLowerCaseEqual(removeXmlNamespacePrefix(xmlElementFragmentAST.getName()), XsComplexTypeTagName);
+        return StringUtils.areLowerCaseEqual(removeXmlNamespacePrefix(xmlElementFragmentAST.getName()), XsComplexTypeTagName);
     }
 
     private boolean isXsElementTag(XMLElementFragmentAST xmlElementFragmentAST) {
-        return areLowerCaseEqual(removeXmlNamespacePrefix(xmlElementFragmentAST.getName()), XsElementTagName);
+        return StringUtils.areLowerCaseEqual(removeXmlNamespacePrefix(xmlElementFragmentAST.getName()), XsElementTagName);
     }
 
     private boolean isXsAttributeTag(XMLElementFragmentAST xmlElementFragmentAST) {
-        return areLowerCaseEqual(removeXmlNamespacePrefix(xmlElementFragmentAST.getName()), XsAttributeTagName);
+        return StringUtils.areLowerCaseEqual(removeXmlNamespacePrefix(xmlElementFragmentAST.getName()), XsAttributeTagName);
     }
 
 
     private boolean hasXsComplexTypeSimilarity(IdentifiedJavaFragmentAST identifiedJavaFragmentAST, XMLElementFragmentAST xmlElementFragmentAST) {
         return xmlElementFragmentAST.getXmlAttributeFragments().stream()
-                .anyMatch(attribute -> areLowerCaseEqual(attribute.getName(), "name")
-                        && areLowerCaseEqual(removeQuotes(attribute.getValue()), identifiedJavaFragmentAST.getIdentifier()));
+                .anyMatch(attribute -> StringUtils.areLowerCaseEqual(attribute.getName(), "name")
+                        && StringUtils.areLowerCaseEqual(StringUtils.removeQuotes(attribute.getValue()), identifiedJavaFragmentAST.getIdentifier()));
     }
 
     private boolean hasXsElementSimilarity(IdentifiedJavaFragmentAST identifiedJavaFragmentAST, XMLElementFragmentAST xmlElementFragmentAST) {
         return xmlElementFragmentAST.getXmlAttributeFragments().stream()
-                .anyMatch(attribute -> areLowerCaseEqual(attribute.getName(), "name")
-                        && areLowerCaseEqual(removeQuotes(attribute.getValue()), identifiedJavaFragmentAST.getIdentifier()));
+                .anyMatch(attribute -> StringUtils.areLowerCaseEqual(attribute.getName(), "name")
+                        && StringUtils.areLowerCaseEqual(StringUtils.removeQuotes(attribute.getValue()), identifiedJavaFragmentAST.getIdentifier()));
     }
 
     private boolean hasXsAttributeSimilarity(IdentifiedJavaFragmentAST identifiedJavaFragmentAST, XMLElementFragmentAST xmlElementFragmentAST) {
         return xmlElementFragmentAST.getXmlAttributeFragments().stream()
-                .anyMatch(attribute -> areLowerCaseEqual(attribute.getName(), "name")
-                        && areLowerCaseEqual(removeQuotes(attribute.getValue()), identifiedJavaFragmentAST.getIdentifier()));
+                .anyMatch(attribute -> StringUtils.areLowerCaseEqual(attribute.getName(), "name")
+                        && StringUtils.areLowerCaseEqual(StringUtils.removeQuotes(attribute.getValue()), identifiedJavaFragmentAST.getIdentifier()));
     }
 
     private boolean hasJaxbNamingSimilarity(IdentifiedJavaFragmentAST identifiedJavaFragmentAST, XMLElementFragmentAST xmlElementFragmentAST) {

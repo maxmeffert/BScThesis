@@ -4,6 +4,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fra
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.NamedXMLFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLAttributeFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.StringUtils;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -25,34 +26,16 @@ public class JaxbXmlCorrespondenceAnnotationSimilarityHeuristic extends BaseJaxb
         XmlAttributeAnnotationName
     };
 
-    private String removeQuotes(String string) {
-        if (string.startsWith("\"") && string.endsWith("\"")
-                || string.startsWith("'") && string.endsWith("'")) {
-            return string.substring(1, string.length()-1);
-        }
-        return string;
-    }
-
-    private boolean equalsAny(String a, String[] bs) {
-        for(String b : bs) {
-            if (a.equals(b)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     private boolean equalsAnyJaxbAnnotationName(String string) {
-        return equalsAny(string, JaxbAnnotationNames);
+        return StringUtils.equalsAny(string, JaxbAnnotationNames);
     }
 
     private boolean hasJaxbAnnotationSimilarity(JavaAnnotationFragmentAST javaAnnotationFragment, NamedXMLFragmentAST namedXMLFragment) {
         String identifier = javaAnnotationFragment.getIdentifier();
         String name = namedXMLFragment.getName();
         if (equalsAnyJaxbAnnotationName(identifier)) {
-            Map<String,String> namedParameters = javaAnnotationFragment.getNamedParameters();
-            if (namedParameters.containsKey("name")) {
-                return name.equals(removeQuotes(namedParameters.get("name")));
+            if (javaAnnotationFragment.hasNamedParameter("name")) {
+                return name.equals(StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
             }
         }
         return false;
