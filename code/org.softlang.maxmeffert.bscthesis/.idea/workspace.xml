@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a94f89d9-8b1d-4d84-bc1a-7708f7fa2d16" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlTableFrgament.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlCreateTableFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragmentasts/BaseFragmentAST.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragmentasts/BaseFragmentAST.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/Sql.g4" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/Sql.g4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/Sql.tokens" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/Sql.tokens" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlBaseListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlBaseListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlLexer.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlLexer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlLexer.tokens" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlLexer.tokens" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlParser.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlDocumentFragment.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlDocumentFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlFragmentBuildingListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlFragmentBuildingListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlFragmentFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlFragmentFactory.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -34,17 +27,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Sql.g4" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Sql.g4" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/Sql.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="375">
+              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SqlLexer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SqlBaseListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlBaseListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SqlLexer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlLexer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -58,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlListener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -69,7 +72,132 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#376#445#0" expanded="true" />
+                <element signature="e#3839#3840#0" expanded="true" />
+                <element signature="e#3863#3864#0" expanded="true" />
+                <element signature="e#3913#3914#0" expanded="true" />
+                <element signature="e#3937#3938#0" expanded="true" />
+                <element signature="e#4452#4453#0" expanded="true" />
+                <element signature="e#4512#4513#0" expanded="true" />
+                <element signature="e#4587#4588#0" expanded="true" />
+                <element signature="e#4624#4625#0" expanded="true" />
+                <element signature="e#5618#5619#0" expanded="true" />
+                <element signature="e#5680#5681#0" expanded="true" />
+                <element signature="e#5756#5757#0" expanded="true" />
+                <element signature="e#5793#5794#0" expanded="true" />
+                <element signature="e#6798#6799#0" expanded="true" />
+                <element signature="e#6856#6857#0" expanded="true" />
+                <element signature="e#6907#6908#0" expanded="true" />
+                <element signature="e#6966#6967#0" expanded="true" />
+                <element signature="e#7084#7085#0" expanded="true" />
+                <element signature="e#7130#7131#0" expanded="true" />
+                <element signature="e#7207#7208#0" expanded="true" />
+                <element signature="e#7244#7245#0" expanded="true" />
+                <element signature="e#9864#9865#0" expanded="true" />
+                <element signature="e#9901#9902#0" expanded="true" />
+                <element signature="e#10946#10947#0" expanded="true" />
+                <element signature="e#11011#11012#0" expanded="true" />
+                <element signature="e#11090#11091#0" expanded="true" />
+                <element signature="e#11127#11128#0" expanded="true" />
+                <element signature="e#12315#12316#0" expanded="true" />
+                <element signature="e#12374#12375#0" expanded="true" />
+                <element signature="e#12709#12710#0" expanded="true" />
+                <element signature="e#12770#12771#0" expanded="true" />
+                <element signature="e#12857#12858#0" expanded="true" />
+                <element signature="e#12894#12895#0" expanded="true" />
+                <element signature="e#14326#14327#0" expanded="true" />
+                <element signature="e#14383#14384#0" expanded="true" />
+                <element signature="e#14459#14460#0" expanded="true" />
+                <element signature="e#14496#14497#0" expanded="true" />
+                <element signature="e#15826#15827#0" expanded="true" />
+                <element signature="e#15870#15871#0" expanded="true" />
+                <element signature="e#15954#15955#0" expanded="true" />
+                <element signature="e#15991#15992#0" expanded="true" />
+                <element signature="e#17948#17949#0" expanded="true" />
+                <element signature="e#18008#18009#0" expanded="true" />
+                <element signature="e#18056#18057#0" expanded="true" />
+                <element signature="e#18116#18117#0" expanded="true" />
+                <element signature="e#18174#18175#0" expanded="true" />
+                <element signature="e#18239#18240#0" expanded="true" />
+                <element signature="e#18322#18323#0" expanded="true" />
+                <element signature="e#18359#18360#0" expanded="true" />
+                <element signature="e#19622#19623#0" expanded="true" />
+                <element signature="e#19679#19680#0" expanded="true" />
+                <element signature="e#19756#19757#0" expanded="true" />
+                <element signature="e#19793#19794#0" expanded="true" />
+                <element signature="e#20805#20806#0" expanded="true" />
+                <element signature="e#20864#20865#0" expanded="true" />
+                <element signature="e#20917#20918#0" expanded="true" />
+                <element signature="e#20977#20978#0" expanded="true" />
+                <element signature="e#21089#21090#0" expanded="true" />
+                <element signature="e#21133#21134#0" expanded="true" />
+                <element signature="e#21211#21212#0" expanded="true" />
+                <element signature="e#21248#21249#0" expanded="true" />
+                <element signature="e#22553#22554#0" expanded="true" />
+                <element signature="e#22617#22618#0" expanded="true" />
+                <element signature="e#22740#22741#0" expanded="true" />
+                <element signature="e#22799#22800#0" expanded="true" />
+                <element signature="e#22955#22956#0" expanded="true" />
+                <element signature="e#22992#22993#0" expanded="true" />
+                <element signature="e#24250#24251#0" expanded="true" />
+                <element signature="e#24306#24307#0" expanded="true" />
+                <element signature="e#24353#24354#0" expanded="true" />
+                <element signature="e#24410#24411#0" expanded="true" />
+                <element signature="e#24491#24492#0" expanded="true" />
+                <element signature="e#24528#24529#0" expanded="true" />
+                <element signature="e#25967#25968#0" expanded="true" />
+                <element signature="e#26004#26005#0" expanded="true" />
+                <element signature="e#27444#27445#0" expanded="true" />
+                <element signature="e#27503#27504#0" expanded="true" />
+                <element signature="e#27556#27557#0" expanded="true" />
+                <element signature="e#27616#27617#0" expanded="true" />
+                <element signature="e#27807#27808#0" expanded="true" />
+                <element signature="e#27851#27852#0" expanded="true" />
+                <element signature="e#27933#27934#0" expanded="true" />
+                <element signature="e#27970#27971#0" expanded="true" />
+                <element signature="e#29611#29612#0" expanded="true" />
+                <element signature="e#29676#29677#0" expanded="true" />
+                <element signature="e#29754#29755#0" expanded="true" />
+                <element signature="e#29791#29792#0" expanded="true" />
+                <element signature="e#30886#30887#0" expanded="true" />
+                <element signature="e#30943#30944#0" expanded="true" />
+                <element signature="e#31025#31026#0" expanded="true" />
+                <element signature="e#31062#31063#0" expanded="true" />
+                <element signature="e#32265#32266#0" expanded="true" />
+                <element signature="e#32324#32325#0" expanded="true" />
+                <element signature="e#32542#32543#0" expanded="true" />
+                <element signature="e#32579#32580#0" expanded="true" />
+                <element signature="e#33935#33936#0" expanded="true" />
+                <element signature="e#33992#33993#0" expanded="true" />
+                <element signature="e#34263#34264#0" expanded="true" />
+                <element signature="e#34310#34311#0" expanded="true" />
+                <element signature="e#34366#34367#0" expanded="true" />
+                <element signature="e#34426#34427#0" expanded="true" />
+                <element signature="e#34481#34482#0" expanded="true" />
+                <element signature="e#34542#34543#0" expanded="true" />
+                <element signature="e#34666#34667#0" expanded="true" />
+                <element signature="e#34714#34715#0" expanded="true" />
+                <element signature="e#34845#34846#0" expanded="true" />
+                <element signature="e#34904#34905#0" expanded="true" />
+                <element signature="e#34989#34990#0" expanded="true" />
+                <element signature="e#35026#35027#0" expanded="true" />
+                <element signature="e#36710#36711#0" expanded="true" />
+                <element signature="e#36769#36770#0" expanded="true" />
+                <element signature="e#36975#36976#0" expanded="true" />
+                <element signature="e#37033#37034#0" expanded="true" />
+                <element signature="e#37084#37085#0" expanded="true" />
+                <element signature="e#37143#37144#0" expanded="true" />
+                <element signature="e#37334#37335#0" expanded="true" />
+                <element signature="e#37378#37379#0" expanded="true" />
+                <element signature="e#37460#37461#0" expanded="true" />
+                <element signature="e#37497#37498#0" expanded="true" />
+                <element signature="e#39154#39155#0" expanded="true" />
+                <element signature="e#39191#39192#0" expanded="true" />
+                <element signature="e#40296#40297#0" expanded="true" />
+                <element signature="e#40333#40334#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,18 +236,6 @@
                 <element signature="e#338#339#0" expanded="true" />
                 <element signature="e#388#389#0" expanded="true" />
                 <element signature="e#430#431#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SqlFragmentFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlFragmentFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="99" lean-forward="false" selection-start-line="9" selection-start-column="99" selection-end-line="9" selection-end-column="99" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -665,16 +781,16 @@
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/MySqlFragmentBuildingListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/MySqlFragmentFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/CCRecoveryScenarios.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlBaseListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlLexer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlDocumentFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlCreateTableFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlFragmentFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragmentasts/BaseFragmentAST.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlFragmentBuildingListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/Sql.g4" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlBaseListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlLexer.java" />
       </list>
     </option>
   </component>
@@ -1172,6 +1288,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1199" y="117" width="1926" height="1058" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1195,7 +1312,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28663793" sideWeight="0.49573106" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32004312" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32004312" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2470651" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1490,38 +1607,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlBaseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlLexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/fragmentast/SqlFragmentFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1587,8 +1672,165 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/Sql.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        <state relative-caret-position="375">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#376#445#0" expanded="true" />
+            <element signature="e#3839#3840#0" expanded="true" />
+            <element signature="e#3863#3864#0" expanded="true" />
+            <element signature="e#3913#3914#0" expanded="true" />
+            <element signature="e#3937#3938#0" expanded="true" />
+            <element signature="e#4452#4453#0" expanded="true" />
+            <element signature="e#4512#4513#0" expanded="true" />
+            <element signature="e#4587#4588#0" expanded="true" />
+            <element signature="e#4624#4625#0" expanded="true" />
+            <element signature="e#5618#5619#0" expanded="true" />
+            <element signature="e#5680#5681#0" expanded="true" />
+            <element signature="e#5756#5757#0" expanded="true" />
+            <element signature="e#5793#5794#0" expanded="true" />
+            <element signature="e#6798#6799#0" expanded="true" />
+            <element signature="e#6856#6857#0" expanded="true" />
+            <element signature="e#6907#6908#0" expanded="true" />
+            <element signature="e#6966#6967#0" expanded="true" />
+            <element signature="e#7084#7085#0" expanded="true" />
+            <element signature="e#7130#7131#0" expanded="true" />
+            <element signature="e#7207#7208#0" expanded="true" />
+            <element signature="e#7244#7245#0" expanded="true" />
+            <element signature="e#9864#9865#0" expanded="true" />
+            <element signature="e#9901#9902#0" expanded="true" />
+            <element signature="e#10946#10947#0" expanded="true" />
+            <element signature="e#11011#11012#0" expanded="true" />
+            <element signature="e#11090#11091#0" expanded="true" />
+            <element signature="e#11127#11128#0" expanded="true" />
+            <element signature="e#12315#12316#0" expanded="true" />
+            <element signature="e#12374#12375#0" expanded="true" />
+            <element signature="e#12709#12710#0" expanded="true" />
+            <element signature="e#12770#12771#0" expanded="true" />
+            <element signature="e#12857#12858#0" expanded="true" />
+            <element signature="e#12894#12895#0" expanded="true" />
+            <element signature="e#14326#14327#0" expanded="true" />
+            <element signature="e#14383#14384#0" expanded="true" />
+            <element signature="e#14459#14460#0" expanded="true" />
+            <element signature="e#14496#14497#0" expanded="true" />
+            <element signature="e#15826#15827#0" expanded="true" />
+            <element signature="e#15870#15871#0" expanded="true" />
+            <element signature="e#15954#15955#0" expanded="true" />
+            <element signature="e#15991#15992#0" expanded="true" />
+            <element signature="e#17948#17949#0" expanded="true" />
+            <element signature="e#18008#18009#0" expanded="true" />
+            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#18116#18117#0" expanded="true" />
+            <element signature="e#18174#18175#0" expanded="true" />
+            <element signature="e#18239#18240#0" expanded="true" />
+            <element signature="e#18322#18323#0" expanded="true" />
+            <element signature="e#18359#18360#0" expanded="true" />
+            <element signature="e#19622#19623#0" expanded="true" />
+            <element signature="e#19679#19680#0" expanded="true" />
+            <element signature="e#19756#19757#0" expanded="true" />
+            <element signature="e#19793#19794#0" expanded="true" />
+            <element signature="e#20805#20806#0" expanded="true" />
+            <element signature="e#20864#20865#0" expanded="true" />
+            <element signature="e#20917#20918#0" expanded="true" />
+            <element signature="e#20977#20978#0" expanded="true" />
+            <element signature="e#21089#21090#0" expanded="true" />
+            <element signature="e#21133#21134#0" expanded="true" />
+            <element signature="e#21211#21212#0" expanded="true" />
+            <element signature="e#21248#21249#0" expanded="true" />
+            <element signature="e#22553#22554#0" expanded="true" />
+            <element signature="e#22617#22618#0" expanded="true" />
+            <element signature="e#22740#22741#0" expanded="true" />
+            <element signature="e#22799#22800#0" expanded="true" />
+            <element signature="e#22955#22956#0" expanded="true" />
+            <element signature="e#22992#22993#0" expanded="true" />
+            <element signature="e#24250#24251#0" expanded="true" />
+            <element signature="e#24306#24307#0" expanded="true" />
+            <element signature="e#24353#24354#0" expanded="true" />
+            <element signature="e#24410#24411#0" expanded="true" />
+            <element signature="e#24491#24492#0" expanded="true" />
+            <element signature="e#24528#24529#0" expanded="true" />
+            <element signature="e#25967#25968#0" expanded="true" />
+            <element signature="e#26004#26005#0" expanded="true" />
+            <element signature="e#27444#27445#0" expanded="true" />
+            <element signature="e#27503#27504#0" expanded="true" />
+            <element signature="e#27556#27557#0" expanded="true" />
+            <element signature="e#27616#27617#0" expanded="true" />
+            <element signature="e#27807#27808#0" expanded="true" />
+            <element signature="e#27851#27852#0" expanded="true" />
+            <element signature="e#27933#27934#0" expanded="true" />
+            <element signature="e#27970#27971#0" expanded="true" />
+            <element signature="e#29611#29612#0" expanded="true" />
+            <element signature="e#29676#29677#0" expanded="true" />
+            <element signature="e#29754#29755#0" expanded="true" />
+            <element signature="e#29791#29792#0" expanded="true" />
+            <element signature="e#30886#30887#0" expanded="true" />
+            <element signature="e#30943#30944#0" expanded="true" />
+            <element signature="e#31025#31026#0" expanded="true" />
+            <element signature="e#31062#31063#0" expanded="true" />
+            <element signature="e#32265#32266#0" expanded="true" />
+            <element signature="e#32324#32325#0" expanded="true" />
+            <element signature="e#32542#32543#0" expanded="true" />
+            <element signature="e#32579#32580#0" expanded="true" />
+            <element signature="e#33935#33936#0" expanded="true" />
+            <element signature="e#33992#33993#0" expanded="true" />
+            <element signature="e#34263#34264#0" expanded="true" />
+            <element signature="e#34310#34311#0" expanded="true" />
+            <element signature="e#34366#34367#0" expanded="true" />
+            <element signature="e#34426#34427#0" expanded="true" />
+            <element signature="e#34481#34482#0" expanded="true" />
+            <element signature="e#34542#34543#0" expanded="true" />
+            <element signature="e#34666#34667#0" expanded="true" />
+            <element signature="e#34714#34715#0" expanded="true" />
+            <element signature="e#34845#34846#0" expanded="true" />
+            <element signature="e#34904#34905#0" expanded="true" />
+            <element signature="e#34989#34990#0" expanded="true" />
+            <element signature="e#35026#35027#0" expanded="true" />
+            <element signature="e#36710#36711#0" expanded="true" />
+            <element signature="e#36769#36770#0" expanded="true" />
+            <element signature="e#36975#36976#0" expanded="true" />
+            <element signature="e#37033#37034#0" expanded="true" />
+            <element signature="e#37084#37085#0" expanded="true" />
+            <element signature="e#37143#37144#0" expanded="true" />
+            <element signature="e#37334#37335#0" expanded="true" />
+            <element signature="e#37378#37379#0" expanded="true" />
+            <element signature="e#37460#37461#0" expanded="true" />
+            <element signature="e#37497#37498#0" expanded="true" />
+            <element signature="e#39154#39155#0" expanded="true" />
+            <element signature="e#39191#39192#0" expanded="true" />
+            <element signature="e#40296#40297#0" expanded="true" />
+            <element signature="e#40333#40334#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlBaseListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/scenarios/languages/sql/antlr/SqlLexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
           <folding />
         </state>
       </provider>
