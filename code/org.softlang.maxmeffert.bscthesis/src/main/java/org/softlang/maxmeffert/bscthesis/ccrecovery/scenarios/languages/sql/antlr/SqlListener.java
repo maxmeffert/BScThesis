@@ -1,4 +1,5 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antlr;
+
 // Generated from Sql.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -148,15 +149,25 @@ public interface SqlListener extends ParseTreeListener {
 	 */
 	void exitSqlColumnConstrain(SqlParser.SqlColumnConstrainContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SqlParser#sqlTableContstrain}.
+	 * Enter a parse tree produced by {@link SqlParser#sqlTableConstraint}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlTableContstrain(SqlParser.SqlTableContstrainContext ctx);
+	void enterSqlTableConstraint(SqlParser.SqlTableConstraintContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SqlParser#sqlTableContstrain}.
+	 * Exit a parse tree produced by {@link SqlParser#sqlTableConstraint}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlTableContstrain(SqlParser.SqlTableContstrainContext ctx);
+	void exitSqlTableConstraint(SqlParser.SqlTableConstraintContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SqlParser#sqlTableConstraints}.
+	 * @param ctx the parse tree
+	 */
+	void enterSqlTableConstraints(SqlParser.SqlTableConstraintsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SqlParser#sqlTableConstraints}.
+	 * @param ctx the parse tree
+	 */
+	void exitSqlTableConstraints(SqlParser.SqlTableConstraintsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SqlParser#sqlTableEngine}.
 	 * @param ctx the parse tree

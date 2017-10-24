@@ -6,10 +6,11 @@ sqlDocument
 
 sqlStatement
     : sqlDdlStatement
+    |.?
     ;
+
 sqlStatements
     : sqlStatement ( NEWLINE sqlStatement )*
-    |.?
     ;
 
 sqlDdlStatement
@@ -21,7 +22,7 @@ sqlDmlStatement
     ;
 
 sqlCreateTableStatement
-    : K_CREATE K_TABLE sqlTableName OPEN_PAR sqlColumnDefinitions CLOSE_PAR sqlTableEngine?
+    : K_CREATE K_TABLE sqlTableName OPEN_PAR sqlColumnDefinitions (COMMA sqlTableConstraints)? CLOSE_PAR sqlTableEngine?
     ;
 
 sqlTableName
@@ -29,7 +30,7 @@ sqlTableName
     ;
 
 sqlColumnDefinitions
-    : sqlColumnDefinition ( COMMA sqlColumnDefinition )* (COMMA .?)*
+    : sqlColumnDefinition ( COMMA sqlColumnDefinition )*
     ;
 
 sqlColumnDefinition
@@ -56,8 +57,12 @@ sqlColumnConstrain
     : K_NOT? K_NULL
     ;
 
-sqlTableContstrain
+sqlTableConstraint
     : K_PRIMARY K_KEY OPEN_PAR sqlColumnName ( COMMA sqlColumnName )* CLOSE_PAR
+    | .?
+    ;
+sqlTableConstraints
+    : sqlTableConstraint (COMMA sqlTableConstraint)*
     ;
 
 sqlTableEngine

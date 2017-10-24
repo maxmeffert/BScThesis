@@ -1,4 +1,5 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antlr;
+
 // Generated from Sql.g4 by ANTLR 4.7
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -184,13 +185,25 @@ public class SqlBaseListener implements SqlListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSqlTableContstrain(SqlParser.SqlTableContstrainContext ctx) { }
+	@Override public void enterSqlTableConstraint(SqlParser.SqlTableConstraintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSqlTableContstrain(SqlParser.SqlTableContstrainContext ctx) { }
+	@Override public void exitSqlTableConstraint(SqlParser.SqlTableConstraintContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSqlTableConstraints(SqlParser.SqlTableConstraintsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSqlTableConstraints(SqlParser.SqlTableConstraintsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

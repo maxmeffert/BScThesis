@@ -1,4 +1,5 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antlr;
+
 // Generated from Sql.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;

@@ -1,4 +1,5 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antlr;
+
 // Generated from Sql.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -29,16 +30,17 @@ public class SqlParser extends Parser {
 		RULE_sqlDmlStatement = 4, RULE_sqlCreateTableStatement = 5, RULE_sqlTableName = 6, 
 		RULE_sqlColumnDefinitions = 7, RULE_sqlColumnDefinition = 8, RULE_sqlColumnName = 9, 
 		RULE_sqlColumnNames = 10, RULE_sqlColumnType = 11, RULE_sqlColumnTypeName = 12, 
-		RULE_sqlColumnConstrain = 13, RULE_sqlTableContstrain = 14, RULE_sqlTableEngine = 15, 
-		RULE_sqlTableEngineName = 16, RULE_sqlAlterTableStatement = 17, RULE_sqlAddTableConstraint = 18, 
-		RULE_sqlInsertStatement = 19, RULE_identifier = 20, RULE_signedNumber = 21;
+		RULE_sqlColumnConstrain = 13, RULE_sqlTableConstraint = 14, RULE_sqlTableConstraints = 15, 
+		RULE_sqlTableEngine = 16, RULE_sqlTableEngineName = 17, RULE_sqlAlterTableStatement = 18, 
+		RULE_sqlAddTableConstraint = 19, RULE_sqlInsertStatement = 20, RULE_identifier = 21, 
+		RULE_signedNumber = 22;
 	public static final String[] ruleNames = {
 		"sqlDocument", "sqlStatement", "sqlStatements", "sqlDdlStatement", "sqlDmlStatement", 
 		"sqlCreateTableStatement", "sqlTableName", "sqlColumnDefinitions", "sqlColumnDefinition", 
 		"sqlColumnName", "sqlColumnNames", "sqlColumnType", "sqlColumnTypeName", 
-		"sqlColumnConstrain", "sqlTableContstrain", "sqlTableEngine", "sqlTableEngineName", 
-		"sqlAlterTableStatement", "sqlAddTableConstraint", "sqlInsertStatement", 
-		"identifier", "signedNumber"
+		"sqlColumnConstrain", "sqlTableConstraint", "sqlTableConstraints", "sqlTableEngine", 
+		"sqlTableEngineName", "sqlAlterTableStatement", "sqlAddTableConstraint", 
+		"sqlInsertStatement", "identifier", "signedNumber"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -129,7 +131,7 @@ public class SqlParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(44);
+			setState(46);
 			sqlStatements();
 			}
 		}
@@ -166,10 +168,31 @@ public class SqlParser extends Parser {
 		SqlStatementContext _localctx = new SqlStatementContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_sqlStatement);
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(46);
-			sqlDdlStatement();
+			setState(52);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(48);
+				sqlDdlStatement();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(50);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
+				case 1:
+					{
+					setState(49);
+					matchWildcard();
+					}
+					break;
+				}
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -213,47 +236,26 @@ public class SqlParser extends Parser {
 		enterRule(_localctx, 4, RULE_sqlStatements);
 		int _la;
 		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(54);
+			sqlStatement();
 			setState(59);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
+			_la = _input.LA(1);
+			while (_la==NEWLINE) {
 				{
-				setState(48);
+				{
+				setState(55);
+				match(NEWLINE);
+				setState(56);
 				sqlStatement();
-				setState(53);
+				}
+				}
+				setState(61);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (_la==NEWLINE) {
-					{
-					{
-					setState(49);
-					match(NEWLINE);
-					setState(50);
-					sqlStatement();
-					}
-					}
-					setState(55);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(57);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << K_ALTER) | (1L << K_ADD) | (1L << K_CREATE) | (1L << K_COLUMN) | (1L << K_CONSTRAIN) | (1L << K_FOREIGN) | (1L << K_REFERENCES) | (1L << K_TABLE) | (1L << K_ENGINE) | (1L << K_NOT) | (1L << K_NULL) | (1L << K_PRIMARY) | (1L << K_KEY) | (1L << K_INSERT) | (1L << K_INTO) | (1L << K_VALUES) | (1L << SCOL) | (1L << DOT) | (1L << OPEN_PAR) | (1L << CLOSE_PAR) | (1L << COMMA) | (1L << ASSIGN) | (1L << STAR) | (1L << PLUS) | (1L << MINUS) | (1L << TILDE) | (1L << PIPE2) | (1L << DIV) | (1L << MOD) | (1L << LT2) | (1L << GT2) | (1L << AMP) | (1L << PIPE) | (1L << LT) | (1L << LT_EQ) | (1L << GT) | (1L << GT_EQ) | (1L << EQ) | (1L << NOT_EQ1) | (1L << NOT_EQ2) | (1L << NEWLINE) | (1L << IDENTIFIER) | (1L << NUMERIC_LITERAL) | (1L << SPACES))) != 0)) {
-					{
-					setState(56);
-					matchWildcard();
-					}
-				}
-
-				}
-				break;
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -291,7 +293,7 @@ public class SqlParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(61);
+			setState(62);
 			sqlCreateTableStatement();
 			}
 		}
@@ -330,7 +332,7 @@ public class SqlParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(63);
+			setState(64);
 			sqlInsertStatement();
 			}
 		}
@@ -356,6 +358,10 @@ public class SqlParser extends Parser {
 			return getRuleContext(SqlColumnDefinitionsContext.class,0);
 		}
 		public TerminalNode CLOSE_PAR() { return getToken(SqlParser.CLOSE_PAR, 0); }
+		public TerminalNode COMMA() { return getToken(SqlParser.COMMA, 0); }
+		public SqlTableConstraintsContext sqlTableConstraints() {
+			return getRuleContext(SqlTableConstraintsContext.class,0);
+		}
 		public SqlTableEngineContext sqlTableEngine() {
 			return getRuleContext(SqlTableEngineContext.class,0);
 		}
@@ -380,24 +386,36 @@ public class SqlParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(65);
-			match(K_CREATE);
 			setState(66);
-			match(K_TABLE);
+			match(K_CREATE);
 			setState(67);
-			sqlTableName();
+			match(K_TABLE);
 			setState(68);
-			match(OPEN_PAR);
+			sqlTableName();
 			setState(69);
-			sqlColumnDefinitions();
+			match(OPEN_PAR);
 			setState(70);
+			sqlColumnDefinitions();
+			setState(73);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==COMMA) {
+				{
+				setState(71);
+				match(COMMA);
+				setState(72);
+				sqlTableConstraints();
+				}
+			}
+
+			setState(75);
 			match(CLOSE_PAR);
-			setState(72);
+			setState(77);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==K_ENGINE) {
 				{
-				setState(71);
+				setState(76);
 				sqlTableEngine();
 				}
 			}
@@ -439,7 +457,7 @@ public class SqlParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(74);
+			setState(79);
 			identifier();
 			}
 		}
@@ -482,54 +500,29 @@ public class SqlParser extends Parser {
 	public final SqlColumnDefinitionsContext sqlColumnDefinitions() throws RecognitionException {
 		SqlColumnDefinitionsContext _localctx = new SqlColumnDefinitionsContext(_ctx, getState());
 		enterRule(_localctx, 14, RULE_sqlColumnDefinitions);
-		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(76);
-			sqlColumnDefinition();
 			setState(81);
+			sqlColumnDefinition();
+			setState(86);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(77);
+					setState(82);
 					match(COMMA);
-					setState(78);
+					setState(83);
 					sqlColumnDefinition();
 					}
 					} 
 				}
-				setState(83);
+				setState(88);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
-			}
-			setState(90);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==COMMA) {
-				{
-				{
-				setState(84);
-				match(COMMA);
-				setState(86);
-				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
-				case 1:
-					{
-					setState(85);
-					matchWildcard();
-					}
-					break;
-				}
-				}
-				}
-				setState(92);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
+				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
 			}
 			}
 		}
@@ -575,16 +568,16 @@ public class SqlParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(93);
+			setState(89);
 			sqlColumnName();
-			setState(94);
+			setState(90);
 			sqlColumnType();
-			setState(96);
+			setState(92);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==K_NOT || _la==K_NULL) {
 				{
-				setState(95);
+				setState(91);
 				sqlColumnConstrain();
 				}
 			}
@@ -626,7 +619,7 @@ public class SqlParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(98);
+			setState(94);
 			identifier();
 			}
 		}
@@ -673,21 +666,21 @@ public class SqlParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(100);
+			setState(96);
 			sqlColumnName();
-			setState(105);
+			setState(101);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(101);
+				setState(97);
 				match(COMMA);
-				setState(102);
+				setState(98);
 				sqlColumnName();
 				}
 				}
-				setState(107);
+				setState(103);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -734,18 +727,18 @@ public class SqlParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(108);
+			setState(104);
 			sqlColumnTypeName();
-			setState(113);
+			setState(109);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==OPEN_PAR) {
 				{
-				setState(109);
+				setState(105);
 				match(OPEN_PAR);
-				setState(110);
+				setState(106);
 				signedNumber();
-				setState(111);
+				setState(107);
 				match(CLOSE_PAR);
 				}
 			}
@@ -791,17 +784,17 @@ public class SqlParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(116); 
+			setState(112); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(115);
+				setState(111);
 				identifier();
 				}
 				}
-				setState(118); 
+				setState(114); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==IDENTIFIER );
@@ -842,17 +835,17 @@ public class SqlParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(121);
+			setState(117);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==K_NOT) {
 				{
-				setState(120);
+				setState(116);
 				match(K_NOT);
 				}
 			}
 
-			setState(123);
+			setState(119);
 			match(K_NULL);
 			}
 		}
@@ -867,7 +860,7 @@ public class SqlParser extends Parser {
 		return _localctx;
 	}
 
-	public static class SqlTableContstrainContext extends ParserRuleContext {
+	public static class SqlTableConstraintContext extends ParserRuleContext {
 		public TerminalNode K_PRIMARY() { return getToken(SqlParser.K_PRIMARY, 0); }
 		public TerminalNode K_KEY() { return getToken(SqlParser.K_KEY, 0); }
 		public TerminalNode OPEN_PAR() { return getToken(SqlParser.OPEN_PAR, 0); }
@@ -882,53 +875,137 @@ public class SqlParser extends Parser {
 		public TerminalNode COMMA(int i) {
 			return getToken(SqlParser.COMMA, i);
 		}
-		public SqlTableContstrainContext(ParserRuleContext parent, int invokingState) {
+		public SqlTableConstraintContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_sqlTableContstrain; }
+		@Override public int getRuleIndex() { return RULE_sqlTableConstraint; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SqlListener ) ((SqlListener)listener).enterSqlTableContstrain(this);
+			if ( listener instanceof SqlListener ) ((SqlListener)listener).enterSqlTableConstraint(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SqlListener ) ((SqlListener)listener).exitSqlTableContstrain(this);
+			if ( listener instanceof SqlListener ) ((SqlListener)listener).exitSqlTableConstraint(this);
 		}
 	}
 
-	public final SqlTableContstrainContext sqlTableContstrain() throws RecognitionException {
-		SqlTableContstrainContext _localctx = new SqlTableContstrainContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_sqlTableContstrain);
+	public final SqlTableConstraintContext sqlTableConstraint() throws RecognitionException {
+		SqlTableConstraintContext _localctx = new SqlTableConstraintContext(_ctx, getState());
+		enterRule(_localctx, 28, RULE_sqlTableConstraint);
+		int _la;
+		try {
+			setState(137);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(121);
+				match(K_PRIMARY);
+				setState(122);
+				match(K_KEY);
+				setState(123);
+				match(OPEN_PAR);
+				setState(124);
+				sqlColumnName();
+				setState(129);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==COMMA) {
+					{
+					{
+					setState(125);
+					match(COMMA);
+					setState(126);
+					sqlColumnName();
+					}
+					}
+					setState(131);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				setState(132);
+				match(CLOSE_PAR);
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(135);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
+				case 1:
+					{
+					setState(134);
+					matchWildcard();
+					}
+					break;
+				}
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class SqlTableConstraintsContext extends ParserRuleContext {
+		public List<SqlTableConstraintContext> sqlTableConstraint() {
+			return getRuleContexts(SqlTableConstraintContext.class);
+		}
+		public SqlTableConstraintContext sqlTableConstraint(int i) {
+			return getRuleContext(SqlTableConstraintContext.class,i);
+		}
+		public List<TerminalNode> COMMA() { return getTokens(SqlParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SqlParser.COMMA, i);
+		}
+		public SqlTableConstraintsContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_sqlTableConstraints; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SqlListener ) ((SqlListener)listener).enterSqlTableConstraints(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SqlListener ) ((SqlListener)listener).exitSqlTableConstraints(this);
+		}
+	}
+
+	public final SqlTableConstraintsContext sqlTableConstraints() throws RecognitionException {
+		SqlTableConstraintsContext _localctx = new SqlTableConstraintsContext(_ctx, getState());
+		enterRule(_localctx, 30, RULE_sqlTableConstraints);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(125);
-			match(K_PRIMARY);
-			setState(126);
-			match(K_KEY);
-			setState(127);
-			match(OPEN_PAR);
-			setState(128);
-			sqlColumnName();
-			setState(133);
+			setState(139);
+			sqlTableConstraint();
+			setState(144);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(129);
+				setState(140);
 				match(COMMA);
-				setState(130);
-				sqlColumnName();
+				setState(141);
+				sqlTableConstraint();
 				}
 				}
-				setState(135);
+				setState(146);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(136);
-			match(CLOSE_PAR);
 			}
 		}
 		catch (RecognitionException re) {
@@ -964,15 +1041,15 @@ public class SqlParser extends Parser {
 
 	public final SqlTableEngineContext sqlTableEngine() throws RecognitionException {
 		SqlTableEngineContext _localctx = new SqlTableEngineContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_sqlTableEngine);
+		enterRule(_localctx, 32, RULE_sqlTableEngine);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(138);
+			setState(147);
 			match(K_ENGINE);
-			setState(139);
+			setState(148);
 			match(ASSIGN);
-			setState(140);
+			setState(149);
 			sqlTableEngineName();
 			}
 		}
@@ -1007,11 +1084,11 @@ public class SqlParser extends Parser {
 
 	public final SqlTableEngineNameContext sqlTableEngineName() throws RecognitionException {
 		SqlTableEngineNameContext _localctx = new SqlTableEngineNameContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_sqlTableEngineName);
+		enterRule(_localctx, 34, RULE_sqlTableEngineName);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(142);
+			setState(151);
 			identifier();
 			}
 		}
@@ -1051,17 +1128,17 @@ public class SqlParser extends Parser {
 
 	public final SqlAlterTableStatementContext sqlAlterTableStatement() throws RecognitionException {
 		SqlAlterTableStatementContext _localctx = new SqlAlterTableStatementContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_sqlAlterTableStatement);
+		enterRule(_localctx, 36, RULE_sqlAlterTableStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(144);
+			setState(153);
 			match(K_ALTER);
-			setState(145);
+			setState(154);
 			match(K_TABLE);
-			setState(146);
+			setState(155);
 			sqlTableName();
-			setState(147);
+			setState(156);
 			sqlAddTableConstraint();
 			}
 		}
@@ -1118,35 +1195,35 @@ public class SqlParser extends Parser {
 
 	public final SqlAddTableConstraintContext sqlAddTableConstraint() throws RecognitionException {
 		SqlAddTableConstraintContext _localctx = new SqlAddTableConstraintContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_sqlAddTableConstraint);
+		enterRule(_localctx, 38, RULE_sqlAddTableConstraint);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(149);
-			match(K_ADD);
-			setState(150);
-			match(K_CONSTRAIN);
-			setState(151);
-			identifier();
-			setState(152);
-			match(K_FOREIGN);
-			setState(153);
-			match(K_KEY);
-			setState(154);
-			match(OPEN_PAR);
-			setState(155);
-			sqlColumnNames();
-			setState(156);
-			match(CLOSE_PAR);
-			setState(157);
-			match(K_REFERENCES);
 			setState(158);
-			sqlTableName();
+			match(K_ADD);
 			setState(159);
-			match(OPEN_PAR);
+			match(K_CONSTRAIN);
 			setState(160);
-			sqlColumnNames();
+			identifier();
 			setState(161);
+			match(K_FOREIGN);
+			setState(162);
+			match(K_KEY);
+			setState(163);
+			match(OPEN_PAR);
+			setState(164);
+			sqlColumnNames();
+			setState(165);
+			match(CLOSE_PAR);
+			setState(166);
+			match(K_REFERENCES);
+			setState(167);
+			sqlTableName();
+			setState(168);
+			match(OPEN_PAR);
+			setState(169);
+			sqlColumnNames();
+			setState(170);
 			match(CLOSE_PAR);
 			}
 		}
@@ -1196,40 +1273,40 @@ public class SqlParser extends Parser {
 
 	public final SqlInsertStatementContext sqlInsertStatement() throws RecognitionException {
 		SqlInsertStatementContext _localctx = new SqlInsertStatementContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_sqlInsertStatement);
+		enterRule(_localctx, 40, RULE_sqlInsertStatement);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(163);
+			setState(172);
 			match(K_INSERT);
-			setState(164);
-			match(K_INTO);
-			setState(165);
-			sqlTableName();
-			setState(166);
-			match(K_VALUES);
-			setState(167);
-			match(OPEN_PAR);
-			setState(168);
-			signedNumber();
 			setState(173);
+			match(K_INTO);
+			setState(174);
+			sqlTableName();
+			setState(175);
+			match(K_VALUES);
+			setState(176);
+			match(OPEN_PAR);
+			setState(177);
+			signedNumber();
+			setState(182);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(169);
+				setState(178);
 				match(COMMA);
-				setState(170);
+				setState(179);
 				signedNumber();
 				}
 				}
-				setState(175);
+				setState(184);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(176);
+			setState(185);
 			match(CLOSE_PAR);
 			}
 		}
@@ -1262,11 +1339,11 @@ public class SqlParser extends Parser {
 
 	public final IdentifierContext identifier() throws RecognitionException {
 		IdentifierContext _localctx = new IdentifierContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_identifier);
+		enterRule(_localctx, 42, RULE_identifier);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(178);
+			setState(187);
 			match(IDENTIFIER);
 			}
 		}
@@ -1299,17 +1376,17 @@ public class SqlParser extends Parser {
 
 	public final SignedNumberContext signedNumber() throws RecognitionException {
 		SignedNumberContext _localctx = new SignedNumberContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_signedNumber);
+		enterRule(_localctx, 44, RULE_signedNumber);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(181);
+			setState(190);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==PLUS || _la==MINUS) {
 				{
-				setState(180);
+				setState(189);
 				_la = _input.LA(1);
 				if ( !(_la==PLUS || _la==MINUS) ) {
 				_errHandler.recoverInline(this);
@@ -1322,7 +1399,7 @@ public class SqlParser extends Parser {
 				}
 			}
 
-			setState(183);
+			setState(192);
 			match(NUMERIC_LITERAL);
 			}
 		}
@@ -1338,58 +1415,63 @@ public class SqlParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3.\u00bc\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3.\u00c5\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
-		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\3\2\3\2\3\3\3\3\3\4"+
-		"\3\4\3\4\7\4\66\n\4\f\4\16\49\13\4\3\4\5\4<\n\4\5\4>\n\4\3\5\3\5\3\6\3"+
-		"\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\5\7K\n\7\3\b\3\b\3\t\3\t\3\t\7\tR\n\t\f"+
-		"\t\16\tU\13\t\3\t\3\t\5\tY\n\t\7\t[\n\t\f\t\16\t^\13\t\3\n\3\n\3\n\5\n"+
-		"c\n\n\3\13\3\13\3\f\3\f\3\f\7\fj\n\f\f\f\16\fm\13\f\3\r\3\r\3\r\3\r\3"+
-		"\r\5\rt\n\r\3\16\6\16w\n\16\r\16\16\16x\3\17\5\17|\n\17\3\17\3\17\3\20"+
-		"\3\20\3\20\3\20\3\20\3\20\7\20\u0086\n\20\f\20\16\20\u0089\13\20\3\20"+
-		"\3\20\3\21\3\21\3\21\3\21\3\22\3\22\3\23\3\23\3\23\3\23\3\23\3\24\3\24"+
-		"\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\25\3\25"+
-		"\3\25\3\25\3\25\3\25\3\25\3\25\7\25\u00ae\n\25\f\25\16\25\u00b1\13\25"+
-		"\3\25\3\25\3\26\3\26\3\27\5\27\u00b8\n\27\3\27\3\27\3\27\2\2\30\2\4\6"+
-		"\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,\2\3\3\2\32\33\2\u00b4\2.\3\2"+
-		"\2\2\4\60\3\2\2\2\6=\3\2\2\2\b?\3\2\2\2\nA\3\2\2\2\fC\3\2\2\2\16L\3\2"+
-		"\2\2\20N\3\2\2\2\22_\3\2\2\2\24d\3\2\2\2\26f\3\2\2\2\30n\3\2\2\2\32v\3"+
-		"\2\2\2\34{\3\2\2\2\36\177\3\2\2\2 \u008c\3\2\2\2\"\u0090\3\2\2\2$\u0092"+
-		"\3\2\2\2&\u0097\3\2\2\2(\u00a5\3\2\2\2*\u00b4\3\2\2\2,\u00b7\3\2\2\2."+
-		"/\5\6\4\2/\3\3\2\2\2\60\61\5\b\5\2\61\5\3\2\2\2\62\67\5\4\3\2\63\64\7"+
-		"+\2\2\64\66\5\4\3\2\65\63\3\2\2\2\669\3\2\2\2\67\65\3\2\2\2\678\3\2\2"+
-		"\28>\3\2\2\29\67\3\2\2\2:<\13\2\2\2;:\3\2\2\2;<\3\2\2\2<>\3\2\2\2=\62"+
-		"\3\2\2\2=;\3\2\2\2>\7\3\2\2\2?@\5\f\7\2@\t\3\2\2\2AB\5(\25\2B\13\3\2\2"+
-		"\2CD\7\5\2\2DE\7\n\2\2EF\5\16\b\2FG\7\25\2\2GH\5\20\t\2HJ\7\26\2\2IK\5"+
-		" \21\2JI\3\2\2\2JK\3\2\2\2K\r\3\2\2\2LM\5*\26\2M\17\3\2\2\2NS\5\22\n\2"+
-		"OP\7\27\2\2PR\5\22\n\2QO\3\2\2\2RU\3\2\2\2SQ\3\2\2\2ST\3\2\2\2T\\\3\2"+
-		"\2\2US\3\2\2\2VX\7\27\2\2WY\13\2\2\2XW\3\2\2\2XY\3\2\2\2Y[\3\2\2\2ZV\3"+
-		"\2\2\2[^\3\2\2\2\\Z\3\2\2\2\\]\3\2\2\2]\21\3\2\2\2^\\\3\2\2\2_`\5\24\13"+
-		"\2`b\5\30\r\2ac\5\34\17\2ba\3\2\2\2bc\3\2\2\2c\23\3\2\2\2de\5*\26\2e\25"+
-		"\3\2\2\2fk\5\24\13\2gh\7\27\2\2hj\5\24\13\2ig\3\2\2\2jm\3\2\2\2ki\3\2"+
-		"\2\2kl\3\2\2\2l\27\3\2\2\2mk\3\2\2\2ns\5\32\16\2op\7\25\2\2pq\5,\27\2"+
-		"qr\7\26\2\2rt\3\2\2\2so\3\2\2\2st\3\2\2\2t\31\3\2\2\2uw\5*\26\2vu\3\2"+
-		"\2\2wx\3\2\2\2xv\3\2\2\2xy\3\2\2\2y\33\3\2\2\2z|\7\f\2\2{z\3\2\2\2{|\3"+
-		"\2\2\2|}\3\2\2\2}~\7\r\2\2~\35\3\2\2\2\177\u0080\7\16\2\2\u0080\u0081"+
-		"\7\17\2\2\u0081\u0082\7\25\2\2\u0082\u0087\5\24\13\2\u0083\u0084\7\27"+
-		"\2\2\u0084\u0086\5\24\13\2\u0085\u0083\3\2\2\2\u0086\u0089\3\2\2\2\u0087"+
-		"\u0085\3\2\2\2\u0087\u0088\3\2\2\2\u0088\u008a\3\2\2\2\u0089\u0087\3\2"+
-		"\2\2\u008a\u008b\7\26\2\2\u008b\37\3\2\2\2\u008c\u008d\7\13\2\2\u008d"+
-		"\u008e\7\30\2\2\u008e\u008f\5\"\22\2\u008f!\3\2\2\2\u0090\u0091\5*\26"+
-		"\2\u0091#\3\2\2\2\u0092\u0093\7\3\2\2\u0093\u0094\7\n\2\2\u0094\u0095"+
-		"\5\16\b\2\u0095\u0096\5&\24\2\u0096%\3\2\2\2\u0097\u0098\7\4\2\2\u0098"+
-		"\u0099\7\7\2\2\u0099\u009a\5*\26\2\u009a\u009b\7\b\2\2\u009b\u009c\7\17"+
-		"\2\2\u009c\u009d\7\25\2\2\u009d\u009e\5\26\f\2\u009e\u009f\7\26\2\2\u009f"+
-		"\u00a0\7\t\2\2\u00a0\u00a1\5\16\b\2\u00a1\u00a2\7\25\2\2\u00a2\u00a3\5"+
-		"\26\f\2\u00a3\u00a4\7\26\2\2\u00a4\'\3\2\2\2\u00a5\u00a6\7\20\2\2\u00a6"+
-		"\u00a7\7\21\2\2\u00a7\u00a8\5\16\b\2\u00a8\u00a9\7\22\2\2\u00a9\u00aa"+
-		"\7\25\2\2\u00aa\u00af\5,\27\2\u00ab\u00ac\7\27\2\2\u00ac\u00ae\5,\27\2"+
-		"\u00ad\u00ab\3\2\2\2\u00ae\u00b1\3\2\2\2\u00af\u00ad\3\2\2\2\u00af\u00b0"+
-		"\3\2\2\2\u00b0\u00b2\3\2\2\2\u00b1\u00af\3\2\2\2\u00b2\u00b3\7\26\2\2"+
-		"\u00b3)\3\2\2\2\u00b4\u00b5\7,\2\2\u00b5+\3\2\2\2\u00b6\u00b8\t\2\2\2"+
-		"\u00b7\u00b6\3\2\2\2\u00b7\u00b8\3\2\2\2\u00b8\u00b9\3\2\2\2\u00b9\u00ba"+
-		"\7-\2\2\u00ba-\3\2\2\2\21\67;=JSX\\bksx{\u0087\u00af\u00b7";
+		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\3\2\3\2\3"+
+		"\3\3\3\5\3\65\n\3\5\3\67\n\3\3\4\3\4\3\4\7\4<\n\4\f\4\16\4?\13\4\3\5\3"+
+		"\5\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\5\7L\n\7\3\7\3\7\5\7P\n\7\3\b\3"+
+		"\b\3\t\3\t\3\t\7\tW\n\t\f\t\16\tZ\13\t\3\n\3\n\3\n\5\n_\n\n\3\13\3\13"+
+		"\3\f\3\f\3\f\7\ff\n\f\f\f\16\fi\13\f\3\r\3\r\3\r\3\r\3\r\5\rp\n\r\3\16"+
+		"\6\16s\n\16\r\16\16\16t\3\17\5\17x\n\17\3\17\3\17\3\20\3\20\3\20\3\20"+
+		"\3\20\3\20\7\20\u0082\n\20\f\20\16\20\u0085\13\20\3\20\3\20\3\20\5\20"+
+		"\u008a\n\20\5\20\u008c\n\20\3\21\3\21\3\21\7\21\u0091\n\21\f\21\16\21"+
+		"\u0094\13\21\3\22\3\22\3\22\3\22\3\23\3\23\3\24\3\24\3\24\3\24\3\24\3"+
+		"\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3"+
+		"\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\7\26\u00b7\n\26\f\26\16\26\u00ba"+
+		"\13\26\3\26\3\26\3\27\3\27\3\30\5\30\u00c1\n\30\3\30\3\30\3\30\2\2\31"+
+		"\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\2\3\3\2\32\33\2\u00be"+
+		"\2\60\3\2\2\2\4\66\3\2\2\2\68\3\2\2\2\b@\3\2\2\2\nB\3\2\2\2\fD\3\2\2\2"+
+		"\16Q\3\2\2\2\20S\3\2\2\2\22[\3\2\2\2\24`\3\2\2\2\26b\3\2\2\2\30j\3\2\2"+
+		"\2\32r\3\2\2\2\34w\3\2\2\2\36\u008b\3\2\2\2 \u008d\3\2\2\2\"\u0095\3\2"+
+		"\2\2$\u0099\3\2\2\2&\u009b\3\2\2\2(\u00a0\3\2\2\2*\u00ae\3\2\2\2,\u00bd"+
+		"\3\2\2\2.\u00c0\3\2\2\2\60\61\5\6\4\2\61\3\3\2\2\2\62\67\5\b\5\2\63\65"+
+		"\13\2\2\2\64\63\3\2\2\2\64\65\3\2\2\2\65\67\3\2\2\2\66\62\3\2\2\2\66\64"+
+		"\3\2\2\2\67\5\3\2\2\28=\5\4\3\29:\7+\2\2:<\5\4\3\2;9\3\2\2\2<?\3\2\2\2"+
+		"=;\3\2\2\2=>\3\2\2\2>\7\3\2\2\2?=\3\2\2\2@A\5\f\7\2A\t\3\2\2\2BC\5*\26"+
+		"\2C\13\3\2\2\2DE\7\5\2\2EF\7\n\2\2FG\5\16\b\2GH\7\25\2\2HK\5\20\t\2IJ"+
+		"\7\27\2\2JL\5 \21\2KI\3\2\2\2KL\3\2\2\2LM\3\2\2\2MO\7\26\2\2NP\5\"\22"+
+		"\2ON\3\2\2\2OP\3\2\2\2P\r\3\2\2\2QR\5,\27\2R\17\3\2\2\2SX\5\22\n\2TU\7"+
+		"\27\2\2UW\5\22\n\2VT\3\2\2\2WZ\3\2\2\2XV\3\2\2\2XY\3\2\2\2Y\21\3\2\2\2"+
+		"ZX\3\2\2\2[\\\5\24\13\2\\^\5\30\r\2]_\5\34\17\2^]\3\2\2\2^_\3\2\2\2_\23"+
+		"\3\2\2\2`a\5,\27\2a\25\3\2\2\2bg\5\24\13\2cd\7\27\2\2df\5\24\13\2ec\3"+
+		"\2\2\2fi\3\2\2\2ge\3\2\2\2gh\3\2\2\2h\27\3\2\2\2ig\3\2\2\2jo\5\32\16\2"+
+		"kl\7\25\2\2lm\5.\30\2mn\7\26\2\2np\3\2\2\2ok\3\2\2\2op\3\2\2\2p\31\3\2"+
+		"\2\2qs\5,\27\2rq\3\2\2\2st\3\2\2\2tr\3\2\2\2tu\3\2\2\2u\33\3\2\2\2vx\7"+
+		"\f\2\2wv\3\2\2\2wx\3\2\2\2xy\3\2\2\2yz\7\r\2\2z\35\3\2\2\2{|\7\16\2\2"+
+		"|}\7\17\2\2}~\7\25\2\2~\u0083\5\24\13\2\177\u0080\7\27\2\2\u0080\u0082"+
+		"\5\24\13\2\u0081\177\3\2\2\2\u0082\u0085\3\2\2\2\u0083\u0081\3\2\2\2\u0083"+
+		"\u0084\3\2\2\2\u0084\u0086\3\2\2\2\u0085\u0083\3\2\2\2\u0086\u0087\7\26"+
+		"\2\2\u0087\u008c\3\2\2\2\u0088\u008a\13\2\2\2\u0089\u0088\3\2\2\2\u0089"+
+		"\u008a\3\2\2\2\u008a\u008c\3\2\2\2\u008b{\3\2\2\2\u008b\u0089\3\2\2\2"+
+		"\u008c\37\3\2\2\2\u008d\u0092\5\36\20\2\u008e\u008f\7\27\2\2\u008f\u0091"+
+		"\5\36\20\2\u0090\u008e\3\2\2\2\u0091\u0094\3\2\2\2\u0092\u0090\3\2\2\2"+
+		"\u0092\u0093\3\2\2\2\u0093!\3\2\2\2\u0094\u0092\3\2\2\2\u0095\u0096\7"+
+		"\13\2\2\u0096\u0097\7\30\2\2\u0097\u0098\5$\23\2\u0098#\3\2\2\2\u0099"+
+		"\u009a\5,\27\2\u009a%\3\2\2\2\u009b\u009c\7\3\2\2\u009c\u009d\7\n\2\2"+
+		"\u009d\u009e\5\16\b\2\u009e\u009f\5(\25\2\u009f\'\3\2\2\2\u00a0\u00a1"+
+		"\7\4\2\2\u00a1\u00a2\7\7\2\2\u00a2\u00a3\5,\27\2\u00a3\u00a4\7\b\2\2\u00a4"+
+		"\u00a5\7\17\2\2\u00a5\u00a6\7\25\2\2\u00a6\u00a7\5\26\f\2\u00a7\u00a8"+
+		"\7\26\2\2\u00a8\u00a9\7\t\2\2\u00a9\u00aa\5\16\b\2\u00aa\u00ab\7\25\2"+
+		"\2\u00ab\u00ac\5\26\f\2\u00ac\u00ad\7\26\2\2\u00ad)\3\2\2\2\u00ae\u00af"+
+		"\7\20\2\2\u00af\u00b0\7\21\2\2\u00b0\u00b1\5\16\b\2\u00b1\u00b2\7\22\2"+
+		"\2\u00b2\u00b3\7\25\2\2\u00b3\u00b8\5.\30\2\u00b4\u00b5\7\27\2\2\u00b5"+
+		"\u00b7\5.\30\2\u00b6\u00b4\3\2\2\2\u00b7\u00ba\3\2\2\2\u00b8\u00b6\3\2"+
+		"\2\2\u00b8\u00b9\3\2\2\2\u00b9\u00bb\3\2\2\2\u00ba\u00b8\3\2\2\2\u00bb"+
+		"\u00bc\7\26\2\2\u00bc+\3\2\2\2\u00bd\u00be\7,\2\2\u00be-\3\2\2\2\u00bf"+
+		"\u00c1\t\2\2\2\u00c0\u00bf\3\2\2\2\u00c0\u00c1\3\2\2\2\u00c1\u00c2\3\2"+
+		"\2\2\u00c2\u00c3\7-\2\2\u00c3/\3\2\2\2\23\64\66=KOX^gotw\u0083\u0089\u008b"+
+		"\u0092\u00b8\u00c0";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
