@@ -1,6 +1,5 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antlr;
-
 // Generated from Sql.g4 by ANTLR 4.7
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antlr;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
