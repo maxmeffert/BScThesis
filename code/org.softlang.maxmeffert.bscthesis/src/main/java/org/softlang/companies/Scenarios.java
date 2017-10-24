@@ -23,7 +23,6 @@ public class Scenarios {
 	
 	private static void generateDDL() throws IOException {
 		JPAUtils.openConnection();
-		EntityManager em = JPAUtils.getEntityManager();
 		try {
 			HibernateUtils.generateDDL(ddlFile);
 		}
@@ -40,8 +39,8 @@ public class Scenarios {
 		JAXBUtils.marshal(SoftlangInc.getCompany(), xmlFile);
 	}
 
-	public static void main(String[] args) throws JAXBException, IOException {
-//		generateDDL();
+	public static void main(String[] args) throws IOException, JAXBException {
+		generateDDL();
 		generateXML();
 		generateXSD();
 	}

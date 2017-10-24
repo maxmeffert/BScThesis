@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generated May 30, 2017 10:43:47 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
-    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="org.softlang.maxmeffert.bscthesis.scenarios.model.Company" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Company">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="org.softlang.companies.model.Company" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Company">
         <id access="field" name="id" type="int">
             <column name="id"/>
             <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator"/>
@@ -10,7 +10,7 @@
             <key on-delete="noaction">
                 <column name="company_id"/>
             </key>
-            <one-to-many class="org.softlang.maxmeffert.bscthesis.scenarios.model.Department" embed-xml="true" not-found="exception"/>
+            <one-to-many class="org.softlang.companies.model.Department" embed-xml="true" not-found="exception"/>
         </bag>
         <property access="field" generated="never" lazy="false" name="name" optimistic-lock="true" type="java.lang.String" unique="false">
             <column name="name"/>
