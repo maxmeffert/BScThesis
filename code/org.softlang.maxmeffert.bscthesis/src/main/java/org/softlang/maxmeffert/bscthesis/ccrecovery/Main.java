@@ -18,8 +18,9 @@ public class Main {
 
 		InputStream java8Artifact = new FileInputStream("./src/main/java/org/softlang/companies/model/Company.java");
 		InputStream xmlArtifact = new FileInputStream("./artifacts/companies.xsd");
+		InputStream sqlArtifact = new FileInputStream("./artifacts/companies.ddl.sql");
 
-		IBinaryRelation<IFragmentAST> correspondences = iccRecoveryScenarios.getWeakJaxbCorrespondences(java8Artifact, xmlArtifact);
+		IBinaryRelation<IFragmentAST> correspondences = iccRecoveryScenarios.getWeakHibernateCorrespondences(java8Artifact, sqlArtifact);
 
 		System.out.println(correspondences);
 		System.out.println(correspondences.size());

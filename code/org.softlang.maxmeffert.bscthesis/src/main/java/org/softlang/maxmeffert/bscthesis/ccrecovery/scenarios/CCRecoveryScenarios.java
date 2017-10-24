@@ -11,6 +11,9 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentA
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.antlr.java8.Java8Lexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.antlr.java8.Java8Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.Java8FragmentASTBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antlr.SqlLexer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antlr.SqlParser;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragmentast.SqlFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLFragmentASTBuildingListener;
@@ -43,6 +46,9 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
         return ccRecovery.getParser(XMLLexer::new, XMLParser::new, XMLParser::document, new XMLFragmentASTBuildingListener());
     }
 
+    private IParser getSqlParser() {
+        return ccRecovery.getParser(SqlLexer::new, SqlParser::new, SqlParser::sqlDocument, new SqlFragmentBuildingListener());
+    }
 
     private IFragmentASTAnalyzer getFragmentASTAnalyzer() {
         return ccRecovery.getFragmentASTAnalyzer();
@@ -100,7 +106,7 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
     @Override
     public IBinaryRelation<IFragmentAST> getWeakHibernateCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException {
         IFragmentAST java8FragmentAST = getJava8Parser().parse(javaInputStream);
-        IFragmentAST xmlFragmentAST = getXmlParser().parse(xmlInputStream);
+        IFragmentAST xmlFragmentAST = getSqlParser().parse(xmlInputStream);
 
         IBinaryRelation<IFragmentAST> similarities = getHibernateCorrespondenceSimilarities(java8FragmentAST, xmlFragmentAST);
         IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyzeWeakCorrespondences(similarities, java8FragmentAST, xmlFragmentAST);

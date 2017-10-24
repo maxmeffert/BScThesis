@@ -1,7 +1,7 @@
-create table Company (id integer not null, name varchar(255), primary key (id)) engine=InnoDB
-create table Department (id integer not null, name varchar(255), company_id integer, manager_id integer, superDepartment_id integer, primary key (id)) engine=InnoDB
-create table Employee (id integer not null, age integer not null, name varchar(255), salary double precision not null, department_id integer, primary key (id)) engine=InnoDB
-create table hibernate_sequence (next_val bigint) engine=InnoDB
+create table Company (id integer not null, name varchar(255), primary key (id)) engine=MyISAM
+create table Department (id integer not null, name varchar(255), company_id integer, manager_id integer, superDepartment_id integer, primary key (id)) engine=MyISAM
+create table Employee (id integer not null, age integer not null, name varchar(255), salary double precision not null, department_id integer, primary key (id)) engine=MyISAM
+create table hibernate_sequence (next_val bigint) engine=MyISAM
 insert into hibernate_sequence values ( 1 )
 insert into hibernate_sequence values ( 1 )
 insert into hibernate_sequence values ( 1 )
