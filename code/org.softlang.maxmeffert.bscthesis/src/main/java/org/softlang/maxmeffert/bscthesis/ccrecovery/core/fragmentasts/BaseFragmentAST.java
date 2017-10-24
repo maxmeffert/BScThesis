@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class BaseFragmentAST implements IFragmentAST {
 
-    private String text;
+    private String text = "";
     private IFragmentAST parent;
     private List<IFragmentAST> children = new LinkedList<>();
 

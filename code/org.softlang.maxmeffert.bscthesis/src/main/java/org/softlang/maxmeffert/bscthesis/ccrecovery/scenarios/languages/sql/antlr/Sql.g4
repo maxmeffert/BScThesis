@@ -1,21 +1,19 @@
 grammar Sql;
 
 sqlDocument
-    : sqlStatements EOF
+    : sqlStatements
     ;
 
 sqlStatement
     : sqlDdlStatement
-    | sqlDmlStatement
     ;
-
 sqlStatements
-    : ( sqlStatement )*
+    : sqlStatement ( NEWLINE sqlStatement )*
+    |.?
     ;
 
 sqlDdlStatement
     : sqlCreateTableStatement
-    | sqlAlterTableStatement
     ;
 
 sqlDmlStatement
@@ -31,7 +29,7 @@ sqlTableName
     ;
 
 sqlColumnDefinitions
-    : sqlColumnDefinition ( COMMA sqlColumnDefinition )* ( COMMA sqlTableContstrain )*
+    : sqlColumnDefinition ( COMMA sqlColumnDefinition )* (COMMA .?)*
     ;
 
 sqlColumnDefinition
@@ -131,6 +129,7 @@ GT_EQ : '>=';
 EQ : '==';
 NOT_EQ1 : '!=';
 NOT_EQ2 : '<>';
+NEWLINE : [\r\n];
 
 
 IDENTIFIER
@@ -144,6 +143,10 @@ IDENTIFIER
   : DIGIT+ ( '.' DIGIT* )? ( E [-+]? DIGIT+ )?
   | '.' DIGIT+ ( E [-+]? DIGIT+ )?
   ;
+
+SPACES
+    : [ \u000B\t\r\n] -> channel(HIDDEN)
+    ;
 
 fragment DIGIT : [0-9];
 
