@@ -1,6 +1,5 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragmentast;
 
-import org.antlr.v4.runtime.ParserRuleContext;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antlr.SqlBaseListener;
@@ -13,25 +12,35 @@ public class SqlFragmentBuildingListener extends SqlBaseListener implements IFra
     private final SqlFragmentFactory sqlFragmentFactory = new SqlFragmentFactory();
 
     private final Stack<SqlCreateTableFragment> sqlCreateTableFragments = new Stack<>();
+    private final Stack<SqlColumnFragment> sqlColumnFragments = new Stack<>();
 
     private SqlDocumentFragment sqlDocumentFragment;
 
     @Override
     public void exitSqlCreateTableStatement(SqlParser.SqlCreateTableStatementContext ctx) {
-        sqlCreateTableFragments.push(sqlFragmentFactory.newSqlCreateTableFragment(ctx));
-        System.out.println(sqlCreateTableFragments.peek().getTableName());
+        sqlCreateTableFragments.push(sqlFragmentFactory.newSqlCreateTableFragment(ctx, sqlColumnFragments));
+
+    }
+
+    @Override
+    public void exitSqlColumnDefinition(SqlParser.SqlColumnDefinitionContext ctx) {
+        sqlColumnFragments.push(sqlFragmentFactory.newSqlColumnFragment(ctx));
     }
 
     @Override
     public void exitSqlDocument(SqlParser.SqlDocumentContext ctx) {
-        sqlDocumentFragment = new SqlDocumentFragment();
-        while (!sqlCreateTableFragments.isEmpty()) {
-            sqlDocumentFragment.addSqlCreateTableFragment(sqlCreateTableFragments.pop());
-        }
+        sqlDocumentFragment = sqlFragmentFactory.newSqlDocumentFagment(ctx, sqlCreateTableFragments);
     }
 
     @Override
     public IFragmentAST getFragmentAST() {
+        System.out.println(sqlDocumentFragment);
+        sqlDocumentFragment.getSqlCreateTableFragments().forEach((ct) -> {
+            System.out.println(ct.getTableName());
+            ct.getSqlColumnFragments().forEach((col) -> {
+                System.out.println(col.getColumnName());
+            });
+        });
         return sqlDocumentFragment;
     }
 }
