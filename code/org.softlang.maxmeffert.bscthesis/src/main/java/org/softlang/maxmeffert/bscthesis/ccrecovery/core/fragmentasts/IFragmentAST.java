@@ -8,6 +8,10 @@ public interface IFragmentAST extends Comparable<IFragmentAST> {
     String getText();
     void setText(String text);
 
+    boolean hasPosition();
+    IFragmentPosition getPosition();
+    void setPosition(IFragmentPosition position);
+
     boolean hasParent();
     IFragmentAST getParent();
     void setParent(IFragmentAST parent);

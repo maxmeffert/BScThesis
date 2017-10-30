@@ -6,6 +6,7 @@ import java.util.List;
 public abstract class BaseFragmentAST implements IFragmentAST {
 
     private String text = "";
+    private IFragmentPosition position;
     private IFragmentAST parent;
     private List<IFragmentAST> children = new LinkedList<>();
 
@@ -30,6 +31,21 @@ public abstract class BaseFragmentAST implements IFragmentAST {
     @Override
     public final void setText(String text) {
         this.text = text;
+    }
+
+    @Override
+    public final boolean hasPosition() {
+        return position != null;
+    }
+
+    @Override
+    public final IFragmentPosition getPosition() {
+        return position;
+    }
+
+    @Override
+    public final void setPosition(IFragmentPosition position) {
+        this.position = position;
     }
 
     @Override
@@ -115,6 +131,6 @@ public abstract class BaseFragmentAST implements IFragmentAST {
     @Override
     public final String toString() {
 //        return getClass().getSimpleName();
-        return getText();
+        return getText() + "#" + getPosition();
     }
 }

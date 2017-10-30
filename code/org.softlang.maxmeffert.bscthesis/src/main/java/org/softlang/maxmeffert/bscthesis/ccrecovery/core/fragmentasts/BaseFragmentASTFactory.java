@@ -14,8 +14,17 @@ public abstract class BaseFragmentASTFactory {
         return parserRuleContext.getStart().getInputStream().getText(Interval.of(a,b)); //.replace(System.lineSeparator(), "");
     }
 
+    protected IFragmentPosition positionOf(ParserRuleContext parserRuleContext) {
+        int startLine = parserRuleContext.getStart().getLine();
+        int startInLine = parserRuleContext.getStart().getCharPositionInLine();
+        int stopLine = parserRuleContext.getStop().getLine();
+        int stopInLine = parserRuleContext.getStop().getCharPositionInLine() + parserRuleContext.getStop().getText().length();
+        return new FragmentPosition(startLine, startInLine, stopLine, stopInLine);
+    }
+
     protected <TFragment extends IFragmentAST> TFragment initialize(TFragment fragment, ParserRuleContext parserRuleContext) {
         fragment.setText(textOf(parserRuleContext));
+        fragment.setPosition(positionOf(parserRuleContext));
         return fragment;
     }
 
