@@ -104,9 +104,10 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
     }
 
     @Override
-    public IBinaryRelation<IFragmentAST> getWeakHibernateCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException {
+    public IBinaryRelation<IFragmentAST> getWeakHibernateCorrespondences(InputStream javaInputStream, InputStream xmlInputStream, InputStream sqlInputStream) throws IOException, ParserException {
         IFragmentAST java8FragmentAST = getJava8Parser().parse(javaInputStream);
-        IFragmentAST xmlFragmentAST = getSqlParser().parse(xmlInputStream);
+        IFragmentAST xmlFragmentAST = getXmlParser().parse(xmlInputStream);
+        IFragmentAST sqlFragmentAST = getSqlParser().parse(sqlInputStream);
 
         IBinaryRelation<IFragmentAST> similarities = getHibernateCorrespondenceSimilarities(java8FragmentAST, xmlFragmentAST);
         IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyzeWeakCorrespondences(similarities, java8FragmentAST, xmlFragmentAST);
@@ -115,9 +116,10 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
     }
 
     @Override
-    public IBinaryRelation<IFragmentAST> getStrictHibernateCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException {
+    public IBinaryRelation<IFragmentAST> getStrictHibernateCorrespondences(InputStream javaInputStream, InputStream xmlInputStream, InputStream sqlInputStream) throws IOException, ParserException {
         IFragmentAST java8FragmentAST = getJava8Parser().parse(javaInputStream);
         IFragmentAST xmlFragmentAST = getXmlParser().parse(xmlInputStream);
+        IFragmentAST sqlFragmentAST = getSqlParser().parse(sqlInputStream);
 
         IBinaryRelation<IFragmentAST> similarities = getHibernateCorrespondenceSimilarities(java8FragmentAST, xmlFragmentAST);
         IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyzeStrictCorrespondences(similarities, java8FragmentAST, xmlFragmentAST);
