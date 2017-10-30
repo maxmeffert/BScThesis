@@ -13,8 +13,13 @@ public interface ICCRecoveryScenarios {
 
     IBinaryRelation<IFragmentAST> getStrictJaxbCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException;
 
-    IBinaryRelation<IFragmentAST> getWeakHibernateCorrespondences(InputStream javaInputStream, InputStream xmlInputStream, InputStream sqlInputStream) throws IOException, ParserException;
+    IBinaryRelation<IFragmentAST> getWeakHibernateJavaXmlCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException;
 
-    IBinaryRelation<IFragmentAST> getStrictHibernateCorrespondences(InputStream javaInputStream, InputStream xmlInputStream, InputStream sqlInputStream) throws IOException, ParserException;
+    IBinaryRelation<IFragmentAST> getStrictHibernateJavaXmlCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException;
+
+    IBinaryRelation<IFragmentAST> getWeakHibernateJavaSqlCorrespondences(InputStream javaInputStream, InputStream sqlInputStream) throws IOException, ParserException;
+
+    IBinaryRelation<IFragmentAST> getStrictHibernateJavaSqlCorrespondences(InputStream javaInputStream, InputStream sqlInputStream) throws IOException, ParserException;
+
 
 }

@@ -17,6 +17,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.frag
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLFragmentASTBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.hibernate.HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.hibernate.HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.jaxb.JaxbXmlCorrespondenceAnnotationSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.jaxb.JaxbXmlCorrespondenceNamingSimilarityHeuristic;
@@ -93,36 +94,70 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
         return correspondences;
     }
 
-    private IFragmentASTAnalyzer getHibernateCorrespondenceSimilarityAnalyzer() {
+    private IFragmentASTAnalyzer getHibernateJavaXmlCorrespondenceSimilarityAnalyzer() {
         IFragmentASTAnalyzer analyzer = getFragmentASTAnalyzer();
         analyzer.addSimilarityHeuristic(new HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic());
         return analyzer;
     }
 
-    private IBinaryRelation<IFragmentAST> getHibernateCorrespondenceSimilarities(IFragmentAST java8FragmentAST, IFragmentAST xmlFragmentAST) {
-        return getHibernateCorrespondenceSimilarityAnalyzer().analyze(java8FragmentAST, xmlFragmentAST);
+    private IFragmentASTAnalyzer getHibernateJavaSqlCorrespondenceSimilarityAnalyzer() {
+        IFragmentASTAnalyzer analyzer = getFragmentASTAnalyzer();
+        analyzer.addSimilarityHeuristic(new HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic());
+        return analyzer;
+    }
+
+    private IBinaryRelation<IFragmentAST> getHibernateJavaXmlCorrespondenceSimilarities(IFragmentAST java8FragmentAST, IFragmentAST xmlFragmentAST) {
+        return getHibernateJavaXmlCorrespondenceSimilarityAnalyzer().analyze(java8FragmentAST, xmlFragmentAST);
+    }
+
+    private IBinaryRelation<IFragmentAST> getHibernateJavaSqlCorrespondenceSimilarities(IFragmentAST java8FragmentAST, IFragmentAST sqlFragmentAST) {
+        return getHibernateJavaSqlCorrespondenceSimilarityAnalyzer().analyze(java8FragmentAST, sqlFragmentAST);
     }
 
     @Override
-    public IBinaryRelation<IFragmentAST> getWeakHibernateCorrespondences(InputStream javaInputStream, InputStream xmlInputStream, InputStream sqlInputStream) throws IOException, ParserException {
+    public IBinaryRelation<IFragmentAST> getWeakHibernateJavaXmlCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException {
         IFragmentAST java8FragmentAST = getJava8Parser().parse(javaInputStream);
         IFragmentAST xmlFragmentAST = getXmlParser().parse(xmlInputStream);
-        IFragmentAST sqlFragmentAST = getSqlParser().parse(sqlInputStream);
 
-        IBinaryRelation<IFragmentAST> similarities = getHibernateCorrespondenceSimilarities(java8FragmentAST, xmlFragmentAST);
+        IBinaryRelation<IFragmentAST> similarities = getHibernateJavaXmlCorrespondenceSimilarities(java8FragmentAST, xmlFragmentAST);
+
         IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyzeWeakCorrespondences(similarities, java8FragmentAST, xmlFragmentAST);
 
         return correspondences;
     }
 
     @Override
-    public IBinaryRelation<IFragmentAST> getStrictHibernateCorrespondences(InputStream javaInputStream, InputStream xmlInputStream, InputStream sqlInputStream) throws IOException, ParserException {
+    public IBinaryRelation<IFragmentAST> getStrictHibernateJavaXmlCorrespondences(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException {
         IFragmentAST java8FragmentAST = getJava8Parser().parse(javaInputStream);
         IFragmentAST xmlFragmentAST = getXmlParser().parse(xmlInputStream);
+
+        IBinaryRelation<IFragmentAST> similarities = getHibernateJavaXmlCorrespondenceSimilarities(java8FragmentAST, xmlFragmentAST);
+
+        IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyzeStrictCorrespondences(similarities, java8FragmentAST, xmlFragmentAST);
+
+        return correspondences;
+    }
+
+    @Override
+    public IBinaryRelation<IFragmentAST> getWeakHibernateJavaSqlCorrespondences(InputStream javaInputStream, InputStream sqlInputStream) throws IOException, ParserException {
+        IFragmentAST java8FragmentAST = getJava8Parser().parse(javaInputStream);
         IFragmentAST sqlFragmentAST = getSqlParser().parse(sqlInputStream);
 
-        IBinaryRelation<IFragmentAST> similarities = getHibernateCorrespondenceSimilarities(java8FragmentAST, xmlFragmentAST);
-        IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyzeStrictCorrespondences(similarities, java8FragmentAST, xmlFragmentAST);
+        IBinaryRelation<IFragmentAST> similarities = getHibernateJavaSqlCorrespondenceSimilarities(java8FragmentAST, sqlFragmentAST);
+
+        IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyzeWeakCorrespondences(similarities, java8FragmentAST, sqlFragmentAST);
+
+        return correspondences;
+    }
+
+    @Override
+    public IBinaryRelation<IFragmentAST> getStrictHibernateJavaSqlCorrespondences(InputStream javaInputStream, InputStream sqlInputStream) throws IOException, ParserException {
+        IFragmentAST java8FragmentAST = getJava8Parser().parse(javaInputStream);
+        IFragmentAST sqlFragmentAST = getSqlParser().parse(sqlInputStream);
+
+        IBinaryRelation<IFragmentAST> similarities = getHibernateJavaSqlCorrespondenceSimilarities(java8FragmentAST, sqlFragmentAST);
+
+        IBinaryRelation<IFragmentAST> correspondences = getCorrespondenceAnalyzer().analyzeStrictCorrespondences(similarities, java8FragmentAST, sqlFragmentAST);
 
         return correspondences;
     }

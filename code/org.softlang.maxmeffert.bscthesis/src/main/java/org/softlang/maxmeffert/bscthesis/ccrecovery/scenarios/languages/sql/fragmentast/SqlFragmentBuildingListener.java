@@ -34,13 +34,13 @@ public class SqlFragmentBuildingListener extends SqlBaseListener implements IFra
 
     @Override
     public IFragmentAST getFragmentAST() {
-        System.out.println(sqlDocumentFragment);
-        sqlDocumentFragment.getSqlCreateTableFragments().forEach((ct) -> {
-            System.out.println(ct.getTableName());
-            ct.getSqlColumnFragments().forEach((col) -> {
-                System.out.println(col.getColumnName());
-            });
-        });
+//        System.out.println(sqlDocumentFragment);
+//        sqlDocumentFragment.getSqlCreateTableFragments().forEach((ct) -> {
+//            System.out.println(ct.getTableName());
+//            ct.getSqlColumnFragments().forEach((col) -> {
+//                System.out.println(col.getColumnName());
+//            });
+//        });
         return sqlDocumentFragment;
     }
 }

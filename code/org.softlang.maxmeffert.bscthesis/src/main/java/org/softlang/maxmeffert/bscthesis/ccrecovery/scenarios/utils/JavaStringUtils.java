@@ -8,4 +8,8 @@ public class JavaStringUtils {
         return StringUtils.removeAnyPrefix(string, JavaAccessorPrefixes);
     }
 
+    public static String normalizeMethodName(String string) {
+        return StringUtils.removePluralSuffix(removeAnyJavaAccessorPrefix(string));
+    }
+
 }
