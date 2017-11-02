@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.hibe
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentASTAnalyzerHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentASTAnalyzerHeuristic;
 
 public class HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic implements IFragmentASTAnalyzerHeuristic {
     @Override

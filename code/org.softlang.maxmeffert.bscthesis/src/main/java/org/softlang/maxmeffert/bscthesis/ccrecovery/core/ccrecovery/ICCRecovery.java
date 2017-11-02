@@ -8,7 +8,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParserFacto
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentASTBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentASTAnalyzer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentASTAnalyzer;
 
 public interface ICCRecovery {
 

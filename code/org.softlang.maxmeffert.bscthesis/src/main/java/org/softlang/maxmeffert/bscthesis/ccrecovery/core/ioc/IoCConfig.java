@@ -10,8 +10,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.Corresp
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraphFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraphFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.FragmentASTAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentASTAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.FragmentASTAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentASTAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.FragmentKBBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.FragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.IFragmentKBBuilderFactory;
