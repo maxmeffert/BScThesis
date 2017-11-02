@@ -13,12 +13,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.CCRecoveryScenario
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
 
 import java.io.*;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Main {
 
@@ -37,9 +32,7 @@ public class Main {
 
 		File file = new File("./src/main/java/org/softlang/companies/model/Company.java");
 
-        IFragmentPositionEncoder encoder = new FragmentPositionEncoder();
-
-		for (IPair<IFragment, IFragment> pair : correspondences) {
+        for (IPair<IFragment, IFragment> pair : correspondences) {
 		    IFragmentPosition position = pair.getFirst().getPosition();
 		    System.out.println(fragmentUriFactory.newFragmentUri(file.toURI(), pair.getFirst()));
 		}
