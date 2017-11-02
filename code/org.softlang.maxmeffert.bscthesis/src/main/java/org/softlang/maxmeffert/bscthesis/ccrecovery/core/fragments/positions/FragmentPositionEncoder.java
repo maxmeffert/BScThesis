@@ -1,7 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmenttexts;
-
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.FragmentPosition;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentPosition;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -1,4 +1,6 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
+
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPosition;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,7 +1,7 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs;
 
 import com.google.inject.Inject;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
 
 public class FragmentKBFactory implements IFragmentKBFactory {
 

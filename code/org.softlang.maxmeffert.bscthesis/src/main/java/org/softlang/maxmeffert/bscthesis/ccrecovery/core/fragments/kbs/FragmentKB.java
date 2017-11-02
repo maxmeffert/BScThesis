@@ -1,6 +1,6 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereology;
 
 import java.util.SortedSet;

@@ -1,7 +1,9 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.Interval;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.FragmentPosition;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPosition;
 
 import java.util.Stack;
 import java.util.function.Consumer;

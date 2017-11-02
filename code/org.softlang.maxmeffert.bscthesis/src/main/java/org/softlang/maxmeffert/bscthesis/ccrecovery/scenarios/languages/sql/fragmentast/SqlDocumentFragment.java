@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragmentast;
 
 import com.google.common.collect.Lists;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.BaseFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.BaseFragmentAST;
 
 import java.util.List;
 

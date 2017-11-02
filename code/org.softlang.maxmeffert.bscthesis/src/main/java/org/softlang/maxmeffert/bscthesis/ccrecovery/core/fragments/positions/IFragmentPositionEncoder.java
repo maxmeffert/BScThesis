@@ -1,6 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmenttexts;
-
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentPosition;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions;
 
 public interface IFragmentPositionEncoder {
     String encode(IFragmentPosition position);

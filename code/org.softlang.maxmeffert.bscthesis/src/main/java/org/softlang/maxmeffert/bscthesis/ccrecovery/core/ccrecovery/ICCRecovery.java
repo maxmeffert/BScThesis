@@ -6,9 +6,9 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrLexerFactor
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParseTreeFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzer;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentASTBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTAnalyzer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentASTAnalyzer;
 
 public interface ICCRecovery {
 

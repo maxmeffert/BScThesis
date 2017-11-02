@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers;
 
 import com.google.inject.Inject;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentASTBuildingListener;
 
 public class ParserFactory implements IParserFactory {
 

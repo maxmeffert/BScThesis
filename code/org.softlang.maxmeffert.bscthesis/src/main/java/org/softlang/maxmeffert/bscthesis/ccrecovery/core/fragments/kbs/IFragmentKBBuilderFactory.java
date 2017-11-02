@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs;
 
 public interface IFragmentKBBuilderFactory {
     IFragmentKBBuilder newFragmentKBBuilder();

@@ -1,4 +1,4 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 

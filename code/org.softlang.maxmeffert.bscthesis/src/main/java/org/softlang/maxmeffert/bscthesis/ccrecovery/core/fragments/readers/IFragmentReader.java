@@ -1,6 +1,6 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmenttexts;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.readers;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentPosition;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPosition;
 
 import java.io.File;
 import java.io.IOException;
