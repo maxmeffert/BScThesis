@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class FragmentReader implements IFragmentReader {
 
-    private static List<String> readLines(BufferedReader reader, IFragmentPosition position) throws IOException {
+    private static List<String> readLinesBuffered(BufferedReader reader, IFragmentPosition position) throws IOException {
         int skip = position.getStartLine() - 1;
         int limit = position.getStopLine() - position.getStartLine() + 1;
         return reader.lines()
@@ -17,9 +17,9 @@ public class FragmentReader implements IFragmentReader {
                 .collect(Collectors.toList());
     }
 
-    private static String read(BufferedReader reader, IFragmentPosition position) throws IOException {
+    private static String readBuffered(BufferedReader reader, IFragmentPosition position) throws IOException {
 
-        List<String> lines = readLines(reader, position);
+        List<String> lines = readLinesBuffered(reader, position);
 
         int indexOfFirstLine = 0;
         int indexOfLastLine = lines.size() - 1;
@@ -33,19 +33,23 @@ public class FragmentReader implements IFragmentReader {
         return String.join(System.lineSeparator(), lines);
     }
 
+    private static String read(Reader reader, IFragmentPosition position) throws IOException {
+        return readBuffered(new BufferedReader(reader), position);
+    }
+
     @Override
     public String read(String contents, IFragmentPosition position) throws IOException {
-        return read(new BufferedReader(new StringReader(contents)), position);
+        return read(new StringReader(contents), position);
     }
 
     @Override
     public String read(File file, IFragmentPosition position) throws IOException {
-        return read(new BufferedReader(new FileReader(file)), position);
+        return read(new FileReader(file), position);
     }
 
     @Override
     public String read(InputStream inputStream, IFragmentPosition position) throws IOException {
-        return read(new BufferedReader(new InputStreamReader(inputStream)), position);
+        return read(new InputStreamReader(inputStream), position);
     }
 
 

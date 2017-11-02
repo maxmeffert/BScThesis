@@ -2,26 +2,26 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.Interval;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrTextReader;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.FragmentPosition;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPosition;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPositionFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc.IoC;
 
 import java.util.Stack;
 import java.util.function.Consumer;
 
 public abstract class BaseFragmentFactory {
 
+    protected final IAntlrTextReader antlrTextReader = IoC.get(IAntlrTextReader.class);
+    protected final IFragmentPositionFactory fragmentPositionFactory = IoC.get(IFragmentPositionFactory.class);
+
     protected String textOf(ParserRuleContext parserRuleContext) {
-        int a = parserRuleContext.start.getStartIndex();
-        int b = parserRuleContext.stop.getStopIndex();
-        return parserRuleContext.getStart().getInputStream().getText(Interval.of(a,b)); //.replace(System.lineSeparator(), "");
+        return antlrTextReader.readTextOf(parserRuleContext);
     }
 
     protected IFragmentPosition positionOf(ParserRuleContext parserRuleContext) {
-        int startLine = parserRuleContext.getStart().getLine();
-        int startInLine = parserRuleContext.getStart().getCharPositionInLine();
-        int stopLine = parserRuleContext.getStop().getLine();
-        int stopInLine = parserRuleContext.getStop().getCharPositionInLine() + parserRuleContext.getStop().getText().length();
-        return new FragmentPosition(startLine, startInLine, stopLine, stopInLine);
+        return fragmentPositionFactory.newFragmentPosition(parserRuleContext);
     }
 
     protected <TFragment extends IFragment> TFragment initialize(TFragment fragment, ParserRuleContext parserRuleContext) {
