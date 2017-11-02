@@ -9,6 +9,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParserFacto
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.IFragmentUriFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc.IoC;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
@@ -22,12 +23,14 @@ public class CCRecovery implements ICCRecovery {
     }
 
     private final IParserFactory parserFactory;
+    private final IFragmentUriFactory fragmentUriFactory;
     private final IFragmentAnalyzerFactory similarityAnalyzerFactory;
     private final ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory;
 
     @Inject
-    public CCRecovery(IParserFactory parserFactory, IFragmentAnalyzerFactory similarityAnalyzerFactory, ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory) {
+    public CCRecovery(IParserFactory parserFactory, IFragmentUriFactory fragmentUriFactory, IFragmentAnalyzerFactory similarityAnalyzerFactory, ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory) {
         this.parserFactory = parserFactory;
+        this.fragmentUriFactory = fragmentUriFactory;
         this.similarityAnalyzerFactory = similarityAnalyzerFactory;
         this.correspondenceAnalyzerFactory = correspondenceAnalyzerFactory;
     }
@@ -35,6 +38,11 @@ public class CCRecovery implements ICCRecovery {
     @Override
     public <TLexer extends Lexer, TParser extends Parser> IParser getParser(IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener) {
         return parserFactory.newParser(antlrLexerFactory, antlrParserFactory, antlrParseTreeFactory, fragmentBuildingListener);
+    }
+
+    @Override
+    public IFragmentUriFactory getFragmentUriFactory() {
+        return fragmentUriFactory;
     }
 
     @Override

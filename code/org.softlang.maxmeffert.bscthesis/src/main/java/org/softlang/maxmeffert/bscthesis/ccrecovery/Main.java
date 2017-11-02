@@ -1,10 +1,12 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPosition;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.FragmentPositionEncoder;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPositionEncoder;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.IFragmentUriFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tuples.IPair;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.CCRecoveryScenarios;
@@ -73,6 +75,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException, ParserException, URISyntaxException {
 
+		IFragmentUriFactory fragmentUriFactory = CCRecovery.create().getFragmentUriFactory();
 		ICCRecoveryScenarios iccRecoveryScenarios = CCRecoveryScenarios.create();
 
 		InputStream java8Artifact = new FileInputStream("./src/main/java/org/softlang/companies/model/Company.java");
@@ -88,9 +91,10 @@ public class Main {
 
 		for (IPair<IFragment, IFragment> pair : correspondences) {
 		    IFragmentPosition position = pair.getFirst().getPosition();
-		    String encodedPosition = encoder.encode(position);
-		    System.out.println(encodedPosition);
-		    System.out.println(encoder.decode(encodedPosition));
+		    System.out.println(fragmentUriFactory.newFragmentUri(file.toURI(), pair.getFirst()));
+//		    String encodedPosition = encoder.encode(position);
+//		    System.out.println(encodedPosition);
+//		    System.out.println(encoder.decode(encodedPosition));
 //			System.out.println(fragmentUri(file.toURI(), pair.getFirst()));
 //			queryParameters(fragmentUri(file.toURI(), pair.getFirst()));
 //			System.out.println(pair.getFirst().getText());1

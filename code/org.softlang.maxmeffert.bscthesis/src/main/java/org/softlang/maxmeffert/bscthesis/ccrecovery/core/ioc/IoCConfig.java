@@ -16,8 +16,12 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.FragmentK
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.FragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.IFragmentKBBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.IFragmentKBFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.FragmentPositionEncoderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.FragmentPositionFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPositionEncoderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPositionFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.FragmentUriFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.IFragmentUriFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.MereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
@@ -73,6 +77,8 @@ public class IoCConfig extends AbstractModule {
         bind(IFragmentKBFactory.class).to(FragmentKBFactory.class);
         bind(IFragmentKBBuilderFactory.class).to(FragmentKBBuilderFactory.class);
         bind(IFragmentPositionFactory.class).to(FragmentPositionFactory.class);
+        bind(IFragmentPositionEncoderFactory.class).to(FragmentPositionEncoderFactory.class);
+        bind(IFragmentUriFactory.class).to(FragmentUriFactory.class);
     }
 
     private void configureDiGraphs() {
