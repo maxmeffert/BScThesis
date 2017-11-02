@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Sourcesupport
+Bundle-SymbolicName: org.softlang.sourcesupport;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.osgi,
+ org.eclipse.core.resources;visibility:=reexport,
+ org.eclipse.jdt.core,
+ com.google.guava,
+ org.eclipse.core.runtime;visibility:=reexport,
+ org.eclipse.jdt.launching,
+ org.eclipse.emf.ecore;resolution:=optional
+Bundle-ActivationPolicy: lazy
+Export-Package: org.softlang.sourcesupport
+Bundle-Activator: org.softlang.sourcesupport.SourceSupportPlugin

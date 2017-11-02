@@ -1,0 +1,29 @@
+model XML
+import Prelude
+
+XML: Language
+XSD: Language
+XSD subsetOf XML
+xsdFiles: File+
+xsdFiles elementOf XSD
+
+xmlFile: File
+xmlFile elementOf XML
+xmlFile conformsTo xsdFiles
+
+XSDConformance : Plugin
+XSDConformance partOf ConformsToEvaluator
+XSDConformance = 'classpath:plugins.jaxb.XSDConformance'
+
+XMLAcceptor : Plugin
+XMLAcceptor realizationOf XML
+XMLAcceptor = 'classpath:plugins.jaxb.AcceptXML'
+XMLAcceptor partOf StringAcceptor
+
+XSDAcceptor : Plugin
+XSDAcceptor realizationOf XSD
+XSDAcceptor = 'classpath:plugins.jaxb.AcceptXSD'
+XSDAcceptor partOf StringAcceptor
+
+xmlFile = 'workspace:/org.softlang.megal.examples/inputs/sampleCompany.xml'
+xsdFiles = 'workspace:/org.softlang.megal.examples/inputs/Company.xsd_file'

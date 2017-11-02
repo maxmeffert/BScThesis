@@ -1,0 +1,17 @@
+body {
+    color: #d3d3d3;
+    font: 12pt arial;
+    background-color: #222222;
+}
+
+#mynetwork {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+    border: 1px solid #444444;
+    background-color: #222222;
+}
+
+@media print {#ghostery-purple-box {display:none !important}}

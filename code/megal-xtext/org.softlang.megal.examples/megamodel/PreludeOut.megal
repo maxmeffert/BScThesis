@@ -1,0 +1,264 @@
+model Prelude
+@Plugin 'EntityEvaluator'
+@Plugin 'EntityReasoner'
+Entity as entity
+@Virtual
+EntityEvaluator: Plugin
+@Virtual
+EntityReasoner: Plugin
+@Plugin 'ArtifactEvaluator'
+@Plugin 'ArtifactReasoner'
+@Color '223,108,91'
+Artifact<Entity
+@Virtual
+ArtifactEvaluator: Plugin
+@Virtual
+ArtifactReasoner: Plugin
+@Plugin 'FunctionEvaluator'
+@Plugin 'FunctionReasoner'
+@Color '129,173,203'
+Function<Set
+@Virtual
+FunctionEvaluator: Plugin
+@Virtual
+FunctionReasoner: Plugin
+@Plugin 'SetEvaluator'
+@Plugin 'SetReasoner'
+Set<Entity
+@Virtual
+SetEvaluator: Plugin
+@Virtual
+SetReasoner: Plugin
+@Plugin 'TechnologyEvaluator'
+@Plugin 'TechnologyReasoner'
+@Color '82,237,143'
+Technology<Entity
+@Virtual
+TechnologyEvaluator: Plugin
+@Virtual
+TechnologyReasoner: Plugin
+@Plugin 'LanguageEvaluator'
+@Plugin 'LanguageReasoner'
+@Color '73,158,216'
+Language<Set
+@Virtual
+LanguageEvaluator: Plugin
+@Virtual
+LanguageReasoner: Plugin
+@Plugin 'FileEvaluator'
+@Plugin 'FileReasoner'
+File<Artifact
+@Virtual
+FileEvaluator: Plugin
+@Virtual
+FileReasoner: Plugin
+@Plugin 'FolderEvaluator'
+@Plugin 'FolderReasoner'
+Folder<Artifact
+@Virtual
+FolderEvaluator: Plugin
+@Virtual
+FolderReasoner: Plugin
+@Plugin 'FragmentEvaluator'
+@Plugin 'FragmentReasoner'
+Fragment<Artifact
+@Virtual
+FragmentEvaluator: Plugin
+@Virtual
+FragmentReasoner: Plugin
+@Plugin 'ResourceEvaluator'
+@Plugin 'ResourceReasoner'
+Resource<Artifact
+@Virtual
+ResourceEvaluator: Plugin
+@Virtual
+ResourceReasoner: Plugin
+@Plugin 'TransientEvaluator'
+@Plugin 'TransientReasoner'
+Transient<Artifact
+@Virtual
+TransientEvaluator: Plugin
+@Virtual
+TransientReasoner: Plugin
+@Plugin 'PairEvaluator'
+@Plugin 'PairReasoner'
+@Suppress 'notConsidered'
+Pair<Entity
+@Virtual
+PairEvaluator: Plugin
+@Virtual
+PairReasoner: Plugin
+@Plugin 'PluginEvaluator'
+@Plugin 'PluginReasoner'
+@Color '220,208,166'
+@Suppress 'notConsidered'
+Plugin<Technology
+@Virtual
+PluginEvaluator: Plugin
+@Virtual
+PluginReasoner: Plugin
+@Plugin 'FirstOfEvaluator'
+@Plugin 'FirstOfReasoner'
+firstOf<Entity(+)*Pair
+@Virtual
+FirstOfEvaluator: Plugin
+@Virtual
+FirstOfReasoner: Plugin
+@Plugin 'SecondOfEvaluator'
+@Plugin 'SecondOfReasoner'
+secondOf<Entity(+)*Pair
+@Virtual
+SecondOfEvaluator: Plugin
+@Virtual
+SecondOfReasoner: Plugin
+@Plugin 'ElementOfEvaluator'
+@Plugin 'ElementOfReasoner'
+elementOf<Entity(+)*Set
+@Virtual
+ElementOfEvaluator: Plugin
+@Virtual
+ElementOfReasoner: Plugin
+@Plugin 'ElementOfEvaluator'
+@Plugin 'ElementOfReasoner'
+elementOf<Pair*Function
+@Plugin 'ElementOfEvaluator'
+@Plugin 'ElementOfReasoner'
+elementOf<Artifact(+)*Language
+@Plugin 'RefersToEvaluator'
+@Plugin 'RefersToReasoner'
+refersTo<Artifact(+)*Technology
+@Virtual
+RefersToEvaluator: Plugin
+@Virtual
+RefersToReasoner: Plugin
+@Plugin 'RefersToEvaluator'
+@Plugin 'RefersToReasoner'
+refersTo<Artifact(+)*Artifact(+)
+@Plugin 'SubsetOfEvaluator'
+@Plugin 'SubsetOfReasoner'
+subsetOf<Set*Set
+@Virtual
+SubsetOfEvaluator: Plugin
+@Virtual
+SubsetOfReasoner: Plugin
+@Plugin 'PartOfEvaluator'
+@Plugin 'PartOfReasoner'
+partOf<Artifact(+)*Artifact(+)
+@Virtual
+PartOfEvaluator: Plugin
+@Virtual
+PartOfReasoner: Plugin
+@Plugin 'PartOfEvaluator'
+@Plugin 'PartOfReasoner'
+partOf<Artifact(+)*Technology
+@Plugin 'PartOfEvaluator'
+@Plugin 'PartOfReasoner'
+partOf<Technology*Technology
+@Plugin 'PartOfEvaluator'
+@Plugin 'PartOfReasoner'
+partOf<Language*Technology
+@Plugin 'PartOfEvaluator'
+@Plugin 'PartOfReasoner'
+partOf<Language*Language
+@Plugin 'PartOfEvaluator'
+@Plugin 'PartOfReasoner'
+@Suppress 'notConsidered'
+partOf<Plugin*Plugin
+@Plugin 'ConformsToEvaluator'
+@Plugin 'ConformsToReasoner'
+conformsTo<Artifact(+)*Artifact(+)
+@Virtual
+ConformsToEvaluator: Plugin
+@Virtual
+ConformsToReasoner: Plugin
+@Plugin 'DependsOnEvaluator'
+@Plugin 'DependsOnReasoner'
+dependsOn<Entity(+)*Entity(+)
+@Virtual
+DependsOnEvaluator: Plugin
+@Virtual
+DependsOnReasoner: Plugin
+@Plugin 'TransformableInEvaluator'
+@Plugin 'TransformableInReasoner'
+transformableIn<Language*Language
+@Virtual
+TransformableInEvaluator: Plugin
+@Virtual
+TransformableInReasoner: Plugin
+@Plugin 'TransformedInEvaluator'
+@Plugin 'TransformedInReasoner'
+transformedIn<Language*Language
+@Virtual
+TransformedInEvaluator: Plugin
+@Virtual
+TransformedInReasoner: Plugin
+@Plugin 'TransformedInEvaluator'
+@Plugin 'TransformedInReasoner'
+transformedIn<Artifact(+)*Artifact(+)
+@Plugin 'CorrespondsToEvaluator'
+@Plugin 'CorrespondsToReasoner'
+correspondsTo<Artifact(+)*Artifact(+)
+@Virtual
+CorrespondsToEvaluator: Plugin
+@Virtual
+CorrespondsToReasoner: Plugin
+@Plugin 'DefinesEvaluator'
+@Plugin 'DefinesReasoner'
+defines<Artifact(+)*Language
+@Virtual
+DefinesEvaluator: Plugin
+@Virtual
+DefinesReasoner: Plugin
+@Plugin 'DefinesEvaluator'
+@Plugin 'DefinesReasoner'
+defines<Artifact(+)*Function
+@Plugin 'LinksToEvaluator'
+@Plugin 'LinksToReasoner'
+linksTo<Artifact(+)*Artifact(+)
+@Virtual
+LinksToEvaluator: Plugin
+@Virtual
+LinksToReasoner: Plugin
+@Plugin 'RealizationOfEvaluator'
+@Plugin 'RealizationOfReasoner'
+realizationOf<Artifact(+)*Function
+@Virtual
+RealizationOfEvaluator: Plugin
+@Virtual
+RealizationOfReasoner: Plugin
+@Plugin 'VariantOfEvaluator'
+@Plugin 'VariantOfReasoner'
+variantOf<Language*Language
+@Virtual
+VariantOfEvaluator: Plugin
+@Virtual
+VariantOfReasoner: Plugin
+@Plugin 'VersionOfEvaluator'
+@Plugin 'VersionOfReasoner'
+versionOf<Language*Language
+@Virtual
+VersionOfEvaluator: Plugin
+@Virtual
+VersionOfReasoner: Plugin
+@Plugin 'DeploysToEvaluator'
+@Plugin 'DeploysToReasoner'
+deploysTo<Technology*Technology
+@Virtual
+DeploysToEvaluator: Plugin
+@Virtual
+DeploysToReasoner: Plugin
+@Plugin 'RealizationOfEvaluator'
+@Plugin 'RealizationOfReasoner'
+@Suppress 'notConsidered'
+realizationOf<Plugin*Entity
+StringAcceptor: Plugin
+StringAcceptor partOf ElementOfEvaluator
+StringAcceptor = 'classpath:plugins.root.elementof.FileElementOfLanguage'
+
+PartOfReasoner: Plugin
+PartOfReasoner partOf EntityReasoner
+PartOfReasoner = 'classpath:plugins.PartOfReasoner'
+
+LanguageResolver: Plugin
+LanguageResolver partOf LanguageReasoner
+LanguageResolver = 'classpath:plugins.LanguageResolver'

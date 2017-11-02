@@ -1,0 +1,106 @@
+grammar org.softlang.megal.language.Megal hidden(WS, COMMENT)
+
+import "platform:/resource/org.softlang.megal/model/Megal.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+MegalFile:
+	annotations+=MegalAnnotation* 'model' name=ID
+	('import' imports+=[MegalFile]
+	| declarations+=MegalEntityType
+	| declarations+=MegalRelationshipType
+	| declarations+=MegalEntity
+	| declarations+=MegalRelationship
+	| declarations+=MegalPair
+	| bindings+=MegalLink)*;
+
+MegalAnnotation:
+	key=ANN_ID selection=Selection?;
+
+MegalLink:
+	annotations+=MegalAnnotation* link=[MegalEntity]
+	('(' first=[MegalEntity] ')' '|->'
+	second=[MegalEntity])? '=' to=STRING;
+
+MegalEntityType:
+	annotations+=MegalAnnotation* name=ID
+	('<' supertype=[MegalEntityType] | 'as' 'entity');
+
+MegalRelationshipType:
+	annotations+=MegalAnnotation* name=ID '<'
+	// Part of left type assignment
+	left=[MegalEntityType]
+	('[' leftParams+=[MegalEntity]
+	('->' leftParams+=[MegalEntity])*
+	']')?
+	(leftBoth?='(+)' | leftMany?='+')?
+	'*'
+	// Part of right type assignment
+	right=[MegalEntityType]
+	('[' rightParams+=[MegalEntity]
+	('->' rightParams+=[MegalEntity])*
+	']')?
+	(rightBoth?='(+)' | rightMany?='+')?;
+
+MegalEntity:
+	annotations+=MegalAnnotation* name=ID ':'
+	// Part of type assignment
+	type=[MegalEntityType]
+	('[' params+=[MegalEntity]
+	('->' params+=[MegalEntity])*
+	']')? many?='+'?;
+
+MegalRelationship:
+	annotations+=MegalAnnotation*
+	left=[MegalEntity] type=[MegalRelationshipType] right=[MegalEntity];
+
+MegalPair:
+	annotations+=MegalAnnotation* set=[MegalEntity]
+	'(' first=[MegalEntity] ')' '|->' second=[MegalEntity];
+
+Selection:
+	select+=QueryDefEntry (',' select+=QueryDefEntry)* ('from' '{' query+=QueryStatement+ '}')?;
+
+QueryStatement:
+	subject=QueryRefEntry predicate=[MegalRelationshipType] object=QueryRefEntry;
+
+QueryDefEntry returns QueryEntry:
+	QueryParam | QueryString | QueryEntity | QueryPos;
+
+QueryRefEntry returns QueryEntry:
+	QueryReference | QueryString | QueryEntity | QueryPos;
+
+QueryParam:
+	name=VAR_ID (':' type=[MegalEntityType])?;
+
+QueryReference:
+	ref=[QueryParam|VAR_ID];
+
+QueryString:
+	value=STRING;
+
+QueryEntity:
+	entity=[MegalEntity];
+
+QueryPos:
+	'(' value=INT ')';
+
+terminal INT returns ecore::EInt:
+	'1'..'9' ('0'..'9')*;
+
+terminal ANN_ID:
+	'@' ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')+ ('.' ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')+)*;
+
+terminal VAR_ID:
+	'?' ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')+ ('.' ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')+)*;
+
+terminal ID:
+	'^'? ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')+ ('.' ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')+)*;
+
+terminal STRING returns ecore::EString:
+	"'" ('\\' . | !('\\' | "'"))* "'";
+
+terminal COMMENT:
+	'/*'->'*/' | '//' !('\n' | '\r')* ('\r'? '\n')?;
+
+terminal WS:
+	(' ' | '\t' | '\r' | '\n')+;

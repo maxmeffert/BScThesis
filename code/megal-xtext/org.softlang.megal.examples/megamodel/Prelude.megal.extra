@@ -1,0 +1,11 @@
+StringAcceptor: Plugin
+StringAcceptor partOf ElementOfEvaluator
+StringAcceptor = 'classpath:plugins.root.elementof.FileElementOfLanguage'
+
+PartOfReasoner: Plugin
+PartOfReasoner partOf EntityReasoner
+PartOfReasoner = 'classpath:plugins.PartOfReasoner'
+
+LanguageResolver: Plugin
+LanguageResolver partOf LanguageReasoner
+LanguageResolver = 'classpath:plugins.LanguageResolver'

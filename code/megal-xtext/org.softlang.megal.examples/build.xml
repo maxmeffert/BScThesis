@@ -1,0 +1,34 @@
+<project name="JAXB" default="compile" basedir=".">
+	<!-- Define the variables -->
+	<property name="xsdfile" location="inputs/Company.xsd_file" />
+	<property name="xjcfiles" location="src/org/softlang/company/xjc" />
+	<property name="src" location="src/" />
+	<property name="bin" location="bin/" />
+	<property name="out" location="outputs/" />
+
+	<!-- Executes XJC and compiles all Java files -->
+	<target name="compile" description="compile the example">
+		<tstamp />
+		<mkdir dir="${xjcfiles}" />
+
+		<!-- Generates the model classes from the schema -->
+		<exec executable="xjc">
+			<arg value="${xsdfile}" />
+			<arg value="-d" />
+			<arg path="${src}" />
+			<arg value="-p" />
+			<arg value="org.softlang.company.xjc" />
+		</exec>
+
+		<!-- Compile all the classes -->
+		<javac srcdir="${src}" destdir="${bin}" />
+	</target>
+
+	<!-- Cleans all non-source directories -->
+	<target name="clean" description="cleans all output ">
+		<tstamp />
+		<delete dir="${out}" />
+		<delete dir="${xjcfiles}" />
+		<delete dir="${bin}" />
+	</target>
+</project>

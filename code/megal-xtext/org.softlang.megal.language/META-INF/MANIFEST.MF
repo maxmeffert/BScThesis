@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.softlang.megal.language
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.softlang.megal.language; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.softlang.megal;visibility:=reexport,
+ org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
+Import-Package: org.apache.commons.logging,
+ org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.softlang.megal.language,
+ org.softlang.megal.language.services,
+ org.softlang.megal.language.serializer,
+ org.softlang.megal.language.parser.antlr,
+ org.softlang.megal.language.parser.antlr.internal,
+ org.softlang.megal.language.validation,
+ org.softlang.megal.language.scoping,
+ org.softlang.megal.language.formatting,
+ org.softlang.megal.language.generator

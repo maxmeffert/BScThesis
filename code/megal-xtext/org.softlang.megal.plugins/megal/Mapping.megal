@@ -1,0 +1,48 @@
+model Mapping
+import Prelude
+import XML
+import Java
+import Parts
+
+
+javaFiles: File +
+javaFiles elementOf JAXB.Java
+
+JAXB.Generator(xsdFiles) |-> javaFiles
+JAXB.Generator(xsdFiles) |-> javaFiles = 'workspace:/org.softlang.megal.examples/build.xml'
+
+xsdFiles = 'workspace:/org.softlang.megal.examples/inputs/Company.xsd_file'
+javaFiles = 'workspace:/org.softlang.megal.examples/src/org/softlang/company/xjc/'
+
+aLanguage: Language xsdFiles defines aLanguage
+javaFiles defines aLanguage
+
+aLanguage = 'http://www.company.softlang.org/company.xsd'
+
+xsdFiles correspondsTo javaFiles
+
+@Plugin 'FindBuildScriptAsElementOfEvidence'
+elementOf < Pair * Function
+
+FindBuildScriptAsElementOfEvidence: Plugin
+FindBuildScriptAsElementOfEvidence = 'classpath:plugins.jaxb.FindBuildScriptAsElementOfEvidence'
+
+@Plugin 'XSDJavaCorrespondence'
+correspondsTo < Artifact (+) * Artifact (+)
+XSDJavaCorrespondence: Plugin
+XSDJavaCorrespondence = 'classpath:plugins.jaxb.XSDJavaCorrespondence'
+
+@Plugin 'MatchingLanguageDefinition'
+defines < Artifact(+) * Language
+MatchingLanguageDefinition: Plugin
+MatchingLanguageDefinition = 'classpath:plugins.jaxb.MatchingLanguageDefinition'
+
+PackageInfoNSURIExtractor: Plugin
+PackageInfoNSURIExtractor realizationOf Java
+PackageInfoNSURIExtractor partOf MatchingLanguageDefinition
+PackageInfoNSURIExtractor = 'classpath:plugins.jaxb.PackageInfoNSURIExtractor'
+
+XSDNSURIExtractor: Plugin
+XSDNSURIExtractor realizationOf XSD
+XSDNSURIExtractor partOf MatchingLanguageDefinition
+XSDNSURIExtractor = 'classpath:plugins.jaxb.XSDNSURIExtractor'
