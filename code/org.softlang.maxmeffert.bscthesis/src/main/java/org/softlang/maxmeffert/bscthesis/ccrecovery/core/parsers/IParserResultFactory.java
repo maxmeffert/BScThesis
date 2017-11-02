@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 
 public interface IParserResultFactory {
     IParserResult notAccepted(Exception exception);
-    IParserResult accepted(IFragmentAST fragmentAST);
+    IParserResult accepted(IFragment fragmentAST);
 }

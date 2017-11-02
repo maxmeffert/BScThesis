@@ -1,11 +1,11 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.hibernate;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentAST;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTAnalyzerHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaClassFragmentAST;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaFieldFragmentAST;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaMethodFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentAnalyzerHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaClassFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaFieldFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaMethodFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragmentast.SqlColumnFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragmentast.SqlCreateTableFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragmentast.SqlDocumentFragment;
@@ -14,21 +14,21 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.StringUtils;
 
 import java.util.List;
 
-public class HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic implements IFragmentASTAnalyzerHeuristic {
+public class HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic implements IFragmentAnalyzerHeuristic {
 
-    private boolean areSimilar(JavaClassFragmentAST javaClassFragmentAST, SqlCreateTableFragment sqlCreateTableFragment) {
+    private boolean areSimilar(JavaClassFragment javaClassFragmentAST, SqlCreateTableFragment sqlCreateTableFragment) {
         return StringUtils.areLowerCaseEqual(javaClassFragmentAST.getIdentifier(), sqlCreateTableFragment.getTableName());
     }
 
-    private boolean areSimilar(JavaFieldFragmentAST javaFieldFragmentAST, SqlColumnFragment sqlColumnFragment) {
+    private boolean areSimilar(JavaFieldFragment javaFieldFragmentAST, SqlColumnFragment sqlColumnFragment) {
         return StringUtils.areLowerCaseEqual(javaFieldFragmentAST.getIdentifier(), sqlColumnFragment.getColumnName());
     }
 
-    private boolean areSimilar(JavaMethodFragmentAST javaMethodFragmentAST, SqlColumnFragment sqlColumnFragment) {
+    private boolean areSimilar(JavaMethodFragment javaMethodFragmentAST, SqlColumnFragment sqlColumnFragment) {
         return StringUtils.areLowerCaseEqual(JavaStringUtils.normalizeMethodName(javaMethodFragmentAST.getIdentifier()), sqlColumnFragment.getColumnName());
     }
 
-    private void addSimilarities(IBinaryRelation<IFragmentAST> similarities, JavaFieldFragmentAST javaFieldFragmentAST, List<SqlColumnFragment> sqlColumnFragments) {
+    private void addSimilarities(IBinaryRelation<IFragment> similarities, JavaFieldFragment javaFieldFragmentAST, List<SqlColumnFragment> sqlColumnFragments) {
         for (SqlColumnFragment sqlColumnFragment : sqlColumnFragments) {
             if (areSimilar(javaFieldFragmentAST, sqlColumnFragment)) {
                 similarities.add(javaFieldFragmentAST, sqlColumnFragment);
@@ -36,7 +36,7 @@ public class HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic implements 
         }
     }
 
-    private void addSimilarities(IBinaryRelation<IFragmentAST> similarities, JavaMethodFragmentAST javaMethodFragmentAST, List<SqlColumnFragment> sqlColumnFragments) {
+    private void addSimilarities(IBinaryRelation<IFragment> similarities, JavaMethodFragment javaMethodFragmentAST, List<SqlColumnFragment> sqlColumnFragments) {
         for (SqlColumnFragment sqlColumnFragment : sqlColumnFragments) {
             if (areSimilar(javaMethodFragmentAST, sqlColumnFragment)) {
                 similarities.add(javaMethodFragmentAST, sqlColumnFragment);
@@ -44,28 +44,28 @@ public class HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic implements 
         }
     }
 
-    private void addSimilarities(IBinaryRelation<IFragmentAST> similarities, JavaClassFragmentAST javaClassFragmentAST, SqlCreateTableFragment sqlCreateTableFragment) {
+    private void addSimilarities(IBinaryRelation<IFragment> similarities, JavaClassFragment javaClassFragmentAST, SqlCreateTableFragment sqlCreateTableFragment) {
         if (areSimilar(javaClassFragmentAST, sqlCreateTableFragment)) {
             similarities.add(javaClassFragmentAST, sqlCreateTableFragment);
-            for (JavaFieldFragmentAST javaFieldFragmentAST : javaClassFragmentAST.getJavaFieldFragments()) {
+            for (JavaFieldFragment javaFieldFragmentAST : javaClassFragmentAST.getJavaFieldFragments()) {
                 addSimilarities(similarities, javaFieldFragmentAST, sqlCreateTableFragment.getSqlColumnFragments());
             }
-            for (JavaMethodFragmentAST javaMethodFragmentAST : javaClassFragmentAST.getJavaMethodFragments()) {
+            for (JavaMethodFragment javaMethodFragmentAST : javaClassFragmentAST.getJavaMethodFragments()) {
                 addSimilarities(similarities, javaMethodFragmentAST, sqlCreateTableFragment.getSqlColumnFragments());
             }
         }
     }
 
-    private void addSimilarities(IBinaryRelation<IFragmentAST> similarity, JavaClassFragmentAST javaClassFragmentAST, SqlDocumentFragment sqlDocumentFragment) {
+    private void addSimilarities(IBinaryRelation<IFragment> similarity, JavaClassFragment javaClassFragmentAST, SqlDocumentFragment sqlDocumentFragment) {
         for (SqlCreateTableFragment sqlCreateTableFragment : sqlDocumentFragment.getSqlCreateTableFragments()) {
             addSimilarities(similarity, javaClassFragmentAST, sqlCreateTableFragment);
         }
     }
 
     @Override
-    public void analyze(IBinaryRelation<IFragmentAST> similarity, IFragmentAST fragment1, IFragmentAST fragment2) {
-        if (fragment1 instanceof  JavaClassFragmentAST && fragment2 instanceof SqlDocumentFragment) {
-            addSimilarities(similarity, (JavaClassFragmentAST) fragment1, (SqlDocumentFragment) fragment2);
+    public void analyze(IBinaryRelation<IFragment> similarity, IFragment fragment1, IFragment fragment2) {
+        if (fragment1 instanceof JavaClassFragment && fragment2 instanceof SqlDocumentFragment) {
+            addSimilarities(similarity, (JavaClassFragment) fragment1, (SqlDocumentFragment) fragment2);
         }
     }
 }

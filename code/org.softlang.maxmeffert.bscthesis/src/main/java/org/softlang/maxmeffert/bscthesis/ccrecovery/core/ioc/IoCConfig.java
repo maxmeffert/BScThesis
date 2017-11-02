@@ -10,12 +10,18 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.Corresp
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraphFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraphFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.FragmentASTAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentasts.IFragmentASTAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.FragmentKBBuilderFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.FragmentKBFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBBuilderFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragmentkbs.IFragmentKBFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.FragmentAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.FragmentKBBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.FragmentKBFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.IFragmentKBBuilderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.IFragmentKBFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.FragmentPositionEncoderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.FragmentPositionFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPositionEncoderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPositionFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.FragmentUriFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.IFragmentUriFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.MereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
@@ -43,7 +49,7 @@ public class IoCConfig extends AbstractModule {
     }
 
     private void configureSimilarities() {
-        bind(IFragmentASTAnalyzerFactory.class).to(FragmentASTAnalyzerFactory.class);
+        bind(IFragmentAnalyzerFactory.class).to(FragmentAnalyzerFactory.class);
     }
 
     private void configureAntlr() {
@@ -52,6 +58,7 @@ public class IoCConfig extends AbstractModule {
         bind(IAntlrTokenStreamFactory.class).to(AntlrCommonTokenStreamFactory.class);
         bind(IAntlrParseTreeWalkerFactory.class).to(AntlrParseTreeWalkerFactory.class);
         bind(IAntlrParseTreeErrorNodeListenerFactory.class).to(AntlrParseTreeErrorNodeListerFactory.class);
+        bind(IAntlrTextReader.class).to(AntlrTextReader.class);
     }
 
     private void configureCCRecovery() {
@@ -69,6 +76,9 @@ public class IoCConfig extends AbstractModule {
     private void configureFragments() {
         bind(IFragmentKBFactory.class).to(FragmentKBFactory.class);
         bind(IFragmentKBBuilderFactory.class).to(FragmentKBBuilderFactory.class);
+        bind(IFragmentPositionFactory.class).to(FragmentPositionFactory.class);
+        bind(IFragmentPositionEncoderFactory.class).to(FragmentPositionEncoderFactory.class);
+        bind(IFragmentUriFactory.class).to(FragmentUriFactory.class);
     }
 
     private void configureDiGraphs() {
