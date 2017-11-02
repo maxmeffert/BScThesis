@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast;
 
-public abstract class NamedXMLFragmentAST extends XMLFragmentAST {
+public abstract class NamedXMLFragment extends XMLFragment {
 
     private String name;
 

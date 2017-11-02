@@ -5,7 +5,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFr
 
 import java.util.List;
 
-public interface IFragmentAST extends Comparable<IFragmentAST> {
+public interface IFragment extends Comparable<IFragment> {
     boolean hasText();
     String getText();
     void setText(String text);
@@ -15,14 +15,14 @@ public interface IFragmentAST extends Comparable<IFragmentAST> {
     void setPosition(IFragmentPosition position);
 
     boolean hasParent();
-    IFragmentAST getParent();
-    void setParent(IFragmentAST parent);
+    IFragment getParent();
+    void setParent(IFragment parent);
 
     boolean hasChildren();
-    List<IFragmentAST> getChildren();
-    void addChild(IFragmentAST child);
-    void addChildren(Iterable<IFragmentAST> children);
+    List<IFragment> getChildren();
+    void addChild(IFragment child);
+    void addChildren(Iterable<IFragment> children);
 
-    boolean isParentOf(IFragmentAST child);
-    boolean isChildOf(IFragmentAST parent);
+    boolean isParentOf(IFragment child);
+    boolean isChildOf(IFragment parent);
 }

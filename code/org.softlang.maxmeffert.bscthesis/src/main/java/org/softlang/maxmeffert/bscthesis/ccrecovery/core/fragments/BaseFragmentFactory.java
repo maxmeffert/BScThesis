@@ -8,7 +8,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFr
 import java.util.Stack;
 import java.util.function.Consumer;
 
-public abstract class BaseFragmentASTFactory {
+public abstract class BaseFragmentFactory {
 
     protected String textOf(ParserRuleContext parserRuleContext) {
         int a = parserRuleContext.start.getStartIndex();
@@ -24,7 +24,7 @@ public abstract class BaseFragmentASTFactory {
         return new FragmentPosition(startLine, startInLine, stopLine, stopInLine);
     }
 
-    protected <TFragment extends IFragmentAST> TFragment initialize(TFragment fragment, ParserRuleContext parserRuleContext) {
+    protected <TFragment extends IFragment> TFragment initialize(TFragment fragment, ParserRuleContext parserRuleContext) {
         fragment.setText(textOf(parserRuleContext));
         fragment.setPosition(positionOf(parserRuleContext));
         return fragment;

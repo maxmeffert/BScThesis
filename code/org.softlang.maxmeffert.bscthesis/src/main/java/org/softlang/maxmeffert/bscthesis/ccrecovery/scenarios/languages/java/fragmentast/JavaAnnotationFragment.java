@@ -3,11 +3,10 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fr
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class JavaAnnotationFragmentAST extends IdentifiedJavaFragmentAST {
+public class JavaAnnotationFragment extends IdentifiedJavaFragment {
 
     private final Map<String, String> namedParameters = Maps.newHashMap();
     private final List<String> unnamedParameters = Lists.newLinkedList();

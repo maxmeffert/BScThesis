@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast;
 
-public class XMLAttributeFragmentAST extends NamedXMLFragmentAST {
+public class XMLAttributeFragment extends NamedXMLFragment {
     private String value;
 
     public String getValue() {

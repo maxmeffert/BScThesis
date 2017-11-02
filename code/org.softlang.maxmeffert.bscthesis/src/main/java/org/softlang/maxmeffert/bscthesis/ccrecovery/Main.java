@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPosition;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.FragmentPositionEncoder;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPositionEncoder;
@@ -20,13 +20,13 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-	public static String fragmentQuery(IFragmentAST fragmentAST) {
+	public static String fragmentQuery(IFragment fragmentAST) {
 		String start = "L" + fragmentAST.getPosition().getStartLine() + "C" + fragmentAST.getPosition().getStartCharInLine();
 		String stop = "L" + fragmentAST.getPosition().getStopLine() + "C" + fragmentAST.getPosition().getStopCharInLine();
 		return "fragment=F" + start + stop;
 	}
 
-	public static URI fragmentUri(URI baseUri, IFragmentAST fragmentAST) throws URISyntaxException {
+	public static URI fragmentUri(URI baseUri, IFragment fragmentAST) throws URISyntaxException {
 
 		String oldQuery = baseUri.getQuery();
 		String newQuery = oldQuery == null ? fragmentQuery(fragmentAST) : oldQuery + "&" + fragmentQuery(fragmentAST);
@@ -80,13 +80,13 @@ public class Main {
 		InputStream sqlArtifact = new FileInputStream("./artifacts/companies.ddl.sql");
 
 
-		IBinaryRelation<IFragmentAST> correspondences = iccRecoveryScenarios.getWeakHibernateJavaSqlCorrespondences(java8Artifact, sqlArtifact);
+		IBinaryRelation<IFragment> correspondences = iccRecoveryScenarios.getWeakHibernateJavaSqlCorrespondences(java8Artifact, sqlArtifact);
 
 		File file = new File("./src/main/java/org/softlang/companies/model/Company.java");
 
         IFragmentPositionEncoder encoder = new FragmentPositionEncoder();
 
-		for (IPair<IFragmentAST, IFragmentAST> pair : correspondences) {
+		for (IPair<IFragment, IFragment> pair : correspondences) {
 		    IFragmentPosition position = pair.getFirst().getPosition();
 		    String encodedPosition = encoder.encode(position);
 		    System.out.println(encodedPosition);

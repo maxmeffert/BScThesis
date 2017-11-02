@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragmentast;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.BaseFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.BaseFragment;
 
-public class SqlColumnFragment extends BaseFragmentAST {
+public class SqlColumnFragment extends BaseFragment {
 
     private String columnName = "";
 

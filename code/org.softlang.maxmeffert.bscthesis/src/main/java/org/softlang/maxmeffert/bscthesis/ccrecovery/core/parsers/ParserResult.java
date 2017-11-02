@@ -1,14 +1,14 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 
 public class ParserResult implements IParserResult {
 
     private final boolean hasAcceptedInput;
-    private final IFragmentAST fragmentAST;
+    private final IFragment fragmentAST;
     private final Exception exception;
 
-    public ParserResult(boolean hasAcceptedInput, IFragmentAST fragmentAST, Exception exception) {
+    public ParserResult(boolean hasAcceptedInput, IFragment fragmentAST, Exception exception) {
         this.hasAcceptedInput = hasAcceptedInput;
         this.fragmentAST = fragmentAST;
         this.exception = exception;
@@ -25,7 +25,7 @@ public class ParserResult implements IParserResult {
     }
 
     @Override
-    public IFragmentAST getFragmentAST() {
+    public IFragment getFragmentAST() {
         return fragmentAST;
     }
 

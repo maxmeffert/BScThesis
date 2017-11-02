@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast;
 
-public abstract class IdentifiedJavaFragmentAST extends JavaFragmentAST {
+public abstract class IdentifiedJavaFragment extends JavaFragment {
     private String identifier;
 
     public String getIdentifier() {

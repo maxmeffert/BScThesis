@@ -1,25 +1,25 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentASTBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.antlr.java8.Java8BaseListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.antlr.java8.Java8Parser;
 
 import java.util.Stack;
 
-public class Java8FragmentASTBuildingListener extends Java8BaseListener implements IFragmentASTBuildingListener {
+public class Java8FragmentBuildingListener extends Java8BaseListener implements IFragmentBuildingListener {
 
-    private final Java8FragmentASTFactory java8FragmentFactory = new Java8FragmentASTFactory();
+    private final Java8FragmentFactory java8FragmentFactory = new Java8FragmentFactory();
 
-    private Stack<JavaMethodFragmentAST> javaMethodFragments = new Stack<>();
-    private Stack<JavaFieldFragmentAST> javaFieldFragments = new Stack<>();
-    private Stack<JavaClassFragmentAST> javaClassFragments = new Stack<>();
-    private Stack<JavaModifierFragmentAST> javaClassModifierFragments = new Stack<>();
-    private Stack<JavaModifierFragmentAST> javaFieldModifierFragments = new Stack<>();
-    private Stack<JavaModifierFragmentAST> javaMethodModifierFragments = new Stack<>();
+    private Stack<JavaMethodFragment> javaMethodFragments = new Stack<>();
+    private Stack<JavaFieldFragment> javaFieldFragments = new Stack<>();
+    private Stack<JavaClassFragment> javaClassFragments = new Stack<>();
+    private Stack<JavaModifierFragment> javaClassModifierFragments = new Stack<>();
+    private Stack<JavaModifierFragment> javaFieldModifierFragments = new Stack<>();
+    private Stack<JavaModifierFragment> javaMethodModifierFragments = new Stack<>();
 
 
-    private IFragmentAST rootFragment;
+    private IFragment rootFragment;
 
     @Override
     public void exitClassModifier(Java8Parser.ClassModifierContext ctx) {
@@ -38,7 +38,7 @@ public class Java8FragmentASTBuildingListener extends Java8BaseListener implemen
 
     @Override
     public void exitFieldDeclaration(Java8Parser.FieldDeclarationContext ctx) {
-        for (JavaFieldFragmentAST javaFieldFragment : java8FragmentFactory.newJavaFieldFragment(ctx, javaFieldModifierFragments)) {
+        for (JavaFieldFragment javaFieldFragment : java8FragmentFactory.newJavaFieldFragment(ctx, javaFieldModifierFragments)) {
             javaFieldFragments.push(javaFieldFragment);
         }
     }
@@ -59,7 +59,7 @@ public class Java8FragmentASTBuildingListener extends Java8BaseListener implemen
     }
 
     @Override
-    public IFragmentAST getFragmentAST() {
+    public IFragment getFragment() {
         return rootFragment;
     }
 }

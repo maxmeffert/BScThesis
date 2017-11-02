@@ -1,21 +1,15 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.jaxb;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.NamedXMLFragmentAST;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLAttributeFragmentAST;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.NamedXMLFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLAttributeFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.JaxbStringUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.StringUtils;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Map;
-
 public class JaxbXmlCorrespondenceAnnotationSimilarityHeuristic extends BaseJaxbSimilarityHeuristic {
 
-    private boolean hasJaxbAnnotationSimilarity(JavaAnnotationFragmentAST javaAnnotationFragment, NamedXMLFragmentAST namedXMLFragment) {
+    private boolean hasJaxbAnnotationSimilarity(JavaAnnotationFragment javaAnnotationFragment, NamedXMLFragment namedXMLFragment) {
         String identifier = javaAnnotationFragment.getIdentifier();
         String name = namedXMLFragment.getName();
         if (JaxbStringUtils.equalsAnyJaxbAnnotationName(identifier)) {
@@ -26,8 +20,8 @@ public class JaxbXmlCorrespondenceAnnotationSimilarityHeuristic extends BaseJaxb
         return false;
     }
 
-    private boolean hasJaxbAnnotationSimilarity(ModifiedJavaFragmentAST modifiedJavaFragmentAST, NamedXMLFragmentAST namedXMLFragmentAST) {
-        for (JavaModifierFragmentAST javaModifierFragment : modifiedJavaFragmentAST.getJavaModifierFragments()) {
+    private boolean hasJaxbAnnotationSimilarity(ModifiedJavaFragment modifiedJavaFragmentAST, NamedXMLFragment namedXMLFragmentAST) {
+        for (JavaModifierFragment javaModifierFragment : modifiedJavaFragmentAST.getJavaModifierFragments()) {
             if (javaModifierFragment.isAnnotation()) {
                 if (hasJaxbAnnotationSimilarity(javaModifierFragment.getJavaAnnotationFragment(), namedXMLFragmentAST)) {
                     return true;
@@ -38,27 +32,27 @@ public class JaxbXmlCorrespondenceAnnotationSimilarityHeuristic extends BaseJaxb
     }
 
     @Override
-    protected boolean similar(JavaClassFragmentAST javaClassFragment, XMLElementFragmentAST xmlElementFragment) {
+    protected boolean similar(JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment) {
         return hasJaxbAnnotationSimilarity(javaClassFragment, xmlElementFragment);
     }
 
     @Override
-    protected boolean similar(JavaFieldFragmentAST javaFieldFragment, XMLElementFragmentAST xmlElementFragment) {
+    protected boolean similar(JavaFieldFragment javaFieldFragment, XMLElementFragment xmlElementFragment) {
         return hasJaxbAnnotationSimilarity(javaFieldFragment, xmlElementFragment);
     }
 
     @Override
-    protected boolean similar(JavaFieldFragmentAST javaFieldFragment, XMLAttributeFragmentAST xmlAttributeFragment) {
+    protected boolean similar(JavaFieldFragment javaFieldFragment, XMLAttributeFragment xmlAttributeFragment) {
         return hasJaxbAnnotationSimilarity(javaFieldFragment, xmlAttributeFragment);
     }
 
     @Override
-    protected boolean similar(JavaMethodFragmentAST javaMethodFragment, XMLElementFragmentAST xmlElementFragment) {
+    protected boolean similar(JavaMethodFragment javaMethodFragment, XMLElementFragment xmlElementFragment) {
         return hasJaxbAnnotationSimilarity(javaMethodFragment, xmlElementFragment);
     }
 
     @Override
-    protected boolean similar(JavaMethodFragmentAST javaMethodFragment, XMLAttributeFragmentAST xmlAttributeFragment) {
+    protected boolean similar(JavaMethodFragment javaMethodFragment, XMLAttributeFragment xmlAttributeFragment) {
         return hasJaxbAnnotationSimilarity(javaMethodFragment, xmlAttributeFragment);
     }
 }

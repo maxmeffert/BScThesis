@@ -1,25 +1,25 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 
 import java.util.SortedSet;
 import java.util.function.Predicate;
 
 public interface IFragmentKB {
-    SortedSet<IFragmentAST> getFragments();
-    SortedSet<IFragmentAST> getFragmentsOf(IFragmentAST fragment);
-    SortedSet<IFragmentAST> getProperFragmentsOf(IFragmentAST fragment);
+    SortedSet<IFragment> getFragments();
+    SortedSet<IFragment> getFragmentsOf(IFragment fragment);
+    SortedSet<IFragment> getProperFragmentsOf(IFragment fragment);
 
-    boolean all(Predicate<IFragmentAST> predicate);
-    boolean any(Predicate<IFragmentAST> predicate);
-    boolean none(Predicate<IFragmentAST> predicate);
+    boolean all(Predicate<IFragment> predicate);
+    boolean any(Predicate<IFragment> predicate);
+    boolean none(Predicate<IFragment> predicate);
 
-    boolean allFragmentsOf(IFragmentAST fragmentAST, Predicate<IFragmentAST> predicate);
-    boolean anyFragmentsOf(IFragmentAST fragmentAST, Predicate<IFragmentAST> predicate);
-    boolean noneFragmentsOf(IFragmentAST fragmentAST, Predicate<IFragmentAST> predicate);
+    boolean allFragmentsOf(IFragment fragmentAST, Predicate<IFragment> predicate);
+    boolean anyFragmentsOf(IFragment fragmentAST, Predicate<IFragment> predicate);
+    boolean noneFragmentsOf(IFragment fragmentAST, Predicate<IFragment> predicate);
 
-    boolean isFragmentOf(IFragmentAST partialFragment, IFragmentAST completeFragment);
-    boolean isProperFragmentOf(IFragmentAST properFragment, IFragmentAST completeFragment);
-    boolean isAtomicFragmentOf(IFragmentAST atomicFragment, IFragmentAST completeFragment);
+    boolean isFragmentOf(IFragment partialFragment, IFragment completeFragment);
+    boolean isProperFragmentOf(IFragment properFragment, IFragment completeFragment);
+    boolean isAtomicFragmentOf(IFragment atomicFragment, IFragment completeFragment);
 
 }

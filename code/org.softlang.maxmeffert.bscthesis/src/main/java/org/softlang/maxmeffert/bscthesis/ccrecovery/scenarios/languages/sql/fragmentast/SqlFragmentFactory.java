@@ -1,11 +1,11 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragmentast;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.BaseFragmentASTFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.BaseFragmentFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antlr.SqlParser;
 
 import java.util.Stack;
 
-public class SqlFragmentFactory extends BaseFragmentASTFactory {
+public class SqlFragmentFactory extends BaseFragmentFactory {
 
     public SqlDocumentFragment newSqlDocumentFagment(SqlParser.SqlDocumentContext sqlDocumentContext, Stack<SqlCreateTableFragment> sqlCreateTableFragments) {
         SqlDocumentFragment sqlDocumentFragment = initialize(new SqlDocumentFragment(), sqlDocumentContext);

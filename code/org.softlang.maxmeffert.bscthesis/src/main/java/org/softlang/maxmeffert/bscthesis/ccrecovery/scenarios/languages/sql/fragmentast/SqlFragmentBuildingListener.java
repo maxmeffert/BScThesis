@@ -1,13 +1,13 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragmentast;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentASTBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antlr.SqlBaseListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antlr.SqlParser;
 
 import java.util.Stack;
 
-public class SqlFragmentBuildingListener extends SqlBaseListener implements IFragmentASTBuildingListener {
+public class SqlFragmentBuildingListener extends SqlBaseListener implements IFragmentBuildingListener {
 
     private final SqlFragmentFactory sqlFragmentFactory = new SqlFragmentFactory();
 
@@ -33,7 +33,7 @@ public class SqlFragmentBuildingListener extends SqlBaseListener implements IFra
     }
 
     @Override
-    public IFragmentAST getFragmentAST() {
+    public IFragment getFragment() {
 //        System.out.println(sqlDocumentFragment);
 //        sqlDocumentFragment.getSqlCreateTableFragments().forEach((ct) -> {
 //            System.out.println(ct.getTableName());

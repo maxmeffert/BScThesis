@@ -1,9 +1,9 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 
 public interface IFragmentAnalyzer {
     void addHeuristic(IFragmentAnalyzerHeuristic similarityHeuristic);
-    IBinaryRelation<IFragmentAST> analyze(IFragmentAST fragment1, IFragmentAST fragment2);
+    IBinaryRelation<IFragment> analyze(IFragment fragment1, IFragment fragment2);
 }

@@ -5,18 +5,18 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFr
 import java.util.LinkedList;
 import java.util.List;
 
-public abstract class BaseFragmentAST implements IFragmentAST {
+public abstract class BaseFragment implements IFragment {
 
     private String text = "";
     private IFragmentPosition position;
-    private IFragmentAST parent;
-    private List<IFragmentAST> children = new LinkedList<>();
+    private IFragment parent;
+    private List<IFragment> children = new LinkedList<>();
 
-    private boolean isNull(IFragmentAST fragment) {
+    private boolean isNull(IFragment fragment) {
         return fragment == null;
     }
 
-    private boolean isSameInstance(IFragmentAST fragment) {
+    private boolean isSameInstance(IFragment fragment) {
         return fragment == this;
     }
 
@@ -56,21 +56,21 @@ public abstract class BaseFragmentAST implements IFragmentAST {
     }
 
     @Override
-    public final IFragmentAST getParent() {
+    public final IFragment getParent() {
         return parent;
     }
 
     @Override
-    public final List<IFragmentAST> getChildren() {
+    public final List<IFragment> getChildren() {
         return children;
     }
 
-    private boolean cannotSetParent(IFragmentAST parent) {
+    private boolean cannotSetParent(IFragment parent) {
         return isNull(parent) || isSameInstance(parent) || parent.isParentOf(this) || parent.isChildOf(this);
     }
 
     @Override
-    public final void setParent(IFragmentAST parent) {
+    public final void setParent(IFragment parent) {
         if (cannotSetParent(parent)) {
             return;
         }
@@ -83,12 +83,12 @@ public abstract class BaseFragmentAST implements IFragmentAST {
         return !children.isEmpty();
     }
 
-    private boolean cannotAddChild(IFragmentAST child) {
+    private boolean cannotAddChild(IFragment child) {
         return isNull(child) || isSameInstance(child) || child.isChildOf(this) || child.isParentOf(this);
     }
 
     @Override
-    public final void addChild(IFragmentAST child) {
+    public final void addChild(IFragment child) {
         if (cannotAddChild(child)) {
             return;
         }
@@ -97,25 +97,25 @@ public abstract class BaseFragmentAST implements IFragmentAST {
     }
 
     @Override
-    public final void addChildren(Iterable<IFragmentAST> children) {
-        for (IFragmentAST child : children) {
+    public final void addChildren(Iterable<IFragment> children) {
+        for (IFragment child : children) {
             addChild(child);
         }
     }
 
     @Override
-    public final boolean isParentOf(IFragmentAST child) {
+    public final boolean isParentOf(IFragment child) {
 
         return !isSameInstance(child) && child.getParent() == this;
     }
 
     @Override
-    public final boolean isChildOf(IFragmentAST parent) {
+    public final boolean isChildOf(IFragment parent) {
         return !isSameInstance(parent) && parent.isParentOf(this);
     }
 
     @Override
-    public final int compareTo(IFragmentAST fragment) {
+    public final int compareTo(IFragment fragment) {
         if (fragment == this) {
             return 0;
         }
@@ -124,8 +124,8 @@ public abstract class BaseFragmentAST implements IFragmentAST {
 
     @Override
     public final boolean equals(Object obj) {
-        if (obj instanceof IFragmentAST) {
-            return compareTo((IFragmentAST) obj) == 0;
+        if (obj instanceof IFragment) {
+            return compareTo((IFragment) obj) == 0;
         }
         return false;
     }

@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 
 public class ParserResultFactory implements IParserResultFactory {
     @Override
@@ -9,7 +9,7 @@ public class ParserResultFactory implements IParserResultFactory {
     }
 
     @Override
-    public IParserResult accepted(IFragmentAST fragmentAST) {
+    public IParserResult accepted(IFragment fragmentAST) {
         return new ParserResult(true, fragmentAST, null);
     }
 }

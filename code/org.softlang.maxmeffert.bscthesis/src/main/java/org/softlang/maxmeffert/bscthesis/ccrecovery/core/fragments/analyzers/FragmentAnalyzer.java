@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelationFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -22,8 +22,8 @@ public class FragmentAnalyzer implements IFragmentAnalyzer {
     }
 
     @Override
-    public IBinaryRelation<IFragmentAST> analyze(IFragmentAST fragment1, IFragmentAST fragment2) {
-        IBinaryRelation<IFragmentAST> binaryRelation = binaryRelationFactory.newBinaryRelation();
+    public IBinaryRelation<IFragment> analyze(IFragment fragment1, IFragment fragment2) {
+        IBinaryRelation<IFragment> binaryRelation = binaryRelationFactory.newBinaryRelation();
         for(IFragmentAnalyzerHeuristic heuristic : similarityHeuristics) {
             heuristic.analyze(binaryRelation, fragment1, fragment2);
         }

@@ -1,6 +1,6 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast;
 
-public abstract class TypedJavaFragmentAST extends ModifiedJavaFragmentAST {
+public abstract class TypedJavaFragment extends ModifiedJavaFragment {
     private String type;
 
     public String getType() {
