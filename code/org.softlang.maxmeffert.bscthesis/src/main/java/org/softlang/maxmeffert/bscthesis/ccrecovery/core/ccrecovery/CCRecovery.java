@@ -12,8 +12,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentASTB
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc.IoC;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentASTAnalyzer;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentASTAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentAnalyzer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentAnalyzerFactory;
 
 public class CCRecovery implements ICCRecovery {
 
@@ -22,11 +22,11 @@ public class CCRecovery implements ICCRecovery {
     }
 
     private final IParserFactory parserFactory;
-    private final IFragmentASTAnalyzerFactory similarityAnalyzerFactory;
+    private final IFragmentAnalyzerFactory similarityAnalyzerFactory;
     private final ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory;
 
     @Inject
-    public CCRecovery(IParserFactory parserFactory, IFragmentASTAnalyzerFactory similarityAnalyzerFactory, ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory) {
+    public CCRecovery(IParserFactory parserFactory, IFragmentAnalyzerFactory similarityAnalyzerFactory, ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory) {
         this.parserFactory = parserFactory;
         this.similarityAnalyzerFactory = similarityAnalyzerFactory;
         this.correspondenceAnalyzerFactory = correspondenceAnalyzerFactory;
@@ -38,8 +38,8 @@ public class CCRecovery implements ICCRecovery {
     }
 
     @Override
-    public IFragmentASTAnalyzer getFragmentASTAnalyzer() {
-        return similarityAnalyzerFactory.newFragmentASTAnalyzer();
+    public IFragmentAnalyzer getFragmentASTAnalyzer() {
+        return similarityAnalyzerFactory.newFragmentAnalyzer();
     }
 
     @Override

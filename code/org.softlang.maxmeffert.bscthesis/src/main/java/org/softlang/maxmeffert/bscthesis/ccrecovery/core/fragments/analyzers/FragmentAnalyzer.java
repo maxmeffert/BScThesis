@@ -7,26 +7,26 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
 import java.util.LinkedList;
 import java.util.List;
 
-public class FragmentASTAnalyzer implements IFragmentASTAnalyzer {
+public class FragmentAnalyzer implements IFragmentAnalyzer {
 
     private final IBinaryRelationFactory binaryRelationFactory;
-    private final List<IFragmentASTAnalyzerHeuristic> similarityHeuristics = new LinkedList<>();
+    private final List<IFragmentAnalyzerHeuristic> similarityHeuristics = new LinkedList<>();
 
-    public FragmentASTAnalyzer(IBinaryRelationFactory binaryRelationFactory) {
+    public FragmentAnalyzer(IBinaryRelationFactory binaryRelationFactory) {
         this.binaryRelationFactory = binaryRelationFactory;
     }
 
     @Override
-    public void addSimilarityHeuristic(IFragmentASTAnalyzerHeuristic similarityHeuristic) {
+    public void addHeuristic(IFragmentAnalyzerHeuristic similarityHeuristic) {
         similarityHeuristics.add(similarityHeuristic);
     }
 
     @Override
     public IBinaryRelation<IFragmentAST> analyze(IFragmentAST fragment1, IFragmentAST fragment2) {
-        IBinaryRelation<IFragmentAST> similarity = binaryRelationFactory.newBinaryRelation();
-        for(IFragmentASTAnalyzerHeuristic similarityHeuristic : similarityHeuristics) {
-            similarityHeuristic.analyze(similarity, fragment1, fragment2);
+        IBinaryRelation<IFragmentAST> binaryRelation = binaryRelationFactory.newBinaryRelation();
+        for(IFragmentAnalyzerHeuristic heuristic : similarityHeuristics) {
+            heuristic.analyze(binaryRelation, fragment1, fragment2);
         }
-        return similarity;
+        return binaryRelation;
     }
 }

@@ -2,7 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.hibe
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentASTAnalyzerHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentAnalyzerHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaClassFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaFieldFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaMethodFragmentAST;
@@ -14,7 +14,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.StringUtils;
 
 import java.util.List;
 
-public class HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic implements IFragmentASTAnalyzerHeuristic {
+public class HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic implements IFragmentAnalyzerHeuristic {
 
     private boolean areSimilar(JavaClassFragmentAST javaClassFragmentAST, SqlCreateTableFragment sqlCreateTableFragment) {
         return StringUtils.areLowerCaseEqual(javaClassFragmentAST.getIdentifier(), sqlCreateTableFragment.getTableName());

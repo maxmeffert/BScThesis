@@ -10,8 +10,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.Corresp
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraphFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraphFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.FragmentASTAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentASTAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.FragmentAnalyzerFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.FragmentKBBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.FragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.IFragmentKBBuilderFactory;
@@ -43,7 +43,7 @@ public class IoCConfig extends AbstractModule {
     }
 
     private void configureSimilarities() {
-        bind(IFragmentASTAnalyzerFactory.class).to(FragmentASTAnalyzerFactory.class);
+        bind(IFragmentAnalyzerFactory.class).to(FragmentAnalyzerFactory.class);
     }
 
     private void configureAntlr() {

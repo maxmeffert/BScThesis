@@ -7,7 +7,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorres
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentAST;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentASTAnalyzer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentAnalyzer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.antlr.java8.Java8Lexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.antlr.java8.Java8Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.Java8FragmentASTBuildingListener;
@@ -51,7 +51,7 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
         return ccRecovery.getParser(SqlLexer::new, SqlParser::new, SqlParser::sqlDocument, new SqlFragmentBuildingListener());
     }
 
-    private IFragmentASTAnalyzer getFragmentASTAnalyzer() {
+    private IFragmentAnalyzer getFragmentASTAnalyzer() {
         return ccRecovery.getFragmentASTAnalyzer();
     }
 
@@ -59,12 +59,12 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
         return ccRecovery.getCorrespondenceAnalyzer();
     }
 
-    private IFragmentASTAnalyzer getJaxbCorrespondenceSimilarityAnalyzer() {
-        IFragmentASTAnalyzer analyzer = getFragmentASTAnalyzer();
-        analyzer.addSimilarityHeuristic(new JaxbXmlCorrespondenceNamingSimilarityHeuristic());
-        analyzer.addSimilarityHeuristic(new JaxbXmlCorrespondenceAnnotationSimilarityHeuristic());
-        analyzer.addSimilarityHeuristic(new JaxbXsdCorrespondenceNamingSimilarityHeuristic());
-        analyzer.addSimilarityHeuristic(new JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic());
+    private IFragmentAnalyzer getJaxbCorrespondenceSimilarityAnalyzer() {
+        IFragmentAnalyzer analyzer = getFragmentASTAnalyzer();
+        analyzer.addHeuristic(new JaxbXmlCorrespondenceNamingSimilarityHeuristic());
+        analyzer.addHeuristic(new JaxbXmlCorrespondenceAnnotationSimilarityHeuristic());
+        analyzer.addHeuristic(new JaxbXsdCorrespondenceNamingSimilarityHeuristic());
+        analyzer.addHeuristic(new JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic());
         return analyzer;
     }
 
@@ -94,15 +94,15 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
         return correspondences;
     }
 
-    private IFragmentASTAnalyzer getHibernateJavaXmlCorrespondenceSimilarityAnalyzer() {
-        IFragmentASTAnalyzer analyzer = getFragmentASTAnalyzer();
-        analyzer.addSimilarityHeuristic(new HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic());
+    private IFragmentAnalyzer getHibernateJavaXmlCorrespondenceSimilarityAnalyzer() {
+        IFragmentAnalyzer analyzer = getFragmentASTAnalyzer();
+        analyzer.addHeuristic(new HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic());
         return analyzer;
     }
 
-    private IFragmentASTAnalyzer getHibernateJavaSqlCorrespondenceSimilarityAnalyzer() {
-        IFragmentASTAnalyzer analyzer = getFragmentASTAnalyzer();
-        analyzer.addSimilarityHeuristic(new HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic());
+    private IFragmentAnalyzer getHibernateJavaSqlCorrespondenceSimilarityAnalyzer() {
+        IFragmentAnalyzer analyzer = getFragmentASTAnalyzer();
+        analyzer.addHeuristic(new HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic());
         return analyzer;
     }
 
