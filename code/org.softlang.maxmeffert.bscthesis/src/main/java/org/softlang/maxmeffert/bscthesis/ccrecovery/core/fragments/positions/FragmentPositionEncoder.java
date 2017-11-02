@@ -44,10 +44,14 @@ public class FragmentPositionEncoder implements IFragmentPositionEncoder {
         return newFragmentPosition(0,0,0,0);
     }
 
+    private Matcher newFragmentPositionPatternMatcher(String string) {
+        Pattern pattern = Pattern.compile(FragmentPositionPattern);
+        return pattern.matcher(string);
+    }
+
     @Override
     public IFragmentPosition decode(String string) {
-        Pattern pattern = Pattern.compile(FragmentPositionPattern);
-        Matcher matcher = pattern.matcher(string);
+        Matcher matcher = newFragmentPositionPatternMatcher(string);
         if (matcher.matches()) {
             int startLine = Integer.parseInt(matcher.group("startLine"));
             int startCharInLine = Integer.parseInt(matcher.group("startCharInLine"));
@@ -57,8 +61,4 @@ public class FragmentPositionEncoder implements IFragmentPositionEncoder {
         }
         return newEmptyFragmentPosition();
     }
-
-
-
-
 }
