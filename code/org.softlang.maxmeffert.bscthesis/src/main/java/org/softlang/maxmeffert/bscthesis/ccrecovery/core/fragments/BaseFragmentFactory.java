@@ -15,7 +15,7 @@ public abstract class BaseFragmentFactory {
     protected final IFragmentPositionFactory fragmentPositionFactory = IoC.get(IFragmentPositionFactory.class);
 
     protected String textOf(ParserRuleContext parserRuleContext) {
-        return antlrTextReader.getText(parserRuleContext);
+        return antlrTextReader.getOriginalText(parserRuleContext);
     }
 
     protected IFragmentPosition positionOf(ParserRuleContext parserRuleContext) {

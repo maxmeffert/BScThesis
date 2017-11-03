@@ -5,9 +5,9 @@ import org.antlr.v4.runtime.misc.Interval;
 
 public class AntlrUtilities implements IAntlrUtilities {
     @Override
-    public String getText(ParserRuleContext parserRuleContext) {
+    public String getOriginalText(ParserRuleContext parserRuleContext) {
         int a = parserRuleContext.start.getStartIndex();
         int b = parserRuleContext.stop.getStopIndex();
-        return parserRuleContext.getStart().getInputStream().getText(Interval.of(a,b)); //.replace(System.lineSeparator(), "");
+        return parserRuleContext.getStart().getInputStream().getText(Interval.of(a,b));
     }
 }
