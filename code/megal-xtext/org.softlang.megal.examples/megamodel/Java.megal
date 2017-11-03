@@ -1,0 +1,12 @@
+model Java
+import Prelude
+
+Java: Language
+javaFile: File
+javaFile elementOf Java
+javaFile = 'workspace:/org.softlang.megal.examples/src/org/softlang/company/xjc/Department.java'
+
+AcceptJava: Plugin
+AcceptJava realizationOf Java
+AcceptJava partOf StringAcceptor
+AcceptJava = 'classpath:plugins.jaxb.AcceptJava'

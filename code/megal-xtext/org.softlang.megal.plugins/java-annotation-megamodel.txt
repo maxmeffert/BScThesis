@@ -1,0 +1,63 @@
+Java Annotation Megamodel
+=========================
+
+Problem: 
+
+class AClass {
+
+   @SomeAnnotation
+   private field1, field2;
+
+}
+
+Java allows to define multiple fields as a single member declaration.
+The AST ceeps annotations onle relative to member declarations.
+
+
+Megamodel 1: Strict partOf deduction
+====================================
+
+Multiple entities will be bound to the same manifestation.
+
+AClass : JavaClass
+
+AClass.field1 : JavaField
+AClass.field1 elementOf Java
+AClass.field1 partOf AClass
+
+AClass.field1.SomeAnnotation : JavaAnnotation
+AClass.field1.SomeAnnotation elementOf Java
+AClass.field1.SomeAnnotation partOf AClass.field1
+AClass.field1.SomeAnnotation = ...
+
+AClass.field2 : JavaField
+AClass.field2 elementOf Java
+AClass.field2 partOf AClass
+
+AClass.field2.SomeAnnotation : JavaAnnotation
+AClass.field2.SomeAnnotation elementOf Java
+AClass.field2.SomeAnnotation partOf AClass.field2
+AClass.field2.SomeAnnotation = ...
+
+
+
+Megamodel 2: Standalone entities
+================================
+
+Needs a new relationship, e.g. 'usesAnnotation'
+
+SomeAnnotation : JavaAnnotation
+SomeAnnotation elementOf Java
+
+AClass : JavaClass
+
+AClass.field1 : JavaField
+AClass.field1 elementOf Java
+AClass.field1 partOf AClass
+AClass.field1 usesAnntation SomeAnnotation
+
+AClass.field2 : JavaField
+AClass.field2 elementOf Java
+AClass.field2 partOf AClass
+AClass.field1 usesAnntation SomeAnnotation
+

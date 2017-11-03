@@ -52,7 +52,7 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
     }
 
     private IFragmentAnalyzer getFragmentASTAnalyzer() {
-        return ccRecovery.getFragmentASTAnalyzer();
+        return ccRecovery.getFragmentAnalyzer();
     }
 
     private ICorrespondenceAnalyzer getCorrespondenceAnalyzer() {

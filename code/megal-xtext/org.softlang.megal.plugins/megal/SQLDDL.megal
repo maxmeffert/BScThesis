@@ -1,0 +1,26 @@
+model SQLDDL
+import Prelude
+
+@FileExtensions '.sql'
+SQL : Language
+
+SQLFragment < Fragment
+SQLCreateTableStmt < SQLFragment
+SQLColumnDefinitionStmt < SQLFragment
+
+partOf < SQLFragment * File
+partOf < SQLColumnDefinitionStmt * SQLCreateTableStmt
+
+AcceptSQL: Plugin
+AcceptSQL realizationOf SQL
+AcceptSQL partOf FileElementOfLanguage
+AcceptSQL = 'classpath:org.softlang.megal.plugins.impl.java.SQLAcceptor'
+
+SQLFragmentizer : Plugin
+SQLFragmentizer realizationOf SQL
+SQLFragmentizer partOf FileFragmentReasoner
+SQLFragmentizer = 'classpath:org.softlang.megal.plugins.impl.sqlite.SQLiteDDLFragmentizer'
+
+
+aSQLFile : File
+aSQLFile elementOf SQL

@@ -1,0 +1,40 @@
+model Deserialization
+
+import JVM
+
+deserializationCode: File
+deserializationCode elementOf Java
+deserializationCode refersTo JAXB.Library
+deserializationCode refersTo javaFiles
+deserializationCode defines deserialization 
+deserializationCode = 'workspace:/org.softlang.megal.examples/src/org/softlang/company/features/Serialization.java'
+
+deserialization: Function [ XML -> JVM.ObjectGraphs ]
+deserialization(xmlFile) |-> objectGraph
+deserialization = 'classpath:org.softlang.company.features.Serialization#deserializeCompany(ByteSource)'
+objectGraph conformsTo javaFiles
+xmlFile correspondsTo objectGraph 
+
+JavaRefersToJava: Plugin
+JavaRefersToJava partOf RefersToEvaluator
+JavaRefersToJava = 'classpath:plugins.jaxb.JavaRefersToJava'
+
+JavaRefersToTechnology: Plugin
+JavaRefersToTechnology partOf RefersToEvaluator
+JavaRefersToTechnology = 'classpath:plugins.jaxb.JavaRefersToTechnology'
+
+FileToObjectFunction:Plugin
+FileToObjectFunction partOf ElementOfReasoner
+FileToObjectFunction = 'classpath:plugins.jaxb.FileToObjectFunction'
+
+JavaFileDefinesStaticFunction: Plugin
+JavaFileDefinesStaticFunction partOf DefinesEvaluator
+JavaFileDefinesStaticFunction = 'classpath:plugins.jaxb.JavaFileDefinesStaticFunction'
+
+ObjectCorrespondsToJavaFiles: Plugin
+ObjectCorrespondsToJavaFiles partOf ConformsToEvaluator
+ObjectCorrespondsToJavaFiles = 'classpath:plugins.jaxb.ObjectCorrespondsToJavaFiles'
+
+XMLFileCorrespondsToJavaObject: Plugin
+XMLFileCorrespondsToJavaObject partOf CorrespondsToReasoner
+XMLFileCorrespondsToJavaObject = 'classpath:plugins.jaxb.XMLFileCorrespondsToJavaObject'

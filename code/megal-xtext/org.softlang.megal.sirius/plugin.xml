@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="org.softlang.megal.sirius.Activator"
+               id="org.softlang.megal.sirius"
+	       name="Megal">
+    </component>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="org.softlang.megal.sirius.entitydiagram.SetLableEntity"
+           id="org.softlang.megal.sirius.entitydiagram.tools.SetLableEntity">
+     </javaActions>
+     <javaActions
+           actionClass="org.softlang.megal.sirius.entitydiagram.SetLableRelation"
+           id="org.softlang.megal.sirius.entitydiagram.tools.SetLableRelation">
+     </javaActions>
+     <javaActions
+           actionClass="org.softlang.megal.sirius.entitydiagram.SetLablePair"
+           id="org.softlang.megal.sirius.entitydiagram.tools.SetLablePair">
+     </javaActions>
+     <javaActions
+           actionClass="org.softlang.megal.sirius.entitydiagram.SetLableRelationshipType"
+           id="org.softlang.megal.sirius.entitydiagram.tools.SetLableRelationshipType">
+     </javaActions>
+  </extension>
+</plugin>

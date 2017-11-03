@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.softlang.megal.sirius
+Bundle-SymbolicName: org.softlang.megal.sirius;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.softlang.megal.sirius.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.sirius,
+ org.eclipse.core.resources;bundle-version="3.9.0",
+ org.softlang.megal.language;bundle-version="1.0.0",
+ org.eclipse.sirius.diagram;bundle-version="2.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

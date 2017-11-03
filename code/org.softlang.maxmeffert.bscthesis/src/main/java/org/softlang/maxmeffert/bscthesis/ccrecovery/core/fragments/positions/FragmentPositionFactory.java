@@ -16,4 +16,9 @@ public class FragmentPositionFactory implements IFragmentPositionFactory {
         int stopCharInLine = parserRuleContext.getStop().getCharPositionInLine() + parserRuleContext.getStop().getText().length();
         return newFragmentPosition(startLine, startCharInLine, stopLine, stopCharInLine);
     }
+
+    @Override
+    public IFragmentPosition newEmptyFragmentPosition() {
+        return newFragmentPosition(0,0,0,0);
+    }
 }

@@ -1,0 +1,10 @@
+model Bigstuff
+import Prelude
+
+TestLang: Language
+sigma: Artifact
+sigma elementOf TestLang
+
+XCReasoner: Plugin
+XCReasoner partOf EntityReasoner
+XCReasoner = 'classpath:plugins.XCReasoner'

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.softlang.megal.FragmentProvider">
+      <Class
+            class="org.softlang.megal.defaultprovider.resource.ResourceFragmentProvider">
+      </Class>
+      <Class
+            class="org.softlang.megal.defaultprovider.resource.JavaAstFragmentProvider">
+      </Class>
+      <Class
+            class="org.softlang.megal.defaultprovider.object.ObjectFragmentProvider">
+      </Class>
+      <Class
+            class="org.softlang.megal.defaultprovider.searchengine.TypenameDatabaseFragmentProvider">
+      </Class>
+      <Class
+            class="org.softlang.megal.defaultprovider.searchengine.TypenameInitFragmentProvider">
+      </Class>
+   </extension>
+   <extension
+         point="org.softlang.megal.RootProvider">
+      <Class
+            class="org.softlang.megal.defaultprovider.resource.WorkspaceRootProvider">
+      </Class>
+      <Class
+            class="org.softlang.megal.defaultprovider.searchengine.SearchEngineRoot">
+      </Class>
+   </extension>
+
+</plugin>

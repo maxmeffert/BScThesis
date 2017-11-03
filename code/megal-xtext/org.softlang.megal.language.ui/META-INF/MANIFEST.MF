@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.softlang.megal.language.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.softlang.megal.language.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.softlang.megal.language;visibility:=reexport,
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors,
+ org.eclipse.ui.ide,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.compare,
+ org.eclipse.jdt.ui,
+ org.eclipse.jdt.core
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.softlang.megal.language.ui.quickfix,
+ org.softlang.megal.language.ui.contentassist,
+ org.softlang.megal.language.ui.contentassist.antlr,
+ org.softlang.megal.language.ui.internal,
+ org.softlang.megal.language.ui.contentassist.antlr.internal
+Bundle-Activator: org.softlang.megal.language.ui.internal.MegalActivator

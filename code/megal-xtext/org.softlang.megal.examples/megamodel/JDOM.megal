@@ -1,0 +1,12 @@
+model JDOM
+import XML
+
+deserialization:Function
+deserializedXmlFile:Transient
+
+deserialization(xmlFile) |->deserializedXmlFile
+deserialization = 'classpath:org.softlang.megal.examples.jdom.Deserialization#deserialize(InputStream)'
+
+FileToObjectFunction:Plugin
+FileToObjectFunction partOf ElementOfReasoner
+FileToObjectFunction = 'classpath:plugins.jaxb.FileToObjectFunction'

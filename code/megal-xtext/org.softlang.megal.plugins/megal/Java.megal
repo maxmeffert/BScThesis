@@ -1,0 +1,45 @@
+model Java
+import Prelude
+
+@FileExtensions '.java'
+Java : Language
+
+//===============================================
+// Java Syntax Fragments
+//===============================================
+
+JavaFragment < Fragment
+
+JavaPackage < JavaFragment
+JavaInterface < JavaFragment
+JavaClass < JavaFragment
+JavaEnum < JavaFragment
+JavaField < JavaFragment
+JavaMethod < JavaFragment
+JavaConstructor < JavaMethod
+JavaAnnotation < JavaFragment
+
+partOf < JavaClass * File
+partOf < JavaInterface * File
+partOf < JavaMethod * JavaClass
+partOf < JavaField * JavaClass
+
+//===============================================
+// Plugins
+//===============================================
+
+AcceptJava: Plugin
+AcceptJava realizationOf Java
+AcceptJava partOf FileElementOfLanguage
+AcceptJava = 'classpath:org.softlang.megal.plugins.impl.java.JavaAcceptor'
+
+JavaFragmentizer : Plugin
+JavaFragmentizer realizationOf Java
+JavaFragmentizer partOf FileFragmentReasoner
+JavaFragmentizer = 'classpath:org.softlang.megal.plugins.impl.java.JavaFragmentizer2'
+
+
+aJavaFile : File
+aJavaFile elementOf Java
+
+javaFiles : File+

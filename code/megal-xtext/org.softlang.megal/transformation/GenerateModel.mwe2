@@ -1,0 +1,25 @@
+module org.softlang.megal
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.emf.mwe2.ecore.EcoreGenerator
+
+var projectName = "org.softlang.megal"
+var runtimeProject = "../${projectName}"
+var generated = "generated"
+
+Workflow {
+	bean = StandaloneSetup {
+		scanClassPath = true
+	}
+
+	component = DirectoryCleaner {
+		directory = generated
+	}
+
+	component = EcoreGenerator {
+		generateEdit = false
+		generateEditor = false
+		genModel = 'platform:/resource/${projectName}/model/Megal.genmodel'
+		srcPath = generated
+	}
+}

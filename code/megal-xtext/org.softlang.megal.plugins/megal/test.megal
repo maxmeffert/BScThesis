@@ -1,0 +1,52 @@
+model test
+import Prelude
+import Java
+import SQLDDL
+
+
+
+
+// relationship annotations for reasoning
+@Transitive
+@Reflexive
+Rel < Entity * Entity
+
+
+@FileExtensions '.xml'
+XML: Language
+@FileExtensions '.xsd'
+XSD: Language
+XSD subsetOf XML
+
+XMLSchema < Artifact
+
+XMLSchemaSchema : File
+XMLSchemaSchema elementOf XML
+XMLSchemaSchema defines XSD
+
+//@Plugin 'XSDFragmentResolver'
+XMLFragment < Fragment
+XMLElement < XMLFragment
+XMLAttribute < XMLFragment
+XMLNSAttribute < XMLAttribute
+
+
+
+
+XMLFragmentizer : Plugin
+XMLFragmentizer realizationOf XML
+XMLFragmentizer partOf FileFragmentReasoner
+XMLFragmentizer = 'classpath:org.softlang.megal.plugins.impl.xml.XMLFragmentizer'
+
+
+XSDFragmentResolver : Plugin
+XSDFragmentResolver = 'classpath:org.softlang.megal.plugins.impl.xsd.XSDFragmentResolver'
+
+xmlFile: File
+xmlFile elementOf XML
+
+xsdFile: File
+xsdFile elementOf XSD
+
+
+aFolder: Folder
