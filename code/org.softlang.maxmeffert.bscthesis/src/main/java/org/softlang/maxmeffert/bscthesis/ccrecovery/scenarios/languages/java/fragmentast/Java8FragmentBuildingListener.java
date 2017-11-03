@@ -1,16 +1,21 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast;
 
+import com.google.common.base.Strings;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.antlr.java8.Java8BaseListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.antlr.java8.Java8Parser;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 public class Java8FragmentBuildingListener extends Java8BaseListener implements IFragmentBuildingListener {
 
     private final Java8FragmentFactory java8FragmentFactory = new Java8FragmentFactory();
 
+    private String declaredPackage = "";
     private Stack<JavaMethodFragment> javaMethodFragments = new Stack<>();
     private Stack<JavaFieldFragment> javaFieldFragments = new Stack<>();
     private Stack<JavaClassFragment> javaClassFragments = new Stack<>();
@@ -20,6 +25,11 @@ public class Java8FragmentBuildingListener extends Java8BaseListener implements 
 
 
     private IFragment rootFragment;
+
+    @Override
+    public void exitPackageDeclaration(Java8Parser.PackageDeclarationContext ctx) {
+       declaredPackage = java8FragmentFactory.newPackageDeclaration(ctx);
+    }
 
     @Override
     public void exitClassModifier(Java8Parser.ClassModifierContext ctx) {
@@ -50,7 +60,7 @@ public class Java8FragmentBuildingListener extends Java8BaseListener implements 
 
     @Override
     public void exitNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext ctx) {
-        javaClassFragments.push(java8FragmentFactory.newJavaClassFragment(ctx, javaClassModifierFragments, javaFieldFragments, javaMethodFragments));
+        javaClassFragments.push(java8FragmentFactory.newJavaClassFragment(ctx, javaClassModifierFragments, javaFieldFragments, javaMethodFragments, declaredPackage));
     }
 
     @Override

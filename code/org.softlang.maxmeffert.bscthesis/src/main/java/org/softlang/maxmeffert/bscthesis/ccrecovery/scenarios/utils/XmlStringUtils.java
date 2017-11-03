@@ -15,6 +15,14 @@ public class XmlStringUtils {
         return string;
     }
 
+    public static boolean areEqual(String a, String b) {
+        return StringUtils.areEqual(removeXmlNamespacePrefix(a), b);
+    }
+
+    public static boolean areLowerCaseEqual(String a, String b) {
+        return StringUtils.areLowerCaseEqual(removeXmlNamespacePrefix(a), b);
+    }
+
     public static boolean isXsComplexTypeTag(String string) {
         return StringUtils.areLowerCaseEqual(removeXmlNamespacePrefix(string), XsComplexTypeTagName);
     }

@@ -19,9 +19,10 @@ public class Main {
 		InputStream java8Artifact = new FileInputStream("./src/main/java/org/softlang/companies/model/Company.java");
 		InputStream xmlArtifact = new FileInputStream("./artifacts/companies.xsd");
 		InputStream sqlArtifact = new FileInputStream("./artifacts/companies.ddl.sql");
+		InputStream hbmArtifact = new FileInputStream("./src/main/java/org/softlang/companies/model/Company.hbm.xml");
 
 
-		IBinaryRelation<IFragment> correspondences = iccRecoveryScenarios.getWeakHibernateJavaSqlCorrespondences(java8Artifact, sqlArtifact);
+		IBinaryRelation<IFragment> correspondences = iccRecoveryScenarios.getStrictHibernateJavaXmlCorrespondences(java8Artifact, hbmArtifact);
 
 		System.out.println(correspondences);
 		System.out.println(correspondences.size());

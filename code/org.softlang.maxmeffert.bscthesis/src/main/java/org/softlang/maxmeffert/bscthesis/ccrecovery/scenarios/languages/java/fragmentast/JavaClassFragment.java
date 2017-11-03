@@ -5,8 +5,26 @@ import java.util.List;
 
 public class JavaClassFragment extends ModifiedJavaFragment {
 
+    private String declaredPackage = "";
+    private String fullName = "";
     private List<JavaFieldFragment> javaFieldFragments = new LinkedList<>();
     private List<JavaMethodFragment> javaMethodFragments = new LinkedList<>();
+
+    public String getDeclaredPackage() {
+        return declaredPackage;
+    }
+
+    public void setDeclaredPackage(String declaredPackage) {
+        this.declaredPackage = declaredPackage;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
     public List<JavaFieldFragment> getJavaFieldFragments() {
         return javaFieldFragments;

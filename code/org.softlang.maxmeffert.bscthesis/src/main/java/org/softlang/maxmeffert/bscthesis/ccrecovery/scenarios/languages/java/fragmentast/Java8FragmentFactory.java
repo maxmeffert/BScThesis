@@ -6,8 +6,16 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.ant
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 public class Java8FragmentFactory extends BaseFragmentFactory {
+
+    public static final String PackageNameSeparator = ".";
+
+    public String newPackageDeclaration(Java8Parser.PackageDeclarationContext packageDeclarationContext) {
+        List<String> packageNames = packageDeclarationContext.Identifier().stream().map(id -> id.getText()).collect(Collectors.toList());
+        return String.join(PackageNameSeparator, packageNames);
+    }
 
     public List<JavaFieldFragment> newJavaFieldFragment(Java8Parser.FieldDeclarationContext fieldDeclarationContext, Stack<JavaModifierFragment> javaModifierFragments) {
         List<JavaFieldFragment> javaFieldFragments = new LinkedList<>();
@@ -47,7 +55,8 @@ public class Java8FragmentFactory extends BaseFragmentFactory {
             Java8Parser.NormalClassDeclarationContext normalClassDeclarationContext,
             Stack<JavaModifierFragment> javaModifierFragments,
             Stack<JavaFieldFragment> javaFieldFragments,
-            Stack<JavaMethodFragment> javaMethodFragments) {
+            Stack<JavaMethodFragment> javaMethodFragments,
+            String declaredPackage) {
         JavaClassFragment javaClassFragment = newJavaClassFragment(normalClassDeclarationContext);
         while (!javaModifierFragments.isEmpty()) {
             javaClassFragment.addJavaModifierFragment(javaModifierFragments.pop());
@@ -58,6 +67,8 @@ public class Java8FragmentFactory extends BaseFragmentFactory {
         while (!javaMethodFragments.isEmpty()) {
             javaClassFragment.addJavaMethodFragment(javaMethodFragments.pop());
         }
+        javaClassFragment.setDeclaredPackage(declaredPackage);
+        javaClassFragment.setFullName(declaredPackage + PackageNameSeparator + javaClassFragment.getIdentifier());
         return javaClassFragment;
     }
 
