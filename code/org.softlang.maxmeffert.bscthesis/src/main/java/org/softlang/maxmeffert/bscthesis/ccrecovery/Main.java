@@ -14,6 +14,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenari
 
 import java.io.*;
 import java.net.URISyntaxException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -36,7 +38,7 @@ public class Main {
 		    IFragmentPosition position = pair.getFirst().getPosition();
 		    System.out.println(fragmentUriFactory.newFragmentUri(file.toURI(), pair.getFirst()));
 		}
-//
+
 //		System.out.println(correspondences);
 //		System.out.println(correspondences.size());
 
