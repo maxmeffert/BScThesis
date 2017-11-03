@@ -20,8 +20,12 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.Fra
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.FragmentPositionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPositionEncoderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPositionFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.FragmentUriFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.IFragmentUriFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.readers.FragmentReaderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.readers.IFragmentReaderFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.FragmentUriConverter;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.FragmentUriConverterFactory;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.IFragmentUriConverter;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.IFragmentUriConverterFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.MereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
@@ -78,7 +82,8 @@ public class IoCConfig extends AbstractModule {
         bind(IFragmentKBBuilderFactory.class).to(FragmentKBBuilderFactory.class);
         bind(IFragmentPositionFactory.class).to(FragmentPositionFactory.class);
         bind(IFragmentPositionEncoderFactory.class).to(FragmentPositionEncoderFactory.class);
-        bind(IFragmentUriFactory.class).to(FragmentUriFactory.class);
+        bind(IFragmentUriConverterFactory.class).to(FragmentUriConverterFactory.class);
+        bind(IFragmentReaderFactory.class).to(FragmentReaderFactory.class);
     }
 
     private void configureDiGraphs() {

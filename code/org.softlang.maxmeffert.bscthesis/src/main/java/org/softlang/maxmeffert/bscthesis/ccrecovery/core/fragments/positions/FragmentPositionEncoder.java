@@ -37,7 +37,7 @@ public class FragmentPositionEncoder implements IFragmentPositionEncoder {
     }
 
     private IFragmentPosition newEmptyFragmentPosition() {
-        return newFragmentPosition(0,0,0,0);
+        return fragmentPositionFactory.newEmptyFragmentPosition();
     }
 
     private Matcher newFragmentPositionPatternMatcher(String string) {
