@@ -22,9 +22,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFr
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.positions.IFragmentPositionFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.readers.FragmentReaderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.readers.IFragmentReaderFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.FragmentUriConverter;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.FragmentUriConverterFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.IFragmentUriConverter;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.IFragmentUriConverterFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.IMereologyBuilderFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.mereologies.MereologyBuilderFactory;
@@ -62,7 +60,7 @@ public class IoCConfig extends AbstractModule {
         bind(IAntlrTokenStreamFactory.class).to(AntlrCommonTokenStreamFactory.class);
         bind(IAntlrParseTreeWalkerFactory.class).to(AntlrParseTreeWalkerFactory.class);
         bind(IAntlrParseTreeErrorNodeListenerFactory.class).to(AntlrParseTreeErrorNodeListerFactory.class);
-        bind(IAntlrTextReader.class).to(AntlrTextReader.class);
+        bind(IAntlrUtilities.class).to(AntlrUtilities.class);
     }
 
     private void configureCCRecovery() {
