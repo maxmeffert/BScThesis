@@ -17,12 +17,12 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.frag
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlFragmentBuildingListener;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.hibernate.HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.hibernate.HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.jaxb.JaxbXmlCorrespondenceAnnotationSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.jaxb.JaxbXmlCorrespondenceNamingSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.jaxb.JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.jaxb.JaxbXsdCorrespondenceNamingSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbXmlCorrespondenceAnnotationSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbXmlCorrespondenceNamingSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbXsdCorrespondenceNamingSimilarityHeuristic;
 
 import java.io.IOException;
 import java.io.InputStream;
