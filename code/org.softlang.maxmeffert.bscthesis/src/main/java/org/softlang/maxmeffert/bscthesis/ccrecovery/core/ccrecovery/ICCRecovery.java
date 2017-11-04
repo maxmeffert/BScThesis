@@ -6,7 +6,9 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrLexerFactor
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParseTreeFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParserFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.IFragmentKB;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.readers.IFragmentReader;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.IFragmentUriConverter;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
@@ -16,6 +18,9 @@ public interface ICCRecovery {
     <TLexer extends Lexer, TParser extends Parser> IParser getParser(IAntlrLexerFactory<TLexer> antlrLexerFactory, IAntlrParserFactory<TParser> antlrParserFactory, IAntlrParseTreeFactory<TParser> antlrParseTreeFactory, IFragmentBuildingListener fragmentBuildingListener);
     IFragmentUriConverter getFragmentUriConverter();
     IFragmentReader getFragmentReader();
+    IFragmentKB getFragmentKB(IFragment fragment);
     IFragmentAnalyzer getFragmentAnalyzer();
+
+    @Deprecated
     ICorrespondenceAnalyzer getCorrespondenceAnalyzer();
 }
