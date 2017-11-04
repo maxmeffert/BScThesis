@@ -25,6 +25,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.frag
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.XmlXsdSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaSqlAnnotationSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaSqlNamingSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaXmlAnnotationSimilarityHeuristic;
@@ -91,6 +92,13 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
     }
 
     @Override
+    public IFragmentAnalyzer getXmlXsdSimilarityAnalyzer() {
+        IFragmentAnalyzer analyzer = getFragmentAnalyzer();
+        analyzer.addHeuristic(new XmlXsdSimilarityHeuristic());
+        return analyzer;
+    }
+
+    @Override
     public IFragmentAnalyzer getJaxbSimilarityAnalyzer() {
         IFragmentAnalyzer analyzer = getFragmentAnalyzer();
         analyzer.addHeuristic(new JaxbJavaXmlNamingSimilarityHeuristic());
@@ -116,26 +124,33 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
         return analyzer;
     }
 
+    @Override
+    public IBinaryRelation<IFragment> getXmlXsdSimilarities(InputStream xmlInputStream, InputStream xsdInputStream) throws IOException, ParserException {
+        IFragment xmlFragment = getXmlParser().parse(xmlInputStream);
+        IFragment xsdFragment = getXmlParser().parse(xsdInputStream);
+        return getXmlXsdSimilarityAnalyzer().analyze(xmlFragment, xsdFragment);
+    }
+
 
     @Override
     public IBinaryRelation<IFragment> getJaxbSimilarities(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException {
-        IFragment java8FragmentAST = getJava8Parser().parse(javaInputStream);
-        IFragment xmlFragmentAST = getXmlParser().parse(xmlInputStream);
-        return getJaxbSimilarityAnalyzer().analyze(java8FragmentAST, xmlFragmentAST);
+        IFragment java8Fragment = getJava8Parser().parse(javaInputStream);
+        IFragment xmlFragment = getXmlParser().parse(xmlInputStream);
+        return getJaxbSimilarityAnalyzer().analyze(java8Fragment, xmlFragment);
     }
 
     @Override
     public IBinaryRelation<IFragment> getHibernateJavaXmlSimilarities(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException {
-        IFragment java8FragmentAST = getJava8Parser().parse(javaInputStream);
-        IFragment xmlFragmentAST = getXmlParser().parse(xmlInputStream);
-        return getHibernateJavaXmlSimilarityAnalyzer().analyze(java8FragmentAST, xmlFragmentAST);
+        IFragment java8Fragment = getJava8Parser().parse(javaInputStream);
+        IFragment xmlFragment = getXmlParser().parse(xmlInputStream);
+        return getHibernateJavaXmlSimilarityAnalyzer().analyze(java8Fragment, xmlFragment);
     }
 
     @Override
     public IBinaryRelation<IFragment> getHibernateJavaSqlSimilarities(InputStream javaInputStream, InputStream sqlInputStream) throws IOException, ParserException {
-        IFragment java8FragmentAST = getJava8Parser().parse(javaInputStream);
-        IFragment sqlFragmentAST = getSqlParser().parse(sqlInputStream);
-        return getHibernateJavaSqlSimilarityAnalyzer().analyze(java8FragmentAST, sqlFragmentAST);
+        IFragment java8Fragment = getJava8Parser().parse(javaInputStream);
+        IFragment sqlFragment = getSqlParser().parse(sqlInputStream);
+        return getHibernateJavaSqlSimilarityAnalyzer().analyze(java8Fragment, sqlFragment);
     }
 
 

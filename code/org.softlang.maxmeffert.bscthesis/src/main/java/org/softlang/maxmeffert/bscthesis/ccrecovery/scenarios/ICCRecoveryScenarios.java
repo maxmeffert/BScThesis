@@ -24,11 +24,15 @@ public interface ICCRecoveryScenarios extends ICCRecovery {
 
     IParser getSqlParser();
 
+    IFragmentAnalyzer getXmlXsdSimilarityAnalyzer();
+
     IFragmentAnalyzer getJaxbSimilarityAnalyzer();
 
     IFragmentAnalyzer getHibernateJavaXmlSimilarityAnalyzer();
 
     IFragmentAnalyzer getHibernateJavaSqlSimilarityAnalyzer();
+
+    IBinaryRelation<IFragment> getXmlXsdSimilarities(InputStream xmlInputStream, InputStream xsdInputStream) throws IOException, ParserException;
 
     IBinaryRelation<IFragment> getJaxbSimilarities(InputStream javaInputStream, InputStream xmlInputStream) throws IOException, ParserException;
 
