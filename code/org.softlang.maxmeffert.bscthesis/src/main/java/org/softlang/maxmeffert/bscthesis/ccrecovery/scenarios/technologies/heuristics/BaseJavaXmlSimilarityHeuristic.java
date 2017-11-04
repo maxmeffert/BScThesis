@@ -97,11 +97,11 @@ public abstract class BaseJavaXmlSimilarityHeuristic implements IFragmentAnalyze
     }
 
     @Override
-    public final void analyze(IBinaryRelation<IFragment> similarity, IFragment fragment1, IFragment fragment2) {
+    public final void analyze(IBinaryRelation<IFragment> similarities, IFragment fragment1, IFragment fragment2) {
         if (fragment1 instanceof JavaClassFragment && fragment2 instanceof XmlDocumentFragment) {
             JavaClassFragment javaClassFragment = (JavaClassFragment) fragment1;
             XmlDocumentFragment xmlDocumentFragment = (XmlDocumentFragment) fragment2;
-            analyzeJavaClassXMLDocumentSimilarities(similarity, javaClassFragment, xmlDocumentFragment);
+            analyzeJavaClassXMLDocumentSimilarities(similarities, javaClassFragment, xmlDocumentFragment);
         }
     }
 

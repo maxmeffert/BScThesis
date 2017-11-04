@@ -17,12 +17,13 @@ public class Main {
 		ICCRecoveryScenarios iccRecoveryScenarios = CCRecoveryScenarios.create();
 
 		InputStream java8Artifact = new FileInputStream("./companies/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/companies/model/Company.java");
-		InputStream xmlArtifact = new FileInputStream("./artifacts/companies.xsd");
+		InputStream xmlArtifact = new FileInputStream("./artifacts/companies.xml");
+		InputStream xsdArtifact = new FileInputStream("./artifacts/companies.xsd");
 		InputStream sqlArtifact = new FileInputStream("./artifacts/companies.ddl.sql");
 		InputStream hbmArtifact = new FileInputStream("./companies/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/companies/model/Company.hbm.xml");
 
 
-		IBinaryRelation<IFragment> correspondences = iccRecoveryScenarios.getHibernateJavaXmlSimilarities(java8Artifact, hbmArtifact);
+		IBinaryRelation<IFragment> correspondences = iccRecoveryScenarios.getXmlXsdSimilarities(xmlArtifact, xsdArtifact);
 
 		System.out.println(correspondences);
 		System.out.println(correspondences.size());

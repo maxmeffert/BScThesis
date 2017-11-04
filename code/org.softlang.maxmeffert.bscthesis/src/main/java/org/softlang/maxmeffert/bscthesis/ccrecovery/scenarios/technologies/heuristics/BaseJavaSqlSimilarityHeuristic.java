@@ -53,9 +53,9 @@ public abstract class BaseJavaSqlSimilarityHeuristic implements IFragmentAnalyze
     }
 
     @Override
-    public void analyze(IBinaryRelation<IFragment> similarity, IFragment fragment1, IFragment fragment2) {
+    public void analyze(IBinaryRelation<IFragment> similarities, IFragment fragment1, IFragment fragment2) {
         if (fragment1 instanceof JavaClassFragment && fragment2 instanceof SqlDocumentFragment) {
-            addSimilarities(similarity, (JavaClassFragment) fragment1, (SqlDocumentFragment) fragment2);
+            addSimilarities(similarities, (JavaClassFragment) fragment1, (SqlDocumentFragment) fragment2);
         }
     }
 }
