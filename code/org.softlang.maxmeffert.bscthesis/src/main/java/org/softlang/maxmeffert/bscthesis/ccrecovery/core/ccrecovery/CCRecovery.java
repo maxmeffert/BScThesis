@@ -6,10 +6,10 @@ import org.antlr.v4.runtime.Parser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrLexerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParseTreeFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.antlr.IAntlrParserFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzer;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentAnalyzer;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.IFragmentKB;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.IFragmentKBFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.readers.IFragmentReader;
@@ -19,8 +19,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.uris.IFragmen
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ioc.IoC;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.IParserFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentAnalyzer;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFragmentAnalyzerFactory;
 
 public class CCRecovery implements ICCRecovery {
 
@@ -33,16 +31,14 @@ public class CCRecovery implements ICCRecovery {
     private final IFragmentReaderFactory fragmentReaderFactory;
     private final IFragmentKBFactory fragmentKBFactory;
     private final IFragmentAnalyzerFactory fragmentAnalyzerFactory;
-    private final ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory;
 
     @Inject
-    public CCRecovery(IParserFactory parserFactory, IFragmentUriConverterFactory fragmentUriConverterFactory, IFragmentReaderFactory fragmentReaderFactory, IFragmentKBFactory fragmentKBFactory, IFragmentAnalyzerFactory fragmentAnalyzerFactory, ICorrespondenceAnalyzerFactory correspondenceAnalyzerFactory) {
+    public CCRecovery(IParserFactory parserFactory, IFragmentUriConverterFactory fragmentUriConverterFactory, IFragmentReaderFactory fragmentReaderFactory, IFragmentKBFactory fragmentKBFactory, IFragmentAnalyzerFactory fragmentAnalyzerFactory) {
         this.parserFactory = parserFactory;
         this.fragmentUriConverterFactory = fragmentUriConverterFactory;
         this.fragmentReaderFactory = fragmentReaderFactory;
         this.fragmentKBFactory = fragmentKBFactory;
         this.fragmentAnalyzerFactory = fragmentAnalyzerFactory;
-        this.correspondenceAnalyzerFactory = correspondenceAnalyzerFactory;
     }
 
     @Override
