@@ -1,7 +1,7 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils;
 
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLAttributeFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XmlAttributeFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XmlElementFragment;
 
 import java.util.function.Predicate;
 
@@ -11,27 +11,27 @@ public class XmlFragmentUtils {
     private static final String XsElementTagName = "element";
     private static final String XsAttributeTagName = "attribute";
 
-    public static boolean isTag(XMLElementFragment xmlElementFragment, String tagName) {
+    public static boolean isTag(XmlElementFragment xmlElementFragment, String tagName) {
         return XmlStringUtils.areLowerCaseEqual(xmlElementFragment.getName(), tagName);
     }
 
-    public static boolean isXsComplexTypeTag(XMLElementFragment xmlElementFragment) {
+    public static boolean isXsComplexTypeTag(XmlElementFragment xmlElementFragment) {
         return isTag(xmlElementFragment, XsComplexTypeTagName);
     }
 
-    public static boolean isXsElementTag(XMLElementFragment xmlElementFragment) {
+    public static boolean isXsElementTag(XmlElementFragment xmlElementFragment) {
         return isTag(xmlElementFragment, XsElementTagName);
     }
 
-    public static boolean isXsAttributeTag(XMLElementFragment xmlElementFragment) {
+    public static boolean isXsAttributeTag(XmlElementFragment xmlElementFragment) {
         return isTag(xmlElementFragment, XsAttributeTagName);
     }
 
-    public static boolean hasAttribute(XMLElementFragment xmlElementFragment, Predicate<XMLAttributeFragment> predicate) {
+    public static boolean hasAttribute(XmlElementFragment xmlElementFragment, Predicate<XmlAttributeFragment> predicate) {
         return xmlElementFragment.getXmlAttributeFragments().stream().anyMatch(predicate);
     }
 
-    public static boolean hasAttribute(XMLElementFragment xmlElementFragment, String attributeName, String attributeValue) {
+    public static boolean hasAttribute(XmlElementFragment xmlElementFragment, String attributeName, String attributeValue) {
         return hasAttribute(xmlElementFragment,
                 attribute -> StringUtils.areLowerCaseEqual(attribute.getName(), attributeName)
                         && StringUtils.areLowerCaseEqual(StringUtils.removeQuotes(attribute.getValue()), attributeValue));

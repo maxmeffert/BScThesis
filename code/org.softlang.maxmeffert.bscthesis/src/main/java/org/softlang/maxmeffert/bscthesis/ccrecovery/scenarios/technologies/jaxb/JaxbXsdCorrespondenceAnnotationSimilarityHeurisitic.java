@@ -1,8 +1,8 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.jaxb;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.*;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLAttributeFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XmlAttributeFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XmlElementFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.BaseJavaXmlSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.JaxbStringUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.StringUtils;
@@ -10,19 +10,19 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.XmlFragmentU
 
 public class JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic extends BaseJavaXmlSimilarityHeuristic {
 
-    private boolean hasXsAttributeSimilarity(JavaAnnotationFragment javaAnnotationFragment, XMLElementFragment xmlElementFragmentAST) {
+    private boolean hasXsAttributeSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragmentAST) {
         return XmlFragmentUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
     }
 
-    private boolean hasXsElementSimilarity(JavaAnnotationFragment javaAnnotationFragment, XMLElementFragment xmlElementFragmentAST) {
+    private boolean hasXsElementSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragmentAST) {
         return XmlFragmentUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
     }
 
-    private boolean hasXsComplexTypeSimilarity(JavaAnnotationFragment javaAnnotationFragment, XMLElementFragment xmlElementFragmentAST) {
+    private boolean hasXsComplexTypeSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragmentAST) {
         return XmlFragmentUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
     }
 
-    private boolean hasJaxbAnnotationSimilarity(JavaAnnotationFragment javaAnnotationFragment, XMLElementFragment xmlElementFragmentAST) {
+    private boolean hasJaxbAnnotationSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragmentAST) {
         if (JaxbStringUtils.equalsAnyJaxbAnnotationName(javaAnnotationFragment.getIdentifier())) {
             if (javaAnnotationFragment.hasNamedParameter("name")) {
                 if (XmlFragmentUtils.isXsComplexTypeTag(xmlElementFragmentAST)) {
@@ -39,7 +39,7 @@ public class JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic extends BaseJav
         return false;
     }
 
-    private boolean hasJaxbAnnotationSimilarity(ModifiedJavaFragment modifiedJavaFragmentAST, XMLElementFragment xmlElementFragmentAST) {
+    private boolean hasJaxbAnnotationSimilarity(ModifiedJavaFragment modifiedJavaFragmentAST, XmlElementFragment xmlElementFragmentAST) {
         for (JavaModifierFragment javaModifierFragment : modifiedJavaFragmentAST.getJavaModifierFragments()) {
             if (javaModifierFragment.isAnnotation()) {
                 if (hasJaxbAnnotationSimilarity(javaModifierFragment.getJavaAnnotationFragment(), xmlElementFragmentAST)) {
@@ -51,27 +51,27 @@ public class JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic extends BaseJav
     }
 
     @Override
-    protected boolean similar(JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment) {
+    protected boolean similar(JavaClassFragment javaClassFragment, XmlElementFragment xmlElementFragment) {
         return hasJaxbAnnotationSimilarity(javaClassFragment, xmlElementFragment);
     }
 
     @Override
-    protected boolean similar(JavaFieldFragment javaFieldFragment, XMLElementFragment xmlElementFragment) {
+    protected boolean similar(JavaFieldFragment javaFieldFragment, XmlElementFragment xmlElementFragment) {
         return hasJaxbAnnotationSimilarity(javaFieldFragment, xmlElementFragment);
     }
 
     @Override
-    protected boolean similar(JavaFieldFragment javaFieldFragment, XMLAttributeFragment xmlAttributeFragment) {
+    protected boolean similar(JavaFieldFragment javaFieldFragment, XmlAttributeFragment xmlAttributeFragment) {
         return false;
     }
 
     @Override
-    protected boolean similar(JavaMethodFragment javaMethodFragment, XMLElementFragment xmlElementFragment) {
+    protected boolean similar(JavaMethodFragment javaMethodFragment, XmlElementFragment xmlElementFragment) {
         return hasJaxbAnnotationSimilarity(javaMethodFragment, xmlElementFragment);
     }
 
     @Override
-    protected boolean similar(JavaMethodFragment javaMethodFragment, XMLAttributeFragment xmlAttributeFragment) {
+    protected boolean similar(JavaMethodFragment javaMethodFragment, XmlAttributeFragment xmlAttributeFragment) {
         return false;
     }
 }

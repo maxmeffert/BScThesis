@@ -3,8 +3,8 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.hibe
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaClassFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaFieldFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaMethodFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLAttributeFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XmlAttributeFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XmlElementFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.BaseJavaXmlSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.HibernateXmlUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.JavaStringUtils;
@@ -12,7 +12,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.XmlFragmentU
 
 public class HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic extends BaseJavaXmlSimilarityHeuristic {
 
-    private boolean isMemberMapping(XMLElementFragment xmlElementFragment) {
+    private boolean isMemberMapping(XmlElementFragment xmlElementFragment) {
         return HibernateXmlUtils.isHbmIdTag(xmlElementFragment)
                 || HibernateXmlUtils.isHbmPropertyTag(xmlElementFragment)
                 || HibernateXmlUtils.isHbmBagTag(xmlElementFragment)
@@ -22,7 +22,7 @@ public class HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic extends Bas
     }
 
     @Override
-    protected boolean similar(JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment) {
+    protected boolean similar(JavaClassFragment javaClassFragment, XmlElementFragment xmlElementFragment) {
         if (HibernateXmlUtils.isHbmClassTag(xmlElementFragment)) {
             return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", javaClassFragment.getFullName());
         }
@@ -30,7 +30,7 @@ public class HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic extends Bas
     }
 
     @Override
-    protected boolean similar(JavaFieldFragment javaFieldFragment, XMLElementFragment xmlElementFragment) {
+    protected boolean similar(JavaFieldFragment javaFieldFragment, XmlElementFragment xmlElementFragment) {
         if (isMemberMapping(xmlElementFragment)) {
             return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", javaFieldFragment.getIdentifier());
         }
@@ -38,12 +38,12 @@ public class HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic extends Bas
     }
 
     @Override
-    protected boolean similar(JavaFieldFragment javaFieldFragment, XMLAttributeFragment xmlAttributeFragment) {
+    protected boolean similar(JavaFieldFragment javaFieldFragment, XmlAttributeFragment xmlAttributeFragment) {
         return false;
     }
 
     @Override
-    protected boolean similar(JavaMethodFragment javaMethodFragment, XMLElementFragment xmlElementFragment) {
+    protected boolean similar(JavaMethodFragment javaMethodFragment, XmlElementFragment xmlElementFragment) {
         if (isMemberMapping(xmlElementFragment)) {
             return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", JavaStringUtils.removeAnyJavaAccessorPrefix(javaMethodFragment.getIdentifier()));
         }
@@ -51,7 +51,7 @@ public class HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic extends Bas
     }
 
     @Override
-    protected boolean similar(JavaMethodFragment javaMethodFragment, XMLAttributeFragment xmlAttributeFragment) {
+    protected boolean similar(JavaMethodFragment javaMethodFragment, XmlAttributeFragment xmlAttributeFragment) {
         return false;
     }
 }

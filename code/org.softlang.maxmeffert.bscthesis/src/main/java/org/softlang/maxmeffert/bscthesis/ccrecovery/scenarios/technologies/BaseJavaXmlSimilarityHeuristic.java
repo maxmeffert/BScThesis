@@ -6,77 +6,77 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.IFr
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaClassFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaFieldFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragmentast.JavaMethodFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLAttributeFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLDocumentFragment;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XmlAttributeFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XmlDocumentFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XmlElementFragment;
 
 import java.util.List;
 
 public abstract class BaseJavaXmlSimilarityHeuristic implements IFragmentAnalyzerHeuristic {
 
-    protected abstract boolean similar(JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment);
-    protected abstract boolean similar(JavaFieldFragment javaFieldFragment, XMLElementFragment xmlElementFragment);
-    protected abstract boolean similar(JavaFieldFragment javaFieldFragment, XMLAttributeFragment xmlAttributeFragment);
-    protected abstract boolean similar(JavaMethodFragment javaMethodFragment, XMLElementFragment xmlElementFragment);
-    protected abstract boolean similar(JavaMethodFragment javaMethodFragment, XMLAttributeFragment xmlAttributeFragment);
+    protected abstract boolean similar(JavaClassFragment javaClassFragment, XmlElementFragment xmlElementFragment);
+    protected abstract boolean similar(JavaFieldFragment javaFieldFragment, XmlElementFragment xmlElementFragment);
+    protected abstract boolean similar(JavaFieldFragment javaFieldFragment, XmlAttributeFragment xmlAttributeFragment);
+    protected abstract boolean similar(JavaMethodFragment javaMethodFragment, XmlElementFragment xmlElementFragment);
+    protected abstract boolean similar(JavaMethodFragment javaMethodFragment, XmlAttributeFragment xmlAttributeFragment);
 
-    private void analyzeJavaFieldXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaFieldFragment javaFieldFragment, XMLElementFragment xmlElementFragment) {
+    private void analyzeJavaFieldXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaFieldFragment javaFieldFragment, XmlElementFragment xmlElementFragment) {
         if (similar(javaFieldFragment, xmlElementFragment)) {
             similarity.add(javaFieldFragment, xmlElementFragment);
         }
         analyzeJavaFieldXMLElementSimilarities(similarity, javaFieldFragment, xmlElementFragment.getXmlElementFragments());
     }
 
-    private void analyzeJavaFieldXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaFieldFragment javaFieldFragment, List<XMLElementFragment> xmlElementFragments) {
-        for (XMLElementFragment xmlElementFragment : xmlElementFragments) {
+    private void analyzeJavaFieldXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaFieldFragment javaFieldFragment, List<XmlElementFragment> xmlElementFragments) {
+        for (XmlElementFragment xmlElementFragment : xmlElementFragments) {
             analyzeJavaFieldXMLElementSimilarities(similarity, javaFieldFragment, xmlElementFragment);
         }
     }
 
-    private void analyzeJavaMethodXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaMethodFragment javaMethodFragment, XMLElementFragment xmlElementFragment) {
+    private void analyzeJavaMethodXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaMethodFragment javaMethodFragment, XmlElementFragment xmlElementFragment) {
         if (similar(javaMethodFragment, xmlElementFragment)) {
             similarity.add(javaMethodFragment, xmlElementFragment);
         }
         analyzeJavaMethodXMLElementSimilarities(similarity, javaMethodFragment, xmlElementFragment.getXmlElementFragments());
     }
 
-    private void analyzeJavaMethodXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaMethodFragment javaMethodFragment, List<XMLElementFragment> xmlElementFragments) {
-        for (XMLElementFragment xmlElementFragment : xmlElementFragments) {
+    private void analyzeJavaMethodXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaMethodFragment javaMethodFragment, List<XmlElementFragment> xmlElementFragments) {
+        for (XmlElementFragment xmlElementFragment : xmlElementFragments) {
             analyzeJavaMethodXMLElementSimilarities(similarity, javaMethodFragment, xmlElementFragment);
         }
     }
 
-    private void analyzeJavaFieldXMLAttributeSimilarities(IBinaryRelation<IFragment> similarity, JavaFieldFragment javaFieldFragment, XMLAttributeFragment xmlAttributeFragment) {
+    private void analyzeJavaFieldXMLAttributeSimilarities(IBinaryRelation<IFragment> similarity, JavaFieldFragment javaFieldFragment, XmlAttributeFragment xmlAttributeFragment) {
         if (similar(javaFieldFragment, xmlAttributeFragment)) {
             similarity.add(javaFieldFragment, xmlAttributeFragment);
         }
     }
 
-    private void analyzeJavaFieldXMLAttributeSimilarities(IBinaryRelation<IFragment> similarity, JavaFieldFragment javaFieldFragment, List<XMLAttributeFragment> xmlAttributeFragments) {
-        for (XMLAttributeFragment xmlAttributeFragment : xmlAttributeFragments) {
+    private void analyzeJavaFieldXMLAttributeSimilarities(IBinaryRelation<IFragment> similarity, JavaFieldFragment javaFieldFragment, List<XmlAttributeFragment> xmlAttributeFragments) {
+        for (XmlAttributeFragment xmlAttributeFragment : xmlAttributeFragments) {
             analyzeJavaFieldXMLAttributeSimilarities(similarity, javaFieldFragment, xmlAttributeFragment);
         }
     }
 
-    private void analyzeJavaMethodXMLAttributeSimilarities(IBinaryRelation<IFragment> similarity, JavaMethodFragment javaMethodFragment, XMLAttributeFragment xmlAttributeFragment) {
+    private void analyzeJavaMethodXMLAttributeSimilarities(IBinaryRelation<IFragment> similarity, JavaMethodFragment javaMethodFragment, XmlAttributeFragment xmlAttributeFragment) {
         if (similar(javaMethodFragment, xmlAttributeFragment)) {
             similarity.add(javaMethodFragment, xmlAttributeFragment);
         }
     }
 
-    private void analyzeJavaMethodXMLAttributeSimilarities(IBinaryRelation<IFragment> similarity, JavaMethodFragment javaMethodFragment, List<XMLAttributeFragment> xmlAttributeFragments) {
-        for (XMLAttributeFragment xmlAttributeFragment : xmlAttributeFragments) {
+    private void analyzeJavaMethodXMLAttributeSimilarities(IBinaryRelation<IFragment> similarity, JavaMethodFragment javaMethodFragment, List<XmlAttributeFragment> xmlAttributeFragments) {
+        for (XmlAttributeFragment xmlAttributeFragment : xmlAttributeFragments) {
             analyzeJavaMethodXMLAttributeSimilarities(similarity, javaMethodFragment, xmlAttributeFragment);
         }
     }
 
-    private void analyzeJavaClassXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaClassFragment javaClassFragment, List<XMLElementFragment> xmlElementFragments) {
-        for (XMLElementFragment xmlElementFragment : xmlElementFragments) {
+    private void analyzeJavaClassXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaClassFragment javaClassFragment, List<XmlElementFragment> xmlElementFragments) {
+        for (XmlElementFragment xmlElementFragment : xmlElementFragments) {
             analyzeJavaClassXMLElementSimilarities(similarity, javaClassFragment, xmlElementFragment);
         }
     }
 
-    private void analyzeJavaClassXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment) {
+    private void analyzeJavaClassXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaClassFragment javaClassFragment, XmlElementFragment xmlElementFragment) {
         if (similar(javaClassFragment, xmlElementFragment)) {
             similarity.add(javaClassFragment, xmlElementFragment);
             for (JavaFieldFragment javaFieldFragment : javaClassFragment.getJavaFieldFragments()) {
@@ -91,16 +91,16 @@ public abstract class BaseJavaXmlSimilarityHeuristic implements IFragmentAnalyze
         analyzeJavaClassXMLElementSimilarities(similarity, javaClassFragment, xmlElementFragment.getXmlElementFragments());
     }
 
-    private void analyzeJavaClassXMLDocumentSimilarities(IBinaryRelation<IFragment> similarity, JavaClassFragment javaClassFragment, XMLDocumentFragment xmlDocumentFragment) {
-        XMLElementFragment xmlElementFragment = xmlDocumentFragment.getXmlElementFragment();
+    private void analyzeJavaClassXMLDocumentSimilarities(IBinaryRelation<IFragment> similarity, JavaClassFragment javaClassFragment, XmlDocumentFragment xmlDocumentFragment) {
+        XmlElementFragment xmlElementFragment = xmlDocumentFragment.getXmlElementFragment();
         analyzeJavaClassXMLElementSimilarities(similarity, javaClassFragment, xmlElementFragment);
     }
 
     @Override
     public final void analyze(IBinaryRelation<IFragment> similarity, IFragment fragment1, IFragment fragment2) {
-        if (fragment1 instanceof JavaClassFragment && fragment2 instanceof XMLDocumentFragment) {
+        if (fragment1 instanceof JavaClassFragment && fragment2 instanceof XmlDocumentFragment) {
             JavaClassFragment javaClassFragment = (JavaClassFragment) fragment1;
-            XMLDocumentFragment xmlDocumentFragment = (XMLDocumentFragment) fragment2;
+            XmlDocumentFragment xmlDocumentFragment = (XmlDocumentFragment) fragment2;
             analyzeJavaClassXMLDocumentSimilarities(similarity, javaClassFragment, xmlDocumentFragment);
         }
     }

@@ -16,7 +16,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.antl
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragmentast.SqlFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLParser;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XmlFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.hibernate.HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.hibernate.HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.jaxb.JaxbXmlCorrespondenceAnnotationSimilarityHeuristic;
@@ -44,7 +44,7 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
     }
 
     private IParser getXmlParser() {
-        return ccRecovery.getParser(XMLLexer::new, XMLParser::new, XMLParser::document, new XMLFragmentBuildingListener());
+        return ccRecovery.getParser(XMLLexer::new, XMLParser::new, XMLParser::document, new XmlFragmentBuildingListener());
     }
 
     private IParser getSqlParser() {
