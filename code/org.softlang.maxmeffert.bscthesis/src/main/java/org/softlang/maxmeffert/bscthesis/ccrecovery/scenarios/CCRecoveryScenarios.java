@@ -25,7 +25,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.frag
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlFragmentBuildingListener;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.XmlXsdSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.xml.XmlXsdSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaSqlAnnotationSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaSqlNamingSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaXmlAnnotationSimilarityHeuristic;

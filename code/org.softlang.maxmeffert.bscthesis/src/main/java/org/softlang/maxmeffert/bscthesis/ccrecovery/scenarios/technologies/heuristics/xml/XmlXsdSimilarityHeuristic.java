@@ -1,7 +1,8 @@
-package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.xml;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlAttributeFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlElementFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.BaseXmlXsdSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.XmlFragmentUtils;
 
 public class XmlXsdSimilarityHeuristic extends BaseXmlXsdSimilarityHeuristic {
