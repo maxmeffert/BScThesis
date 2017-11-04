@@ -14,6 +14,21 @@
         </option>
         <option name="useAutoImport" value="true" />
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/companies" />
+        <option name="gradleJvm" value="1.8" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/companies" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/org.softlang.maxmeffert.bscthesis_companies" />
+        <option name="gradleJvm" value="1.8" />
+      </GradleProjectSettings>
     </option>
   </component>
 </project>

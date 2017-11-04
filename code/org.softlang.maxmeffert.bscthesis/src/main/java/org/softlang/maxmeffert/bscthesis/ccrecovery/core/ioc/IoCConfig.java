@@ -6,8 +6,6 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.BinaryR
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelationFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.CCRecovery;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.ccrecovery.ICCRecovery;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.CorrespondenceAnalyzerFactory;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.core.correspondences.ICorrespondenceAnalyzerFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraphFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.IDiGraphFactory;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.analyzers.FragmentAnalyzerFactory;
@@ -36,8 +34,6 @@ public class IoCConfig extends AbstractModule {
     protected void configure() {
         configureAntlr();
         configureCCRecovery();
-        configureConformances();
-        configureCorrespondences();
         configureFragments();
         configureDiGraphs();
         configureMereologies();
@@ -67,13 +63,6 @@ public class IoCConfig extends AbstractModule {
         bind(ICCRecovery.class).to(CCRecovery.class);
     }
 
-    private void configureConformances() {
-
-    }
-
-    private void configureCorrespondences() {
-        bind(ICorrespondenceAnalyzerFactory.class).to(CorrespondenceAnalyzerFactory.class);
-    }
 
     private void configureFragments() {
         bind(IFragmentKBFactory.class).to(FragmentKBFactory.class);

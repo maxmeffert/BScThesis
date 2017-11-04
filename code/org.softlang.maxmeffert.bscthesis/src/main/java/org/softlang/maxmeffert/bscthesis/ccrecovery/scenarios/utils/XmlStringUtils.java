@@ -3,9 +3,6 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils;
 public class XmlStringUtils {
 
     private static final String XmlNamespaceSeparator = ":";
-    private static final String XsComplexTypeTagName = "complexType";
-    private static final String XsElementTagName = "element";
-    private static final String XsAttributeTagName = "attribute";
 
     public static String removeXmlNamespacePrefix(String string) {
         int indexOfXmlNamespaceSeparator = string.indexOf(XmlNamespaceSeparator);
@@ -15,16 +12,12 @@ public class XmlStringUtils {
         return string;
     }
 
-    public static boolean isXsComplexTypeTag(String string) {
-        return StringUtils.areLowerCaseEqual(removeXmlNamespacePrefix(string), XsComplexTypeTagName);
+    public static boolean areEqual(String a, String b) {
+        return StringUtils.areEqual(removeXmlNamespacePrefix(a), b);
     }
 
-    public static boolean isXsElementTag(String string) {
-        return StringUtils.areLowerCaseEqual(removeXmlNamespacePrefix(string), XsElementTagName);
-    }
-
-    public static boolean isXsAttributeTag(String string) {
-        return StringUtils.areLowerCaseEqual(removeXmlNamespacePrefix(string), XsAttributeTagName);
+    public static boolean areLowerCaseEqual(String a, String b) {
+        return StringUtils.areLowerCaseEqual(removeXmlNamespacePrefix(a), b);
     }
 
 }

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="companies_main" target="1.8" />
+      <module name="companies_test" target="1.8" />
       <module name="org.softlang.maxmeffert.bscthesis_main" target="1.8" />
       <module name="org.softlang.maxmeffert.bscthesis_test" target="1.8" />
       <module name="scenarios_main" target="1.8" />

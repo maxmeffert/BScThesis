@@ -44,9 +44,29 @@ public class StringUtils {
         return string;
     }
 
+    public static boolean startsWith(String string, String prefix) {
+        return string.length() >= prefix.length() && string.startsWith(prefix);
+    }
+
+    public static boolean lowerCaseStartsWith(String string, String prefix) {
+        string = string.toLowerCase();
+        prefix = prefix.toLowerCase();
+        return startsWith(string, prefix);
+    }
+
+    public static boolean endsWith(String string, String suffix) {
+        return string.length() >= suffix.length() && string.endsWith(suffix);
+    }
+
+    public static boolean lowerCaseEndsWith(String string, String suffix) {
+        string = string.toLowerCase();
+        suffix = suffix.toLowerCase();
+        return endsWith(string, suffix);
+    }
+
     public static String removeAnyPrefix(String string, String[] prefixes) {
         for(String prefix : prefixes) {
-            if (string.length() > prefix.length() && string.startsWith(prefix)) {
+            if (startsWith(string, prefix)) {
                 return string.substring(prefix.length(), string.length());
             }
         }
@@ -55,7 +75,7 @@ public class StringUtils {
 
     public static String removeAnySuffix(String string, String[] suffixes) {
         for(String suffix : suffixes) {
-            if (string.length() > suffix.length() && string.endsWith(suffix)) {
+            if (endsWith(string, suffix)) {
                 return string.substring(0, string.length()-suffix.length());
             }
         }
