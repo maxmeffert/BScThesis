@@ -51,27 +51,27 @@ public class JaxbJavaXsdCorrespondenceAnnotationSimilarityHeurisitic extends Bas
     }
 
     @Override
-    protected boolean similar(JavaClassFragment javaClassFragment, XmlElementFragment xmlElementFragment) {
+    protected boolean areSimilar(JavaClassFragment javaClassFragment, XmlElementFragment xmlElementFragment) {
         return hasJaxbAnnotationSimilarity(javaClassFragment, xmlElementFragment);
     }
 
     @Override
-    protected boolean similar(JavaFieldFragment javaFieldFragment, XmlElementFragment xmlElementFragment) {
+    protected boolean areSimilar(JavaFieldFragment javaFieldFragment, XmlElementFragment xmlElementFragment) {
         return hasJaxbAnnotationSimilarity(javaFieldFragment, xmlElementFragment);
     }
 
     @Override
-    protected boolean similar(JavaFieldFragment javaFieldFragment, XmlAttributeFragment xmlAttributeFragment) {
+    protected boolean areSimilar(JavaFieldFragment javaFieldFragment, XmlAttributeFragment xmlAttributeFragment) {
         return false;
     }
 
     @Override
-    protected boolean similar(JavaMethodFragment javaMethodFragment, XmlElementFragment xmlElementFragment) {
+    protected boolean areSimilar(JavaMethodFragment javaMethodFragment, XmlElementFragment xmlElementFragment) {
         return hasJaxbAnnotationSimilarity(javaMethodFragment, xmlElementFragment);
     }
 
     @Override
-    protected boolean similar(JavaMethodFragment javaMethodFragment, XmlAttributeFragment xmlAttributeFragment) {
+    protected boolean areSimilar(JavaMethodFragment javaMethodFragment, XmlAttributeFragment xmlAttributeFragment) {
         return false;
     }
 }

@@ -23,27 +23,27 @@ public class JaxbJavaXmlCorrespondenceNamingSimilarityHeuristic extends BaseJava
     }
 
     @Override
-    protected boolean similar(JavaClassFragment javaClassFragment, XmlElementFragment xmlElementFragment) {
+    protected boolean areSimilar(JavaClassFragment javaClassFragment, XmlElementFragment xmlElementFragment) {
         return hasJaxbNamingSimilarities(javaClassFragment, xmlElementFragment);
     }
 
     @Override
-    protected boolean similar(JavaFieldFragment javaFieldFragment, XmlElementFragment xmlElementFragment) {
+    protected boolean areSimilar(JavaFieldFragment javaFieldFragment, XmlElementFragment xmlElementFragment) {
         return hasJaxbNamingSimilarities(javaFieldFragment, xmlElementFragment);
     }
 
     @Override
-    protected boolean similar(JavaMethodFragment javaMethodFragment, XmlElementFragment xmlElementFragment) {
+    protected boolean areSimilar(JavaMethodFragment javaMethodFragment, XmlElementFragment xmlElementFragment) {
         return hasJaxbNamingSimilarities(javaMethodFragment, xmlElementFragment);
     }
 
     @Override
-    protected boolean similar(JavaFieldFragment javaFieldFragment, XmlAttributeFragment xmlAttributeFragment) {
+    protected boolean areSimilar(JavaFieldFragment javaFieldFragment, XmlAttributeFragment xmlAttributeFragment) {
         return hasJaxbNamingSimilarities(javaFieldFragment, xmlAttributeFragment);
     }
 
     @Override
-    protected boolean similar(JavaMethodFragment javaMethodFragment, XmlAttributeFragment xmlAttributeFragment) {
+    protected boolean areSimilar(JavaMethodFragment javaMethodFragment, XmlAttributeFragment xmlAttributeFragment) {
         return hasJaxbNamingSimilarities(javaMethodFragment, xmlAttributeFragment);
     }
 }

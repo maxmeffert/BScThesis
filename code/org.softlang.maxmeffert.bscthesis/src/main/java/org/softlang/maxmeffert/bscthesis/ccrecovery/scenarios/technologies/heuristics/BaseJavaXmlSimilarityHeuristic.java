@@ -14,14 +14,14 @@ import java.util.List;
 
 public abstract class BaseJavaXmlSimilarityHeuristic implements IFragmentAnalyzerHeuristic {
 
-    protected abstract boolean similar(JavaClassFragment javaClassFragment, XmlElementFragment xmlElementFragment);
-    protected abstract boolean similar(JavaFieldFragment javaFieldFragment, XmlElementFragment xmlElementFragment);
-    protected abstract boolean similar(JavaFieldFragment javaFieldFragment, XmlAttributeFragment xmlAttributeFragment);
-    protected abstract boolean similar(JavaMethodFragment javaMethodFragment, XmlElementFragment xmlElementFragment);
-    protected abstract boolean similar(JavaMethodFragment javaMethodFragment, XmlAttributeFragment xmlAttributeFragment);
+    protected abstract boolean areSimilar(JavaClassFragment javaClassFragment, XmlElementFragment xmlElementFragment);
+    protected abstract boolean areSimilar(JavaFieldFragment javaFieldFragment, XmlElementFragment xmlElementFragment);
+    protected abstract boolean areSimilar(JavaFieldFragment javaFieldFragment, XmlAttributeFragment xmlAttributeFragment);
+    protected abstract boolean areSimilar(JavaMethodFragment javaMethodFragment, XmlElementFragment xmlElementFragment);
+    protected abstract boolean areSimilar(JavaMethodFragment javaMethodFragment, XmlAttributeFragment xmlAttributeFragment);
 
     private void analyzeJavaFieldXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaFieldFragment javaFieldFragment, XmlElementFragment xmlElementFragment) {
-        if (similar(javaFieldFragment, xmlElementFragment)) {
+        if (areSimilar(javaFieldFragment, xmlElementFragment)) {
             similarity.add(javaFieldFragment, xmlElementFragment);
         }
         analyzeJavaFieldXMLElementSimilarities(similarity, javaFieldFragment, xmlElementFragment.getXmlElementFragments());
@@ -34,7 +34,7 @@ public abstract class BaseJavaXmlSimilarityHeuristic implements IFragmentAnalyze
     }
 
     private void analyzeJavaMethodXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaMethodFragment javaMethodFragment, XmlElementFragment xmlElementFragment) {
-        if (similar(javaMethodFragment, xmlElementFragment)) {
+        if (areSimilar(javaMethodFragment, xmlElementFragment)) {
             similarity.add(javaMethodFragment, xmlElementFragment);
         }
         analyzeJavaMethodXMLElementSimilarities(similarity, javaMethodFragment, xmlElementFragment.getXmlElementFragments());
@@ -47,7 +47,7 @@ public abstract class BaseJavaXmlSimilarityHeuristic implements IFragmentAnalyze
     }
 
     private void analyzeJavaFieldXMLAttributeSimilarities(IBinaryRelation<IFragment> similarity, JavaFieldFragment javaFieldFragment, XmlAttributeFragment xmlAttributeFragment) {
-        if (similar(javaFieldFragment, xmlAttributeFragment)) {
+        if (areSimilar(javaFieldFragment, xmlAttributeFragment)) {
             similarity.add(javaFieldFragment, xmlAttributeFragment);
         }
     }
@@ -59,7 +59,7 @@ public abstract class BaseJavaXmlSimilarityHeuristic implements IFragmentAnalyze
     }
 
     private void analyzeJavaMethodXMLAttributeSimilarities(IBinaryRelation<IFragment> similarity, JavaMethodFragment javaMethodFragment, XmlAttributeFragment xmlAttributeFragment) {
-        if (similar(javaMethodFragment, xmlAttributeFragment)) {
+        if (areSimilar(javaMethodFragment, xmlAttributeFragment)) {
             similarity.add(javaMethodFragment, xmlAttributeFragment);
         }
     }
@@ -77,7 +77,7 @@ public abstract class BaseJavaXmlSimilarityHeuristic implements IFragmentAnalyze
     }
 
     private void analyzeJavaClassXMLElementSimilarities(IBinaryRelation<IFragment> similarity, JavaClassFragment javaClassFragment, XmlElementFragment xmlElementFragment) {
-        if (similar(javaClassFragment, xmlElementFragment)) {
+        if (areSimilar(javaClassFragment, xmlElementFragment)) {
             similarity.add(javaClassFragment, xmlElementFragment);
             for (JavaFieldFragment javaFieldFragment : javaClassFragment.getJavaFieldFragments()) {
                 analyzeJavaFieldXMLAttributeSimilarities(similarity, javaFieldFragment, xmlElementFragment.getXmlAttributeFragments());
