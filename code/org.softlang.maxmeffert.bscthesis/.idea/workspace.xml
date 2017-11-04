@@ -2,31 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a94f89d9-8b1d-4d84-bc1a-7708f7fa2d16" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/resources/META-INF/hibernate.cfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/resources/META-INF/persistence.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/companies/src/main/resources/META-INF/MANIFEST.MF" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/companies/HibernateUtils.java" afterPath="$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/HibernateUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/companies/JAXBUtils.java" afterPath="$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/JAXBUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/companies/JPAUtils.java" afterPath="$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/JPAUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/companies/Scenarios.java" afterPath="$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/companies/SoftlangInc.java" afterPath="$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/SoftlangInc.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/companies/model/Company.hbm.xml" afterPath="$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/model/Company.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/companies/model/Company.java" afterPath="$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/model/Company.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/companies/model/Department.hbm.xml" afterPath="$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/model/Department.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/companies/model/Department.java" afterPath="$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/model/Department.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/companies/model/Employee.hbm.xml" afterPath="$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/model/Employee.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/companies/model/Employee.java" afterPath="$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/model/Employee.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/companies/src/main/resources/META-INF/hibernate.cfg.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/companies/src/main/resources/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/org_softlang_maxmeffert_bscthesis_jar/org.softlang.maxmeffert.bscthesis.jar" afterPath="$PROJECT_DIR$/out/artifacts/org_softlang_maxmeffert_bscthesis_jar/org.softlang.maxmeffert.bscthesis.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/org.softlang.maxmeffert.bscthesis_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/org.softlang.maxmeffert.bscthesis_main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/org.softlang.maxmeffert.bscthesis_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/org.softlang.maxmeffert.bscthesis_test.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/org_softlang_maxmeffert_bscthesis_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/org_softlang_maxmeffert_bscthesis_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Main.java" afterPath="$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -83,7 +61,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -130,6 +108,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="21" column="67" lean-forward="false" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MANIFEST.MF" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/META-INF/MANIFEST.MF">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1041,25 +1029,35 @@
             <path>
               <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
               <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="companies" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
               <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="companies" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="org_softlang_maxmeffert_bscthesis_jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
               <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="companies" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
               <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="companies" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -1067,23 +1065,10 @@
             <path>
               <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
               <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="companies" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="companies" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="companies" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="org.softlang.maxmeffert.bscthesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="org.softlang.maxmeffert.bscthesis" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ccrecovery" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1096,12 +1081,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3518851" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/artifacts/companies.ddl.sql" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -1400,7 +1385,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1021" y="25" width="1926" height="1058" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1423,10 +1407,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28448275" sideWeight="0.49573106" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28448275" sideWeight="0.49573106" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32005313" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24439701" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24439701" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1482,13 +1466,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/analyzers/FragmentAnalyzerFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/core/fragments/analyzers/IFragmentAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1854,14 +1831,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="21" column="67" lean-forward="false" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/companies/src/main/java/org/softlang/companies/JPAUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1892,6 +1861,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="21" column="67" lean-forward="false" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
