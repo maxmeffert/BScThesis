@@ -120,7 +120,7 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
         IFragment xmlFragmentAST = getXmlParser().parse(xmlInputStream);
 
         IBinaryRelation<IFragment> similarities = getHibernateJavaXmlCorrespondenceSimilarities(java8FragmentAST, xmlFragmentAST);
-
+//        System.out.println(similarities);
         IBinaryRelation<IFragment> correspondences = getCorrespondenceAnalyzer().analyzeWeakCorrespondences(similarities, java8FragmentAST, xmlFragmentAST);
 
         return correspondences;

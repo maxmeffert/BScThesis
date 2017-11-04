@@ -7,9 +7,19 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.frag
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragmentast.XMLElementFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.BaseJavaXmlSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.HibernateXmlUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.JavaStringUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.XmlFragmentUtils;
 
 public class HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic extends BaseJavaXmlSimilarityHeuristic {
+
+    private boolean isMemberMapping(XMLElementFragment xmlElementFragment) {
+        return HibernateXmlUtils.isHbmIdTag(xmlElementFragment)
+                || HibernateXmlUtils.isHbmPropertyTag(xmlElementFragment)
+                || HibernateXmlUtils.isHbmBagTag(xmlElementFragment)
+                || HibernateXmlUtils.isHbmListTag(xmlElementFragment)
+                || HibernateXmlUtils.isHbmSetTag(xmlElementFragment)
+                || HibernateXmlUtils.isHbmMapTag(xmlElementFragment);
+    }
 
     @Override
     protected boolean similar(JavaClassFragment javaClassFragment, XMLElementFragment xmlElementFragment) {
@@ -21,6 +31,9 @@ public class HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic extends Bas
 
     @Override
     protected boolean similar(JavaFieldFragment javaFieldFragment, XMLElementFragment xmlElementFragment) {
+        if (isMemberMapping(xmlElementFragment)) {
+            return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", javaFieldFragment.getIdentifier());
+        }
         return false;
     }
 
@@ -31,6 +44,9 @@ public class HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic extends Bas
 
     @Override
     protected boolean similar(JavaMethodFragment javaMethodFragment, XMLElementFragment xmlElementFragment) {
+        if (isMemberMapping(xmlElementFragment)) {
+            return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", JavaStringUtils.removeAnyJavaAccessorPrefix(javaMethodFragment.getIdentifier()));
+        }
         return false;
     }
 

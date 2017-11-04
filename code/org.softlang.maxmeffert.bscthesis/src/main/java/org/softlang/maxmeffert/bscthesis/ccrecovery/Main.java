@@ -22,7 +22,7 @@ public class Main {
 		InputStream hbmArtifact = new FileInputStream("./src/main/java/org/softlang/companies/model/Company.hbm.xml");
 
 
-		IBinaryRelation<IFragment> correspondences = iccRecoveryScenarios.getStrictHibernateJavaXmlCorrespondences(java8Artifact, hbmArtifact);
+		IBinaryRelation<IFragment> correspondences = iccRecoveryScenarios.getWeakHibernateJavaXmlCorrespondences(java8Artifact, hbmArtifact);
 
 		System.out.println(correspondences);
 		System.out.println(correspondences.size());
