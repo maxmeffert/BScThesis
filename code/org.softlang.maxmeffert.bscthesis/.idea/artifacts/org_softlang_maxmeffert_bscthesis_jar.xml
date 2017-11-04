@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/org_softlang_maxmeffert_bscthesis_jar</output-path>
     <root id="archive" name="org.softlang.maxmeffert.bscthesis.jar">
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
       </element>
     </root>
   </artifact>
