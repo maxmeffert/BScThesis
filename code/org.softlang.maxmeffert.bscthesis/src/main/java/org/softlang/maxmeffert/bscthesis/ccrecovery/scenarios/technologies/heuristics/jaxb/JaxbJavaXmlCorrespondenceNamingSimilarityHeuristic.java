@@ -18,8 +18,8 @@ public class JaxbJavaXmlCorrespondenceNamingSimilarityHeuristic extends BaseJava
                 || StringUtils.areLowerCaseEqual(JavaStringUtils.removeAnyJavaAccessorPrefix(StringUtils.removePluralSuffix(javaIdentifier)), xmlName);
     }
 
-    private boolean hasJaxbNamingSimilarities(IdentifiedJavaFragment identifiedJavaFragmentAST, NamedXmlFragment namedXMLFragmentAST) {
-        return hasJaxbNamingSimilarities(identifiedJavaFragmentAST.getIdentifier(), namedXMLFragmentAST.getName());
+    private boolean hasJaxbNamingSimilarities(IdentifiedJavaFragment identifiedJavaFragment, NamedXmlFragment namedXmlFragment) {
+        return hasJaxbNamingSimilarities(identifiedJavaFragment.getIdentifier(), namedXmlFragment.getName());
     }
 
     @Override

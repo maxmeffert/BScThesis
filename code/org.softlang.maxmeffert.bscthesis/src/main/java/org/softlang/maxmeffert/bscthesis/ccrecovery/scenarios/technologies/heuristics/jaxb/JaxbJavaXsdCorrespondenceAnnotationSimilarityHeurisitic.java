@@ -10,39 +10,39 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.XmlFragmentU
 
 public class JaxbJavaXsdCorrespondenceAnnotationSimilarityHeurisitic extends BaseJavaXmlSimilarityHeuristic {
 
-    private boolean hasXsAttributeSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragmentAST) {
-        return XmlFragmentUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
+    private boolean hasXsAttributeSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragment) {
+        return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
     }
 
-    private boolean hasXsElementSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragmentAST) {
-        return XmlFragmentUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
+    private boolean hasXsElementSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragment) {
+        return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
     }
 
-    private boolean hasXsComplexTypeSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragmentAST) {
-        return XmlFragmentUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
+    private boolean hasXsComplexTypeSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragment) {
+        return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));
     }
 
-    private boolean hasJaxbAnnotationSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragmentAST) {
+    private boolean hasJaxbAnnotationSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragment) {
         if (JaxbStringUtils.equalsAnyJaxbAnnotationName(javaAnnotationFragment.getIdentifier())) {
             if (javaAnnotationFragment.hasNamedParameter("name")) {
-                if (XmlFragmentUtils.isXsComplexTypeTag(xmlElementFragmentAST)) {
-                    return hasXsComplexTypeSimilarity(javaAnnotationFragment, xmlElementFragmentAST);
+                if (XmlFragmentUtils.isXsComplexTypeTag(xmlElementFragment)) {
+                    return hasXsComplexTypeSimilarity(javaAnnotationFragment, xmlElementFragment);
                 }
-                else if (XmlFragmentUtils.isXsElementTag(xmlElementFragmentAST)) {
-                    return hasXsElementSimilarity(javaAnnotationFragment, xmlElementFragmentAST);
+                else if (XmlFragmentUtils.isXsElementTag(xmlElementFragment)) {
+                    return hasXsElementSimilarity(javaAnnotationFragment, xmlElementFragment);
                 }
-                else if (XmlFragmentUtils.isXsAttributeTag(xmlElementFragmentAST)) {
-                    return hasXsAttributeSimilarity(javaAnnotationFragment, xmlElementFragmentAST);
+                else if (XmlFragmentUtils.isXsAttributeTag(xmlElementFragment)) {
+                    return hasXsAttributeSimilarity(javaAnnotationFragment, xmlElementFragment);
                 }
             }
         }
         return false;
     }
 
-    private boolean hasJaxbAnnotationSimilarity(ModifiedJavaFragment modifiedJavaFragmentAST, XmlElementFragment xmlElementFragmentAST) {
-        for (JavaModifierFragment javaModifierFragment : modifiedJavaFragmentAST.getJavaModifierFragments()) {
+    private boolean hasJaxbAnnotationSimilarity(ModifiedJavaFragment modifiedJavaFragment, XmlElementFragment xmlElementFragment) {
+        for (JavaModifierFragment javaModifierFragment : modifiedJavaFragment.getJavaModifierFragments()) {
             if (javaModifierFragment.isAnnotation()) {
-                if (hasJaxbAnnotationSimilarity(javaModifierFragment.getJavaAnnotationFragment(), xmlElementFragmentAST)) {
+                if (hasJaxbAnnotationSimilarity(javaModifierFragment.getJavaAnnotationFragment(), xmlElementFragment)) {
                     return true;
                 }
             }

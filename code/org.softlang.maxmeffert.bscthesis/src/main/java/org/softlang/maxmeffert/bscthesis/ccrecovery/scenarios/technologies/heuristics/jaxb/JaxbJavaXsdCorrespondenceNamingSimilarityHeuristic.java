@@ -11,27 +11,27 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.XmlFragmentU
 
 public class JaxbJavaXsdCorrespondenceNamingSimilarityHeuristic extends BaseJavaXmlSimilarityHeuristic {
 
-    private boolean hasXsComplexTypeSimilarity(IdentifiedJavaFragment identifiedJavaFragmentAST, XmlElementFragment xmlElementFragmentAST) {
-        return XmlFragmentUtils.hasAttribute(xmlElementFragmentAST, "name", identifiedJavaFragmentAST.getIdentifier());
+    private boolean hasXsComplexTypeSimilarity(IdentifiedJavaFragment identifiedJavaFragment, XmlElementFragment xmlElementFragment) {
+        return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", identifiedJavaFragment.getIdentifier());
     }
 
-    private boolean hasXsElementSimilarity(IdentifiedJavaFragment identifiedJavaFragmentAST, XmlElementFragment xmlElementFragmentAST) {
-        return XmlFragmentUtils.hasAttribute(xmlElementFragmentAST, "name", identifiedJavaFragmentAST.getIdentifier());
+    private boolean hasXsElementSimilarity(IdentifiedJavaFragment identifiedJavaFragment, XmlElementFragment xmlElementFragment) {
+        return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", identifiedJavaFragment.getIdentifier());
     }
 
-    private boolean hasXsAttributeSimilarity(IdentifiedJavaFragment identifiedJavaFragmentAST, XmlElementFragment xmlElementFragmentAST) {
-        return XmlFragmentUtils.hasAttribute(xmlElementFragmentAST, "name", identifiedJavaFragmentAST.getIdentifier());
+    private boolean hasXsAttributeSimilarity(IdentifiedJavaFragment identifiedJavaFragment, XmlElementFragment xmlElementFragment) {
+        return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", identifiedJavaFragment.getIdentifier());
     }
 
-    private boolean hasJaxbNamingSimilarity(IdentifiedJavaFragment identifiedJavaFragmentAST, XmlElementFragment xmlElementFragmentAST) {
-        if (XmlFragmentUtils.isXsComplexTypeTag(xmlElementFragmentAST)) {
-            return hasXsComplexTypeSimilarity(identifiedJavaFragmentAST, xmlElementFragmentAST);
+    private boolean hasJaxbNamingSimilarity(IdentifiedJavaFragment identifiedJavaFragment, XmlElementFragment xmlElementFragment) {
+        if (XmlFragmentUtils.isXsComplexTypeTag(xmlElementFragment)) {
+            return hasXsComplexTypeSimilarity(identifiedJavaFragment, xmlElementFragment);
         }
-        else if (XmlFragmentUtils.isXsElementTag(xmlElementFragmentAST)) {
-            return hasXsElementSimilarity(identifiedJavaFragmentAST, xmlElementFragmentAST);
+        else if (XmlFragmentUtils.isXsElementTag(xmlElementFragment)) {
+            return hasXsElementSimilarity(identifiedJavaFragment, xmlElementFragment);
         }
-        else if (XmlFragmentUtils.isXsAttributeTag(xmlElementFragmentAST)) {
-            return hasXsAttributeSimilarity(identifiedJavaFragmentAST, xmlElementFragmentAST);
+        else if (XmlFragmentUtils.isXsAttributeTag(xmlElementFragment)) {
+            return hasXsAttributeSimilarity(identifiedJavaFragment, xmlElementFragment);
         }
         return false;
     }

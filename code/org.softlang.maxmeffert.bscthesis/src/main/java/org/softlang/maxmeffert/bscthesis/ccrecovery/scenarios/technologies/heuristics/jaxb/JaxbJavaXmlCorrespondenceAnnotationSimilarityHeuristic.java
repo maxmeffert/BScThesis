@@ -21,10 +21,10 @@ public class JaxbJavaXmlCorrespondenceAnnotationSimilarityHeuristic extends Base
         return false;
     }
 
-    private boolean hasJaxbAnnotationSimilarity(ModifiedJavaFragment modifiedJavaFragmentAST, NamedXmlFragment namedXMLFragmentAST) {
-        for (JavaModifierFragment javaModifierFragment : modifiedJavaFragmentAST.getJavaModifierFragments()) {
+    private boolean hasJaxbAnnotationSimilarity(ModifiedJavaFragment modifiedJavaFragment, NamedXmlFragment namedXmlFragment) {
+        for (JavaModifierFragment javaModifierFragment : modifiedJavaFragment.getJavaModifierFragments()) {
             if (javaModifierFragment.isAnnotation()) {
-                if (hasJaxbAnnotationSimilarity(javaModifierFragment.getJavaAnnotationFragment(), namedXMLFragmentAST)) {
+                if (hasJaxbAnnotationSimilarity(javaModifierFragment.getJavaAnnotationFragment(), namedXmlFragment)) {
                     return true;
                 }
             }
