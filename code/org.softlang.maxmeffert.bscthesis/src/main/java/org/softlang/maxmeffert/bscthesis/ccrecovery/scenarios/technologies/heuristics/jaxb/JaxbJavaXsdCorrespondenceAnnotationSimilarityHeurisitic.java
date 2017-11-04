@@ -8,7 +8,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.JaxbStringUt
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.StringUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.XmlFragmentUtils;
 
-public class JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic extends BaseJavaXmlSimilarityHeuristic {
+public class JaxbJavaXsdCorrespondenceAnnotationSimilarityHeurisitic extends BaseJavaXmlSimilarityHeuristic {
 
     private boolean hasXsAttributeSimilarity(JavaAnnotationFragment javaAnnotationFragment, XmlElementFragment xmlElementFragmentAST) {
         return XmlFragmentUtils.hasAttribute(xmlElementFragmentAST, "name", StringUtils.removeQuotes(javaAnnotationFragment.getNamedParamterValue("name")));

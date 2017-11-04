@@ -8,7 +8,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuri
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.JavaStringUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.StringUtils;
 
-public class JaxbXmlCorrespondenceNamingSimilarityHeuristic extends BaseJavaXmlSimilarityHeuristic {
+public class JaxbJavaXmlCorrespondenceNamingSimilarityHeuristic extends BaseJavaXmlSimilarityHeuristic {
 
     private boolean hasJaxbNamingSimilarities(String javaIdentifier, String xmlName) {
         return StringUtils.areEqual(javaIdentifier,xmlName)

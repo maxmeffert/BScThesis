@@ -19,10 +19,10 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antl
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlFragmentBuildingListener;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbXmlCorrespondenceAnnotationSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbXmlCorrespondenceNamingSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbXsdCorrespondenceNamingSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXmlCorrespondenceAnnotationSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXmlCorrespondenceNamingSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXsdCorrespondenceAnnotationSimilarityHeurisitic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXsdCorrespondenceNamingSimilarityHeuristic;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -61,10 +61,10 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
 
     private IFragmentAnalyzer getJaxbCorrespondenceSimilarityAnalyzer() {
         IFragmentAnalyzer analyzer = getFragmentASTAnalyzer();
-        analyzer.addHeuristic(new JaxbXmlCorrespondenceNamingSimilarityHeuristic());
-        analyzer.addHeuristic(new JaxbXmlCorrespondenceAnnotationSimilarityHeuristic());
-        analyzer.addHeuristic(new JaxbXsdCorrespondenceNamingSimilarityHeuristic());
-        analyzer.addHeuristic(new JaxbXsdCorrespondenceAnnotationSimilarityHeurisitic());
+        analyzer.addHeuristic(new JaxbJavaXmlCorrespondenceNamingSimilarityHeuristic());
+        analyzer.addHeuristic(new JaxbJavaXmlCorrespondenceAnnotationSimilarityHeuristic());
+        analyzer.addHeuristic(new JaxbJavaXsdCorrespondenceNamingSimilarityHeuristic());
+        analyzer.addHeuristic(new JaxbJavaXsdCorrespondenceAnnotationSimilarityHeurisitic());
         return analyzer;
     }
 
