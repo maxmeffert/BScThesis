@@ -17,6 +17,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.frag
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlFragmentBuildingListener;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaSqlAnnotationCorrespondenceSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXmlCorrespondenceAnnotationSimilarityHeuristic;
@@ -103,6 +104,7 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
     private IFragmentAnalyzer getHibernateJavaSqlCorrespondenceSimilarityAnalyzer() {
         IFragmentAnalyzer analyzer = getFragmentASTAnalyzer();
         analyzer.addHeuristic(new HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic());
+        analyzer.addHeuristic(new HibernateJavaSqlAnnotationCorrespondenceSimilarityHeuristic());
         return analyzer;
     }
 
