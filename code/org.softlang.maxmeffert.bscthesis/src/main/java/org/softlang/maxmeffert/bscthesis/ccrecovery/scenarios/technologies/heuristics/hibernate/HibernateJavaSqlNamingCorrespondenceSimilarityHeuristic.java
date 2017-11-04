@@ -12,18 +12,18 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.StringUtils;
 public class HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic extends BaseJavaSqlSimilarityHeuristic {
 
     @Override
-    protected boolean areSimilar(JavaClassFragment javaClassFragmentAST, SqlCreateTableFragment sqlCreateTableFragment) {
-        return StringUtils.areLowerCaseEqual(javaClassFragmentAST.getIdentifier(), sqlCreateTableFragment.getTableName());
+    protected boolean areSimilar(JavaClassFragment javaClassFragment, SqlCreateTableFragment sqlCreateTableFragment) {
+        return StringUtils.areLowerCaseEqual(javaClassFragment.getIdentifier(), sqlCreateTableFragment.getTableName());
     }
 
     @Override
-    protected boolean areSimilar(JavaFieldFragment javaFieldFragmentAST, SqlColumnFragment sqlColumnFragment) {
-        return StringUtils.areLowerCaseEqual(javaFieldFragmentAST.getIdentifier(), sqlColumnFragment.getColumnName());
+    protected boolean areSimilar(JavaFieldFragment javaFieldFragment, SqlColumnFragment sqlColumnFragment) {
+        return StringUtils.areLowerCaseEqual(javaFieldFragment.getIdentifier(), sqlColumnFragment.getColumnName());
     }
 
     @Override
-    protected boolean areSimilar(JavaMethodFragment javaMethodFragmentAST, SqlColumnFragment sqlColumnFragment) {
-        return StringUtils.areLowerCaseEqual(JavaStringUtils.normalizeMethodName(javaMethodFragmentAST.getIdentifier()), sqlColumnFragment.getColumnName());
+    protected boolean areSimilar(JavaMethodFragment javaMethodFragment, SqlColumnFragment sqlColumnFragment) {
+        return StringUtils.areLowerCaseEqual(JavaStringUtils.normalizeMethodName(javaMethodFragment.getIdentifier()), sqlColumnFragment.getColumnName());
     }
 
 }

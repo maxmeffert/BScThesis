@@ -14,9 +14,9 @@ import java.util.List;
 
 public abstract class BaseJavaSqlSimilarityHeuristic implements IFragmentAnalyzerHeuristic {
 
-    protected abstract boolean areSimilar(JavaClassFragment javaClassFragmentAST, SqlCreateTableFragment sqlCreateTableFragment);
-    protected abstract boolean areSimilar(JavaFieldFragment javaFieldFragmentAST, SqlColumnFragment sqlColumnFragment);
-    protected abstract boolean areSimilar(JavaMethodFragment javaMethodFragmentAST, SqlColumnFragment sqlColumnFragment);
+    protected abstract boolean areSimilar(JavaClassFragment javaClassFragment, SqlCreateTableFragment sqlCreateTableFragment);
+    protected abstract boolean areSimilar(JavaFieldFragment javaFieldFragment, SqlColumnFragment sqlColumnFragment);
+    protected abstract boolean areSimilar(JavaMethodFragment javaMethodFragment, SqlColumnFragment sqlColumnFragment);
 
     private void addSimilarities(IBinaryRelation<IFragment> similarities, JavaFieldFragment javaFieldFragmentAST, List<SqlColumnFragment> sqlColumnFragments) {
         for (SqlColumnFragment sqlColumnFragment : sqlColumnFragments) {
