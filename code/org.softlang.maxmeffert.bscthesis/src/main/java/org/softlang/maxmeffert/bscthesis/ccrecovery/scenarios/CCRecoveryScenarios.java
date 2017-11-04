@@ -77,12 +77,6 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
     }
 
     @Override
-    public ICorrespondenceAnalyzer getCorrespondenceAnalyzer() {
-        return ccRecovery.getCorrespondenceAnalyzer();
-    }
-
-
-    @Override
     public IParser getJava8Parser() {
         return ccRecovery.getParser(Java8Lexer::new, Java8Parser::new, Java8Parser::compilationUnit, new Java8FragmentBuildingListener());
     }

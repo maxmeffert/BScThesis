@@ -20,7 +20,4 @@ public interface ICCRecovery {
     IFragmentReader getFragmentReader();
     IFragmentKB getFragmentKB(IFragment fragment);
     IFragmentAnalyzer getFragmentAnalyzer();
-
-    @Deprecated
-    ICorrespondenceAnalyzer getCorrespondenceAnalyzer();
 }

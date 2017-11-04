@@ -70,10 +70,4 @@ public class CCRecovery implements ICCRecovery {
         return fragmentAnalyzerFactory.newFragmentAnalyzer();
     }
 
-    @Override
-    public ICorrespondenceAnalyzer getCorrespondenceAnalyzer() {
-        return correspondenceAnalyzerFactory.newCorrespondenceAnalyzer();
-    }
-
-
 }
