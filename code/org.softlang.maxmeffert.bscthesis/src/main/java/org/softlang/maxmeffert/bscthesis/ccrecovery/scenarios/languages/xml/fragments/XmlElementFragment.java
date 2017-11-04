@@ -2,6 +2,7 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fra
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class XmlElementFragment extends NamedXmlFragment {
 

@@ -13,7 +13,7 @@
             <key on-delete="noaction">
                 <column name="department_id"/>
             </key>
-            <one-to-many class="org.softlang.companies.Employee" embed-xml="true" not-found="exception"/>
+            <one-to-many class="org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Employee" embed-xml="true" not-found="exception"/>
         </bag>
         <many-to-one access="field" cascade="all" class="org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Employee" embed-xml="true" fetch="select" insert="true" name="manager" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="manager_id"/>

@@ -1,40 +1,40 @@
 package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaAnnotationFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaClassFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaFieldFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaMethodFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlAttributeFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlElementFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.BaseJavaXmlSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.HibernateJavaUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.HibernateXmlUtils;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.JavaStringUtils;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.XmlFragmentUtils;
 
-public class HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic extends BaseJavaXmlSimilarityHeuristic {
+import java.util.Optional;
+
+public class HibernateJavaXmlAnnotationCorrespondenceSimilarityHeuristic extends BaseJavaXmlSimilarityHeuristic {
 
     private boolean isMemberTag(XmlElementFragment xmlElementFragment) {
-        return HibernateXmlUtils.isHbmIdTag(xmlElementFragment)
-                || HibernateXmlUtils.isHbmPropertyTag(xmlElementFragment)
-                || HibernateXmlUtils.isHbmBagTag(xmlElementFragment)
-                || HibernateXmlUtils.isHbmListTag(xmlElementFragment)
-                || HibernateXmlUtils.isHbmSetTag(xmlElementFragment)
-                || HibernateXmlUtils.isHbmMapTag(xmlElementFragment);
+        return HibernateXmlUtils.isHbmIdTag(xmlElementFragment) || HibernateXmlUtils.isHbmPropertyTag(xmlElementFragment);
     }
 
     @Override
     protected boolean areSimilar(JavaClassFragment javaClassFragment, XmlElementFragment xmlElementFragment) {
-        if (HibernateXmlUtils.isHbmClassTag(xmlElementFragment)) {
-            return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", javaClassFragment.getFullName());
-        }
-        return false;
+        Optional<JavaAnnotationFragment> tableAnnotation = HibernateJavaUtils.getTableAnnotation(javaClassFragment);
+        return HibernateXmlUtils.isHbmClassTag(xmlElementFragment)
+                && tableAnnotation.isPresent()
+                && tableAnnotation.get().hasNamedParameter("name")
+                && XmlFragmentUtils.hasAttribute(xmlElementFragment,"table", tableAnnotation.get().getNamedParamterValue("name"));
     }
 
     @Override
     protected boolean areSimilar(JavaFieldFragment javaFieldFragment, XmlElementFragment xmlElementFragment) {
-        if (isMemberTag(xmlElementFragment)) {
-            return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", javaFieldFragment.getIdentifier());
-        }
-        return false;
+        Optional<JavaAnnotationFragment> columnAnnotation = HibernateJavaUtils.getColumnAnnotation(javaFieldFragment);
+        return isMemberTag(xmlElementFragment)
+                && columnAnnotation.isPresent()
+                && columnAnnotation.get().hasNamedParameter("name")
+                && HibernateXmlUtils.hasHbmColumnTag(xmlElementFragment, e -> XmlFragmentUtils.hasAttribute(e,"name", columnAnnotation.get().getNamedParamterValue("name")));
     }
 
     @Override
@@ -44,9 +44,6 @@ public class HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic extends Bas
 
     @Override
     protected boolean areSimilar(JavaMethodFragment javaMethodFragment, XmlElementFragment xmlElementFragment) {
-        if (isMemberTag(xmlElementFragment)) {
-            return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", JavaStringUtils.removeAnyJavaAccessorPrefix(javaMethodFragment.getIdentifier()));
-        }
         return false;
     }
 

@@ -2,6 +2,8 @@ package org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlElementFragment;
 
+import java.util.function.Predicate;
+
 public class HibernateXmlUtils {
 
     private static final String HbmClassTagName = "class";
@@ -11,6 +13,7 @@ public class HibernateXmlUtils {
     private static final String HbmListTagName = "list";
     private static final String HbmSetTagName = "set";
     private static final String HbmMapTagName = "map";
+    private static final String HbmColumnTagName = "column";
 
     public static boolean isHbmClassTag(XmlElementFragment xmlElementFragment) {
         return XmlFragmentUtils.isTag(xmlElementFragment, HbmClassTagName);
@@ -38,6 +41,18 @@ public class HibernateXmlUtils {
 
     public static boolean isHbmMapTag(XmlElementFragment xmlElementFragment) {
         return XmlFragmentUtils.isTag(xmlElementFragment, HbmMapTagName);
+    }
+
+    public static boolean isHbmColumnTag(XmlElementFragment xmlElementFragment) {
+        return XmlFragmentUtils.isTag(xmlElementFragment, HbmColumnTagName);
+    }
+
+    public static boolean hasHbmColumnTag(XmlElementFragment xmlElementFragment) {
+        return XmlFragmentUtils.hasElement(xmlElementFragment, HbmColumnTagName);
+    }
+
+    public static boolean hasHbmColumnTag(XmlElementFragment xmlElementFragment, Predicate<XmlElementFragment> predicate) {
+        return XmlFragmentUtils.hasElement(xmlElementFragment, HbmColumnTagName, predicate);
     }
 
 }
