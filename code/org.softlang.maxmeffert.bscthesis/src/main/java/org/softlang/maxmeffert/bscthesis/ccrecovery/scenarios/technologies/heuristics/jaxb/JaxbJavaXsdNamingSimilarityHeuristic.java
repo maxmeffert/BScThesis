@@ -9,7 +9,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.frag
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.BaseJavaXmlSimilarityHeuristic;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.XmlFragmentUtils;
 
-public class JaxbJavaXsdCorrespondenceNamingSimilarityHeuristic extends BaseJavaXmlSimilarityHeuristic {
+public class JaxbJavaXsdNamingSimilarityHeuristic extends BaseJavaXmlSimilarityHeuristic {
 
     private boolean hasXsComplexTypeSimilarity(IdentifiedJavaFragment identifiedJavaFragment, XmlElementFragment xmlElementFragment) {
         return XmlFragmentUtils.hasAttribute(xmlElementFragment, "name", identifiedJavaFragment.getIdentifier());

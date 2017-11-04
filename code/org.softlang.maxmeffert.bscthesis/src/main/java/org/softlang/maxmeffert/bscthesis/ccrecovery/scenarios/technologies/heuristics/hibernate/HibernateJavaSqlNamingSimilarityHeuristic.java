@@ -6,21 +6,24 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fra
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragments.SqlColumnFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragments.SqlCreateTableFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.BaseJavaSqlSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.HibernateJavaUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.JavaStringUtils;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.utils.StringUtils;
 
-public class HibernateJavaSqlAnnotationCorrespondenceSimilarityHeuristic extends BaseJavaSqlSimilarityHeuristic {
+public class HibernateJavaSqlNamingSimilarityHeuristic extends BaseJavaSqlSimilarityHeuristic {
+
     @Override
     protected boolean areSimilar(JavaClassFragment javaClassFragment, SqlCreateTableFragment sqlCreateTableFragment) {
-        return HibernateJavaUtils.hasTableAnnotation(javaClassFragment, sqlCreateTableFragment.getTableName());
+        return StringUtils.areLowerCaseEqual(javaClassFragment.getIdentifier(), sqlCreateTableFragment.getTableName());
     }
 
     @Override
     protected boolean areSimilar(JavaFieldFragment javaFieldFragment, SqlColumnFragment sqlColumnFragment) {
-        return HibernateJavaUtils.hasColumnAnnotation(javaFieldFragment, sqlColumnFragment.getColumnName());
+        return StringUtils.areLowerCaseEqual(javaFieldFragment.getIdentifier(), sqlColumnFragment.getColumnName());
     }
 
     @Override
     protected boolean areSimilar(JavaMethodFragment javaMethodFragment, SqlColumnFragment sqlColumnFragment) {
-        return HibernateJavaUtils.hasColumnAnnotation(javaMethodFragment, sqlColumnFragment.getColumnName());
+        return StringUtils.areLowerCaseEqual(JavaStringUtils.normalizeMethodName(javaMethodFragment.getIdentifier()), sqlColumnFragment.getColumnName());
     }
+
 }

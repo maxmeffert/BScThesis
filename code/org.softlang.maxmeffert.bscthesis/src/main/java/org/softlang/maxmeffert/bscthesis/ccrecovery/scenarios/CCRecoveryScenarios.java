@@ -26,14 +26,14 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.frag
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLLexer;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.antlr.XMLParser;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlFragmentBuildingListener;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaSqlAnnotationCorrespondenceSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaXmlAnnotationCorrespondenceSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXmlCorrespondenceAnnotationSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXmlCorrespondenceNamingSimilarityHeuristic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXsdCorrespondenceAnnotationSimilarityHeurisitic;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXsdCorrespondenceNamingSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaSqlAnnotationSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaSqlNamingSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaXmlAnnotationSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.hibernate.HibernateJavaXmlNamingSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXmlAnnotationSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXmlNamingSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXsdAnnotationSimilarityHeuristic;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.technologies.heuristics.jaxb.JaxbJavaXsdNamingSimilarityHeuristic;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -100,26 +100,26 @@ public class CCRecoveryScenarios implements ICCRecoveryScenarios {
     @Override
     public IFragmentAnalyzer getJaxbSimilarityAnalyzer() {
         IFragmentAnalyzer analyzer = getFragmentAnalyzer();
-        analyzer.addHeuristic(new JaxbJavaXmlCorrespondenceNamingSimilarityHeuristic());
-        analyzer.addHeuristic(new JaxbJavaXmlCorrespondenceAnnotationSimilarityHeuristic());
-        analyzer.addHeuristic(new JaxbJavaXsdCorrespondenceNamingSimilarityHeuristic());
-        analyzer.addHeuristic(new JaxbJavaXsdCorrespondenceAnnotationSimilarityHeurisitic());
+        analyzer.addHeuristic(new JaxbJavaXmlNamingSimilarityHeuristic());
+        analyzer.addHeuristic(new JaxbJavaXmlAnnotationSimilarityHeuristic());
+        analyzer.addHeuristic(new JaxbJavaXsdNamingSimilarityHeuristic());
+        analyzer.addHeuristic(new JaxbJavaXsdAnnotationSimilarityHeuristic());
         return analyzer;
     }
 
     @Override
     public IFragmentAnalyzer getHibernateJavaXmlSimilarityAnalyzer() {
         IFragmentAnalyzer analyzer = getFragmentAnalyzer();
-        analyzer.addHeuristic(new HibernateJavaXmlNamingCorrespondenceSimilarityHeuristic());
-        analyzer.addHeuristic(new HibernateJavaXmlAnnotationCorrespondenceSimilarityHeuristic());
+        analyzer.addHeuristic(new HibernateJavaXmlNamingSimilarityHeuristic());
+        analyzer.addHeuristic(new HibernateJavaXmlAnnotationSimilarityHeuristic());
         return analyzer;
     }
 
     @Override
     public IFragmentAnalyzer getHibernateJavaSqlSimilarityAnalyzer() {
         IFragmentAnalyzer analyzer = getFragmentAnalyzer();
-        analyzer.addHeuristic(new HibernateJavaSqlNamingCorrespondenceSimilarityHeuristic());
-        analyzer.addHeuristic(new HibernateJavaSqlAnnotationCorrespondenceSimilarityHeuristic());
+        analyzer.addHeuristic(new HibernateJavaSqlNamingSimilarityHeuristic());
+        analyzer.addHeuristic(new HibernateJavaSqlAnnotationSimilarityHeuristic());
         return analyzer;
     }
 
