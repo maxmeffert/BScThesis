@@ -1,6 +1,6 @@
-package org.softlang.companies;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.companies;
 
-import org.softlang.companies.model.Company;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Company;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 
 
 public class JPAUtils {
-	private static final String persistenceUnitName = "org.softlang.companies";
+	private static final String persistenceUnitName = "org.softlang.maxmeffert.bscthesis.ccrecovery.companies";
 	private static EntityManagerFactory entityManagerFactory;
 	private static EntityManager entityManager;
 	

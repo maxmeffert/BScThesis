@@ -1,4 +1,4 @@
-package org.softlang.companies.model;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;

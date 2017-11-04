@@ -1,9 +1,9 @@
-package org.softlang.companies;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.companies;
 
 
-import org.softlang.companies.model.Company;
-import org.softlang.companies.model.Department;
-import org.softlang.companies.model.Employee;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Company;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Department;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Employee;
 
 public class SoftlangInc {
 

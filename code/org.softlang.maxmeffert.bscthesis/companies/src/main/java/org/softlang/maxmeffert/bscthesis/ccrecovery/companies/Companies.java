@@ -1,6 +1,6 @@
-package org.softlang.companies;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.companies;
 
-import org.softlang.companies.model.Company;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Company;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import javax.persistence.EntityManager;
 import javax.xml.bind.JAXBException;
 
-public class Main {
+public class Companies {
 	
 	private static final String xmlOutputPath = "./artifacts";
 	private static final String sqlOutputPath = "./artifacts";

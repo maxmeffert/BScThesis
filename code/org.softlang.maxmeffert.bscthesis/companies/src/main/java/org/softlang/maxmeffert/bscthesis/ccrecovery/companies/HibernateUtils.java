@@ -1,4 +1,4 @@
-package org.softlang.companies;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.companies;
 
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -6,9 +6,9 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
-import org.softlang.companies.model.Company;
-import org.softlang.companies.model.Department;
-import org.softlang.companies.model.Employee;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Company;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Employee;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Department;
 
 import java.io.File;
 import java.io.FileWriter;

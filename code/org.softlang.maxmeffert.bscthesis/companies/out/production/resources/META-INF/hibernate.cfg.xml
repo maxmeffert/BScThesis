@@ -11,8 +11,8 @@
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.hbm2ddl.auto">update</property>
   <property name="hibernate.format_sql">true</property>
-  <mapping class="org.softlang.companies.model.Company"/>
-  <mapping class="org.softlang.companies.model.Department"/>
-  <mapping class="org.softlang.companies.model.Employee"/>
+  <mapping class="org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Company"/>
+  <mapping class="org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Department"/>
+  <mapping class="org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model.Employee"/>
  </session-factory>
 </hibernate-configuration>

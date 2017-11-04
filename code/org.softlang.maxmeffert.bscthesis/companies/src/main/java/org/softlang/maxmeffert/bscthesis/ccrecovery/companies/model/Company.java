@@ -1,4 +1,4 @@
-package org.softlang.companies.model;
+package org.softlang.maxmeffert.bscthesis.ccrecovery.companies.model;
 
 import java.util.Collection;
 import java.util.LinkedList;
