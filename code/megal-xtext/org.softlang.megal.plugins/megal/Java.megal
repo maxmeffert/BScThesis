@@ -2,13 +2,12 @@ model Java
 import Prelude
 import Fragments
 
+//===============================================
+// Java Languages & Fragments
+//===============================================
+
 @FileExtensions '.java'
 Java : Language
-
-//===============================================
-// Java Syntax Fragments
-//===============================================
-
 
 JavaFragments : Language
 JavaFragments fragmentLanguageOf Java
@@ -36,6 +35,9 @@ JavaFragmentRecoveryPlugin realizationOf Java
 JavaFragmentRecoveryPlugin partOf FileFragmentRecoveryReasonerPlugin
 JavaFragmentRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.java.JavaFragmentRecoveryPlugin'
 
+//===============================================
+// Artifact Entities
+//===============================================
 
 aJavaFile : File
 aJavaFile elementOf Java
