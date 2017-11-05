@@ -1,9 +1,0 @@
-model JVM
-import Mapping
-
-JVM : Technology
-JVM.Bytecode : Language
-JVM.ObjectGraphs : Language
-
-objectGraph : Transient
-objectGraph elementOf JVM.ObjectGraphs
