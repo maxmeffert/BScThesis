@@ -16,7 +16,7 @@ import org.xml.sax.XMLReader;
 import com.google.common.base.Optional;
 import com.google.common.base.Throwables;
 
-public class AcceptXML extends AcceptorPlugin {
+public class XMLAcceptorPlugin extends AcceptorPlugin {
 	@Override
 	public Optional<String> accept(Artifact artifact) {
 		SAXParserFactory factory = SAXParserFactory.newInstance();

@@ -33,15 +33,15 @@ conformsTo < Artifact(+) * Artifact(+)
 // § Plugins
 //===============================================
 
-XMLAcceptor : Plugin
-XMLAcceptor realizationOf XML
-XMLAcceptor = 'classpath:org.softlang.megal.plugins.impl.xml.AcceptXML'
-XMLAcceptor partOf FileElementOfLanguageEvaluatorPlugin
+XMLAcceptorPlugin : Plugin
+XMLAcceptorPlugin realizationOf XML
+XMLAcceptorPlugin partOf FileElementOfLanguageEvaluatorPlugin
+XMLAcceptorPlugin = 'classpath:org.softlang.megal.plugins.impl.xml.XMLAcceptorPlugin'
 
-XSDAcceptor : Plugin
-XSDAcceptor realizationOf XSD
-XSDAcceptor = 'classpath:org.softlang.megal.plugins.impl.xsd.AcceptXSD'
-XSDAcceptor partOf FileElementOfLanguageEvaluatorPlugin
+XSDAcceptorPlugin : Plugin
+XSDAcceptorPlugin realizationOf XSD
+XSDAcceptorPlugin partOf FileElementOfLanguageEvaluatorPlugin
+XSDAcceptorPlugin = 'classpath:org.softlang.megal.plugins.impl.xsd.XSDAcceptorPlugin'
 
 //===============================================
 // § Artifacts

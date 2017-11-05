@@ -13,7 +13,7 @@ import org.xml.sax.SAXException;
 import com.google.common.base.Optional;
 import com.google.common.base.Throwables;
 
-public class AcceptXSD extends AcceptorPlugin {
+public class XSDAcceptorPlugin extends AcceptorPlugin {
 	@Override
 	public Optional<String> accept(Artifact artifact) {
 		// 1. Lookup a factory for the W3C XML Schema language
