@@ -42,7 +42,7 @@ public class Main {
 		
 	};
 		
-	static private String input = "megal/bindings.megal";
+	static private String input = "megal/main.megal";
 	static private String output = "output/out.megal";
 	
 	static public KB load (File f) throws IOException {
