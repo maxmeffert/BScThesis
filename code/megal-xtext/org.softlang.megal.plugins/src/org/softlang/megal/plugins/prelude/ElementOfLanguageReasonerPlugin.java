@@ -8,7 +8,7 @@ import org.softlang.megal.mi2.KB;
 import org.softlang.megal.mi2.Relationship;
 import org.softlang.megal.plugins.api.GuidedReasonerPlugin;
 
-public class ElementOfLanguageReasoner extends GuidedReasonerPlugin {
+public class ElementOfLanguageReasonerPlugin extends GuidedReasonerPlugin {
 	
 	private Collection<Entity> getSuperLanguagesOf(KB kb, Entity language) {
 		return kb.getRelationships().stream()

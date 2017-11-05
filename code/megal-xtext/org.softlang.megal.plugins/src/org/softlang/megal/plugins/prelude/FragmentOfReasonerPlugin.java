@@ -3,7 +3,7 @@ package org.softlang.megal.plugins.prelude;
 import org.softlang.megal.mi2.Relationship;
 import org.softlang.megal.plugins.api.GuidedReasonerPlugin;
 
-public class FragmentOfReasoner extends GuidedReasonerPlugin {
+public class FragmentOfReasonerPlugin extends GuidedReasonerPlugin {
 
 	protected void guidedDerive(Relationship relationship) throws Throwable {
 		

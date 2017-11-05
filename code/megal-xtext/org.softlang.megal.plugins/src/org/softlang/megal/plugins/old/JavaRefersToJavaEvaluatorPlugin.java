@@ -20,7 +20,7 @@ import com.github.javaparser.ast.ImportDeclaration;
 import com.github.javaparser.ast.body.TypeDeclaration;
 import com.google.common.base.Joiner;
 
-public class JavaRefersToJava extends GuidedEvaluatorPlugin {
+public class JavaRefersToJavaEvaluatorPlugin extends GuidedEvaluatorPlugin {
 
 	private Iterable<Artifact> filesOf(Iterable<Artifact> as) {
 		return from(as).transformAndConcat(

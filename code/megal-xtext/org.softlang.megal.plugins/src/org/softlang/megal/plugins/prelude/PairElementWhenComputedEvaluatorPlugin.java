@@ -6,7 +6,7 @@ import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.mi2.Relationship;
 import org.softlang.megal.plugins.api.InjectedEvaluatorPlugin;
 
-public class PairElementWhenComputed extends InjectedEvaluatorPlugin {
+public class PairElementWhenComputedEvaluatorPlugin extends InjectedEvaluatorPlugin {
 	@Override
 	public void evaluate(Relationship relationship) {
 		// Get pair

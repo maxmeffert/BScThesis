@@ -27,7 +27,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.io.ByteSource;
 import com.google.common.io.CharSource;
 
-public class FileToObjectFunction extends InjectedReasonerPlugin {
+public class FileToObjectFunctionReasonerPlugin extends InjectedReasonerPlugin {
 	@Override
 	public KB derive(Relationship relationship) {
 

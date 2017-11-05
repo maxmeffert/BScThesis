@@ -13,7 +13,8 @@ import org.softlang.megal.plugins.api.GuidedEvaluatorPlugin;
 
 import com.google.common.base.Joiner;
 
-public class ObjectCorrespondsToJavaFiles extends GuidedEvaluatorPlugin {
+public class ObjectCorrespondsToJavaFilesEvaluatorPlugin extends GuidedEvaluatorPlugin {
+	
 	private static String createSignatureString(Class<?>[] p) {
 		return Joiner.on(", ").join(transform(asList(p), Class::getSimpleName));
 	}

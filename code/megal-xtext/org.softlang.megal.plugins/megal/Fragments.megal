@@ -2,11 +2,11 @@ model Fragments
 
 import Prelude
 
-@Plugin 'FragmentLanguageSubsetOfReasoner'
+@Plugin 'FragmentLanguageSubsetOfReasonerPlugin'
 fragmentLanguageOf < Language * Language
 
 fragmentOf < Fragment * Artifact
 
 
-FragmentLanguageSubsetOfReasoner: Plugin
-FragmentLanguageSubsetOfReasoner = 'classpath:org.softlang.megal.plugins.prelude.FragmentLanguageSubsetOfReasoner'
+FragmentLanguageSubsetOfReasonerPlugin: Plugin
+FragmentLanguageSubsetOfReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.FragmentLanguageSubsetOfReasonerPlugin'

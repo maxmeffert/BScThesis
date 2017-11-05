@@ -19,38 +19,38 @@ deserialization(xmlFile) |-> objectGraph
 objectGraph conformsTo javaFiles
 xmlFile correspondsTo objectGraph 
 
-@Plugin 'FileToObjectFunction'
+@Plugin 'FileToObjectFunctionReasonerPlugin'
 elementOf < Pair * Function 
 
-@Plugin 'JavaFileDefinesStaticFunction'
+@Plugin 'JavaFileDefinesStaticFunctionEvaluatorPlugin'
 defines < Artifact * Function 
 
-@Plugin 'JavaRefersToJava'
+@Plugin 'JavaRefersToJavaEvaluatorPlugin'
 refersTo < Artifact (+) * Artifact (+)
 
-@Plugin 'JavaRefersToTechnology'
+@Plugin 'JavaRefersToTechnologyEvaluatorPlugin'
 refersTo < Artifact (+) * Technology
 
-@Plugin 'ObjectCorrespondsToJavaFiles'
+@Plugin 'ObjectCorrespondsToJavaFilesEvaluatorPlugin'
 conformsTo < Artifact (+) * Artifact (+)
 
-@Plugin 'XMLFileCorrespondsToJavaObject'
+@Plugin 'XMLFileCorrespondsToJavaObjectReasonerPlugin'
 correspondsTo < Artifact (+) * Artifact (+)
 
-JavaRefersToJava: Plugin
-JavaRefersToJava = 'classpath:plugins.jaxb.JavaRefersToJava'
+JavaRefersToJavaEvaluatorPlugin: Plugin
+JavaRefersToJavaEvaluatorPlugin = 'classpath:plugins.jaxb.JavaRefersToJavaEvaluatorPlugin'
 
-JavaRefersToTechnology: Plugin
-JavaRefersToTechnology = 'classpath:plugins.jaxb.JavaRefersToTechnology'
+JavaRefersToTechnologyEvaluatorPlugin: Plugin
+JavaRefersToTechnologyEvaluatorPlugin = 'classpath:plugins.jaxb.JavaRefersToTechnologyEvaluatorPlugin'
 
-FileToObjectFunction:Plugin
-FileToObjectFunction = 'classpath:plugins.jaxb.FileToObjectFunction'
+FileToObjectFunctionReasonerPlugin: Plugin
+FileToObjectFunctionReasonerPlugin = 'classpath:plugins.jaxb.FileToObjectFunctionReasonerPlugin'
 
-JavaFileDefinesStaticFunction: Plugin
-JavaFileDefinesStaticFunction = 'classpath:plugins.jaxb.JavaFileDefinesStaticFunction'
+JavaFileDefinesStaticFunctionEvaluatorPlugin: Plugin
+JavaFileDefinesStaticFunctionEvaluatorPlugin = 'classpath:plugins.jaxb.JavaFileDefinesStaticFunctionEvaluatorPlugin'
 
-ObjectCorrespondsToJavaFiles: Plugin
-ObjectCorrespondsToJavaFiles = 'classpath:plugins.jaxb.ObjectCorrespondsToJavaFiles'
+ObjectCorrespondsToJavaFilesEvaluatorPlugin: Plugin
+ObjectCorrespondsToJavaFilesEvaluatorPlugin = 'classpath:plugins.jaxb.ObjectCorrespondsToJavaFilesEvaluatorPlugin'
 
-XMLFileCorrespondsToJavaObject: Plugin
-XMLFileCorrespondsToJavaObject = 'classpath:plugins.jaxb.XMLFileCorrespondsToJavaObject'
+XMLFileCorrespondsToJavaObjectReasonerPlugin: Plugin
+XMLFileCorrespondsToJavaObjectReasonerPlugin = 'classpath:plugins.jaxb.XMLFileCorrespondsToJavaObjectReasonerPlugin'

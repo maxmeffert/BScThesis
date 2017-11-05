@@ -16,7 +16,7 @@ import org.xml.sax.SAXException;
 
 import com.google.common.base.Throwables;
 
-public class XSDConformance extends GuidedEvaluatorPlugin {
+public class XSDConformanceEvaluatorPlugin extends GuidedEvaluatorPlugin {
 
 	@Override
 	public void guidedEvaluate(Relationship relationship) throws IOException,

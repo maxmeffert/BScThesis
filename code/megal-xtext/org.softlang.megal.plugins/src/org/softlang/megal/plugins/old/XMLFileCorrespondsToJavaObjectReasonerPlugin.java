@@ -30,7 +30,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableMap;
 
-public class XMLFileCorrespondsToJavaObject extends GuidedReasonerPlugin {
+public class XMLFileCorrespondsToJavaObjectReasonerPlugin extends GuidedReasonerPlugin {
 
 	private boolean isMatchable(Node node) {
 		switch (node.getNodeType()) {

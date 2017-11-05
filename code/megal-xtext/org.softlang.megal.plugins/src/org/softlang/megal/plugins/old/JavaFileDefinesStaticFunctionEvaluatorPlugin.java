@@ -15,7 +15,7 @@ import org.softlang.megal.plugins.api.GuidedEvaluatorPlugin;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 
-public class JavaFileDefinesStaticFunction extends GuidedEvaluatorPlugin {
+public class JavaFileDefinesStaticFunctionEvaluatorPlugin extends GuidedEvaluatorPlugin {
 	@Override
 	public void guidedEvaluate(Relationship relationship) throws IOException,
 			URISyntaxException {

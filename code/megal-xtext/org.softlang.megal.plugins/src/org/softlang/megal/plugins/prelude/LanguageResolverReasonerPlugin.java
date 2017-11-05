@@ -14,7 +14,7 @@ import org.softlang.megal.plugins.api.GuidedReasonerPlugin;
  * @author lukashaertel, maxmeffert
  *
  */
-public class LanguageResolver extends GuidedReasonerPlugin {
+public class LanguageResolverReasonerPlugin extends GuidedReasonerPlugin {
 
 	/**
 	 * Checks whether the host of a given uri is reachable

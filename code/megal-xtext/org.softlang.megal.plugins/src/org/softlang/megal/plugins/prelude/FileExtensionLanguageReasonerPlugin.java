@@ -28,7 +28,7 @@ import org.softlang.megal.plugins.util.Prelude;
  * @author maxmeffert
  *
  */
-public class FileExtensionLanguageReasoner extends GuidedReasonerPlugin {
+public class FileExtensionLanguageReasonerPlugin extends GuidedReasonerPlugin {
 	
 	/**
 	 * The annotation name for file extensions

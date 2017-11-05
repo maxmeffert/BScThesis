@@ -15,7 +15,7 @@ import org.softlang.megal.plugins.util.Prelude;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
-public class TraceLinkReasoner extends AbstractReasonerPlugin {
+public class TraceLinkReasonerReasonerPlugin extends AbstractReasonerPlugin {
 	@Override
 	public KB derive(Context context, Relationship relationship) {
 

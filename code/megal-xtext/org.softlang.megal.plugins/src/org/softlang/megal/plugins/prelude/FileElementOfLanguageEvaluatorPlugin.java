@@ -22,7 +22,7 @@ import com.google.common.base.Optional;
  * @author Pazuzu
  *
  */
-public class FileElementOfLanguage extends GuidedEvaluatorPlugin {
+public class FileElementOfLanguageEvaluatorPlugin extends GuidedEvaluatorPlugin {
 
 	private static Iterable<Artifact> expandIfFolder(Iterable<Artifact> iterable) {
 		return from(iterable).transformAndConcat(

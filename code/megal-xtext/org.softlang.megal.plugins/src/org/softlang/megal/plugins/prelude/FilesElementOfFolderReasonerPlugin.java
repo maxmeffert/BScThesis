@@ -6,7 +6,7 @@ import org.softlang.megal.mi2.Relationship;
 import org.softlang.megal.mi2.api.AbstractReasonerPlugin;
 import org.softlang.megal.mi2.api.context.Context;
 
-public class FilesElementOfFolder extends AbstractReasonerPlugin {
+public class FilesElementOfFolderReasonerPlugin extends AbstractReasonerPlugin {
 	@Override
 	public KB derive(Context context, Relationship relationship) {
 		if (!relationship.getRight().hasBinding())

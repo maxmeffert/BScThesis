@@ -12,7 +12,7 @@ import org.softlang.megal.plugins.util.Prelude;
  * @author maxmeffert
  *
  */
-public class FolderReasoner extends GuidedReasonerPlugin {
+public class FolderReasonerPlugin extends GuidedReasonerPlugin {
 	
 	/**
 	 * Derives elements of a folder, bound to their respective location

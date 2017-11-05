@@ -15,7 +15,7 @@ import org.softlang.megal.plugins.api.ProxyableGuidedReasonerPlugin;
  * @author maxmeffert
  *
  */
-public class FileFragmentRecoveryReasoner extends ProxyableGuidedReasonerPlugin {
+public class FileFragmentRecoveryReasonerPlugin extends ProxyableGuidedReasonerPlugin {
 	
 	/**
 	 * Derives fragments of an entity

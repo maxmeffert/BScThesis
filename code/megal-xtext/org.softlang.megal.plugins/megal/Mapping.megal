@@ -21,28 +21,25 @@ aLanguage = 'http://www.company.softlang.org/company.xsd'
 
 xsdFiles correspondsTo javaFiles
 
-@Plugin 'FindBuildScriptAsElementOfEvidence'
 elementOf < Pair * Function
 
-FindBuildScriptAsElementOfEvidence: Plugin
-FindBuildScriptAsElementOfEvidence = 'classpath:plugins.jaxb.FindBuildScriptAsElementOfEvidence'
 
-@Plugin 'XSDJavaCorrespondence'
+@Plugin 'XSDJavaCorrespondenceReasonerPlugin'
 correspondsTo < Artifact (+) * Artifact (+)
-XSDJavaCorrespondence: Plugin
-XSDJavaCorrespondence = 'classpath:plugins.jaxb.XSDJavaCorrespondence'
+XSDJavaCorrespondenceReasonerPlugin: Plugin
+XSDJavaCorrespondenceReasonerPlugin = 'classpath:plugins.jaxb.XSDJavaCorrespondenceReasonerPlugin'
 
-@Plugin 'MatchingLanguageDefinition'
+@Plugin 'MatchingLanguageDefinitionEvaluatorPlugin'
 defines < Artifact(+) * Language
-MatchingLanguageDefinition: Plugin
-MatchingLanguageDefinition = 'classpath:plugins.jaxb.MatchingLanguageDefinition'
+MatchingLanguageDefinitionEvaluatorPlugin: Plugin
+MatchingLanguageDefinitionEvaluatorPlugin = 'classpath:plugins.jaxb.MatchingLanguageDefinitionEvaluatorPlugin'
 
 PackageInfoNSURIExtractor: Plugin
 PackageInfoNSURIExtractor realizationOf Java
-PackageInfoNSURIExtractor partOf MatchingLanguageDefinition
+PackageInfoNSURIExtractor partOf MatchingLanguageDefinitionEvaluatorPlugin
 PackageInfoNSURIExtractor = 'classpath:plugins.jaxb.PackageInfoNSURIExtractor'
 
 XSDNSURIExtractor: Plugin
 XSDNSURIExtractor realizationOf XSD
-XSDNSURIExtractor partOf MatchingLanguageDefinition
+XSDNSURIExtractor partOf MatchingLanguageDefinitionEvaluatorPlugin
 XSDNSURIExtractor = 'classpath:plugins.jaxb.XSDNSURIExtractor'

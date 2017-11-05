@@ -11,6 +11,7 @@ import org.softlang.megal.mi2.api.Artifact;
 import org.softlang.megal.mi2.api.resolution.Resolution;
 
 public class PackageInfoNSURIExtractor extends NSURIExtractor {
+	
 	private static final Pattern EXTRACTOR_PATTERN = Pattern.compile(
 			".*namespace\\s*=\\s*\"([^\"]*)\".*", Pattern.DOTALL);
 

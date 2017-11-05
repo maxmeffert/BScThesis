@@ -6,7 +6,7 @@ import java.util.Set;
 import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.plugins.api.GuidedReasonerPlugin;
 
-public class PartOfReasoner extends GuidedReasonerPlugin {
+public class PartOfReasonerPlugin extends GuidedReasonerPlugin {
 	
 	private Set<String> cache = new HashSet<String>();
 	
@@ -25,19 +25,12 @@ public class PartOfReasoner extends GuidedReasonerPlugin {
 			
 			boolean contains = entity.getKB().getRawEntities().containsKey(name);
 			
-			
 			if (contains) {
 				
 				relationship(entity.getName(), name, "partOf");
 				
-			}
-			
-			
+			}	
 		}
-		
-		
-		
-		
 	}
 	
 	public boolean isContextBased () {

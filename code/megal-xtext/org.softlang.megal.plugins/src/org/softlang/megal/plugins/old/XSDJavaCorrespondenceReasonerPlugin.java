@@ -29,7 +29,7 @@ import com.google.common.base.CaseFormat;
 import com.google.common.collect.ImmutableBiMap;
 import com.google.common.collect.Maps;
 
-public class XSDJavaCorrespondence extends GuidedReasonerPlugin {
+public class XSDJavaCorrespondenceReasonerPlugin extends GuidedReasonerPlugin {
 
 	@Override
 	public void guidedDerive(Relationship relationship) throws IOException, XPathExpressionException {

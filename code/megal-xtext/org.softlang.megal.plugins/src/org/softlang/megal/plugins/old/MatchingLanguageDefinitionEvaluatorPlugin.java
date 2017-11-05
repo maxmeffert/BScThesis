@@ -12,7 +12,8 @@ import org.softlang.megal.mi2.Relationship;
 import org.softlang.megal.plugins.api.GuidedEvaluatorPlugin;
 
 
-public class MatchingLanguageDefinition extends GuidedEvaluatorPlugin {
+public class MatchingLanguageDefinitionEvaluatorPlugin extends GuidedEvaluatorPlugin {
+	
 	private NSURIExtractor getExtractor(Entity artifact) {
 		for (NSURIExtractor extractor : filter(getParts(), NSURIExtractor.class))
 			if (any(extractor.getRealization(),

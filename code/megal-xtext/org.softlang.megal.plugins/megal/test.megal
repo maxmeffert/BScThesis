@@ -33,15 +33,6 @@ XMLNSAttribute < XMLAttribute
 
 
 
-XMLFragmentizer : Plugin
-XMLFragmentizer realizationOf XML
-XMLFragmentizer partOf FileFragmentReasoner
-XMLFragmentizer = 'classpath:org.softlang.megal.plugins.impl.xml.XMLFragmentizer'
-
-
-XSDFragmentResolver : Plugin
-XSDFragmentResolver = 'classpath:org.softlang.megal.plugins.impl.xsd.XSDFragmentResolver'
-
 xmlFile: File
 xmlFile elementOf XML
 

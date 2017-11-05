@@ -28,13 +28,13 @@ JavaMethodFragments subsetOf JavaFragments
 
 AcceptJava: Plugin
 AcceptJava realizationOf Java
-AcceptJava partOf FileElementOfLanguage
+AcceptJava partOf FileElementOfLanguageEvaluatorPlugin
 AcceptJava = 'classpath:org.softlang.megal.plugins.impl.java.JavaAcceptor'
 
-JavaFragmentizer : Plugin
-JavaFragmentizer realizationOf Java
-JavaFragmentizer partOf FileFragmentReasoner
-JavaFragmentizer = 'classpath:org.softlang.megal.plugins.impl.java.JavaFragmentRecoveryPlugin'
+JavaFragmentRecoveryPlugin : Plugin
+JavaFragmentRecoveryPlugin realizationOf Java
+JavaFragmentRecoveryPlugin partOf FileFragmentRecoveryReasonerPlugin
+JavaFragmentRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.java.JavaFragmentRecoveryPlugin'
 
 
 aJavaFile : File

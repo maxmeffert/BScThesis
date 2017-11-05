@@ -15,7 +15,7 @@ import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 
-public class JavaRefersToTechnology extends GuidedEvaluatorPlugin {
+public class JavaRefersToTechnologyEvaluatorPlugin extends GuidedEvaluatorPlugin {
 	/**
 	 * <p>
 	 * More like: STOP_WORD

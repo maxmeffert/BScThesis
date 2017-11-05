@@ -1,6 +1,6 @@
 @Suppress 'entityNotConsidered'
 model Prelude
-@Plugin 'PartOfReasoner'
+@Plugin 'PartOfReasonerPlugin'
 Entity as entity
 
 @Color '223,108,91'
@@ -17,15 +17,15 @@ Set < Entity
 Technology < Entity
 
 @Color '73,158,216'
-@Plugin 'LanguageResolver'
+@Plugin 'LanguageResolverReasonerPlugin'
 Language < Set
 
 @Color '231,65,41'
-@Plugin 'FileExtensionLanguageReasoner'
-@Plugin 'FileFragmentReasoner'
+@Plugin 'FileExtensionLanguageReasonerPlugin'
+@Plugin 'FileFragmentRecoveryReasonerPlugin'
 File < Artifact
 
-@Plugin 'FolderReasoner'
+@Plugin 'FolderReasonerPlugin'
 Folder < Artifact
 
 
@@ -40,16 +40,16 @@ Plugin < Entity
 
 Pair < Entity
 
-@Plugin 'ElementOfLanguageReasoner'
+@Plugin 'ElementOfLanguageReasonerPlugin'
 elementOf < Entity (+) * Set
-@Plugin 'PairElementWhenComputed'
+@Plugin 'PairElementWhenComputedEvaluatorPlugin'
 elementOf < Pair * Function
-@Plugin 'FileElementOfLanguage'
+@Plugin 'FileElementOfLanguageEvaluatorPlugin'
 elementOf < File (+) * Language
 
 subsetOf < Set * Set
 
-@Plugin 'FragmentOfReasoner'
+@Plugin 'FragmentOfReasonerPlugin'
 partOf < Artifact(+) * Artifact(+)
 partOf < Artifact(+) * Technology
 partOf < Technology * Technology
@@ -97,30 +97,30 @@ refersTo < Artifact (+) * Technology
 refersTo < Artifact (+) * Artifact (+)
 
 
-FileElementOfLanguage: Plugin
-FileElementOfLanguage = 'classpath:org.softlang.megal.plugins.prelude.FileElementOfLanguage'
+FileElementOfLanguageEvaluatorPlugin: Plugin
+FileElementOfLanguageEvaluatorPlugin = 'classpath:org.softlang.megal.plugins.prelude.FileElementOfLanguageEvaluatorPlugin'
 
-PairElementWhenComputed: Plugin
-PairElementWhenComputed = 'classpath:org.softlang.megal.plugins.prelude.PairElementWhenComputed'
+PairElementWhenComputedEvaluatorPlugin: Plugin
+PairElementWhenComputedEvaluatorPlugin = 'classpath:org.softlang.megal.plugins.prelude.PairElementWhenComputedEvaluatorPlugin'
 
-LanguageResolver: Plugin
-LanguageResolver = 'classpath:org.softlang.megal.plugins.prelude.LanguageResolver'
+LanguageResolverReasonerPlugin: Plugin
+LanguageResolverReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.LanguageResolverReasonerPlugin'
 
-PartOfReasoner: Plugin
-PartOfReasoner = 'classpath:org.softlang.megal.plugins.prelude.PartOfReasoner'
+PartOfReasonerPlugin: Plugin
+PartOfReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.PartOfReasonerPlugin'
 
-FileFragmentReasoner: Plugin
-FileFragmentReasoner = 'classpath:org.softlang.megal.plugins.prelude.FileFragmentRecoveryReasoner'
+FileFragmentRecoveryReasonerPlugin: Plugin
+FileFragmentRecoveryReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.FileFragmentRecoveryReasonerPlugin'
 
-FolderReasoner: Plugin
-FolderReasoner = 'classpath:org.softlang.megal.plugins.prelude.FolderReasoner'
+FolderReasonerPlugin: Plugin
+FolderReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.FolderReasonerPlugin'
 
-FileExtensionLanguageReasoner: Plugin
-FileExtensionLanguageReasoner = 'classpath:org.softlang.megal.plugins.prelude.FileExtensionLanguageReasoner'
+FileExtensionLanguageReasonerPlugin: Plugin
+FileExtensionLanguageReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.FileExtensionLanguageReasonerPlugin'
 
-FragmentOfReasoner: Plugin
-FragmentOfReasoner = 'classpath:org.softlang.megal.plugins.prelude.FragmentOfReasoner'
+FragmentOfReasonerPlugin: Plugin
+FragmentOfReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.FragmentOfReasonerPlugin'
 
 
-ElementOfLanguageReasoner: Plugin
-ElementOfLanguageReasoner = 'classpath:org.softlang.megal.plugins.prelude.ElementOfLanguageReasoner'
+ElementOfLanguageReasonerPlugin: Plugin
+ElementOfLanguageReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.ElementOfLanguageReasonerPlugin'
