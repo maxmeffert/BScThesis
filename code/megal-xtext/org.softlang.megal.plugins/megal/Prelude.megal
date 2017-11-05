@@ -27,7 +27,10 @@ File < Artifact
 
 @Plugin 'FolderReasoner'
 Folder < Artifact
+
+
 Fragment < Artifact
+
 Resource < Artifact
 Transient < Artifact
 
@@ -37,6 +40,7 @@ Plugin < Entity
 
 Pair < Entity
 
+@Plugin 'ElementOfLanguageReasoner'
 elementOf < Entity (+) * Set
 @Plugin 'PairElementWhenComputed'
 elementOf < Pair * Function
@@ -45,6 +49,7 @@ elementOf < File (+) * Language
 
 subsetOf < Set * Set
 
+@Plugin 'FragmentOfReasoner'
 partOf < Artifact(+) * Artifact(+)
 partOf < Artifact(+) * Technology
 partOf < Technology * Technology
@@ -112,3 +117,10 @@ FolderReasoner = 'classpath:org.softlang.megal.plugins.prelude.FolderReasoner'
 
 FileExtensionLanguageReasoner: Plugin
 FileExtensionLanguageReasoner = 'classpath:org.softlang.megal.plugins.prelude.FileExtensionLanguageReasoner'
+
+FragmentOfReasoner: Plugin
+FragmentOfReasoner = 'classpath:org.softlang.megal.plugins.prelude.FragmentOfReasoner'
+
+
+ElementOfLanguageReasoner: Plugin
+ElementOfLanguageReasoner = 'classpath:org.softlang.megal.plugins.prelude.ElementOfLanguageReasoner'
