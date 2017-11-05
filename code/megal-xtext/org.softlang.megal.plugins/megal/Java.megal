@@ -8,21 +8,23 @@ Java : Language
 // Java Syntax Fragments
 //===============================================
 
-JavaFragment < Fragment
 
-JavaPackage < JavaFragment
-JavaInterface < JavaFragment
-JavaClass < JavaFragment
-JavaEnum < JavaFragment
-JavaField < JavaFragment
-JavaMethod < JavaFragment
-JavaConstructor < JavaMethod
-JavaAnnotation < JavaFragment
+//JavaFragment < Fragment
 
-partOf < JavaClass * File
-partOf < JavaInterface * File
-partOf < JavaMethod * JavaClass
-partOf < JavaField * JavaClass
+//JavaPackage < JavaFragment
+//JavaInterface < JavaFragment
+//JavaClass < JavaFragment
+//JavaEnum < JavaFragment
+//JavaField < JavaFragment
+//JavaMethod < JavaFragment
+//JavaConstructor < JavaMethod
+//JavaAnnotation < JavaFragment
+
+
+//partOf < JavaClass * File
+//partOf < JavaInterface * File
+//partOf < JavaMethod * JavaClass
+//partOf < JavaField * JavaClass
 
 //===============================================
 // Plugins

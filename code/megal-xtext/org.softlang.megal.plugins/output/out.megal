@@ -3,11 +3,11 @@
 ============================================
                   Metrics                   
 ============================================
-#Elements          : 142
-#EntityTypes       : 31
-#Entities          : 24
-#Relationships     : 17
-#RelationshipTypes : 70
+#Elements          : 154
+#EntityTypes       : 22
+#Entities          : 33
+#Relationships     : 33
+#RelationshipTypes : 66
 */
 
 
@@ -24,15 +24,6 @@ File < Artifact
 Folder < Artifact
 Fragment < Artifact
 Function < Entity
-JavaAnnotation < JavaFragment
-JavaClass < JavaFragment
-JavaConstructor < JavaMethod
-JavaEnum < JavaFragment
-JavaField < JavaFragment
-JavaFragment < Fragment
-JavaInterface < JavaFragment
-JavaMethod < JavaFragment
-JavaPackage < JavaFragment
 Language < Set
 Pair < Entity
 Plugin < Entity
@@ -88,7 +79,6 @@ linksTo< File * File+
 linksTo< File * File
 linksTo< File+ * File+
 linksTo< File+ * File
-partOf< JavaClass * File
 partOf< Technology * Technology
 partOf< Artifact * Artifact+
 partOf< Artifact * Technology
@@ -96,10 +86,7 @@ partOf< Artifact * Artifact
 partOf< Language * Technology
 partOf< Language * Language
 partOf< SQLColumnDefinitionStmt * SQLCreateTableStmt
-partOf< JavaField * JavaClass
 partOf< Plugin * Plugin
-partOf< JavaMethod * JavaClass
-partOf< JavaInterface * File
 partOf< Artifact+ * Artifact+
 partOf< Artifact+ * Technology
 partOf< Artifact+ * Artifact
@@ -141,11 +128,45 @@ aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme
 aSQLFile: File
 aSQLFile elementOf SQL
 
+Company: Fragment
+Company elementOf JavaFragments
+Company partOf aJavaFile
+
+departments: Fragment
+departments elementOf JavaFragments
+departments partOf aJavaFile
+
+getDepartments: Fragment
+getDepartments elementOf JavaFragments
+getDepartments partOf aJavaFile
+
+getName: Fragment
+getName elementOf JavaFragments
+getName partOf aJavaFile
+
 @FileExtensions '.java'
 Java: Language
+Java subsetOf JavaFragments
 Java = 'http://dbpedia.org/page/Java_(programming_language)'
 
+JavaClassFragments: Language
+JavaClassFragments subsetOf JavaFragments
+
 javaFiles: File+
+
+JavaFragments: Language
+
+name: Fragment
+name elementOf JavaFragments
+name partOf aJavaFile
+
+setDepartments: Fragment
+setDepartments elementOf JavaFragments
+setDepartments partOf aJavaFile
+
+setName: Fragment
+setName elementOf JavaFragments
+setName partOf aJavaFile
 
 @FileExtensions '.sql'
 SQL: Language

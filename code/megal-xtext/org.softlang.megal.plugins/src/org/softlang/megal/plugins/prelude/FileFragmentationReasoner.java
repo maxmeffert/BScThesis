@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 import org.softlang.megal.plugins.api.FragmentizerPlugin;
 import org.softlang.megal.plugins.api.GuidedReasonerPlugin;
+import org.softlang.megal.plugins.api.IFragmentReasoner;
 import org.softlang.megal.plugins.api.fragmentation.Fragments.Fragment;
 
 /**
@@ -23,6 +24,30 @@ import org.softlang.megal.plugins.api.fragmentation.Fragments.Fragment;
  *
  */
 public class FileFragmentationReasoner extends GuidedReasonerPlugin {
+	
+	private class FragmentReasoner implements IFragmentReasoner {
+
+		@Override
+		public void addEntityType(String type, String superType) {
+			FileFragmentationReasoner.this.entityType(type, superType);
+		}
+
+		@Override
+		public void addEntity(String name, String type) {
+			FileFragmentationReasoner.this.entity(name, type);
+		}
+
+		@Override
+		public void addRelationshipType(String name, String leftType, String rightType) {
+			FileFragmentationReasoner.this.relationshipType(leftType, rightType, name);
+		}
+
+		@Override
+		public void addRelationship(String name, String left, String right) {
+			FileFragmentationReasoner.this.relationship(left, right, name);			
+		}
+		
+	}
 	
 	private void entityAnnotation(Entity e, String name, String value) {
 		
@@ -82,8 +107,8 @@ public class FileFragmentationReasoner extends GuidedReasonerPlugin {
 				
 				
 				if (isElementOfLanguage(entity, lang)) {
-					
-					deriveFragments(plugin.getFragments(entity, artifactOf(entity)), lang.getName());
+					plugin.derive(new FragmentReasoner(), entity, artifactOf(entity));
+//					deriveFragments(plugin.getFragments(entity, artifactOf(entity)), lang.getName());
 					
 				}
 				

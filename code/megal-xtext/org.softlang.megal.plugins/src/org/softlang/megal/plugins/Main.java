@@ -25,7 +25,7 @@ import org.softlang.megal.plugins.api.fragmentation.Fragments;
 public class Main {
 	
 	static final private boolean showMetrics = true;
-	static final private boolean showTypes = false;
+	static final private boolean showTypes = true;
 	static final private boolean showInstances = true;
 	
 	static final private File root = new File("..");

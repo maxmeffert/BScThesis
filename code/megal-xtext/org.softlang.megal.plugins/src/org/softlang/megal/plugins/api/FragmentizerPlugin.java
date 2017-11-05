@@ -11,4 +11,8 @@ public abstract class FragmentizerPlugin extends AbstractPlugin {
 	
 	abstract public Collection<Fragment> getFragments (Entity entity, Artifact artifact);
 	
+	public void derive(IFragmentReasoner reasoner, Entity entity, Artifact artifact) {
+		
+	}
+	
 }
