@@ -1,5 +1,10 @@
 @Suppress 'entityNotConsidered'
 model Prelude
+
+//===============================================
+// § Basic Entity Types
+//===============================================
+
 @Plugin 'PartOfReasonerPlugin'
 Entity as entity
 
@@ -28,10 +33,10 @@ File < Artifact
 @Plugin 'FolderReasonerPlugin'
 Folder < Artifact
 
-
 Fragment < Artifact
 
 Resource < Artifact
+
 Transient < Artifact
 
 @Suppress 'notConsidered'
@@ -40,6 +45,10 @@ Plugin < Entity
 
 Pair < Entity
 
+//===============================================
+// § ElementOf
+//===============================================
+
 @Plugin 'ElementOfLanguageReasonerPlugin'
 elementOf < Entity (+) * Set
 @Plugin 'PairElementWhenComputedEvaluatorPlugin'
@@ -47,7 +56,15 @@ elementOf < Pair * Function
 @Plugin 'FileElementOfLanguageEvaluatorPlugin'
 elementOf < File (+) * Language
 
+//===============================================
+// § SubsetOf
+//===============================================
+
 subsetOf < Set * Set
+
+//===============================================
+// § PartOf
+//===============================================
 
 @Plugin 'FragmentOfReasonerPlugin'
 partOf < Artifact(+) * Artifact(+)
@@ -58,44 +75,109 @@ partOf < Language * Language
 @Suppress 'notConsidered'
 partOf < Plugin * Plugin
 
+//===============================================
+// § InstanceOf
+//===============================================
+
 instanceOf < Entity * Concept
+
+//===============================================
+// § isA
+//===============================================
+
 isA < Concept * Concept
 
+//===============================================
+// § ConformsTo
+//===============================================
+
 conformsTo < Artifact (+) * Artifact (+)
+
+//===============================================
+// § DependsOn
+//===============================================
 
 dependsOn < Artifact (+) * Artifact (+)
 dependsOn < Technology * Language
 dependsOn < Technology * Technology
 dependsOn < Function * Technology
 
+//===============================================
+// § TransformableIn
+//===============================================
+
 transformableIn < Language * Language
+
+//===============================================
+// § TransformedIn
+//===============================================
+
 transformedIn < Language * Language
 transformedIn < Artifact (+) * Artifact (+)
 
+//===============================================
+// § ConformsTo
+//===============================================
+
 correspondsTo < Artifact (+) * Artifact (+)
+
+//===============================================
+// § Defines
+//===============================================
 
 defines < Artifact (+) * Language
 defines < Artifact (+) * Function
 
+//===============================================
+// § LinksTo
+//===============================================
+
 linksTo < File (+) * File (+)
 
+//===============================================
+// § RealisationOf
+//===============================================
+
 realizationOf < Artifact (+) * Function
-
-variantOf < Language * Language
-versionOf < Language * Language
-
-deploysTo < Technology * Technology
-
 @Suppress 'notConsidered'
 realizationOf < Plugin * Entity
 
+//===============================================
+// § VariantOf
+//===============================================
+
+variantOf < Language * Language
+
+//===============================================
+// § VersionOf
+//===============================================
+
+versionOf < Language * Language
+
+//===============================================
+// § DeploysTo
+//===============================================
+
+deploysTo < Technology * Technology
+
+//===============================================
+// § FirstOf & SecondOf
+//===============================================
 
 firstOf < Entity (+) * Pair
 secondOf < Entity (+) * Pair
 
+//===============================================
+// § RefersTo
+//===============================================
+
 refersTo < Artifact (+) * Technology
 refersTo < Artifact (+) * Artifact (+)
 
+
+//===============================================
+// § Plugins
+//===============================================
 
 FileElementOfLanguageEvaluatorPlugin: Plugin
 FileElementOfLanguageEvaluatorPlugin = 'classpath:org.softlang.megal.plugins.prelude.FileElementOfLanguageEvaluatorPlugin'
@@ -120,7 +202,6 @@ FileExtensionLanguageReasonerPlugin = 'classpath:org.softlang.megal.plugins.prel
 
 FragmentOfReasonerPlugin: Plugin
 FragmentOfReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.FragmentOfReasonerPlugin'
-
 
 ElementOfLanguageReasonerPlugin: Plugin
 ElementOfLanguageReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.ElementOfLanguageReasonerPlugin'
