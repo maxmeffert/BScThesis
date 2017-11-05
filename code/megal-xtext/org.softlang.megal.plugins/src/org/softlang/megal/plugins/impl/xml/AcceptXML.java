@@ -1,4 +1,4 @@
-package org.softlang.megal.plugins.old;
+package org.softlang.megal.plugins.impl.xml;
 
 import java.io.IOException;
 import java.io.InputStream;

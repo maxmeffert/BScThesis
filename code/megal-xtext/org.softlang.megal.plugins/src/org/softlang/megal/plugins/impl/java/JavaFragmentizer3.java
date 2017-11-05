@@ -14,17 +14,11 @@ import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.mi2.api.Artifact;
 import org.softlang.megal.plugins.api.FragmentizerPlugin;
 import org.softlang.megal.plugins.api.IFragmentReasoner;
-import org.softlang.megal.plugins.api.fragmentation.Fragments.Fragment;
 
 public class JavaFragmentizer3 extends FragmentizerPlugin {
 
 	private final ICCRecoveryScenarios recovery = CCRecoveryScenarios.create();
-	
-	@Override
-	public Collection<Fragment> getFragments(Entity entity, Artifact artifact) {
-		return new ArrayList<Fragment>();
-	}
-	
+		
 	private IFragment parseArtifact(Artifact artifact) throws IOException, ParserException {
 		return recovery.getJava8Parser().parse(artifact.getBytes().openStream());
 	}

@@ -1,20 +1,13 @@
 package org.softlang.megal.plugins.prelude;
 
 import org.softlang.megal.mi2.Entity;
-import org.softlang.megal.mi2.KB;
-import org.softlang.megal.mi2.Ref;
-
-import static com.google.common.collect.Maps.immutableEntry;
 import static com.google.common.collect.Iterables.filter;
 
 import static org.softlang.megal.plugins.util.Prelude.isElementOfLanguage;
 
-import java.util.stream.Collectors;
-
 import org.softlang.megal.plugins.api.FragmentizerPlugin;
 import org.softlang.megal.plugins.api.GuidedReasonerPlugin;
 import org.softlang.megal.plugins.api.IFragmentReasoner;
-import org.softlang.megal.plugins.api.fragmentation.Fragments.Fragment;
 
 /**
  * 
@@ -49,49 +42,6 @@ public class FileFragmentationReasoner extends GuidedReasonerPlugin {
 		
 	}
 	
-	private void entityAnnotation(Entity e, String name, String value) {
-		
-		KB kb = e.getKB();
-		Ref ref = kb.getRawEntities().get(e.getName());
-		
-		kb.getRawEntityAnnotations().put(immutableEntry(e.getName(), ref), immutableEntry(name, value));
-		
-	}
-	
-	/**
-	 * Inserts a bag of fragments into the KB
-	 * @param fs
-	 */
-	private void deriveFragments (Iterable<Fragment> fs, String lang) {
-		
-		for (Fragment f : fs) {
-			deriveFragments(f, lang);
-			
-		}
-		
-	}
-	
-	/**
-	 * Inserts a fragment into the KB
-	 * @param f
-	 */
-	private void deriveFragments (Fragment f, String lang) {
-		
-		// Create an entity for the fragment with its qualified name
-		entityType(f.getType(), "Fragment");
-		Entity e = entity(f.getQualifiedName(), f.getType());
-//		System.err.println(e);
-		entityAnnotation(e, "FragmentText", f.getText());
-		relationship(e.getName(), lang, "elementOf");
-		
-		// Bind the fragment entity to the fragment's URI
-		binding(f.getQualifiedName(), f.getURI());
-		
-		// Insert the parts of the fragments into the KB
-		deriveFragments(f.getParts(), lang);
-		
-	}
-	
 	/**
 	 * Derives fragments of an entity
 	 */
@@ -107,9 +57,7 @@ public class FileFragmentationReasoner extends GuidedReasonerPlugin {
 				
 				
 				if (isElementOfLanguage(entity, lang)) {
-					plugin.derive(new FragmentReasoner(), entity, artifactOf(entity));
-//					deriveFragments(plugin.getFragments(entity, artifactOf(entity)), lang.getName());
-					
+					plugin.derive(new FragmentReasoner(), entity, artifactOf(entity));					
 				}
 				
 			}

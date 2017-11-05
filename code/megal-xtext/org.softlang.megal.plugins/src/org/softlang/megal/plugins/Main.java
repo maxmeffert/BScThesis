@@ -19,7 +19,6 @@ import org.softlang.megal.mi2.RelationshipType;
 import org.softlang.megal.mi2.api.ModelExecutor;
 import org.softlang.megal.mi2.api.resolution.LocalResolution;
 import org.softlang.megal.mi2.api.resolution.Resolution;
-import org.softlang.megal.plugins.api.fragmentation.Fragments;
 
 @SuppressWarnings("unused")
 public class Main {

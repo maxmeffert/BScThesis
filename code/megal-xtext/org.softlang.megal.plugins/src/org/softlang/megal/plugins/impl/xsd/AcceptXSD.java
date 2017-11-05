@@ -19,7 +19,7 @@ public class AcceptXSD extends AcceptorPlugin {
 		// 1. Lookup a factory for the W3C XML Schema language
 		SchemaFactory factory = SchemaFactory
 				.newInstance("http://www.w3.org/2001/XMLSchema");
-		
+
 		try (InputStream stream = artifact.getBytes().openStream()) {
 			factory.newSchema(new StreamSource(stream));
 			return Optional.absent();
