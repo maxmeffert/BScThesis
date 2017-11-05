@@ -46,23 +46,27 @@ public class FileElementOfLanguageEvaluatorPlugin extends GuidedEvaluatorPlugin 
 			}
 		}
 
-		if (!anyError)
+		if (!anyError) {
 			valid();
+		}
+			
 	}
 
 	private Optional<String> isElement(Entity element, Artifact artifact) {
-		if (!artifact.hasContent())
+		if (!artifact.hasContent())  {
 			return Optional.absent();
-
+		}			
+		
 		for (AcceptorPlugin acceptor : filter(getParts(), AcceptorPlugin.class)) {
-			if (!any(acceptor.getRealization(),
-					x -> isElementOfLanguage(element, x)))
+			if (!any(acceptor.getRealization(),	x -> isElementOfLanguage(element, x))) {
 				continue;
+			}				
 			
 			Optional<String> error = acceptor.accept(artifact);
 
-			if (error.isPresent())
+			if (error.isPresent()) {
 				return error;
+			}
 		}
 
 		return Optional.absent();

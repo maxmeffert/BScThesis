@@ -25,10 +25,10 @@ JavaMethodFragments subsetOf JavaFragments
 // § Plugins
 //===============================================
 
-AcceptJava: Plugin
-AcceptJava realizationOf Java
-AcceptJava partOf FileElementOfLanguageEvaluatorPlugin
-AcceptJava = 'classpath:org.softlang.megal.plugins.impl.java.JavaAcceptor'
+JavaAcceptorPlugin: Plugin
+JavaAcceptorPlugin realizationOf Java
+JavaAcceptorPlugin partOf FileElementOfLanguageEvaluatorPlugin
+JavaAcceptorPlugin = 'classpath:org.softlang.megal.plugins.impl.java.JavaAcceptorPlugin'
 
 JavaFragmentRecoveryPlugin : Plugin
 JavaFragmentRecoveryPlugin realizationOf Java
