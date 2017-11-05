@@ -4,6 +4,8 @@ import static com.google.common.base.Objects.equal;
 //import static com.google.common.collect.FluentIterable.from;
 import static com.google.common.collect.Lists.newLinkedList;
 import static com.google.common.collect.Sets.newHashSet;
+import static org.softlang.megal.plugins.util.Prelude.incomingFrom;
+import static org.softlang.megal.plugins.util.Prelude.isInstance;
 
 import java.util.Deque;
 import java.util.Set;
@@ -284,6 +286,44 @@ public class Prelude {
 		
 		return getInstancesWhere(kb, Prelude::isPlugin);
 		
+	}
+	
+	
+	
+	public static Entity firstEntityOf(Entity pair) {
+		if (!isInstance(pair, "Pair"))
+			return null;
+		for (Entity first : incomingFrom(pair, "firstOf"))
+			return first;
+
+		return null;
+	}
+
+	public static Entity secondEntityOf(Entity pair) {
+		if (!isInstance(pair, "Pair"))
+			return null;
+		for (Entity second : incomingFrom(pair, "secondOf"))
+			return second;
+
+		return null;
+	}
+
+	public static Relationship firstOf(Entity pair) {
+		if (!isInstance(pair, "Pair"))
+			return null;
+		for (Relationship first : pair.incoming("firstOf"))
+			return first;
+
+		return null;
+	}
+
+	public static Relationship secondOf(Entity pair) {
+		if (!isInstance(pair, "Pair"))
+			return null;
+		for (Relationship second : pair.incoming("secondOf"))
+			return second;
+
+		return null;
 	}
 	
 }
