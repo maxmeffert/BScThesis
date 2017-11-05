@@ -4,9 +4,6 @@ import static com.google.common.base.Objects.equal;
 //import static com.google.common.collect.FluentIterable.from;
 import static com.google.common.collect.Lists.newLinkedList;
 import static com.google.common.collect.Sets.newHashSet;
-import static org.softlang.megal.plugins.util.Prelude.incomingFrom;
-import static org.softlang.megal.plugins.util.Prelude.isInstance;
-
 import java.util.Deque;
 import java.util.Set;
 import java.util.function.Predicate;

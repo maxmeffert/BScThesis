@@ -5,8 +5,6 @@
 	<classpathentry kind="src" path="input"/>
 	<classpathentry kind="lib" path="lib/commons-csv-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/javaparser-core-2.1.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="lib/com.google.guava.source_15.0.0.v201403281430.jar"/>
-	<classpathentry kind="lib" path="lib/com.google.guava_15.0.0.v201403281430.jar"/>
 	<classpathentry kind="lib" path="input-lib/jaxb-api.jar"/>
 	<classpathentry kind="lib" path="input-lib/jaxb-core.jar"/>
 	<classpathentry kind="lib" path="input-lib/jaxb-impl.jar"/>
