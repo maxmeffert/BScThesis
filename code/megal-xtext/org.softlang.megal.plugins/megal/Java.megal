@@ -1,5 +1,6 @@
 model Java
 import Prelude
+import Fragments
 
 @FileExtensions '.java'
 Java : Language
@@ -9,22 +10,17 @@ Java : Language
 //===============================================
 
 
-//JavaFragment < Fragment
+JavaFragments : Language
+JavaFragments fragmentLanguageOf Java
 
-//JavaPackage < JavaFragment
-//JavaInterface < JavaFragment
-//JavaClass < JavaFragment
-//JavaEnum < JavaFragment
-//JavaField < JavaFragment
-//JavaMethod < JavaFragment
-//JavaConstructor < JavaMethod
-//JavaAnnotation < JavaFragment
+JavaClassFragments : Language
+JavaClassFragments subsetOf JavaFragments
 
+JavaFieldFragments : Language
+JavaFieldFragments subsetOf JavaFragments
 
-//partOf < JavaClass * File
-//partOf < JavaInterface * File
-//partOf < JavaMethod * JavaClass
-//partOf < JavaField * JavaClass
+JavaMethodFragments : Language
+JavaMethodFragments subsetOf JavaFragments
 
 //===============================================
 // Plugins
