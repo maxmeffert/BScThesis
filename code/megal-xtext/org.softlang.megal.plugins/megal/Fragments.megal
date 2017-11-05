@@ -20,4 +20,4 @@ fragmentOf < Fragment * Artifact
 //===============================================
 
 FragmentLanguageSubsetOfReasonerPlugin: Plugin
-FragmentLanguageSubsetOfReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.FragmentLanguageSubsetOfReasonerPlugin'
+FragmentLanguageSubsetOfReasonerPlugin = 'classpath:org.softlang.megal.plugins.fragments.FragmentLanguageSubsetOfReasonerPlugin'

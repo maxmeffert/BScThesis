@@ -1,4 +1,4 @@
-package org.softlang.megal.plugins.prelude;
+package org.softlang.megal.plugins.fragments;
 
 import org.softlang.megal.mi2.Relationship;
 import org.softlang.megal.plugins.api.GuidedReasonerPlugin;

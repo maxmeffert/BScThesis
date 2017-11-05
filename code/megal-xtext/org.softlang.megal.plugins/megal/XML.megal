@@ -27,15 +27,11 @@ XMLAttributeFragments subsetOf XMLFragments
 // § Conformance
 //===============================================
 
-@Plugin 'XSDConformanceEvaluatorPlugin'
 conformsTo < Artifact(+) * Artifact(+)
 
 //===============================================
 // § Plugins
 //===============================================
-
-XSDConformanceEvaluatorPlugin : Plugin
-XSDConformanceEvaluatorPlugin = 'classpath:org.softlang.megal.plugins.impl.xml.XSDConformanceEvaluatorPlugin'
 
 XMLAcceptor : Plugin
 XMLAcceptor realizationOf XML
