@@ -40,7 +40,6 @@ public class FileFragmentationReasoner extends GuidedReasonerPlugin {
 	private void deriveFragments (Iterable<Fragment> fs, String lang) {
 		
 		for (Fragment f : fs) {
-//			System.out.println(f);
 			deriveFragments(f, lang);
 			
 		}
@@ -81,13 +80,6 @@ public class FileFragmentationReasoner extends GuidedReasonerPlugin {
 			
 			for(Entity lang : plugin.getRealization()) {
 				
-//				System.err.println(entity);
-//				System.err.println(
-//						entity.getKB().getRelationships().stream()
-//						.filter( r -> r.getTypeName().equals("elementOf"))
-////						.filter( r -> r.getRight().equals(lang))
-//						.collect(Collectors.toList())
-//						);
 				
 				if (isElementOfLanguage(entity, lang)) {
 					
@@ -97,36 +89,6 @@ public class FileFragmentationReasoner extends GuidedReasonerPlugin {
 				
 			}
 			
-//			// If the partial fragmentation plugin does NOT realize the language of the entity
-//			if (!any(plugin.getRealization(), lang -> isElementOfLanguage(entity, lang))) {
-//			
-//				// Skip the plugin
-//				continue;
-//			
-//			}
-//			
-//			try {
-//				
-//				if (entity.hasBinding()) {
-//					
-//					
-//					// For all artifacts bound to the entity
-//					for(Artifact artifact : artifactsOf(entity)) {
-//						
-//						// Derive the fragments of the entity
-//						deriveFragments(plugin.getFragments(entity, artifact));
-//						
-//					}
-//					
-//				}
-//				
-//			} 
-//			catch(Exception e) {
-//				
-//				error("Fragmentation of '" + entity + "' failed!");
-//				e.printStackTrace();
-//				
-//			}
 			
 		}
 		

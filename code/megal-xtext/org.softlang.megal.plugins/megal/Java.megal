@@ -36,7 +36,7 @@ AcceptJava = 'classpath:org.softlang.megal.plugins.impl.java.JavaAcceptor'
 JavaFragmentizer : Plugin
 JavaFragmentizer realizationOf Java
 JavaFragmentizer partOf FileFragmentReasoner
-JavaFragmentizer = 'classpath:org.softlang.megal.plugins.impl.java.JavaFragmentizer2'
+JavaFragmentizer = 'classpath:org.softlang.megal.plugins.impl.java.JavaFragmentizer3'
 
 
 aJavaFile : File
