@@ -3,10 +3,10 @@
 ============================================
                   Metrics                   
 ============================================
-#Elements          : 162
+#Elements          : 243
 #EntityTypes       : 14
-#Entities          : 27
-#Relationships     : 56
+#Entities          : 45
+#Relationships     : 119
 #RelationshipTypes : 65
 */
 
@@ -121,15 +121,15 @@ aJavaFile.Company fragmentOf aJavaFile
 aJavaFile.Company partOf aJavaFile
 
 aJavaFile.Company.addDepartment: Fragment
-aJavaFile.Company.addDepartment elementOf JavaClassFragments
 aJavaFile.Company.addDepartment elementOf JavaFragments
+aJavaFile.Company.addDepartment elementOf JavaMethodFragments
 aJavaFile.Company.addDepartment fragmentOf aJavaFile
 aJavaFile.Company.addDepartment fragmentOf aJavaFile.Company
 aJavaFile.Company.addDepartment partOf aJavaFile
 aJavaFile.Company.addDepartment partOf aJavaFile.Company
 
 aJavaFile.Company.departments: Fragment
-aJavaFile.Company.departments elementOf JavaClassFragments
+aJavaFile.Company.departments elementOf JavaFieldFragments
 aJavaFile.Company.departments elementOf JavaFragments
 aJavaFile.Company.departments fragmentOf aJavaFile
 aJavaFile.Company.departments fragmentOf aJavaFile.Company
@@ -137,23 +137,23 @@ aJavaFile.Company.departments partOf aJavaFile
 aJavaFile.Company.departments partOf aJavaFile.Company
 
 aJavaFile.Company.getDepartments: Fragment
-aJavaFile.Company.getDepartments elementOf JavaClassFragments
 aJavaFile.Company.getDepartments elementOf JavaFragments
+aJavaFile.Company.getDepartments elementOf JavaMethodFragments
 aJavaFile.Company.getDepartments fragmentOf aJavaFile
 aJavaFile.Company.getDepartments fragmentOf aJavaFile.Company
 aJavaFile.Company.getDepartments partOf aJavaFile
 aJavaFile.Company.getDepartments partOf aJavaFile.Company
 
 aJavaFile.Company.getName: Fragment
-aJavaFile.Company.getName elementOf JavaClassFragments
 aJavaFile.Company.getName elementOf JavaFragments
+aJavaFile.Company.getName elementOf JavaMethodFragments
 aJavaFile.Company.getName fragmentOf aJavaFile
 aJavaFile.Company.getName fragmentOf aJavaFile.Company
 aJavaFile.Company.getName partOf aJavaFile
 aJavaFile.Company.getName partOf aJavaFile.Company
 
 aJavaFile.Company.name: Fragment
-aJavaFile.Company.name elementOf JavaClassFragments
+aJavaFile.Company.name elementOf JavaFieldFragments
 aJavaFile.Company.name elementOf JavaFragments
 aJavaFile.Company.name fragmentOf aJavaFile
 aJavaFile.Company.name fragmentOf aJavaFile.Company
@@ -161,16 +161,16 @@ aJavaFile.Company.name partOf aJavaFile
 aJavaFile.Company.name partOf aJavaFile.Company
 
 aJavaFile.Company.setDepartments: Fragment
-aJavaFile.Company.setDepartments elementOf JavaClassFragments
 aJavaFile.Company.setDepartments elementOf JavaFragments
+aJavaFile.Company.setDepartments elementOf JavaMethodFragments
 aJavaFile.Company.setDepartments fragmentOf aJavaFile
 aJavaFile.Company.setDepartments fragmentOf aJavaFile.Company
 aJavaFile.Company.setDepartments partOf aJavaFile
 aJavaFile.Company.setDepartments partOf aJavaFile.Company
 
 aJavaFile.Company.setName: Fragment
-aJavaFile.Company.setName elementOf JavaClassFragments
 aJavaFile.Company.setName elementOf JavaFragments
+aJavaFile.Company.setName elementOf JavaMethodFragments
 aJavaFile.Company.setName fragmentOf aJavaFile
 aJavaFile.Company.setName fragmentOf aJavaFile.Company
 aJavaFile.Company.setName partOf aJavaFile
@@ -194,4 +194,94 @@ JavaFragments fragmentLanguageOf Java
 
 JavaMethodFragments: Language
 JavaMethodFragments subsetOf JavaFragments
+
+@FileExtensions '.xml'
+XML: Language
+XML subsetOf XMLFragments
+
+XMLAttributeFragments: Language
+XMLAttributeFragments subsetOf XMLFragments
+
+XMLElementFragments: Language
+XMLElementFragments subsetOf XMLFragments
+
+xmlFile: File
+xmlFile elementOf XML
+xmlFile = 'workspace:/org.softlang.megal.plugins/input/Note.xml'
+
+xmlFile.note: Fragment
+xmlFile.note elementOf XMLElementFragments
+xmlFile.note elementOf XMLFragments
+xmlFile.note fragmentOf xmlFile
+xmlFile.note partOf xmlFile
+
+xmlFile.note.body: Fragment
+xmlFile.note.body elementOf XMLElementFragments
+xmlFile.note.body elementOf XMLFragments
+xmlFile.note.body fragmentOf xmlFile
+xmlFile.note.body fragmentOf xmlFile.note
+xmlFile.note.body partOf xmlFile
+xmlFile.note.body partOf xmlFile.note
+
+xmlFile.note.from: Fragment
+xmlFile.note.from elementOf XMLElementFragments
+xmlFile.note.from elementOf XMLFragments
+xmlFile.note.from fragmentOf xmlFile
+xmlFile.note.from fragmentOf xmlFile.note
+xmlFile.note.from partOf xmlFile
+xmlFile.note.from partOf xmlFile.note
+
+xmlFile.note.heading: Fragment
+xmlFile.note.heading elementOf XMLElementFragments
+xmlFile.note.heading elementOf XMLFragments
+xmlFile.note.heading fragmentOf xmlFile
+xmlFile.note.heading fragmentOf xmlFile.note
+xmlFile.note.heading partOf xmlFile
+xmlFile.note.heading partOf xmlFile.note
+
+xmlFile.note.to: Fragment
+xmlFile.note.to elementOf XMLElementFragments
+xmlFile.note.to elementOf XMLFragments
+xmlFile.note.to fragmentOf xmlFile
+xmlFile.note.to fragmentOf xmlFile.note
+xmlFile.note.to partOf xmlFile
+xmlFile.note.to partOf xmlFile.note
+
+xmlFile.note.xmlns: Fragment
+xmlFile.note.xmlns elementOf XMLAttributeFragments
+xmlFile.note.xmlns elementOf XMLFragments
+xmlFile.note.xmlns fragmentOf xmlFile
+xmlFile.note.xmlns fragmentOf xmlFile.note
+xmlFile.note.xmlns partOf xmlFile
+xmlFile.note.xmlns partOf xmlFile.note
+
+xmlFile.note.xmlns:xsi: Fragment
+xmlFile.note.xmlns:xsi elementOf XMLAttributeFragments
+xmlFile.note.xmlns:xsi elementOf XMLFragments
+xmlFile.note.xmlns:xsi fragmentOf xmlFile
+xmlFile.note.xmlns:xsi fragmentOf xmlFile.note
+xmlFile.note.xmlns:xsi partOf xmlFile
+xmlFile.note.xmlns:xsi partOf xmlFile.note
+
+xmlFile.note.xsi:schemaLocation: Fragment
+xmlFile.note.xsi:schemaLocation elementOf XMLAttributeFragments
+xmlFile.note.xsi:schemaLocation elementOf XMLFragments
+xmlFile.note.xsi:schemaLocation fragmentOf xmlFile
+xmlFile.note.xsi:schemaLocation fragmentOf xmlFile.note
+xmlFile.note.xsi:schemaLocation partOf xmlFile
+xmlFile.note.xsi:schemaLocation partOf xmlFile.note
+
+XMLFragments: Language
+XMLFragments fragmentLanguageOf XML
+XMLFragments fragmentLanguageOf XSD
+
+@FileExtensions '.xsd'
+XSD: Language
+XSD subsetOf XML
+XSD subsetOf XMLFragments
+
+xsdFiles: File+
+xsdFiles elementOf XML
+xsdFiles elementOf XMLFragments
+xsdFiles elementOf XSD
 

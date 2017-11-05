@@ -38,6 +38,11 @@ XMLAcceptorPlugin realizationOf XML
 XMLAcceptorPlugin partOf FileElementOfLanguageEvaluatorPlugin
 XMLAcceptorPlugin = 'classpath:org.softlang.megal.plugins.impl.xml.XMLAcceptorPlugin'
 
+XMLFragmentRecoveryPlugin : Plugin
+XMLFragmentRecoveryPlugin realizationOf XML
+XMLFragmentRecoveryPlugin partOf FileFragmentRecoveryReasonerPlugin
+XMLFragmentRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.xml.XMLFragmentRecoveryPlugin'
+
 XSDAcceptorPlugin : Plugin
 XSDAcceptorPlugin realizationOf XSD
 XSDAcceptorPlugin partOf FileElementOfLanguageEvaluatorPlugin
