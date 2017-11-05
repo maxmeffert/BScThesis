@@ -278,7 +278,7 @@ public class MegalGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//('<' supertype=[MegalEntityType] | 'as' 'entity')
+		//'<' supertype=[MegalEntityType] | 'as' 'entity'
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 
 		//'<' supertype=[MegalEntityType]
@@ -843,7 +843,7 @@ public class MegalGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cQueryPosParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//QueryDefEntry QueryEntry:
-		//	QueryParam | QueryString | QueryEntity | QueryPos
+		//	QueryParam | QueryString | QueryEntity | QueryPos;
 		@Override public ParserRule getRule() { return rule; }
 
 		//QueryParam | QueryString | QueryEntity | QueryPos
@@ -871,7 +871,7 @@ public class MegalGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cQueryPosParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//QueryRefEntry QueryEntry:
-		//	QueryReference | QueryString | QueryEntity | QueryPos
+		//	QueryReference | QueryString | QueryEntity | QueryPos;
 		@Override public ParserRule getRule() { return rule; }
 
 		//QueryReference | QueryString | QueryEntity | QueryPos
@@ -1213,7 +1213,7 @@ public class MegalGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//QueryDefEntry QueryEntry:
-	//	QueryParam | QueryString | QueryEntity | QueryPos
+	//	QueryParam | QueryString | QueryEntity | QueryPos;
 	public QueryDefEntryElements getQueryDefEntryAccess() {
 		return pQueryDefEntry;
 	}
@@ -1223,7 +1223,7 @@ public class MegalGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//QueryRefEntry QueryEntry:
-	//	QueryReference | QueryString | QueryEntity | QueryPos
+	//	QueryReference | QueryString | QueryEntity | QueryPos;
 	public QueryRefEntryElements getQueryRefEntryAccess() {
 		return pQueryRefEntry;
 	}
@@ -1313,7 +1313,7 @@ public class MegalGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal COMMENT:
-	//	'/ *'->'* /' | '//' !('\n' | '\r')* ('\r'? '\n')?;
+	//	'/*'->'*/' | '//' !('\n' | '\r')* ('\r'? '\n')?;
 	public TerminalRule getCOMMENTRule() {
 		return tCOMMENT;
 	} 

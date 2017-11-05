@@ -228,7 +228,7 @@ public abstract class AbstractMegalSemanticSequencer extends AbstractDelegatingS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MegalPackage.Literals.QUERY_ENTITY__ENTITY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getQueryEntityAccess().getEntityMegalEntityIDTerminalRuleCall_0_1(), semanticObject.getEntity());
+		feeder.accept(grammarAccess.getQueryEntityAccess().getEntityMegalEntityIDTerminalRuleCall_0_1(), semanticObject.eGet(MegalPackage.Literals.QUERY_ENTITY__ENTITY, false));
 		feeder.finish();
 	}
 	
@@ -280,7 +280,7 @@ public abstract class AbstractMegalSemanticSequencer extends AbstractDelegatingS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MegalPackage.Literals.QUERY_REFERENCE__REF));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getQueryReferenceAccess().getRefQueryParamVAR_IDTerminalRuleCall_0_1(), semanticObject.getRef());
+		feeder.accept(grammarAccess.getQueryReferenceAccess().getRefQueryParamVAR_IDTerminalRuleCall_0_1(), semanticObject.eGet(MegalPackage.Literals.QUERY_REFERENCE__REF, false));
 		feeder.finish();
 	}
 	
@@ -303,7 +303,7 @@ public abstract class AbstractMegalSemanticSequencer extends AbstractDelegatingS
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getQueryStatementAccess().getSubjectQueryRefEntryParserRuleCall_0_0(), semanticObject.getSubject());
-		feeder.accept(grammarAccess.getQueryStatementAccess().getPredicateMegalRelationshipTypeIDTerminalRuleCall_1_0_1(), semanticObject.getPredicate());
+		feeder.accept(grammarAccess.getQueryStatementAccess().getPredicateMegalRelationshipTypeIDTerminalRuleCall_1_0_1(), semanticObject.eGet(MegalPackage.Literals.QUERY_STATEMENT__PREDICATE, false));
 		feeder.accept(grammarAccess.getQueryStatementAccess().getObjectQueryRefEntryParserRuleCall_2_0(), semanticObject.getObject());
 		feeder.finish();
 	}
