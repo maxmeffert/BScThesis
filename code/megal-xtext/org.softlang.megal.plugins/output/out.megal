@@ -3,11 +3,11 @@
 ============================================
                   Metrics                   
 ============================================
-#Elements          : 154
+#Elements          : 198
 #EntityTypes       : 22
-#Entities          : 33
-#Relationships     : 33
-#RelationshipTypes : 66
+#Entities          : 39
+#Relationships     : 69
+#RelationshipTypes : 68
 */
 
 
@@ -73,6 +73,8 @@ elementOf< File+ * Language
 elementOf< Entity+ * Set
 firstOf< Entity * Pair
 firstOf< Entity+ * Pair
+fragmentLanguageOf< Language * Language
+fragmentOf< Fragment * Artifact
 instanceOf< Entity * Concept
 isA< Concept * Concept
 linksTo< File * File+
@@ -83,8 +85,8 @@ partOf< Technology * Technology
 partOf< Artifact * Artifact+
 partOf< Artifact * Technology
 partOf< Artifact * Artifact
-partOf< Language * Technology
 partOf< Language * Language
+partOf< Language * Technology
 partOf< SQLColumnDefinitionStmt * SQLCreateTableStmt
 partOf< Plugin * Plugin
 partOf< Artifact+ * Artifact+
@@ -123,26 +125,72 @@ aFolder: Folder
 
 aJavaFile: File
 aJavaFile elementOf Java
-aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/nested/Company.java'
+aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java'
+
+aJavaFile.Company: Fragment
+aJavaFile.Company elementOf JavaClassFragments
+aJavaFile.Company elementOf JavaFragments
+aJavaFile.Company fragmentOf aJavaFile
+aJavaFile.Company partOf aJavaFile
+
+aJavaFile.Company.addDepartment: Fragment
+aJavaFile.Company.addDepartment elementOf JavaClassFragments
+aJavaFile.Company.addDepartment elementOf JavaFragments
+aJavaFile.Company.addDepartment fragmentOf aJavaFile
+aJavaFile.Company.addDepartment fragmentOf aJavaFile.Company
+aJavaFile.Company.addDepartment partOf aJavaFile
+aJavaFile.Company.addDepartment partOf aJavaFile.Company
+
+aJavaFile.Company.departments: Fragment
+aJavaFile.Company.departments elementOf JavaClassFragments
+aJavaFile.Company.departments elementOf JavaFragments
+aJavaFile.Company.departments fragmentOf aJavaFile
+aJavaFile.Company.departments fragmentOf aJavaFile.Company
+aJavaFile.Company.departments partOf aJavaFile
+aJavaFile.Company.departments partOf aJavaFile.Company
+
+aJavaFile.Company.getDepartments: Fragment
+aJavaFile.Company.getDepartments elementOf JavaClassFragments
+aJavaFile.Company.getDepartments elementOf JavaFragments
+aJavaFile.Company.getDepartments fragmentOf aJavaFile
+aJavaFile.Company.getDepartments fragmentOf aJavaFile.Company
+aJavaFile.Company.getDepartments partOf aJavaFile
+aJavaFile.Company.getDepartments partOf aJavaFile.Company
+
+aJavaFile.Company.getName: Fragment
+aJavaFile.Company.getName elementOf JavaClassFragments
+aJavaFile.Company.getName elementOf JavaFragments
+aJavaFile.Company.getName fragmentOf aJavaFile
+aJavaFile.Company.getName fragmentOf aJavaFile.Company
+aJavaFile.Company.getName partOf aJavaFile
+aJavaFile.Company.getName partOf aJavaFile.Company
+
+aJavaFile.Company.name: Fragment
+aJavaFile.Company.name elementOf JavaClassFragments
+aJavaFile.Company.name elementOf JavaFragments
+aJavaFile.Company.name fragmentOf aJavaFile
+aJavaFile.Company.name fragmentOf aJavaFile.Company
+aJavaFile.Company.name partOf aJavaFile
+aJavaFile.Company.name partOf aJavaFile.Company
+
+aJavaFile.Company.setDepartments: Fragment
+aJavaFile.Company.setDepartments elementOf JavaClassFragments
+aJavaFile.Company.setDepartments elementOf JavaFragments
+aJavaFile.Company.setDepartments fragmentOf aJavaFile
+aJavaFile.Company.setDepartments fragmentOf aJavaFile.Company
+aJavaFile.Company.setDepartments partOf aJavaFile
+aJavaFile.Company.setDepartments partOf aJavaFile.Company
+
+aJavaFile.Company.setName: Fragment
+aJavaFile.Company.setName elementOf JavaClassFragments
+aJavaFile.Company.setName elementOf JavaFragments
+aJavaFile.Company.setName fragmentOf aJavaFile
+aJavaFile.Company.setName fragmentOf aJavaFile.Company
+aJavaFile.Company.setName partOf aJavaFile
+aJavaFile.Company.setName partOf aJavaFile.Company
 
 aSQLFile: File
 aSQLFile elementOf SQL
-
-Company: Fragment
-Company elementOf JavaFragments
-Company partOf aJavaFile
-
-departments: Fragment
-departments elementOf JavaFragments
-departments partOf aJavaFile
-
-getDepartments: Fragment
-getDepartments elementOf JavaFragments
-getDepartments partOf aJavaFile
-
-getName: Fragment
-getName elementOf JavaFragments
-getName partOf aJavaFile
 
 @FileExtensions '.java'
 Java: Language
@@ -152,21 +200,16 @@ Java = 'http://dbpedia.org/page/Java_(programming_language)'
 JavaClassFragments: Language
 JavaClassFragments subsetOf JavaFragments
 
+JavaFieldFragments: Language
+JavaFieldFragments subsetOf JavaFragments
+
 javaFiles: File+
 
 JavaFragments: Language
+JavaFragments fragmentLanguageOf Java
 
-name: Fragment
-name elementOf JavaFragments
-name partOf aJavaFile
-
-setDepartments: Fragment
-setDepartments elementOf JavaFragments
-setDepartments partOf aJavaFile
-
-setName: Fragment
-setName elementOf JavaFragments
-setName partOf aJavaFile
+JavaMethodFragments: Language
+JavaMethodFragments subsetOf JavaFragments
 
 @FileExtensions '.sql'
 SQL: Language
@@ -187,5 +230,6 @@ XSD: Language
 XSD subsetOf XML
 
 xsdFile: File
+xsdFile elementOf XML
 xsdFile elementOf XSD
 

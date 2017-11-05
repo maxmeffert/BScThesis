@@ -7,6 +7,9 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.CCRecoveryScenarios;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.IdentifiedJavaFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaClassFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaFieldFragment;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaMethodFragment;
 import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.mi2.api.Artifact;
 import org.softlang.megal.plugins.api.FragmentRecoveryPlugin;
@@ -24,30 +27,47 @@ public class JavaFragmentRecoveryPlugin extends FragmentRecoveryPlugin {
 		return recovery.getFragmentKB(fragment);
 	}
 	
-	private void deriveMetadata(IGuidedReasonerProxy reasoner) {
-		reasoner.addEntity("Java", "Language");
-		reasoner.addEntity("JavaFragments", "Language");
-		reasoner.addEntity("JavaClassFragments", "Language");
-		reasoner.addRelationship("subsetOf", "Java", "JavaFragments");
-		reasoner.addRelationship("subsetOf", "JavaClassFragments", "JavaFragments");
+	private String getQualifiedName(IFragment fragment, Entity entity) {
+		String qualifiedName = ((IdentifiedJavaFragment) fragment).getIdentifier();
+		if (fragment.hasParent()) {
+			IFragment parent = fragment.getParent();
+			while (parent != null) {
+				qualifiedName = ((IdentifiedJavaFragment) parent).getIdentifier() + "." + qualifiedName;
+				parent = parent.getParent();
+			}
+		}
+		return entity.getName() + "." + qualifiedName;
+	}
+	
+	private String getLanguageOf(IFragment fragment) {
+		if (fragment instanceof JavaClassFragment) {
+			return "JavaClassFragments";
+		}
+		if (fragment instanceof JavaFieldFragment) {
+			return "JavaFieldFragments";
+		}
+		if (fragment instanceof JavaMethodFragment) {
+			return "JavaMethodFragments";
+		}
+		return "";
+	}
+	
+	private void derive(IGuidedReasonerProxy reasoner, Entity entity, IFragment fragment) {
+		IFragmentKB fragmentKb = getFragmentKB(fragment);
 		
+		for (IFragment ff : fragmentKb.getFragmentsOf(fragment)) {
+			if (ff instanceof IdentifiedJavaFragment) {
+				String name = getQualifiedName(ff, entity);
+				reasoner.addEntity(name, "Fragment");
+				reasoner.addRelationship("elementOf", name, getLanguageOf(fragment));
+				reasoner.addRelationship("partOf", name, entity.getName());
+			}
+		}
 	}
 	
 	public void derive(IGuidedReasonerProxy reasoner, Entity entity, Artifact artifact) {
-		deriveMetadata(reasoner);
 		try {
-			IFragment fragment = parseArtifact(artifact);
-			IFragmentKB fragmentKb = getFragmentKB(fragment);
-						
-			for (IFragment ff : fragmentKb.getFragmentsOf(fragment)) {
-				if (ff instanceof IdentifiedJavaFragment) {
-					String id = ((IdentifiedJavaFragment) ff).getIdentifier();
-					reasoner.addEntity(id, "Fragment");
-					reasoner.addRelationship("elementOf", id, "JavaFragments");
-					reasoner.addRelationship("partOf", id, entity.getName());
-				}
-			}
-			
+			derive(reasoner, entity, parseArtifact(artifact));			
 		} catch (IOException e) {
 			System.err.print(e);
 		} catch (ParserException e) {

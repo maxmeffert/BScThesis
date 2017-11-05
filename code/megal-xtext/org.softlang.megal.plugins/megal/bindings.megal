@@ -2,8 +2,8 @@ model bindings
 import test
 import Java
 
-//aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java'
-aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/nested/Company.java'
+aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java'
+//aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/nested/Company.java'
 //aJavaFile = 'workspace:/org.softlang.megal.plugins/src/org/softlang/megal/plugins/impl/java/JavaFragmentizer.java'
 
 
