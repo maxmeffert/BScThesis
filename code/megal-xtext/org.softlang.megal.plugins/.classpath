@@ -9,7 +9,6 @@
 	<classpathentry kind="lib" path="input-lib/jaxb-jxc.jar"/>
 	<classpathentry kind="lib" path="input-lib/jaxb-xjc.jar"/>
 	<classpathentry kind="lib" path="lib/org.softlang.maxmeffert.bscthesis.jar"/>
-	<classpathentry kind="lib" path="lib/javaparser-core-2.1.0-SNAPSHOT.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
