@@ -1,43 +1,43 @@
 model Java
 import Prelude
+import Fragments
+
+//===============================================
+// § Languages & Fragments
+//===============================================
 
 @FileExtensions '.java'
 Java : Language
 
-//===============================================
-// Java Syntax Fragments
-//===============================================
+JavaFragments : Language
+JavaFragments fragmentLanguageOf Java
 
-JavaFragment < Fragment
+JavaClassFragments : Language
+JavaClassFragments subsetOf JavaFragments
 
-JavaPackage < JavaFragment
-JavaInterface < JavaFragment
-JavaClass < JavaFragment
-JavaEnum < JavaFragment
-JavaField < JavaFragment
-JavaMethod < JavaFragment
-JavaConstructor < JavaMethod
-JavaAnnotation < JavaFragment
+JavaFieldFragments : Language
+JavaFieldFragments subsetOf JavaFragments
 
-partOf < JavaClass * File
-partOf < JavaInterface * File
-partOf < JavaMethod * JavaClass
-partOf < JavaField * JavaClass
+JavaMethodFragments : Language
+JavaMethodFragments subsetOf JavaFragments
 
 //===============================================
-// Plugins
+// § Plugins
 //===============================================
 
-AcceptJava: Plugin
-AcceptJava realizationOf Java
-AcceptJava partOf FileElementOfLanguage
-AcceptJava = 'classpath:org.softlang.megal.plugins.impl.java.JavaAcceptor'
+JavaAcceptorPlugin: Plugin
+JavaAcceptorPlugin realizationOf Java
+JavaAcceptorPlugin partOf FileElementOfLanguageEvaluatorPlugin
+JavaAcceptorPlugin = 'classpath:org.softlang.megal.plugins.impl.java.JavaAcceptorPlugin'
 
-JavaFragmentizer : Plugin
-JavaFragmentizer realizationOf Java
-JavaFragmentizer partOf FileFragmentReasoner
-JavaFragmentizer = 'classpath:org.softlang.megal.plugins.impl.java.JavaFragmentizer2'
+JavaFragmentRecoveryPlugin : Plugin
+JavaFragmentRecoveryPlugin realizationOf Java
+JavaFragmentRecoveryPlugin partOf FileFragmentRecoveryReasonerPlugin
+JavaFragmentRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.java.JavaFragmentRecoveryPlugin'
 
+//===============================================
+// § Artifacts
+//===============================================
 
 aJavaFile : File
 aJavaFile elementOf Java

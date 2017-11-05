@@ -23,10 +23,10 @@ public class Main {
 		InputStream hbmArtifact = new FileInputStream("./companies/src/main/java/org/softlang/maxmeffert/bscthesis/ccrecovery/companies/model/Company.hbm.xml");
 
 
-		IBinaryRelation<IFragment> correspondences = iccRecoveryScenarios.getXmlXsdSimilarities(xmlArtifact, xsdArtifact);
+		IBinaryRelation<IFragment> similarities = iccRecoveryScenarios.getXmlXsdSimilarities(xmlArtifact, xsdArtifact);
 
-		System.out.println(correspondences);
-		System.out.println(correspondences.size());
+		System.out.println(similarities);
+		System.out.println(similarities.size());
 
  	}
 

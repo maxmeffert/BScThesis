@@ -1,0 +1,23 @@
+model Fragments
+
+import Prelude
+
+//===============================================
+// § FragmentLanguageOf
+//===============================================
+
+@Plugin 'FragmentLanguageSubsetOfReasonerPlugin'
+fragmentLanguageOf < Language * Language
+
+//===============================================
+// § FragmentOf
+//===============================================
+
+fragmentOf < Fragment * Artifact
+
+//===============================================
+// § Plugins
+//===============================================
+
+FragmentLanguageSubsetOfReasonerPlugin: Plugin
+FragmentLanguageSubsetOfReasonerPlugin = 'classpath:org.softlang.megal.plugins.fragments.FragmentLanguageSubsetOfReasonerPlugin'

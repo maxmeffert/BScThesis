@@ -1,0 +1,21 @@
+model SQLDDL
+import Prelude
+import Fragments
+
+//===============================================
+// § Languages & Fragments
+//===============================================
+
+@FileExtensions '.sql'
+SQL : Language
+
+SQLFragments : Language
+SQLFragments fragmentLanguageOf SQL
+
+
+//===============================================
+// § Artifacts
+//===============================================
+
+aSQLFile : File
+aSQLFile elementOf SQL

@@ -1,31 +1,63 @@
 model XML
 import Prelude
+import Fragments
 
+//===============================================
+// § Languages & Fragments
+//===============================================
+
+@FileExtensions '.xml'
 XML: Language
+
+@FileExtensions '.xsd'
 XSD: Language
 XSD subsetOf XML
+
+XMLFragments : Language
+XMLFragments fragmentLanguageOf XML
+XMLFragments fragmentLanguageOf XSD
+
+XMLElementFragments : Language
+XMLElementFragments subsetOf XMLFragments
+
+XMLAttributeFragments: Language
+XMLAttributeFragments subsetOf XMLFragments
+
+//===============================================
+// § Conformance
+//===============================================
+
+conformsTo < Artifact(+) * Artifact(+)
+
+//===============================================
+// § Plugins
+//===============================================
+
+XMLAcceptorPlugin : Plugin
+XMLAcceptorPlugin realizationOf XML
+XMLAcceptorPlugin partOf FileElementOfLanguageEvaluatorPlugin
+XMLAcceptorPlugin = 'classpath:org.softlang.megal.plugins.impl.xml.XMLAcceptorPlugin'
+
+XMLFragmentRecoveryPlugin : Plugin
+XMLFragmentRecoveryPlugin realizationOf XML
+XMLFragmentRecoveryPlugin partOf FileFragmentRecoveryReasonerPlugin
+XMLFragmentRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.xml.XMLFragmentRecoveryPlugin'
+
+XSDAcceptorPlugin : Plugin
+XSDAcceptorPlugin realizationOf XSD
+XSDAcceptorPlugin partOf FileElementOfLanguageEvaluatorPlugin
+XSDAcceptorPlugin = 'classpath:org.softlang.megal.plugins.impl.xsd.XSDAcceptorPlugin'
+
+//===============================================
+// § Artifacts
+//===============================================
+
 xsdFiles: File+
 xsdFiles elementOf XSD
 
 xmlFile: File
 xmlFile elementOf XML
 // xmlFile conformsTo xsdFiles
-
-@Plugin 'XSDConformance'
-conformsTo < Artifact(+) * Artifact(+)
-
-XSDConformance : Plugin
-XSDConformance = 'classpath:plugins.jaxb.XSDConformance'
-
-XMLAcceptor : Plugin
-XMLAcceptor realizationOf XML
-XMLAcceptor = 'classpath:plugins.jaxb.AcceptXML'
-XMLAcceptor partOf FileElementOfLanguage
-
-XSDAcceptor : Plugin
-XSDAcceptor realizationOf XSD
-XSDAcceptor = 'classpath:plugins.jaxb.AcceptXSD'
-XSDAcceptor partOf FileElementOfLanguage
 
 // xmlFile = 'workspace:/org.softlang.megal.examples/inputs/sampleCompany.xml'
 // xsdFiles = 'workspace:/org.softlang.megal.examples/inputs/Company.xsd_file'
