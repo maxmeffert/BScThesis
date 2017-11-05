@@ -1,18 +1,38 @@
 model XML
 import Prelude
+import Fragments
 
+//===============================================
+// § Languages & Fragments
+//===============================================
+
+@FileExtensions '.xml'
 XML: Language
+
+@FileExtensions '.xsd'
 XSD: Language
 XSD subsetOf XML
-xsdFiles: File+
-xsdFiles elementOf XSD
 
-xmlFile: File
-xmlFile elementOf XML
-// xmlFile conformsTo xsdFiles
+XMLFragments : Language
+XMLFragments fragmentLanguageOf XML
+XMLFragments fragmentLanguageOf XSD
+
+XMLElementFragments : Language
+XMLElementFragments subsetOf XMLFragments
+
+XMLAttributeFragments: Language
+XMLAttributeFragments subsetOf XMLFragments
+
+//===============================================
+// § Conformance
+//===============================================
 
 @Plugin 'XSDConformanceEvaluatorPlugin'
 conformsTo < Artifact(+) * Artifact(+)
+
+//===============================================
+// § Plugins
+//===============================================
 
 XSDConformanceEvaluatorPlugin : Plugin
 XSDConformanceEvaluatorPlugin = 'classpath:org.softlang.megal.plugins.impl.xml.XSDConformanceEvaluatorPlugin'
@@ -26,6 +46,17 @@ XSDAcceptor : Plugin
 XSDAcceptor realizationOf XSD
 XSDAcceptor = 'classpath:org.softlang.megal.plugins.impl.xsd.AcceptXSD'
 XSDAcceptor partOf FileElementOfLanguageEvaluatorPlugin
+
+//===============================================
+// § Artifacts
+//===============================================
+
+xsdFiles: File+
+xsdFiles elementOf XSD
+
+xmlFile: File
+xmlFile elementOf XML
+// xmlFile conformsTo xsdFiles
 
 // xmlFile = 'workspace:/org.softlang.megal.examples/inputs/sampleCompany.xml'
 // xsdFiles = 'workspace:/org.softlang.megal.examples/inputs/Company.xsd_file'

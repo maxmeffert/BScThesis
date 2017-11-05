@@ -3,7 +3,7 @@ import Prelude
 import Fragments
 
 //===============================================
-// Java Languages & Fragments
+// § Languages & Fragments
 //===============================================
 
 @FileExtensions '.java'
@@ -22,7 +22,7 @@ JavaMethodFragments : Language
 JavaMethodFragments subsetOf JavaFragments
 
 //===============================================
-// Plugins
+// § Plugins
 //===============================================
 
 AcceptJava: Plugin
@@ -36,7 +36,7 @@ JavaFragmentRecoveryPlugin partOf FileFragmentRecoveryReasonerPlugin
 JavaFragmentRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.java.JavaFragmentRecoveryPlugin'
 
 //===============================================
-// Artifact Entities
+// § Artifacts
 //===============================================
 
 aJavaFile : File

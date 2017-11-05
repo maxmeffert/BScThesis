@@ -1,5 +1,4 @@
 model bindings
-import test
 import Java
 
 aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java'

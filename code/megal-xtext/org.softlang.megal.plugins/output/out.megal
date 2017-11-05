@@ -3,11 +3,11 @@
 ============================================
                   Metrics                   
 ============================================
-#Elements          : 188
-#EntityTypes       : 22
-#Entities          : 35
-#Relationships     : 63
-#RelationshipTypes : 68
+#Elements          : 162
+#EntityTypes       : 14
+#Entities          : 27
+#Relationships     : 56
+#RelationshipTypes : 65
 */
 
 
@@ -29,16 +29,8 @@ Pair < Entity
 Plugin < Entity
 Resource < Artifact
 Set < Entity
-SQLColumnDefinitionStmt < SQLFragment
-SQLCreateTableStmt < SQLFragment
-SQLFragment < Fragment
 Technology < Entity
 Transient < Artifact
-XMLAttribute < XMLFragment
-XMLElement < XMLFragment
-XMLFragment < Fragment
-XMLNSAttribute < XMLAttribute
-XMLSchema < Artifact
 
 /*
 ============================================
@@ -87,12 +79,10 @@ partOf< Artifact * Technology
 partOf< Artifact * Artifact
 partOf< Language * Language
 partOf< Language * Technology
-partOf< SQLColumnDefinitionStmt * SQLCreateTableStmt
 partOf< Plugin * Plugin
 partOf< Artifact+ * Artifact+
 partOf< Artifact+ * Technology
 partOf< Artifact+ * Artifact
-partOf< SQLFragment * File
 realizationOf< Artifact * Function
 realizationOf< Plugin * Entity
 realizationOf< Artifact+ * Function
@@ -102,7 +92,6 @@ refersTo< Artifact * Artifact
 refersTo< Artifact+ * Artifact+
 refersTo< Artifact+ * Technology
 refersTo< Artifact+ * Artifact
-Rel< Entity * Entity
 secondOf< Entity * Pair
 secondOf< Entity+ * Pair
 subsetOf< Set * Set
@@ -120,8 +109,6 @@ versionOf< Language * Language
        Instances in Alphabetic Order.       
 ============================================
 */
-
-aFolder: Folder
 
 aJavaFile: File
 aJavaFile elementOf Java
@@ -189,9 +176,6 @@ aJavaFile.Company.setName fragmentOf aJavaFile.Company
 aJavaFile.Company.setName partOf aJavaFile
 aJavaFile.Company.setName partOf aJavaFile.Company
 
-aSQLFile: File
-aSQLFile elementOf SQL
-
 @FileExtensions '.java'
 Java: Language
 Java subsetOf JavaFragments
@@ -210,26 +194,4 @@ JavaFragments fragmentLanguageOf Java
 
 JavaMethodFragments: Language
 JavaMethodFragments subsetOf JavaFragments
-
-@FileExtensions '.sql'
-SQL: Language
-SQL = 'http://dbpedia.org/page/SQL_(programming_language)'
-
-@FileExtensions '.xml'
-XML: Language
-
-xmlFile: File
-xmlFile elementOf XML
-
-XMLSchemaSchema: File
-XMLSchemaSchema defines XSD
-XMLSchemaSchema elementOf XML
-
-@FileExtensions '.xsd'
-XSD: Language
-XSD subsetOf XML
-
-xsdFile: File
-xsdFile elementOf XML
-xsdFile elementOf XSD
 
