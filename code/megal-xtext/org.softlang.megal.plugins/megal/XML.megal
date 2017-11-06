@@ -48,16 +48,3 @@ XSDAcceptorPlugin realizationOf XSD
 XSDAcceptorPlugin partOf FileElementOfLanguageEvaluatorPlugin
 XSDAcceptorPlugin = 'classpath:org.softlang.megal.plugins.impl.xsd.XSDAcceptorPlugin'
 
-//===============================================
-// § Artifacts
-//===============================================
-
-xsdFiles: File+
-xsdFiles elementOf XSD
-
-xmlFile: File
-xmlFile elementOf XML
-// xmlFile conformsTo xsdFiles
-
-// xmlFile = 'workspace:/org.softlang.megal.examples/inputs/sampleCompany.xml'
-// xsdFiles = 'workspace:/org.softlang.megal.examples/inputs/Company.xsd_file'

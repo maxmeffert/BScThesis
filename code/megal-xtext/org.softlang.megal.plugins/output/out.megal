@@ -3,10 +3,10 @@
 ============================================
                   Metrics                   
 ============================================
-#Elements          : 627
+#Elements          : 804
 #EntityTypes       : 14
-#Entities          : 77
-#Relationships     : 471
+#Entities          : 92
+#Relationships     : 633
 #RelationshipTypes : 65
 */
 
@@ -113,6 +113,7 @@ versionOf< Language * Language
 aJavaFile: File
 aJavaFile correspondsTo xmlFile
 aJavaFile elementOf Java
+aJavaFile elementOf JavaFragments
 aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java'
 
 @FragmentText '@XmlRootElementpublic class Company {	@XmlAttri ...'
@@ -200,6 +201,9 @@ aJavaFile.Company.F9$getName partOf aJavaFile
 aJavaFile.Company.F9$getName partOf aJavaFile.Company
 aJavaFile.Company.F9$getName = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L20C1L23C2'
 
+aSQLFile: File
+aSQLFile = 'workspace:/org.softlang.megal.plugins/input/Foo.sql'
+
 @FileExtensions '.java'
 Java: Language
 Java subsetOf JavaFragments
@@ -210,8 +214,6 @@ JavaClassFragments subsetOf JavaFragments
 
 JavaFieldFragments: Language
 JavaFieldFragments subsetOf JavaFragments
-
-javaFiles: File+
 
 JavaFragments: Language
 JavaFragments fragmentLanguageOf Java
@@ -232,6 +234,7 @@ XMLElementFragments subsetOf XMLFragments
 xmlFile: File
 xmlFile correspondsTo aJavaFile
 xmlFile elementOf XML
+xmlFile elementOf XMLFragments
 xmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
 
 @FragmentText '<company id="0" name="Softlang Inc.">    <departm ...'
@@ -774,8 +777,229 @@ XSD: Language
 XSD subsetOf XML
 XSD subsetOf XMLFragments
 
-xsdFiles: File+
-xsdFiles elementOf XML
-xsdFiles elementOf XMLFragments
-xsdFiles elementOf XSD
+xsdFile: File
+xsdFile elementOf XML
+xsdFile elementOf XMLFragments
+xsdFile elementOf XSD
+xsdFile = 'workspace:/org.softlang.megal.plugins/input/Note.xsd'
+
+@FragmentText '<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSch ...'
+xsdFile.F0$xs:schema: Fragment
+xsdFile.F0$xs:schema elementOf XMLElementFragments
+xsdFile.F0$xs:schema elementOf XMLFragments
+xsdFile.F0$xs:schema fragmentOf xsdFile
+xsdFile.F0$xs:schema partOf xsdFile
+xsdFile.F0$xs:schema = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L2C0L15C12'
+
+@FragmentText 'xmlns:xs="http://www.w3.org/2001/XMLSchema"'
+xsdFile.F0$xs:schema.F0$xmlns:xs: Fragment
+xsdFile.F0$xs:schema.F0$xmlns:xs elementOf XMLAttributeFragments
+xsdFile.F0$xs:schema.F0$xmlns:xs elementOf XMLFragments
+xsdFile.F0$xs:schema.F0$xmlns:xs fragmentOf xsdFile
+xsdFile.F0$xs:schema.F0$xmlns:xs fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F0$xmlns:xs partOf xsdFile
+xsdFile.F0$xs:schema.F0$xmlns:xs partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F0$xmlns:xs = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L2C11L2C54'
+
+@FragmentText '<xs:element name="note">	  <xs:complexType>	     ...'
+xsdFile.F0$xs:schema.F1$xs:element: Fragment
+xsdFile.F0$xs:schema.F1$xs:element elementOf XMLElementFragments
+xsdFile.F0$xs:schema.F1$xs:element elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L4C1L13C14'
+
+@FragmentText 'name="note"'
+xsdFile.F0$xs:schema.F1$xs:element.F0$name: Fragment
+xsdFile.F0$xs:schema.F1$xs:element.F0$name elementOf XMLAttributeFragments
+xsdFile.F0$xs:schema.F1$xs:element.F0$name elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element.F0$name fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F0$name partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F0$name partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F0$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L4C13L4C24'
+
+@FragmentText '<xs:complexType>	    <xs:sequence>	      <xs:ele ...'
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType: Fragment
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType elementOf XMLElementFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType fragmentOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType partOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L5C3L12C20'
+
+@FragmentText '<xs:sequence>	      <xs:element name="to" type="x ...'
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence: Fragment
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence elementOf XMLElementFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence fragmentOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence partOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L6C5L11C19'
+
+@FragmentText '<xs:element name="to" type="xs:string"/>'
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element: Fragment
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element elementOf XMLElementFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element fragmentOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element partOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L7C7L7C47'
+
+@FragmentText 'name="to"'
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name: Fragment
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name elementOf XMLAttributeFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F0$xs:element.F0$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L7C19L7C28'
+
+@FragmentText '<xs:element name="from" type="xs:string"/>'
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element: Fragment
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element elementOf XMLElementFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element fragmentOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element partOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L8C7L8C49'
+
+@FragmentText 'name="from"'
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name: Fragment
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name elementOf XMLAttributeFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F1$xs:element.F0$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L8C19L8C30'
+
+@FragmentText '<xs:element name="heading" type="xs:string"/>'
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element: Fragment
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element elementOf XMLElementFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element fragmentOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element partOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L9C7L9C52'
+
+@FragmentText 'name="heading"'
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name: Fragment
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name elementOf XMLAttributeFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F2$xs:element.F0$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L9C19L9C33'
+
+@FragmentText '<xs:element name="body" type="xs:string"/>'
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element: Fragment
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element elementOf XMLElementFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element fragmentOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element partOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L10C7L10C49'
+
+@FragmentText 'name="body"'
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name: Fragment
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name elementOf XMLAttributeFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F0$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L10C19L10C30'
+
+@FragmentText 'type="xs:string"'
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type: Fragment
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type elementOf XMLAttributeFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type elementOf XMLFragments
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type fragmentOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type fragmentOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type fragmentOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type fragmentOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type partOf xsdFile
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type partOf xsdFile.F0$xs:schema
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type partOf xsdFile.F0$xs:schema.F1$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type partOf xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element
+xsdFile.F0$xs:schema.F1$xs:element.F1$xs:complexType.F0$xs:sequence.F3$xs:element.F1$type = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xsd?fragment=L10C31L10C47'
 

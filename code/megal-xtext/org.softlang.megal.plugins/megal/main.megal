@@ -1,25 +1,24 @@
-model bindings
+model main
 import Java
 import XML
+import SQL
 import Jaxb
 import Hibernate
 
+//===============================================
+// § Artifacts
+//===============================================
+
+aJavaFile : File
 aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java'
-//aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/nested/Company.java'
-//aJavaFile = 'workspace:/org.softlang.megal.plugins/src/org/softlang/megal/plugins/impl/java/JavaFragmentizer.java'
 
-
+xmlFile: File
 xmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
-//xmlFile = 'workspace:/org.softlang.megal.plugins/input/Note.xml'
-//xsdFile = 'workspace:/org.softlang.megal.plugins/input/Note.xsd'
 
+xsdFile: File
+xsdFile = 'workspace:/org.softlang.megal.plugins/input/Note.xsd'
 
-//XMLSchemaSchema = 'https://www.w3.org/2009/XMLSchema/XMLSchema.xsd'
-//XMLSchemaSchema = 'workspace:/org.softlang.megal.plugins/input/XMLSchema.xsd'
-//xmlFile = 'workspace:/org.softlang.megal.plugins/input/XMLSchema.xsd'
-
-//aFolder = 'workspace:/org.softlang.megal.plugins/input';
-
-//aSQLFile = 'workspace:/org.softlang.megal.plugins/input/Foo.sql'
+aSQLFile : File
+aSQLFile = 'workspace:/org.softlang.megal.plugins/input/Foo.sql'
 
 aJavaFile correspondsTo xmlFile

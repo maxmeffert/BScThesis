@@ -12,10 +12,3 @@ SQL : Language
 SQLFragments : Language
 SQLFragments fragmentLanguageOf SQL
 
-
-//===============================================
-// § Artifacts
-//===============================================
-
-aSQLFile : File
-aSQLFile elementOf SQL
