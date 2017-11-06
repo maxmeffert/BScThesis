@@ -54,6 +54,9 @@ public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin 
 	private String getIndexedName(IFragment fragment) {
 		int index = getIndex(fragment);
 		String name = getName(fragment);
+		if (index < 0) {
+			return name;
+		}
 		return FragmentNamePrefix + index + IndexNameSeparator + name;
 	}
 	

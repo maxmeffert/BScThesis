@@ -116,89 +116,89 @@ aJavaFile elementOf Java
 aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java'
 
 @FragmentText '@XmlRootElement'
-aJavaFile.F-1$Company: Fragment
-aJavaFile.F-1$Company correspondsTo xmlFile.F0$company
-aJavaFile.F-1$Company elementOf JavaClassFragments
-aJavaFile.F-1$Company elementOf JavaFragments
-aJavaFile.F-1$Company fragmentOf aJavaFile
-aJavaFile.F-1$Company partOf aJavaFile
-aJavaFile.F-1$Company = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L9C0L38C1'
+aJavaFile.Company: Fragment
+aJavaFile.Company correspondsTo xmlFile.F0$company
+aJavaFile.Company elementOf JavaClassFragments
+aJavaFile.Company elementOf JavaFragments
+aJavaFile.Company fragmentOf aJavaFile
+aJavaFile.Company partOf aJavaFile
+aJavaFile.Company = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L9C0L38C1'
 
 @FragmentText 'private List<Departm ...'
-aJavaFile.F-1$Company.F2$departments: Fragment
-aJavaFile.F-1$Company.F2$departments correspondsTo xmlFile.F0$company.F2$departments
-aJavaFile.F-1$Company.F2$departments elementOf JavaFieldFragments
-aJavaFile.F-1$Company.F2$departments elementOf JavaFragments
-aJavaFile.F-1$Company.F2$departments fragmentOf aJavaFile
-aJavaFile.F-1$Company.F2$departments fragmentOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F2$departments partOf aJavaFile
-aJavaFile.F-1$Company.F2$departments partOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F2$departments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L14C1L14C68'
+aJavaFile.Company.F2$departments: Fragment
+aJavaFile.Company.F2$departments correspondsTo xmlFile.F0$company.F2$departments
+aJavaFile.Company.F2$departments elementOf JavaFieldFragments
+aJavaFile.Company.F2$departments elementOf JavaFragments
+aJavaFile.Company.F2$departments fragmentOf aJavaFile
+aJavaFile.Company.F2$departments fragmentOf aJavaFile.Company
+aJavaFile.Company.F2$departments partOf aJavaFile
+aJavaFile.Company.F2$departments partOf aJavaFile.Company
+aJavaFile.Company.F2$departments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L14C1L14C68'
 
 @FragmentText '@XmlAttribute'
-aJavaFile.F-1$Company.F3$name: Fragment
-aJavaFile.F-1$Company.F3$name correspondsTo xmlFile.F0$company.F1$name
-aJavaFile.F-1$Company.F3$name elementOf JavaFieldFragments
-aJavaFile.F-1$Company.F3$name elementOf JavaFragments
-aJavaFile.F-1$Company.F3$name fragmentOf aJavaFile
-aJavaFile.F-1$Company.F3$name fragmentOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F3$name partOf aJavaFile
-aJavaFile.F-1$Company.F3$name partOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F3$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L12C1L13C27'
+aJavaFile.Company.F3$name: Fragment
+aJavaFile.Company.F3$name correspondsTo xmlFile.F0$company.F1$name
+aJavaFile.Company.F3$name elementOf JavaFieldFragments
+aJavaFile.Company.F3$name elementOf JavaFragments
+aJavaFile.Company.F3$name fragmentOf aJavaFile
+aJavaFile.Company.F3$name fragmentOf aJavaFile.Company
+aJavaFile.Company.F3$name partOf aJavaFile
+aJavaFile.Company.F3$name partOf aJavaFile.Company
+aJavaFile.Company.F3$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L12C1L13C27'
 
 @FragmentText 'public void addDepar ...'
-aJavaFile.F-1$Company.F5$addDepartment: Fragment
-aJavaFile.F-1$Company.F5$addDepartment elementOf JavaFragments
-aJavaFile.F-1$Company.F5$addDepartment elementOf JavaMethodFragments
-aJavaFile.F-1$Company.F5$addDepartment fragmentOf aJavaFile
-aJavaFile.F-1$Company.F5$addDepartment fragmentOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F5$addDepartment partOf aJavaFile
-aJavaFile.F-1$Company.F5$addDepartment partOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F5$addDepartment = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L34C1L36C2'
+aJavaFile.Company.F5$addDepartment: Fragment
+aJavaFile.Company.F5$addDepartment elementOf JavaFragments
+aJavaFile.Company.F5$addDepartment elementOf JavaMethodFragments
+aJavaFile.Company.F5$addDepartment fragmentOf aJavaFile
+aJavaFile.Company.F5$addDepartment fragmentOf aJavaFile.Company
+aJavaFile.Company.F5$addDepartment partOf aJavaFile
+aJavaFile.Company.F5$addDepartment partOf aJavaFile.Company
+aJavaFile.Company.F5$addDepartment = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L34C1L36C2'
 
 @FragmentText 'public void setDepar ...'
-aJavaFile.F-1$Company.F6$setDepartments: Fragment
-aJavaFile.F-1$Company.F6$setDepartments correspondsTo xmlFile.F0$company.F2$departments
-aJavaFile.F-1$Company.F6$setDepartments elementOf JavaFragments
-aJavaFile.F-1$Company.F6$setDepartments elementOf JavaMethodFragments
-aJavaFile.F-1$Company.F6$setDepartments fragmentOf aJavaFile
-aJavaFile.F-1$Company.F6$setDepartments fragmentOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F6$setDepartments partOf aJavaFile
-aJavaFile.F-1$Company.F6$setDepartments partOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F6$setDepartments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L30C1L32C2'
+aJavaFile.Company.F6$setDepartments: Fragment
+aJavaFile.Company.F6$setDepartments correspondsTo xmlFile.F0$company.F2$departments
+aJavaFile.Company.F6$setDepartments elementOf JavaFragments
+aJavaFile.Company.F6$setDepartments elementOf JavaMethodFragments
+aJavaFile.Company.F6$setDepartments fragmentOf aJavaFile
+aJavaFile.Company.F6$setDepartments fragmentOf aJavaFile.Company
+aJavaFile.Company.F6$setDepartments partOf aJavaFile
+aJavaFile.Company.F6$setDepartments partOf aJavaFile.Company
+aJavaFile.Company.F6$setDepartments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L30C1L32C2'
 
 @FragmentText 'public List<Departme ...'
-aJavaFile.F-1$Company.F7$getDepartments: Fragment
-aJavaFile.F-1$Company.F7$getDepartments correspondsTo xmlFile.F0$company.F2$departments
-aJavaFile.F-1$Company.F7$getDepartments elementOf JavaFragments
-aJavaFile.F-1$Company.F7$getDepartments elementOf JavaMethodFragments
-aJavaFile.F-1$Company.F7$getDepartments fragmentOf aJavaFile
-aJavaFile.F-1$Company.F7$getDepartments fragmentOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F7$getDepartments partOf aJavaFile
-aJavaFile.F-1$Company.F7$getDepartments partOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F7$getDepartments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L27C1L29C2'
+aJavaFile.Company.F7$getDepartments: Fragment
+aJavaFile.Company.F7$getDepartments correspondsTo xmlFile.F0$company.F2$departments
+aJavaFile.Company.F7$getDepartments elementOf JavaFragments
+aJavaFile.Company.F7$getDepartments elementOf JavaMethodFragments
+aJavaFile.Company.F7$getDepartments fragmentOf aJavaFile
+aJavaFile.Company.F7$getDepartments fragmentOf aJavaFile.Company
+aJavaFile.Company.F7$getDepartments partOf aJavaFile
+aJavaFile.Company.F7$getDepartments partOf aJavaFile.Company
+aJavaFile.Company.F7$getDepartments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L27C1L29C2'
 
 @FragmentText 'public void setName( ...'
-aJavaFile.F-1$Company.F8$setName: Fragment
-aJavaFile.F-1$Company.F8$setName correspondsTo xmlFile.F0$company.F1$name
-aJavaFile.F-1$Company.F8$setName elementOf JavaFragments
-aJavaFile.F-1$Company.F8$setName elementOf JavaMethodFragments
-aJavaFile.F-1$Company.F8$setName fragmentOf aJavaFile
-aJavaFile.F-1$Company.F8$setName fragmentOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F8$setName partOf aJavaFile
-aJavaFile.F-1$Company.F8$setName partOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F8$setName = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L24C1L26C2'
+aJavaFile.Company.F8$setName: Fragment
+aJavaFile.Company.F8$setName correspondsTo xmlFile.F0$company.F1$name
+aJavaFile.Company.F8$setName elementOf JavaFragments
+aJavaFile.Company.F8$setName elementOf JavaMethodFragments
+aJavaFile.Company.F8$setName fragmentOf aJavaFile
+aJavaFile.Company.F8$setName fragmentOf aJavaFile.Company
+aJavaFile.Company.F8$setName partOf aJavaFile
+aJavaFile.Company.F8$setName partOf aJavaFile.Company
+aJavaFile.Company.F8$setName = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L24C1L26C2'
 
 @FragmentText '@XmlAttribute'
-aJavaFile.F-1$Company.F9$getName: Fragment
-aJavaFile.F-1$Company.F9$getName correspondsTo xmlFile.F0$company.F1$name
-aJavaFile.F-1$Company.F9$getName elementOf JavaFragments
-aJavaFile.F-1$Company.F9$getName elementOf JavaMethodFragments
-aJavaFile.F-1$Company.F9$getName fragmentOf aJavaFile
-aJavaFile.F-1$Company.F9$getName fragmentOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F9$getName partOf aJavaFile
-aJavaFile.F-1$Company.F9$getName partOf aJavaFile.F-1$Company
-aJavaFile.F-1$Company.F9$getName = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L20C1L23C2'
+aJavaFile.Company.F9$getName: Fragment
+aJavaFile.Company.F9$getName correspondsTo xmlFile.F0$company.F1$name
+aJavaFile.Company.F9$getName elementOf JavaFragments
+aJavaFile.Company.F9$getName elementOf JavaMethodFragments
+aJavaFile.Company.F9$getName fragmentOf aJavaFile
+aJavaFile.Company.F9$getName fragmentOf aJavaFile.Company
+aJavaFile.Company.F9$getName partOf aJavaFile
+aJavaFile.Company.F9$getName partOf aJavaFile.Company
+aJavaFile.Company.F9$getName = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L20C1L23C2'
 
 @FileExtensions '.java'
 Java: Language
@@ -236,7 +236,7 @@ xmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
 
 @FragmentText '<company id="0" name ...'
 xmlFile.F0$company: Fragment
-xmlFile.F0$company correspondsTo aJavaFile.F-1$Company
+xmlFile.F0$company correspondsTo aJavaFile.Company
 xmlFile.F0$company elementOf XMLElementFragments
 xmlFile.F0$company elementOf XMLFragments
 xmlFile.F0$company fragmentOf xmlFile
@@ -255,9 +255,9 @@ xmlFile.F0$company.F0$id = 'file:/home/darjeeling/Documents/BScThesis/code/megal
 
 @FragmentText 'name="Softlang Inc." ...'
 xmlFile.F0$company.F1$name: Fragment
-xmlFile.F0$company.F1$name correspondsTo aJavaFile.F-1$Company.F3$name
-xmlFile.F0$company.F1$name correspondsTo aJavaFile.F-1$Company.F8$setName
-xmlFile.F0$company.F1$name correspondsTo aJavaFile.F-1$Company.F9$getName
+xmlFile.F0$company.F1$name correspondsTo aJavaFile.Company.F3$name
+xmlFile.F0$company.F1$name correspondsTo aJavaFile.Company.F8$setName
+xmlFile.F0$company.F1$name correspondsTo aJavaFile.Company.F9$getName
 xmlFile.F0$company.F1$name elementOf XMLAttributeFragments
 xmlFile.F0$company.F1$name elementOf XMLFragments
 xmlFile.F0$company.F1$name fragmentOf xmlFile
@@ -268,9 +268,9 @@ xmlFile.F0$company.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/meg
 
 @FragmentText '<departments>'
 xmlFile.F0$company.F2$departments: Fragment
-xmlFile.F0$company.F2$departments correspondsTo aJavaFile.F-1$Company.F2$departments
-xmlFile.F0$company.F2$departments correspondsTo aJavaFile.F-1$Company.F6$setDepartments
-xmlFile.F0$company.F2$departments correspondsTo aJavaFile.F-1$Company.F7$getDepartments
+xmlFile.F0$company.F2$departments correspondsTo aJavaFile.Company.F2$departments
+xmlFile.F0$company.F2$departments correspondsTo aJavaFile.Company.F6$setDepartments
+xmlFile.F0$company.F2$departments correspondsTo aJavaFile.Company.F7$getDepartments
 xmlFile.F0$company.F2$departments elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments elementOf XMLFragments
 xmlFile.F0$company.F2$departments fragmentOf xmlFile
