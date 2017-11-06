@@ -1,19 +1,65 @@
-model bindings
+model main
 import Java
 import XML
+import SQL
+import Jaxb
+import Hibernate
 
-aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java'
-//aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/nested/Company.java'
-//aJavaFile = 'workspace:/org.softlang.megal.plugins/src/org/softlang/megal/plugins/impl/java/JavaFragmentizer.java'
+//===============================================
+// § Artifacts
+//===============================================
 
+companyJavaFile : File
+companyJavaFile = 'workspace:/org.softlang.megal.plugins/input/Company.java'
 
-xmlFile = 'workspace:/org.softlang.megal.plugins/input/Note.xml'
-//xsdFile = 'workspace:/org.softlang.megal.plugins/input/Note.xsd'
+companyHbmFile : File
+companyHbmFile = 'workspace:/org.softlang.megal.plugins/input/Company.hbm.xml'
 
+departmentJavaFile : File
+departmentJavaFile = 'workspace:/org.softlang.megal.plugins/input/Department.java'
 
-//XMLSchemaSchema = 'https://www.w3.org/2009/XMLSchema/XMLSchema.xsd'
-//XMLSchemaSchema = 'workspace:/org.softlang.megal.plugins/input/XMLSchema.xsd'
+departmentHbmFile : File
+departmentHbmFile = 'workspace:/org.softlang.megal.plugins/input/Department.hbm.xml'
 
-//aFolder = 'workspace:/org.softlang.megal.plugins/input';
+employeeJavaFile : File
+employeeJavaFile = 'workspace:/org.softlang.megal.plugins/input/Employee.java'
 
-//aSQLFile = 'workspace:/org.softlang.megal.plugins/input/Foo.sql'
+employeeHbmFile : File
+employeeHbmFile = 'workspace:/org.softlang.megal.plugins/input/Employee.hbm.xml'
+
+companiesXmlFile: File
+companiesXmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
+
+companiesXsdFile: File
+companiesXsdFile = 'workspace:/org.softlang.megal.plugins/input/companies.xsd'
+
+comaniesSqlFile : File
+comaniesSqlFile = 'workspace:/org.softlang.megal.plugins/input/companies.ddl.sql'
+
+//===============================================
+// § Correspondence
+//===============================================
+
+companyJavaFile correspondsTo companiesXmlFile
+companyJavaFile correspondsTo companiesXsdFile
+companyJavaFile correspondsTo comaniesSqlFile
+companyJavaFile correspondsTo companyHbmFile
+
+departmentJavaFile correspondsTo companiesXmlFile
+departmentJavaFile correspondsTo companiesXsdFile
+departmentJavaFile correspondsTo comaniesSqlFile
+departmentJavaFile correspondsTo departmentHbmFile
+
+employeeJavaFile correspondsTo companiesXmlFile
+employeeJavaFile correspondsTo companiesXsdFile
+employeeJavaFile correspondsTo comaniesSqlFile
+employeeJavaFile correspondsTo employeeHbmFile
+
+companiesXmlFile correspondsTo companiesXsdFile
+
+//===============================================
+// § Conformance
+//===============================================
+
+companiesXmlFile conformsTo companiesXsdFile
+

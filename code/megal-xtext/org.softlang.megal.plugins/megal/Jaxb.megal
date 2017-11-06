@@ -1,0 +1,6 @@
+model Jaxb
+import Prelude
+
+JaxbJavaXmlCorrespondsToRecoveryPlugin: Plugin
+JaxbJavaXmlCorrespondsToRecoveryPlugin partOf CorrespondsToReasonerPlugin
+JaxbJavaXmlCorrespondsToRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.jaxb.JaxbJavaXmlCorrespondsToRecoveryPlugin'

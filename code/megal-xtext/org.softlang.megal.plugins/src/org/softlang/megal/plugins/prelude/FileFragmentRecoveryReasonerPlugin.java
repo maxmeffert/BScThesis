@@ -5,8 +5,8 @@ import static com.google.common.collect.Iterables.filter;
 
 import static org.softlang.megal.plugins.util.Prelude.isElementOfLanguage;
 
-import org.softlang.megal.plugins.api.FragmentRecoveryPlugin;
 import org.softlang.megal.plugins.api.ProxyableGuidedReasonerPlugin;
+import org.softlang.megal.plugins.api.recovery.FragmentRecoveryPlugin;
 
 /**
  * 
@@ -40,10 +40,9 @@ public class FileFragmentRecoveryReasonerPlugin extends ProxyableGuidedReasonerP
 				
 	}
 	
+	@Override
 	public boolean isContextBased () {
 		return true;
 	}
-	
-	
-	
+		
 }

@@ -1,6 +1,7 @@
-model SQLDDL
+model SQL
 import Prelude
 import Fragments
+import XML
 
 //===============================================
 // § Languages & Fragments
@@ -12,10 +13,25 @@ SQL : Language
 SQLFragments : Language
 SQLFragments fragmentLanguageOf SQL
 
+@FileExtensions '.ddl.sql'
+SQLDDL : Language
+SQLDDL subsetOf SQL
+
+SQLDDLFragments : Language
+SQLDDLFragments subsetOf SQLFragments
+SQLDDLFragments fragmentLanguageOf SQLDDL
+
+SQLCreateTableFragments : Language
+SQLCreateTableFragments subsetOf SQLDDLFragments
+
+SQLColumnDefinitionFragments : Language
+SQLColumnDefinitionFragments subsetOf SQLDDLFragments
 
 //===============================================
-// § Artifacts
+// § Plugins
 //===============================================
 
-aSQLFile : File
-aSQLFile elementOf SQL
+SqlDdlFragmentRecoveryPlugin : Plugin
+SqlDdlFragmentRecoveryPlugin realizationOf SQLDDL
+SqlDdlFragmentRecoveryPlugin partOf FileFragmentRecoveryReasonerPlugin
+SqlDdlFragmentRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.sql.SqlDdlFragmentRecoveryPlugin'

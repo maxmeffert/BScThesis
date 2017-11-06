@@ -9,8 +9,8 @@ import static org.softlang.megal.plugins.util.Prelude.isElementOfLanguage;
 import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.mi2.Relationship;
 import org.softlang.megal.mi2.api.Artifact;
-import org.softlang.megal.plugins.api.AcceptorPlugin;
 import org.softlang.megal.plugins.api.GuidedEvaluatorPlugin;
+import org.softlang.megal.plugins.api.acceptors.AcceptorPlugin;
 
 import com.google.common.base.Optional;
 
