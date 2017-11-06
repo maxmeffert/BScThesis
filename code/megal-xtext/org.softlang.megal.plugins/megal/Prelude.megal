@@ -119,6 +119,7 @@ transformedIn < Artifact (+) * Artifact (+)
 // § ConformsTo
 //===============================================
 
+@Plugin 'SymmetryReasonerPlugin'
 @Plugin 'CorrespondsToReasonerPlugin'
 correspondsTo < Artifact (+) * Artifact (+)
 
@@ -207,6 +208,10 @@ FragmentOfReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.Fragmen
 
 ElementOfLanguageReasonerPlugin: Plugin
 ElementOfLanguageReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.ElementOfLanguageReasonerPlugin'
+
+
+SymmetryReasonerPlugin: Plugin
+SymmetryReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.SymmetryReasonerPlugin'
 
 CorrespondsToReasonerPlugin: Plugin
 CorrespondsToReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.CorrespondsToReasonerPlugin'

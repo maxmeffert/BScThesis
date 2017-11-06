@@ -36,10 +36,6 @@ public class CorrespondsToReasonerPlugin extends ProxyableGuidedReasonerPlugin {
 				.collect(Collectors.toList());
 	}
 		
-	private void recoverSymmetry(Relationship relationship) {
-		this.relationship(relationship.getRight().getName(), relationship.getLeft().getName(), relationship.getTypeName());
-	}
-	
 	private boolean correspondsTo(Set<Map.Entry<String,String>> correspondences, Entity left, Entity right) {
 		String leftFragmentText = left.getAnnotation("FragmentText");
 		String rightFragmentText = right.getAnnotation("FragmentText");
@@ -76,7 +72,6 @@ public class CorrespondsToReasonerPlugin extends ProxyableGuidedReasonerPlugin {
 	@Override
 	protected void guidedDerive(Relationship relationship) throws Throwable {
 		when(relationship.getTypeName().equals("correspondsTo"));
-		recoverSymmetry(relationship);
 		recoverFragmentCorrespondenes(relationship);		
 	}
 	
