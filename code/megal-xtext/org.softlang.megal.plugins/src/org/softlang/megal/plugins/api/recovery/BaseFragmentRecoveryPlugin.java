@@ -21,13 +21,8 @@ public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin 
 	private static final String ElementOfTypeName = "elementOf";
 	private static final String PartOfTypeName = "partOf";
 	
-	private static final String FragmentNamePrefix = "F";
-	private static final String IndexNameSeparator = "$";
-	private static final String PartOfNameSeparator = ".";
-	
 	abstract protected IParser getParser(ICCRecoveryScenarios ccRecoveryScenarios);
-	abstract protected boolean hasName(IFragment fragment);
-	abstract protected String getName(IFragment fragment);
+	abstract protected IFragmentNameProvider getNameProvider();
 	abstract protected String getLanguage(IFragment fragment);
 	
 	private final ICCRecoveryScenarios recovery = CCRecoveryScenarios.create();
@@ -44,40 +39,8 @@ public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin 
 		return recovery.getFragmentUriConverter().toFragmentUri(uri, fragment);
 	}
 	
-	private int getIndex(IFragment fragment) {
-		if (fragment.hasParent()) {
-			return fragment.getParent().getChildren().indexOf(fragment);
-		}
-		return -1;
-	}
-	
-	private String getIndexedName(IFragment fragment) {
-		int index = getIndex(fragment);
-		String name = getName(fragment);
-		if (index < 0) {
-			return name;
-		}
-		return FragmentNamePrefix + index + IndexNameSeparator + name;
-	}
-	
-	private String prependAncestorNames(String qualifiedName, IFragment parent) {
-		while (parent != null && hasName(parent)) {
-			qualifiedName = getIndexedName(parent) + PartOfNameSeparator + qualifiedName;
-			parent = parent.getParent();
-		}
-		return qualifiedName;
-	}
-	
-	private String getQualifiedName(IFragment fragment, Entity entity) {
-		String qualifiedName = getIndexedName(fragment);
-		if (fragment.hasParent()) {
-			qualifiedName = prependAncestorNames(qualifiedName, fragment.getParent());
-		}
-		return entity.getName() + PartOfNameSeparator + qualifiedName;
-	}
-	
 	private void deriveOneFragment(IGuidedReasonerProxy reasoner, Entity entity, URI location, IFragment fragment) throws URISyntaxException {
-		String qualifiedName = getQualifiedName(fragment, entity);
+		String qualifiedName = new QualifiedFragmentNameProvider(getNameProvider()).getQualifiedName(fragment, entity);
 		reasoner.addEntity(qualifiedName, FragmentTypeName);
 		reasoner.addEntityAnnotation(qualifiedName, FragmentTextAnnotationName, fragment.getText());
 		reasoner.addBinding(qualifiedName, getFragmentUri(location, fragment));
@@ -87,7 +50,7 @@ public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin 
 	
 	private void deriveAllFragments(IGuidedReasonerProxy reasoner, Entity entity, URI location, IFragment fragment) throws URISyntaxException {
 		for (IFragment ff : getFragmentKB(fragment).getFragmentsOf(fragment)) {
-			if (hasName(ff)) {
+			if (getNameProvider().hasName(ff)) {
 				deriveOneFragment(reasoner, entity, location, ff);
 			}
 		}

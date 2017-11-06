@@ -20,7 +20,7 @@ public class CorrespondsToReasonerPlugin extends ProxyableGuidedReasonerPlugin {
 		
 		abstract public String getLeftLanguage();
 		abstract public String getRightLanguage();
-		abstract public Map<String,String> init(Artifact left, Artifact right);
+		abstract public Map<String,String> init(Entity leftEntity, Artifact leftArtifact, Entity rightEntity, Artifact rightArtifact);
 	}
 	
 	@Override
@@ -37,11 +37,9 @@ public class CorrespondsToReasonerPlugin extends ProxyableGuidedReasonerPlugin {
 	}
 		
 	private boolean correspondsTo(Set<Map.Entry<String,String>> correspondences, Entity left, Entity right) {
-		String leftFragmentText = left.getAnnotation("FragmentText");
-		String rightFragmentText = right.getAnnotation("FragmentText");
-		
 		return correspondences.stream()
-			.anyMatch(entry -> entry.getKey().equals(leftFragmentText) && entry.getValue().equals(rightFragmentText));
+			.anyMatch(entry -> entry.getKey().equals(left.getName()) 
+					&& entry.getValue().equals(right.getName()));
 	}
 	
 	private void recoverFragmentCorrespondenes(Relationship relationship) {
@@ -52,7 +50,7 @@ public class CorrespondsToReasonerPlugin extends ProxyableGuidedReasonerPlugin {
 			if (Prelude.isElementOfLanguage(left, plugin.getLeftLanguage())
 					&& Prelude.isElementOfLanguage(right, plugin.getRightLanguage())) {
 				
-				Set<Map.Entry<String,String>> correspondences = plugin.init(artifactOf(left), artifactOf(right)).entrySet();
+				Set<Map.Entry<String,String>> correspondences = plugin.init(left, artifactOf(left), right, artifactOf(right)).entrySet();
 				
 				for (Entity leftFragment : getFragmentsOf(left)) {
 					

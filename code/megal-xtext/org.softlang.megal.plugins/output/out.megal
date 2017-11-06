@@ -3,10 +3,10 @@
 ============================================
                   Metrics                   
 ============================================
-#Elements          : 3483
+#Elements          : 3430
 #EntityTypes       : 14
 #Entities          : 353
-#Relationships     : 3051
+#Relationships     : 2998
 #RelationshipTypes : 65
 */
 
@@ -247,12 +247,6 @@ comaniesSqlFile.F3$Company.F0$name: Fragment
 comaniesSqlFile.F3$Company.F0$name correspondsTo companyJavaFile.Company.F5$name
 comaniesSqlFile.F3$Company.F0$name correspondsTo companyJavaFile.Company.F8$setName
 comaniesSqlFile.F3$Company.F0$name correspondsTo companyJavaFile.Company.F9$getName
-comaniesSqlFile.F3$Company.F0$name correspondsTo departmentJavaFile.Department.F19$setName
-comaniesSqlFile.F3$Company.F0$name correspondsTo departmentJavaFile.Department.F20$getName
-comaniesSqlFile.F3$Company.F0$name correspondsTo departmentJavaFile.Department.F9$name
-comaniesSqlFile.F3$Company.F0$name correspondsTo employeeJavaFile.Employee.F14$setName
-comaniesSqlFile.F3$Company.F0$name correspondsTo employeeJavaFile.Employee.F15$getName
-comaniesSqlFile.F3$Company.F0$name correspondsTo employeeJavaFile.Employee.F8$name
 comaniesSqlFile.F3$Company.F0$name elementOf SQLColumnDefinitionFragments
 comaniesSqlFile.F3$Company.F0$name elementOf SQLDDLFragments
 comaniesSqlFile.F3$Company.F0$name elementOf SQLFragments
@@ -267,12 +261,6 @@ comaniesSqlFile.F3$Company.F1$id: Fragment
 comaniesSqlFile.F3$Company.F1$id correspondsTo companyJavaFile.Company.F10$setId
 comaniesSqlFile.F3$Company.F1$id correspondsTo companyJavaFile.Company.F11$getId
 comaniesSqlFile.F3$Company.F1$id correspondsTo companyJavaFile.Company.F6$id
-comaniesSqlFile.F3$Company.F1$id correspondsTo departmentJavaFile.Department.F10$id
-comaniesSqlFile.F3$Company.F1$id correspondsTo departmentJavaFile.Department.F21$setId
-comaniesSqlFile.F3$Company.F1$id correspondsTo departmentJavaFile.Department.F22$getId
-comaniesSqlFile.F3$Company.F1$id correspondsTo employeeJavaFile.Employee.F16$setId
-comaniesSqlFile.F3$Company.F1$id correspondsTo employeeJavaFile.Employee.F17$getId
-comaniesSqlFile.F3$Company.F1$id correspondsTo employeeJavaFile.Employee.F9$id
 comaniesSqlFile.F3$Company.F1$id elementOf SQLColumnDefinitionFragments
 comaniesSqlFile.F3$Company.F1$id elementOf SQLDDLFragments
 comaniesSqlFile.F3$Company.F1$id elementOf SQLFragments
@@ -283,6 +271,8 @@ comaniesSqlFile.F3$Company.F1$id partOf comaniesSqlFile.F3$Company
 comaniesSqlFile.F3$Company.F1$id = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.ddl.sql?fragment=L1C22L1C41'
 
 companiesXmlFile: File
+companiesXmlFile conformsTo companiesXsdFile
+companiesXmlFile correspondsTo companiesXsdFile
 companiesXmlFile correspondsTo companyJavaFile
 companiesXmlFile correspondsTo departmentJavaFile
 companiesXmlFile correspondsTo employeeJavaFile
@@ -304,12 +294,6 @@ companiesXmlFile.F0$company.F0$id: Fragment
 companiesXmlFile.F0$company.F0$id correspondsTo companyJavaFile.Company.F10$setId
 companiesXmlFile.F0$company.F0$id correspondsTo companyJavaFile.Company.F11$getId
 companiesXmlFile.F0$company.F0$id correspondsTo companyJavaFile.Company.F6$id
-companiesXmlFile.F0$company.F0$id correspondsTo departmentJavaFile.Department.F10$id
-companiesXmlFile.F0$company.F0$id correspondsTo departmentJavaFile.Department.F21$setId
-companiesXmlFile.F0$company.F0$id correspondsTo departmentJavaFile.Department.F22$getId
-companiesXmlFile.F0$company.F0$id correspondsTo employeeJavaFile.Employee.F16$setId
-companiesXmlFile.F0$company.F0$id correspondsTo employeeJavaFile.Employee.F17$getId
-companiesXmlFile.F0$company.F0$id correspondsTo employeeJavaFile.Employee.F9$id
 companiesXmlFile.F0$company.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F0$id fragmentOf companiesXmlFile
@@ -796,9 +780,6 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employe
 
 @FragmentText 'age="40"'
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age correspondsTo employeeJavaFile.Employee.F12$setAge
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age correspondsTo employeeJavaFile.Employee.F13$getAge
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age correspondsTo employeeJavaFile.Employee.F7$age
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age fragmentOf companiesXmlFile
@@ -817,9 +798,6 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employe
 
 @FragmentText 'salary="55000.0"'
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary correspondsTo employeeJavaFile.Employee.F10$setSalary
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary correspondsTo employeeJavaFile.Employee.F11$getSalary
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary correspondsTo employeeJavaFile.Employee.F6$salary
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary fragmentOf companiesXmlFile
@@ -851,6 +829,7 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager partOf compa
 companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L35C12L35C75'
 
 companiesXsdFile: File
+companiesXsdFile correspondsTo companiesXmlFile
 companiesXsdFile correspondsTo companyJavaFile
 companiesXsdFile correspondsTo departmentJavaFile
 companiesXsdFile correspondsTo employeeJavaFile
@@ -1116,8 +1095,6 @@ companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence.F0$xs:element.F2$
 @FragmentText '<xs:attribute name="id" type="xs:int" use="require ...'
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute: Fragment
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute correspondsTo companyJavaFile.Company.F6$id
-companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute correspondsTo departmentJavaFile.Department.F10$id
-companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute correspondsTo employeeJavaFile.Employee.F9$id
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute elementOf XMLFragments
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute fragmentOf companiesXsdFile
@@ -1145,8 +1122,6 @@ companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute.F0$name = 'file:
 @FragmentText '<xs:attribute name="name" type="xs:string"/>'
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute: Fragment
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute correspondsTo companyJavaFile.Company.F5$name
-companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute correspondsTo departmentJavaFile.Department.F9$name
-companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute correspondsTo employeeJavaFile.Employee.F8$name
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute elementOf XMLFragments
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute fragmentOf companiesXsdFile
@@ -3236,9 +3211,6 @@ departmentJavaFile.Department = 'file:/home/darjeeling/Documents/BScThesis/code/
 
 @FragmentText '@Id	@GeneratedValue(strategy=GenerationType.AUTO) ...'
 departmentJavaFile.Department.F10$id: Fragment
-departmentJavaFile.Department.F10$id correspondsTo comaniesSqlFile.F3$Company.F1$id
-departmentJavaFile.Department.F10$id correspondsTo companiesXmlFile.F0$company.F0$id
-departmentJavaFile.Department.F10$id correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute
 departmentJavaFile.Department.F10$id correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id
 departmentJavaFile.Department.F10$id elementOf JavaFieldFragments
 departmentJavaFile.Department.F10$id elementOf JavaFragments
@@ -3336,7 +3308,6 @@ departmentJavaFile.Department.F18$getEmployees = 'file:/home/darjeeling/Document
 
 @FragmentText 'public void setName(String name) {		this.name = n ...'
 departmentJavaFile.Department.F19$setName: Fragment
-departmentJavaFile.Department.F19$setName correspondsTo comaniesSqlFile.F3$Company.F0$name
 departmentJavaFile.Department.F19$setName correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F1$name
 departmentJavaFile.Department.F19$setName correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property
 departmentJavaFile.Department.F19$setName elementOf JavaFragments
@@ -3349,7 +3320,6 @@ departmentJavaFile.Department.F19$setName = 'file:/home/darjeeling/Documents/BSc
 
 @FragmentText 'public String getName() {		return name;	}'
 departmentJavaFile.Department.F20$getName: Fragment
-departmentJavaFile.Department.F20$getName correspondsTo comaniesSqlFile.F3$Company.F0$name
 departmentJavaFile.Department.F20$getName correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F1$name
 departmentJavaFile.Department.F20$getName correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property
 departmentJavaFile.Department.F20$getName elementOf JavaFragments
@@ -3362,8 +3332,6 @@ departmentJavaFile.Department.F20$getName = 'file:/home/darjeeling/Documents/BSc
 
 @FragmentText 'public void setId(int id) {		this.id = id;	}'
 departmentJavaFile.Department.F21$setId: Fragment
-departmentJavaFile.Department.F21$setId correspondsTo comaniesSqlFile.F3$Company.F1$id
-departmentJavaFile.Department.F21$setId correspondsTo companiesXmlFile.F0$company.F0$id
 departmentJavaFile.Department.F21$setId correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id
 departmentJavaFile.Department.F21$setId elementOf JavaFragments
 departmentJavaFile.Department.F21$setId elementOf JavaMethodFragments
@@ -3375,8 +3343,6 @@ departmentJavaFile.Department.F21$setId = 'file:/home/darjeeling/Documents/BScTh
 
 @FragmentText 'public int getId() {		return id;	}'
 departmentJavaFile.Department.F22$getId: Fragment
-departmentJavaFile.Department.F22$getId correspondsTo comaniesSqlFile.F3$Company.F1$id
-departmentJavaFile.Department.F22$getId correspondsTo companiesXmlFile.F0$company.F0$id
 departmentJavaFile.Department.F22$getId correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id
 departmentJavaFile.Department.F22$getId elementOf JavaFragments
 departmentJavaFile.Department.F22$getId elementOf JavaMethodFragments
@@ -3446,9 +3412,7 @@ departmentJavaFile.Department.F8$employees = 'file:/home/darjeeling/Documents/BS
 
 @FragmentText '@XmlAttribute	private String name;'
 departmentJavaFile.Department.F9$name: Fragment
-departmentJavaFile.Department.F9$name correspondsTo comaniesSqlFile.F3$Company.F0$name
 departmentJavaFile.Department.F9$name correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F1$name
-departmentJavaFile.Department.F9$name correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute
 departmentJavaFile.Department.F9$name correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property
 departmentJavaFile.Department.F9$name elementOf JavaFieldFragments
 departmentJavaFile.Department.F9$name elementOf JavaFragments
@@ -4191,7 +4155,6 @@ employeeJavaFile.Employee = 'file:/home/darjeeling/Documents/BScThesis/code/mega
 @FragmentText 'public void setSalary(double salary) {		this.sala ...'
 employeeJavaFile.Employee.F10$setSalary: Fragment
 employeeJavaFile.Employee.F10$setSalary correspondsTo comaniesSqlFile.F1$Employee.F1$salary
-employeeJavaFile.Employee.F10$setSalary correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary
 employeeJavaFile.Employee.F10$setSalary correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property
 employeeJavaFile.Employee.F10$setSalary elementOf JavaFragments
 employeeJavaFile.Employee.F10$setSalary elementOf JavaMethodFragments
@@ -4204,7 +4167,6 @@ employeeJavaFile.Employee.F10$setSalary = 'file:/home/darjeeling/Documents/BScTh
 @FragmentText 'public double getSalary() {		return salary;	}'
 employeeJavaFile.Employee.F11$getSalary: Fragment
 employeeJavaFile.Employee.F11$getSalary correspondsTo comaniesSqlFile.F1$Employee.F1$salary
-employeeJavaFile.Employee.F11$getSalary correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary
 employeeJavaFile.Employee.F11$getSalary correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property
 employeeJavaFile.Employee.F11$getSalary elementOf JavaFragments
 employeeJavaFile.Employee.F11$getSalary elementOf JavaMethodFragments
@@ -4217,7 +4179,6 @@ employeeJavaFile.Employee.F11$getSalary = 'file:/home/darjeeling/Documents/BScTh
 @FragmentText 'public void setAge(int age) {		this.age = age;	} ...'
 employeeJavaFile.Employee.F12$setAge: Fragment
 employeeJavaFile.Employee.F12$setAge correspondsTo comaniesSqlFile.F1$Employee.F3$age
-employeeJavaFile.Employee.F12$setAge correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age
 employeeJavaFile.Employee.F12$setAge correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property
 employeeJavaFile.Employee.F12$setAge elementOf JavaFragments
 employeeJavaFile.Employee.F12$setAge elementOf JavaMethodFragments
@@ -4230,7 +4191,6 @@ employeeJavaFile.Employee.F12$setAge = 'file:/home/darjeeling/Documents/BScThesi
 @FragmentText 'public int getAge() {		return age;	}'
 employeeJavaFile.Employee.F13$getAge: Fragment
 employeeJavaFile.Employee.F13$getAge correspondsTo comaniesSqlFile.F1$Employee.F3$age
-employeeJavaFile.Employee.F13$getAge correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age
 employeeJavaFile.Employee.F13$getAge correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property
 employeeJavaFile.Employee.F13$getAge elementOf JavaFragments
 employeeJavaFile.Employee.F13$getAge elementOf JavaMethodFragments
@@ -4242,7 +4202,6 @@ employeeJavaFile.Employee.F13$getAge = 'file:/home/darjeeling/Documents/BScThesi
 
 @FragmentText 'public void setName(String name) {		this.name = n ...'
 employeeJavaFile.Employee.F14$setName: Fragment
-employeeJavaFile.Employee.F14$setName correspondsTo comaniesSqlFile.F3$Company.F0$name
 employeeJavaFile.Employee.F14$setName correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name
 employeeJavaFile.Employee.F14$setName correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property
 employeeJavaFile.Employee.F14$setName elementOf JavaFragments
@@ -4255,7 +4214,6 @@ employeeJavaFile.Employee.F14$setName = 'file:/home/darjeeling/Documents/BScThes
 
 @FragmentText 'public String getName() {		return name;	}'
 employeeJavaFile.Employee.F15$getName: Fragment
-employeeJavaFile.Employee.F15$getName correspondsTo comaniesSqlFile.F3$Company.F0$name
 employeeJavaFile.Employee.F15$getName correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name
 employeeJavaFile.Employee.F15$getName correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property
 employeeJavaFile.Employee.F15$getName elementOf JavaFragments
@@ -4268,8 +4226,6 @@ employeeJavaFile.Employee.F15$getName = 'file:/home/darjeeling/Documents/BScThes
 
 @FragmentText 'public void setId(int id) {		this.id = id;	}'
 employeeJavaFile.Employee.F16$setId: Fragment
-employeeJavaFile.Employee.F16$setId correspondsTo comaniesSqlFile.F3$Company.F1$id
-employeeJavaFile.Employee.F16$setId correspondsTo companiesXmlFile.F0$company.F0$id
 employeeJavaFile.Employee.F16$setId correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id
 employeeJavaFile.Employee.F16$setId elementOf JavaFragments
 employeeJavaFile.Employee.F16$setId elementOf JavaMethodFragments
@@ -4281,8 +4237,6 @@ employeeJavaFile.Employee.F16$setId = 'file:/home/darjeeling/Documents/BScThesis
 
 @FragmentText 'public int getId() {		return id;	}'
 employeeJavaFile.Employee.F17$getId: Fragment
-employeeJavaFile.Employee.F17$getId correspondsTo comaniesSqlFile.F3$Company.F1$id
-employeeJavaFile.Employee.F17$getId correspondsTo companiesXmlFile.F0$company.F0$id
 employeeJavaFile.Employee.F17$getId correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id
 employeeJavaFile.Employee.F17$getId elementOf JavaFragments
 employeeJavaFile.Employee.F17$getId elementOf JavaMethodFragments
@@ -4316,7 +4270,6 @@ employeeJavaFile.Employee.F5$department = 'file:/home/darjeeling/Documents/BScTh
 @FragmentText '@XmlAttribute	private double salary;'
 employeeJavaFile.Employee.F6$salary: Fragment
 employeeJavaFile.Employee.F6$salary correspondsTo comaniesSqlFile.F1$Employee.F1$salary
-employeeJavaFile.Employee.F6$salary correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary
 employeeJavaFile.Employee.F6$salary correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute
 employeeJavaFile.Employee.F6$salary correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property
 employeeJavaFile.Employee.F6$salary elementOf JavaFieldFragments
@@ -4330,7 +4283,6 @@ employeeJavaFile.Employee.F6$salary = 'file:/home/darjeeling/Documents/BScThesis
 @FragmentText '@XmlAttribute	private int age;'
 employeeJavaFile.Employee.F7$age: Fragment
 employeeJavaFile.Employee.F7$age correspondsTo comaniesSqlFile.F1$Employee.F3$age
-employeeJavaFile.Employee.F7$age correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age
 employeeJavaFile.Employee.F7$age correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F4$xs:attribute
 employeeJavaFile.Employee.F7$age correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property
 employeeJavaFile.Employee.F7$age elementOf JavaFieldFragments
@@ -4343,9 +4295,7 @@ employeeJavaFile.Employee.F7$age = 'file:/home/darjeeling/Documents/BScThesis/co
 
 @FragmentText '@XmlAttribute	private String name;'
 employeeJavaFile.Employee.F8$name: Fragment
-employeeJavaFile.Employee.F8$name correspondsTo comaniesSqlFile.F3$Company.F0$name
 employeeJavaFile.Employee.F8$name correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name
-employeeJavaFile.Employee.F8$name correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute
 employeeJavaFile.Employee.F8$name correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property
 employeeJavaFile.Employee.F8$name elementOf JavaFieldFragments
 employeeJavaFile.Employee.F8$name elementOf JavaFragments
@@ -4357,9 +4307,6 @@ employeeJavaFile.Employee.F8$name = 'file:/home/darjeeling/Documents/BScThesis/c
 
 @FragmentText '@Id	@GeneratedValue(strategy=GenerationType.AUTO) ...'
 employeeJavaFile.Employee.F9$id: Fragment
-employeeJavaFile.Employee.F9$id correspondsTo comaniesSqlFile.F3$Company.F1$id
-employeeJavaFile.Employee.F9$id correspondsTo companiesXmlFile.F0$company.F0$id
-employeeJavaFile.Employee.F9$id correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute
 employeeJavaFile.Employee.F9$id correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id
 employeeJavaFile.Employee.F9$id elementOf JavaFieldFragments
 employeeJavaFile.Employee.F9$id elementOf JavaFragments

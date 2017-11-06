@@ -6,28 +6,13 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenari
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragments.SqlColumnFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.sql.fragments.SqlCreateTableFragment;
 import org.softlang.megal.plugins.api.recovery.BaseFragmentRecoveryPlugin;
+import org.softlang.megal.plugins.api.recovery.IFragmentNameProvider;
 
 public class SqlDdlFragmentRecoveryPlugin extends BaseFragmentRecoveryPlugin {
 
 	@Override
 	protected IParser getParser(ICCRecoveryScenarios ccRecoveryScenarios) {
 		return ccRecoveryScenarios.getSqlParser();
-	}
-
-	@Override
-	protected boolean hasName(IFragment fragment) {
-		return fragment instanceof SqlCreateTableFragment || fragment instanceof SqlColumnFragment;
-	}
-
-	@Override
-	protected String getName(IFragment fragment) {
-		if (fragment instanceof SqlCreateTableFragment) {
-			return ((SqlCreateTableFragment)fragment).getTableName();
-		}
-		if (fragment instanceof SqlColumnFragment) {
-			return ((SqlColumnFragment)fragment).getColumnName();
-		}
-		return null;
 	}
 
 	@Override
@@ -39,6 +24,11 @@ public class SqlDdlFragmentRecoveryPlugin extends BaseFragmentRecoveryPlugin {
 			return "SQLColumnDefinitionFragments";
 		}
 		return null;
+	}
+
+	@Override
+	protected IFragmentNameProvider getNameProvider() {
+		return new SqlFragmentNameProvider();
 	}
 
 }
