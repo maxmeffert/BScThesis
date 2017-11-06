@@ -7,7 +7,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fra
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaClassFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaFieldFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaMethodFragment;
-import org.softlang.megal.plugins.api.fragmentrecovery.BaseFragmentRecoveryPlugin;
+import org.softlang.megal.plugins.api.recovery.BaseFragmentRecoveryPlugin;
 
 public class JavaFragmentRecoveryPlugin extends BaseFragmentRecoveryPlugin {
 

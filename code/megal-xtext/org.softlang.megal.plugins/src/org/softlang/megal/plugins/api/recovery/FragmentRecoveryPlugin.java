@@ -1,4 +1,4 @@
-package org.softlang.megal.plugins.api.fragmentrecovery;
+package org.softlang.megal.plugins.api.recovery;
 
 import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.mi2.api.AbstractPlugin;

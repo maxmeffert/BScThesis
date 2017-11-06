@@ -1,4 +1,4 @@
-package org.softlang.megal.plugins.api.fragmentrecovery;
+package org.softlang.megal.plugins.api.recovery;
 
 import java.io.IOException;
 import java.net.URI;

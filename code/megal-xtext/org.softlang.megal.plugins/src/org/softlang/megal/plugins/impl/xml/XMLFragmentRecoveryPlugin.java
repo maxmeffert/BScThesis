@@ -6,7 +6,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenari
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.NamedXmlFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlAttributeFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.xml.fragments.XmlElementFragment;
-import org.softlang.megal.plugins.api.fragmentrecovery.BaseFragmentRecoveryPlugin;
+import org.softlang.megal.plugins.api.recovery.BaseFragmentRecoveryPlugin;
 
 public class XMLFragmentRecoveryPlugin extends BaseFragmentRecoveryPlugin {
 
