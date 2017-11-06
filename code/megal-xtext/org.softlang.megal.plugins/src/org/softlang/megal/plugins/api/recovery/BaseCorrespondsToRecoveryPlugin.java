@@ -9,6 +9,8 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinary
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tuples.IPair;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.CCRecoveryScenarios;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
 import org.softlang.megal.mi2.api.Artifact;
 import org.softlang.megal.plugins.prelude.CorrespondsToReasonerPlugin.CorrespondsToRecoveryPlugin;
 
@@ -16,7 +18,9 @@ import com.google.common.collect.Maps;
 
 public abstract class BaseCorrespondsToRecoveryPlugin extends CorrespondsToRecoveryPlugin {
 	
-	abstract protected IBinaryRelation<IFragment> getSimilarities(InputStream left, InputStream right) throws IOException, ParserException;
+	abstract protected IBinaryRelation<IFragment> getSimilarities(ICCRecoveryScenarios ccRecoveryScenarios, InputStream left, InputStream right) throws IOException, ParserException;
+	
+	private final ICCRecoveryScenarios ccRecoveryScenarios = CCRecoveryScenarios.create();
 	
 	private Map<String,String> getTextMap(IBinaryRelation<IFragment> similarities) {
 		Map<String, String> result = Maps.newTreeMap();
@@ -29,7 +33,7 @@ public abstract class BaseCorrespondsToRecoveryPlugin extends CorrespondsToRecov
 	@Override
 	public Map<String, String> init(Artifact left, Artifact right) {
 		try {
-			return getTextMap(getSimilarities(left.getBytes().openStream(), right.getBytes().openStream()));
+			return getTextMap(getSimilarities(ccRecoveryScenarios, left.getBytes().openStream(), right.getBytes().openStream()));
 		} catch (IOException | ParserException e) {
 			e.printStackTrace();
 		}

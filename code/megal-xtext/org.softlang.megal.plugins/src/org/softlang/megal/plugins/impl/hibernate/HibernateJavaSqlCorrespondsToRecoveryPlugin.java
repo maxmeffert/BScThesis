@@ -1,19 +1,21 @@
-package org.softlang.megal.plugins.impl.jaxb;
+package org.softlang.megal.plugins.impl.hibernate;
 
 import java.io.IOException;
 import java.io.InputStream;
+
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
 import org.softlang.megal.plugins.api.recovery.BaseCorrespondsToRecoveryPlugin;
 
-public class JaxbJavaXmlCorrespondsToRecoveryPlugin extends BaseCorrespondsToRecoveryPlugin {
+public class HibernateJavaSqlCorrespondsToRecoveryPlugin extends BaseCorrespondsToRecoveryPlugin {
 
+	
 	@Override
 	protected IBinaryRelation<IFragment> getSimilarities(ICCRecoveryScenarios ccRecoveryScenarios, InputStream left, InputStream right)
 			throws IOException, ParserException {
-		return ccRecoveryScenarios.getJaxbSimilarities(left, right);
+		return ccRecoveryScenarios.getHibernateJavaSqlSimilarities(left, right);
 	}
 
 	@Override
@@ -23,7 +25,7 @@ public class JaxbJavaXmlCorrespondsToRecoveryPlugin extends BaseCorrespondsToRec
 
 	@Override
 	public String getRightLanguage() {
-		return "XML";
+		return "SQL";
 	}
 
 }

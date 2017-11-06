@@ -6,18 +6,15 @@ import java.io.InputStream;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
-import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.CCRecoveryScenarios;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
 import org.softlang.megal.plugins.api.recovery.BaseCorrespondsToRecoveryPlugin;
 
 public class HibernateJavaXmlCorrespondsToRecoveryPlugin extends BaseCorrespondsToRecoveryPlugin {
-
-	private final ICCRecoveryScenarios recovery = CCRecoveryScenarios.create();
 	
 	@Override
-	protected IBinaryRelation<IFragment> getSimilarities(InputStream left, InputStream right)
+	protected IBinaryRelation<IFragment> getSimilarities(ICCRecoveryScenarios ccRecoveryScenarios, InputStream left, InputStream right)
 			throws IOException, ParserException {
-		return recovery.getHibernateJavaXmlSimilarities(left, right);
+		return ccRecoveryScenarios.getHibernateJavaXmlSimilarities(left, right);
 	}
 
 	@Override
