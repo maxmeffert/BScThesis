@@ -13,7 +13,7 @@ companyJavaFile : File
 //companyJavaFile = 'workspace:/org.softlang.megal.plugins/input/Company.java'
 
 companyHbmFile : File
-companyHbmFile = 'workspace:/org.softlang.megal.plugins/input/Company.hbm.xml'
+//companyHbmFile = 'workspace:/org.softlang.megal.plugins/input/Company.hbm.xml'
 
 companiesXmlFile: File
 //companiesXmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
@@ -22,7 +22,7 @@ companiesXsdFile: File
 //companiesXsdFile = 'workspace:/org.softlang.megal.plugins/input/companies.xsd'
 
 comaniesSqlFile : File
-//comaniesSqlFile = 'workspace:/org.softlang.megal.plugins/input/companies.ddl.sql'
+comaniesSqlFile = 'workspace:/org.softlang.megal.plugins/input/companies.ddl.sql'
 
 //===============================================
 // § Correspondences
