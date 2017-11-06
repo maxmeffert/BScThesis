@@ -3,10 +3,10 @@
 ============================================
                   Metrics                   
 ============================================
-#Elements          : 625
+#Elements          : 627
 #EntityTypes       : 14
-#Entities          : 76
-#Relationships     : 470
+#Entities          : 77
+#Relationships     : 471
 #RelationshipTypes : 65
 */
 
@@ -77,8 +77,8 @@ partOf< Technology * Technology
 partOf< Artifact * Artifact+
 partOf< Artifact * Technology
 partOf< Artifact * Artifact
-partOf< Language * Language
 partOf< Language * Technology
+partOf< Language * Language
 partOf< Plugin * Plugin
 partOf< Artifact+ * Artifact+
 partOf< Artifact+ * Technology

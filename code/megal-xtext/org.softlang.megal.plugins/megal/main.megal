@@ -1,6 +1,8 @@
 model bindings
 import Java
 import XML
+import Jaxb
+import Hibernate
 
 aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java'
 //aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/nested/Company.java'

@@ -215,12 +215,3 @@ SymmetryReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.SymmetryR
 
 CorrespondsToReasonerPlugin: Plugin
 CorrespondsToReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.CorrespondsToReasonerPlugin'
-
-
-
-
-
-
-JaxbJavaXmlCorrespondsToRecoveryPlugin: Plugin
-JaxbJavaXmlCorrespondsToRecoveryPlugin partOf CorrespondsToReasonerPlugin
-JaxbJavaXmlCorrespondsToRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.jaxb.JaxbJavaXmlCorrespondsToRecoveryPlugin'

@@ -1,0 +1,6 @@
+model Hibernate
+import Prelude
+
+HibernateJavaXmlCorrespondsToRecoveryPlugin: Plugin
+HibernateJavaXmlCorrespondsToRecoveryPlugin partOf CorrespondsToReasonerPlugin
+HibernateJavaXmlCorrespondsToRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.hibernate.HibernateJavaXmlCorrespondsToRecoveryPlugin'
