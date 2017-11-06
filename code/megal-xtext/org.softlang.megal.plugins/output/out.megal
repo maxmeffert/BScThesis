@@ -115,7 +115,7 @@ aJavaFile correspondsTo xmlFile
 aJavaFile elementOf Java
 aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java'
 
-@FragmentText '@XmlRootElement'
+@FragmentText '@XmlRootElementpublic class Company {	@XmlAttri ...'
 aJavaFile.Company: Fragment
 aJavaFile.Company correspondsTo xmlFile.F0$company
 aJavaFile.Company elementOf JavaClassFragments
@@ -124,7 +124,7 @@ aJavaFile.Company fragmentOf aJavaFile
 aJavaFile.Company partOf aJavaFile
 aJavaFile.Company = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L9C0L38C1'
 
-@FragmentText 'private List<Departm ...'
+@FragmentText 'private List<Department> departments = new ArrayLi ...'
 aJavaFile.Company.F2$departments: Fragment
 aJavaFile.Company.F2$departments correspondsTo xmlFile.F0$company.F2$departments
 aJavaFile.Company.F2$departments elementOf JavaFieldFragments
@@ -135,7 +135,7 @@ aJavaFile.Company.F2$departments partOf aJavaFile
 aJavaFile.Company.F2$departments partOf aJavaFile.Company
 aJavaFile.Company.F2$departments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L14C1L14C68'
 
-@FragmentText '@XmlAttribute'
+@FragmentText '@XmlAttribute	private String name, lala;'
 aJavaFile.Company.F3$name: Fragment
 aJavaFile.Company.F3$name correspondsTo xmlFile.F0$company.F1$name
 aJavaFile.Company.F3$name elementOf JavaFieldFragments
@@ -146,7 +146,7 @@ aJavaFile.Company.F3$name partOf aJavaFile
 aJavaFile.Company.F3$name partOf aJavaFile.Company
 aJavaFile.Company.F3$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L12C1L13C27'
 
-@FragmentText 'public void addDepar ...'
+@FragmentText 'public void addDepartment(Department department) { ...'
 aJavaFile.Company.F5$addDepartment: Fragment
 aJavaFile.Company.F5$addDepartment elementOf JavaFragments
 aJavaFile.Company.F5$addDepartment elementOf JavaMethodFragments
@@ -156,7 +156,7 @@ aJavaFile.Company.F5$addDepartment partOf aJavaFile
 aJavaFile.Company.F5$addDepartment partOf aJavaFile.Company
 aJavaFile.Company.F5$addDepartment = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L34C1L36C2'
 
-@FragmentText 'public void setDepar ...'
+@FragmentText 'public void setDepartments(List<Department> depart ...'
 aJavaFile.Company.F6$setDepartments: Fragment
 aJavaFile.Company.F6$setDepartments correspondsTo xmlFile.F0$company.F2$departments
 aJavaFile.Company.F6$setDepartments elementOf JavaFragments
@@ -167,7 +167,7 @@ aJavaFile.Company.F6$setDepartments partOf aJavaFile
 aJavaFile.Company.F6$setDepartments partOf aJavaFile.Company
 aJavaFile.Company.F6$setDepartments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L30C1L32C2'
 
-@FragmentText 'public List<Departme ...'
+@FragmentText 'public List<Department> getDepartments() {		retur ...'
 aJavaFile.Company.F7$getDepartments: Fragment
 aJavaFile.Company.F7$getDepartments correspondsTo xmlFile.F0$company.F2$departments
 aJavaFile.Company.F7$getDepartments elementOf JavaFragments
@@ -178,7 +178,7 @@ aJavaFile.Company.F7$getDepartments partOf aJavaFile
 aJavaFile.Company.F7$getDepartments partOf aJavaFile.Company
 aJavaFile.Company.F7$getDepartments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L27C1L29C2'
 
-@FragmentText 'public void setName( ...'
+@FragmentText 'public void setName(String name) {		this.name = n ...'
 aJavaFile.Company.F8$setName: Fragment
 aJavaFile.Company.F8$setName correspondsTo xmlFile.F0$company.F1$name
 aJavaFile.Company.F8$setName elementOf JavaFragments
@@ -189,7 +189,7 @@ aJavaFile.Company.F8$setName partOf aJavaFile
 aJavaFile.Company.F8$setName partOf aJavaFile.Company
 aJavaFile.Company.F8$setName = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L24C1L26C2'
 
-@FragmentText '@XmlAttribute'
+@FragmentText '@XmlAttribute	public String getName() {		return  ...'
 aJavaFile.Company.F9$getName: Fragment
 aJavaFile.Company.F9$getName correspondsTo xmlFile.F0$company.F1$name
 aJavaFile.Company.F9$getName elementOf JavaFragments
@@ -234,7 +234,7 @@ xmlFile correspondsTo aJavaFile
 xmlFile elementOf XML
 xmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
 
-@FragmentText '<company id="0" name ...'
+@FragmentText '<company id="0" name="Softlang Inc.">    <departm ...'
 xmlFile.F0$company: Fragment
 xmlFile.F0$company correspondsTo aJavaFile.Company
 xmlFile.F0$company elementOf XMLElementFragments
@@ -253,7 +253,7 @@ xmlFile.F0$company.F0$id partOf xmlFile
 xmlFile.F0$company.F0$id partOf xmlFile.F0$company
 xmlFile.F0$company.F0$id = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L2C9L2C15'
 
-@FragmentText 'name="Softlang Inc." ...'
+@FragmentText 'name="Softlang Inc."'
 xmlFile.F0$company.F1$name: Fragment
 xmlFile.F0$company.F1$name correspondsTo aJavaFile.Company.F3$name
 xmlFile.F0$company.F1$name correspondsTo aJavaFile.Company.F8$setName
@@ -266,7 +266,7 @@ xmlFile.F0$company.F1$name partOf xmlFile
 xmlFile.F0$company.F1$name partOf xmlFile.F0$company
 xmlFile.F0$company.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L2C16L2C36'
 
-@FragmentText '<departments>'
+@FragmentText '<departments>        <department id="0" name="Gra ...'
 xmlFile.F0$company.F2$departments: Fragment
 xmlFile.F0$company.F2$departments correspondsTo aJavaFile.Company.F2$departments
 xmlFile.F0$company.F2$departments correspondsTo aJavaFile.Company.F6$setDepartments
@@ -279,7 +279,7 @@ xmlFile.F0$company.F2$departments partOf xmlFile
 xmlFile.F0$company.F2$departments partOf xmlFile.F0$company
 xmlFile.F0$company.F2$departments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L3C4L37C18'
 
-@FragmentText '<department id="0" n ...'
+@FragmentText '<department id="0" name="Grammar Engineering">    ...'
 xmlFile.F0$company.F2$departments.F0$department: Fragment
 xmlFile.F0$company.F2$departments.F0$department elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F0$department elementOf XMLFragments
@@ -291,7 +291,7 @@ xmlFile.F0$company.F2$departments.F0$department partOf xmlFile.F0$company
 xmlFile.F0$company.F2$departments.F0$department partOf xmlFile.F0$company.F2$departments
 xmlFile.F0$company.F2$departments.F0$department = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L4C8L10C21'
 
-@FragmentText 'name="Grammar Engine ...'
+@FragmentText 'name="Grammar Engineering"'
 xmlFile.F0$company.F2$departments.F0$department.F1$name: Fragment
 xmlFile.F0$company.F2$departments.F0$department.F1$name elementOf XMLAttributeFragments
 xmlFile.F0$company.F2$departments.F0$department.F1$name elementOf XMLFragments
@@ -305,7 +305,7 @@ xmlFile.F0$company.F2$departments.F0$department.F1$name partOf xmlFile.F0$compan
 xmlFile.F0$company.F2$departments.F0$department.F1$name partOf xmlFile.F0$company.F2$departments.F0$department
 xmlFile.F0$company.F2$departments.F0$department.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L4C27L4C53'
 
-@FragmentText '<employees>'
+@FragmentText '<employees>                <employee id="0" name= ...'
 xmlFile.F0$company.F2$departments.F0$department.F2$employees: Fragment
 xmlFile.F0$company.F2$departments.F0$department.F2$employees elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F0$department.F2$employees elementOf XMLFragments
@@ -319,7 +319,7 @@ xmlFile.F0$company.F2$departments.F0$department.F2$employees partOf xmlFile.F0$c
 xmlFile.F0$company.F2$departments.F0$department.F2$employees partOf xmlFile.F0$company.F2$departments.F0$department
 xmlFile.F0$company.F2$departments.F0$department.F2$employees = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L5C12L8C24'
 
-@FragmentText '<employee id="0" nam ...'
+@FragmentText '<employee id="0" name="John Backus" age="40" salar ...'
 xmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee: Fragment
 xmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee elementOf XMLFragments
@@ -353,7 +353,7 @@ xmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name
 xmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name partOf xmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee
 xmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L6C33L6C51'
 
-@FragmentText '<employee id="0" nam ...'
+@FragmentText '<employee id="0" name="Peter Naur" age="40" salary ...'
 xmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee: Fragment
 xmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee elementOf XMLFragments
@@ -387,7 +387,7 @@ xmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name
 xmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name partOf xmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee
 xmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L7C33L7C50'
 
-@FragmentText '<manager id="0" name ...'
+@FragmentText '<manager id="0" name="Peter Naur" age="40" salary= ...'
 xmlFile.F0$company.F2$departments.F0$department.F3$manager: Fragment
 xmlFile.F0$company.F2$departments.F0$department.F3$manager elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F0$department.F3$manager elementOf XMLFragments
@@ -401,7 +401,7 @@ xmlFile.F0$company.F2$departments.F0$department.F3$manager partOf xmlFile.F0$com
 xmlFile.F0$company.F2$departments.F0$department.F3$manager partOf xmlFile.F0$company.F2$departments.F0$department
 xmlFile.F0$company.F2$departments.F0$department.F3$manager = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L9C12L9C73'
 
-@FragmentText '<department id="0" n ...'
+@FragmentText '<department id="0" name="Research &amp; Developmen ...'
 xmlFile.F0$company.F2$departments.F1$department: Fragment
 xmlFile.F0$company.F2$departments.F1$department elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F1$department elementOf XMLFragments
@@ -413,7 +413,7 @@ xmlFile.F0$company.F2$departments.F1$department partOf xmlFile.F0$company
 xmlFile.F0$company.F2$departments.F1$department partOf xmlFile.F0$company.F2$departments
 xmlFile.F0$company.F2$departments.F1$department = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L11C8L17C21'
 
-@FragmentText 'name="Research &amp; ...'
+@FragmentText 'name="Research &amp; Development"'
 xmlFile.F0$company.F2$departments.F1$department.F1$name: Fragment
 xmlFile.F0$company.F2$departments.F1$department.F1$name elementOf XMLAttributeFragments
 xmlFile.F0$company.F2$departments.F1$department.F1$name elementOf XMLFragments
@@ -427,7 +427,7 @@ xmlFile.F0$company.F2$departments.F1$department.F1$name partOf xmlFile.F0$compan
 xmlFile.F0$company.F2$departments.F1$department.F1$name partOf xmlFile.F0$company.F2$departments.F1$department
 xmlFile.F0$company.F2$departments.F1$department.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L11C27L11C60'
 
-@FragmentText '<employees>'
+@FragmentText '<employees>                <employee id="0" name= ...'
 xmlFile.F0$company.F2$departments.F1$department.F2$employees: Fragment
 xmlFile.F0$company.F2$departments.F1$department.F2$employees elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F1$department.F2$employees elementOf XMLFragments
@@ -441,7 +441,7 @@ xmlFile.F0$company.F2$departments.F1$department.F2$employees partOf xmlFile.F0$c
 xmlFile.F0$company.F2$departments.F1$department.F2$employees partOf xmlFile.F0$company.F2$departments.F1$department
 xmlFile.F0$company.F2$departments.F1$department.F2$employees = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L12C12L15C24'
 
-@FragmentText '<employee id="0" nam ...'
+@FragmentText '<employee id="0" name="Alonzo Church" age="40" sal ...'
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee: Fragment
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee elementOf XMLFragments
@@ -457,7 +457,7 @@ xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee partOf 
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee partOf xmlFile.F0$company.F2$departments.F1$department.F2$employees
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L13C16L13C81'
 
-@FragmentText 'name="Alonzo Church" ...'
+@FragmentText 'name="Alonzo Church"'
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name: Fragment
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name elementOf XMLAttributeFragments
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name elementOf XMLFragments
@@ -475,7 +475,7 @@ xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name partOf xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L13C33L13C53'
 
-@FragmentText '<employee id="0" nam ...'
+@FragmentText '<employee id="0" name="Alan Turing" age="40" salar ...'
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee: Fragment
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee elementOf XMLFragments
@@ -509,7 +509,7 @@ xmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name partOf xmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee
 xmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L14C33L14C51'
 
-@FragmentText '<manager id="0" name ...'
+@FragmentText '<manager id="0" name="Alan Turing" age="40" salary ...'
 xmlFile.F0$company.F2$departments.F1$department.F3$manager: Fragment
 xmlFile.F0$company.F2$departments.F1$department.F3$manager elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F1$department.F3$manager elementOf XMLFragments
@@ -523,7 +523,7 @@ xmlFile.F0$company.F2$departments.F1$department.F3$manager partOf xmlFile.F0$com
 xmlFile.F0$company.F2$departments.F1$department.F3$manager partOf xmlFile.F0$company.F2$departments.F1$department
 xmlFile.F0$company.F2$departments.F1$department.F3$manager = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L16C12L16C74'
 
-@FragmentText '<department id="0" n ...'
+@FragmentText '<department id="0" name="Language Engineering">   ...'
 xmlFile.F0$company.F2$departments.F2$department: Fragment
 xmlFile.F0$company.F2$departments.F2$department elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F2$department elementOf XMLFragments
@@ -535,7 +535,7 @@ xmlFile.F0$company.F2$departments.F2$department partOf xmlFile.F0$company
 xmlFile.F0$company.F2$departments.F2$department partOf xmlFile.F0$company.F2$departments
 xmlFile.F0$company.F2$departments.F2$department = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L18C8L30C21'
 
-@FragmentText 'name="Language Engin ...'
+@FragmentText 'name="Language Engineering"'
 xmlFile.F0$company.F2$departments.F2$department.F1$name: Fragment
 xmlFile.F0$company.F2$departments.F2$department.F1$name elementOf XMLAttributeFragments
 xmlFile.F0$company.F2$departments.F2$department.F1$name elementOf XMLFragments
@@ -549,7 +549,7 @@ xmlFile.F0$company.F2$departments.F2$department.F1$name partOf xmlFile.F0$compan
 xmlFile.F0$company.F2$departments.F2$department.F1$name partOf xmlFile.F0$company.F2$departments.F2$department
 xmlFile.F0$company.F2$departments.F2$department.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L18C27L18C54'
 
-@FragmentText '<employees>'
+@FragmentText '<employees>                <employee id="0" name= ...'
 xmlFile.F0$company.F2$departments.F2$department.F2$employees: Fragment
 xmlFile.F0$company.F2$departments.F2$department.F2$employees elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F2$department.F2$employees elementOf XMLFragments
@@ -563,7 +563,7 @@ xmlFile.F0$company.F2$departments.F2$department.F2$employees partOf xmlFile.F0$c
 xmlFile.F0$company.F2$departments.F2$department.F2$employees partOf xmlFile.F0$company.F2$departments.F2$department
 xmlFile.F0$company.F2$departments.F2$department.F2$employees = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L19C12L21C24'
 
-@FragmentText '<employee id="0" nam ...'
+@FragmentText '<employee id="0" name="Niklaus Wirth" age="40" sal ...'
 xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee: Fragment
 xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee elementOf XMLFragments
@@ -579,7 +579,7 @@ xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee partOf 
 xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee partOf xmlFile.F0$company.F2$departments.F2$department.F2$employees
 xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L20C16L20C81'
 
-@FragmentText 'name="Niklaus Wirth" ...'
+@FragmentText 'name="Niklaus Wirth"'
 xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name: Fragment
 xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name elementOf XMLAttributeFragments
 xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name elementOf XMLFragments
@@ -597,7 +597,7 @@ xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name
 xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name partOf xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee
 xmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L20C33L20C53'
 
-@FragmentText '<manager id="0" name ...'
+@FragmentText '<manager id="0" name="Niklaus Wirth" age="40" sala ...'
 xmlFile.F0$company.F2$departments.F2$department.F3$manager: Fragment
 xmlFile.F0$company.F2$departments.F2$department.F3$manager elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F2$department.F3$manager elementOf XMLFragments
@@ -611,7 +611,7 @@ xmlFile.F0$company.F2$departments.F2$department.F3$manager partOf xmlFile.F0$com
 xmlFile.F0$company.F2$departments.F2$department.F3$manager partOf xmlFile.F0$company.F2$departments.F2$department
 xmlFile.F0$company.F2$departments.F2$department.F3$manager = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L22C12L22C76'
 
-@FragmentText '<subDepartments id=" ...'
+@FragmentText '<subDepartments id="0" name="Grammar Engineering"> ...'
 xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments: Fragment
 xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments elementOf XMLFragments
@@ -625,7 +625,7 @@ xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments partOf xmlFile
 xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments partOf xmlFile.F0$company.F2$departments.F2$department
 xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L23C12L29C29'
 
-@FragmentText '<employees>'
+@FragmentText '<employees>                    <employee id="0" n ...'
 xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees: Fragment
 xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees elementOf XMLFragments
@@ -641,7 +641,7 @@ xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees p
 xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees partOf xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments
 xmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L24C16L27C28'
 
-@FragmentText '<department id="0" n ...'
+@FragmentText '<department id="0" name="Programming">            ...'
 xmlFile.F0$company.F2$departments.F3$department: Fragment
 xmlFile.F0$company.F2$departments.F3$department elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F3$department elementOf XMLFragments
@@ -667,7 +667,7 @@ xmlFile.F0$company.F2$departments.F3$department.F1$name partOf xmlFile.F0$compan
 xmlFile.F0$company.F2$departments.F3$department.F1$name partOf xmlFile.F0$company.F2$departments.F3$department
 xmlFile.F0$company.F2$departments.F3$department.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L31C27L31C45'
 
-@FragmentText '<employees>'
+@FragmentText '<employees>                <employee id="0" name= ...'
 xmlFile.F0$company.F2$departments.F3$department.F2$employees: Fragment
 xmlFile.F0$company.F2$departments.F3$department.F2$employees elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F3$department.F2$employees elementOf XMLFragments
@@ -681,7 +681,7 @@ xmlFile.F0$company.F2$departments.F3$department.F2$employees partOf xmlFile.F0$c
 xmlFile.F0$company.F2$departments.F3$department.F2$employees partOf xmlFile.F0$company.F2$departments.F3$department
 xmlFile.F0$company.F2$departments.F3$department.F2$employees = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L32C12L34C24'
 
-@FragmentText '<employee id="0" nam ...'
+@FragmentText '<employee id="0" name="Ada Lovelace" age="40" sala ...'
 xmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee: Fragment
 xmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee elementOf XMLFragments
@@ -751,7 +751,7 @@ xmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$sala
 xmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary partOf xmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee
 xmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L33C62L33C78'
 
-@FragmentText '<manager id="0" name ...'
+@FragmentText '<manager id="0" name="Ada Lovelace" age="40" salar ...'
 xmlFile.F0$company.F2$departments.F3$department.F3$manager: Fragment
 xmlFile.F0$company.F2$departments.F3$department.F3$manager elementOf XMLElementFragments
 xmlFile.F0$company.F2$departments.F3$department.F3$manager elementOf XMLFragments

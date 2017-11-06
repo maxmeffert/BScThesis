@@ -158,10 +158,10 @@ public class Main {
 				String value = e.getAnnotation(name);
 				
 				if (name.equals("FragmentText")) {
-					
-					value = value.split(System.getProperty("line.separator"),2)[0];
+
+					value = value.length() < 50 ? value : value.substring(0, 50) + " ...";
+					value = value.replace(System.lineSeparator(), "");
 					value = value.trim();
-					value = value.length() < 20 ? value : value.substring(0, 20) + " ...";
 					
 				}
 				
