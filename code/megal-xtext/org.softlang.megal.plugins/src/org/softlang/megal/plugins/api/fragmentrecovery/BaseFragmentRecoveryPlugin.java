@@ -16,6 +16,14 @@ import org.softlang.megal.plugins.api.IGuidedReasonerProxy;
 
 public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin {
 
+	private static final String FragmentTextAnnotationName = "FragmentText";
+	private static final String FragmentTypeName = "Fragment";
+	private static final String ElementOfTypeName = "elementOf";
+	private static final String PartOfTypeName = "partOf";
+	
+	private static final String IndexNameSeparator = "#";
+	private static final String PartOfNameSeparator = ".";
+	
 	abstract protected IParser getParser(ICCRecoveryScenarios ccRecoveryScenarios);
 	abstract protected boolean hasName(IFragment fragment);
 	abstract protected String getName(IFragment fragment);
@@ -35,25 +43,42 @@ public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin 
 		return recovery.getFragmentUriConverter().toFragmentUri(uri, fragment);
 	}
 	
-	private String getQualifiedName(IFragment fragment, Entity entity) {
-		String qualifiedName = getName(fragment);
+	private int getIndex(IFragment fragment) {
 		if (fragment.hasParent()) {
-			IFragment parent = fragment.getParent();
-			while (parent != null && hasName(parent)) {
-				qualifiedName = getName(parent) + "." + qualifiedName;
-				parent = parent.getParent();
-			}
+			return fragment.getParent().getChildren().indexOf(fragment);
 		}
-		return entity.getName() + "." + qualifiedName;
+		return -1;
+	}
+	
+	private String getIndexedName(IFragment fragment) {
+		int index = getIndex(fragment);
+		String name = getName(fragment);
+		return index > 0 ? name + IndexNameSeparator + index : name;
+	}
+	
+	private String prependAncestorNames(String qualifiedName, IFragment parent) {
+		while (parent != null && hasName(parent)) {
+			qualifiedName = getIndexedName(parent) + PartOfNameSeparator + qualifiedName;
+			parent = parent.getParent();
+		}
+		return qualifiedName;
+	}
+	
+	private String getQualifiedName(IFragment fragment, Entity entity) {
+		String qualifiedName = getIndexedName(fragment);
+		if (fragment.hasParent()) {
+			qualifiedName = prependAncestorNames(qualifiedName, fragment.getParent());
+		}
+		return entity.getName() + PartOfNameSeparator + qualifiedName;
 	}
 	
 	private void deriveOneFragment(IGuidedReasonerProxy reasoner, Entity entity, URI location, IFragment fragment) throws URISyntaxException {
 		String qualifiedName = getQualifiedName(fragment, entity);
-		reasoner.addEntity(qualifiedName, "Fragment");
-		reasoner.addEntityAnnotation(qualifiedName, "FragmentText", fragment.getText());
+		reasoner.addEntity(qualifiedName, FragmentTypeName);
+		reasoner.addEntityAnnotation(qualifiedName, FragmentTextAnnotationName, fragment.getText());
 		reasoner.addBinding(qualifiedName, getFragmentUri(location, fragment));
-		reasoner.addRelationship("elementOf", qualifiedName, getLanguage(fragment));
-		reasoner.addRelationship("partOf", qualifiedName, entity.getName());
+		reasoner.addRelationship(ElementOfTypeName, qualifiedName, getLanguage(fragment));
+		reasoner.addRelationship(PartOfTypeName, qualifiedName, entity.getName());
 	}
 	
 	private void deriveAllFragments(IGuidedReasonerProxy reasoner, Entity entity, URI location, IFragment fragment) throws URISyntaxException {

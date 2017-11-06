@@ -7,12 +7,13 @@ aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme
 //aJavaFile = 'workspace:/org.softlang.megal.plugins/src/org/softlang/megal/plugins/impl/java/JavaFragmentizer.java'
 
 
-xmlFile = 'workspace:/org.softlang.megal.plugins/input/Note.xml'
+//xmlFile = 'workspace:/org.softlang.megal.plugins/input/Note.xml'
 //xsdFile = 'workspace:/org.softlang.megal.plugins/input/Note.xsd'
 
 
 //XMLSchemaSchema = 'https://www.w3.org/2009/XMLSchema/XMLSchema.xsd'
 //XMLSchemaSchema = 'workspace:/org.softlang.megal.plugins/input/XMLSchema.xsd'
+xmlFile = 'workspace:/org.softlang.megal.plugins/input/XMLSchema.xsd'
 
 //aFolder = 'workspace:/org.softlang.megal.plugins/input';
 
