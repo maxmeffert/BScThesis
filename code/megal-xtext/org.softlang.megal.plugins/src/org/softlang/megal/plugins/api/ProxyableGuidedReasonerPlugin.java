@@ -31,6 +31,12 @@ public abstract class ProxyableGuidedReasonerPlugin extends GuidedReasonerPlugin
 		@Override
 		public void addBinding(String entityName, URI binding) {
 			reasoner.binding(entityName, binding);
+			
+		}
+
+		@Override
+		public void addEntityAnnotation(String entity, String annotationName, String annotationValue) {
+			reasoner.entityAnnotation(entity, annotationName, annotationValue);
 		}
 		
 	}

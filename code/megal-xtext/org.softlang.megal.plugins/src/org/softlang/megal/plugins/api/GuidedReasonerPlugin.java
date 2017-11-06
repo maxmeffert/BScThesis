@@ -8,6 +8,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.mi2.EntityType;
@@ -19,6 +20,8 @@ import org.softlang.megal.mi2.Relationship;
 import org.softlang.megal.mi2.RelationshipType;
 import org.softlang.megal.mi2.api.Artifact;
 import org.softlang.megal.plugins.api.GuidedExitException.Level;
+
+import com.google.common.collect.Maps;
 
 //TODO: Loads of duplication because of problems with multiple aspects
 
@@ -308,6 +311,12 @@ public abstract class GuidedReasonerPlugin extends InjectedReasonerPlugin {
 		
 		return result.getEntity(name);
 		
+	}
+	
+	protected void entityAnnotation(String entity, String annotationName, String annotationValue) {
+		Map.Entry<String, Ref> keyEntry = Maps.immutableEntry(entity, result.getRawEntities().get(entity));
+		Map.Entry<String, String> valueEntry = Maps.immutableEntry(annotationName, annotationValue);
+		result.getRawEntityAnnotations().put(keyEntry, valueEntry);		
 	}
 
 	/**

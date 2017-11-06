@@ -159,9 +159,12 @@ public class Main {
 				
 				if (name.equals("FragmentText")) {
 					
-					value = value.split(System.getProperty("line.separator"),2)[0] + " ...";
-				
+					value = value.split(System.getProperty("line.separator"),2)[0];
+					value = value.trim();
+					value = value.length() < 20 ? value : value.substring(0, 20) + " ...";
+					
 				}
+				
 				
 				out.println("@" + name + " '" + value + "'");
 				

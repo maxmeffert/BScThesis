@@ -8,4 +8,5 @@ public interface IGuidedReasonerProxy {
 	void addRelationshipType(String name, String leftType, String rightType);
 	void addRelationship(String name, String left, String right);
 	void addBinding(String entityName, URI binding);
+	void addEntityAnnotation(String entity, String annotationName, String annotationValue);
 }

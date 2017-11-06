@@ -50,6 +50,7 @@ public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin 
 	private void deriveOneFragment(IGuidedReasonerProxy reasoner, Entity entity, URI location, IFragment fragment) throws URISyntaxException {
 		String qualifiedName = getQualifiedName(fragment, entity);
 		reasoner.addEntity(qualifiedName, "Fragment");
+		reasoner.addEntityAnnotation(qualifiedName, "FragmentText", fragment.getText());
 		reasoner.addBinding(qualifiedName, getFragmentUri(location, fragment));
 		reasoner.addRelationship("elementOf", qualifiedName, getLanguage(fragment));
 		reasoner.addRelationship("partOf", qualifiedName, entity.getName());
