@@ -5,7 +5,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.CCRecoveryScenarios;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
 import org.softlang.megal.mi2.api.Artifact;
-import org.softlang.megal.plugins.api.AcceptorPlugin;
+import org.softlang.megal.plugins.api.acceptors.AcceptorPlugin;
 
 import com.google.common.base.Optional;
 import com.google.common.base.Throwables;

@@ -5,7 +5,7 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
 
 import org.softlang.megal.mi2.api.Artifact;
-import org.softlang.megal.plugins.api.AcceptorPlugin;
+import org.softlang.megal.plugins.api.acceptors.AcceptorPlugin;
 import org.xml.sax.SAXException;
 
 import com.google.common.base.Optional;
