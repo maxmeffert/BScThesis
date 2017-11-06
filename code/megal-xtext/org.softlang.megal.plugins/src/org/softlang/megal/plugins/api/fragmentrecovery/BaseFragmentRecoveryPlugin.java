@@ -21,7 +21,8 @@ public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin 
 	private static final String ElementOfTypeName = "elementOf";
 	private static final String PartOfTypeName = "partOf";
 	
-	private static final String IndexNameSeparator = "#";
+	private static final String FragmentNamePrefix = "F";
+	private static final String IndexNameSeparator = "$";
 	private static final String PartOfNameSeparator = ".";
 	
 	abstract protected IParser getParser(ICCRecoveryScenarios ccRecoveryScenarios);
@@ -53,7 +54,7 @@ public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin 
 	private String getIndexedName(IFragment fragment) {
 		int index = getIndex(fragment);
 		String name = getName(fragment);
-		return index > 0 ? name + IndexNameSeparator + index : name;
+		return FragmentNamePrefix + index + IndexNameSeparator + name;
 	}
 	
 	private String prependAncestorNames(String qualifiedName, IFragment parent) {
