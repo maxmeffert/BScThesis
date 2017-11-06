@@ -9,16 +9,21 @@ import Hibernate
 // § Artifacts
 //===============================================
 
-aJavaFile : File
-aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java'
+companyJavaFile : File
+companyJavaFile = 'workspace:/org.softlang.megal.plugins/input/Company.java'
 
-xmlFile: File
-xmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
+companiesXmlFile: File
+companiesXmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
 
-xsdFile: File
-xsdFile = 'workspace:/org.softlang.megal.plugins/input/Note.xsd'
+companiesXsdFile: File
+companiesXsdFile = 'workspace:/org.softlang.megal.plugins/input/companies.xsd'
 
-aSQLFile : File
-aSQLFile = 'workspace:/org.softlang.megal.plugins/input/Foo.sql'
+comaniesSqlFile : File
+comaniesSqlFile = 'workspace:/org.softlang.megal.plugins/input/companies.ddl.sql'
 
-aJavaFile correspondsTo xmlFile
+//===============================================
+// § Correspondences
+//===============================================
+
+companyJavaFile correspondsTo companiesXmlFile
+companyJavaFile correspondsTo companiesXsdFile
