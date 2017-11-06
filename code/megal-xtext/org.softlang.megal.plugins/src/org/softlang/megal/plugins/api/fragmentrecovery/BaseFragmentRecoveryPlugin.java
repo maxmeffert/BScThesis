@@ -1,4 +1,4 @@
-package org.softlang.megal.plugins.api;
+package org.softlang.megal.plugins.api.fragmentrecovery;
 
 import java.io.IOException;
 
@@ -10,6 +10,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.CCRecoveryScenario
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
 import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.mi2.api.Artifact;
+import org.softlang.megal.plugins.api.IGuidedReasonerProxy;
 
 public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin {
 

@@ -1,8 +1,9 @@
-package org.softlang.megal.plugins.api;
+package org.softlang.megal.plugins.api.fragmentrecovery;
 
 import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.mi2.api.AbstractPlugin;
 import org.softlang.megal.mi2.api.Artifact;
+import org.softlang.megal.plugins.api.IGuidedReasonerProxy;
 
 public abstract class FragmentRecoveryPlugin extends AbstractPlugin {
 		
