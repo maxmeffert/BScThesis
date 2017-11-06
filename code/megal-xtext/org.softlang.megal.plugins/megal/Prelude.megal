@@ -139,6 +139,7 @@ linksTo < File (+) * File (+)
 //===============================================
 
 realizationOf < Artifact (+) * Function
+
 @Suppress 'notConsidered'
 realizationOf < Plugin * Entity
 

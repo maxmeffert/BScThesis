@@ -119,6 +119,7 @@ aJavaFile.Company elementOf JavaClassFragments
 aJavaFile.Company elementOf JavaFragments
 aJavaFile.Company fragmentOf aJavaFile
 aJavaFile.Company partOf aJavaFile
+aJavaFile.Company = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L9C0L38C1'
 
 aJavaFile.Company.addDepartment: Fragment
 aJavaFile.Company.addDepartment elementOf JavaFragments
@@ -127,6 +128,7 @@ aJavaFile.Company.addDepartment fragmentOf aJavaFile
 aJavaFile.Company.addDepartment fragmentOf aJavaFile.Company
 aJavaFile.Company.addDepartment partOf aJavaFile
 aJavaFile.Company.addDepartment partOf aJavaFile.Company
+aJavaFile.Company.addDepartment = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L34C1L36C2'
 
 aJavaFile.Company.departments: Fragment
 aJavaFile.Company.departments elementOf JavaFieldFragments
@@ -135,6 +137,7 @@ aJavaFile.Company.departments fragmentOf aJavaFile
 aJavaFile.Company.departments fragmentOf aJavaFile.Company
 aJavaFile.Company.departments partOf aJavaFile
 aJavaFile.Company.departments partOf aJavaFile.Company
+aJavaFile.Company.departments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L14C1L14C68'
 
 aJavaFile.Company.getDepartments: Fragment
 aJavaFile.Company.getDepartments elementOf JavaFragments
@@ -143,6 +146,7 @@ aJavaFile.Company.getDepartments fragmentOf aJavaFile
 aJavaFile.Company.getDepartments fragmentOf aJavaFile.Company
 aJavaFile.Company.getDepartments partOf aJavaFile
 aJavaFile.Company.getDepartments partOf aJavaFile.Company
+aJavaFile.Company.getDepartments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L27C1L29C2'
 
 aJavaFile.Company.getName: Fragment
 aJavaFile.Company.getName elementOf JavaFragments
@@ -151,6 +155,7 @@ aJavaFile.Company.getName fragmentOf aJavaFile
 aJavaFile.Company.getName fragmentOf aJavaFile.Company
 aJavaFile.Company.getName partOf aJavaFile
 aJavaFile.Company.getName partOf aJavaFile.Company
+aJavaFile.Company.getName = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L20C1L23C2'
 
 aJavaFile.Company.name: Fragment
 aJavaFile.Company.name elementOf JavaFieldFragments
@@ -159,6 +164,7 @@ aJavaFile.Company.name fragmentOf aJavaFile
 aJavaFile.Company.name fragmentOf aJavaFile.Company
 aJavaFile.Company.name partOf aJavaFile
 aJavaFile.Company.name partOf aJavaFile.Company
+aJavaFile.Company.name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L12C1L13C27'
 
 aJavaFile.Company.setDepartments: Fragment
 aJavaFile.Company.setDepartments elementOf JavaFragments
@@ -167,6 +173,7 @@ aJavaFile.Company.setDepartments fragmentOf aJavaFile
 aJavaFile.Company.setDepartments fragmentOf aJavaFile.Company
 aJavaFile.Company.setDepartments partOf aJavaFile
 aJavaFile.Company.setDepartments partOf aJavaFile.Company
+aJavaFile.Company.setDepartments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L30C1L32C2'
 
 aJavaFile.Company.setName: Fragment
 aJavaFile.Company.setName elementOf JavaFragments
@@ -175,6 +182,7 @@ aJavaFile.Company.setName fragmentOf aJavaFile
 aJavaFile.Company.setName fragmentOf aJavaFile.Company
 aJavaFile.Company.setName partOf aJavaFile
 aJavaFile.Company.setName partOf aJavaFile.Company
+aJavaFile.Company.setName = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/org/softlang/megal/acme/Company.java?fragment=L24C1L26C2'
 
 @FileExtensions '.java'
 Java: Language
@@ -214,6 +222,7 @@ xmlFile.note elementOf XMLElementFragments
 xmlFile.note elementOf XMLFragments
 xmlFile.note fragmentOf xmlFile
 xmlFile.note partOf xmlFile
+xmlFile.note = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xml?fragment=L2C0L10C7'
 
 xmlFile.note.body: Fragment
 xmlFile.note.body elementOf XMLElementFragments
@@ -222,6 +231,7 @@ xmlFile.note.body fragmentOf xmlFile
 xmlFile.note.body fragmentOf xmlFile.note
 xmlFile.note.body partOf xmlFile
 xmlFile.note.body partOf xmlFile.note
+xmlFile.note.body = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xml?fragment=L9C1L9C43'
 
 xmlFile.note.from: Fragment
 xmlFile.note.from elementOf XMLElementFragments
@@ -230,6 +240,7 @@ xmlFile.note.from fragmentOf xmlFile
 xmlFile.note.from fragmentOf xmlFile.note
 xmlFile.note.from partOf xmlFile
 xmlFile.note.from partOf xmlFile.note
+xmlFile.note.from = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xml?fragment=L7C1L7C18'
 
 xmlFile.note.heading: Fragment
 xmlFile.note.heading elementOf XMLElementFragments
@@ -238,6 +249,7 @@ xmlFile.note.heading fragmentOf xmlFile
 xmlFile.note.heading fragmentOf xmlFile.note
 xmlFile.note.heading partOf xmlFile
 xmlFile.note.heading partOf xmlFile.note
+xmlFile.note.heading = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xml?fragment=L8C1L8C28'
 
 xmlFile.note.to: Fragment
 xmlFile.note.to elementOf XMLElementFragments
@@ -246,6 +258,7 @@ xmlFile.note.to fragmentOf xmlFile
 xmlFile.note.to fragmentOf xmlFile.note
 xmlFile.note.to partOf xmlFile
 xmlFile.note.to partOf xmlFile.note
+xmlFile.note.to = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xml?fragment=L6C1L6C14'
 
 xmlFile.note.xmlns: Fragment
 xmlFile.note.xmlns elementOf XMLAttributeFragments
@@ -254,6 +267,7 @@ xmlFile.note.xmlns fragmentOf xmlFile
 xmlFile.note.xmlns fragmentOf xmlFile.note
 xmlFile.note.xmlns partOf xmlFile
 xmlFile.note.xmlns partOf xmlFile.note
+xmlFile.note.xmlns = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xml?fragment=L2C6L2C38'
 
 xmlFile.note.xmlns:xsi: Fragment
 xmlFile.note.xmlns:xsi elementOf XMLAttributeFragments
@@ -262,6 +276,7 @@ xmlFile.note.xmlns:xsi fragmentOf xmlFile
 xmlFile.note.xmlns:xsi fragmentOf xmlFile.note
 xmlFile.note.xmlns:xsi partOf xmlFile
 xmlFile.note.xmlns:xsi partOf xmlFile.note
+xmlFile.note.xmlns:xsi = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xml?fragment=L3C1L3C54'
 
 xmlFile.note.xsi:schemaLocation: Fragment
 xmlFile.note.xsi:schemaLocation elementOf XMLAttributeFragments
@@ -270,6 +285,7 @@ xmlFile.note.xsi:schemaLocation fragmentOf xmlFile
 xmlFile.note.xsi:schemaLocation fragmentOf xmlFile.note
 xmlFile.note.xsi:schemaLocation partOf xmlFile
 xmlFile.note.xsi:schemaLocation partOf xmlFile.note
+xmlFile.note.xsi:schemaLocation = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Note.xml?fragment=L4C1L4C55'
 
 XMLFragments: Language
 XMLFragments fragmentLanguageOf XML

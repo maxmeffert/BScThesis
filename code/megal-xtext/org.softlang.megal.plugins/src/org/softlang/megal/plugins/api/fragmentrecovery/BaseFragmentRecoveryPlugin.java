@@ -1,6 +1,8 @@
 package org.softlang.megal.plugins.api.fragmentrecovery;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.kbs.IFragmentKB;
@@ -29,6 +31,10 @@ public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin 
 		return recovery.getFragmentKB(fragment);
 	}
 	
+	private URI getFragmentUri(URI uri, IFragment fragment) throws URISyntaxException {
+		return recovery.getFragmentUriConverter().toFragmentUri(uri, fragment);
+	}
+	
 	private String getQualifiedName(IFragment fragment, Entity entity) {
 		String qualifiedName = getName(fragment);
 		if (fragment.hasParent()) {
@@ -41,19 +47,18 @@ public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin 
 		return entity.getName() + "." + qualifiedName;
 	}
 	
-	private void deriveOne(IGuidedReasonerProxy reasoner, Entity entity, IFragment fragment) {
-		String name = getQualifiedName(fragment, entity);
-		reasoner.addEntity(name, "Fragment");
-		reasoner.addRelationship("elementOf", name, getLanguage(fragment));
-		reasoner.addRelationship("partOf", name, entity.getName());
+	private void deriveOneFragment(IGuidedReasonerProxy reasoner, Entity entity, URI location, IFragment fragment) throws URISyntaxException {
+		String qualifiedName = getQualifiedName(fragment, entity);
+		reasoner.addEntity(qualifiedName, "Fragment");
+		reasoner.addBinding(qualifiedName, getFragmentUri(location, fragment));
+		reasoner.addRelationship("elementOf", qualifiedName, getLanguage(fragment));
+		reasoner.addRelationship("partOf", qualifiedName, entity.getName());
 	}
 	
-	private void derive(IGuidedReasonerProxy reasoner, Entity entity, IFragment fragment) {
-		IFragmentKB fragmentKb = getFragmentKB(fragment);
-		
-		for (IFragment ff : fragmentKb.getFragmentsOf(fragment)) {
+	private void deriveAllFragments(IGuidedReasonerProxy reasoner, Entity entity, URI location, IFragment fragment) throws URISyntaxException {
+		for (IFragment ff : getFragmentKB(fragment).getFragmentsOf(fragment)) {
 			if (hasName(ff)) {
-				deriveOne(reasoner, entity, ff);
+				deriveOneFragment(reasoner, entity, location, ff);
 			}
 		}
 	}
@@ -61,7 +66,7 @@ public abstract class BaseFragmentRecoveryPlugin extends FragmentRecoveryPlugin 
 	@Override
 	public void derive(IGuidedReasonerProxy reasoner, Entity entity, Artifact artifact) {
 		try {
-			derive(reasoner, entity, parseArtifact(artifact));			
+			deriveAllFragments(reasoner, entity, artifact.getLocation(), parseArtifact(artifact));			
 		} catch (IOException e) {
 			System.err.print(e);
 		} catch (ParserException e) {

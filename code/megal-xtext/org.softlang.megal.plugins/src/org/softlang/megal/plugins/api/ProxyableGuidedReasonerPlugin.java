@@ -1,27 +1,36 @@
 package org.softlang.megal.plugins.api;
 
+import java.net.URI;
+
 public abstract class ProxyableGuidedReasonerPlugin extends GuidedReasonerPlugin {
 
 	private class ReasonerProxy implements IGuidedReasonerProxy {
 
+		private final GuidedReasonerPlugin reasoner = ProxyableGuidedReasonerPlugin.this;
+		
 		@Override
 		public void addEntityType(String type, String superType) {
-			ProxyableGuidedReasonerPlugin.this.entityType(type, superType);
+			reasoner.entityType(type, superType);
 		}
 
 		@Override
 		public void addEntity(String name, String type) {
-			ProxyableGuidedReasonerPlugin.this.entity(name, type);
+			reasoner.entity(name, type);
 		}
 
 		@Override
 		public void addRelationshipType(String name, String leftType, String rightType) {
-			ProxyableGuidedReasonerPlugin.this.relationshipType(leftType, rightType, name);
+			reasoner.relationshipType(leftType, rightType, name);
 		}
 
 		@Override
 		public void addRelationship(String name, String left, String right) {
-			ProxyableGuidedReasonerPlugin.this.relationship(left, right, name);			
+			reasoner.relationship(left, right, name);			
+		}
+
+		@Override
+		public void addBinding(String entityName, URI binding) {
+			reasoner.binding(entityName, binding);
 		}
 		
 	}
