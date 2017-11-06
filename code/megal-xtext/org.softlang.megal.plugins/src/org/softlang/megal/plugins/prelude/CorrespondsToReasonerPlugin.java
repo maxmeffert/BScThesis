@@ -3,10 +3,9 @@ package org.softlang.megal.plugins.prelude;
 import static com.google.common.collect.Iterables.filter;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
 import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.mi2.Relationship;
 import org.softlang.megal.mi2.api.AbstractPlugin;
@@ -20,7 +19,7 @@ public class CorrespondsToReasonerPlugin extends ProxyableGuidedReasonerPlugin {
 		
 		abstract public String getLeftLanguage();
 		abstract public String getRightLanguage();
-		abstract public Map<String,String> init(Entity leftEntity, Artifact leftArtifact, Entity rightEntity, Artifact rightArtifact);
+		abstract public IBinaryRelation<String> init(Entity leftEntity, Artifact leftArtifact, Entity rightEntity, Artifact rightArtifact);
 	}
 	
 	@Override
@@ -36,10 +35,10 @@ public class CorrespondsToReasonerPlugin extends ProxyableGuidedReasonerPlugin {
 				.collect(Collectors.toList());
 	}
 		
-	private boolean correspondsTo(Set<Map.Entry<String,String>> correspondences, Entity left, Entity right) {
+	private boolean correspondsTo(IBinaryRelation<String> correspondences, Entity left, Entity right) {
 		return correspondences.stream()
-			.anyMatch(entry -> entry.getKey().equals(left.getName()) 
-					&& entry.getValue().equals(right.getName()));
+			.anyMatch(entry -> entry.getFirst().equals(left.getName()) 
+					&& entry.getSecond().equals(right.getName()));
 	}
 	
 	private void recoverFragmentCorrespondenes(Relationship relationship) {
@@ -50,8 +49,8 @@ public class CorrespondsToReasonerPlugin extends ProxyableGuidedReasonerPlugin {
 			if (Prelude.isElementOfLanguage(left, plugin.getLeftLanguage())
 					&& Prelude.isElementOfLanguage(right, plugin.getRightLanguage())) {
 				
-				Set<Map.Entry<String,String>> correspondences = plugin.init(left, artifactOf(left), right, artifactOf(right)).entrySet();
-				
+				IBinaryRelation<String> correspondences = plugin.init(left, artifactOf(left), right, artifactOf(right));
+								
 				for (Entity leftFragment : getFragmentsOf(left)) {
 					
 					for (Entity rightFragment : getFragmentsOf(right)) {

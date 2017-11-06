@@ -119,7 +119,11 @@ public abstract class BaseFragment implements IFragment {
         if (fragment == this) {
             return 0;
         }
-        return getText().compareTo(fragment.getText());
+        int result = getText().compareTo(fragment.getText());
+        if (result == 0) {
+            result = getPosition().compareTo(fragment.getPosition());
+        }
+        return result;
     }
 
     @Override

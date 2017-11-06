@@ -38,4 +38,19 @@ public class FragmentPosition implements IFragmentPosition {
     public String toString() {
         return "(" + getStartLine() + ":" + getStartCharInLine() + "," + getStopLine() + ":" + getStopCharInLine() + ")";
     }
+
+    @Override
+    public int compareTo(IFragmentPosition fragmentPosition) {
+        int result = getStartLine() - fragmentPosition.getStartLine();
+        if (result == 0) {
+            result = getStartCharInLine() - fragmentPosition.getStartCharInLine();
+        }
+        if (result == 0) {
+            result = getStopLine() - fragmentPosition.getStopLine();
+        }
+        if (result == 0) {
+            result = getStopCharInLine() - fragmentPosition.getStopCharInLine();
+        }
+        return result;
+    }
 }

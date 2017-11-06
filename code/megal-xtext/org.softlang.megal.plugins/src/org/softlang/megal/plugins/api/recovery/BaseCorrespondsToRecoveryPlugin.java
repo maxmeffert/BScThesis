@@ -2,10 +2,9 @@ package org.softlang.megal.plugins.api.recovery;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collections;
-import java.util.Map;
-
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.BinaryRelation;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinaryRelation;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.core.digraphs.DiGraph;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.tuples.IPair;
@@ -15,8 +14,6 @@ import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.mi2.api.Artifact;
 import org.softlang.megal.plugins.prelude.CorrespondsToReasonerPlugin.CorrespondsToRecoveryPlugin;
 
-import com.google.common.collect.Maps;
-
 public abstract class BaseCorrespondsToRecoveryPlugin extends CorrespondsToRecoveryPlugin {
 	
 	abstract protected IBinaryRelation<IFragment> getSimilarities(ICCRecoveryScenarios ccRecoveryScenarios, InputStream left, InputStream right) throws IOException, ParserException;
@@ -25,25 +22,33 @@ public abstract class BaseCorrespondsToRecoveryPlugin extends CorrespondsToRecov
 	
 	private final ICCRecoveryScenarios ccRecoveryScenarios = CCRecoveryScenarios.create();
 	
-	private Map<String,String> getTextMap(IBinaryRelation<IFragment> similarities, Entity left, Entity right) {
+	private IBinaryRelation<String> newBinaryRelation() {
+		return new BinaryRelation<String>(new DiGraph<String>());
+	}
+	
+	private IBinaryRelation<String> getTextMap(IBinaryRelation<IFragment> similarities, Entity left, Entity right) {
 		QualifiedFragmentNameProvider leftNameProvider = new QualifiedFragmentNameProvider(getLeftNameProvider());
 		QualifiedFragmentNameProvider rightNameProvider = new QualifiedFragmentNameProvider(getRightNameProvider());
-		Map<String, String> result = Maps.newTreeMap();
+		
+		IBinaryRelation<String> result = newBinaryRelation();
 		for (IPair<IFragment,IFragment> similarity : similarities) {
-			result.put(leftNameProvider.getQualifiedName(similarity.getFirst(), left), rightNameProvider.getQualifiedName(similarity.getSecond(), right));
+			String leftName = leftNameProvider.getQualifiedName(similarity.getFirst(), left);
+			String rightName = rightNameProvider.getQualifiedName(similarity.getSecond(), right);
+			
+			result.add(leftName, rightName);
 		}
 		return result;
 	}
 	
 	@Override
-	public Map<String, String> init(Entity leftEntity, Artifact leftArtifact, Entity rightEntity, Artifact rightArtifact) {
+	public IBinaryRelation<String> init(Entity leftEntity, Artifact leftArtifact, Entity rightEntity, Artifact rightArtifact) {
 		try {
 			IBinaryRelation<IFragment> similarities = getSimilarities(ccRecoveryScenarios, leftArtifact.getBytes().openStream(), rightArtifact.getBytes().openStream());
 			return getTextMap(similarities, leftEntity, rightEntity);
 		} catch (IOException | ParserException e) {
 			e.printStackTrace();
 		}
-		return Collections.emptyMap();
+		return newBinaryRelation();
 	}
 	
 }
