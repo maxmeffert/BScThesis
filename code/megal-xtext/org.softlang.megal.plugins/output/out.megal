@@ -3,10 +3,10 @@
 ============================================
                   Metrics                   
 ============================================
-#Elements          : 639
+#Elements          : 607
 #EntityTypes       : 14
-#Entities          : 78
-#Relationships     : 482
+#Entities          : 80
+#Relationships     : 448
 #RelationshipTypes : 65
 */
 
@@ -77,8 +77,8 @@ partOf< Technology * Technology
 partOf< Artifact * Artifact+
 partOf< Artifact * Technology
 partOf< Artifact * Artifact
-partOf< Language * Technology
 partOf< Language * Language
+partOf< Language * Technology
 partOf< Plugin * Plugin
 partOf< Artifact+ * Artifact+
 partOf< Artifact+ * Technology
@@ -111,653 +111,620 @@ versionOf< Language * Language
 */
 
 comaniesSqlFile: File
-comaniesSqlFile = 'workspace:/org.softlang.megal.plugins/input/companies.ddl.sql'
 
 companiesXmlFile: File
 companiesXmlFile correspondsTo companyJavaFile
-companiesXmlFile elementOf XML
-companiesXmlFile elementOf XMLFragments
-companiesXmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
-
-@FragmentText '<company id="0" name="Softlang Inc.">    <departm ...'
-companiesXmlFile.F0$company: Fragment
-companiesXmlFile.F0$company correspondsTo companyJavaFile.Company
-companiesXmlFile.F0$company elementOf XMLElementFragments
-companiesXmlFile.F0$company elementOf XMLFragments
-companiesXmlFile.F0$company fragmentOf companiesXmlFile
-companiesXmlFile.F0$company partOf companiesXmlFile
-companiesXmlFile.F0$company = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L2C0L38C10'
-
-@FragmentText 'id="0"'
-companiesXmlFile.F0$company.F0$id: Fragment
-companiesXmlFile.F0$company.F0$id correspondsTo companyJavaFile.Company.F10$setId
-companiesXmlFile.F0$company.F0$id correspondsTo companyJavaFile.Company.F11$getId
-companiesXmlFile.F0$company.F0$id correspondsTo companyJavaFile.Company.F6$id
-companiesXmlFile.F0$company.F0$id elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F0$id elementOf XMLFragments
-companiesXmlFile.F0$company.F0$id fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F0$id fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F0$id partOf companiesXmlFile
-companiesXmlFile.F0$company.F0$id partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F0$id = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L2C9L2C15'
-
-@FragmentText 'name="Softlang Inc."'
-companiesXmlFile.F0$company.F1$name: Fragment
-companiesXmlFile.F0$company.F1$name correspondsTo companyJavaFile.Company.F5$name
-companiesXmlFile.F0$company.F1$name correspondsTo companyJavaFile.Company.F8$setName
-companiesXmlFile.F0$company.F1$name correspondsTo companyJavaFile.Company.F9$getName
-companiesXmlFile.F0$company.F1$name elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F1$name elementOf XMLFragments
-companiesXmlFile.F0$company.F1$name fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F1$name fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F1$name partOf companiesXmlFile
-companiesXmlFile.F0$company.F1$name partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L2C16L2C36'
-
-@FragmentText '<departments>        <department id="0" name="Gra ...'
-companiesXmlFile.F0$company.F2$departments: Fragment
-companiesXmlFile.F0$company.F2$departments correspondsTo companyJavaFile.Company.F4$departments
-companiesXmlFile.F0$company.F2$departments correspondsTo companyJavaFile.Company.F7$getDepartments
-companiesXmlFile.F0$company.F2$departments elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L3C4L37C18'
-
-@FragmentText '<department id="0" name="Grammar Engineering">    ...'
-companiesXmlFile.F0$company.F2$departments.F0$department: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F0$department elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F0$department fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L4C8L10C21'
-
-@FragmentText 'name="Grammar Engineering"'
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name partOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L4C27L4C53'
-
-@FragmentText '<employees>                <employee id="0" name= ...'
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees partOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L5C12L8C24'
-
-@FragmentText '<employee id="0" name="John Backus" age="40" salar ...'
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L6C16L6C79'
-
-@FragmentText 'name="John Backus"'
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L6C33L6C51'
-
-@FragmentText '<employee id="0" name="Peter Naur" age="40" salary ...'
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee partOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee partOf companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L7C16L7C78'
-
-@FragmentText 'name="Peter Naur"'
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L7C33L7C50'
-
-@FragmentText '<manager id="0" name="Peter Naur" age="40" salary= ...'
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager fragmentOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager partOf companiesXmlFile.F0$company.F2$departments.F0$department
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L9C12L9C73'
-
-@FragmentText '<department id="0" name="Research &amp; Developmen ...'
-companiesXmlFile.F0$company.F2$departments.F1$department: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F1$department elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F1$department fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L11C8L17C21'
-
-@FragmentText 'name="Research &amp; Development"'
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name partOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L11C27L11C60'
-
-@FragmentText '<employees>                <employee id="0" name= ...'
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees partOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L12C12L15C24'
-
-@FragmentText '<employee id="0" name="Alonzo Church" age="40" sal ...'
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L13C16L13C81'
-
-@FragmentText 'name="Alonzo Church"'
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L13C33L13C53'
-
-@FragmentText '<employee id="0" name="Alan Turing" age="40" salar ...'
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee partOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee partOf companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L14C16L14C79'
-
-@FragmentText 'name="Alan Turing"'
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L14C33L14C51'
-
-@FragmentText '<manager id="0" name="Alan Turing" age="40" salary ...'
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager fragmentOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager partOf companiesXmlFile.F0$company.F2$departments.F1$department
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L16C12L16C74'
-
-@FragmentText '<department id="0" name="Language Engineering">   ...'
-companiesXmlFile.F0$company.F2$departments.F2$department: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F2$department elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F2$department fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L18C8L30C21'
-
-@FragmentText 'name="Language Engineering"'
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name partOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L18C27L18C54'
-
-@FragmentText '<employees>                <employee id="0" name= ...'
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees fragmentOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees partOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L19C12L21C24'
-
-@FragmentText '<employee id="0" name="Niklaus Wirth" age="40" sal ...'
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L20C16L20C81'
-
-@FragmentText 'name="Niklaus Wirth"'
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L20C33L20C53'
-
-@FragmentText '<manager id="0" name="Niklaus Wirth" age="40" sala ...'
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager fragmentOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager partOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L22C12L22C76'
-
-@FragmentText '<subDepartments id="0" name="Grammar Engineering"> ...'
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments fragmentOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments partOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L23C12L29C29'
-
-@FragmentText '<employees>                    <employee id="0" n ...'
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees fragmentOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees fragmentOf companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees partOf companiesXmlFile.F0$company.F2$departments.F2$department
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees partOf companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L24C16L27C28'
-
-@FragmentText '<department id="0" name="Programming">            ...'
-companiesXmlFile.F0$company.F2$departments.F3$department: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F3$department elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F3$department fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L31C8L36C21'
-
-@FragmentText 'name="Programming"'
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name partOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L31C27L31C45'
-
-@FragmentText '<employees>                <employee id="0" name= ...'
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees partOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L32C12L34C24'
-
-@FragmentText '<employee id="0" name="Ada Lovelace" age="40" sala ...'
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee partOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L33C16L33C80'
-
-@FragmentText 'name="Ada Lovelace"'
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name partOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L33C33L33C52'
-
-@FragmentText 'age="40"'
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age partOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age partOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age partOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L33C53L33C61'
-
-@FragmentText 'salary="55000.0"'
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary elementOf XMLAttributeFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary partOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary partOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary partOf companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L33C62L33C78'
-
-@FragmentText '<manager id="0" name="Ada Lovelace" age="40" salar ...'
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager elementOf XMLElementFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager elementOf XMLFragments
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager fragmentOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager fragmentOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager fragmentOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager fragmentOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager partOf companiesXmlFile
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager partOf companiesXmlFile.F0$company
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager partOf companiesXmlFile.F0$company.F2$departments
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager partOf companiesXmlFile.F0$company.F2$departments.F3$department
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L35C12L35C75'
 
 companiesXsdFile: File
 companiesXsdFile correspondsTo companyJavaFile
 
+companyHbmFile: File
+companyHbmFile elementOf HibernateXML
+companyHbmFile elementOf HibernateXMLFragments
+companyHbmFile elementOf XML
+companyHbmFile elementOf XMLFragments
+companyHbmFile = 'workspace:/org.softlang.megal.plugins/input/Company.hbm.xml'
+
+@FragmentText '<hibernate-mapping auto-import="true" default-acce ...'
+companyHbmFile.F0$hibernate-mapping: Fragment
+companyHbmFile.F0$hibernate-mapping elementOf XMLElementFragments
+companyHbmFile.F0$hibernate-mapping elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L3C0L19C20'
+
+@FragmentText 'auto-import="true"'
+companyHbmFile.F0$hibernate-mapping.F0$auto-import: Fragment
+companyHbmFile.F0$hibernate-mapping.F0$auto-import elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F0$auto-import elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F0$auto-import fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F0$auto-import fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F0$auto-import partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F0$auto-import partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F0$auto-import = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L3C19L3C37'
+
+@FragmentText 'default-access="property"'
+companyHbmFile.F0$hibernate-mapping.F1$default-access: Fragment
+companyHbmFile.F0$hibernate-mapping.F1$default-access elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F1$default-access elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F1$default-access fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F1$default-access fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F1$default-access partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F1$default-access partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F1$default-access = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L3C38L3C63'
+
+@FragmentText 'default-cascade="none"'
+companyHbmFile.F0$hibernate-mapping.F2$default-cascade: Fragment
+companyHbmFile.F0$hibernate-mapping.F2$default-cascade elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F2$default-cascade elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F2$default-cascade fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F2$default-cascade fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F2$default-cascade partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F2$default-cascade partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F2$default-cascade = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L3C64L3C86'
+
+@FragmentText 'default-lazy="true"'
+companyHbmFile.F0$hibernate-mapping.F3$default-lazy: Fragment
+companyHbmFile.F0$hibernate-mapping.F3$default-lazy elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F3$default-lazy elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F3$default-lazy fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F3$default-lazy fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F3$default-lazy partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F3$default-lazy partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F3$default-lazy = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L3C87L3C106'
+
+@FragmentText '<class dynamic-insert="false" dynamic-update="fals ...'
+companyHbmFile.F0$hibernate-mapping.F4$class: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class elementOf XMLElementFragments
+companyHbmFile.F0$hibernate-mapping.F4$class elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L4C4L18C12'
+
+@FragmentText 'dynamic-insert="false"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F0$dynamic-insert: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F0$dynamic-insert elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F0$dynamic-insert elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F0$dynamic-insert fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F0$dynamic-insert fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F0$dynamic-insert fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F0$dynamic-insert partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F0$dynamic-insert partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F0$dynamic-insert partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F0$dynamic-insert = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L4C11L4C33'
+
+@FragmentText 'dynamic-update="false"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F1$dynamic-update: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F1$dynamic-update elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F1$dynamic-update elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F1$dynamic-update fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F1$dynamic-update fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F1$dynamic-update fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F1$dynamic-update partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F1$dynamic-update partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F1$dynamic-update partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F1$dynamic-update = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L4C34L4C56'
+
+@FragmentText '<property access="field" generated="never" lazy="f ...'
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property elementOf XMLElementFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L15C8L17C19'
+
+@FragmentText 'generated="never"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F1$generated: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F1$generated elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F1$generated elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F1$generated fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F1$generated fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F1$generated fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F1$generated fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F1$generated partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F1$generated partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F1$generated partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F1$generated partOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F1$generated = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L15C33L15C50'
+
+@FragmentText 'lazy="false"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F2$lazy: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F2$lazy elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F2$lazy elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F2$lazy fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F2$lazy fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F2$lazy fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F2$lazy fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F2$lazy partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F2$lazy partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F2$lazy partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F2$lazy partOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F2$lazy = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L15C51L15C63'
+
+@FragmentText 'type="java.lang.String"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F5$type: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F5$type elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F5$type elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F5$type fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F5$type fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F5$type fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F5$type fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F5$type partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F5$type partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F5$type partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F5$type partOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F5$type = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L15C99L15C122'
+
+@FragmentText 'unique="false"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F6$unique: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F6$unique elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F6$unique elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F6$unique fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F6$unique fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F6$unique fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F6$unique fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F6$unique partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F6$unique partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F6$unique partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F6$unique partOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F6$unique = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L15C123L15C137'
+
+@FragmentText '<column name="name"/>'
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column elementOf XMLElementFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column partOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L16C12L16C33'
+
+@FragmentText 'name="name"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name partOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name partOf companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property.F7$column.F0$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L16C20L16C31'
+
+@FragmentText 'name="org.softlang.maxmeffert.bscthesis.ccrecovery ...'
+companyHbmFile.F0$hibernate-mapping.F4$class.F3$name: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F3$name elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F3$name elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F3$name fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F3$name fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F3$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F3$name partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F3$name partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F3$name partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F3$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L4C72L4C147'
+
+@FragmentText 'optimistic-lock="version"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F4$optimistic-lock: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F4$optimistic-lock elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F4$optimistic-lock elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F4$optimistic-lock fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F4$optimistic-lock fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F4$optimistic-lock fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F4$optimistic-lock partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F4$optimistic-lock partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F4$optimistic-lock partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F4$optimistic-lock = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L4C148L4C173'
+
+@FragmentText 'polymorphism="implicit"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F5$polymorphism: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F5$polymorphism elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F5$polymorphism elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F5$polymorphism fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F5$polymorphism fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F5$polymorphism fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F5$polymorphism partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F5$polymorphism partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F5$polymorphism partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F5$polymorphism = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L4C174L4C197'
+
+@FragmentText 'select-before-update="false"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F6$select-before-update: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F6$select-before-update elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F6$select-before-update elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F6$select-before-update fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F6$select-before-update fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F6$select-before-update fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F6$select-before-update partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F6$select-before-update partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F6$select-before-update partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F6$select-before-update = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L4C198L4C226'
+
+@FragmentText 'table="Company"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F7$table: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F7$table elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F7$table elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F7$table fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F7$table fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F7$table fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F7$table partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F7$table partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F7$table partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F7$table = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L4C227L4C242'
+
+@FragmentText '<id access="field" name="id" type="int">          ...'
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id elementOf XMLElementFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L5C8L8C13'
+
+@FragmentText 'type="int"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F2$type: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F2$type elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F2$type elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F2$type fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F2$type fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F2$type fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F2$type fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F2$type partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F2$type partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F2$type partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F2$type partOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F2$type = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L5C37L5C47'
+
+@FragmentText '<column name="id"/>'
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column elementOf XMLElementFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column partOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L6C12L6C31'
+
+@FragmentText 'name="id"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name partOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name partOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F3$column.F0$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L6C20L6C29'
+
+@FragmentText '<generator class="org.hibernate.id.enhanced.Sequen ...'
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator elementOf XMLElementFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator partOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L7C12L7C81'
+
+@FragmentText 'class="org.hibernate.id.enhanced.SequenceStyleGene ...'
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class partOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class partOf companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L7C23L7C79'
+
+@FragmentText '<bag access="field" cascade="all" embed-xml="true" ...'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag elementOf XMLElementFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L9C8L14C14'
+
+@FragmentText 'access="field"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F0$access: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F0$access elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F0$access elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F0$access fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F0$access fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F0$access fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F0$access fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F0$access partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F0$access partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F0$access partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F0$access partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F0$access = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L9C13L9C27'
+
+@FragmentText 'cascade="all"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F1$cascade: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F1$cascade elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F1$cascade elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F1$cascade fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F1$cascade fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F1$cascade fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F1$cascade fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F1$cascade partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F1$cascade partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F1$cascade partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F1$cascade partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F1$cascade = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L9C28L9C41'
+
+@FragmentText '<key on-delete="noaction">                <column ...'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key elementOf XMLElementFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L10C12L12C18'
+
+@FragmentText 'on-delete="noaction"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F0$on-delete = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L10C17L10C37'
+
+@FragmentText '<column name="company_id"/>'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column elementOf XMLElementFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L11C16L11C43'
+
+@FragmentText 'name="company_id"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F10$key.F1$column.F0$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L11C24L11C41'
+
+@FragmentText '<one-to-many class="org.softlang.maxmeffert.bscthe ...'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many elementOf XMLElementFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L13C12L13C145'
+
+@FragmentText 'class="org.softlang.maxmeffert.bscthesis.ccrecover ...'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F0$class = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L13C25L13C104'
+
+@FragmentText 'not-found="exception"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F11$one-to-many.F2$not-found = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L13C122L13C143'
+
+@FragmentText 'embed-xml="true"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F2$embed-xml: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F2$embed-xml elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F2$embed-xml elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F2$embed-xml fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F2$embed-xml fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F2$embed-xml fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F2$embed-xml fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F2$embed-xml partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F2$embed-xml partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F2$embed-xml partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F2$embed-xml partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F2$embed-xml = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L9C42L9C58'
+
+@FragmentText 'fetch="select"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F3$fetch: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F3$fetch elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F3$fetch elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F3$fetch fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F3$fetch fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F3$fetch fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F3$fetch fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F3$fetch partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F3$fetch partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F3$fetch partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F3$fetch partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F3$fetch = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L9C59L9C73'
+
+@FragmentText 'inverse="true"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F4$inverse: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F4$inverse elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F4$inverse elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F4$inverse fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F4$inverse fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F4$inverse fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F4$inverse fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F4$inverse partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F4$inverse partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F4$inverse partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F4$inverse partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F4$inverse = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L9C74L9C88'
+
+@FragmentText 'lazy="true"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F5$lazy: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F5$lazy elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F5$lazy elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F5$lazy fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F5$lazy fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F5$lazy fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F5$lazy fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F5$lazy partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F5$lazy partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F5$lazy partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F5$lazy partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F5$lazy = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L9C89L9C100'
+
+@FragmentText 'mutable="true"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F6$mutable: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F6$mutable elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F6$mutable elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F6$mutable fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F6$mutable fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F6$mutable fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F6$mutable fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F6$mutable partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F6$mutable partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F6$mutable partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F6$mutable partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F6$mutable = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L9C101L9C115'
+
+@FragmentText 'name="departments"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F7$name: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F7$name elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F7$name elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F7$name fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F7$name fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F7$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F7$name fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F7$name partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F7$name partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F7$name partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F7$name partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F7$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L9C116L9C134'
+
+@FragmentText 'optimistic-lock="true"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F8$optimistic-lock: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F8$optimistic-lock elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F8$optimistic-lock elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F8$optimistic-lock fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F8$optimistic-lock fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F8$optimistic-lock fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F8$optimistic-lock fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F8$optimistic-lock partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F8$optimistic-lock partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F8$optimistic-lock partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F8$optimistic-lock partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F8$optimistic-lock = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L9C135L9C157'
+
+@FragmentText 'table="Department"'
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table elementOf XMLAttributeFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table elementOf XMLFragments
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table fragmentOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table fragmentOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table fragmentOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table partOf companyHbmFile
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table partOf companyHbmFile.F0$hibernate-mapping
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table partOf companyHbmFile.F0$hibernate-mapping.F4$class
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table partOf companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.hbm.xml?fragment=L9C158L9C176'
+
 companyJavaFile: File
 companyJavaFile correspondsTo companiesXmlFile
 companyJavaFile correspondsTo companiesXsdFile
-companyJavaFile elementOf Java
-companyJavaFile elementOf JavaFragments
-companyJavaFile = 'workspace:/org.softlang.megal.plugins/input/Company.java'
 
-@FragmentText '@Entity@XmlRootElement(name="company")@XmlAccess ...'
-companyJavaFile.Company: Fragment
-companyJavaFile.Company correspondsTo companiesXmlFile.F0$company
-companyJavaFile.Company elementOf JavaClassFragments
-companyJavaFile.Company elementOf JavaFragments
-companyJavaFile.Company fragmentOf companyJavaFile
-companyJavaFile.Company partOf companyJavaFile
-companyJavaFile.Company = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.java?fragment=L10C0L53C1'
+@FileExtensions '.hbm.xml'
+HibernateXML: Language
+HibernateXML subsetOf HibernateXMLFragments
+HibernateXML subsetOf XML
 
-@FragmentText 'public void setId(int id) {		this.id = id;	}'
-companyJavaFile.Company.F10$setId: Fragment
-companyJavaFile.Company.F10$setId correspondsTo companiesXmlFile.F0$company.F0$id
-companyJavaFile.Company.F10$setId elementOf JavaFragments
-companyJavaFile.Company.F10$setId elementOf JavaMethodFragments
-companyJavaFile.Company.F10$setId fragmentOf companyJavaFile
-companyJavaFile.Company.F10$setId fragmentOf companyJavaFile.Company
-companyJavaFile.Company.F10$setId partOf companyJavaFile
-companyJavaFile.Company.F10$setId partOf companyJavaFile.Company
-companyJavaFile.Company.F10$setId = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.java?fragment=L40C1L42C2'
-
-@FragmentText 'public int getId() {		return id;	}'
-companyJavaFile.Company.F11$getId: Fragment
-companyJavaFile.Company.F11$getId correspondsTo companiesXmlFile.F0$company.F0$id
-companyJavaFile.Company.F11$getId elementOf JavaFragments
-companyJavaFile.Company.F11$getId elementOf JavaMethodFragments
-companyJavaFile.Company.F11$getId fragmentOf companyJavaFile
-companyJavaFile.Company.F11$getId fragmentOf companyJavaFile.Company
-companyJavaFile.Company.F11$getId partOf companyJavaFile
-companyJavaFile.Company.F11$getId partOf companyJavaFile.Company
-companyJavaFile.Company.F11$getId = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.java?fragment=L37C1L39C2'
-
-@FragmentText '@XmlElementWrapper(name="departments")	@XmlElemen ...'
-companyJavaFile.Company.F4$departments: Fragment
-companyJavaFile.Company.F4$departments correspondsTo companiesXmlFile.F0$company.F2$departments
-companyJavaFile.Company.F4$departments elementOf JavaFieldFragments
-companyJavaFile.Company.F4$departments elementOf JavaFragments
-companyJavaFile.Company.F4$departments fragmentOf companyJavaFile
-companyJavaFile.Company.F4$departments fragmentOf companyJavaFile.Company
-companyJavaFile.Company.F4$departments partOf companyJavaFile
-companyJavaFile.Company.F4$departments partOf companyJavaFile.Company
-companyJavaFile.Company.F4$departments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.java?fragment=L23C1L26C44'
-
-@FragmentText '@XmlAttribute	private String name;'
-companyJavaFile.Company.F5$name: Fragment
-companyJavaFile.Company.F5$name correspondsTo companiesXmlFile.F0$company.F1$name
-companyJavaFile.Company.F5$name elementOf JavaFieldFragments
-companyJavaFile.Company.F5$name elementOf JavaFragments
-companyJavaFile.Company.F5$name fragmentOf companyJavaFile
-companyJavaFile.Company.F5$name fragmentOf companyJavaFile.Company
-companyJavaFile.Company.F5$name partOf companyJavaFile
-companyJavaFile.Company.F5$name partOf companyJavaFile.Company
-companyJavaFile.Company.F5$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.java?fragment=L20C1L21C21'
-
-@FragmentText '@Id	@GeneratedValue(strategy=GenerationType.AUTO) ...'
-companyJavaFile.Company.F6$id: Fragment
-companyJavaFile.Company.F6$id correspondsTo companiesXmlFile.F0$company.F0$id
-companyJavaFile.Company.F6$id elementOf JavaFieldFragments
-companyJavaFile.Company.F6$id elementOf JavaFragments
-companyJavaFile.Company.F6$id fragmentOf companyJavaFile
-companyJavaFile.Company.F6$id fragmentOf companyJavaFile.Company
-companyJavaFile.Company.F6$id partOf companyJavaFile
-companyJavaFile.Company.F6$id partOf companyJavaFile.Company
-companyJavaFile.Company.F6$id = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.java?fragment=L15C1L18C16'
-
-@FragmentText 'public Collection<Department> getDepartments() {	 ...'
-companyJavaFile.Company.F7$getDepartments: Fragment
-companyJavaFile.Company.F7$getDepartments correspondsTo companiesXmlFile.F0$company.F2$departments
-companyJavaFile.Company.F7$getDepartments elementOf JavaFragments
-companyJavaFile.Company.F7$getDepartments elementOf JavaMethodFragments
-companyJavaFile.Company.F7$getDepartments fragmentOf companyJavaFile
-companyJavaFile.Company.F7$getDepartments fragmentOf companyJavaFile.Company
-companyJavaFile.Company.F7$getDepartments partOf companyJavaFile
-companyJavaFile.Company.F7$getDepartments partOf companyJavaFile.Company
-companyJavaFile.Company.F7$getDepartments = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.java?fragment=L49C1L51C2'
-
-@FragmentText 'public void setName(String name) {		this.name = n ...'
-companyJavaFile.Company.F8$setName: Fragment
-companyJavaFile.Company.F8$setName correspondsTo companiesXmlFile.F0$company.F1$name
-companyJavaFile.Company.F8$setName elementOf JavaFragments
-companyJavaFile.Company.F8$setName elementOf JavaMethodFragments
-companyJavaFile.Company.F8$setName fragmentOf companyJavaFile
-companyJavaFile.Company.F8$setName fragmentOf companyJavaFile.Company
-companyJavaFile.Company.F8$setName partOf companyJavaFile
-companyJavaFile.Company.F8$setName partOf companyJavaFile.Company
-companyJavaFile.Company.F8$setName = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.java?fragment=L46C1L48C2'
-
-@FragmentText 'public String getName() {		return name;	}'
-companyJavaFile.Company.F9$getName: Fragment
-companyJavaFile.Company.F9$getName correspondsTo companiesXmlFile.F0$company.F1$name
-companyJavaFile.Company.F9$getName elementOf JavaFragments
-companyJavaFile.Company.F9$getName elementOf JavaMethodFragments
-companyJavaFile.Company.F9$getName fragmentOf companyJavaFile
-companyJavaFile.Company.F9$getName fragmentOf companyJavaFile.Company
-companyJavaFile.Company.F9$getName partOf companyJavaFile
-companyJavaFile.Company.F9$getName partOf companyJavaFile.Company
-companyJavaFile.Company.F9$getName = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.java?fragment=L43C1L45C2'
+HibernateXMLFragments: Language
+HibernateXMLFragments fragmentLanguageOf HibernateXML
+HibernateXMLFragments subsetOf XMLFragments
 
 @FileExtensions '.java'
 Java: Language

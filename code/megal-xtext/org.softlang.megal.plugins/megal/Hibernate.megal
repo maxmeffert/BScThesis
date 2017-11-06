@@ -1,5 +1,23 @@
 model Hibernate
 import Prelude
+import XML
+import Fragments
+
+//===============================================
+// § Languages & Fragments
+//===============================================
+
+@FileExtensions '.hbm.xml'
+HibernateXML : Language
+HibernateXML subsetOf XML
+
+HibernateXMLFragments : Language
+HibernateXMLFragments subsetOf XMLFragments
+HibernateXMLFragments fragmentLanguageOf HibernateXML
+
+//===============================================
+// § Plugins
+//===============================================
 
 HibernateJavaXmlCorrespondsToRecoveryPlugin: Plugin
 HibernateJavaXmlCorrespondsToRecoveryPlugin partOf CorrespondsToReasonerPlugin
