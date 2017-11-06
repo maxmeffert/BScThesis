@@ -119,6 +119,7 @@ transformedIn < Artifact (+) * Artifact (+)
 // § ConformsTo
 //===============================================
 
+@Plugin 'CorrespondsToReasonerPlugin'
 correspondsTo < Artifact (+) * Artifact (+)
 
 //===============================================
@@ -206,3 +207,15 @@ FragmentOfReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.Fragmen
 
 ElementOfLanguageReasonerPlugin: Plugin
 ElementOfLanguageReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.ElementOfLanguageReasonerPlugin'
+
+CorrespondsToReasonerPlugin: Plugin
+CorrespondsToReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.CorrespondsToReasonerPlugin'
+
+
+
+
+
+
+JaxbJavaXmlCorrespondsToRecoveryPlugin: Plugin
+JaxbJavaXmlCorrespondsToRecoveryPlugin partOf CorrespondsToReasonerPlugin
+JaxbJavaXmlCorrespondsToRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.jaxb.JaxbJavaXmlCorrespondsToRecoveryPlugin'

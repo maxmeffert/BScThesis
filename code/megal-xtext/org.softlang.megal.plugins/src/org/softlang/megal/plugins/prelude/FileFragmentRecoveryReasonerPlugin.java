@@ -40,6 +40,7 @@ public class FileFragmentRecoveryReasonerPlugin extends ProxyableGuidedReasonerP
 				
 	}
 	
+	@Override
 	public boolean isContextBased () {
 		return true;
 	}

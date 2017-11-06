@@ -7,7 +7,8 @@ aJavaFile = 'workspace:/org.softlang.megal.plugins/input/org/softlang/megal/acme
 //aJavaFile = 'workspace:/org.softlang.megal.plugins/src/org/softlang/megal/plugins/impl/java/JavaFragmentizer.java'
 
 
-xmlFile = 'workspace:/org.softlang.megal.plugins/input/Note.xml'
+xmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
+//xmlFile = 'workspace:/org.softlang.megal.plugins/input/Note.xml'
 //xsdFile = 'workspace:/org.softlang.megal.plugins/input/Note.xsd'
 
 
@@ -18,3 +19,5 @@ xmlFile = 'workspace:/org.softlang.megal.plugins/input/Note.xml'
 //aFolder = 'workspace:/org.softlang.megal.plugins/input';
 
 //aSQLFile = 'workspace:/org.softlang.megal.plugins/input/Foo.sql'
+
+aJavaFile correspondsTo xmlFile
