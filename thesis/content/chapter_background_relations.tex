@@ -454,93 +454,93 @@ is called \emph{transitive closure} of $R$.
 The transitive closure of a relation is the infimum or greatest lower bound of the set $A = \{ S | R \sqsubset S \wedge S \text{ transitive } \}$ containing all transitive relations, which include $R$.
 Because $A$ contains only transitive relations, its infimum $I = \inf A$ is also transitive.
 
-\begin{align*}
-&PR \sqsubset QS
-\\&\Leftrightarrow
-\forall x,y:
-(x,y) \in PR \rightarrow (x,y) \in QS
-\\&\Leftrightarrow
-\forall x,y \exists z:
-(x,z) \in P \wedge (z,y) \in R \rightarrow (x,z) \in Q \wedge (z,y) \in S
-\\&\Leftrightarrow
-\forall x,y \exists z:
-(x,z) \not\in P \vee (z,y) \not\in R
-\vee 
-[(x,z) \in Q \wedge (z,y) \in S]
-\\&\Leftrightarrow
-\forall x,y \exists z:
-[(x,z) \not\in P \vee (z,y) \not\in R \vee (x,z) \in Q]
-\wedge
-[(x,z) \not\in P \vee (z,y) \not\in R \vee (z,y) \in S]
-\\&\Leftrightarrow
-\forall x,y \exists z:
-[(z,y) \not\in R \vee [(x,z) \not\in P \vee (x,z) \in Q]]
-\wedge
-[(x,z) \not\in P \vee [(z,y) \not\in R \vee (z,y) \in S]]
-\\&\Leftrightarrow
-\forall x,y \exists z:
-[(z,y) \not\in R \vee [(x,z) \in P \rightarrow (x,z) \in Q]]
-\wedge
-[(x,z) \not\in P \vee [(z,y) \in R \rightarrow (z,y) \in S]]
-\\&\Leftrightarrow
-\forall x,y \exists z:
-[(z,y) \not\in R \vee P \sqsubset Q]
-\wedge
-[(x,z) \not\in P \vee R \sqsubset S]
-\end{align*}
-
-\begin{align*}
-&PR \not\sqsubset QS
-\\&\Leftrightarrow
-\exists x,y : (x,y) \in PR \wedge (x,y) \not\in QS
-\\&\Leftrightarrow
-\exists x,y,z: [(x,z) \in P \wedge (z,y) \in R] \wedge \neg[(x,z) \in Q \wedge (z,y) \in S]
-\\&\Leftrightarrow
-\exists x,y,z: [(x,z) \in P \wedge (z,y) \in R] \wedge [(x,z) \not\in Q \vee (z,y) \not\in S]
-\\&\Leftrightarrow
-\exists x,y,z:
-[(x,z) \in P \wedge (z,y) \in R \wedge (x,z) \not\in Q]
-\vee
-[(x,z) \in P \wedge (z,y) \in R \wedge (z,y) \not\in S]
-\\&\Leftrightarrow
-\exists x,y,z:
-[P \not\sqsubset Q \wedge (z,y) \in R]
-\vee
-[(x,z) \in P \wedge R \not\sqsubset S]
-\\&\Leftrightarrow
-\forall x,y,z:
-\neg([P \not\sqsubset Q \wedge (z,y) \in R]
-\vee
-[(x,z) \in P \wedge R \not\sqsubset S])
-\\&\Leftrightarrow
-\forall x,y,z:
-[P \sqsubset Q \vee (z,y) \not\in R]
-\wedge
-[(x,z) \not\in P \vee R \sqsubset S]
-\\&\Leftrightarrow
-\forall x,y,z:
-[[P \sqsubset Q \vee (z,y) \not\in R] \wedge (x,z) \not\in P ]
-\vee
-[[P \sqsubset Q \vee (z,y) \not\in R] \wedge R \sqsubset S]
-\\&\Leftrightarrow
-\forall x,y,z:
-[P \sqsubset Q \wedge (x,z) \not\in P] 
-\vee 
-[(z,y) \not\in R \wedge (x,z) \not\in P]
-\vee
-[P \sqsubset Q \wedge R \sqsubset S]
-\vee 
-[(z,y) \not\in R \wedge R \sqsubset S]
-\\&\Leftrightarrow
-\forall x,y,z:
-[P \sqsubset Q \wedge (x,z) \not\in P] 
-\vee 
-[(x,y) \not\in PR]
-\vee
-[P \sqsubset Q \wedge R \sqsubset S]
-\vee 
-[(z,y) \not\in R \wedge R \sqsubset S]
-\end{align*}
+%\begin{align*}
+%&PR \sqsubset QS
+%\\&\Leftrightarrow
+%\forall x,y:
+%(x,y) \in PR \rightarrow (x,y) \in QS
+%\\&\Leftrightarrow
+%\forall x,y \exists z:
+%(x,z) \in P \wedge (z,y) \in R \rightarrow (x,z) \in Q \wedge (z,y) \in S
+%\\&\Leftrightarrow
+%\forall x,y \exists z:
+%(x,z) \not\in P \vee (z,y) \not\in R
+%\vee 
+%[(x,z) \in Q \wedge (z,y) \in S]
+%\\&\Leftrightarrow
+%\forall x,y \exists z:
+%[(x,z) \not\in P \vee (z,y) \not\in R \vee (x,z) \in Q]
+%\wedge
+%[(x,z) \not\in P \vee (z,y) \not\in R \vee (z,y) \in S]
+%\\&\Leftrightarrow
+%\forall x,y \exists z:
+%[(z,y) \not\in R \vee [(x,z) \not\in P \vee (x,z) \in Q]]
+%\wedge
+%[(x,z) \not\in P \vee [(z,y) \not\in R \vee (z,y) \in S]]
+%\\&\Leftrightarrow
+%\forall x,y \exists z:
+%[(z,y) \not\in R \vee [(x,z) \in P \rightarrow (x,z) \in Q]]
+%\wedge
+%[(x,z) \not\in P \vee [(z,y) \in R \rightarrow (z,y) \in S]]
+%\\&\Leftrightarrow
+%\forall x,y \exists z:
+%[(z,y) \not\in R \vee P \sqsubset Q]
+%\wedge
+%[(x,z) \not\in P \vee R \sqsubset S]
+%\end{align*}
+%
+%\begin{align*}
+%&PR \not\sqsubset QS
+%\\&\Leftrightarrow
+%\exists x,y : (x,y) \in PR \wedge (x,y) \not\in QS
+%\\&\Leftrightarrow
+%\exists x,y,z: [(x,z) \in P \wedge (z,y) \in R] \wedge \neg[(x,z) \in Q \wedge (z,y) \in S]
+%\\&\Leftrightarrow
+%\exists x,y,z: [(x,z) \in P \wedge (z,y) \in R] \wedge [(x,z) \not\in Q \vee (z,y) \not\in S]
+%\\&\Leftrightarrow
+%\exists x,y,z:
+%[(x,z) \in P \wedge (z,y) \in R \wedge (x,z) \not\in Q]
+%\vee
+%[(x,z) \in P \wedge (z,y) \in R \wedge (z,y) \not\in S]
+%\\&\Leftrightarrow
+%\exists x,y,z:
+%[P \not\sqsubset Q \wedge (z,y) \in R]
+%\vee
+%[(x,z) \in P \wedge R \not\sqsubset S]
+%\\&\Leftrightarrow
+%\forall x,y,z:
+%\neg([P \not\sqsubset Q \wedge (z,y) \in R]
+%\vee
+%[(x,z) \in P \wedge R \not\sqsubset S])
+%\\&\Leftrightarrow
+%\forall x,y,z:
+%[P \sqsubset Q \vee (z,y) \not\in R]
+%\wedge
+%[(x,z) \not\in P \vee R \sqsubset S]
+%\\&\Leftrightarrow
+%\forall x,y,z:
+%[[P \sqsubset Q \vee (z,y) \not\in R] \wedge (x,z) \not\in P ]
+%\vee
+%[[P \sqsubset Q \vee (z,y) \not\in R] \wedge R \sqsubset S]
+%\\&\Leftrightarrow
+%\forall x,y,z:
+%[P \sqsubset Q \wedge (x,z) \not\in P] 
+%\vee 
+%[(z,y) \not\in R \wedge (x,z) \not\in P]
+%\vee
+%[P \sqsubset Q \wedge R \sqsubset S]
+%\vee 
+%[(z,y) \not\in R \wedge R \sqsubset S]
+%\\&\Leftrightarrow
+%\forall x,y,z:
+%[P \sqsubset Q \wedge (x,z) \not\in P] 
+%\vee 
+%[(x,y) \not\in PR]
+%\vee
+%[P \sqsubset Q \wedge R \sqsubset S]
+%\vee 
+%[(z,y) \not\in R \wedge R \sqsubset S]
+%\end{align*}
 
 
 
