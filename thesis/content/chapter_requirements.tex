@@ -1,14 +1,26 @@
 \chapter{Requirements}
-This chapter summarizes functional requirements for the recovery software part of this thesis.
+This chapter summarizes functional requirements for the recovery system developed as part of this thesis.
 
 \begin{enumerate}[label=\textbf{R\arabic*},ref=R\arabic*]
-\item 
-\label{R1}
-asdf
+
+\item
+\label{Requirement:Parthood-Links}
+The recovery system must be capable of recovering parthood links, i.e. links capturing the relation between syntactically well-formed software artifacts and their fragments.
+
+\item
+\label{Requirement:Correspondence-Links}
+The recovery system must be capable of recovering correspondences links, i.e. links capturing the relation between fragments of software artifacts denoting a predefined similarity among them and their fragments.
+
+\ToDo{refer to a correspondence definition}
+
+\item
+\label{Requirement:Conformance-Links} 
+The recovery system must be capable of recovering conformance links, i.e. links capturing the relation between a software artifacts or fragments denoting that one defines the other.
+
+\ToDo{refer to a conformance definition}
 
 \item 
-asdf \ref{R1}
+\label{Requirement:Megal-Xtext}
+The recovery system must be capable of running within the \megalxtext environment, i.e. the system must be compatible with the \megalxtext plug-in-system.
 
-\item asdf
-\item asdf
 \end{enumerate}
