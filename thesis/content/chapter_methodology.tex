@@ -1,6 +1,6 @@
 \chapter{Methodology}
 This chapter summarizes the methodology used to develop the recovery system for this thesis.
-In short, the recovery system is developed example-driven using the model of a fictional \acrfull{HRMS} used by the 101wiki\footnote{\url{https://101wiki.softlang.org/} (retrieved \formatdate{12}{11}{2017})} for its contributions.
+In short, the recovery system is developed example-driven using the model of a fictional \gls{HRMS} used by the 101wiki\footnote{\url{https://101wiki.softlang.org/} (retrieved \formatdate{12}{11}{2017})} for its contributions.
 
 \section{Example Driven Development Process}
 The Example Driven Development Process used to develop the recovery system for this thesis is shown in Figure \ref{figure:ExampleDrivenDevelopment}.
@@ -12,7 +12,7 @@ The Example Driven Development Process used to develop the recovery system for t
 \label{figure:ExampleDrivenDevelopment}
 \end{figure}
 Given we acquired a suitable example corpus, which is outlined in detail in §\ref{section:ExampleCorpus}, we have to define conditions for acceptable results.
-These conditions can be seen as functional requirements, for instance, we want a \Gls{Java} class artifact to be linked via correspondence to its \acrshort{XML}-serialized form:
+These conditions can be seen as functional requirements, for instance, we want a \gls{Java} class artifact to be linked via correspondence to its \gls{XML}-serialized form:
 {
 \footnotesize
 \begin{align*}
@@ -28,15 +28,15 @@ Either way the process starts anew.
 
 \section{Example Corpus}
 \label{section:ExampleCorpus}
-The example corpus used to develop the recovery system for this thesis consists of artifacts implementing a fictional \acrshort{HRMS} within an \acrfull{O/R/X-Mapping} scenario using \Gls{Java} technologies.
+The example corpus used to develop the recovery system for this thesis consists of artifacts implementing a fictional \gls{HRMS} within an \gls{O/R/X-Mapping} scenario using \gls{Java} technologies.
 The model is implemented using plain \Gls{Java}. 
-It is then mapped to plain \acrshort{XML}/\acrshort{XSD} with \acrshort{JAXB} and to \acrshort{SQL}/\acrshort{DDL} statements using \Gls{Hibernate} mapping files and/or annotations.
+It is then mapped to plain \gls{XML}/\gls{XSD} with \gls{JAXB} and to \gls{SQL/DDL} statements using \gls{Hibernate} mapping files and/or annotations.
 
 
 
 \subsection{The 101HRMS Model}
-\acrfull{101HRMS}\footnote{\url{https://101wiki.softlang.org/101:@system} (retrieved \formatdate{12}{11}{2017})} provides a simple model of a company with many departments and employees.
-Figure \ref{figure:101HRMSModel} shows an \acrshort{UML} class diagram of a variant of this model.
+\gls{101HRMS}\footnote{\url{https://101wiki.softlang.org/101:@system} (retrieved \formatdate{12}{11}{2017})} provides a simple model of a company with many departments and employees.
+Figure \ref{figure:101HRMSModel} shows an \gls{UML} class diagram of a variant of this model.
 
 \begin{figure}[h!]
 \begin{center}
@@ -44,14 +44,14 @@ Figure \ref{figure:101HRMSModel} shows an \acrshort{UML} class diagram of a vari
 \end{center}
 {
 \scriptsize 
-This \acrshort{UML} class diagram depicts the model of the \acrfull{101HRMS}.
+This \gls{UML} class diagram depicts the model of the \gls{101HRMS}.
 It consists of simple companies with nested departments and employees mapped to the latter.
 }
 \caption{The 101 Human Resource Management System Model}
 \label{figure:101HRMSModel}
 \end{figure}
 
-The \acrshort{101HRMS} model consists of companies attributed with a name.
+The \gls{101HRMS} model consists of companies attributed with a name.
 Each company accumulates departments.
 Each department is also attributed with a name, aggregates employees and has one employee acting as manager.
 Departments can further be refined into sub-departments.
@@ -59,24 +59,24 @@ Each employee is attributed with a name, an age and a salary.
 Each entity is also attributed with an ID.
 
 \subsection{Linguistic Domains of the Example Corpus}
-The example corpus used to develop the recovery system contains artifacts implementing the \acrshort{101HRMS} model generated or used by \Gls{Java} technologies for \acrfull{O/R/X-Mapping}, i.e. a \Gls{Java} model is mapped to plain \acrshort{XML}/\acrshort{XSD} with \acrshort{JAXB}, to a \Gls{Hibernate} mapping file and to \acrshort{SQL}/\acrshort{DDL} statements.
+The example corpus used to develop the recovery system contains artifacts implementing the \gls{101HRMS} model generated or used by \gls{Java} technologies for \gls{O/R/X-Mapping}, i.e. a \gls{Java} model is mapped to plain \gls{XML}/\gls{XSD} with \gls{JAXB}, to a \gls{Hibernate} mapping file and to \gls{SQL}/\gls{DDL} statements.
 Figure \ref{figure:ExampleCorpusJORXDomains} shows a schematic illustration of the linguistic domains involved:
 \begin{description}
 
 \item[Java]
-The language and technology used to implement the \acrshort{101HRMS} model.
+The language and technology used to implement the \gls{101HRMS} model.
 
 \item[XML]
-The language used to serialize the \acrshort{101HRMS} model.
+The language used to serialize the \gls{101HRMS} model.
 
 \item[SQL/DDL]
-The language used to persist the \acrshort{101HRMS} model.
+The language used to persist the \gls{101HRMS} model.
 
 \item[JAXB]
-The technology used to implement \acrfull{O/X-Mapping} of the \acrshort{101HRMS} model.
+The technology used to implement \gls{O/X-Mapping} of the \gls{101HRMS} model.
 
 \item[Hibernate]
-The technology used to implement \acrfull{O/R-Mapping} of the \acrshort{101HRMS} model.
+The technology used to implement \gls{O/R-Mapping} of the \gls{101HRMS} model.
 
 \end{description}
 
@@ -87,17 +87,17 @@ The technology used to implement \acrfull{O/R-Mapping} of the \acrshort{101HRMS}
 {
 \scriptsize 
 This schematic illustration depicts the interrelation among linguistic domains of example corpus used.
-It depicts languages and technologies for \acrfull{O/R/X-Mapping} with \Gls{Java}.
+It depicts languages and technologies for \gls{O/R/X-Mapping} with \gls{Java}.
 }
 \caption{Example Corpus Domains: Java O/R/X}
 \label{figure:ExampleCorpusJORXDomains}
 \end{figure}
 
-The languages (\Gls{Java}, \acrshort{XML} \& \acrshort{SQL}) in Figure \ref{figure:ExampleCorpusJORXDomains} are displayed as disjoint square sets.
-Technologies (\acrshort{JAXB} \& \Gls{Hibernate}) are displayed as oval sets intersecting languages.
-This is due to their linguistic nature, e.g. \acrshort{JAXB} produces specific \Gls{Java}- and \acrshort{XML}-Code which does not necessarily intersect with code produced by other technologies.
-\Gls{Hibernate} intersects all three languages.
-It \acrshort{XML} files or \Gls{Java}-Annotations for describing \acrshort{O/R-Mapping} of a data-model and generates \acrshort{SQL} artifacts according to that mapping.
+The languages (\gls{Java}, \gls{XML} \& \gls{SQL}) in Figure \ref{figure:ExampleCorpusJORXDomains} are displayed as disjoint square sets.
+Technologies (\gls{JAXB} \& \gls{Hibernate}) are displayed as oval sets intersecting languages.
+This is due to their linguistic nature, e.g. \gls{JAXB} produces specific \Gls{Java}- and \gls{XML}-Code which does not necessarily intersect with code produced by other technologies.
+\gls{Hibernate} intersects all three languages.
+It uses \gls{XML} files or \gls{Java}-Annotations for describing \gls{O/R-Mapping} of a data-model and generates \gls{SQL} artifacts according to that mapping.
 In this sense, technologies create technology-specific subsets of a languages.
 
 
