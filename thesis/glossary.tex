@@ -95,9 +95,10 @@
 \newglossaryentry{101HRMS}
 {
     name=101HRMS,
-    description={101wiki Human Resource Management System},
+    description={101wiki\footnote{\url{https://101wiki.softlang.org/} (retrieved \formatdate{12}{11}{2017})} Human Resource Management System\footnote{\url{https://101wiki.softlang.org/101:@system} (retrieved \formatdate{12}{11}{2017})}. The model used by the 101wiki for its contributions},
     first={101wiki Human Resource Management System (101HRMS)},
-    text={101HRMS}
+    text={101HRMS},
+    see=[see also]{HRMS}
 }
 
 \newglossaryentry{RDBS}
@@ -111,7 +112,7 @@
 \newglossaryentry{DDL}
 {
     name=DDL,
-    description={Data Definition Language},
+    description={Data Definition Language. Language or subset of a language used to describe structure and content of data},
     first={Data Definition Language (DDL)},
     text={DDL}
 }
@@ -133,7 +134,14 @@
 \newglossaryentry{Hibernate}
 {
     name=Hibernate,
-    description={The Hibernate ORM Framework}
+    description={The Hibernate \gls{ORM} Framework}
+}
+
+\newglossaryentry{ORM}
+{
+    name=ORM,
+    description={},
+    see={O/R-Mapping}
 }
 
 \newglossaryentry{MegaL}
@@ -198,25 +206,91 @@
 \newglossaryentry{DTO}
 {
     name=DTO,
-    description={Data Transfer Object},
+    description={Data Transfer Object. Objects with no relevant (business) logic of their own. Their sole purpose is to carry data between layers of a software system},
     first={Data Transfer Object (DTO)},
     text={DTO}
+}
+
+\newglossaryentry{GoF}
+{
+    name=GoF,
+    description={Gang of Four. A group of authors (Erich Gamma, Richard Helm, Ralph Johnson and John Vlissides) publishing on the subject of object-oriented software design. The term may also refer to design patterns described in their book \textit{Design Patterns: Elements of Reusable Object-Oriented Software} \cite{Gamma:1995:DPE:186897}},
+    first={GoF (Gang of Four)},
+    text={GoF}
 }
 
 \newglossaryentry{AbstractFactoryPattern}
 {
     name={Abstract Factory Pattern},
-    description={}
+    description={A creational \gls{GoF} pattern used in software design to decouple instantiation from usage of objects. Hides the concrete nature of created instances},
+    first={Abstract Factory Pattern \cite{Gamma:1995:DPE:186897}},
+    text={Abstract Factory Pattern}
 }
 
 \newglossaryentry{ObserverPattern}
 {
     name={Observer Pattern},
-    description={}
+    description={A behavioral \gls{GoF} pattern used in software design to propagate state changes from one object to many dependent objects},
+    first={Observer Pattern \cite{Gamma:1995:DPE:186897}},
+    text={Observer Pattern}
 }
 
 \newglossaryentry{VisitorPattern}
 {
     name={Visitor Pattern},
+    description={A behavioral \gls{GoF} pattern used in software design to separate behavior from structure. Visitors facilitate the extension of behavior without modifying structure. The Visitor Pattern can be used to traverse object graphs},
+    first={Visitor Pattern \cite{Gamma:1995:DPE:186897}},
+    text={Visitor Pattern}
+}
+
+\newglossaryentry{BuilderPattern}
+{
+    name={Builder Pattern},
+    description={A creational \gls{GoF} pattern used in software design to prevent constructor parameters from piling up},
+    first={Builder Pattern \cite{Gamma:1995:DPE:186897}},
+    text={Builder Pattern}
+}
+
+\newglossaryentry{StrategyPattern}
+{
+    name={Strategy Pattern},
+    description={A behavioral \gls{GoF} pattern used in software design to separate behavior from structure. It allows to encapsulate and reuse behavior as part of the configuration of larger constructs},
+    first={Strategy Pattern \cite{Gamma:1995:DPE:186897}},
+    text={Strategy Pattern}
+}
+
+\newglossaryentry{Artifact}
+{
+    name={artifact},
+    description={}
+}
+
+\newglossaryentry{Parthood}
+{
+    name={parthood},
+    description={The relation between an entity and its constituent parts}
+}
+
+\newglossaryentry{Similarity}
+{
+    name={similarity},
+    description={The relation between }
+}
+
+\newglossaryentry{Correspondence}
+{
+    name={correspondence},
+    description={The relation between }
+}
+
+\newglossaryentry{Conformance}
+{
+    name={conformance},
+    description={The relation between }
+}
+
+\newglossaryentry{Mereology}
+{
+    name={mereology},
     description={}
 }

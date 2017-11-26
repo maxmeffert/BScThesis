@@ -27,7 +27,7 @@ both \glspl{AST} are compared with each other, i.e. both trees are traversed in 
 Eventually, the set of recovered links serves as output of the process.
 
 \subsection{Recovery API}
-The recovery \gls{API} is the core of the developed recovery system.
+The Recovery \gls{API} is the core of the developed recovery system.
 It provides generalized data structures and methods for syntactic analysis of artifacts and their fragments.
 Figure \ref{figure:RecovryAPI} depicts the \gls{API} as block diagram.
 \begin{figure}[h!]
@@ -78,7 +78,7 @@ A detailed description follows in §\ref{subsubsection:ComparativeFragmentAnalys
 \subsubsection{Abstract Fragment Model}
 \label{subsubsection:AbstractFragmentModel}
 The Abstract Fragment Model describes a tree in which each node represents an syntactically well-formed fragment.
-Figure \ref{figure:FragmentModel} shows an \gls{UML} class diagram of its interfaces.
+Figure \ref{figure:FragmentModel} shows an \gls{UML} class diagram of the model.
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[width=\textwidth]{images/FragmentModel.png}
@@ -86,9 +86,11 @@ Figure \ref{figure:FragmentModel} shows an \gls{UML} class diagram of its interf
 \caption{The Abstract Fragment Model}
 \label{figure:FragmentModel}
 \end{figure}
-The resulting tree data structure is doubly-linked, i.e. a fragment node aggregates references to its children an to its parent, given it is not the root node.
-Each fragment node contains the text it represents.
-In order to distinguish fragments which represent the same text, each node also carries the text's position in the artifact.
+The resulting tree data structure is doubly-linked, i.e. an \texttt{IFragment} node aggregates references to its children an to its parent, given it is not the root node.
+Each fragment \texttt{IFragment} contains the text it represents.
+In order to distinguish fragments which represent the same text, each node also carries the text's position in the artifact through \texttt{IFragmentPosition} instances.
+Positions inside the text are determined by the start and ending line number as well as the corresponding first and last character inside the line.
+Most of \texttt{IFragment}'s relevant code for trees is pre-implemented in the \texttt{BaseFragment} abstract class.
 
 \subsubsection{Syntax Analysis API}
 \label{subsubsection:SyntaxAnalysisAPI}
@@ -148,9 +150,10 @@ This example demonstrates the creation of an \gls{ANTLR} \texttt{ParseTree} inst
 \end{figure}
 
 Creation of \glspl{AST} or fragment trees is done using the \texttt{ParseTreeWalker} and \texttt{ParseTreeListener} infrastructure provided by \gls{ANTLR} \cite{Parr:2013:DAR:2501720}.
-This is an variation of the \gls{ObserverPattern} and alternative to the \gls{VisitorPattern}.
-An instance of \texttt{ParseTreeWalker} traverses an \gls{ParseTree} using \gls{DFS}.
-During traversal, a designated method of \texttt{ParseTreeListener} is executed.
+This is an variation of the \gls{ObserverPattern}.
+Listeners in conjunction with walkers are an alternative to the \gls{VisitorPattern} provided by \gls{ANTLR}.
+An instance of \texttt{Parse\-Tree\-Walker} traverses a \gls{ParseTree} using \gls{DFS}.
+During traversal, a designated method of \texttt{Parse\-Tree\-Listener} is executed.
 For \gls{AST} creation, an \gls{API} user has to implement the \texttt{IFragmentBuildingListener} interface, which is an extension of the \texttt{ParseTreeListener} interface.
 The creation of a fragment tree by \texttt{AntlrParser} is exemplified in Figure \ref{figure:AntlrParserFragmentCreation}.
 
@@ -172,9 +175,52 @@ This example demonstrates the creation of an \texttt{IFragment} \gls{AST} instan
 
 \subsubsection{Mereological Fragment Analysis API}
 \label{subsubsection:MereologicalFragmentAnalysisAPI}
+The Mereological Fragment Analysis \gls{API} provides components for deriving \gls{Parthood} links between syntactically well-formed fragments.
+Direct \gls{Parthood} links are recovered from parent/child relationships within an \texttt{IFragment} \gls{AST}.
+However, because \gls{Parthood} is transitive, we also need to recover these links.
+This is done using a digraph data structure upon which we can compute its reflexive transitive closure.
+
+Figure \ref{figure:MereologicalFragmentAnalysisAPI} shows an \gls{UML} class diagram depicting the relevant classes and interfaces of the Mereological Fragment Analysis \gls{API}.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=\textwidth]{images/MereologicalFragmentAnalysisAPI.png}
+\end{center}
+\caption{Mereological Fragment Analysis API}
+\label{figure:MereologicalFragmentAnalysisAPI}
+\end{figure}
+At its heart, the \gls{API} utilizes the generic \texttt{IDiGraph} interface whose implementations provide means for interrelating comparable objects, i.e. \texttt{IFragment} instances.
+
+This digraph is wrapped by generic \texttt{IMereology} implementations, a data structure providing query methods on the topic of \gls{Mereology}, i.e. \gls{Parthood} relations.
+\Glspl{Mereology} are constructed using the \gls{BuilderPattern}.
+An \texttt{IMereology\-Builder} instance adds nodes and edges into its digraph with semantically named methods allowing a descriptive programming style.
+
+\texttt{IMereology}'s are then further wrapped by \texttt{IFragmentKB} (a Knowledge Base over \texttt{IFragment}) implementations in order to avoid dealing with generics throughout the system.
+This is also done utilizing the \gls{BuilderPattern}.
+
+The recovery of \gls{Parthood} links is encapsulated through \texttt{IFragmentKB\-Factory} using the \gls{AbstractFactoryPattern}, which computes \texttt{IFragmentKB} instances from an \texttt{IFragment} \gls{AST} as input.
+
 
 \subsubsection{Comparative Fragment Analysis API}
 \label{subsubsection:ComparativeFragmentAnalysisAPI}
+The Comparative Fragment Analysis \gls{API} provides components for deriving links from two \texttt{IFragment} \glspl{AST} generated from different artifacts.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=\textwidth]{images/ComparativeFragmentAnalysisAPI.png}
+\end{center}
+\caption{Comparative Fragment Analysis API}
+\label{figure:ComparativeFragmentAnalysisAPI}
+\end{figure}
+Figure \ref{figure:ComparativeFragmentAnalysisAPI} shows an \gls{UML} class diagram depicting the relevant interfaces and classes of the \gls{API}.
+It utilizes the \gls{StrategyPattern} through the \texttt{IFragmentAnalyzerHeuristic} interface since concrete behavior of the recovery analysis is for the user to implement.
+In this context, strategies are called heuristics, because recovery of links is not necessarily based on optimal, i.e. absolutely correct, solutions.
+Strategies may also incorporate practical solutions with reasonably sufficient results.
+
+\texttt{IFragmentAnalyzer} objects allow one to apply multiple heuristics, since there may be more than one practical approach to achieve a goal. Also this allows strategies to keep a relatively small implementation footprint.
+
+Recovered links are captured and stored in an \texttt{IBinaryRelation} instance which works like a set of pairs.
+
+
+
 
 \subsection{Recovery System}
 

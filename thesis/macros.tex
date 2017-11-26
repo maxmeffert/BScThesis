@@ -45,3 +45,11 @@
 {\color{red}\underline{ToDo:}~#1}
 \normalfont
 }
+
+
+\newenvironment{requirements}
+{\begin{enumerate}[
+align=left,
+label=\textbf{Requirement \arabic*},
+ref={Requirement \arabic*}]}
+{\end{enumerate}}

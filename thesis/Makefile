@@ -2,7 +2,7 @@
 
 all: thesis.pdf
 
-thesis.pdf: thesis.tex 
+thesis.pdf: thesis.tex
 	pdflatex -src -interaction=nonstopmode thesis.tex
 	makeglossaries thesis
 	biber thesis.bcf
