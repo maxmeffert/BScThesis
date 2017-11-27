@@ -1,11 +1,18 @@
 \chapter{Design}
 \label{chapter:Design}
-This chapter summarizes the design of the conformance and correspondence recovery system developed for this thesis and its integration in the \gls{MegaL/Xtext} environment.
+This chapter summarizes the design of the recovery system (§\ref{section:RecoverySystemDesign}) developed for this thesis and its integration in the \gls{MegaL/Xtext} environment (§\ref{section:MegalXtextIntegrationDesign}).
+
 
 \section{Recovery System Design}
-This section summarizes the design of the conformance and correspondence recovery system developed for this thesis.
+\label{section:RecoverySystemDesign}
+This section summarizes the design of the recovery system developed for this thesis.
+§\ref{subsection:RecoveryProcess} will describe the all over process of the recovery system.
+§\ref{subsection:RecoveryAPI} will describe the design core \gls{API} and its components developed for the recovery system.
+§\ref{subsection:RecoverySystem} will describe the design of the actual system for recovering links among \gls{O/R/X-Mapping} artifacts.
+
 
 \subsection{Recovery Process}
+\label{subsection:RecoveryProcess}
 The recovery process is a straight forward analysis of two artifacts.
 Figure \ref{figure:RecovryProcess} shows a flowchart depicting this.
 \begin{figure}[h!]
@@ -27,6 +34,7 @@ both \glspl{AST} are compared with each other, i.e. both trees are traversed in 
 Eventually, the set of recovered links serves as output of the process.
 
 \subsection{Recovery API}
+\label{subsection:RecoveryAPI}
 The Recovery \gls{API} is the core of the developed recovery system.
 It provides generalized data structures and methods for syntactic analysis of artifacts and their fragments.
 Figure \ref{figure:RecoverySystemAPI} depicts the \gls{API} as block diagram.
@@ -261,6 +269,7 @@ On top of the actual implementation, the Recovery System also utilizes the \gls{
 This is to provide a single access point for all implemented analysis features.
 
 \section{Megal/Xtext Integration Design}
+\label{section:MegalXtextIntegrationDesign}
 This section summarizes the design of the recovery system's integration in the \gls{MegaL/Xtext} environment.
 Figure \ref{figure:MegalXtextIntegrationDesign} shows a block diagram depicting the outline this integration.
 Note, the Recovery System is implemented as separate project, which is then included as reference (through a \texttt{.jar} file) in a \gls{MegaL/Xtext} project.
