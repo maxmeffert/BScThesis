@@ -29,17 +29,17 @@ Eventually, the set of recovered links serves as output of the process.
 \subsection{Recovery API}
 The Recovery \gls{API} is the core of the developed recovery system.
 It provides generalized data structures and methods for syntactic analysis of artifacts and their fragments.
-Figure \ref{figure:RecovryAPI} depicts the \gls{API} as block diagram.
+Figure \ref{figure:RecoverySystemAPI} depicts the \gls{API} as block diagram.
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[width=\textwidth]{images/RecoverySystem.png}
+\includegraphics[width=\textwidth]{images/RecoverySystemAPI.png}
 \end{center}
 {
 \scriptsize
 This block diagram depicts the functional outline of the Recovery System \gls{API} (note, that this does not necessarily correspond to the package outline of its actual implementation).
 }
 \caption{The Recovery API}
-\label{figure:RecovryAPI}
+\label{figure:RecoverySystemAPI}
 \end{figure}
 The components of the \gls{API} are:
 \begin{description}
@@ -109,7 +109,7 @@ One can see, that this implementation makes heavy use of the \gls{AbstractFactor
 This allows for a quick and easy definition of new parsers as shown in Figure \ref{figure:IParserFactoryUsageExample}.
 
 \begin{figure}[h!]
-\begin{lstlisting}
+\begin{lstlisting}[language=Java]
 ...
 IParser java8Parser = parserFactory.newParser(
 	Java8Lexer::new,
@@ -132,7 +132,7 @@ The other advantage of the \gls{AbstractFactoryPattern} is that the instantiatio
 This is exemplified by Figure \ref{figure:AntlrParserParseTreeCreation}.
 
 \begin{figure}[h!]
-\begin{lstlisting}
+\begin{lstlisting}[language=Java]
 ...
 CharStream charStream = antlrCharStreamFactory.newCharStream(inputStream);
 Lexer lexer = antlrLexerFactory.newLexer(charStream);
@@ -158,7 +158,7 @@ For \gls{AST} creation, an \gls{API} user has to implement the \texttt{IFragment
 The creation of a fragment tree by \texttt{AntlrParser} is exemplified in Figure \ref{figure:AntlrParserFragmentCreation}.
 
 \begin{figure}[h!]
-\begin{lstlisting}
+\begin{lstlisting}[language=Java]
 ...
 ParseTreeWalker parseTreeWalker = antlrParseTreeWalkerFactory.newParseTreeWalker();
 parseTreeWalker.walk(fragmentBuildingListener, parseTree);
@@ -213,16 +213,91 @@ The Comparative Fragment Analysis \gls{API} provides components for deriving lin
 Figure \ref{figure:ComparativeFragmentAnalysisAPI} shows an \gls{UML} class diagram depicting the relevant interfaces and classes of the \gls{API}.
 It utilizes the \gls{StrategyPattern} through the \texttt{IFragmentAnalyzerHeuristic} interface since concrete behavior of the recovery analysis is for the user to implement.
 In this context, strategies are called heuristics, because recovery of links is not necessarily based on optimal, i.e. absolutely correct, solutions.
-Strategies may also incorporate practical solutions with reasonably sufficient results.
+Instead strategies may also implement practical solutions with reasonably sufficient results.
 
 \texttt{IFragmentAnalyzer} objects allow one to apply multiple heuristics, since there may be more than one practical approach to achieve a goal. Also this allows strategies to keep a relatively small implementation footprint.
 
 Recovered links are captured and stored in an \texttt{IBinaryRelation} instance which works like a set of pairs.
 
-
-
-
 \subsection{Recovery System}
+\label{subsection:RecoverySystem}
+The Recovery System is the actual implementation of \gls{Parthood}, \gls{Correspondence} and \gls{Conformance} link recovery for Java based \gls{O/R/X-Mapping} artifacts.
+Figure \ref{figure:RecoverySystem} shows a block diagram outlining the functional components of the system.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=\textwidth]{images/RecoverySystem.png}
+\end{center}
+{
+\scriptsize
+This block diagram depicts the functional outline of the Recovery System and its dependencies to the Recovery System \gls{API} (note, that this does not necessarily correspond to the package outline of its actual implementation).
+}
+\caption{The Recovery System}
+\label{figure:RecoverySystem}
+\end{figure}
+
+The Recovery System utilizes the Syntactic Analysis \gls{API} described in §\ref{subsubsection:SyntaxAnalysisAPI} for \gls{Java}, \gls{XML} and \gls{SQL/DDL}.
+For this, the Abstract Fragment Model described in §\ref{subsubsection:AbstractFragmentModel} is implemented.
+Note, fragment models do not implement \gls{AST} suitable for compilation of the targeted language.
+Syntactic features unnecessary for the intended analysis, like local variable declarations, arithmetic expressions or invocations, are omitted.
+Fragment models rather focuses on structural features of the languages at hand.
+
+The Comparative Fragment Analysis \gls{API} described in §\ref{subsubsection:ComparativeFragmentAnalysisAPI} is implemented with focus on artifacts of technologies, namely \gls{JAXB} and \gls{Hibernate}.
+It implements heuristics for link recovery between:
+\begin{itemize}
+\item
+\gls{Java} and \gls{XML} for \gls{JAXB} artifacts, i.e. \gls{Java} models are serialized as \gls{XML}
+\item
+\gls{Java} and \gls{XSD} for \gls{JAXB} artifacts, i.e. \gls{Java} models are serialized as \gls{XSD}
+\item
+\gls{XML} and \gls{XSD} for \gls{JAXB} artifacts, i.e. the two previous scenarios occurred
+\item
+\gls{Java} and \gls{XML} for \gls{Hibernate} mapping artifacts, i.e. \gls{Hibernate} uses \gls{XML} meta-data for \gls{O/R-Mapping}.
+\item
+\gls{Java} and \gls{SQL/DDL} for \gls{Hibernate} generated \gls{SQL} artifacts, i.e. \gls{Hibernate} uses \gls{Java} annotations for \gls{O/R-Mapping}
+\end{itemize}
+
+On top of the actual implementation, the Recovery System also utilizes the \gls{FacadePattern}.
+This is to provide a single access point for all implemented analysis features.
 
 \section{Megal/Xtext Integration Design}
 This section summarizes the design of the recovery system's integration in the \gls{MegaL/Xtext} environment.
+Figure \ref{figure:MegalXtextIntegrationDesign} shows a block diagram depicting the outline this integration.
+Note, the Recovery System is implemented as separate project, which is then included as reference (through a \texttt{.jar} file) in a \gls{MegaL/Xtext} project.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=\textwidth]{images/MegalXtextIntegrationDesign.png}
+\end{center}
+{
+\scriptsize
+This block diagram depicts the functional outline of the Recovery System's integration into the \gls{MegaL/Xtext} environment (note, that this does not necessarily correspond to the outline of its actual implementation).
+}
+\caption{Integration of the Recovery System int MegaL/Xtext}
+\label{figure:MegalXtextIntegrationDesign}
+\end{figure}
+
+\gls{MegaL/Xtext} provides a plug-in system, which allows to bind special \gls{Java} classes to \texttt{Plugin} entities.
+Code of such classes is then executed during the evaluation of a \gls{Megamodel}.
+\ToDo{needs reference}
+Figure \ref{figure:MegaLPluginInstantiation} exemplifies the declaration of Plug-in withing \gls{MegaL}.
+
+\begin{figure}[h!]
+\begin{lstlisting}
+...
+JavaFragmentRecoveryPlugin : Plugin
+JavaFragmentRecoveryPlugin realizationOf Java
+JavaFragmentRecoveryPlugin partOf FileFragmentRecoveryReasonerPlugin
+JavaFragmentRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.java.JavaFragmentRecoveryPlugin'
+...
+\end{lstlisting}
+{
+\scriptsize
+This snippet demonstrates the instantiation of \texttt{JavaFragmentRecoveryPlugin} as part of \texttt{FileFragmentRecoveryReasonerPlugin} in \gls{MegaL}.
+}
+\caption{MegaL Plug-In Instantiation}
+\label{figure:MegaLPluginInstantiation}
+\end{figure}
+
+The Recovery System or rather its facade (see §\ref{subsection:RecoverySystem}) is used to implement \gls{MegaL} plug-ins.
+These Plug-ins are then in turn bound within \glspl{Megamodel}, which are divided by language and technology, i.e. there are separate \gls{MegaL} modules for \gls{Java}, \gls{XML}, \gls{SQL}, \gls{Hibernate} and \gls{JAXB}.
