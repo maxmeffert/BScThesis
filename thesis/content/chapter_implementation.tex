@@ -21,7 +21,7 @@ public class Company {
 	...
 }
 \end{lstlisting}
-It consists of the following fragments among others:
+It consists, among others, of the following fragments:
 \begin{itemize}
 \item
 a field declaration fragment for \texttt{name}:
@@ -74,9 +74,9 @@ $\downarrow$
 	\texttt{$\lbrace$}
 	[.Members 
 		[.Member \texttt{...} ]
-		[.Member \texttt{public} \texttt{String} [.ID \texttt{name} ] \texttt{;} ]
+		[.Member \texttt{public} [.Type \texttt{String} ] [.ID \texttt{name} ] \texttt{;} ]
 		[.Member \texttt{...} ]
-		[.Member \texttt{public} \texttt{String} [.ID \texttt{getName} ] \texttt{(} \texttt{)}
+		[.Member \texttt{public} [.Type \texttt{String} ] [.ID \texttt{getName} ] \texttt{(} \texttt{)}
 		\texttt{$\lbrace$}
 		[.Statements
 			[.Statement \texttt{return} \texttt{name} \texttt{;} ]
@@ -151,17 +151,17 @@ Both \gls{ParseTree} and \gls{AST} are depicted in a simplified, schematic form.
 \item
 a \gls{ParseTree} is generated from an artifact; this is done via \gls{ANTLR} as described in §\ref{subsubsection:SyntaxAnalysisAPI} and does not require further explanation, since it is only an application of the most common \gls{ANTLR} use case
 \item
-then the \gls{ParseTree} is transformed into an concrete \gls{Fragment} \gls{AST} model; this is also done relying on \gls{ANTLR} tree traversal utilities and described in detail in §\ref{subsection:ConcreteFragmentASTModels}
+then the \gls{ParseTree} is transformed into an concrete \gls{Fragment} \gls{AST} model; this is also done relying on \gls{ANTLR} tree traversal utilities and described in detail in §\ref{subsection:ConcreteFragmentModels}
 \item
 eventually, nodes of the generated \gls{Fragment} \gls{AST} are added to a \gls{Megamodel} as entities; the details are described in §\ref{subsection:MegamodelingFragments}.
 \end{enumerate}
 
 Note, fragment Recovery for \gls{XML} and \gls{SQL/DDL} is implemented in a similar fashion.
-If there is a noteworthy difference for other languages it will be explored, otherwise we keep using \gls{Java} as example domain for the following sections of §\ref{section:RecoveringFragments}.
+If there is a noteworthy difference for other languages it will be explored, otherwise we keep using \gls{Java} as example domain for the remaining sections of §\ref{section:RecoveringFragments}.
 
-\subsection{Concrete Fragment AST Models}
-\label{subsection:ConcreteFragmentASTModels}
-As mentioned in §\ref{subsubsection:AbstractFragmentModel}, Concrete \Gls{Fragment} \gls{AST} Models are derivations of the Abstract Fragment Model of the Recovery System \gls{API}.
+\subsection{Concrete Fragment Models}
+\label{subsection:ConcreteFragmentModels}
+As mentioned in §\ref{subsubsection:AbstractFragmentModel}, Concrete \Gls{Fragment} Models are derivations of the Abstract Fragment Model of the Recovery System \gls{API}.
 Figure \ref{figure:JavaFragmentASTModel} shows an \gls{UML} class diagram of the implemented \Gls{Fragment} \gls{AST} for \gls{Java}.
 \begin{figure}[h!]
 \begin{center}
@@ -170,7 +170,7 @@ Figure \ref{figure:JavaFragmentASTModel} shows an \gls{UML} class diagram of the
 \caption{Java Fragment AST Model}
 \label{figure:JavaFragmentASTModel}
 \end{figure}
-All \gls{Fragment} classes derive from \text{IFragment} through the base class \texttt{JavaFragment}.
+All \gls{Fragment} classes derive from \texttt{IFragment} through the base class \texttt{JavaFragment}.
 From here, several specializations are introduced:
 \begin{itemize}
 \item
