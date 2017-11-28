@@ -45,7 +45,8 @@ the class declaration itself can also be considered a fragment.
 \end{itemize}
 
 The task of recovering \glspl{Fragment} is to add entities for each of such code pieces into a megamodel.
-Figure \ref{figure:IdealizedRecoveryOfJavaFragments} exemplifies the recovery of \gls{Java} \glspl{Fragment} in an idealized form.
+Figure \ref{figure:IdealizedRecoveryOfJavaFragments} exemplifies the recovery of \gls{Java}\footnote{Recovery for \gls{XML} and \gls{SQL/DDL} is implemented in a similar fashion.
+If there is a noteworthy difference for other languages it will be explored, otherwise we keep using \gls{Java} as example domain for the remaining sections of §\ref{section:RecoveringFragments}.} \glspl{Fragment} in an idealized form.
 \begin{figure}[h!]
 \begin{center}
 \begin{minipage}{0.5\textwidth}
@@ -121,12 +122,15 @@ $\downarrow$
 \begin{lstlisting}[numbers=none]
 Company : Fragment
 Company elementOf JavaClassFragments
+Company fragmentOf artifact
 ...
 Company.name : Fragment
 Company.name elementOf JavaFieldFragments
+Company.name fragmentOf Company
 ...
 Company.getName : Fragment
 Company.getName elementOf JavaMethodFragments
+Company.getName fragmentOf Company
 \end{lstlisting}
 \end{minipage}
 \end{center}
@@ -156,8 +160,7 @@ then the \gls{ParseTree} is transformed into an concrete \gls{Fragment} \gls{AST
 eventually, nodes of the generated \gls{Fragment} \gls{AST} are added to a \gls{Megamodel} as entities; the details are described in §\ref{subsection:MegamodelingFragments}.
 \end{enumerate}
 
-Note, fragment Recovery for \gls{XML} and \gls{SQL/DDL} is implemented in a similar fashion.
-If there is a noteworthy difference for other languages it will be explored, otherwise we keep using \gls{Java} as example domain for the remaining sections of §\ref{section:RecoveringFragments}.
+
 
 \subsection{Concrete Fragment Models}
 \label{subsection:ConcreteFragmentModels}
@@ -180,7 +183,7 @@ From here, several specializations are introduced:
 \item
 \texttt{TypedJavaFragment} for constructs with distinct (return-) type like fields, methods or variables
 \end{itemize}
-Note, the \gls{Fragment} model for \gls{Java} only focuses on structural syntactical features of the language.
+The \gls{Fragment} model for \gls{Java} only focuses on structural syntactical features of the language.
 Everything below method signature level is omitted, because \glspl{Fragment} of this level are not important for the scope of this thesis.
 On the other hand, annotations are captured, since they provide significant information for further recovery analysis.
 \gls{Hibernate} and \gls{JAXB} rely on annotations for \gls{O/R/X-Mapping}.
@@ -216,7 +219,49 @@ The listener pushes fragments onto stacks, making the overall implementation wor
 
 \subsection{Megamodeling Fragments}
 \label{subsection:MegamodelingFragments}
-asdf
+In order to add \glspl{Fragment} into a \gls{Megamodel} a suitable linguistic model has to be declared first. 
+Consider the following instance level \gls{Megamodel} of recovered \glspl{Fragment}:
+\begin{lstlisting}[numbers=none]
+File < Artifact
+Fragment < Artifact
+...
+elementOf < Set * Set
+fragmentOf < Fragment * Artifact
+...
+aJavaFile : File
+aJavaFile = 'Company.java'
+...
+aJavaFile.Company : Fragment
+aJavaFile.Company elementOf JavaClassFragments
+aJavaFile.Company fragmentOf aJavaFile
+...
+aJavaFile.Company.name : Fragment
+aJavaFile.Company.name elementOf JavaFieldFragments
+aJavaFile.Company.name fragmentOf aJavaFile
+aJavaFile.Company.name fragmentOf Company
+...
+aJavaFile.Company.getName : Fragment
+aJavaFile.Company.getName elementOf JavaMethodFragments
+aJavaFile.Company.getName fragmentOf aJavaFile
+aJavaFile.Company.getName fragmentOf Company
+\end{lstlisting}
+This \gls{Megamodel} shows \glspl{Fragment} of a \gls{Java} file \texttt{Company.java}.
+It contains entities denoting a class declaration, a field declaration and a method declaration \gls{Fragment}.
+All are declared instances of the entity type \texttt{Fragment}.
+Entity names use dot-notation for implying \gls{Parthood}, i.e.:
+\begin{align*}
+a.b \Rightarrow b \partOf a
+\end{align*}
+Further details of naming-scheme employed for \gls{Fragment} entities are explored in §\ref{subsubsection:FragmentEntityIdentifiers}.
+
+We use \texttt{elementOf} for further specialization and/or generalization of the entitie's kind\footnote{We use the term \textit{kind} to avoid confusion with entity types, although we use it to refer to \gls{Fragment} types.}.
+However, the right-hand side of these relationships used to specialize \glspl{Fragment} are not simply sets, they are actually modeled as languages as we will see in §\ref{subsubsection:FragmentLanguages}.
+
+\subsubsection{Fragment Languages}
+\label{subsubsection:FragmentLanguages}
+As mentioned in §\ref{section:Fragments}, a \gls{Fragment} alone cannot be element of the language the artifact it originated from belongs to, e.g. a \gls{Java} method alone cannot be accepted by the \gls{Java} grammar, nor can \gls{XML} attribute alone be accepted by the \gls{XML} grammar.
+Therefore, in order to cleanly add \glspl{Fragment} into a \gls{Megamodel}, we need to model \gls{Fragment} languages.
+Figure \ref{figure:JavaFragmentMegamodel} shows the \gls{Megamodel} for \gls{Java} \glspl{Fragment}.
 \begin{figure}[h!]
 \begin{lstlisting}
 ...
@@ -245,7 +290,14 @@ JavaMethodFragments subsetOf JavaFragments
 \caption{A \Gls{Megamodel} for \Gls{Java} \Glspl{Fragment}}
 \label{figure:JavaFragmentMegamodel}
 \end{figure}
+It introduces the special relationship type \texttt{fragmentLanguageOf}, denoting the left-hand side is the language containing all possible \glspl{Fragment}  the right-hand side's language elements can be deconstructed in.
+This also implies a super-set relation between the two languages as \fragmentOf is reflexive like \partOf, so:
+\begin{align*}
+A \texttt{~fragmentLanguageOf~} B \Rightarrow B \subseteq A
+\end{align*}
 
+\subsubsection{Fragment Entity Identifiers}
+\label{subsubsection:FragmentEntityIdentifiers}
 
 \section{Recovering Parthood Links}
 \label{section:RecoveryOfParthoodLinks}
