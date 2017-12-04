@@ -1,7 +1,47 @@
 \chapter{Design}
 \label{chapter:Design}
-This chapter summarizes the design of the recovery system (§\ref{section:RecoverySystemDesign}) developed for this thesis and its integration in the \gls{MegaL/Xtext} environment (§\ref{section:MegalXtextIntegrationDesign}).
+This chapter summarizes the design of the recovery system developed for this thesis.
+§\ref{section:Requirements} summarizes functional requirements of the developed system.
+§\ref{section:RecoverySystemDesign} recapitulates design of the recovery system with respect to the specified requirements.
+§\ref{section:MegalXtextIntegrationDesign} summarizes integration in the recovery system with the \gls{MegaL/Xtext} environment .
 
+\section{Requirements}
+\label{section:Requirements}
+This section summarizes functional requirements for the recovery system developed as part of this thesis.
+All presented requirements are must haves, so no priority differentiation is applied. 
+
+\begin{requirements}
+
+\item
+\label{requirement:FragmentRecovery}
+\textit{Fragmen Recovery}.
+The recovery system has to recover \glspl{Fragment}, i.e. syntactically well-formed parts of \glspl{Artifact} (see §\ref{subsection:Fragments}).
+
+\item
+\label{requirement:ParthoodRecovery}
+\textit{Parthood Recovery}.
+The recovery system has to recover \gls{Parthood} links of \glspl{Fragment} (see §\ref{subsection:Parthood} and §\ref{subsection:Fragments})).
+
+\item
+\label{requirement:CorrespondenceRecovery}
+\textit{Correspondence Recovery}.
+The recovery system has to recover \gls{Correspondence} links, i.e. links capturing the relation between \glspl{Fragment} of \glspl{Artifact} denoting a predefined similarity holds (see §\ref{subsection:Correspondence}).
+
+\item
+\label{requirement:ConformanceRecovery} 
+\textit{Conformance Recovery}.
+The recovery system has to recover conformance links, i.e. links capturing the relation between \glspl{Artifact} or \glspl{Fragment} denoting that one defines the other (see §\ref{subsection:Conformance}).
+
+\item 
+\label{Requirement:Megal-Xtext}
+\textit{\gls{MegaL/Xtext} Integration}.
+The recovery system has to run within \gls{MegaL/Xtext}, i.e. the implementations of requirements 
+\ref{requirement:FragmentRecovery},
+\ref{requirement:ParthoodRecovery}, 
+\ref{requirement:CorrespondenceRecovery} 
+and \ref{requirement:ConformanceRecovery} must be compatible and integrated with the \gls{MegaL/Xtext} plug-in-system.
+
+\end{requirements}
 
 \section{Recovery System Design}
 \label{section:RecoverySystemDesign}
