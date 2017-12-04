@@ -52,6 +52,19 @@
 \normalfont
 }
 
+\newenvironment{contributions}
+{\begin{enumerate}[
+align=left,
+label=\textbf{Contribution \arabic*},
+ref={\arabic*}]}
+{\end{enumerate}}
+
+\newenvironment{noncontributions}
+{\begin{enumerate}[
+align=left,
+label=\textbf{Non-Contribution \arabic*},
+ref={\arabic*}]}
+{\end{enumerate}}
 
 \newenvironment{requirements}
 {\begin{enumerate}[
