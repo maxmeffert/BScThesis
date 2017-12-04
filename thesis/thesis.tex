@@ -51,12 +51,15 @@
 \makeglossaries
 \input{glossary.tex}
 
-%\usepackage{qtree}
+\usepackage{ulem}
+
 
 %\usepackage{amsthm}
+\usepackage{thmtools}
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Propsition}
 \newtheorem{proof}{Proof}
+\newtheorem{axiom}{Axiom}
 
 % Settings for the listings package, for additional settings refer to the listings package documentation
 \lstset{
@@ -78,7 +81,9 @@
 \setlength{\headheight}{15pt}
 
 \author{Maximilian Meffert}
-\title{Megamodel-driven Traceability Recovery of Correspondence \& Conformance Links among O/R/X-Mapping Artifacts}
+
+\title{Recovery of\\Correspondence \& Conformance Links}
+
 \studiengang{Informatik}
 
 \makeatletter
@@ -147,8 +152,11 @@
 \fancyhead[R]{\thepage}        % nur rechts
 
 \pagenumbering{roman}
-\tableofcontents
 
+\tableofcontents
+\cleardoublepage
+
+\listoftheorems
 \cleardoublepage
 
 \listoffigures   % fuer ein eventuelles Abbildungsverzeichnis
@@ -157,8 +165,9 @@
 % \listoftables % Für ein Tabellenverzeichnis
 % \cleardoublepage
 
-% \lstlistoflistings % Für ein Verzeichnis der Listings
-% \cleardoublepage
+%\lstlistoflistings % Für ein Verzeichnis der Listings
+%\cleardoublepage
+
 
 \pagenumbering{arabic}
 

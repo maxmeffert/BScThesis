@@ -1,26 +1,235 @@
 \chapter{Background}
 \label{chapter:Background}
-This chapter summarizes the necessary background topics of the thesis.
-Each topic is introduced as independent as possible, interrelation is done during synthesis of hypotheses for this thesis in chapter \ref{chapter:Hypotheses}.
-However, some of the following sections are sorted in a way that one may be based on its predecessor.
-In particular sections on the necessary mathematical background share definitions.
-Introducing them repeatedly would be redundant.
+This chapter summarizes the necessary theoretical an technological background topics of the thesis.
+
+\section{Axioms of Linguistic Architectures}
+\label{section:AxiomsOfLinguisticArchitectures}
+This section summarizes axioms of linguistics architectures.
+\ToDo{explaing 'lingustic architectures' with terms such as vocabulary, ...}
+Axioms of linguistic architectures are outlined in \cite{DBLP:conf/sle/Lammel16} and refined in \cite{HeinzLV17}.
+§\ref{subsection:Parthood} 
+
+Axioms are presented as First Order Logic and formalization is taken from \cite{HeinzLV17}.
+The universe to draw elements from is represented by the \Entity-predicate:
+\begin{align*}
+\forall x.\Entity(x).
+\end{align*}
+We assume it holds for everything of interest, hence such things are called \textit{entities}.
+
+Linguistic architectures intend to describe software from language centric point of view, thus we provide specializations of entities for languages:
+\begin{align*}
+&\Set(x) \Rightarrow \Entity(x).\\
+&\Language(x) \Rightarrow \Set(x).
+\end{align*}
+There are entities representing sets in a mathematical sense, and there are sets representing (formal-) languages in the sense of theoretical computer science.
+
+On the other hand, we provide specializations for entities involved in software engineering terminology:
+\begin{align*}
+&\Artifact(x) \Rightarrow \Entity(x).\\
+&\File(x) \Rightarrow \Artifact(x).\\
+&\Folder(x) \Rightarrow \Artifact(x).
+\end{align*}
+There are entities representing all kinds of digital artifacts, e.g. files and folders.
+Files represent persistent data resources, locatable either trough file systems or web services.
+Folders represent locatable collections of files.
+The intended use and semantic of these predicates is not meant to differ from intuitive, every day use.
 
 
-%\input{content/chapter_background_relations.tex}
-%\input{content/chapter_background_mereology.tex}
-\section{Mereology}
-\input{content/chapter_background_formal-languages-and-grammars.tex}
-\input{content/chapter_background_traceability.tex}
+\subsection{Parthood}
+\label{subsection:Parthood}
+\Gls{Parthood} is an essential relationship when reasoning about \gls{Correspondence} and \gls{Conformance} among artifacts within linguistic architectures \cite{DBLP:conf/sle/Lammel16} \cite{HeinzLV17}.
+It describes the relation between entities and their constituent parts.
+The study of \gls{Parthood} and its derivatives is \gls{Mereology} \cite{DBLP:journals/dke/Varzi96} \cite{SEP:Mereology}.
+In the context of linguistic architectures we assume most entities to be
+composed of several conceptual or physical parts.
+In short, such entities are the sum of its parts.
+That is, programs may compiled from many files, systems consists of several disjoint but dependent components, a \gls{Java} class is made up of methods and fields, etc.
+Furthermore such entities are considered to be \textit{mereologically invariant}, i.e. if one part changes, the whole changes as well. 
+Axiom \ref{axiom:PartOf} captures \gls{Parthood} at its most basic level.
+\begin{axiom}[\partOf]
+\label{axiom:PartOf}
+\begin{align*}
+&\partOf(p,w)
+\Rightarrow
+\Entity(p) \wedge \Entity(w).\\
+&\partOf(p,w)
+\Leftarrow
+p \text{ is a constituent part of } w.
+\end{align*}
+\end{axiom}
+\Gls{Parthood} is usually considered to be reflexive, antisymmetric and transitive \cite{DBLP:journals/dke/Varzi96} \cite{SEP:Mereology}, thus facilitating a partial order:
+\begin{align*}
+&\partOf(p,p). &\text{Reflxivity}\\
+&\partOf(p,w) \wedge \partOf(w,p)
+\Rightarrow
+p = w. &\text{Antisymmertry}\\
+&\partOf(p,w) \wedge \partOf(w,u)
+\Rightarrow 
+\partOf(p,u). &\text{Transitivity}
+\end{align*}
+The irreflexive \gls{Parthood} relationship is called proper:
+\begin{align*}
+&\properPartOf(p,w)
+\Rightarrow
+\Entity(p) \wedge \Entity(w).\\
+&\properPartOf(x,y)
+\Leftarrow
+\partOf(x,y) \wedge \neg \partOf(y,x).
+\end{align*}
+Proper \gls{Parthood} is the strict order induced by normal \gls{Parthood}.
+Figure \ref{figure:SchematicProperPart} shows a schematic illustration of proper parts.
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[draw=black,thick](0,0)circle(2 and 2);
+\draw[fill=gray!10,draw=black,thick](-0.5,0)circle(1 and 1);
+\draw(-0.5,0)node{\textbf{x}};
+\draw(1,0)node{\textbf{y}};
+\node[anchor=north] at (current bounding box.south) {$\properPartOf(x,y)$};
+\end{tikzpicture}
+\end{center}
+\caption{A schematic depiction of Proper Parthood}
+\label{figure:SchematicProperPart}
+\end{figure}
+This Venn-style diagram depicts the scenario where $x$ is certainly a part of $y$, however $y$ is not a part of $x$.
+In general proper \gls{Parthood} is a asymmetric relationship:
+\begin{align*}
+&\properPartOf(x,y) 
+\Rightarrow
+\neg \properPartOf(y,x).
+&\text{Asymmetry}
+\end{align*}
 
-\section{Ontologies}
-%\lipsum[1]
-TBD.
-\cite{DBLP:series/ihis/GuarinoOS09}
+\Gls{Mereology} also allows for the notion of atomicity \cite{DBLP:journals/dke/Varzi96} \cite{SEP:Mereology}, i.e. atomic parts which cannot be decomposed in further parts:
+\begin{align*}
+\atomicPart(x)
+\Leftarrow
+\not \exists p.\partOf(p,x).
+\end{align*}
+Atomicity is later used to distinguish cases for \gls{Correspondence} and \gls{Conformance} (see §\ref{subsection:Correspondence} and §\ref{subsection:Conformance}).
+
+\subsection{Fragments}
+\label{subsection:Fragments}
+\Glspl{Fragment} are a specialization of entities intended to capture the endogenous, mereological decomposition of artifacts \cite{HeinzLV17}.
+Axiom \ref{axiom:Fragment} defines  \glspl{Fragment} as artifacts, which are neither files nor folders, and are properly embedded in at least one other artifact.
+For instance, consider the syntactical decomposition of \gls{Java} classes, i.e. the class \gls{Fragment} contains method and field \glspl{Fragment}.
+\begin{axiom}[\Fragment]
+\label{axiom:Fragment}
+\begin{align*}
+&\Fragment(f) 
+\Rightarrow
+\Artifact(a) \wedge \neg(\File(f) \vee \Folder(f)).\\
+&\Fragment(f) 
+\Rightarrow 
+\exists a.\Artifact(a) \wedge \properPartOf(f,a).
+\end{align*}
+\end{axiom}
+We emphasize the proper \gls{Parthood} here, since not all authors necessarily consider \partOf~ to be reflexive \cite{DBLP:conf/sle/Lammel16} \cite{HeinzLV17}.
+However, we previously distinguished between reflexive and irreflexive \gls{Parthood} and if we were to use reflexive \gls{Parthood} for the definition of the \Fragment-predicate it would be a tautology:
+\begin{align*}
+&\Fragment(f) 
+\Rightarrow 
+\exists a.\Artifact(a) \wedge \partOf(f,a).
+&\text{Tautology}
+\end{align*}
+Since $\Fragment(f)$ implies $\Artifact(f)$ and \partOf~ is reflexive there is always an artifact for a \gls{Fragment} the latter is a part of, that is the \gls{Fragment} itself.
+
+From the specification of \glspl{Fragment} we can first specialize the proper \gls{Parthood} predicate:
+\begin{align*}
+&\fragmentOf(f,x) 
+\Rightarrow
+\Fragment(f) \wedge \Artifact(x).\\
+&\fragmentOf(f,x) 
+\Leftarrow
+\Fragment(f) \wedge \Artifact(x) \wedge \properPartOf(f,x).
+\end{align*}
+This is just a restriction of domain and range facilitating a special semantic.
+Secondly, we can describe the process of fragmentation:
+\begin{align*}
+\partOf(p,w) \wedge \Fragment(w)
+\Rightarrow
+\Fragment(p).
+\end{align*}
+The \gls{Fragment} nature propagates top-down alongside the order of \gls{Parthood}, i.e. if an entity is a \gls{Fragment} all parts are also \glspl{Fragment} \cite{HeinzLV17}.
+
+\subsection{Correspondence}
+\label{subsection:Correspondence}
+\Gls{Correspondence} 
+
+\begin{align*}
+&\represents(r,e)
+\Rightarrow
+\Artifact(r) \wedge \Entity(e).\\
+&\represents(r,e)
+\Leftarrow
+r \text{ is a representation of } e.
+\end{align*}
+
+\begin{align*}
+&\sameAs(x,y)
+\Rightarrow
+\Artifact(x) \wedge \Artifact(y).\\
+&\sameAs(x,y)
+\Leftarrow
+\exists e.\Entity(e) \wedge \represents(x,e) \wedge \represents(y,e).
+\end{align*}
+
+\begin{axiom}[\correspondsTo]
+~
+\newline
+\resizebox{\linewidth}{!}{
+\begin{minipage}{\linewidth}
+\begin{align*}
+\correspondsTo(x,y)
+&\Rightarrow
+\Artifact(x) \wedge \Artifact(y).\\
+\correspondsTo(x,y)
+&\Leftarrow
+(\forall px.\partOf(px,x) \Rightarrow \exists py.\partOf(py,y) \wedge \correspondsTo(px,py))\\
+&\wedge
+(\forall py.\partOf(py,y) \Rightarrow \exists px.\partOf(px,x) \wedge \correspondsTo(py,px))\\
+&\vee
+(\not\exists p.\partOf(p,x) \vee \textsf{partof}(p,y)) \wedge \sameAs(x,y).
+\end{align*}
+\end{minipage}
+}
+\end{axiom}
+
+
+\subsection{Conformance}
+\label{subsection:Conformance}
+
+\begin{axiom}[\conformsTo]
+\begin{align*}
+\conformsTo(a,d)
+&\Rightarrow
+\Artifact(a) \wedge \Artifact(d).\\
+\conformsTo(a,a')
+&\Leftarrow
+(\forall p.\partOf(p,a) \wedge \exists p'.\partOf(p',a') \wedge \conformsTo(p,p'))\\
+&\vee \exists t.\defines(a',t) \wedge \elementOf(a,t).
+\end{align*}
+\end{axiom}
+
+
+\section{Traceability}
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+
+\begin{definition}[Trace]
+content...
+\end{definition}
+
+\begin{definition}[Trace Link]
+content...
+\end{definition}
+
+
+\begin{definition}[Traceability Recovery]
+content...
+\end{definition}
+
 
 \section{Megamodeling}
-%\lipsum[1]
-TBD.
 \cite{DBLP:conf/sattose/BaggeZ14}
 \cite{DBLP:journals/entcs/FavreN05}
 
@@ -34,12 +243,12 @@ TBD.
 
 
 
+\section{Technical Background}
 
+\subsection{Java Architecture for XML Binding (JAXB)}
 
-\section{Java Architecture for XML Binding (JAXB)}
+\subsection{Hibernate}
 
-\section{Hibernate}
-
-\section{Another Tool For Language Recognition (ANTLR)}
+\subsection{Another Tool For Language Recognition (ANTLR)}
 \cite{Parr:2013:DAR:2501720}
 
