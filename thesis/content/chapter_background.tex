@@ -37,7 +37,7 @@ The intended use and semantic of these predicates is not meant to differ from in
 
 \subsection{Parthood}
 \label{subsection:Parthood}
-\Gls{Parthood} is an essential relationship when reasoning about \gls{Correspondence} and \gls{Conformance} among artifacts within linguistic architectures \cite{DBLP:conf/sle/Lammel16} \cite{HeinzLV17}.
+\Gls{Parthood} is the essential relationship when reasoning about \gls{Correspondence} and \gls{Conformance} among artifacts within linguistic architectures \cite{DBLP:conf/sle/Lammel16} \cite{HeinzLV17}.
 It describes the relation between entities and their constituent parts.
 The study of \gls{Parthood} and its derivatives is \gls{Mereology} \cite{DBLP:journals/dke/Varzi96} \cite{SEP:Mereology}.
 In the context of linguistic architectures we assume most entities to be
@@ -104,7 +104,7 @@ In general proper \gls{Parthood} is a asymmetric relationship:
 \begin{align*}
 \atomicPart(x)
 \Leftarrow
-\not \exists p.\partOf(p,x).
+\not \exists p.\properPartOf(p,x).
 \end{align*}
 Atomicity is later used to distinguish cases for \gls{Correspondence} and \gls{Conformance} (see §\ref{subsection:Correspondence} and §\ref{subsection:Conformance}).
 
@@ -154,29 +154,38 @@ The \gls{Fragment} nature propagates top-down alongside the order of \gls{Partho
 
 \subsection{Correspondence}
 \label{subsection:Correspondence}
-\Gls{Correspondence} 
+\Gls{Correspondence} is the relationship between to \glspl{Artifact} denoting both represent the same data in the sense that they are mereologically similar \cite{HeinzLV17}.
+It usually occurs as exogenous relationship, i.e. the involved \glspl{Artifact} do not belong to the same \gls{Language}, for instance \gls{XML} and \gls{JSON} may contain the same information.
 
+In order to axiomatize \gls{Correspondence} properly we need to introduce two other relationships first:
+\begin{description}[align=left]
+\item[\represents]
+The relationship denoting that an \gls{Artifact} is a \gls{Representation} or \gls{Manifestation} of an entity.
 \begin{align*}
-&\represents(r,e)
+&\represents(a,e)
 \Rightarrow
-\Artifact(r) \wedge \Entity(e).\\
-&\represents(r,e)
+\Artifact(a) \wedge \Entity(e).\\
+&\represents(a,e)
 \Leftarrow
-r \text{ is a representation of } e.
+a \text{ is a representation of } e.
 \end{align*}
 
+\item[\sameAs]
+The relationship denoting two artifacts represent the same entity.
 \begin{align*}
 &\sameAs(x,y)
 \Rightarrow
 \Artifact(x) \wedge \Artifact(y).\\
 &\sameAs(x,y)
 \Leftarrow
-\exists e.\Entity(e) \wedge \represents(x,e) \wedge \represents(y,e).
+\exists e.\represents(x,e) \wedge \represents(y,e).
 \end{align*}
+\end{description}
 
+The axiomatization of \gls{Correspondence} from \cite{HeinzLV17} is slightly altered with emphasis of irreflexive proper \gls{Parthood}, Otherwise it would not work with axiom \ref{axiom:PartOf}.
 \begin{axiom}[\correspondsTo]
-~
-\newline
+\label{axiom:CorrespondsTo}
+~\newline
 \resizebox{\linewidth}{!}{
 \begin{minipage}{\linewidth}
 \begin{align*}
@@ -185,31 +194,93 @@ r \text{ is a representation of } e.
 \Artifact(x) \wedge \Artifact(y).\\
 \correspondsTo(x,y)
 &\Leftarrow
-(\forall px.\partOf(px,x) \Rightarrow \exists py.\partOf(py,y) \wedge \correspondsTo(px,py))\\
+(\forall px.\properPartOf(px,x) \Rightarrow \exists py.\properPartOf(py,y) \wedge \correspondsTo(px,py))\\
 &\wedge
-(\forall py.\partOf(py,y) \Rightarrow \exists px.\partOf(px,x) \wedge \correspondsTo(py,px))\\
+(\forall py.\properPartOf(py,y) \Rightarrow \exists px.\properPartOf(px,x) \wedge \correspondsTo(py,px))\\
 &\vee
-(\not\exists p.\partOf(p,x) \vee \textsf{partof}(p,y)) \wedge \sameAs(x,y).
+(\not\exists p.\properPartOf(p,x) \vee \properPartOf(p,y)) \wedge \sameAs(x,y).
 \end{align*}
 \end{minipage}
 }
 \end{axiom}
+Axiom \ref{axiom:CorrespondsTo} defines \gls{Correspondence} recursively:
+\begin{enumerate}[align=left,label=\textbf{Case \Roman*},ref={\Roman*}]
+\item
+If both \glspl{Artifact} is atomic in the sense it cannot be decomposed in further parts, we check whether both artifacts represent the same data.
 
+\item
+Else, if at least one \gls{Artifact} is not atomic, then for each proper part of one \gls{Artifact} has to be a corresponding part in the other and vice versa.
+\end{enumerate}
+This axiomatization demands a strict one-to-one correspondence in its recursive clause which occurs in reflexive cases, i.e. $\correspondsTo(x,x)$, but may be to strict for real-world applications \cite{DBLP:conf/sle/Lammel16}.
 
 \subsection{Conformance}
 \label{subsection:Conformance}
+\Gls{Conformance} is the relationship between two \glspl{Artifact} denoting one satisfies the syntax specification given by the other \cite{HeinzLV17}.
+This satisfaction is also meant to mereologically decomposable, i.e. there are parts of one \gls{Artifact} specified by a part of the other.
 
+
+In order to axiomatize \gls{Conformance} properly we need to introduce two other relationships first:
+\begin{description}[align=left]
+\item[\defines]
+The relationship simply denoting an \gls{Artifact} contains the definition of an entity.
+\begin{align*}
+\defines(a,e)
+&\Rightarrow
+\Artifact(a) \wedge \Entity(e).\\
+\defines(a,e)
+&\Leftarrow
+a \text{ is a definition for } e.
+\end{align*}
+
+\item[\elementOf]
+The relationship denoting set-theoretic membership.\footnote{We do not use the \elementOf axiom for \glspl{Artifact} and \glspl{Language} from \cite{HeinzLV17}, because it introduces the possibility for infinite mutual recursion:
+\begin{align*}
+\elementOf(a,l)
+&\Rightarrow
+\Artifact(a) \wedge \Language(l).\\
+\elementOf(a,l)
+&\Leftarrow
+\exists s.\defines(s,l) \wedge \conformsTo(a,s)
+\end{align*}}
+\begin{align*}
+\elementOf(e,s)
+&\Rightarrow
+\Entity(e) \wedge \Set(s).\\
+\elementOf(e,s)
+&\Leftarrow
+e \in s.
+\end{align*}
+
+
+\end{description}
+
+
+The axiomatization of \gls{Conformance} from \cite{HeinzLV17} is also slightly altered with emphasis of irreflexive proper \gls{Parthood}, Otherwise it would not work with axiom \ref{axiom:PartOf}.
 \begin{axiom}[\conformsTo]
+\label{axiom:ConformsTo}
+~\newline
+\resizebox{\linewidth}{!}{
+\begin{minipage}{\linewidth}
 \begin{align*}
 \conformsTo(a,d)
 &\Rightarrow
 \Artifact(a) \wedge \Artifact(d).\\
-\conformsTo(a,a')
+\conformsTo(a,d)
 &\Leftarrow
-(\forall p.\partOf(p,a) \wedge \exists p'.\partOf(p',a') \wedge \conformsTo(p,p'))\\
-&\vee \exists t.\defines(a',t) \wedge \elementOf(a,t).
+(\forall pa.\properPartOf(pa,a) \wedge \exists pd.\properPartOf(pd,d) \wedge \conformsTo(pa,pd))\\
+&\vee \exists l.\defines(d,l) \wedge \elementOf(a,l).
 \end{align*}
+\end{minipage}
+}
 \end{axiom}
+Axiom \ref{axiom:ConformsTo} defines \gls{Conformance} recursively:
+\begin{enumerate}[align=left,label=\textbf{Case \Roman*},ref={\Roman*}]
+\item
+If both \glspl{Artifact} is atomic in the sense it cannot be decomposed in further parts, we check whether one \gls{Artifact} defines a language the other \gls{Artifact} is an element of.
+
+\item
+Else, if at least one \gls{Artifact} is not atomic, then for each proper part of one \gls{Artifact} has to be a proper part in the other \gls{Artifact} it conforms to.
+\end{enumerate}
 
 
 \section{Traceability}
@@ -229,21 +300,18 @@ content...
 \end{definition}
 
 
-\section{Megamodeling}
+\section{Technical Background}
+
+
+\subsection{\megalxtext}
 \cite{DBLP:conf/sattose/BaggeZ14}
 \cite{DBLP:journals/entcs/FavreN05}
 
-\subsection{\megal}
 \cite{DBLP:conf/ecmdafa/LammelV14}
 \cite{DBLP:conf/models/FavreLV12}
 \cite{DBLP:conf/sle/Lammel16}
 
-\subsection{\megalxtext}
 \cite{LukasHaertelBScThesis}
-
-
-
-\section{Technical Background}
 
 \subsection{Java Architecture for XML Binding (JAXB)}
 
