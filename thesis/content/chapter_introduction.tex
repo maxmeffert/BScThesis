@@ -1,5 +1,6 @@
 \chapter{Introduction}
 \label{chapter:Introduction}
+We start with a motivational example:
 Common tasks in software development are implementation of serialization and persistence of domain models.
 For instance, consider a simple web service which serves data via \gls{HTTP} as \gls{XML} and stores it in a relational database.
 We call this an \gls{O/R/X-Mapping} scenario.
@@ -86,8 +87,12 @@ Links through similarity can be found within the model-level \glspl{Representati
 and \texttt{<employee .../>}, the latter two are also linked with each other
 
 \item
-\texttt{private String name;} is linked with \texttt{<xs:attribute name="name" type="xs:string"/>} and \texttt{name="Max"/>}, the latter two are also linked with each other
+\texttt{private String name;} is linked with \texttt{<xs:attribute name="name" type="xs:string"/>} and \texttt{name="Max"}, the latter two are also linked with each other
 \end{itemize}
+
+
+\section{Objectives}
+\label{section:Objectives}
 
 The aim of this thesis is to provide automated recovery of such similarities as semantic links.
 Recovered links are inserted into \textit{\glspl{Megamodel}} \cite{DBLP:conf/sattose/BaggeZ14} \cite{DBLP:journals/entcs/FavreN05} for \textit{\glspl{LinguisticArchitecture}} \cite{DBLP:conf/models/FavreLV12} \cite{DBLP:conf/ecmdafa/LammelV14} \cite{HeinzLV17}.
@@ -97,12 +102,23 @@ They model knowledge about software systems in terms of \glspl{Language}, \glspl
 Such entities are interrelated with relationships derived from common software engineering and theoretical computer science vocabulary providing special semantics, e.g. \textit{defines}, \textit{isA}, \textit{instanceOf}, \textit{represents}, \textit{implements}, \textit{realizationOf}, \textit{elementOf}, \textit{subsetOf}.
 
 \Glspl{LinguisticArchitecture} are related to \glspl{ERModel} and \glspl{Ontology}.
-Recovering semantic links as described above is related to the concept \textit{\gls{Traceability}} and an application of \textit{\gls{TraceabilityRecovery}} \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}.
+Recovering semantic links as described above is related to the concept \textit{\gls{Traceability}} and an application of \textit{\gls{TraceabilityRecovery}} \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} (see §\ref{section:Traceability}).
 In context of \gls{Traceability}, semantic links may be called \textit{\glspl{TraceLink}}, however, both establish a relation between two entities denoting a certain meaning.
+
+\Glspl{TraceLink} among software \glspl{Artifact} denoting that one \gls{Artifact} encodes the same information as the other are called \textit{\gls{Correspondence}} links and denoted \textit{correspondsTo} (see §\ref{subsection:Correspondence}).
+\Glspl{TraceLink} between two \glspl{Artifact} denoting that one defines the other, in the sense of a \gls{Metamodel} defining a model, are called \textit{\gls{Conformance}} links and denoted \textit{conformsTo} (see §\ref{subsection:Conformance}).
+The main objective is to recover such \glspl{TraceLink} among well-formed, possibly partial, source code \glspl{Artifact}.
+We call well-formed partial source code \glspl{Artifact} \textit{\glspl{Fragment}} (see §\ref{subsection:Fragments}).
+ 
 
 \section{Approach}
 \label{section:Approach}
-Our approach for recovering \glspl{TraceLink} utilizes \textit{\gls{StaticProgramAnalysis}} in the sense that we construct specialized \glspl{AST} for further syntactic analysis.
+Our approach for recovering \glspl{TraceLink} utilizes \textit{\gls{StaticProgramAnalysis}}.
+We use it in the broad sense that we construct specialized \glspl{AST} for further analysis.
+Usually \gls{StaticProgramAnalysis} is used with the purpose of formal verification or measurement of software engineering related properties of source code, e.g. cohesion and coupling metrics.
+We use \gls{StaticProgramAnalysis} to semantically link code \glspl{Fragment} and uncover knowledge of the analyzed \glspl{Artifact}.
+In that respect, our approach is related to computing software metrics.
+
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[width=\textwidth]{images/RecoveryExample.png}
