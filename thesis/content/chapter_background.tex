@@ -395,7 +395,7 @@ This section provides background on key \glspl{Technology} used by this thesis.
 §\ref{subsection:JAXB} and §\ref{subsection:Hibernate} provides an introduction to \gls{JAXB} and \gls{Hibernate} respectively.
 §\ref{subsection:ANTLR} summarizes the relevant aspects of \gls{ANTLR}.
 
-\subsection{\megalxtext}
+\subsection{MagaL \& Megal/XText}
 \label{subsection:MegaLXText}
 \cite{DBLP:conf/sattose/BaggeZ14}
 \cite{DBLP:journals/entcs/FavreN05}
@@ -447,10 +447,34 @@ Marshaling itself is triggered using reflection and the \texttt{JAXBContext} cla
 JAXBContext context = JAXBContext.newInstance(Employee.class);
 context.createMarshaller().marshal(jaxbElement, writer);
 \end{lstlisting}
+More excessive examples and tutorials on \gls{JAXB} can be found in \cite{JAXB} and in \cite{JAXBTutorial}.
 
 \subsection{Hibernate}
 \label{subsection:Hibernate}
-\gls{Hibernate} \cite{HibernateORM} is a \gls{Java} technology developed by Red Hat Inc. for \gls{O/R-Mapping}.
+\gls{Hibernate} \cite{HibernateORM} is a \gls{Java} technology developed by Red Hat Inc. facilitating \gls{O/R-Mapping}.
+Using \gls{Hibernate}, one can define mappings from \gls{Java} classes and their instances to tables of relational databases and their rows, and vice versa.
+This allows the underlying framework to generate \gls{SQL} code for communicating with a relational database system in order to provide means for CRUD operations.
+
+Mappings can be defined using \gls{JPA} annotations or, traditionally, using \gls{XML} files, i.e. for each \gls{Java} class file \texttt{MyEntity.java} representing a data entity exists a mapping file \texttt{MyEntity.hbm.xml} describing the relational mapping.
+This is exemplified by the following two listings:
+\begin{lstlisting}[language=Java,numbers=none]
+public class Employee {
+
+	private int id;
+	
+	...
+	
+}
+\end{lstlisting}
+\begin{lstlisting}[language=Xml,numbers=none]
+<class name="Employee" table="EMPLOYEES">
+	<id name="id" column="EMPLOYEE_ID">
+	    ...
+	</id>
+    ...	
+</class>
+\end{lstlisting}
+Here, the \texttt{Employee} class is mapped to the \texttt{EMPLOYEE} table its \texttt{id} field is mapped to the \texttt{EMPLOYEE\_ID} column as primary key for the table. More excessive examples and tutorials on \gls{Hibernate} can be found in \cite{HibernateORM}.
 
 
 \subsection{ANTLR (Another Tool For Language Recognition)}
