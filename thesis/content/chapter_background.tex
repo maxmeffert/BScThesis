@@ -285,28 +285,99 @@ Else, if at least one \gls{Artifact} is not atomic, then for each proper part of
 
 \section{Traceability}
 \label{section:Traceability}
-This section provides brief background on the topic of \gls{Traceability}, i.e. its objectives and terminology.
-\Gls{Traceability} as a desired property of software systems and their development process originates from requirement engineering, i.e.
-how do we validate or verify that all requirements are met \cite{Winkler:2010:STR:1861285.1861287}?
-Or more precisely: on what data can we base such validation or verification?
+This section provides brief background on the topic of \gls{Traceability}, i.e. its objectives and terminology (see §\ref{subsection:TraceabilityObjectives} and §\ref{subsection:TraceabilityTerminology} respectively).
+
+\subsection{Traceability Objectives}
+\label{subsection:TraceabilityObjectives}
+\Gls{Traceability}, as a desired property of software systems and their development processes, originates from requirement engineering, i.e.
+how do we validate or verify that all requirements are met;
+or more precisely: on what data can we base such validation or verification?
+\cite{Winkler:2010:STR:1861285.1861287}
+
 An answer to these questions is motivated by observations on development processes of software systems.
 Because such a process usually has an iterative and incremental nature, we can reasonably assume engineering activities to leave \glspl{Trace} which reflect the performed action.
 
-Modern day \gls{Traceability} objectives are not limited to requirement validation.
-It is also regarded as a desirable property supporting engineering activities, e.g. change impact analysis or dependency analysis \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} \cite{Gotel94ananalysis}.
+Modern day \gls{Traceability} objectives are not limited to validation of requirement compliance.
+It is also regarded as a desirable property for supporting engineering activities, e.g. change impact analysis or dependency analysis \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} \cite{Gotel94ananalysis}.
 This feeds to the overall topic of program comprehension.
+We can informally define \gls{Traceability} as \textit{"[...] the ability to [...] interrelate uniquely identifiable
+entities in a way that matters."} \cite{PaigeOKZPC2010} \cite{Winkler:2010:STR:1861285.1861287}.
+
+
+\subsection{Traceability Terminology}
+\label{subsection:TraceabilityTerminology}
+This section recapitulates the necessary excerpt of definitions on \gls{Traceability} terms given by \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}.
+An excessive glossary of \gls{Traceability} terminology can be found in \cite{TraceabilityGlossary}.
 
 \begin{definition}[Trace]
-content...
+~
+\begin{itemize}
+\item
+\textbf{(Noun)}
+A specified triplet of elements comprising: a source artifact, a target artifact and a trace link associating the two artifacts.
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+
+\item
+\textbf{(Verb)}
+The act of following a trace link from a source artifact to a target artifact or vice-versa.
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+\end{itemize}
+\end{definition}
+
+\begin{definition}[Trace Artifact, Source Artifact, Target Artifact]
+A traceable unit of data (e.g., a single requirement, a cluster of requirements, a UML class, a UML class operation, a Java class or even a person).
+A trace artifact is one of the trace elements and is qualified as either a source artifact or as a target artifact when it participates in a trace:
+\begin{itemize}
+\item
+\textbf{Source Artifact}
+The artifact from which a trace originates.
+\item
+\textbf{Target Artifact}
+The artifact at the destination of a trace.
+\end{itemize}
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+\end{definition}
+
+\begin{definition}[Trace Artifact Type]
+A label that characterizes those trace artifacts that have the same or a similar structure (syntax) and/or purpose (semantics).
+For example, requirements, design and test cases may be distinct artifact types.
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
 \end{definition}
 
 \begin{definition}[Trace Link]
-content...
+A specified association between a pair of artifacts, one comprising the source artifact and one comprising the target artifact. 
+Trace links are effectively bidirectional. 
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} 
 \end{definition}
 
+\begin{definition}[Trace Link Type]
+A label that characterizes those trace links that have the
+same or similar structure (syntax) and/or purpose (semantics). 
+For example, “implements”, “tests”, “refines” and “replaces” may be distinct trace link types. 
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} 
+\end{definition}
 
-\begin{definition}[Traceability Recovery]
-content...
+\begin{definition}[Traceability]
+The potential for traces to be established and used.
+Traceability (i.e., trace “ability”) is thereby an attribute of an artifact or of a collection of artifacts.
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} 
+\end{definition}
+
+\begin{definition}[Traceability Creation]
+The general activity of associating two (or more) artifacts, by providing trace links between them. 
+This can be done manually, automatically or semi-automatically, and additional annotations can be provided as desired to characterize attributes of the traces.
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+\end{definition}
+
+\begin{definition}[Trace Capture]
+A particular approach to trace creation that implies the creation of trace links concurrently with the creation of the artifacts that they associate. These trace links may be created automatically or semi-automatically using tools.
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+\end{definition}
+
+\begin{definition}[Trace Recovery]
+A particular approach to trace creation that implies the creation of trace links after the artifacts that they associate have been generated and manipulated.
+These trace links may be created automatically or semi-automatically using tools. 
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
 \end{definition}
 
 
