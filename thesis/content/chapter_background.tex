@@ -76,10 +76,16 @@ The irreflexive \gls{Parthood} relationship is called proper:
 \Leftarrow
 \partOf(x,y) \wedge \neg \partOf(y,x).
 \end{align*}
-Proper \gls{Parthood} is the strict order induced by normal \gls{Parthood}.
-Figure \ref{figure:SchematicProperPart} shows a schematic illustration of proper parts.
+Proper \gls{Parthood} is the strict order induced by simple \gls{Parthood}.
+Figure \ref{figure:SchematicProperPart} shows a schematic illustration opposing simple to proper \gls{Parthood}.
 \begin{figure}[h!]
 \begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[draw=black,thick](0,0)circle(2 and 2);
+\draw(-1,0)node{\textbf{x}};
+\draw(1,0)node{\textbf{y}};
+\node[anchor=north] at (current bounding box.south) {$\partOf(x,y)$};
+\end{tikzpicture}
 \begin{tikzpicture}[scale=0.8]
 \draw[draw=black,thick](0,0)circle(2 and 2);
 \draw[fill=gray!10,draw=black,thick](-0.5,0)circle(1 and 1);
@@ -88,10 +94,17 @@ Figure \ref{figure:SchematicProperPart} shows a schematic illustration of proper
 \node[anchor=north] at (current bounding box.south) {$\properPartOf(x,y)$};
 \end{tikzpicture}
 \end{center}
-\caption{A schematic depiction of Proper Parthood}
+\caption{Simple vs. Proper Parthood}
 \label{figure:SchematicProperPart}
 \end{figure}
-This Venn-style diagram depicts the scenario where $x$ is certainly a part of $y$, however $y$ is not a part of $x$.
+This Venn-style diagram depicts two scenarios
+\begin{description}
+\item[\partOf(x,y)]
+$x$ may be a part of $y$ or vice-versa;
+$x$ and $y$ cannot be distinguished
+\item[\properPartOf(x,y)] 
+$x$ is certainly a part of $y$, however $y$ is not a part of $x$
+\end{description} 
 In general proper \gls{Parthood} is a asymmetric relationship:
 \begin{align*}
 &\properPartOf(x,y) 
