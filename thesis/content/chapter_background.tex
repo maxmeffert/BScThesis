@@ -399,18 +399,59 @@ This section provides background on key \glspl{Technology} used by this thesis.
 \label{subsection:MegaLXText}
 \cite{DBLP:conf/sattose/BaggeZ14}
 \cite{DBLP:journals/entcs/FavreN05}
-
 \cite{DBLP:conf/ecmdafa/LammelV14}
 \cite{DBLP:conf/models/FavreLV12}
 \cite{DBLP:conf/sle/Lammel16}
-
 \cite{LukasHaertelBScThesis}
 
 \subsection{JAXB (Java Architecture for XML Binding)}
 \label{subsection:JAXB}
+\Gls{JAXB} \cite{JAXB} \cite{JAXBTutorial}
+is a \gls{Java} technology developed by the Oracle Corporation for \gls{XML} serialization and de-serialization of classes and instances.
+It implements \gls{O/X-Mapping}, i.e. \gls{Java} classes can be transformed to \gls{XML} schema files (\gls{XSD} files) and instances of classes can be transformed to \gls{XML} documents.
+Transformations can also be applied vice-versa.
+Figure \ref{figure:JAXBDataBindingProcess} shows the \gls{O/X-Mapping} facilitated by \gls{JAXB}.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=\textwidth]{images/jaxb-dataBindingProcess.png}
+\end{center}
+{
+\scriptsize
+\begin{center}
+\url{https://docs.oracle.com/javase/tutorial/figures/jaxb/jaxb-dataBindingProcess.gif}\\(retrieved \formatdate{11}{12}{2017})
+\end{center}
+}
+\caption{Steps in the JAXB Binding Process \cite{jaxbDataBindingProcess}}
+\label{figure:JAXBDataBindingProcess}
+\end{figure}
+The mapping of classes to schemas is called \textit{binding}, whereas the mapping of instances to documents is called \textit{marshaling} or \textit{unmarshaling} respectively.
+
+Binding and marshaling is defined through \gls{Java} annotations.
+For instance, class and field declarations can be annotated to specify marshaling into specific syntactic \gls{XML} elements, i.e. element tags or attributes.
+This is exemplified by the following listing:
+\begin{lstlisting}[language=Java,numbers=none]
+@XmlRootElement(name="employee")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Employee {
+
+	@XmlAttribute
+	private int id;
+	
+	...
+	
+}
+\end{lstlisting}
+Annotations can define binding in more detail than shown above, e.g. it is possible to explicitly provide names and types of \gls{XML} elements.
+Marshaling itself is triggered using reflection and the \texttt{JAXBContext} class:
+\begin{lstlisting}[language=Java,numbers=none]
+JAXBContext context = JAXBContext.newInstance(Employee.class);
+context.createMarshaller().marshal(jaxbElement, writer);
+\end{lstlisting}
 
 \subsection{Hibernate}
 \label{subsection:Hibernate}
+\gls{Hibernate} \cite{HibernateORM} is a \gls{Java} technology developed by Red Hat Inc. for \gls{O/R-Mapping}.
+
 
 \subsection{ANTLR (Another Tool For Language Recognition)}
 \label{subsection:ANTLR}
