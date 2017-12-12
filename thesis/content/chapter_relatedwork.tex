@@ -1,6 +1,8 @@
 \chapter{Related Work}
 \label{chapter:RelatedWork}
 This chapter provides an non-exhaustive overview over related work regarding trace link recovery approaches.
+§\ref{section:PaperSummary} summarizes selected papers.
+§\ref{section:Remarks} provides some concluding remarks regarding the summarized approaches and the approach used by this thesis.
 
 %\section{Linguistic Architectures}
 %
@@ -11,6 +13,8 @@ This chapter provides an non-exhaustive overview over related work regarding tra
 %\section{Trace Recovery}
 
 \section{Paper Summary}
+\label{section:PaperSummary}
+This section summarizes selected papers regarding their approaches on trace link recovery.
 
 \paragraph*{Information Retrieval Methods for Automated Traceability Recovery}
 \cite{DeLucia2012} 
@@ -50,6 +54,7 @@ It is argued that a high co-change frequency implies trace links among \glspl{Ar
 
 %\paragraph*{CaCOphoNy: metamodel-driven software architecture reconstruction}
 %\cite{Favre2004}
+% not needed: paper is not really interested in trace link recovery
 
 \paragraph*{Combining Textual and Structural Analysis of Software Artifacts for  Traceability Link Recovery}
 \cite{McMillanPR2009}
@@ -58,22 +63,45 @@ Endogenous links among documentation \glspl{Artifact} are proposed to be recover
 Indirect linking is proposed because the authors argue that information retrieval methods alone are not sufficient for trace link recovery purposes.
 Documentation \glspl{Artifact} may be linked despite sharing little to no semantic similarities.
 
-\paragraph*{Traceability Management for Impact Analysis}
-\cite{DelukaFR2008}
 
-\paragraph*{Automating traceability link recovery through classification}
-\cite{Mills:2017:ATL:3106237.3121280}
+%\paragraph*{Traceability Management for Impact Analysis}
+%\cite{DelukaFR2008}
+% not needed in related work, the paper argues prospects of traceability for impact analysis, however it provides a nice traceability survey section
 
-\paragraph*{Recovering test-to-code traceability using slicing and textual analysis} 
-\cite{Qusef:2014:RTT:2747015.2747194}
+%\paragraph*{Automating traceability link recovery through classification}
+%\cite{Mills:2017:ATL:3106237.3121280}
+% not available
+
+%\paragraph*{Recovering test-to-code traceability using slicing and textual analysis} 
+%\cite{Qusef:2014:RTT:2747015.2747194}
+% not available
 
 \paragraph*{Recovering traceability links in software artifact management systems using information retrieval methods}
 \cite{Lucia:2007:RTL:1276933.1276934}
+provides an excessive case-study evaluating information retrieval methods, namely Latent Semantic Indexing, for trace link recovery.
+It concludes that information retrieval is not sufficient to recover all links among source code \glspl{Artifact}, 
 
-\paragraph*{Semantic driven program analysis}
-\cite{Marcus2004}
+%\paragraph*{Semantic driven program analysis}
+%\cite{Marcus2004}
+% not needed, only refers to AntoniolCCDM00 and AntoniolCDLM99
+
+\paragraph*{TraceME: Traceability Management in Eclipse}
+\cite{TraceME}
+introduces TraceME, an eclipse \gls{IDE} base tool for trace link recovery and management.
+It utilizes information retrieval techniques, namely the Vector Space Model, for trace link recovery inside eclipse projects.
+
+\paragraph*{OpenTrace: An Open Source Workbench for Automatic Software Traceability Link Recovery}
+\cite{OpenTrace}
+introduces OpenTrace, a workbench for reproducible experiments with focus on automated trace link recovery.
+It provides means to apply information retrieval techniques for recovering trace links to large corpora of natural language \glspl{Artifact}.
+
+\paragraph*{Traceclipse: An eclipse plug-in for traceability link recovery and management}
+\cite{Traceclipse}
+introduces Traceclipse, another eclipse \gls{IDE} based tool, providing means for trace link recovery using information retrieval techniques, namely the Vector Space Model.
+The implemented recovery process is semi-automatic in the sense that a user has to inspect proposed links.
 
 
 \section{Remarks}
+\label{section:Remarks}
 
 
