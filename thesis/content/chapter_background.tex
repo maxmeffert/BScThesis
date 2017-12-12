@@ -479,5 +479,45 @@ Here, the \texttt{Employee} class is mapped to the \texttt{EMPLOYEE} table its \
 
 \subsection{ANTLR (Another Tool For Language Recognition)}
 \label{subsection:ANTLR}
-\cite{Parr:2013:DAR:2501720}
+\Gls{ANTLR} \cite{Parr:2013:DAR:2501720} is a technology providing means for processing structured text using parsing.
+It is available for \gls{Java}, C\#, JavaScript, Python and many other platforms \cite{antlr.org}, i.e. \Gls{ANTLR} can generate $LL(*)$ parsers for context-free languages in the target platform's language.
+Parsers are generated from an EBNF-like grammar notation, e.g. the following "hello world"-grammar taken from \cite{ANTLRv4GettingStarted}:
+\begin{lstlisting}[numbers=none]
+grammar Hello;
+hello  : 'hello' ID ;     // match keyword hello followed by an identifier
+ID : [a-z]+ ;             // match lower-case identifiers
+WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
+\end{lstlisting}
 
+\Gls{ANTLR} also provides means for integrating generated parsers into one's project, i.e. means for working with/traversing created \glspl{ParseTree}.
+Tree traversal in order to transform \glspl{ParseTree} to \glspl{AST} can be either done traditionally using the \gls{VisitorPattern} or using the combination of \gls{ANTLR} \gls{ParseTree} walkers and walker listeners, a variation of the \gls{ObserverPattern}.
+
+Listener interfaces are generated during parser generation.
+All listeners implement the \texttt{ParseTreeListener} interface provided by the \gls{ANTLR} runtime library:
+\begin{lstlisting}[language=Java,numbers=none]
+public interface ParseTreeListener {
+	void visitTerminal(TerminalNode node);
+	void visitErrorNode(ErrorNode node);
+	void enterEveryRule(ParserRuleContext ctx);
+	void exitEveryRule(ParserRuleContext ctx);
+}
+\end{lstlisting}
+The following listing shows generated listener interface for the grammar above:
+\begin{lstlisting}[language=Java,numbers=none]
+public interface HelloListener extends ParseTreeListener {
+    void enterHello(HelloContext ctx);
+    void exitHello(HelloContext ctx);
+}
+\end{lstlisting}
+While traversing a \gls{ParseTree}, listeners are notified upon entering or exiting tree nodes, called "context" by \gls{ANTLR}.
+Traversal is triggered using \texttt{Parse\-Tree\-Walker} instances, which implement \gls{DFS}.
+Usage of \texttt{Parse\-Tree\-Walker} is exemplified in the following listing:
+\begin{lstlisting}[language=Java,numbers=none]
+...
+HelloListener helloListener = ...
+ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
+parseTreeWalker.walk(helloListener, parseTree);
+...
+\end{lstlisting}
+
+An excessive introduction to \gls{ANTLR} can be found in \cite{Parr:2013:DAR:2501720}, a simple tutorial can be found in \cite{ANTLRv4GettingStarted}.
