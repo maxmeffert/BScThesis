@@ -391,15 +391,63 @@ These trace links may be created automatically or semi-automatically using tools
 
 \section{Technological Background}
 This section provides background on key \glspl{Technology} used by this thesis.
-§\ref{subsection:MegaLXText} introduces the \megal modeling language and \megalxtext as corresponding technology.
+§\ref{subsection:MegaLXText} introduces the \gls{MegaL} modeling language and \gls{MegaL/Xtext} as corresponding technology.
 §\ref{subsection:JAXB} and §\ref{subsection:Hibernate} provides an introduction to \gls{JAXB} and \gls{Hibernate} respectively.
 §\ref{subsection:ANTLR} summarizes the relevant aspects of \gls{ANTLR}.
 
-\subsection{MagaL \& Megal/XText}
+\subsection{MagaL \& MegaL/Xtext}
 \label{subsection:MegaLXText}
-\cite{DBLP:conf/ecmdafa/LammelV14}
-\cite{DBLP:conf/models/FavreLV12}
-\cite{LukasHaertelBScThesis}
+\gls{MegaL} \cite{DBLP:conf/ecmdafa/LammelV14} \cite{DBLP:conf/models/FavreLV12} is a modeling language for \glspl{LinguisticArchitecture} developed by Software Languages Team\footnote{\url{http://www.softlang.org/}(Retrieved \formatdate{12}{12}{2017})} at the University of Koblenz-Landau.
+\gls{MegaL/Xtext} \cite{LukasHaertelBScThesis} \cite{HaertelHHLV17} is the integration of \gls{MegaL} into the eclipse \gls{IDE} based on Xtext\footnote{\url{http://www.eclipse.org/Xtext/}(Retrieved \formatdate{12}{12}{2017})} developed by the same team.
+
+\Gls{MegaL} provides a textual notation for typed \glspl{ERModel}, i.e. each entity and each relation is strictly typed.
+This is exemplified by the following listing showing a simple \gls{Megamodel} for citation of scientific papers:
+\begin{lstlisting}[numbers=none]
+Artifact < Entity
+File < Artifact
+Paper < File
+
+cites < Paper * Paper
+
+paper1 : Paper
+paper2 : Paper
+paper1 cites paper2
+\end{lstlisting}
+The types, starting with upper-case letters, state that there are files, which are papers.
+There is a relation \texttt{cites}, denoted with a type signature, stating one paper may cite the other.
+Eventually, there are two concrete paper entity instances \texttt{paper1} and \texttt{paper2}, where the former cites the latter instance.
+
+\Gls{MegaL/Xtext} provides means for applying additional functionality or semantics to \glspl{Megamodel}, e.g. for reasoning or validation on the induced entity graph.
+For this, \gls{MegaL/Xtext} implements a plug-in system, which is exemplified in the following listings:
+\begin{lstlisting}[numbers=none]
+MyType < Entity
+
+@Plugin 'MyRelationPlugin'
+myRelation < MyType * MyType
+
+MyRelationPlugin : Plugin
+MyRelationPlugin = 'classpath:org.softlang.megal.MyRelationPlugin'
+\end{lstlisting}
+\begin{lstlisting}[language=Java,numbers=none]
+public abstract class GuidedReasonerPlugin extends InjectedReasonerPlugin {
+	...
+	protected void guidedDerive(EntityType entityType) throws Throwable {}
+	protected void guidedDerive(RelationshipType relationshipType) throws Throwable {}
+	protected void guidedDerive(Entity entity) throws Throwable {}
+	protected void guidedDerive(Relationship relationship) throws Throwable {}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=Java,numbers=none]
+public class MyRelationPlugin extends GuidedReasonerPlugin {
+	protected void guidedDerive(Relationship relationship) throws Throwable {
+		...
+	}
+}
+\end{lstlisting}
+Given a \gls{Java} class \gls{Artifact} \texttt{MyRelationPlugin.java} implementing special features provided by the \gls{MegaL/Xtext} \gls{API}, e.g. the \texttt{GuidedReasonerPlugin} class, it can be bound to an entity instance by using its classpath.
+This plug-in entity can then be used with the \texttt{@Plugin} annotation and applied to \gls{MegaL} elements, i.e. entity types, relationship types, entity instances and relationship instances.
+\texttt{MyRelationPlugin} will be executed during evaluation of the \gls{Megamodel}.
+
 
 \subsection{JAXB (Java Architecture for XML Binding)}
 \label{subsection:JAXB}
