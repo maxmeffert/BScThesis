@@ -478,12 +478,8 @@ This is exemplified by the following listing:
 @XmlRootElement(name="employee")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
-
-	@XmlAttribute
-	private int id;
-	
+	@XmlAttribute private int id;
 	...
-	
 }
 \end{lstlisting}
 Annotations can define binding in more detail than shown above, e.g. it is possible to explicitly provide names and types of \gls{XML} elements.
@@ -504,11 +500,8 @@ Mappings can be defined using \gls{JPA} annotations or, traditionally, using \gl
 This is exemplified by the following two listings:
 \begin{lstlisting}[language=Java,numbers=none]
 public class Employee {
-
 	private int id;
-	
 	...
-	
 }
 \end{lstlisting}
 \begin{lstlisting}[language=Xml,numbers=none]
