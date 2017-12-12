@@ -1,34 +1,62 @@
 \chapter{Related Work}
 \label{chapter:RelatedWork}
+This chapter provides an non-exhaustive overview over related work regarding trace link recovery approaches.
 
-\section{Linguistic Architectures}
+%\section{Linguistic Architectures}
+%
+%\paragraph*{Modeling the Linguistic Architecture of Software Products}
+%\cite{DBLP:conf/models/FavreLV12}
+%
+%
+%\section{Trace Recovery}
 
-\paragraph*{Modeling the Linguistic Architecture of Software Products}
-\cite{DBLP:conf/models/FavreLV12}
-
-
-\section{Trace Recovery}
+\section{Paper Summary}
 
 \paragraph*{Information Retrieval Methods for Automated Traceability Recovery}
-\cite{DeLucia2012}
+\cite{DeLucia2012} 
+proposes a semi-automatic approach for recovering trace links:
+\begin{enumerate}
+\item
+corpus generation using document parsing to extract \glspl{Artifact} of a desired size (paragraphs, classes, methods, etc.)
+\item
+corpus indexing using information retrieval methods in order to create a homogeneous corpus removing stop words and applying other normalization techniques
+\item
+recovery of "candidate" links computing a probabilistic similarity
+\item
+analysis/assessment of candidate links conducted by a human removing false positive links and confirming correct links
+\end{enumerate}
+It is argued that using probabilistic information retrieval methods reduces the  overhead created by development of language specific analysis solutions, e.g. \gls{AST} generation.
+
 
 \paragraph*{Using Rules for Traceability Creation} 
 \cite{Zisman2012}
+proposes a fully automatic approach for recovering trace links by normalizing to \gls{XML} documents and applying XQuery encoded traceability rules on the corpus.
+This approach also takes ambiguity of natural languages into account by applying a grammatical classification of sentences during preprocessing and considering synonyms during recovery.
 
 \paragraph*{Tracing object-oriented code into functional requirements} 
 \cite{AntoniolCCDM00}
+proposes an information retrieval approach for recovering trace links between source code and natural language documentation \glspl{Artifact}.
+In a provided cast-sudy, \gls{Java} classes are linked to requirement documents based on a probabilistic similarity computed from the set of identifiers found in a class \gls{Artifact}.
 
 \paragraph*{Recovering Code to Documentation Links in OO Systems}
 \cite{AntoniolCDLM99}
+proposes an information retrieval approach for recovering trace links between source code and natural language documentation \glspl{Artifact} based on a  probabilistic similarity computed from the set of identifiers found in source code \glspl{Artifact}.
+This is a predecessor paper of \cite{AntoniolCCDM00}.
 
 \paragraph*{Mining software repositories for traceability links}
 \cite{KagdiMS07}
+proposes an approach for recovering trace links among source code and informal documentation \glspl{Artifact} by monitoring their co-change frequency, i.e. \glspl{Artifact} that are changed to concurrently in the history of a version control system.
+It is argued that a high co-change frequency implies trace links among \glspl{Artifact}.
 
-\paragraph*{CaCOphoNy: metamodel-driven software architecture reconstruction}
-\cite{Favre2004}
+%\paragraph*{CaCOphoNy: metamodel-driven software architecture reconstruction}
+%\cite{Favre2004}
 
 \paragraph*{Combining Textual and Structural Analysis of Software Artifacts for  Traceability Link Recovery}
 \cite{McMillanPR2009}
+proposes a combined approach of information retrieval methods for recovering exogenous links between source code and documentation \glspl{Artifact} and classical analysis methods for recovering endogenous links among source code \glspl{Artifact}.
+Endogenous links among documentation \glspl{Artifact} are proposed to be recovered indirectly, i.e. if source \glspl{Artifact} $S1$ and $S2$ are linked and both ar linked to documentation \glspl{Artifact} $D1$ and $D2$ respectively, then this may be seen as evidence that $D1$ are also linked $D2$.
+Indirect linking is proposed because the authors argue that information retrieval methods alone are not sufficient for trace link recovery purposes.
+Documentation \glspl{Artifact} may be linked despite sharing little to no semantic similarities.
 
 \paragraph*{Traceability Management for Impact Analysis}
 \cite{DelukaFR2008}
@@ -46,6 +74,6 @@
 \cite{Marcus2004}
 
 
-
+\section{Remarks}
 
 
