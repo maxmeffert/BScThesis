@@ -103,5 +103,13 @@ The implemented recovery process is semi-automatic in the sense that a user has 
 
 \section{Remarks}
 \label{section:Remarks}
-
+The majority of the papers summarized in §\ref{section:PaperSummary} utilize information retrieval techniques for trace link recovery.
+The approach of this thesis is to use \gls{StaticProgramAnalysis} techniques for trace link recovery.
+This notable difference is due to the differing source and target \glspl{Artifact} intended to be recovered.
+The summarized approaches intend to recover links between source code and informal, natural language \glspl{Artifact} used for documentation.
+Because of the latter, applying information retrieval methods seems to be a reasonable strategy.
+Only \cite{McMillanPR2009} argues information retrieval to be insufficient.
+However, the proposed recovery method (coupling metrics) for inter source code trace links seem to assume a homogeneous corpus.
+This thesis aims to recover exogenous trace links in a heterogeneous corpus.
+ 
 
