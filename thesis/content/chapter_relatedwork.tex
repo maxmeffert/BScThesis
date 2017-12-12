@@ -4,14 +4,6 @@ This chapter provides an non-exhaustive overview over related work regarding tra
 §\ref{section:PaperSummary} summarizes selected papers.
 §\ref{section:Remarks} provides some concluding remarks regarding the summarized approaches and the approach used by this thesis.
 
-%\section{Linguistic Architectures}
-%
-%\paragraph*{Modeling the Linguistic Architecture of Software Products}
-%\cite{DBLP:conf/models/FavreLV12}
-%
-%
-%\section{Trace Recovery}
-
 \section{Paper Summary}
 \label{section:PaperSummary}
 This section summarizes selected papers regarding their approaches on trace link recovery.
@@ -30,7 +22,6 @@ recovery of "candidate" links computing a probabilistic similarity
 analysis/assessment of candidate links conducted by a human removing false positive links and confirming correct links
 \end{enumerate}
 It is argued that using probabilistic information retrieval methods reduces the  overhead created by development of language specific analysis solutions, e.g. \gls{AST} generation.
-
 
 \paragraph*{Using Rules for Traceability Creation} 
 \cite{Zisman2012}
@@ -52,10 +43,6 @@ This is a predecessor paper of \cite{AntoniolCCDM00}.
 proposes an approach for recovering trace links among source code and informal documentation \glspl{Artifact} by monitoring their co-change frequency, i.e. \glspl{Artifact} that are changed to concurrently in the history of a version control system.
 It is argued that a high co-change frequency implies trace links among \glspl{Artifact}.
 
-%\paragraph*{CaCOphoNy: metamodel-driven software architecture reconstruction}
-%\cite{Favre2004}
-% not needed: paper is not really interested in trace link recovery
-
 \paragraph*{Combining Textual and Structural Analysis of Software Artifacts for  Traceability Link Recovery}
 \cite{McMillanPR2009}
 proposes a combined approach of information retrieval methods for recovering exogenous links between source code and documentation \glspl{Artifact} and classical analysis methods for recovering endogenous links among source code \glspl{Artifact}.
@@ -63,27 +50,10 @@ Endogenous links among documentation \glspl{Artifact} are proposed to be recover
 Indirect linking is proposed because the authors argue that information retrieval methods alone are not sufficient for trace link recovery purposes.
 Documentation \glspl{Artifact} may be linked despite sharing little to no semantic similarities.
 
-
-%\paragraph*{Traceability Management for Impact Analysis}
-%\cite{DelukaFR2008}
-% not needed in related work, the paper argues prospects of traceability for impact analysis, however it provides a nice traceability survey section
-
-%\paragraph*{Automating traceability link recovery through classification}
-%\cite{Mills:2017:ATL:3106237.3121280}
-% not available
-
-%\paragraph*{Recovering test-to-code traceability using slicing and textual analysis} 
-%\cite{Qusef:2014:RTT:2747015.2747194}
-% not available
-
 \paragraph*{Recovering traceability links in software artifact management systems using information retrieval methods}
 \cite{Lucia:2007:RTL:1276933.1276934}
 provides an excessive case-study evaluating information retrieval methods, namely Latent Semantic Indexing, for trace link recovery.
 It concludes that information retrieval is not sufficient to recover all links among source code \glspl{Artifact}, 
-
-%\paragraph*{Semantic driven program analysis}
-%\cite{Marcus2004}
-% not needed, only refers to AntoniolCCDM00 and AntoniolCDLM99
 
 \paragraph*{TraceME: Traceability Management in Eclipse}
 \cite{TraceME}
@@ -99,7 +69,6 @@ It provides means to apply information retrieval techniques for recovering trace
 \cite{Traceclipse}
 introduces Traceclipse, another eclipse \gls{IDE} based tool, providing means for trace link recovery using information retrieval techniques, namely the Vector Space Model.
 The implemented recovery process is semi-automatic in the sense that a user has to inspect proposed links.
-
 
 \section{Remarks}
 \label{section:Remarks}
