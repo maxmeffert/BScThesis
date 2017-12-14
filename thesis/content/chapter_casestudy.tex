@@ -1,13 +1,15 @@
 \chapter{Mini Case-Study}
 \label{chapter:MiniCaseStudy}
-This chapter summarizes the methodology used to develop the recovery system for this thesis.
-In short, the recovery system is developed example-driven using the model of a fictional \gls{HRMS} used by the 101wiki\footnote{\url{https://101wiki.softlang.org/} (retrieved \formatdate{12}{11}{2017})} for its contributions.
+This chapter provides a mini case-study evaluating the developed recovery system for this thesis.
+§\ref{section:ExampleCorpus} outlines the corpus used for evaluation.
+§\ref{section:Metrics} describes metrics used to evaluate the system.
+§\ref{section:Results} discusses results of the case-study.
 
 \section{Corpus}
 \label{section:ExampleCorpus}
 The example corpus used to develop the recovery system for this thesis consists of artifacts implementing a fictional \gls{HRMS} within an \gls{O/R/X-Mapping} scenario using \gls{Java} technologies.
-The model is implemented using plain \Gls{Java}. 
-It is then mapped to plain \gls{XML}/\gls{XSD} with \gls{JAXB} and to \gls{SQL/DDL} statements using \gls{Hibernate} mapping files and/or annotations.
+The model is provided by the 101wiki\footnote{\url{https://101wiki.softlang.org/} (retrieved \formatdate{12}{11}{2017})}, where it is used for contributions.
+It is implemented using plain \Gls{Java} and then mapped to plain \gls{XML}/\gls{XSD} with \gls{JAXB} and to \gls{SQL/DDL} statements using \gls{Hibernate} mapping files and/or annotations.
 
 
 
@@ -78,8 +80,10 @@ It uses \gls{XML} files or \gls{Java}-Annotations for describing \gls{O/R-Mappin
 In this sense, technologies create technology-specific subsets of a languages.
 
 \section{Metrics}
+\label{section:Metrics}
 
 \section{Results}
+\label{section:Results}
 
 %\section{Link Proper Part Ratio}
 %The ratio between all proper parts of two artifacts and the proper parts of the same artifacts in a relationship.
