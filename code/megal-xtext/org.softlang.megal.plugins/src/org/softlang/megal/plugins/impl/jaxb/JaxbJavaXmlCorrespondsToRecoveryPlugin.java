@@ -7,10 +7,12 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaMethodFragment;
+import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.plugins.api.recovery.BaseCorrespondsToRecoveryPlugin;
 import org.softlang.megal.plugins.api.recovery.IFragmentNameProvider;
 import org.softlang.megal.plugins.impl.java.JavaFragmentNameProvider;
 import org.softlang.megal.plugins.impl.xml.XMLFragmentNameProvider;
+import org.softlang.megal.plugins.util.Prelude;
 
 public class JaxbJavaXmlCorrespondsToRecoveryPlugin extends BaseCorrespondsToRecoveryPlugin {
 
@@ -20,19 +22,15 @@ public class JaxbJavaXmlCorrespondsToRecoveryPlugin extends BaseCorrespondsToRec
 		IBinaryRelation<IFragment> similarities = ccRecoveryScenarios.getJaxbSimilarities(left, right);
 		similarities.removeIf(p -> p.getFirst() instanceof JavaMethodFragment);
 		return similarities;
-//		return ccRecoveryScenarios.getJaxbSimilarities(left, right);
 	}
 
 	@Override
-	public String getLeftLanguage() {
-		return "Java";
+	public boolean canBeAppliedTo(Entity leftEntity, Entity rightEntity) {
+		return Prelude.isElementOfLanguage(leftEntity, "Java") 
+				&& Prelude.isElementOfLanguage(rightEntity, "XSD");
+				
 	}
-
-	@Override
-	public String getRightLanguage() {
-		return "XML";
-	}
-
+	
 	@Override
 	protected IFragmentNameProvider getLeftNameProvider() {
 		return new JavaFragmentNameProvider();

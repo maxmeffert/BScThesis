@@ -3,10 +3,10 @@
 ============================================
                   Metrics                   
 ============================================
-#Elements          : 5529
+#Elements          : 5363
 #EntityTypes       : 14
 #Entities          : 522
-#Relationships     : 4928
+#Relationships     : 4762
 #RelationshipTypes : 65
 
 #Artifacts         : 483
@@ -15,7 +15,7 @@
 
 #PartOf            : 1846
 #FragmentOf        : 1837
-#CorrespondsTo     : 222
+#CorrespondsTo     : 56
 #ConformsTo        : 1
 */
 
@@ -310,17 +310,12 @@ comaniesSqlFile.F3$Company.F1$id = 'file:/home/darjeeling/Documents/BScThesis/co
 
 companiesXmlFile: File
 companiesXmlFile conformsTo companiesXsdFile
-companiesXmlFile correspondsTo companiesXsdFile
-companiesXmlFile correspondsTo companyJavaFile
-companiesXmlFile correspondsTo departmentJavaFile
-companiesXmlFile correspondsTo employeeJavaFile
 companiesXmlFile elementOf XML
 companiesXmlFile elementOf XMLFragments
 companiesXmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
 
 @FragmentText '<company id="0" name="Softlang Inc.">    <departm ...'
 companiesXmlFile.F0$company: Fragment
-companiesXmlFile.F0$company correspondsTo companyJavaFile.Company
 companiesXmlFile.F0$company elementOf XMLElementFragments
 companiesXmlFile.F0$company elementOf XMLFragments
 companiesXmlFile.F0$company fragmentOf companiesXmlFile
@@ -329,7 +324,6 @@ companiesXmlFile.F0$company = 'file:/home/darjeeling/Documents/BScThesis/code/me
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F0$id: Fragment
-companiesXmlFile.F0$company.F0$id correspondsTo companyJavaFile.Company.F6$id
 companiesXmlFile.F0$company.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F0$id fragmentOf companiesXmlFile
@@ -340,7 +334,6 @@ companiesXmlFile.F0$company.F0$id = 'file:/home/darjeeling/Documents/BScThesis/c
 
 @FragmentText 'name="Softlang Inc."'
 companiesXmlFile.F0$company.F1$name: Fragment
-companiesXmlFile.F0$company.F1$name correspondsTo companyJavaFile.Company.F5$name
 companiesXmlFile.F0$company.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F1$name fragmentOf companiesXmlFile
@@ -351,7 +344,6 @@ companiesXmlFile.F0$company.F1$name = 'file:/home/darjeeling/Documents/BScThesis
 
 @FragmentText '<departments>        <department id="0" name="Gra ...'
 companiesXmlFile.F0$company.F2$departments: Fragment
-companiesXmlFile.F0$company.F2$departments correspondsTo companyJavaFile.Company.F4$departments
 companiesXmlFile.F0$company.F2$departments elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments fragmentOf companiesXmlFile
@@ -362,8 +354,6 @@ companiesXmlFile.F0$company.F2$departments = 'file:/home/darjeeling/Documents/BS
 
 @FragmentText '<department id="0" name="Grammar Engineering">    ...'
 companiesXmlFile.F0$company.F2$departments.F0$department: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department correspondsTo companyJavaFile.Company.F4$departments
-companiesXmlFile.F0$company.F2$departments.F0$department correspondsTo departmentJavaFile.Department
 companiesXmlFile.F0$company.F2$departments.F0$department elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F0$department elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department fragmentOf companiesXmlFile
@@ -376,7 +366,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department = 'file:/home/darjeelin
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F2$departments.F0$department.F0$id: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F0$id correspondsTo departmentJavaFile.Department.F10$id
 companiesXmlFile.F0$company.F2$departments.F0$department.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F0$id fragmentOf companiesXmlFile
@@ -391,7 +380,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F0$id = 'file:/home/dar
 
 @FragmentText 'name="Grammar Engineering"'
 companiesXmlFile.F0$company.F2$departments.F0$department.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F1$name correspondsTo departmentJavaFile.Department.F9$name
 companiesXmlFile.F0$company.F2$departments.F0$department.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F1$name fragmentOf companiesXmlFile
@@ -406,7 +394,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F1$name = 'file:/home/d
 
 @FragmentText '<employees>                <employee id="0" name= ...'
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees correspondsTo departmentJavaFile.Department.F8$employees
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees fragmentOf companiesXmlFile
@@ -421,8 +408,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees = 'file:/h
 
 @FragmentText '<employee id="0" name="John Backus" age="40" salar ...'
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee correspondsTo departmentJavaFile.Department.F8$employees
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee correspondsTo employeeJavaFile.Employee
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee fragmentOf companiesXmlFile
@@ -439,7 +424,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employe
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F0$id: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F0$id correspondsTo employeeJavaFile.Employee.F9$id
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F0$id fragmentOf companiesXmlFile
@@ -458,7 +442,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employe
 
 @FragmentText 'name="John Backus"'
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name correspondsTo employeeJavaFile.Employee.F8$name
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile
@@ -477,7 +460,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employe
 
 @FragmentText 'age="40"'
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F2$age: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F2$age correspondsTo employeeJavaFile.Employee.F7$age
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F2$age elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F2$age elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F2$age fragmentOf companiesXmlFile
@@ -496,7 +478,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employe
 
 @FragmentText 'salary="55000.0"'
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F3$salary: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F3$salary correspondsTo employeeJavaFile.Employee.F6$salary
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F3$salary elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F3$salary elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F3$salary fragmentOf companiesXmlFile
@@ -515,8 +496,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employe
 
 @FragmentText '<employee id="0" name="Peter Naur" age="40" salary ...'
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee correspondsTo departmentJavaFile.Department.F8$employees
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee correspondsTo employeeJavaFile.Employee
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee fragmentOf companiesXmlFile
@@ -533,7 +512,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employe
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F0$id: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F0$id correspondsTo employeeJavaFile.Employee.F9$id
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F0$id fragmentOf companiesXmlFile
@@ -552,7 +530,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employe
 
 @FragmentText 'name="Peter Naur"'
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name correspondsTo employeeJavaFile.Employee.F8$name
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile
@@ -571,7 +548,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employe
 
 @FragmentText 'age="40"'
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F2$age: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F2$age correspondsTo employeeJavaFile.Employee.F7$age
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F2$age elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F2$age elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F2$age fragmentOf companiesXmlFile
@@ -590,7 +566,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employe
 
 @FragmentText 'salary="55000.0"'
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F3$salary: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F3$salary correspondsTo employeeJavaFile.Employee.F6$salary
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F3$salary elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F3$salary elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F3$salary fragmentOf companiesXmlFile
@@ -609,7 +584,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employe
 
 @FragmentText '<manager id="0" name="Peter Naur" age="40" salary= ...'
 companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager: Fragment
-companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager correspondsTo departmentJavaFile.Department.F6$manager
 companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager fragmentOf companiesXmlFile
@@ -688,8 +662,6 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager.F3$salary = 
 
 @FragmentText '<department id="0" name="Research &amp; Developmen ...'
 companiesXmlFile.F0$company.F2$departments.F1$department: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department correspondsTo companyJavaFile.Company.F4$departments
-companiesXmlFile.F0$company.F2$departments.F1$department correspondsTo departmentJavaFile.Department
 companiesXmlFile.F0$company.F2$departments.F1$department elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F1$department elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department fragmentOf companiesXmlFile
@@ -702,7 +674,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department = 'file:/home/darjeelin
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F2$departments.F1$department.F0$id: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F0$id correspondsTo departmentJavaFile.Department.F10$id
 companiesXmlFile.F0$company.F2$departments.F1$department.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F0$id fragmentOf companiesXmlFile
@@ -717,7 +688,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F0$id = 'file:/home/dar
 
 @FragmentText 'name="Research &amp; Development"'
 companiesXmlFile.F0$company.F2$departments.F1$department.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F1$name correspondsTo departmentJavaFile.Department.F9$name
 companiesXmlFile.F0$company.F2$departments.F1$department.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F1$name fragmentOf companiesXmlFile
@@ -732,7 +702,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F1$name = 'file:/home/d
 
 @FragmentText '<employees>                <employee id="0" name= ...'
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees correspondsTo departmentJavaFile.Department.F8$employees
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees fragmentOf companiesXmlFile
@@ -747,8 +716,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees = 'file:/h
 
 @FragmentText '<employee id="0" name="Alonzo Church" age="40" sal ...'
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee correspondsTo departmentJavaFile.Department.F8$employees
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee correspondsTo employeeJavaFile.Employee
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee fragmentOf companiesXmlFile
@@ -765,7 +732,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employe
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F0$id: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F0$id correspondsTo employeeJavaFile.Employee.F9$id
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F0$id fragmentOf companiesXmlFile
@@ -784,7 +750,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employe
 
 @FragmentText 'name="Alonzo Church"'
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name correspondsTo employeeJavaFile.Employee.F8$name
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile
@@ -803,7 +768,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employe
 
 @FragmentText 'age="40"'
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F2$age: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F2$age correspondsTo employeeJavaFile.Employee.F7$age
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F2$age elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F2$age elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F2$age fragmentOf companiesXmlFile
@@ -822,7 +786,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employe
 
 @FragmentText 'salary="55000.0"'
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F3$salary: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F3$salary correspondsTo employeeJavaFile.Employee.F6$salary
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F3$salary elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F3$salary elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F3$salary fragmentOf companiesXmlFile
@@ -841,8 +804,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employe
 
 @FragmentText '<employee id="0" name="Alan Turing" age="40" salar ...'
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee correspondsTo departmentJavaFile.Department.F8$employees
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee correspondsTo employeeJavaFile.Employee
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee fragmentOf companiesXmlFile
@@ -859,7 +820,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employe
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F0$id: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F0$id correspondsTo employeeJavaFile.Employee.F9$id
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F0$id fragmentOf companiesXmlFile
@@ -878,7 +838,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employe
 
 @FragmentText 'name="Alan Turing"'
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name correspondsTo employeeJavaFile.Employee.F8$name
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile
@@ -897,7 +856,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employe
 
 @FragmentText 'age="40"'
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F2$age: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F2$age correspondsTo employeeJavaFile.Employee.F7$age
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F2$age elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F2$age elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F2$age fragmentOf companiesXmlFile
@@ -916,7 +874,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employe
 
 @FragmentText 'salary="55000.0"'
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F3$salary: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F3$salary correspondsTo employeeJavaFile.Employee.F6$salary
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F3$salary elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F3$salary elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F3$salary fragmentOf companiesXmlFile
@@ -935,7 +892,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employe
 
 @FragmentText '<manager id="0" name="Alan Turing" age="40" salary ...'
 companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager: Fragment
-companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager correspondsTo departmentJavaFile.Department.F6$manager
 companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager fragmentOf companiesXmlFile
@@ -1014,8 +970,6 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager.F3$salary = 
 
 @FragmentText '<department id="0" name="Language Engineering">   ...'
 companiesXmlFile.F0$company.F2$departments.F2$department: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department correspondsTo companyJavaFile.Company.F4$departments
-companiesXmlFile.F0$company.F2$departments.F2$department correspondsTo departmentJavaFile.Department
 companiesXmlFile.F0$company.F2$departments.F2$department elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F2$department elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department fragmentOf companiesXmlFile
@@ -1028,7 +982,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department = 'file:/home/darjeelin
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F0$id: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F0$id correspondsTo departmentJavaFile.Department.F10$id
 companiesXmlFile.F0$company.F2$departments.F2$department.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F0$id fragmentOf companiesXmlFile
@@ -1043,7 +996,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F0$id = 'file:/home/dar
 
 @FragmentText 'name="Language Engineering"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F1$name correspondsTo departmentJavaFile.Department.F9$name
 companiesXmlFile.F0$company.F2$departments.F2$department.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F1$name fragmentOf companiesXmlFile
@@ -1058,7 +1010,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F1$name = 'file:/home/d
 
 @FragmentText '<employees>                <employee id="0" name= ...'
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees correspondsTo departmentJavaFile.Department.F8$employees
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees fragmentOf companiesXmlFile
@@ -1073,8 +1024,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees = 'file:/h
 
 @FragmentText '<employee id="0" name="Niklaus Wirth" age="40" sal ...'
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee correspondsTo departmentJavaFile.Department.F8$employees
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee correspondsTo employeeJavaFile.Employee
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee fragmentOf companiesXmlFile
@@ -1091,7 +1040,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employe
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F0$id: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F0$id correspondsTo employeeJavaFile.Employee.F9$id
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F0$id fragmentOf companiesXmlFile
@@ -1110,7 +1058,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employe
 
 @FragmentText 'name="Niklaus Wirth"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name correspondsTo employeeJavaFile.Employee.F8$name
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile
@@ -1129,7 +1076,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employe
 
 @FragmentText 'age="40"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F2$age: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F2$age correspondsTo employeeJavaFile.Employee.F7$age
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F2$age elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F2$age elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F2$age fragmentOf companiesXmlFile
@@ -1148,7 +1094,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employe
 
 @FragmentText 'salary="55000.0"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F3$salary: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F3$salary correspondsTo employeeJavaFile.Employee.F6$salary
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F3$salary elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F3$salary elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F3$salary fragmentOf companiesXmlFile
@@ -1167,7 +1112,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employe
 
 @FragmentText '<manager id="0" name="Niklaus Wirth" age="40" sala ...'
 companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager correspondsTo departmentJavaFile.Department.F6$manager
 companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager fragmentOf companiesXmlFile
@@ -1246,7 +1190,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager.F3$salary = 
 
 @FragmentText '<subDepartments id="0" name="Grammar Engineering"> ...'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments correspondsTo departmentJavaFile.Department.F4$subDepartments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments fragmentOf companiesXmlFile
@@ -1293,7 +1236,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F1$na
 
 @FragmentText '<employees>                    <employee id="0" n ...'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees correspondsTo departmentJavaFile.Department.F8$employees
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees fragmentOf companiesXmlFile
@@ -1310,8 +1252,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$em
 
 @FragmentText '<employee id="0" name="John Backus" age="40" salar ...'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee correspondsTo departmentJavaFile.Department.F8$employees
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee correspondsTo employeeJavaFile.Employee
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee fragmentOf companiesXmlFile
@@ -1330,7 +1270,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$em
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F0$id: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F0$id correspondsTo employeeJavaFile.Employee.F9$id
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F0$id fragmentOf companiesXmlFile
@@ -1351,7 +1290,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$em
 
 @FragmentText 'name="John Backus"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F1$name correspondsTo employeeJavaFile.Employee.F8$name
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile
@@ -1372,7 +1310,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$em
 
 @FragmentText 'age="40"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F2$age: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F2$age correspondsTo employeeJavaFile.Employee.F7$age
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F2$age elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F2$age elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F2$age fragmentOf companiesXmlFile
@@ -1393,7 +1330,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$em
 
 @FragmentText 'salary="55000.0"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F3$salary: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F3$salary correspondsTo employeeJavaFile.Employee.F6$salary
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F3$salary elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F3$salary elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F3$salary fragmentOf companiesXmlFile
@@ -1414,8 +1350,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$em
 
 @FragmentText '<employee id="0" name="Peter Naur" age="40" salary ...'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee correspondsTo departmentJavaFile.Department.F8$employees
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee correspondsTo employeeJavaFile.Employee
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee fragmentOf companiesXmlFile
@@ -1434,7 +1368,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$em
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F0$id: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F0$id correspondsTo employeeJavaFile.Employee.F9$id
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F0$id fragmentOf companiesXmlFile
@@ -1455,7 +1388,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$em
 
 @FragmentText 'name="Peter Naur"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F1$name correspondsTo employeeJavaFile.Employee.F8$name
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F1$name fragmentOf companiesXmlFile
@@ -1476,7 +1408,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$em
 
 @FragmentText 'age="40"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F2$age: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F2$age correspondsTo employeeJavaFile.Employee.F7$age
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F2$age elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F2$age elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F2$age fragmentOf companiesXmlFile
@@ -1497,7 +1428,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$em
 
 @FragmentText 'salary="55000.0"'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F3$salary: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F3$salary correspondsTo employeeJavaFile.Employee.F6$salary
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F3$salary elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F3$salary elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F3$salary fragmentOf companiesXmlFile
@@ -1518,7 +1448,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$em
 
 @FragmentText '<manager id="0" name="Peter Naur" age="40" salary= ...'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F3$manager: Fragment
-companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F3$manager correspondsTo departmentJavaFile.Department.F6$manager
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F3$manager elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F3$manager elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F3$manager fragmentOf companiesXmlFile
@@ -1607,8 +1536,6 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F3$ma
 
 @FragmentText '<department id="0" name="Programming">            ...'
 companiesXmlFile.F0$company.F2$departments.F3$department: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department correspondsTo companyJavaFile.Company.F4$departments
-companiesXmlFile.F0$company.F2$departments.F3$department correspondsTo departmentJavaFile.Department
 companiesXmlFile.F0$company.F2$departments.F3$department elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F3$department elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department fragmentOf companiesXmlFile
@@ -1621,7 +1548,6 @@ companiesXmlFile.F0$company.F2$departments.F3$department = 'file:/home/darjeelin
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F2$departments.F3$department.F0$id: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F0$id correspondsTo departmentJavaFile.Department.F10$id
 companiesXmlFile.F0$company.F2$departments.F3$department.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F0$id fragmentOf companiesXmlFile
@@ -1636,7 +1562,6 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F0$id = 'file:/home/dar
 
 @FragmentText 'name="Programming"'
 companiesXmlFile.F0$company.F2$departments.F3$department.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F1$name correspondsTo departmentJavaFile.Department.F9$name
 companiesXmlFile.F0$company.F2$departments.F3$department.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F1$name fragmentOf companiesXmlFile
@@ -1651,7 +1576,6 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F1$name = 'file:/home/d
 
 @FragmentText '<employees>                <employee id="0" name= ...'
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees correspondsTo departmentJavaFile.Department.F8$employees
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees fragmentOf companiesXmlFile
@@ -1666,8 +1590,6 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees = 'file:/h
 
 @FragmentText '<employee id="0" name="Ada Lovelace" age="40" sala ...'
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee correspondsTo departmentJavaFile.Department.F8$employees
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee correspondsTo employeeJavaFile.Employee
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee fragmentOf companiesXmlFile
@@ -1684,7 +1606,6 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employe
 
 @FragmentText 'id="0"'
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F0$id: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F0$id correspondsTo employeeJavaFile.Employee.F9$id
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F0$id elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F0$id elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F0$id fragmentOf companiesXmlFile
@@ -1703,7 +1624,6 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employe
 
 @FragmentText 'name="Ada Lovelace"'
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name correspondsTo employeeJavaFile.Employee.F8$name
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name fragmentOf companiesXmlFile
@@ -1722,7 +1642,6 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employe
 
 @FragmentText 'age="40"'
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age correspondsTo employeeJavaFile.Employee.F7$age
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age fragmentOf companiesXmlFile
@@ -1741,7 +1660,6 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employe
 
 @FragmentText 'salary="55000.0"'
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary correspondsTo employeeJavaFile.Employee.F6$salary
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary elementOf XMLAttributeFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary fragmentOf companiesXmlFile
@@ -1760,7 +1678,6 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employe
 
 @FragmentText '<manager id="0" name="Ada Lovelace" age="40" salar ...'
 companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager: Fragment
-companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager correspondsTo departmentJavaFile.Department.F6$manager
 companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager fragmentOf companiesXmlFile
@@ -1838,7 +1755,6 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager.F3$salary pa
 companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager.F3$salary = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L35C57L35C73'
 
 companiesXsdFile: File
-companiesXsdFile correspondsTo companiesXmlFile
 companiesXsdFile correspondsTo companyJavaFile
 companiesXsdFile correspondsTo departmentJavaFile
 companiesXsdFile correspondsTo employeeJavaFile
@@ -3780,7 +3696,6 @@ companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag.F9$table = 'file:/home/darje
 
 companyJavaFile: File
 companyJavaFile correspondsTo comaniesSqlFile
-companyJavaFile correspondsTo companiesXmlFile
 companyJavaFile correspondsTo companiesXsdFile
 companyJavaFile correspondsTo companyHbmFile
 companyJavaFile elementOf Java
@@ -3789,7 +3704,6 @@ companyJavaFile = 'workspace:/org.softlang.megal.plugins/input/Company.java'
 
 @FragmentText '@Entity@XmlRootElement(name="company")@XmlAccess ...'
 companyJavaFile.Company: Fragment
-companyJavaFile.Company correspondsTo companiesXmlFile.F0$company
 companyJavaFile.Company correspondsTo companiesXsdFile.F0$xs:schema.F2$xs:element
 companyJavaFile.Company correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType
 companyJavaFile.Company elementOf JavaClassFragments
@@ -3820,11 +3734,6 @@ companyJavaFile.Company.F11$getId = 'file:/home/darjeeling/Documents/BScThesis/c
 
 @FragmentText '@XmlElementWrapper(name="departments")	@XmlElemen ...'
 companyJavaFile.Company.F4$departments: Fragment
-companyJavaFile.Company.F4$departments correspondsTo companiesXmlFile.F0$company.F2$departments
-companyJavaFile.Company.F4$departments correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department
-companyJavaFile.Company.F4$departments correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department
-companyJavaFile.Company.F4$departments correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department
-companyJavaFile.Company.F4$departments correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department
 companyJavaFile.Company.F4$departments correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence.F0$xs:element
 companyJavaFile.Company.F4$departments elementOf JavaFieldFragments
 companyJavaFile.Company.F4$departments elementOf JavaFragments
@@ -3836,7 +3745,6 @@ companyJavaFile.Company.F4$departments = 'file:/home/darjeeling/Documents/BScThe
 
 @FragmentText '@XmlAttribute	private String name;'
 companyJavaFile.Company.F5$name: Fragment
-companyJavaFile.Company.F5$name correspondsTo companiesXmlFile.F0$company.F1$name
 companyJavaFile.Company.F5$name correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute
 companyJavaFile.Company.F5$name elementOf JavaFieldFragments
 companyJavaFile.Company.F5$name elementOf JavaFragments
@@ -3848,7 +3756,6 @@ companyJavaFile.Company.F5$name = 'file:/home/darjeeling/Documents/BScThesis/cod
 
 @FragmentText '@Id	@GeneratedValue(strategy=GenerationType.AUTO) ...'
 companyJavaFile.Company.F6$id: Fragment
-companyJavaFile.Company.F6$id correspondsTo companiesXmlFile.F0$company.F0$id
 companyJavaFile.Company.F6$id correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute
 companyJavaFile.Company.F6$id elementOf JavaFieldFragments
 companyJavaFile.Company.F6$id elementOf JavaFragments
@@ -5450,7 +5357,6 @@ departmentHbmFile.F0$hibernate-mapping.F4$class.F9$many-to-one.F9$unique = 'file
 
 departmentJavaFile: File
 departmentJavaFile correspondsTo comaniesSqlFile
-departmentJavaFile correspondsTo companiesXmlFile
 departmentJavaFile correspondsTo companiesXsdFile
 departmentJavaFile correspondsTo departmentHbmFile
 departmentJavaFile elementOf Java
@@ -5459,10 +5365,6 @@ departmentJavaFile = 'workspace:/org.softlang.megal.plugins/input/Department.jav
 
 @FragmentText '@Entity@XmlRootElement(name="department")@XmlAcc ...'
 departmentJavaFile.Department: Fragment
-departmentJavaFile.Department correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department
-departmentJavaFile.Department correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department
-departmentJavaFile.Department correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department
-departmentJavaFile.Department correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department
 departmentJavaFile.Department correspondsTo companiesXsdFile.F0$xs:schema.F3$xs:element
 departmentJavaFile.Department correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType
 departmentJavaFile.Department elementOf JavaClassFragments
@@ -5473,10 +5375,6 @@ departmentJavaFile.Department = 'file:/home/darjeeling/Documents/BScThesis/code/
 
 @FragmentText '@Id	@GeneratedValue(strategy=GenerationType.AUTO) ...'
 departmentJavaFile.Department.F10$id: Fragment
-departmentJavaFile.Department.F10$id correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F0$id
-departmentJavaFile.Department.F10$id correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F0$id
-departmentJavaFile.Department.F10$id correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F0$id
-departmentJavaFile.Department.F10$id correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F0$id
 departmentJavaFile.Department.F10$id correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F2$xs:attribute
 departmentJavaFile.Department.F10$id elementOf JavaFieldFragments
 departmentJavaFile.Department.F10$id elementOf JavaFragments
@@ -5608,7 +5506,6 @@ departmentJavaFile.Department.F22$getId = 'file:/home/darjeeling/Documents/BScTh
 
 @FragmentText '@OneToMany(mappedBy="superDepartment", fetch=Fetch ...'
 departmentJavaFile.Department.F4$subDepartments: Fragment
-departmentJavaFile.Department.F4$subDepartments correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments
 departmentJavaFile.Department.F4$subDepartments correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F2$xs:element
 departmentJavaFile.Department.F4$subDepartments elementOf JavaFieldFragments
 departmentJavaFile.Department.F4$subDepartments elementOf JavaFragments
@@ -5630,11 +5527,6 @@ departmentJavaFile.Department.F5$superDepartment = 'file:/home/darjeeling/Docume
 
 @FragmentText '@OneToOne(fetch=FetchType.LAZY, cascade=CascadeTyp ...'
 departmentJavaFile.Department.F6$manager: Fragment
-departmentJavaFile.Department.F6$manager correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager
-departmentJavaFile.Department.F6$manager correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager
-departmentJavaFile.Department.F6$manager correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager
-departmentJavaFile.Department.F6$manager correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F3$manager
-departmentJavaFile.Department.F6$manager correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager
 departmentJavaFile.Department.F6$manager correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F1$xs:element
 departmentJavaFile.Department.F6$manager elementOf JavaFieldFragments
 departmentJavaFile.Department.F6$manager elementOf JavaFragments
@@ -5656,19 +5548,6 @@ departmentJavaFile.Department.F7$company = 'file:/home/darjeeling/Documents/BScT
 
 @FragmentText '@XmlElementWrapper(name="employees") 	@XmlElement ...'
 departmentJavaFile.Department.F8$employees: Fragment
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees
-departmentJavaFile.Department.F8$employees correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee
 departmentJavaFile.Department.F8$employees correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F0$xs:element
 departmentJavaFile.Department.F8$employees elementOf JavaFieldFragments
 departmentJavaFile.Department.F8$employees elementOf JavaFragments
@@ -5680,10 +5559,6 @@ departmentJavaFile.Department.F8$employees = 'file:/home/darjeeling/Documents/BS
 
 @FragmentText '@XmlAttribute	private String name;'
 departmentJavaFile.Department.F9$name: Fragment
-departmentJavaFile.Department.F9$name correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F1$name
-departmentJavaFile.Department.F9$name correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F1$name
-departmentJavaFile.Department.F9$name correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F1$name
-departmentJavaFile.Department.F9$name correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F1$name
 departmentJavaFile.Department.F9$name correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F3$xs:attribute
 departmentJavaFile.Department.F9$name elementOf JavaFieldFragments
 departmentJavaFile.Department.F9$name elementOf JavaFragments
@@ -6729,7 +6604,6 @@ employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property.F7$column.F1$not-null 
 
 employeeJavaFile: File
 employeeJavaFile correspondsTo comaniesSqlFile
-employeeJavaFile correspondsTo companiesXmlFile
 employeeJavaFile correspondsTo companiesXsdFile
 employeeJavaFile correspondsTo employeeHbmFile
 employeeJavaFile elementOf Java
@@ -6738,14 +6612,6 @@ employeeJavaFile = 'workspace:/org.softlang.megal.plugins/input/Employee.java'
 
 @FragmentText '@Entity@XmlRootElement(name="employee")@XmlAcces ...'
 employeeJavaFile.Employee: Fragment
-employeeJavaFile.Employee correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee
-employeeJavaFile.Employee correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee
-employeeJavaFile.Employee correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee
-employeeJavaFile.Employee correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee
-employeeJavaFile.Employee correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee
-employeeJavaFile.Employee correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee
-employeeJavaFile.Employee correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee
-employeeJavaFile.Employee correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee
 employeeJavaFile.Employee correspondsTo companiesXsdFile.F0$xs:schema.F4$xs:element
 employeeJavaFile.Employee correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType
 employeeJavaFile.Employee elementOf JavaClassFragments
@@ -6857,14 +6723,6 @@ employeeJavaFile.Employee.F5$department = 'file:/home/darjeeling/Documents/BScTh
 
 @FragmentText '@XmlAttribute	private double salary;'
 employeeJavaFile.Employee.F6$salary: Fragment
-employeeJavaFile.Employee.F6$salary correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F3$salary
-employeeJavaFile.Employee.F6$salary correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F3$salary
-employeeJavaFile.Employee.F6$salary correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F3$salary
-employeeJavaFile.Employee.F6$salary correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F3$salary
-employeeJavaFile.Employee.F6$salary correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F3$salary
-employeeJavaFile.Employee.F6$salary correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F3$salary
-employeeJavaFile.Employee.F6$salary correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F3$salary
-employeeJavaFile.Employee.F6$salary correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F3$salary
 employeeJavaFile.Employee.F6$salary correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute
 employeeJavaFile.Employee.F6$salary elementOf JavaFieldFragments
 employeeJavaFile.Employee.F6$salary elementOf JavaFragments
@@ -6876,14 +6734,6 @@ employeeJavaFile.Employee.F6$salary = 'file:/home/darjeeling/Documents/BScThesis
 
 @FragmentText '@XmlAttribute	private int age;'
 employeeJavaFile.Employee.F7$age: Fragment
-employeeJavaFile.Employee.F7$age correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F2$age
-employeeJavaFile.Employee.F7$age correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F2$age
-employeeJavaFile.Employee.F7$age correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F2$age
-employeeJavaFile.Employee.F7$age correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F2$age
-employeeJavaFile.Employee.F7$age correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F2$age
-employeeJavaFile.Employee.F7$age correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F2$age
-employeeJavaFile.Employee.F7$age correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F2$age
-employeeJavaFile.Employee.F7$age correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F2$age
 employeeJavaFile.Employee.F7$age correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F4$xs:attribute
 employeeJavaFile.Employee.F7$age elementOf JavaFieldFragments
 employeeJavaFile.Employee.F7$age elementOf JavaFragments
@@ -6895,14 +6745,6 @@ employeeJavaFile.Employee.F7$age = 'file:/home/darjeeling/Documents/BScThesis/co
 
 @FragmentText '@XmlAttribute	private String name;'
 employeeJavaFile.Employee.F8$name: Fragment
-employeeJavaFile.Employee.F8$name correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F1$name
-employeeJavaFile.Employee.F8$name correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F1$name
-employeeJavaFile.Employee.F8$name correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F1$name
-employeeJavaFile.Employee.F8$name correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F1$name
-employeeJavaFile.Employee.F8$name correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F1$name
-employeeJavaFile.Employee.F8$name correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F1$name
-employeeJavaFile.Employee.F8$name correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F1$name
-employeeJavaFile.Employee.F8$name correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F1$name
 employeeJavaFile.Employee.F8$name correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F3$xs:attribute
 employeeJavaFile.Employee.F8$name elementOf JavaFieldFragments
 employeeJavaFile.Employee.F8$name elementOf JavaFragments
@@ -6914,14 +6756,6 @@ employeeJavaFile.Employee.F8$name = 'file:/home/darjeeling/Documents/BScThesis/c
 
 @FragmentText '@Id	@GeneratedValue(strategy=GenerationType.AUTO) ...'
 employeeJavaFile.Employee.F9$id: Fragment
-employeeJavaFile.Employee.F9$id correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F0$employee.F0$id
-employeeJavaFile.Employee.F9$id correspondsTo companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employee.F0$id
-employeeJavaFile.Employee.F9$id correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F0$employee.F0$id
-employeeJavaFile.Employee.F9$id correspondsTo companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employee.F0$id
-employeeJavaFile.Employee.F9$id correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employee.F0$id
-employeeJavaFile.Employee.F9$id correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F0$employee.F0$id
-employeeJavaFile.Employee.F9$id correspondsTo companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments.F2$employees.F1$employee.F0$id
-employeeJavaFile.Employee.F9$id correspondsTo companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employee.F0$id
 employeeJavaFile.Employee.F9$id correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F2$xs:attribute
 employeeJavaFile.Employee.F9$id elementOf JavaFieldFragments
 employeeJavaFile.Employee.F9$id elementOf JavaFragments

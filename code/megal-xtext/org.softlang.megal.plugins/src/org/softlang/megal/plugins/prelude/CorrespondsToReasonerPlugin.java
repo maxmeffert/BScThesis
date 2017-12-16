@@ -11,14 +11,11 @@ import org.softlang.megal.mi2.Relationship;
 import org.softlang.megal.mi2.api.AbstractPlugin;
 import org.softlang.megal.mi2.api.Artifact;
 import org.softlang.megal.plugins.api.ProxyableGuidedReasonerPlugin;
-import org.softlang.megal.plugins.util.Prelude;
 
 public class CorrespondsToReasonerPlugin extends ProxyableGuidedReasonerPlugin {
 
 	public static abstract class CorrespondsToRecoveryPlugin extends AbstractPlugin {
-		
-		abstract public String getLeftLanguage();
-		abstract public String getRightLanguage();
+		abstract public boolean canBeAppliedTo(Entity leftEntity, Entity rightEntity);
 		abstract public IBinaryRelation<String> init(Entity leftEntity, Artifact leftArtifact, Entity rightEntity, Artifact rightArtifact);
 	}
 	
@@ -46,8 +43,7 @@ public class CorrespondsToReasonerPlugin extends ProxyableGuidedReasonerPlugin {
 		Entity right = relationship.getRight();
 		for (CorrespondsToRecoveryPlugin plugin : filter(getParts(), CorrespondsToRecoveryPlugin.class)) {
 			
-			if (Prelude.isElementOfLanguage(left, plugin.getLeftLanguage())
-					&& Prelude.isElementOfLanguage(right, plugin.getRightLanguage())) {
+			if (plugin.canBeAppliedTo(left, right)) {
 				
 				IBinaryRelation<String> correspondences = plugin.init(left, artifactOf(left), right, artifactOf(right));
 								
