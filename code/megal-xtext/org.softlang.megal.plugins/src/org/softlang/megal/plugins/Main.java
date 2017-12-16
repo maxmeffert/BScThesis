@@ -25,8 +25,8 @@ import org.softlang.megal.plugins.util.Prelude;
 public class Main {
 	
 	static final private boolean showMetrics = true;
-	static final private boolean showTypes = true;
-	static final private boolean showInstances = true;
+	static final private boolean showTypes = false;
+	static final private boolean showInstances = false;
 	
 	static final private File root = new File("..");
 	static final private Resolution rootResolution = new LocalResolution(){ 

@@ -20,7 +20,7 @@ public class HibernateJavaSqlCorrespondsToRecoveryPlugin extends BaseCorresponds
 	@Override
 	protected IBinaryRelation<IFragment> getSimilarities(ICCRecoveryScenarios ccRecoveryScenarios, InputStream left, InputStream right)
 			throws IOException, ParserException {
-		IBinaryRelation<IFragment> similarities = ccRecoveryScenarios.getJaxbSimilarities(left, right);
+		IBinaryRelation<IFragment> similarities = ccRecoveryScenarios.getHibernateJavaSqlSimilarities(left, right);
 		similarities.removeIf(p -> p.getFirst() instanceof JavaMethodFragment);
 		return similarities;
 	}

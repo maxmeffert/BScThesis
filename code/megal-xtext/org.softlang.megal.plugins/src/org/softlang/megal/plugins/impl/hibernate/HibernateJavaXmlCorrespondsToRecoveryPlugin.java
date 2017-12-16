@@ -20,13 +20,14 @@ public class HibernateJavaXmlCorrespondsToRecoveryPlugin extends BaseCorresponds
 	@Override
 	protected IBinaryRelation<IFragment> getSimilarities(ICCRecoveryScenarios ccRecoveryScenarios, InputStream left, InputStream right)
 			throws IOException, ParserException {
-		IBinaryRelation<IFragment> similarities = ccRecoveryScenarios.getJaxbSimilarities(left, right);
+		IBinaryRelation<IFragment> similarities = ccRecoveryScenarios.getHibernateJavaXmlSimilarities(left, right);
 		similarities.removeIf(p -> p.getFirst() instanceof JavaMethodFragment);
 		return similarities;
 	}
 
 	@Override
 	public boolean canBeAppliedTo(Entity leftEntity, Entity rightEntity) {
+		
 		return Prelude.isElementOfLanguage(leftEntity, "Java") 
 				&& Prelude.isElementOfLanguage(rightEntity, "XML");
 	}

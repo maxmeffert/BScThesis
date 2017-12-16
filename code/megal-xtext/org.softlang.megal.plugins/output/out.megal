@@ -3,10 +3,10 @@
 ============================================
                   Metrics                   
 ============================================
-#Elements          : 5363
+#Elements          : 5542
 #EntityTypes       : 14
-#Entities          : 522
-#Relationships     : 4762
+#Entities          : 523
+#Relationships     : 4940
 #RelationshipTypes : 65
 
 #Artifacts         : 483
@@ -15,7 +15,7 @@
 
 #PartOf            : 1846
 #FragmentOf        : 1837
-#CorrespondsTo     : 56
+#CorrespondsTo     : 234
 #ConformsTo        : 1
 */
 
@@ -120,8 +120,12 @@ versionOf< Language * Language
 */
 
 comaniesSqlFile: File
+comaniesSqlFile correspondsTo companiesXsdFile
+comaniesSqlFile correspondsTo companyHbmFile
 comaniesSqlFile correspondsTo companyJavaFile
+comaniesSqlFile correspondsTo departmentHbmFile
 comaniesSqlFile correspondsTo departmentJavaFile
+comaniesSqlFile correspondsTo employeeHbmFile
 comaniesSqlFile correspondsTo employeeJavaFile
 comaniesSqlFile elementOf SQL
 comaniesSqlFile elementOf SQLDDL
@@ -151,6 +155,10 @@ comaniesSqlFile.F0$hibernate_sequence.F0$next_val = 'file:/home/darjeeling/Docum
 
 @FragmentText 'create table Employee (id integer not null, age in ...'
 comaniesSqlFile.F1$Employee: Fragment
+comaniesSqlFile.F1$Employee correspondsTo companiesXsdFile.F0$xs:schema.F4$xs:element
+comaniesSqlFile.F1$Employee correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType
+comaniesSqlFile.F1$Employee correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class
+comaniesSqlFile.F1$Employee correspondsTo employeeJavaFile.Employee
 comaniesSqlFile.F1$Employee elementOf SQLCreateTableFragments
 comaniesSqlFile.F1$Employee elementOf SQLDDLFragments
 comaniesSqlFile.F1$Employee elementOf SQLFragments
@@ -171,6 +179,9 @@ comaniesSqlFile.F1$Employee.F0$department_id = 'file:/home/darjeeling/Documents/
 
 @FragmentText 'salary double precision not null'
 comaniesSqlFile.F1$Employee.F1$salary: Fragment
+comaniesSqlFile.F1$Employee.F1$salary correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute
+comaniesSqlFile.F1$Employee.F1$salary correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property
+comaniesSqlFile.F1$Employee.F1$salary correspondsTo employeeJavaFile.Employee.F6$salary
 comaniesSqlFile.F1$Employee.F1$salary elementOf SQLColumnDefinitionFragments
 comaniesSqlFile.F1$Employee.F1$salary elementOf SQLDDLFragments
 comaniesSqlFile.F1$Employee.F1$salary elementOf SQLFragments
@@ -182,6 +193,9 @@ comaniesSqlFile.F1$Employee.F1$salary = 'file:/home/darjeeling/Documents/BScThes
 
 @FragmentText 'name varchar(255)'
 comaniesSqlFile.F1$Employee.F2$name: Fragment
+comaniesSqlFile.F1$Employee.F2$name correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F3$xs:attribute
+comaniesSqlFile.F1$Employee.F2$name correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property
+comaniesSqlFile.F1$Employee.F2$name correspondsTo employeeJavaFile.Employee.F8$name
 comaniesSqlFile.F1$Employee.F2$name elementOf SQLColumnDefinitionFragments
 comaniesSqlFile.F1$Employee.F2$name elementOf SQLDDLFragments
 comaniesSqlFile.F1$Employee.F2$name elementOf SQLFragments
@@ -193,6 +207,9 @@ comaniesSqlFile.F1$Employee.F2$name = 'file:/home/darjeeling/Documents/BScThesis
 
 @FragmentText 'age integer not null'
 comaniesSqlFile.F1$Employee.F3$age: Fragment
+comaniesSqlFile.F1$Employee.F3$age correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F4$xs:attribute
+comaniesSqlFile.F1$Employee.F3$age correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property
+comaniesSqlFile.F1$Employee.F3$age correspondsTo employeeJavaFile.Employee.F7$age
 comaniesSqlFile.F1$Employee.F3$age elementOf SQLColumnDefinitionFragments
 comaniesSqlFile.F1$Employee.F3$age elementOf SQLDDLFragments
 comaniesSqlFile.F1$Employee.F3$age elementOf SQLFragments
@@ -204,6 +221,9 @@ comaniesSqlFile.F1$Employee.F3$age = 'file:/home/darjeeling/Documents/BScThesis/
 
 @FragmentText 'id integer not null'
 comaniesSqlFile.F1$Employee.F4$id: Fragment
+comaniesSqlFile.F1$Employee.F4$id correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F2$xs:attribute
+comaniesSqlFile.F1$Employee.F4$id correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id
+comaniesSqlFile.F1$Employee.F4$id correspondsTo employeeJavaFile.Employee.F9$id
 comaniesSqlFile.F1$Employee.F4$id elementOf SQLColumnDefinitionFragments
 comaniesSqlFile.F1$Employee.F4$id elementOf SQLDDLFragments
 comaniesSqlFile.F1$Employee.F4$id elementOf SQLFragments
@@ -215,6 +235,10 @@ comaniesSqlFile.F1$Employee.F4$id = 'file:/home/darjeeling/Documents/BScThesis/c
 
 @FragmentText 'create table Department (id integer not null, name ...'
 comaniesSqlFile.F2$Department: Fragment
+comaniesSqlFile.F2$Department correspondsTo companiesXsdFile.F0$xs:schema.F3$xs:element
+comaniesSqlFile.F2$Department correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType
+comaniesSqlFile.F2$Department correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class
+comaniesSqlFile.F2$Department correspondsTo departmentJavaFile.Department
 comaniesSqlFile.F2$Department elementOf SQLCreateTableFragments
 comaniesSqlFile.F2$Department elementOf SQLDDLFragments
 comaniesSqlFile.F2$Department elementOf SQLFragments
@@ -257,6 +281,9 @@ comaniesSqlFile.F2$Department.F2$company_id = 'file:/home/darjeeling/Documents/B
 
 @FragmentText 'name varchar(255)'
 comaniesSqlFile.F2$Department.F3$name: Fragment
+comaniesSqlFile.F2$Department.F3$name correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F3$xs:attribute
+comaniesSqlFile.F2$Department.F3$name correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property
+comaniesSqlFile.F2$Department.F3$name correspondsTo departmentJavaFile.Department.F9$name
 comaniesSqlFile.F2$Department.F3$name elementOf SQLColumnDefinitionFragments
 comaniesSqlFile.F2$Department.F3$name elementOf SQLDDLFragments
 comaniesSqlFile.F2$Department.F3$name elementOf SQLFragments
@@ -268,6 +295,9 @@ comaniesSqlFile.F2$Department.F3$name = 'file:/home/darjeeling/Documents/BScThes
 
 @FragmentText 'id integer not null'
 comaniesSqlFile.F2$Department.F4$id: Fragment
+comaniesSqlFile.F2$Department.F4$id correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F2$xs:attribute
+comaniesSqlFile.F2$Department.F4$id correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id
+comaniesSqlFile.F2$Department.F4$id correspondsTo departmentJavaFile.Department.F10$id
 comaniesSqlFile.F2$Department.F4$id elementOf SQLColumnDefinitionFragments
 comaniesSqlFile.F2$Department.F4$id elementOf SQLDDLFragments
 comaniesSqlFile.F2$Department.F4$id elementOf SQLFragments
@@ -279,6 +309,10 @@ comaniesSqlFile.F2$Department.F4$id = 'file:/home/darjeeling/Documents/BScThesis
 
 @FragmentText 'create table Company (id integer not null, name va ...'
 comaniesSqlFile.F3$Company: Fragment
+comaniesSqlFile.F3$Company correspondsTo companiesXsdFile.F0$xs:schema.F2$xs:element
+comaniesSqlFile.F3$Company correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType
+comaniesSqlFile.F3$Company correspondsTo companyHbmFile.F0$hibernate-mapping.F4$class
+comaniesSqlFile.F3$Company correspondsTo companyJavaFile.Company
 comaniesSqlFile.F3$Company elementOf SQLCreateTableFragments
 comaniesSqlFile.F3$Company elementOf SQLDDLFragments
 comaniesSqlFile.F3$Company elementOf SQLFragments
@@ -288,6 +322,9 @@ comaniesSqlFile.F3$Company = 'file:/home/darjeeling/Documents/BScThesis/code/meg
 
 @FragmentText 'name varchar(255)'
 comaniesSqlFile.F3$Company.F0$name: Fragment
+comaniesSqlFile.F3$Company.F0$name correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute
+comaniesSqlFile.F3$Company.F0$name correspondsTo companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
+comaniesSqlFile.F3$Company.F0$name correspondsTo companyJavaFile.Company.F5$name
 comaniesSqlFile.F3$Company.F0$name elementOf SQLColumnDefinitionFragments
 comaniesSqlFile.F3$Company.F0$name elementOf SQLDDLFragments
 comaniesSqlFile.F3$Company.F0$name elementOf SQLFragments
@@ -299,6 +336,9 @@ comaniesSqlFile.F3$Company.F0$name = 'file:/home/darjeeling/Documents/BScThesis/
 
 @FragmentText 'id integer not null'
 comaniesSqlFile.F3$Company.F1$id: Fragment
+comaniesSqlFile.F3$Company.F1$id correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute
+comaniesSqlFile.F3$Company.F1$id correspondsTo companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
+comaniesSqlFile.F3$Company.F1$id correspondsTo companyJavaFile.Company.F6$id
 comaniesSqlFile.F3$Company.F1$id elementOf SQLColumnDefinitionFragments
 comaniesSqlFile.F3$Company.F1$id elementOf SQLDDLFragments
 comaniesSqlFile.F3$Company.F1$id elementOf SQLFragments
@@ -1755,8 +1795,12 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager.F3$salary pa
 companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager.F3$salary = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xml?fragment=L35C57L35C73'
 
 companiesXsdFile: File
+companiesXsdFile correspondsTo comaniesSqlFile
+companiesXsdFile correspondsTo companyHbmFile
 companiesXsdFile correspondsTo companyJavaFile
+companiesXsdFile correspondsTo departmentHbmFile
 companiesXsdFile correspondsTo departmentJavaFile
+companiesXsdFile correspondsTo employeeHbmFile
 companiesXsdFile correspondsTo employeeJavaFile
 companiesXsdFile elementOf XML
 companiesXsdFile elementOf XMLFragments
@@ -1793,6 +1837,9 @@ companiesXsdFile.F0$xs:schema.F1$xmlns:xs = 'file:/home/darjeeling/Documents/BSc
 
 @FragmentText '<xs:element name="company" type="company"/>'
 companiesXsdFile.F0$xs:schema.F2$xs:element: Fragment
+companiesXsdFile.F0$xs:schema.F2$xs:element correspondsTo comaniesSqlFile.F3$Company
+companiesXsdFile.F0$xs:schema.F2$xs:element correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType
+companiesXsdFile.F0$xs:schema.F2$xs:element correspondsTo companyHbmFile.F0$hibernate-mapping.F4$class
 companiesXsdFile.F0$xs:schema.F2$xs:element correspondsTo companyJavaFile.Company
 companiesXsdFile.F0$xs:schema.F2$xs:element elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F2$xs:element elementOf XMLFragments
@@ -1828,6 +1875,9 @@ companiesXsdFile.F0$xs:schema.F2$xs:element.F1$type = 'file:/home/darjeeling/Doc
 
 @FragmentText '<xs:element name="department" type="department"/>'
 companiesXsdFile.F0$xs:schema.F3$xs:element: Fragment
+companiesXsdFile.F0$xs:schema.F3$xs:element correspondsTo comaniesSqlFile.F2$Department
+companiesXsdFile.F0$xs:schema.F3$xs:element correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType
+companiesXsdFile.F0$xs:schema.F3$xs:element correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class
 companiesXsdFile.F0$xs:schema.F3$xs:element correspondsTo departmentJavaFile.Department
 companiesXsdFile.F0$xs:schema.F3$xs:element elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F3$xs:element elementOf XMLFragments
@@ -1863,6 +1913,9 @@ companiesXsdFile.F0$xs:schema.F3$xs:element.F1$type = 'file:/home/darjeeling/Doc
 
 @FragmentText '<xs:element name="employee" type="employee"/>'
 companiesXsdFile.F0$xs:schema.F4$xs:element: Fragment
+companiesXsdFile.F0$xs:schema.F4$xs:element correspondsTo comaniesSqlFile.F1$Employee
+companiesXsdFile.F0$xs:schema.F4$xs:element correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType
+companiesXsdFile.F0$xs:schema.F4$xs:element correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class
 companiesXsdFile.F0$xs:schema.F4$xs:element correspondsTo employeeJavaFile.Employee
 companiesXsdFile.F0$xs:schema.F4$xs:element elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F4$xs:element elementOf XMLFragments
@@ -1898,6 +1951,9 @@ companiesXsdFile.F0$xs:schema.F4$xs:element.F1$type = 'file:/home/darjeeling/Doc
 
 @FragmentText '<xs:complexType name="company">    <xs:sequence> ...'
 companiesXsdFile.F0$xs:schema.F5$xs:complexType: Fragment
+companiesXsdFile.F0$xs:schema.F5$xs:complexType correspondsTo comaniesSqlFile.F3$Company
+companiesXsdFile.F0$xs:schema.F5$xs:complexType correspondsTo companiesXsdFile.F0$xs:schema.F2$xs:element
+companiesXsdFile.F0$xs:schema.F5$xs:complexType correspondsTo companyHbmFile.F0$hibernate-mapping.F4$class
 companiesXsdFile.F0$xs:schema.F5$xs:complexType correspondsTo companyJavaFile.Company
 companiesXsdFile.F0$xs:schema.F5$xs:complexType elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F5$xs:complexType elementOf XMLFragments
@@ -1933,6 +1989,7 @@ companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence = 'file:/home/dar
 
 @FragmentText '<xs:element name="departments" minOccurs="0">     ...'
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence.F0$xs:element: Fragment
+companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence.F0$xs:element correspondsTo companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence.F0$xs:element correspondsTo companyJavaFile.Company.F4$departments
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence.F0$xs:element elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence.F0$xs:element elementOf XMLFragments
@@ -2100,6 +2157,8 @@ companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence.F0$xs:element.F2$
 
 @FragmentText '<xs:attribute name="id" type="xs:int" use="require ...'
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute: Fragment
+companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute correspondsTo comaniesSqlFile.F3$Company.F1$id
+companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute correspondsTo companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute correspondsTo companyJavaFile.Company.F6$id
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute elementOf XMLFragments
@@ -2155,6 +2214,8 @@ companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute.F2$use = 'file:/
 
 @FragmentText '<xs:attribute name="name" type="xs:string"/>'
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute: Fragment
+companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute correspondsTo comaniesSqlFile.F3$Company.F0$name
+companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute correspondsTo companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute correspondsTo companyJavaFile.Company.F5$name
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute elementOf XMLFragments
@@ -2196,6 +2257,9 @@ companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute.F1$type = 'file:
 
 @FragmentText '<xs:complexType name="department">    <xs:sequenc ...'
 companiesXsdFile.F0$xs:schema.F6$xs:complexType: Fragment
+companiesXsdFile.F0$xs:schema.F6$xs:complexType correspondsTo comaniesSqlFile.F2$Department
+companiesXsdFile.F0$xs:schema.F6$xs:complexType correspondsTo companiesXsdFile.F0$xs:schema.F3$xs:element
+companiesXsdFile.F0$xs:schema.F6$xs:complexType correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class
 companiesXsdFile.F0$xs:schema.F6$xs:complexType correspondsTo departmentJavaFile.Department
 companiesXsdFile.F0$xs:schema.F6$xs:complexType elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F6$xs:complexType elementOf XMLFragments
@@ -2231,6 +2295,7 @@ companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence = 'file:/home/dar
 
 @FragmentText '<xs:element name="employees" minOccurs="0">       ...'
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F0$xs:element: Fragment
+companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F0$xs:element correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F10$bag
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F0$xs:element correspondsTo departmentJavaFile.Department.F8$employees
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F0$xs:element elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F0$xs:element elementOf XMLFragments
@@ -2461,6 +2526,7 @@ companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F1$xs:element.F2$
 
 @FragmentText '<xs:element name="subDepartments" type="department ...'
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F2$xs:element: Fragment
+companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F2$xs:element correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F13$bag
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F2$xs:element correspondsTo departmentJavaFile.Department.F4$subDepartments
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F2$xs:element elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F2$xs:element elementOf XMLFragments
@@ -2556,6 +2622,8 @@ companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F2$xs:element.F4$
 
 @FragmentText '<xs:attribute name="id" type="xs:int" use="require ...'
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F2$xs:attribute: Fragment
+companiesXsdFile.F0$xs:schema.F6$xs:complexType.F2$xs:attribute correspondsTo comaniesSqlFile.F2$Department.F4$id
+companiesXsdFile.F0$xs:schema.F6$xs:complexType.F2$xs:attribute correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F2$xs:attribute correspondsTo departmentJavaFile.Department.F10$id
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F2$xs:attribute elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F2$xs:attribute elementOf XMLFragments
@@ -2611,6 +2679,8 @@ companiesXsdFile.F0$xs:schema.F6$xs:complexType.F2$xs:attribute.F2$use = 'file:/
 
 @FragmentText '<xs:attribute name="name" type="xs:string"/>'
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F3$xs:attribute: Fragment
+companiesXsdFile.F0$xs:schema.F6$xs:complexType.F3$xs:attribute correspondsTo comaniesSqlFile.F2$Department.F3$name
+companiesXsdFile.F0$xs:schema.F6$xs:complexType.F3$xs:attribute correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F3$xs:attribute correspondsTo departmentJavaFile.Department.F9$name
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F3$xs:attribute elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F6$xs:complexType.F3$xs:attribute elementOf XMLFragments
@@ -2652,6 +2722,9 @@ companiesXsdFile.F0$xs:schema.F6$xs:complexType.F3$xs:attribute.F1$type = 'file:
 
 @FragmentText '<xs:complexType name="employee">    <xs:sequence> ...'
 companiesXsdFile.F0$xs:schema.F7$xs:complexType: Fragment
+companiesXsdFile.F0$xs:schema.F7$xs:complexType correspondsTo comaniesSqlFile.F1$Employee
+companiesXsdFile.F0$xs:schema.F7$xs:complexType correspondsTo companiesXsdFile.F0$xs:schema.F4$xs:element
+companiesXsdFile.F0$xs:schema.F7$xs:complexType correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class
 companiesXsdFile.F0$xs:schema.F7$xs:complexType correspondsTo employeeJavaFile.Employee
 companiesXsdFile.F0$xs:schema.F7$xs:complexType elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F7$xs:complexType elementOf XMLFragments
@@ -2796,6 +2869,8 @@ companiesXsdFile.F0$xs:schema.F7$xs:complexType.F1$xs:sequence.F1$xs:element.F2$
 
 @FragmentText '<xs:attribute name="id" type="xs:int" use="require ...'
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F2$xs:attribute: Fragment
+companiesXsdFile.F0$xs:schema.F7$xs:complexType.F2$xs:attribute correspondsTo comaniesSqlFile.F1$Employee.F4$id
+companiesXsdFile.F0$xs:schema.F7$xs:complexType.F2$xs:attribute correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F2$xs:attribute correspondsTo employeeJavaFile.Employee.F9$id
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F2$xs:attribute elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F2$xs:attribute elementOf XMLFragments
@@ -2851,6 +2926,8 @@ companiesXsdFile.F0$xs:schema.F7$xs:complexType.F2$xs:attribute.F2$use = 'file:/
 
 @FragmentText '<xs:attribute name="name" type="xs:string"/>'
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F3$xs:attribute: Fragment
+companiesXsdFile.F0$xs:schema.F7$xs:complexType.F3$xs:attribute correspondsTo comaniesSqlFile.F1$Employee.F2$name
+companiesXsdFile.F0$xs:schema.F7$xs:complexType.F3$xs:attribute correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F3$xs:attribute correspondsTo employeeJavaFile.Employee.F8$name
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F3$xs:attribute elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F3$xs:attribute elementOf XMLFragments
@@ -2892,6 +2969,8 @@ companiesXsdFile.F0$xs:schema.F7$xs:complexType.F3$xs:attribute.F1$type = 'file:
 
 @FragmentText '<xs:attribute name="age" type="xs:int" use="requir ...'
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F4$xs:attribute: Fragment
+companiesXsdFile.F0$xs:schema.F7$xs:complexType.F4$xs:attribute correspondsTo comaniesSqlFile.F1$Employee.F3$age
+companiesXsdFile.F0$xs:schema.F7$xs:complexType.F4$xs:attribute correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F4$xs:attribute correspondsTo employeeJavaFile.Employee.F7$age
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F4$xs:attribute elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F4$xs:attribute elementOf XMLFragments
@@ -2947,6 +3026,8 @@ companiesXsdFile.F0$xs:schema.F7$xs:complexType.F4$xs:attribute.F2$use = 'file:/
 
 @FragmentText '<xs:attribute name="salary" type="xs:double" use=" ...'
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute: Fragment
+companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute correspondsTo comaniesSqlFile.F1$Employee.F1$salary
+companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute correspondsTo employeeJavaFile.Employee.F6$salary
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute elementOf XMLElementFragments
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute elementOf XMLFragments
@@ -3001,7 +3082,13 @@ companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute.F2$use partOf co
 companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute.F2$use = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/companies.xsd?fragment=L48C49L48C63'
 
 companyHbmFile: File
+companyHbmFile correspondsTo comaniesSqlFile
+companyHbmFile correspondsTo companiesXsdFile
 companyHbmFile correspondsTo companyJavaFile
+companyHbmFile correspondsTo departmentHbmFile
+companyHbmFile correspondsTo departmentJavaFile
+companyHbmFile correspondsTo employeeHbmFile
+companyHbmFile correspondsTo employeeJavaFile
 companyHbmFile elementOf HibernateXML
 companyHbmFile elementOf HibernateXMLFragments
 companyHbmFile elementOf XML
@@ -3058,6 +3145,10 @@ companyHbmFile.F0$hibernate-mapping.F3$default-lazy = 'file:/home/darjeeling/Doc
 
 @FragmentText '<class dynamic-insert="false" dynamic-update="fals ...'
 companyHbmFile.F0$hibernate-mapping.F4$class: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class correspondsTo comaniesSqlFile.F3$Company
+companyHbmFile.F0$hibernate-mapping.F4$class correspondsTo companiesXsdFile.F0$xs:schema.F2$xs:element
+companyHbmFile.F0$hibernate-mapping.F4$class correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType
+companyHbmFile.F0$hibernate-mapping.F4$class correspondsTo companyJavaFile.Company
 companyHbmFile.F0$hibernate-mapping.F4$class elementOf XMLElementFragments
 companyHbmFile.F0$hibernate-mapping.F4$class elementOf XMLFragments
 companyHbmFile.F0$hibernate-mapping.F4$class fragmentOf companyHbmFile
@@ -3092,6 +3183,9 @@ companyHbmFile.F0$hibernate-mapping.F4$class.F1$dynamic-update = 'file:/home/dar
 
 @FragmentText '<property access="field" generated="never" lazy="f ...'
 companyHbmFile.F0$hibernate-mapping.F4$class.F10$property: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property correspondsTo comaniesSqlFile.F3$Company.F0$name
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property correspondsTo companyJavaFile.Company.F5$name
 companyHbmFile.F0$hibernate-mapping.F4$class.F10$property elementOf XMLElementFragments
 companyHbmFile.F0$hibernate-mapping.F4$class.F10$property elementOf XMLFragments
 companyHbmFile.F0$hibernate-mapping.F4$class.F10$property fragmentOf companyHbmFile
@@ -3304,6 +3398,9 @@ companyHbmFile.F0$hibernate-mapping.F4$class.F7$table = 'file:/home/darjeeling/D
 
 @FragmentText '<id access="field" name="id" type="int">          ...'
 companyHbmFile.F0$hibernate-mapping.F4$class.F8$id: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id correspondsTo comaniesSqlFile.F3$Company.F1$id
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id correspondsTo companyJavaFile.Company.F6$id
 companyHbmFile.F0$hibernate-mapping.F4$class.F8$id elementOf XMLElementFragments
 companyHbmFile.F0$hibernate-mapping.F4$class.F8$id elementOf XMLFragments
 companyHbmFile.F0$hibernate-mapping.F4$class.F8$id fragmentOf companyHbmFile
@@ -3418,6 +3515,8 @@ companyHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class = 'file
 
 @FragmentText '<bag access="field" cascade="all" embed-xml="true" ...'
 companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag: Fragment
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence.F0$xs:element
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag correspondsTo companyJavaFile.Company.F4$departments
 companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag elementOf XMLElementFragments
 companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag elementOf XMLFragments
 companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag fragmentOf companyHbmFile
@@ -3698,14 +3797,20 @@ companyJavaFile: File
 companyJavaFile correspondsTo comaniesSqlFile
 companyJavaFile correspondsTo companiesXsdFile
 companyJavaFile correspondsTo companyHbmFile
+companyJavaFile correspondsTo departmentHbmFile
+companyJavaFile correspondsTo departmentJavaFile
+companyJavaFile correspondsTo employeeHbmFile
+companyJavaFile correspondsTo employeeJavaFile
 companyJavaFile elementOf Java
 companyJavaFile elementOf JavaFragments
 companyJavaFile = 'workspace:/org.softlang.megal.plugins/input/Company.java'
 
 @FragmentText '@Entity@XmlRootElement(name="company")@XmlAccess ...'
 companyJavaFile.Company: Fragment
+companyJavaFile.Company correspondsTo comaniesSqlFile.F3$Company
 companyJavaFile.Company correspondsTo companiesXsdFile.F0$xs:schema.F2$xs:element
 companyJavaFile.Company correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType
+companyJavaFile.Company correspondsTo companyHbmFile.F0$hibernate-mapping.F4$class
 companyJavaFile.Company elementOf JavaClassFragments
 companyJavaFile.Company elementOf JavaFragments
 companyJavaFile.Company fragmentOf companyJavaFile
@@ -3735,6 +3840,7 @@ companyJavaFile.Company.F11$getId = 'file:/home/darjeeling/Documents/BScThesis/c
 @FragmentText '@XmlElementWrapper(name="departments")	@XmlElemen ...'
 companyJavaFile.Company.F4$departments: Fragment
 companyJavaFile.Company.F4$departments correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence.F0$xs:element
+companyJavaFile.Company.F4$departments correspondsTo companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag
 companyJavaFile.Company.F4$departments elementOf JavaFieldFragments
 companyJavaFile.Company.F4$departments elementOf JavaFragments
 companyJavaFile.Company.F4$departments fragmentOf companyJavaFile
@@ -3745,7 +3851,9 @@ companyJavaFile.Company.F4$departments = 'file:/home/darjeeling/Documents/BScThe
 
 @FragmentText '@XmlAttribute	private String name;'
 companyJavaFile.Company.F5$name: Fragment
+companyJavaFile.Company.F5$name correspondsTo comaniesSqlFile.F3$Company.F0$name
 companyJavaFile.Company.F5$name correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute
+companyJavaFile.Company.F5$name correspondsTo companyHbmFile.F0$hibernate-mapping.F4$class.F10$property
 companyJavaFile.Company.F5$name elementOf JavaFieldFragments
 companyJavaFile.Company.F5$name elementOf JavaFragments
 companyJavaFile.Company.F5$name fragmentOf companyJavaFile
@@ -3756,7 +3864,9 @@ companyJavaFile.Company.F5$name = 'file:/home/darjeeling/Documents/BScThesis/cod
 
 @FragmentText '@Id	@GeneratedValue(strategy=GenerationType.AUTO) ...'
 companyJavaFile.Company.F6$id: Fragment
+companyJavaFile.Company.F6$id correspondsTo comaniesSqlFile.F3$Company.F1$id
 companyJavaFile.Company.F6$id correspondsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute
+companyJavaFile.Company.F6$id correspondsTo companyHbmFile.F0$hibernate-mapping.F4$class.F8$id
 companyJavaFile.Company.F6$id elementOf JavaFieldFragments
 companyJavaFile.Company.F6$id elementOf JavaFragments
 companyJavaFile.Company.F6$id fragmentOf companyJavaFile
@@ -3796,7 +3906,13 @@ companyJavaFile.Company.F9$getName partOf companyJavaFile.Company
 companyJavaFile.Company.F9$getName = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Company.java?fragment=L43C1L45C2'
 
 departmentHbmFile: File
+departmentHbmFile correspondsTo comaniesSqlFile
+departmentHbmFile correspondsTo companiesXsdFile
+departmentHbmFile correspondsTo companyHbmFile
+departmentHbmFile correspondsTo companyJavaFile
 departmentHbmFile correspondsTo departmentJavaFile
+departmentHbmFile correspondsTo employeeHbmFile
+departmentHbmFile correspondsTo employeeJavaFile
 departmentHbmFile elementOf HibernateXML
 departmentHbmFile elementOf HibernateXMLFragments
 departmentHbmFile elementOf XML
@@ -3853,6 +3969,10 @@ departmentHbmFile.F0$hibernate-mapping.F3$default-lazy = 'file:/home/darjeeling/
 
 @FragmentText '<class dynamic-insert="false" dynamic-update="fals ...'
 departmentHbmFile.F0$hibernate-mapping.F4$class: Fragment
+departmentHbmFile.F0$hibernate-mapping.F4$class correspondsTo comaniesSqlFile.F2$Department
+departmentHbmFile.F0$hibernate-mapping.F4$class correspondsTo companiesXsdFile.F0$xs:schema.F3$xs:element
+departmentHbmFile.F0$hibernate-mapping.F4$class correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType
+departmentHbmFile.F0$hibernate-mapping.F4$class correspondsTo departmentJavaFile.Department
 departmentHbmFile.F0$hibernate-mapping.F4$class elementOf XMLElementFragments
 departmentHbmFile.F0$hibernate-mapping.F4$class elementOf XMLFragments
 departmentHbmFile.F0$hibernate-mapping.F4$class fragmentOf departmentHbmFile
@@ -3887,6 +4007,8 @@ departmentHbmFile.F0$hibernate-mapping.F4$class.F1$dynamic-update = 'file:/home/
 
 @FragmentText '<bag access="field" cascade="all" embed-xml="true" ...'
 departmentHbmFile.F0$hibernate-mapping.F4$class.F10$bag: Fragment
+departmentHbmFile.F0$hibernate-mapping.F4$class.F10$bag correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F0$xs:element
+departmentHbmFile.F0$hibernate-mapping.F4$class.F10$bag correspondsTo departmentJavaFile.Department.F8$employees
 departmentHbmFile.F0$hibernate-mapping.F4$class.F10$bag elementOf XMLElementFragments
 departmentHbmFile.F0$hibernate-mapping.F4$class.F10$bag elementOf XMLFragments
 departmentHbmFile.F0$hibernate-mapping.F4$class.F10$bag fragmentOf departmentHbmFile
@@ -4361,6 +4483,9 @@ departmentHbmFile.F0$hibernate-mapping.F4$class.F11$many-to-one.F9$unique = 'fil
 
 @FragmentText '<property access="field" generated="never" lazy="f ...'
 departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property: Fragment
+departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property correspondsTo comaniesSqlFile.F2$Department.F3$name
+departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F3$xs:attribute
+departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property correspondsTo departmentJavaFile.Department.F9$name
 departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property elementOf XMLElementFragments
 departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property elementOf XMLFragments
 departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property fragmentOf departmentHbmFile
@@ -4501,6 +4626,8 @@ departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property.F7$column.F0$name =
 
 @FragmentText '<bag access="field" cascade="all" embed-xml="true" ...'
 departmentHbmFile.F0$hibernate-mapping.F4$class.F13$bag: Fragment
+departmentHbmFile.F0$hibernate-mapping.F4$class.F13$bag correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F2$xs:element
+departmentHbmFile.F0$hibernate-mapping.F4$class.F13$bag correspondsTo departmentJavaFile.Department.F4$subDepartments
 departmentHbmFile.F0$hibernate-mapping.F4$class.F13$bag elementOf XMLElementFragments
 departmentHbmFile.F0$hibernate-mapping.F4$class.F13$bag elementOf XMLFragments
 departmentHbmFile.F0$hibernate-mapping.F4$class.F13$bag fragmentOf departmentHbmFile
@@ -5047,6 +5174,9 @@ departmentHbmFile.F0$hibernate-mapping.F4$class.F7$table = 'file:/home/darjeelin
 
 @FragmentText '<id access="field" name="id" type="int">          ...'
 departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id: Fragment
+departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id correspondsTo comaniesSqlFile.F2$Department.F4$id
+departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F2$xs:attribute
+departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id correspondsTo departmentJavaFile.Department.F10$id
 departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id elementOf XMLElementFragments
 departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id elementOf XMLFragments
 departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id fragmentOf departmentHbmFile
@@ -5358,15 +5488,21 @@ departmentHbmFile.F0$hibernate-mapping.F4$class.F9$many-to-one.F9$unique = 'file
 departmentJavaFile: File
 departmentJavaFile correspondsTo comaniesSqlFile
 departmentJavaFile correspondsTo companiesXsdFile
+departmentJavaFile correspondsTo companyHbmFile
+departmentJavaFile correspondsTo companyJavaFile
 departmentJavaFile correspondsTo departmentHbmFile
+departmentJavaFile correspondsTo employeeHbmFile
+departmentJavaFile correspondsTo employeeJavaFile
 departmentJavaFile elementOf Java
 departmentJavaFile elementOf JavaFragments
 departmentJavaFile = 'workspace:/org.softlang.megal.plugins/input/Department.java'
 
 @FragmentText '@Entity@XmlRootElement(name="department")@XmlAcc ...'
 departmentJavaFile.Department: Fragment
+departmentJavaFile.Department correspondsTo comaniesSqlFile.F2$Department
 departmentJavaFile.Department correspondsTo companiesXsdFile.F0$xs:schema.F3$xs:element
 departmentJavaFile.Department correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType
+departmentJavaFile.Department correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class
 departmentJavaFile.Department elementOf JavaClassFragments
 departmentJavaFile.Department elementOf JavaFragments
 departmentJavaFile.Department fragmentOf departmentJavaFile
@@ -5375,7 +5511,9 @@ departmentJavaFile.Department = 'file:/home/darjeeling/Documents/BScThesis/code/
 
 @FragmentText '@Id	@GeneratedValue(strategy=GenerationType.AUTO) ...'
 departmentJavaFile.Department.F10$id: Fragment
+departmentJavaFile.Department.F10$id correspondsTo comaniesSqlFile.F2$Department.F4$id
 departmentJavaFile.Department.F10$id correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F2$xs:attribute
+departmentJavaFile.Department.F10$id correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F8$id
 departmentJavaFile.Department.F10$id elementOf JavaFieldFragments
 departmentJavaFile.Department.F10$id elementOf JavaFragments
 departmentJavaFile.Department.F10$id fragmentOf departmentJavaFile
@@ -5507,6 +5645,7 @@ departmentJavaFile.Department.F22$getId = 'file:/home/darjeeling/Documents/BScTh
 @FragmentText '@OneToMany(mappedBy="superDepartment", fetch=Fetch ...'
 departmentJavaFile.Department.F4$subDepartments: Fragment
 departmentJavaFile.Department.F4$subDepartments correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F2$xs:element
+departmentJavaFile.Department.F4$subDepartments correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F13$bag
 departmentJavaFile.Department.F4$subDepartments elementOf JavaFieldFragments
 departmentJavaFile.Department.F4$subDepartments elementOf JavaFragments
 departmentJavaFile.Department.F4$subDepartments fragmentOf departmentJavaFile
@@ -5549,6 +5688,7 @@ departmentJavaFile.Department.F7$company = 'file:/home/darjeeling/Documents/BScT
 @FragmentText '@XmlElementWrapper(name="employees") 	@XmlElement ...'
 departmentJavaFile.Department.F8$employees: Fragment
 departmentJavaFile.Department.F8$employees correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F0$xs:element
+departmentJavaFile.Department.F8$employees correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F10$bag
 departmentJavaFile.Department.F8$employees elementOf JavaFieldFragments
 departmentJavaFile.Department.F8$employees elementOf JavaFragments
 departmentJavaFile.Department.F8$employees fragmentOf departmentJavaFile
@@ -5559,7 +5699,9 @@ departmentJavaFile.Department.F8$employees = 'file:/home/darjeeling/Documents/BS
 
 @FragmentText '@XmlAttribute	private String name;'
 departmentJavaFile.Department.F9$name: Fragment
+departmentJavaFile.Department.F9$name correspondsTo comaniesSqlFile.F2$Department.F3$name
 departmentJavaFile.Department.F9$name correspondsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F3$xs:attribute
+departmentJavaFile.Department.F9$name correspondsTo departmentHbmFile.F0$hibernate-mapping.F4$class.F12$property
 departmentJavaFile.Department.F9$name elementOf JavaFieldFragments
 departmentJavaFile.Department.F9$name elementOf JavaFragments
 departmentJavaFile.Department.F9$name fragmentOf departmentJavaFile
@@ -5569,6 +5711,12 @@ departmentJavaFile.Department.F9$name partOf departmentJavaFile.Department
 departmentJavaFile.Department.F9$name = 'file:/home/darjeeling/Documents/BScThesis/code/megal-xtext/org.softlang.megal.plugins/input/Department.java?fragment=L20C1L21C21'
 
 employeeHbmFile: File
+employeeHbmFile correspondsTo comaniesSqlFile
+employeeHbmFile correspondsTo companiesXsdFile
+employeeHbmFile correspondsTo companyHbmFile
+employeeHbmFile correspondsTo companyJavaFile
+employeeHbmFile correspondsTo departmentHbmFile
+employeeHbmFile correspondsTo departmentJavaFile
 employeeHbmFile correspondsTo employeeJavaFile
 employeeHbmFile elementOf HibernateXML
 employeeHbmFile elementOf HibernateXMLFragments
@@ -5626,6 +5774,10 @@ employeeHbmFile.F0$hibernate-mapping.F3$default-lazy = 'file:/home/darjeeling/Do
 
 @FragmentText '<class dynamic-insert="false" dynamic-update="fals ...'
 employeeHbmFile.F0$hibernate-mapping.F4$class: Fragment
+employeeHbmFile.F0$hibernate-mapping.F4$class correspondsTo comaniesSqlFile.F1$Employee
+employeeHbmFile.F0$hibernate-mapping.F4$class correspondsTo companiesXsdFile.F0$xs:schema.F4$xs:element
+employeeHbmFile.F0$hibernate-mapping.F4$class correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType
+employeeHbmFile.F0$hibernate-mapping.F4$class correspondsTo employeeJavaFile.Employee
 employeeHbmFile.F0$hibernate-mapping.F4$class elementOf XMLElementFragments
 employeeHbmFile.F0$hibernate-mapping.F4$class elementOf XMLFragments
 employeeHbmFile.F0$hibernate-mapping.F4$class fragmentOf employeeHbmFile
@@ -5856,6 +6008,9 @@ employeeHbmFile.F0$hibernate-mapping.F4$class.F10$many-to-one.F9$unique = 'file:
 
 @FragmentText '<property access="field" generated="never" lazy="f ...'
 employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property: Fragment
+employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property correspondsTo comaniesSqlFile.F1$Employee.F2$name
+employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F3$xs:attribute
+employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property correspondsTo employeeJavaFile.Employee.F8$name
 employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property elementOf XMLElementFragments
 employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property elementOf XMLFragments
 employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property fragmentOf employeeHbmFile
@@ -5996,6 +6151,9 @@ employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property.F7$column.F0$name = '
 
 @FragmentText '<property access="field" generated="never" lazy="f ...'
 employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property: Fragment
+employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property correspondsTo comaniesSqlFile.F1$Employee.F1$salary
+employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute
+employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property correspondsTo employeeJavaFile.Employee.F6$salary
 employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property elementOf XMLElementFragments
 employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property elementOf XMLFragments
 employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property fragmentOf employeeHbmFile
@@ -6334,6 +6492,9 @@ employeeHbmFile.F0$hibernate-mapping.F4$class.F7$table = 'file:/home/darjeeling/
 
 @FragmentText '<id access="field" name="id" type="int">          ...'
 employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id: Fragment
+employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id correspondsTo comaniesSqlFile.F1$Employee.F4$id
+employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F2$xs:attribute
+employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id correspondsTo employeeJavaFile.Employee.F9$id
 employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id elementOf XMLElementFragments
 employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id elementOf XMLFragments
 employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id fragmentOf employeeHbmFile
@@ -6448,6 +6609,9 @@ employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id.F4$generator.F0$class = 'fil
 
 @FragmentText '<property access="field" generated="never" lazy="f ...'
 employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property: Fragment
+employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property correspondsTo comaniesSqlFile.F1$Employee.F3$age
+employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F4$xs:attribute
+employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property correspondsTo employeeJavaFile.Employee.F7$age
 employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property elementOf XMLElementFragments
 employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property elementOf XMLFragments
 employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property fragmentOf employeeHbmFile
@@ -6605,6 +6769,10 @@ employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property.F7$column.F1$not-null 
 employeeJavaFile: File
 employeeJavaFile correspondsTo comaniesSqlFile
 employeeJavaFile correspondsTo companiesXsdFile
+employeeJavaFile correspondsTo companyHbmFile
+employeeJavaFile correspondsTo companyJavaFile
+employeeJavaFile correspondsTo departmentHbmFile
+employeeJavaFile correspondsTo departmentJavaFile
 employeeJavaFile correspondsTo employeeHbmFile
 employeeJavaFile elementOf Java
 employeeJavaFile elementOf JavaFragments
@@ -6612,8 +6780,10 @@ employeeJavaFile = 'workspace:/org.softlang.megal.plugins/input/Employee.java'
 
 @FragmentText '@Entity@XmlRootElement(name="employee")@XmlAcces ...'
 employeeJavaFile.Employee: Fragment
+employeeJavaFile.Employee correspondsTo comaniesSqlFile.F1$Employee
 employeeJavaFile.Employee correspondsTo companiesXsdFile.F0$xs:schema.F4$xs:element
 employeeJavaFile.Employee correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType
+employeeJavaFile.Employee correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class
 employeeJavaFile.Employee elementOf JavaClassFragments
 employeeJavaFile.Employee elementOf JavaFragments
 employeeJavaFile.Employee fragmentOf employeeJavaFile
@@ -6723,7 +6893,9 @@ employeeJavaFile.Employee.F5$department = 'file:/home/darjeeling/Documents/BScTh
 
 @FragmentText '@XmlAttribute	private double salary;'
 employeeJavaFile.Employee.F6$salary: Fragment
+employeeJavaFile.Employee.F6$salary correspondsTo comaniesSqlFile.F1$Employee.F1$salary
 employeeJavaFile.Employee.F6$salary correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F5$xs:attribute
+employeeJavaFile.Employee.F6$salary correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F12$property
 employeeJavaFile.Employee.F6$salary elementOf JavaFieldFragments
 employeeJavaFile.Employee.F6$salary elementOf JavaFragments
 employeeJavaFile.Employee.F6$salary fragmentOf employeeJavaFile
@@ -6734,7 +6906,9 @@ employeeJavaFile.Employee.F6$salary = 'file:/home/darjeeling/Documents/BScThesis
 
 @FragmentText '@XmlAttribute	private int age;'
 employeeJavaFile.Employee.F7$age: Fragment
+employeeJavaFile.Employee.F7$age correspondsTo comaniesSqlFile.F1$Employee.F3$age
 employeeJavaFile.Employee.F7$age correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F4$xs:attribute
+employeeJavaFile.Employee.F7$age correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F9$property
 employeeJavaFile.Employee.F7$age elementOf JavaFieldFragments
 employeeJavaFile.Employee.F7$age elementOf JavaFragments
 employeeJavaFile.Employee.F7$age fragmentOf employeeJavaFile
@@ -6745,7 +6919,9 @@ employeeJavaFile.Employee.F7$age = 'file:/home/darjeeling/Documents/BScThesis/co
 
 @FragmentText '@XmlAttribute	private String name;'
 employeeJavaFile.Employee.F8$name: Fragment
+employeeJavaFile.Employee.F8$name correspondsTo comaniesSqlFile.F1$Employee.F2$name
 employeeJavaFile.Employee.F8$name correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F3$xs:attribute
+employeeJavaFile.Employee.F8$name correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F11$property
 employeeJavaFile.Employee.F8$name elementOf JavaFieldFragments
 employeeJavaFile.Employee.F8$name elementOf JavaFragments
 employeeJavaFile.Employee.F8$name fragmentOf employeeJavaFile
@@ -6756,7 +6932,9 @@ employeeJavaFile.Employee.F8$name = 'file:/home/darjeeling/Documents/BScThesis/c
 
 @FragmentText '@Id	@GeneratedValue(strategy=GenerationType.AUTO) ...'
 employeeJavaFile.Employee.F9$id: Fragment
+employeeJavaFile.Employee.F9$id correspondsTo comaniesSqlFile.F1$Employee.F4$id
 employeeJavaFile.Employee.F9$id correspondsTo companiesXsdFile.F0$xs:schema.F7$xs:complexType.F2$xs:attribute
+employeeJavaFile.Employee.F9$id correspondsTo employeeHbmFile.F0$hibernate-mapping.F4$class.F8$id
 employeeJavaFile.Employee.F9$id elementOf JavaFieldFragments
 employeeJavaFile.Employee.F9$id elementOf JavaFragments
 employeeJavaFile.Employee.F9$id fragmentOf employeeJavaFile
