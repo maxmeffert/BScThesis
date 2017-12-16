@@ -19,6 +19,7 @@ import org.softlang.megal.mi2.RelationshipType;
 import org.softlang.megal.mi2.api.ModelExecutor;
 import org.softlang.megal.mi2.api.resolution.LocalResolution;
 import org.softlang.megal.mi2.api.resolution.Resolution;
+import org.softlang.megal.plugins.util.Prelude;
 
 @SuppressWarnings("unused")
 public class Main {
@@ -88,6 +89,15 @@ public class Main {
 		out.println("#Entities          : " + kb.getEntities().size());
 		out.println("#Relationships     : " + kb.getRelationships().size());
 		out.println("#RelationshipTypes : " + kb.getRelationshipTypes().size());
+		out.println();
+		out.println("#Artifacts         : " + kb.getEntities().stream().filter(e -> Prelude.isArtifact(e)).count());
+		out.println("#File              : " + kb.getEntities().stream().filter(e -> Prelude.isFile(e)).count());
+		out.println("#Fragment          : " + kb.getEntities().stream().filter(e -> Prelude.isFragment(e)).count());
+		out.println();
+		out.println("#PartOf            : " + kb.getRelationships().stream().filter(r -> r.getTypeName().equals("partOf")).count());
+		out.println("#FragmentOf        : " + kb.getRelationships().stream().filter(r -> r.getTypeName().equals("fragmentOf")).count());
+		out.println("#CorrespondsTo     : " + kb.getRelationships().stream().filter(r -> r.getTypeName().equals("correspondsTo")).count());
+		out.println("#ConformsTo        : " + kb.getRelationships().stream().filter(r -> r.getTypeName().equals("conformsTo")).count());
 		out.println("*/");
 		out.println();
 		

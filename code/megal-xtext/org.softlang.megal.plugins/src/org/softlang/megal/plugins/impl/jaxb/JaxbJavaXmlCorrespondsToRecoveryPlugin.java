@@ -6,6 +6,7 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinary
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaMethodFragment;
 import org.softlang.megal.plugins.api.recovery.BaseCorrespondsToRecoveryPlugin;
 import org.softlang.megal.plugins.api.recovery.IFragmentNameProvider;
 import org.softlang.megal.plugins.impl.java.JavaFragmentNameProvider;
@@ -16,7 +17,10 @@ public class JaxbJavaXmlCorrespondsToRecoveryPlugin extends BaseCorrespondsToRec
 	@Override
 	protected IBinaryRelation<IFragment> getSimilarities(ICCRecoveryScenarios ccRecoveryScenarios, InputStream left, InputStream right)
 			throws IOException, ParserException {
-		return ccRecoveryScenarios.getJaxbSimilarities(left, right);
+		IBinaryRelation<IFragment> similarities = ccRecoveryScenarios.getJaxbSimilarities(left, right);
+		similarities.removeIf(p -> p.getFirst() instanceof JavaMethodFragment);
+		return similarities;
+//		return ccRecoveryScenarios.getJaxbSimilarities(left, right);
 	}
 
 	@Override
