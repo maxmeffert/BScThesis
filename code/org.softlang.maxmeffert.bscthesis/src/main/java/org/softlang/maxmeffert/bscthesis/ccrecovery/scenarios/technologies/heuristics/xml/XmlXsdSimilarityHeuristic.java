@@ -16,6 +16,6 @@ public class XmlXsdSimilarityHeuristic extends BaseXmlXsdSimilarityHeuristic {
     @Override
     protected boolean areSimilar(XmlAttributeFragment xmlAttributeFragment, XmlElementFragment xsdElementFragment) {
         return XmlFragmentUtils.isXsAttributeTag(xsdElementFragment)
-                && XmlFragmentUtils.hasAttribute(xsdElementFragment, "name", xsdElementFragment.getName());
+                && XmlFragmentUtils.hasAttribute(xsdElementFragment, "name", xmlAttributeFragment.getName());
     }
 }
