@@ -14,7 +14,7 @@ import org.softlang.megal.plugins.impl.java.JavaFragmentNameProvider;
 import org.softlang.megal.plugins.impl.xml.XMLFragmentNameProvider;
 import org.softlang.megal.plugins.util.Prelude;
 
-public class JaxbJavaXmlCorrespondsToRecoveryPlugin extends BaseCorrespondsToRecoveryPlugin {
+public class JaxbJavaXsdCorrespondsToRecoveryPlugin extends BaseCorrespondsToRecoveryPlugin {
 
 	@Override
 	protected IBinaryRelation<IFragment> getSimilarities(ICCRecoveryScenarios ccRecoveryScenarios, InputStream left, InputStream right)
