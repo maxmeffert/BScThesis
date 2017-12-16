@@ -1,4 +1,5 @@
 - Fix correspondence/conformance error: xml-attribute to java-method is neithier, implement correspondences in the sense of strict representation of the same data!!!!
+DONE
 
 - Fix conformance recovery impl for xml-xsd
 

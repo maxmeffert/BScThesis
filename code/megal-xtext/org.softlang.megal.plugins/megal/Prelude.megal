@@ -91,6 +91,7 @@ isA < Concept * Concept
 // § ConformsTo
 //===============================================
 
+@Plugin 'ConformsToReasonerPlugin'
 conformsTo < Artifact (+) * Artifact (+)
 
 //===============================================
@@ -116,7 +117,7 @@ transformedIn < Language * Language
 transformedIn < Artifact (+) * Artifact (+)
 
 //===============================================
-// § ConformsTo
+// § CorrespondsTo
 //===============================================
 
 @Plugin 'SymmetryReasonerPlugin'
@@ -219,3 +220,6 @@ TransitivityReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.Trans
 
 CorrespondsToReasonerPlugin: Plugin
 CorrespondsToReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.CorrespondsToReasonerPlugin'
+
+ConformsToReasonerPlugin: Plugin
+ConformsToReasonerPlugin = 'classpath:org.softlang.megal.plugins.prelude.ConformsToReasonerPlugin'

@@ -3,20 +3,20 @@
 ============================================
                   Metrics                   
 ============================================
-#Elements          : 5542
+#Elements          : 5557
 #EntityTypes       : 14
-#Entities          : 523
-#Relationships     : 4940
+#Entities          : 525
+#Relationships     : 4953
 #RelationshipTypes : 65
 
 #Artifacts         : 483
 #File              : 9
 #Fragment          : 474
 
-#PartOf            : 1846
+#PartOf            : 1847
 #FragmentOf        : 1837
 #CorrespondsTo     : 234
-#ConformsTo        : 1
+#ConformsTo        : 13
 */
 
 
@@ -356,6 +356,8 @@ companiesXmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
 
 @FragmentText '<company id="0" name="Softlang Inc.">    <departm ...'
 companiesXmlFile.F0$company: Fragment
+companiesXmlFile.F0$company conformsTo companiesXsdFile.F0$xs:schema.F2$xs:element
+companiesXmlFile.F0$company conformsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType
 companiesXmlFile.F0$company elementOf XMLElementFragments
 companiesXmlFile.F0$company elementOf XMLFragments
 companiesXmlFile.F0$company fragmentOf companiesXmlFile
@@ -384,6 +386,7 @@ companiesXmlFile.F0$company.F1$name = 'file:/home/darjeeling/Documents/BScThesis
 
 @FragmentText '<departments>        <department id="0" name="Gra ...'
 companiesXmlFile.F0$company.F2$departments: Fragment
+companiesXmlFile.F0$company.F2$departments conformsTo companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence.F0$xs:element
 companiesXmlFile.F0$company.F2$departments elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments fragmentOf companiesXmlFile
@@ -434,6 +437,7 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F1$name = 'file:/home/d
 
 @FragmentText '<employees>                <employee id="0" name= ...'
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees: Fragment
+companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees conformsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F0$xs:element
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees fragmentOf companiesXmlFile
@@ -624,6 +628,7 @@ companiesXmlFile.F0$company.F2$departments.F0$department.F2$employees.F1$employe
 
 @FragmentText '<manager id="0" name="Peter Naur" age="40" salary= ...'
 companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager: Fragment
+companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager conformsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F1$xs:element
 companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F0$department.F3$manager fragmentOf companiesXmlFile
@@ -742,6 +747,7 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F1$name = 'file:/home/d
 
 @FragmentText '<employees>                <employee id="0" name= ...'
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees: Fragment
+companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees conformsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F0$xs:element
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees fragmentOf companiesXmlFile
@@ -932,6 +938,7 @@ companiesXmlFile.F0$company.F2$departments.F1$department.F2$employees.F1$employe
 
 @FragmentText '<manager id="0" name="Alan Turing" age="40" salary ...'
 companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager: Fragment
+companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager conformsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F1$xs:element
 companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F1$department.F3$manager fragmentOf companiesXmlFile
@@ -1050,6 +1057,7 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F1$name = 'file:/home/d
 
 @FragmentText '<employees>                <employee id="0" name= ...'
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees: Fragment
+companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees conformsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F0$xs:element
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees fragmentOf companiesXmlFile
@@ -1152,6 +1160,7 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F2$employees.F0$employe
 
 @FragmentText '<manager id="0" name="Niklaus Wirth" age="40" sala ...'
 companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager: Fragment
+companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager conformsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F1$xs:element
 companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager fragmentOf companiesXmlFile
@@ -1230,6 +1239,7 @@ companiesXmlFile.F0$company.F2$departments.F2$department.F3$manager.F3$salary = 
 
 @FragmentText '<subDepartments id="0" name="Grammar Engineering"> ...'
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments: Fragment
+companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments conformsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F2$xs:element
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F2$department.F4$subDepartments fragmentOf companiesXmlFile
@@ -1616,6 +1626,7 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F1$name = 'file:/home/d
 
 @FragmentText '<employees>                <employee id="0" name= ...'
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees: Fragment
+companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees conformsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F0$xs:element
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees fragmentOf companiesXmlFile
@@ -1718,6 +1729,7 @@ companiesXmlFile.F0$company.F2$departments.F3$department.F2$employees.F0$employe
 
 @FragmentText '<manager id="0" name="Ada Lovelace" age="40" salar ...'
 companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager: Fragment
+companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager conformsTo companiesXsdFile.F0$xs:schema.F6$xs:complexType.F1$xs:sequence.F1$xs:element
 companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager elementOf XMLElementFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager elementOf XMLFragments
 companiesXmlFile.F0$company.F2$departments.F3$department.F3$manager fragmentOf companiesXmlFile
