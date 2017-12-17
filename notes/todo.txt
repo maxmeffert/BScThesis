@@ -29,8 +29,15 @@ Universitätsstraße 1
 printcenter-unikoblenz@service.ricoh.de
 
 - Write eval for mini-case-study & impl counting
+
 - Write short conclusioni + future work: larger corpus; instance-level recovery not possible, this need dynamic analysis, i.e. trace link capture!!!
+DONE
+
 - Write remaining impl sections
+
+- transform code listings from figure to actual listings
+
 - Clean glossary
+
 - Clean references
  

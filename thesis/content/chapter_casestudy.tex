@@ -81,10 +81,176 @@ In this sense, technologies create technology-specific subsets of a languages.
 
 \section{Metrics}
 \label{section:Metrics}
-Based
+We evaluate the implemented recovery system regarding the requirements stated in §\ref{section:Requirements}, i.e. requirements \ref{requirement:FragmentRecovery}, \ref{requirement:ParthoodRecovery}, \ref{requirement:CorrespondenceRecovery} and \ref{requirement:ConformanceRecovery} for recovery of \gls{Parthood}, \glspl{Fragment}, \gls{Correspondence} links and \gls{Conformance} links.
+
+For this, we measure the quantity of all entities of concern grouped by type, i.e. \glspl{Artifact}, files and \glspl{Fragment}:
+\begin{align*}
+\#\Artifact &:= |\{ x : \Artifact(x) \}| \\
+\#\File &:= |\{ x : \File(x) \}| \\
+\#\Fragment &:= |\{ x : \Fragment(x) \}|
+\end{align*}
+We also measure the overall amount of all relevant links grouped by type, i.e.
+\partOf, \fragmentOf, \correspondsTo~ and \conformsTo:
+\begin{align*}
+\#\partOf &:= |\{ (x,y) : \partOf(x,y) \}| \\
+\#\fragmentOf &:= |\{ (x,y) : \fragmentOf(x,y) \}| \\
+\#\correspondsTo &:= |\{ (x,y) : \correspondsTo(x,y) \}| \\
+\#\conformsTo &:= |\{ (x,y) : \conformsTo(x,y) \}| 
+\end{align*}
+
+For a more differentiated look on requirements \ref{requirement:FragmentRecovery} and \ref{requirement:ParthoodRecovery}, we measure the number of parts and \glspl{Fragment} of a specific entity:
+\begin{align*}
+\#\partOf(x) &:= |\{ y : \partOf(y,x) \}| \\
+\#\fragmentOf(x) &:= |\{ y : \fragmentOf(y,x) \}| 
+\end{align*}
+
+\resizebox{\linewidth}{!}{
+\begin{minipage}{\linewidth}
+\begin{align*}
+\#\correspondsTo(x,y) &:=
+|\{ (x',y') : \correspondsTo(x',y') \wedge \fragmentOf(x',x) \wedge \fragmentOf(y',y)  \}|
+\\
+\#\correspondsTo_L(y) &:=
+|\{ x : \correspondsTo(x,y') \wedge \fragmentOf(y',y)  \}|
+\\
+\#\correspondsTo_R(x) &:=
+|\{ y : \correspondsTo(x',y) \wedge \fragmentOf(x',x)  \}|
+\\
+\#\conformsTo(x,y) &:=
+|\{ (x',y') : \conformsTo(x',y') \wedge \fragmentOf(x',x) \wedge \fragmentOf(y',y)  \}|
+\\
+\#\conformsTo_L(y) &:=
+|\{ x : \conformsTo(x,y') \wedge \fragmentOf(y',y)  \}|
+\\
+\#\conformsTo_R(x) &:=
+|\{ y : \conformsTo(x',y) \wedge \fragmentOf(x',x)  \}|
+\end{align*}
+\end{minipage}
+}
+
+\section{Setup}
+\label{section:Setup}
+The implemented recovery system is evaluated with the \gls{Megamodel} shown in listing \ref{listing:EvaluatedMegamodel}.
+\begin{lstlisting}[
+caption={Evaluated Megamodel},
+label={listing:EvaluatedMegamodel}]
+companyJavaFile : File
+companyJavaFile = 'workspace:/org.softlang.megal.plugins/input/Company.java'
+
+companyHbmFile : File
+companyHbmFile = 'workspace:/org.softlang.megal.plugins/input/Company.hbm.xml'
+
+departmentJavaFile : File
+departmentJavaFile = 'workspace:/org.softlang.megal.plugins/input/Department.java'
+
+departmentHbmFile : File
+departmentHbmFile = 'workspace:/org.softlang.megal.plugins/input/Department.hbm.xml'
+
+employeeJavaFile : File
+employeeJavaFile = 'workspace:/org.softlang.megal.plugins/input/Employee.java'
+
+employeeHbmFile : File
+employeeHbmFile = 'workspace:/org.softlang.megal.plugins/input/Employee.hbm.xml'
+
+companiesXmlFile: File
+companiesXmlFile = 'workspace:/org.softlang.megal.plugins/input/companies.xml'
+
+companiesXsdFile: File
+companiesXsdFile = 'workspace:/org.softlang.megal.plugins/input/companies.xsd'
+
+comaniesSqlFile : File
+comaniesSqlFile = 'workspace:/org.softlang.megal.plugins/input/companies.ddl.sql'
+
+companyJavaFile correspondsTo companiesXsdFile
+companyJavaFile correspondsTo comaniesSqlFile
+companyJavaFile correspondsTo companyHbmFile
+
+departmentJavaFile correspondsTo companiesXsdFile
+departmentJavaFile correspondsTo comaniesSqlFile
+departmentJavaFile correspondsTo departmentHbmFile
+
+employeeJavaFile correspondsTo companiesXsdFile
+employeeJavaFile correspondsTo comaniesSqlFile
+employeeJavaFile correspondsTo employeeHbmFile
+
+companiesXmlFile conformsTo companiesXsdFile
+\end{lstlisting}
+We declare nine \glspl{Artifact} to be files and bind them to locations on the local file system.
+For each class of the \gls{101HRMS} model, i.e. company, department and employee, we declare a pair of entities comprising a \gls{Java} class file and a \gls{Hibernate} mapping file.
+For the \gls{101HRMS} model at whole, \glspl{Artifact} for its \gls{XML}, \gls{XSD} and \gls{SQL/DDL} representations are declared.
+Following this, we declare the expected \gls{Correspondence} and \gls{Conformance} relations among the files.
 
 \section{Results}
 \label{section:Results}
+An evaluation of the setup described in §\ref{section:Setup} with the metrics of §\ref{section:Metrics} provides the following results.
+Table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments} shows the number of all \glspl{Artifact}, files and \glspl{Fragment} in the \gls{Megamodel} after execution.
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+$\#\Artifact$ & $\#\File$ & $\#\Fragment$
+\\ \hline
+483 & 9 & 474 
+\\ \hline
+\end{tabular}
+\end{center}
+\caption{Number of recovered artifacts, files and fragments}
+\label{table:NumberOfRecoveredArtifactsFilesAndFragments}
+\end{table}
+It indicates that files and \glspl{Fragment} are disjoint as proposed by axiom \ref{axiom:Fragment} in §\ref{section:AxiomsOfLinguisticArchitectures}.
+All files and all fragments are artifacts, so their numbers sum up to the number of artifacts.
+The number of files matches the given setup, the remaining \glspl{Artifact} are \glspl{Fragment}.
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+$\#\partOf$ & $\#\fragmentOf$ & $\#\correspondsTo$ & $\#\conformsTo$
+\\ \hline
+1847 & 1837 & 234 & 81 
+\\ \hline
+\end{tabular}
+\end{center}
+\caption{Number of recovered parthood, fragment, correspondence and conformance links}
+\label{table:NumberOfRecoveredParthoodFragmentCorrespondenceAndConformanceLinks}
+\end{table}
+
+Table \ref{table:NumberOfPartsAndFragmentsPerFile} shows the number of recovered parts and \glspl{Fragment} per file. 
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+$x$ & $\#\partOf(x)$ & $\#\fragmentOf(x)$
+\\ \hline
+companyJavaFile & 9 & 9 
+\\ \hline
+companyHbmFile & 51 & 51 
+\\ \hline
+departmentJavaFile & 20 & 20 
+\\ \hline
+departmentHbmFile & 112 & 112 
+\\ \hline
+employeeJavaFile & 15 & 15 
+\\ \hline
+employeeHbmFile & 76 & 76 
+\\ \hline
+companiesXmlFile & 89 & 89 
+\\ \hline
+companiesXsdFile & 85 & 85 
+\\ \hline
+comaniesSqlFile & 17 & 17 
+\\ \hline \hline
+\textbf{Sum:} & 474 & 474 
+\\ \hline 
+\end{tabular}
+\end{center}
+\caption{Number of parts and fragments per file}
+\label{table:NumberOfPartsAndFragmentsPerFile}
+\end{table}
+It indicates that all parts of each file are indeed proper parts (see §\ref{subsection:Fragments}).
+Furthermore it indicates in conjunction with table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments} that all recovered \glspl{Fragment} are properly linked to the files their originated from.
+
+
 
 %\section{Link Proper Part Ratio}
 %The ratio between all proper parts of two artifacts and the proper parts of the same artifacts in a relationship.
