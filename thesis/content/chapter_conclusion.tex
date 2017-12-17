@@ -1,8 +1,32 @@
 \chapter{Conclusion}
 \label{chapter:Conclusion}
+We showed how \gls{StaticProgramAnalysis} can be used for trace link recovery among source code \glspl{Artifact} with trace semantics derived from an axiomatization of \glspl{LinguisticArchitecture} (see §\ref{chapter:Background}).
+For this, we designed and implemented an exemplary system capable of recovering \gls{Parthood} and \gls{Fragment} \glspl{Trace} as well as \gls{Correspondence} and \gls{Conformance} links (see §\ref{chapter:Design} and §\ref{chapter:Implementation}).
+This system was then evaluated against a minimal corpus facilitating a mini case-study (see §\ref{chapter:MiniCaseStudy}).
+
 
 \section{Future Work}
+\label{section:FutureWork}
 
 \paragraph*{Larger Corpus}
+§\ref{chapter:MiniCaseStudy} only evaluates the implemented recovery system against a minimal corpus.
+In order to provide more reliable results, future work should reevaluate the system against a larger, possibly more heterogeneous corpus.
+
 \paragraph*{Instance-Level Trace Link Recovery}
+The presented system only recovers instance-level \glspl{TraceLink} in form of \gls{XML} and \gls{XSD} \gls{Conformance} links.
+Future work should try to also recover instance-level \gls{Correspondence} links.
+However, \gls{StaticProgramAnalysis} and trace recovery as defined in §\ref{section:Traceability} may not be suitable for this task,
+Since instances are not necessarily available as persistent \glspl{Artifact} for all \glspl{Language} used, an application of \textit{trace capture} \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} may be advised.
+
 \paragraph*{Foreign Key Trace Link Recovery}
+\Gls{Correspondence} link recovery for \gls{SQL/DDL} as described in §\ref{chapter:Implementation} does not consider foreign key relations.
+Hence, recovery of \gls{Correspondence} links among \gls{SQL} and \gls{Java} \glspl{Artifact} is incomplete.
+Future work should implement this missing feature.
+
+\paragraph*{Visualization}
+The presented system only recovers \glspl{TraceLink} and persists them using the \gls{MegaL/Xtext} environment.
+Future work may include development of suitable visualization for \glspl{TraceLink} in the context of \glspl{LinguisticArchitecture}.
+
+\paragraph*{Program Comprehension}
+\Gls{Traceability} with semantics of \glspl{LinguisticArchitecture} exemplified in §\ref{section:AxiomsOfLinguisticArchitectures} may be used to support program comprehension.
+Future work should examine prospects in that direction, e.g. regarding bottom-up comprehension models \cite{DBLP:conf/wcre/Siegmund16}.
