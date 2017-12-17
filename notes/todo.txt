@@ -1,9 +1,10 @@
-- Fix correspondence/conformance error: xml-attribute to java-method is neithier, implement correspondences in the sense of strict representation of the same data!!!!
-DONE
+DONE - Fix correspondence/conformance error: xml-attribute to java-method is neithier, implement correspondences in the sense of strict representation of the same data!!!!
 
-- Fix conformance recovery impl for xml-xsd
 
-- Check Due-Date for Prüfungsamt!!!
+DONE - Fix conformance recovery impl for xml-xsd
+
+
+DONE - Check Due-Date for Prüfungsamt!!!
 Do. 21.12.2017 09:00 - 12:00 
 https://www.uni-koblenz-landau.de/de/uni/organisation/verwaltung/abteilungen/abt-3/hsp-ko
 Salome Wirtgen
@@ -15,7 +16,7 @@ ESS 129
 +49 (0)261 287-1772
 hochschulpramt at uni-koblenz.de 
 
-- Check where to print & cost
+DONE - Check where to print & cost
 Mi. 20.12.2017 09:00-18:00 
 ~80 Euro.
 Einseitig auf dickes Papier drucken.
@@ -30,12 +31,13 @@ printcenter-unikoblenz@service.ricoh.de
 
 - Write eval for mini-case-study & impl counting
 
-- Write short conclusioni + future work: larger corpus; instance-level recovery not possible, this need dynamic analysis, i.e. trace link capture!!!
-DONE
+DONE - Write short conclusioni + future work: larger corpus; instance-level recovery not possible, this need dynamic analysis, i.e. trace link capture!!!
+
 
 - Write remaining impl sections
 
-- transform code listings from figure to actual listings
+DONE - Clean code listings: from figure to actual listings
+
 
 - Clean glossary
 
