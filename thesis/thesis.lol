@@ -31,10 +31,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {lstlisting}{\numberline {4.4}MegaL/Xtext Plugin Integration}{33}{lstlisting.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {lstlisting}{\numberline {5.1}Construction of Java Fragment ASTs}{39}{lstlisting.5.1}
+\contentsline {lstlisting}{\numberline {5.1}Excerpt of the Company Java class}{35}{lstlisting.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {lstlisting}{\numberline {5.2}A Megamodel for fragments of a Java class}{39}{lstlisting.5.2}
+\contentsline {lstlisting}{\numberline {5.2}Construction of Java Fragment ASTs}{39}{lstlisting.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {lstlisting}{\numberline {5.3}A Megamodel for Java Fragment}{40}{lstlisting.5.3}
+\contentsline {lstlisting}{\numberline {5.3}A Megamodel for fragments of a Java class}{39}{lstlisting.5.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {lstlisting}{\numberline {5.4}A Megamodel for Java Fragment}{40}{lstlisting.5.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {lstlisting}{\numberline {6.1}Evaluated Megamodel}{45}{lstlisting.6.1}

@@ -9,8 +9,8 @@ This chapter summarizes the implementation of crucial parts of recovery system i
 \label{section:RecoveringFragments}
 This section summarizes the implementation of \gls{Fragment} recovery.
 \Glspl{Fragment} are syntactically well-formed pieces of code.
-For instance, consider the following \gls{Java} class:
-\begin{lstlisting}[language=Java,numbers=none]
+For instance, consider the \gls{Java} class in listing \ref{ExcerptOfTheCompanyJavaClass}.
+\begin{lstlisting}[language=Java,caption={Excerpt of the Company Java class},label={listing:ExcerptOfTheCompanyJavaClass}]
 public class Company {
 	...
 	private String name;
@@ -25,19 +25,19 @@ It consists, among others, of the following fragments:
 \begin{itemize}
 \item
 a field declaration fragment for \texttt{name}:
-\begin{lstlisting}[language=Java,numbers=none]
+\begin{lstlisting}[language=Java,numbers=none,frame=no]
 private String name;
 \end{lstlisting}
 \item
 a method declaration fragment for an accessor-method of \texttt{name}:
-\begin{lstlisting}[language=Java,numbers=none]
+\begin{lstlisting}[language=Java,numbers=none,frame=no]
 public String getName() {
 	return name;
 }
 \end{lstlisting}
 \item
 the return statement of the accessor-method:
-\begin{lstlisting}[language=Java,numbers=none]
+\begin{lstlisting}[language=Java,numbers=none,frame=no]
 return name;
 \end{lstlisting}
 \item
@@ -243,7 +243,7 @@ It contains entities denoting a class declaration, a field declaration and a met
 All are declared instances of the entity type \texttt{Fragment}.
 Entity names use dot-notation for implying \gls{Parthood}, i.e.:
 \begin{align*}
-a.b \Rightarrow b \partOf a
+a.b \Rightarrow b ~ \partOf ~ a
 \end{align*}
 Further details of naming-scheme employed for \gls{Fragment} entities are explored in §\ref{subsubsection:FragmentEntityIdentifiers}.
 
