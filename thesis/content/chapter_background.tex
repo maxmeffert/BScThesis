@@ -268,7 +268,7 @@ e \in s.
 \end{description}
 
 
-The axiomatization of \gls{Conformance} from \cite{HeinzLV17} is also slightly altered with emphasis of irreflexive proper \gls{Parthood}, Otherwise it would not work with axiom \ref{axiom:PartOf}.
+The axiomatization of \gls{Conformance} from \cite{HeinzLV17} is also slightly altered with emphasis of irreflexive proper \gls{Parthood}, otherwise it would not work with axiom \ref{axiom:PartOf}.
 \begin{axiom}[\conformsTo]
 \label{axiom:ConformsTo}
 ~\newline
@@ -401,8 +401,8 @@ This section provides background on key \glspl{Technology} used by this thesis.
 \gls{MegaL/Xtext} \cite{LukasHaertelBScThesis} \cite{HaertelHHLV17} is the integration of \gls{MegaL} into the eclipse \gls{IDE} based on Xtext\footnote{\url{http://www.eclipse.org/Xtext/}(Retrieved \formatdate{12}{12}{2017})} developed by the same team.
 
 \Gls{MegaL} provides a textual notation for typed \glspl{ERModel}, i.e. each entity and each relation is strictly typed.
-This is exemplified by the following listing showing a simple \gls{Megamodel} for citation of scientific papers:
-\begin{lstlisting}[numbers=none]
+This is exemplified by listing \ref{listing:AMegamodelForCitation} showing a simple \gls{Megamodel} for citation of scientific papers.
+\begin{lstlisting}[caption={A Megamodel for Citation},label={listing:AMegamodelForCitation}]
 Artifact < Entity
 File < Artifact
 Paper < File
@@ -418,8 +418,8 @@ There is a relation \texttt{cites}, denoted with a type signature, stating one p
 Eventually, there are two concrete paper entity instances \texttt{paper1} and \texttt{paper2}, where the former cites the latter instance.
 
 \Gls{MegaL/Xtext} provides means for applying additional functionality or semantics to \glspl{Megamodel}, e.g. for reasoning or validation on the induced entity graph.
-For this, \gls{MegaL/Xtext} implements a plug-in system, which is exemplified in the following listings:
-\begin{lstlisting}[numbers=none]
+For this, \gls{MegaL/Xtext} implements a plug-in system, which is exemplified with the following listings \ref{listing:MegalXtextPluginIntegration}, \ref{listing:MegaLXtextGuidedReasonerPluginBaseClass} and \ref{listing:MegaLXtextGuidedReasonerPluginDerivedClass}.
+\begin{lstlisting}[caption={MegaL/Xtext Plugin Integration},label={listing:MegalXtextPluginIntegration}]
 MyType < Entity
 
 @Plugin 'MyRelationPlugin'
@@ -428,7 +428,7 @@ myRelation < MyType * MyType
 MyRelationPlugin : Plugin
 MyRelationPlugin = 'classpath:org.softlang.megal.MyRelationPlugin'
 \end{lstlisting}
-\begin{lstlisting}[language=Java,numbers=none]
+\begin{lstlisting}[language=Java,caption={MegaL/Xtext GuidedReasonerPlugin base class},label={listing:MegaLXtextGuidedReasonerPluginBaseClass}]
 public abstract class GuidedReasonerPlugin extends InjectedReasonerPlugin {
 	...
 	protected void guidedDerive(EntityType entityType) throws Throwable {}
@@ -437,7 +437,7 @@ public abstract class GuidedReasonerPlugin extends InjectedReasonerPlugin {
 	protected void guidedDerive(Relationship relationship) throws Throwable {}
 }
 \end{lstlisting}
-\begin{lstlisting}[language=Java,numbers=none]
+\begin{lstlisting}[language=Java,caption={MegaL/Xtext GuidedReasonerPlugin derived class},label={listing:MegaLXtextGuidedReasonerPluginDerivedClass}]
 public class MyRelationPlugin extends GuidedReasonerPlugin {
 	protected void guidedDerive(Relationship relationship) throws Throwable {
 		...
@@ -463,7 +463,9 @@ Figure \ref{figure:JAXBDataBindingProcess} shows the \gls{O/X-Mapping} facilitat
 {
 \scriptsize
 \begin{center}
-\url{https://docs.oracle.com/javase/tutorial/figures/jaxb/jaxb-dataBindingProcess.gif}\\(retrieved \formatdate{11}{12}{2017})
+This image is taken from:\\
+\url{https://docs.oracle.com/javase/tutorial/figures/jaxb/jaxb-dataBindingProcess.gif}\\
+(retrieved \formatdate{11}{12}{2017})
 \end{center}
 }
 \caption{Steps in the JAXB Binding Process \cite{jaxbDataBindingProcess}}
@@ -473,8 +475,8 @@ The mapping of classes to schemas is called \textit{binding}, whereas the mappin
 
 Binding and marshaling is defined through \gls{Java} annotations.
 For instance, class and field declarations can be annotated to specify marshaling into specific syntactic \gls{XML} elements, i.e. element tags or attributes.
-This is exemplified by the following listing:
-\begin{lstlisting}[language=Java,numbers=none]
+This is exemplified by listing \ref{listing:AJAXBAnnotatedClass}:
+\begin{lstlisting}[language=Java,caption={A JAXB annotated class},label={listing:AJAXBAnnotatedClass}]
 @XmlRootElement(name="employee")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
@@ -484,7 +486,7 @@ public class Employee {
 \end{lstlisting}
 Annotations can define binding in more detail than shown above, e.g. it is possible to explicitly provide names and types of \gls{XML} elements.
 Marshaling itself is triggered using reflection and the \texttt{JAXBContext} class:
-\begin{lstlisting}[language=Java,numbers=none]
+\begin{lstlisting}[language=Java,caption={JAXB marshaling in Java},label={listing:JAXBMarshalingInJava}]
 JAXBContext context = JAXBContext.newInstance(Employee.class);
 context.createMarshaller().marshal(jaxbElement, writer);
 \end{lstlisting}
@@ -497,14 +499,14 @@ Using \gls{Hibernate}, one can define mappings from \gls{Java} classes and their
 This allows the underlying framework to generate \gls{SQL} code for communicating with a relational database system in order to provide means for CRUD operations.
 
 Mappings can be defined using \gls{JPA} annotations or, traditionally, using \gls{XML} files, i.e. for each \gls{Java} class file \texttt{MyEntity.java} representing a data entity exists a mapping file \texttt{MyEntity.hbm.xml} describing the relational mapping.
-This is exemplified by the following two listings:
-\begin{lstlisting}[language=Java,numbers=none]
+This is exemplified by the following two listings \ref{listing:ExcerptOfTheEmployeeJavaClass} and \ref{listing:ExcerptOfTheEmployeeHibernateMappingFile}:
+\begin{lstlisting}[language=Java,caption={Excerpt of the Employee Java class},label={listing:ExcerptOfTheEmployeeJavaClass}]
 public class Employee {
 	private int id;
 	...
 }
 \end{lstlisting}
-\begin{lstlisting}[language=Xml,numbers=none]
+\begin{lstlisting}[language=Xml,caption={Excerpt of the Employee Hibernate mapping file},label={listing:ExcerptOfTheEmployeeHibernateMappingFile}]
 <class name="Employee" table="EMPLOYEES">
 	<id name="id" column="EMPLOYEE_ID">
 	    ...
@@ -519,8 +521,8 @@ Here, the \texttt{Employee} class is mapped to the \texttt{EMPLOYEE} table its \
 \label{subsection:ANTLR}
 \Gls{ANTLR} \cite{Parr:2013:DAR:2501720} is a technology providing means for processing structured text using parsing.
 It is available for \gls{Java}, C\#, JavaScript, Python and many other platforms \cite{antlr.org}, i.e. \Gls{ANTLR} can generate $LL(*)$ parsers for context-free languages in the target platform's language.
-Parsers are generated from an EBNF-like grammar notation, e.g. the following "hello world"-grammar taken from \cite{ANTLRv4GettingStarted}:
-\begin{lstlisting}[numbers=none]
+Parsers are generated from an EBNF-like grammar notation, e.g. the following "hello"-grammar in listing \ref{listing:TheHelloANTLRGrammar} taken from \cite{ANTLRv4GettingStarted}:
+\begin{lstlisting}[caption={The Hello ANTLR grammar},label={listing:TheHelloANTLRGrammar}]
 grammar Hello;
 hello  : 'hello' ID ;     // match keyword hello followed by an identifier
 ID : [a-z]+ ;             // match lower-case identifiers
@@ -531,8 +533,9 @@ WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 Tree traversal in order to transform \glspl{ParseTree} to \glspl{AST} can be either done traditionally using the \gls{VisitorPattern} or using the combination of \gls{ANTLR} \gls{ParseTree} walkers and walker listeners, a variation of the \gls{ObserverPattern}.
 
 Listener interfaces are generated during parser generation.
-All listeners implement the \texttt{ParseTreeListener} interface provided by the \gls{ANTLR} runtime library:
-\begin{lstlisting}[language=Java,numbers=none]
+All listeners implement the \texttt{ParseTreeListener} interface provided by the \gls{ANTLR} runtime.
+The interface is shown in \ref{listing:TheANTLRParseTreeListenerInterface}.
+\begin{lstlisting}[language=Java,caption={The ANTLR ParseTreeListener interface},label={listing:TheANTLRParseTreeListenerInterface}]
 public interface ParseTreeListener {
 	void visitTerminal(TerminalNode node);
 	void visitErrorNode(ErrorNode node);
@@ -540,8 +543,8 @@ public interface ParseTreeListener {
 	void exitEveryRule(ParserRuleContext ctx);
 }
 \end{lstlisting}
-The following listing shows generated listener interface for the grammar above:
-\begin{lstlisting}[language=Java,numbers=none]
+Listing \ref{listing:AnExtensionOftheANTLRParseTreeListenerInterface} shows the generated listener interface for the grammar above.
+\begin{lstlisting}[language=Java,caption={An extension of the ANTLR ParseTreeListener interface},label={listing:AnExtensionOftheANTLRParseTreeListenerInterface}]
 public interface HelloListener extends ParseTreeListener {
     void enterHello(HelloContext ctx);
     void exitHello(HelloContext ctx);
@@ -549,8 +552,8 @@ public interface HelloListener extends ParseTreeListener {
 \end{lstlisting}
 While traversing a \gls{ParseTree}, listeners are notified upon entering or exiting tree nodes, called "context" by \gls{ANTLR}.
 Traversal is triggered using \texttt{Parse\-Tree\-Walker} instances, which implement \gls{DFS}.
-Usage of \texttt{Parse\-Tree\-Walker} is exemplified in the following listing:
-\begin{lstlisting}[language=Java,numbers=none]
+Usage of \texttt{Parse\-Tree\-Walker} is exemplified in listing \ref{ApplicationOfTheANTLRParseTreeWalker}.
+\begin{lstlisting}[language=Java,caption={Application of the ANTLR ParseTreeWalker},label={listing:ApplicationOfTheANTLRParseTreeWalker}]
 ...
 HelloListener helloListener = ...
 ParseTreeWalker parseTreeWalker = new ParseTreeWalker();

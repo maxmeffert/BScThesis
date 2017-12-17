@@ -189,9 +189,8 @@ On the other hand, annotations are captured, since they provide significant info
 \gls{Hibernate} and \gls{JAXB} rely on annotations for \gls{O/R/X-Mapping}.
 
 The \gls{AST} is constructed using \gls{ANTLR} \texttt{ParseTreeListener} approach as described in §\ref{subsubsection:SyntaxAnalysisAPI}.
-Figure \ref{figure:JavaFragmentASTConstruction} shows an excerpt from the listener implementation used to construct the the \gls{AST} for \gls{Java} \glspl{Fragment}.
-\begin{figure}[h!]
-\begin{lstlisting}[language=Java]
+Listing \ref{listing:JavaFragmentASTConstruction} shows an excerpt from the listener implementation used to construct the the \gls{AST} for \gls{Java} \glspl{Fragment}.
+\begin{lstlisting}[language=Java,caption={Construction of Java Fragment ASTs},label={listing:JavaFragmentASTConstruction}]
 ...
 @Override
 public void exitMethodDeclaration(Java8Parser.MethodDeclarationContext ctx) {
@@ -204,13 +203,7 @@ public void exitNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext
 }
 ...
 \end{lstlisting}
-{
-\scriptsize
-This snippet shows an excerpt of the listener used to construct \gls{Java} \gls{Fragment} \glspl{AST}.
-}
-\caption{Construction of Java Fragment ASTs}
-\label{figure:JavaFragmentASTConstruction}
-\end{figure}
+This snippet in listing \ref{listing:JavaFragmentASTConstruction} shows an excerpt of the listener used to construct \gls{Java} \gls{Fragment} \glspl{AST}.
 Here, fragment instances are created when the listener leaves a certain node of the \gls{ParseTree}.
 Creation is delegated to a factory.
 The listener pushes fragments onto stacks, making the overall implementation work like a pushdown automaton or stack machine.
@@ -220,8 +213,8 @@ The listener pushes fragments onto stacks, making the overall implementation wor
 \subsection{Megamodeling Fragments}
 \label{subsection:MegamodelingFragments}
 In order to add \glspl{Fragment} into a \gls{Megamodel} a suitable linguistic model has to be declared first. 
-Consider the following instance level \gls{Megamodel} of recovered \glspl{Fragment}:
-\begin{lstlisting}[numbers=none]
+Consider the following instance level \gls{Megamodel} of recovered \glspl{Fragment} shown in listing \ref{listing:AMegamodelForFragmentsOfAJavaClass}.
+\begin{lstlisting}[caption={A Megamodel for fragments of a Java class},label={listing:AMegamodelForFragmentsOfAJavaClass}]
 File < Artifact
 Fragment < Artifact
 ...
@@ -261,9 +254,8 @@ However, the right-hand side of these relationships used to specialize \glspl{Fr
 \label{subsubsection:FragmentLanguages}
 A \gls{Fragment} alone cannot be element of the language the artifact it originated from belongs to, e.g. a \gls{Java} method alone cannot be accepted by the \gls{Java} grammar, nor can \gls{XML} attribute alone be accepted by the \gls{XML} grammar.
 Therefore, in order to cleanly add \glspl{Fragment} into a \gls{Megamodel}, we need to model \gls{Fragment} languages.
-Figure \ref{figure:JavaFragmentMegamodel} shows the \gls{Megamodel} for \gls{Java} \glspl{Fragment}.
-\begin{figure}[h!]
-\begin{lstlisting}
+Figure \ref{listing:JavaFragmentMegamodel} shows the \gls{Megamodel} for \gls{Java} \glspl{Fragment}.
+\begin{lstlisting}[caption={A Megamodel for Java Fragment},label={listing:JavaFragmentMegamodel}]
 ...
 Language < Set
 ...
@@ -284,14 +276,8 @@ JavaMethodFragments : Language
 JavaMethodFragments subsetOf JavaFragments
 ...
 \end{lstlisting}
-{
-\scriptsize
-}
-\caption{A \Gls{Megamodel} for \Gls{Java} \Glspl{Fragment}}
-\label{figure:JavaFragmentMegamodel}
-\end{figure}
 It introduces the special relationship type \texttt{fragmentLanguageOf}, denoting the left-hand side is the language containing all possible \glspl{Fragment}  the right-hand side's language elements can be deconstructed in.
-This also implies a super-set relation between the two languages as \fragmentOf is reflexive like \partOf, so:
+This also implies a super-set relation between the two languages as \fragmentOf~ is reflexive like \partOf, so:
 \begin{align*}
 A \texttt{~fragmentLanguageOf~} B \Rightarrow B \subseteq A
 \end{align*}
