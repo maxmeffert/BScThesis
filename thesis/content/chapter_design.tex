@@ -288,8 +288,8 @@ This is to provide a single access point for all implemented analysis features.
 \section{Megal/Xtext Integration Design}
 \label{section:MegalXtextIntegrationDesign}
 This section summarizes the design of the recovery system's integration in the \gls{MegaL/Xtext} environment.
-Figure \ref{figure:MegalXtextIntegrationDesign} shows a block diagram depicting the outline this integration.
-Note, the Recovery System is implemented as separate project, which is then included as reference (through a \texttt{.jar} file) in a \gls{MegaL/Xtext} project.
+Figure \ref{figure:MegalXtextIntegrationDesign} shows a block diagram depicting the outline of this integration.
+Note, the recovery system is implemented as separate project, which is then included as reference (through a \texttt{.jar} file) in a \gls{MegaL/Xtext} project.
 
 \begin{figure}[h!]
 \begin{center}
@@ -303,10 +303,9 @@ This block diagram depicts the functional outline of the Recovery System's integ
 \label{figure:MegalXtextIntegrationDesign}
 \end{figure}
 
-\gls{MegaL/Xtext} provides a plug-in system, which allows to bind special \gls{Java} classes to \texttt{Plugin} entities.
+\gls{MegaL/Xtext} provides a plug-in system, which allows to bind special \gls{Java} classes to \texttt{Plugin} entities (see §\ref{subsection:MegaLXText}).
 Code of such classes is then executed during the evaluation of a \gls{Megamodel}.
-\ToDo{needs reference}
-listing \ref{listing:MegaLPluginInstantiation} exemplifies the declaration of Plug-in withing \gls{MegaL}.
+Listing \ref{listing:MegaLPluginInstantiation} exemplifies the declaration of Plug-in within \gls{MegaL}.
 \begin{lstlisting}[caption={MegaL/Xtext Plugin Integration},label={listing:MegaLPluginInstantiation}]
 ...
 JavaFragmentRecoveryPlugin : Plugin
