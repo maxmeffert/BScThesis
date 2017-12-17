@@ -21,38 +21,47 @@
 #(_ partOf companyJavaFile)          : 9
 #(_ fragmentOf companyJavaFile)      : 9
 #(_ correspondsTo companyJavaFile._) : 12
+#(_ conformsTo companyJavaFile._)    : 0
 
 #(_ partOf companyHbmFile)           : 51
 #(_ fragmentOf companyHbmFile)       : 51
 #(_ correspondsTo companyHbmFile._) : 12
+#(_ conformsTo companyHbmFile._)    : 0
 
 #(_ partOf departmentJavaFile)       : 20
 #(_ fragmentOf departmentJavaFile)   : 20
 #(_ correspondsTo departmentJavaFile._) : 15
+#(_ conformsTo departmentJavaFile._)    : 0
 
 #(_ partOf departmentHbmFile)        : 112
 #(_ fragmentOf departmentHbmFile)    : 112
 #(_ correspondsTo departmentHbmFile._) : 14
+#(_ conformsTo departmentHbmFile._)    : 0
 
 #(_ partOf employeeJavaFile)         : 15
 #(_ fragmentOf employeeJavaFile)     : 15
 #(_ correspondsTo employeeJavaFile._) : 17
+#(_ conformsTo employeeJavaFile._)    : 0
 
 #(_ partOf employeeHbmFile)          : 76
 #(_ fragmentOf employeeHbmFile)      : 76
 #(_ correspondsTo employeeHbmFile._) : 16
+#(_ conformsTo employeeHbmFile._)    : 0
 
 #(_ partOf companiesXmlFile)         : 89
 #(_ fragmentOf companiesXmlFile)     : 89
 #(_ correspondsTo companiesXmlFile._) : 0
+#(_ conformsTo companiesXmlFile._)    : 0
 
 #(_ partOf companiesXsdFile)         : 85
 #(_ fragmentOf companiesXsdFile)     : 85
 #(_ correspondsTo companiesXsdFile._) : 47
+#(_ conformsTo companiesXsdFile._)    : 67
 
 #(_ partOf comaniesSqlFile)          : 17
 #(_ fragmentOf comaniesSqlFile)      : 17
 #(_ correspondsTo comaniesSqlFile._) : 36
+#(_ conformsTo comaniesSqlFile._)    : 0
 
 #(companyJavaFile._ correspondsTo companiesXsdFile._)      : 5
 #(companyJavaFile._ correspondsTo comaniesSqlFile._)       : 3

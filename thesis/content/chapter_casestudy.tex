@@ -7,7 +7,7 @@ This chapter provides a mini case-study evaluating the developed recovery system
 
 \section{Corpus}
 \label{section:ExampleCorpus}
-The example corpus used to develop the recovery system for this thesis consists of artifacts implementing a fictional \gls{HRMS} within an \gls{O/R/X-Mapping} scenario using \gls{Java} technologies.
+The example corpus used to evaluate the recovery system for this thesis consists of artifacts implementing a fictional \gls{HRMS} within an \gls{O/R/X-Mapping} scenario using \gls{Java} technologies.
 The model is provided by the 101wiki\footnote{\url{https://101wiki.softlang.org/} (retrieved \formatdate{12}{11}{2017})}, where it is used for contributions.
 It is implemented using plain \Gls{Java} and then mapped to plain \gls{XML}/\gls{XSD} with \gls{JAXB} and to \gls{SQL/DDL} statements using \gls{Hibernate} mapping files and/or annotations.
 
@@ -38,7 +38,7 @@ Each employee is attributed with a name, an age and a salary.
 Each entity is also attributed with an ID.
 
 \subsection{Linguistic Domains of the Example Corpus}
-The example corpus used to develop the recovery system contains artifacts implementing the \gls{101HRMS} model generated or used by \gls{Java} technologies for \gls{O/R/X-Mapping}, i.e. a \gls{Java} model is mapped to plain \gls{XML}/\gls{XSD} with \gls{JAXB}, to a \gls{Hibernate} mapping file and to \gls{SQL}/\gls{DDL} statements.
+The example corpus used to evaluate the recovery system contains artifacts implementing the \gls{101HRMS} model generated or used by \gls{Java} technologies for \gls{O/R/X-Mapping}, i.e. a \gls{Java} model is mapped to plain \gls{XML}/\gls{XSD} with \gls{JAXB}, to a \gls{Hibernate} mapping file and to \gls{SQL}/\gls{DDL} statements.
 Figure \ref{figure:ExampleCorpusJORXDomains} shows a schematic illustration of the linguistic domains involved:
 \begin{description}
 
@@ -79,60 +79,11 @@ This is due to their linguistic nature, e.g. \gls{JAXB} produces specific \Gls{J
 It uses \gls{XML} files or \gls{Java}-Annotations for describing \gls{O/R-Mapping} of a data-model and generates \gls{SQL} artifacts according to that mapping.
 In this sense, technologies create technology-specific subsets of a languages.
 
-\section{Metrics}
-\label{section:Metrics}
-We evaluate the implemented recovery system regarding the requirements stated in §\ref{section:Requirements}, i.e. requirements \ref{requirement:FragmentRecovery}, \ref{requirement:ParthoodRecovery}, \ref{requirement:CorrespondenceRecovery} and \ref{requirement:ConformanceRecovery} for recovery of \gls{Parthood}, \glspl{Fragment}, \gls{Correspondence} links and \gls{Conformance} links.
-
-For this, we measure the quantity of all entities of concern grouped by type, i.e. \glspl{Artifact}, files and \glspl{Fragment}:
-\begin{align*}
-\#\Artifact &:= |\{ x : \Artifact(x) \}| \\
-\#\File &:= |\{ x : \File(x) \}| \\
-\#\Fragment &:= |\{ x : \Fragment(x) \}|
-\end{align*}
-We also measure the overall amount of all relevant links grouped by type, i.e.
-\partOf, \fragmentOf, \correspondsTo~ and \conformsTo:
-\begin{align*}
-\#\partOf &:= |\{ (x,y) : \partOf(x,y) \}| \\
-\#\fragmentOf &:= |\{ (x,y) : \fragmentOf(x,y) \}| \\
-\#\correspondsTo &:= |\{ (x,y) : \correspondsTo(x,y) \}| \\
-\#\conformsTo &:= |\{ (x,y) : \conformsTo(x,y) \}| 
-\end{align*}
-
-For a more differentiated look on requirements \ref{requirement:FragmentRecovery} and \ref{requirement:ParthoodRecovery}, we measure the number of parts and \glspl{Fragment} of a specific entity:
-\begin{align*}
-\#\partOf(x) &:= |\{ y : \partOf(y,x) \}| \\
-\#\fragmentOf(x) &:= |\{ y : \fragmentOf(y,x) \}| 
-\end{align*}
-
-\resizebox{\linewidth}{!}{
-\begin{minipage}{\linewidth}
-\begin{align*}
-\#\correspondsTo(x,y) &:=
-|\{ (x',y') : \correspondsTo(x',y') \wedge \fragmentOf(x',x) \wedge \fragmentOf(y',y)  \}|
-\\
-\#\correspondsTo_L(y) &:=
-|\{ x : \correspondsTo(x,y') \wedge \fragmentOf(y',y)  \}|
-\\
-\#\correspondsTo_R(x) &:=
-|\{ y : \correspondsTo(x',y) \wedge \fragmentOf(x',x)  \}|
-\\
-\#\conformsTo(x,y) &:=
-|\{ (x',y') : \conformsTo(x',y') \wedge \fragmentOf(x',x) \wedge \fragmentOf(y',y)  \}|
-\\
-\#\conformsTo_L(y) &:=
-|\{ x : \conformsTo(x,y') \wedge \fragmentOf(y',y)  \}|
-\\
-\#\conformsTo_R(x) &:=
-|\{ y : \conformsTo(x',y) \wedge \fragmentOf(x',x)  \}|
-\end{align*}
-\end{minipage}
-}
-
 \section{Setup}
 \label{section:Setup}
 The implemented recovery system is evaluated with the \gls{Megamodel} shown in listing \ref{listing:EvaluatedMegamodel}.
 \begin{lstlisting}[
-caption={Evaluated Megamodel},
+caption={Megamodel Setup},
 label={listing:EvaluatedMegamodel}]
 companyJavaFile : File
 companyJavaFile = 'workspace:/org.softlang.megal.plugins/input/Company.java'
@@ -180,6 +131,42 @@ For each class of the \gls{101HRMS} model, i.e. company, department and employee
 For the \gls{101HRMS} model at whole, \glspl{Artifact} for its \gls{XML}, \gls{XSD} and \gls{SQL/DDL} representations are declared.
 Following this, we declare the expected \gls{Correspondence} and \gls{Conformance} relations among the files.
 
+\section{Metrics}
+\label{section:Metrics}
+We evaluate the implemented recovery system regarding the requirements stated in §\ref{section:Requirements}, i.e. requirements \ref{requirement:FragmentRecovery}, \ref{requirement:ParthoodRecovery}, \ref{requirement:CorrespondenceRecovery} and \ref{requirement:ConformanceRecovery} for recovery of \gls{Parthood}, \glspl{Fragment}, \gls{Correspondence} links and \gls{Conformance} links.
+
+For this, we measure the quantity of all entities of concern grouped by type, i.e. \glspl{Artifact}, files and \glspl{Fragment}:
+\begin{align*}
+\#\Artifact &:= |\{ x : \Artifact(x) \}| \\
+\#\File &:= |\{ x : \File(x) \}| \\
+\#\Fragment &:= |\{ x : \Fragment(x) \}|
+\end{align*}
+We also measure the overall amount of all relevant links grouped by type, i.e.
+\partOf, \fragmentOf, \correspondsTo~ and \conformsTo:
+\begin{align*}
+\#\partOf &:= |\{ (x,y) : \partOf(x,y) \}| \\
+\#\fragmentOf &:= |\{ (x,y) : \fragmentOf(x,y) \}| \\
+\#\correspondsTo &:= |\{ (x,y) : \correspondsTo(x,y) \}| \\
+\#\conformsTo &:= |\{ (x,y) : \conformsTo(x,y) \}| 
+\end{align*}
+
+For a more differentiated look on requirements \ref{requirement:FragmentRecovery} and \ref{requirement:ParthoodRecovery}, we measure the number of parts and \glspl{Fragment} of a specific entity:
+\begin{align*}
+\#\partOf(x) &:= |\{ y : \partOf(y,x) \}| \\
+\#\fragmentOf(x) &:= |\{ y : \fragmentOf(y,x) \}| 
+\end{align*}
+
+For requirements \ref{requirement:CorrespondenceRecovery} and \ref{requirement:ConformanceRecovery}, i.e. \gls{Correspondence} and \gls{Conformance} recovery, we devise a similar measurement.
+However, we do not count the number of entities corresponding or conforming to a given other entity.
+We rather count entities corresponding or conforming to \glspl{Fragment} of the given entity.
+\begin{align*}
+\#\correspondsTo(y) &:=
+|\{ x : \correspondsTo(x,y') \wedge \fragmentOf(y',y)  \}|
+\\
+\#\conformsTo(y) &:=
+|\{ x : \conformsTo(x,y') \wedge \fragmentOf(y',y)  \}|
+\end{align*}
+
 \section{Results}
 \label{section:Results}
 An evaluation of the setup described in §\ref{section:Setup} with the metrics of §\ref{section:Metrics} provides the following results.
@@ -201,6 +188,7 @@ It indicates that files and \glspl{Fragment} are disjoint as proposed by axiom \
 All files and all fragments are artifacts, so their numbers sum up to the number of artifacts.
 The number of files matches the given setup, the remaining \glspl{Artifact} are \glspl{Fragment}.
 
+Table \ref{table:NumberOfRecoveredParthoodFragmentCorrespondenceAndConformanceLinks} shows the number of recovered \glspl{TraceLink} for \gls{Parthood}, \gls{Fragment}, \gls{Correspondence} and \gls{Conformance} relations.
 \begin{table}[h!]
 \begin{center}
 \begin{tabular}{|l|l|l|l|}
@@ -214,6 +202,18 @@ $\#\partOf$ & $\#\fragmentOf$ & $\#\correspondsTo$ & $\#\conformsTo$
 \caption{Number of recovered parthood, fragment, correspondence and conformance links}
 \label{table:NumberOfRecoveredParthoodFragmentCorrespondenceAndConformanceLinks}
 \end{table}
+The numbers for \partOf- and \fragmentOf- relationships do not match.
+This can be explained with the usage of \partOf~ to configure plug-ins by \gls{MegaL/Xtext} \cite{LukasHaertelBScThesis}.
+Moreover, the numbers for \gls{Parthood} and \gls{Fragment} links are relatively large compared to the overall number of \glspl{Artifact} in table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments}.
+This may be due to the simplicity of the metric.
+It simply counts all unique pairs.
+\Gls{Parthood} and \gls{Fragment} links are transitive, which leads to this accumulation.
+
+On the other hand, the number of recovered \gls{Correspondence} and \gls{Conformance} links are relatively small compared to the number of \Gls{Parthood} and \gls{Fragment} links.
+This can be explained by the nature of the recovery method in conjunction with the setup.
+\gls{Java} classes and the majority of classical object-oriented programming languages group behavior and structure.
+A class may contain field- and method-\glspl{Fragment}, which are also recovered.
+However, only the former may be linked through \gls{Correspondence} and \gls{Conformance} within the given setup.
 
 Table \ref{table:NumberOfPartsAndFragmentsPerFile} shows the number of recovered parts and \glspl{Fragment} per file. 
 \begin{table}[h!]
@@ -248,13 +248,43 @@ comaniesSqlFile & 17 & 17
 \label{table:NumberOfPartsAndFragmentsPerFile}
 \end{table}
 It indicates that all parts of each file are indeed proper parts (see §\ref{subsection:Fragments}).
-Furthermore it indicates in conjunction with table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments} that all recovered \glspl{Fragment} are properly linked to the files their originated from.
+Furthermore it indicates in conjunction with table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments} that all recovered \glspl{Fragment} are properly linked to the files their originated from, since sum of all recovered \glspl{Fragment} per file matches the number of all recovered \glspl{Fragment}.
 
-
-
-%\section{Link Proper Part Ratio}
-%The ratio between all proper parts of two artifacts and the proper parts of the same artifacts in a relationship.
-%
-%\begin{align*}
-%\pi_{R,A_1,A_2} = \frac{|\{ (p_1,p_2) \in R : p_1 \properPartOf A_1 \wedge p_2 \properPartOf A_2 \}|}{|\{ p : p \properPartOf A_1 \vee p \properPartOf A_2\}|}
-%\end{align*}
+Table \ref{table:NumberOfEntitiesCorrespondingOrConformingToFragmentsOfAFile} shows the number of entities corresponding of conforming to \glspl{Fragment} of a file.
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+$x$ & $\#\correspondsTo(x)$ & $\#\conformsTo(x)$
+\\ \hline
+companyJavaFile & 12 & 0 
+\\ \hline
+companyHbmFile & 12 & 0 
+\\ \hline
+departmentJavaFile & 15 & 0 
+\\ \hline
+departmentHbmFile & 14 & 0 
+\\ \hline
+employeeJavaFile & 17 & 0 
+\\ \hline
+employeeHbmFile & 16 & 0 
+\\ \hline
+companiesXmlFile & 0 & 0 
+\\ \hline
+companiesXsdFile & 47 & 67 
+\\ \hline
+comaniesSqlFile & 36 & 0 
+\\ \hline \hline
+\textbf{Sum:} & 169 & 67 
+\\ \hline 
+\end{tabular}
+\end{center}
+\caption{Number of entities corresponding or conforming to fragments of a file}
+\label{table:NumberOfEntitiesCorrespondingOrConformingToFragmentsOfAFile}
+\end{table}
+It indicates that \gls{Correspondence} does not occur between model- and instance-level \glspl{Artifact}.
+This satisfies the definition of \gls{Correspondence}, denoting two \glspl{Artifact} represent the same data (see §\ref{subsection:Correspondence}), which should not occur between different levels of abstraction.
+Regarding \gls{Conformance}, the table indicates, that it only occurs towards \gls{XSD} files.
+This is also in accordance with its definition, given within the setup \gls{XSD} is the only specification \gls{Language} for other \glspl{Artifact} present.
+However, the sum of corresponding and conforming entities is significantly lower than the overall number of recovered \glspl{Fragment}.
+This may indicate recovery of unnecessary \glspl{Fragment}, e.g. \glspl{Java} method \glspl{Fragment}, or insufficiency of \gls{Correspondence} and \gls{Conformance} recovery.

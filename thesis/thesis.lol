@@ -39,4 +39,4 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {lstlisting}{\numberline {5.4}A Megamodel for Java Fragment}{40}{lstlisting.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {lstlisting}{\numberline {6.1}Evaluated Megamodel}{45}{lstlisting.6.1}
+\contentsline {lstlisting}{\numberline {6.1}Megamodel Setup}{44}{lstlisting.6.1}
