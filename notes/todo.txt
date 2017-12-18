@@ -33,7 +33,7 @@ DONE - Write eval for mini-case-study & impl counting
 
 DONE - Write short conclusioni + future work: larger corpus; instance-level recovery not possible, this need dynamic analysis, i.e. trace link capture!!!
 
-- Write abstract
+DONE - Write abstract
 
 - Write 1 remaining impl section
 
