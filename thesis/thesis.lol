@@ -48,3 +48,5 @@
 \contentsline {lstlisting}{\numberline {5.8}Actual Recovery of Parthood Links}{42}{lstlisting.5.8}
 \defcounter {refsection}{0}\relax 
 \contentsline {lstlisting}{\numberline {6.1}Megamodel Setup}{45}{lstlisting.6.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {lstlisting}{\numberline {6.2}Recovered Correspondences}{50}{lstlisting.6.2}

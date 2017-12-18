@@ -88,4 +88,22 @@ public class Metrics {
 				.count();
 	}
 	
+	public static long getRelationshipLeftMemberCount(KB kb, String relationship) {
+		return kb.getRelationships().stream()
+				.filter(r -> r.getTypeName().equals(relationship))
+				.map(r -> r.getLeft())
+				.distinct()
+				.count();
+	}
+	
+	public static long getRelationshipRightMemberCount(KB kb, String relationship) {
+		return kb.getRelationships().stream()
+				.filter(r -> r.getTypeName().equals(relationship))
+				.map(r -> r.getRight())
+				.distinct()
+				.count();
+	}
+	
+	
+	
 }

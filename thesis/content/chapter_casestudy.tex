@@ -167,6 +167,12 @@ We rather count entities corresponding or conforming to \glspl{Fragment} of the 
 |\{ x : \conformsTo(x,y') \wedge \fragmentOf(y',y)  \}|
 \end{align*}
 
+Eventually, we are interested in the number of unique elements per relationship, distinguishing left hand side (LHS) from right hand side (RHS) entities: 
+\begin{align*}
+\#LHS(R) &:= |\{ x : R(x,y) \}| \\
+\#RHS(R) &:= |\{ y : R(x,y) \}| 
+\end{align*}
+
 \section{Results}
 \label{section:Results}
 An evaluation of the setup described in §\ref{section:Setup} with the metrics of §\ref{section:Metrics} provides the following results.
@@ -185,8 +191,8 @@ $\#\Artifact$ & $\#\File$ & $\#\Fragment$
 \label{table:NumberOfRecoveredArtifactsFilesAndFragments}
 \end{table}
 It indicates that files and \glspl{Fragment} are disjoint as proposed by axiom \ref{axiom:Fragment} in §\ref{section:AxiomsOfLinguisticArchitectures}.
-All files and all fragments are artifacts, so their numbers sum up to the number of artifacts.
-The number of files matches the given setup, the remaining \glspl{Artifact} are \glspl{Fragment}.
+All files and all fragments are artifacts, so their numbers sum up to the number of artifacts: $\#\Artifact = \#\File + \#\Fragment$.
+The number of files matches the given setup (see §\ref{section:Setup}); the remaining \glspl{Artifact} are \glspl{Fragment}.
 
 Table \ref{table:NumberOfRecoveredParthoodFragmentCorrespondenceAndConformanceLinks} shows the number of recovered \glspl{TraceLink} for \gls{Parthood}, \gls{Fragment}, \gls{Correspondence} and \gls{Conformance} relations.
 \begin{table}[h!]
@@ -195,7 +201,7 @@ Table \ref{table:NumberOfRecoveredParthoodFragmentCorrespondenceAndConformanceLi
 \hline
 $\#\partOf$ & $\#\fragmentOf$ & $\#\correspondsTo$ & $\#\conformsTo$
 \\ \hline
-1847 & 1837 & 234 & 81 
+1847 & 1837 & 106 & 81 
 \\ \hline
 \end{tabular}
 \end{center}
@@ -247,7 +253,7 @@ comaniesSqlFile & 17 & 17
 \caption{Number of parts and fragments per file}
 \label{table:NumberOfPartsAndFragmentsPerFile}
 \end{table}
-It indicates that all parts of each file are indeed proper parts (see §\ref{subsection:Fragments}).
+The overall equivalence $\#\partOf(x) = \#\fragmentOf(x)$ for all files indicates that all parts of each file are indeed proper parts (see §\ref{subsection:Fragments}).
 Furthermore it indicates in conjunction with table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments} that all recovered \glspl{Fragment} are properly linked to the files their originated from, since sum of all recovered \glspl{Fragment} per file matches the number of all recovered \glspl{Fragment}.
 
 Table \ref{table:NumberOfEntitiesCorrespondingOrConformingToFragmentsOfAFile} shows the number of entities corresponding of conforming to \glspl{Fragment} of a file.
@@ -259,32 +265,74 @@ $x$ & $\#\correspondsTo(x)$ & $\#\conformsTo(x)$
 \\ \hline
 companyJavaFile & 12 & 0 
 \\ \hline
-companyHbmFile & 12 & 0 
+companyHbmFile & 4 & 0 
 \\ \hline
 departmentJavaFile & 15 & 0 
 \\ \hline
-departmentHbmFile & 14 & 0 
+departmentHbmFile & 5 & 0 
 \\ \hline
 employeeJavaFile & 17 & 0 
 \\ \hline
-employeeHbmFile & 16 & 0 
+employeeHbmFile & 5 & 0 
 \\ \hline
 companiesXmlFile & 0 & 0 
 \\ \hline
-companiesXsdFile & 47 & 67 
+companiesXsdFile & 16 & 67 
 \\ \hline
-comaniesSqlFile & 36 & 0 
-\\ \hline \hline
-\textbf{Sum:} & 169 & 67 
+comaniesSqlFile & 11 & 0 
 \\ \hline 
 \end{tabular}
 \end{center}
 \caption{Number of entities corresponding or conforming to fragments of a file}
 \label{table:NumberOfEntitiesCorrespondingOrConformingToFragmentsOfAFile}
 \end{table}
-It indicates that \gls{Correspondence} does not occur between model- and instance-level \glspl{Artifact}.
+For instance the twelve entities corresponding to a fragment of companyJavaFile are shown in listing \ref{listing:RecoveredCorrespondences}, which shows that all \gls{Java} fields are linked to corresponding \gls{XSD} attribute declarations, \gls{Hibernate} mapping declarations or \gls{SQL/DDL} column declarations, except for fields implying a foreign key relationship.
+\begin{lstlisting}[caption={Recovered Correspondences},label={listing:RecoveredCorrespondences}]
+comaniesSqlFile.F3$Company correspondsTo companyJavaFile.Company
+comaniesSqlFile.F3$Company.F0$name correspondsTo companyJavaFile.Company.F5$name
+comaniesSqlFile.F3$Company.F1$id correspondsTo companyJavaFile.Company.F6$id
+
+companiesXsdFile.F0$xs:schema.F2$xs:element correspondsTo companyJavaFile.Company
+companiesXsdFile.F0$xs:schema.F5$xs:complexType correspondsTo companyJavaFile.Company
+companiesXsdFile.F0$xs:schema.F5$xs:complexType.F2$xs:attribute correspondsTo companyJavaFile.Company.F6$id
+companiesXsdFile.F0$xs:schema.F5$xs:complexType.F3$xs:attribute correspondsTo companyJavaFile.Company.F5$name
+companiesXsdFile.F0$xs:schema.F5$xs:complexType.F1$xs:sequence.F0$xs:element correspondsTo companyJavaFile.Company.F4$departments
+
+companyHbmFile.F0$hibernate-mapping.F4$class correspondsTo companyJavaFile.Company
+companyHbmFile.F0$hibernate-mapping.F4$class.F10$property correspondsTo companyJavaFile.Company.F5$name
+companyHbmFile.F0$hibernate-mapping.F4$class.F8$id correspondsTo companyJavaFile.Company.F6$id
+companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag correspondsTo companyJavaFile.Company.F4$departments
+\end{lstlisting}
+
+$\#\correspondsTo(\text{companiesXmlFile}) = 0$ indicates that \gls{Correspondence} does not occur between model- and instance-level \glspl{Artifact}.
 This satisfies the definition of \gls{Correspondence}, denoting two \glspl{Artifact} represent the same data (see §\ref{subsection:Correspondence}), which should not occur between different levels of abstraction.
-Regarding \gls{Conformance}, the table indicates, that it only occurs towards \gls{XSD} files.
-This is also in accordance with its definition, given within the setup \gls{XSD} is the only specification \gls{Language} for other \glspl{Artifact} present.
-However, the sum of corresponding and conforming entities is significantly lower than the overall number of recovered \glspl{Fragment}.
-This may indicate recovery of unnecessary \glspl{Fragment}, e.g. \glspl{Java} method \glspl{Fragment}, or insufficiency of \gls{Correspondence} and \gls{Conformance} recovery.
+
+Regarding \gls{Conformance}, the table indicates, that it only occurs towards \gls{XSD} files, since $\#\conformsTo(x)$ is zero for all files except companiesXsdFile.
+This is in accordance with the definition of \gls{Conformance}, given within the setup \gls{XSD} is the only specification \gls{Language} for the other \glspl{Artifact} present.
+
+Table \ref{table:NumberOfUniqueEntitiesPerRelationship} shows the number of unique entities per relationship.
+We distinguish left hand side (LHS) from right hand side (RHS) entities.
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+$R$ & $\#LHS(R)$ & $\#RHS(R)$
+\\ \hline
+$\partOf$ & 484 & 121
+\\ \hline
+$\fragmentOf$ & 474 & 117
+\\ \hline
+$\correspondsTo$ & 68 & 68
+\\ \hline
+$\conformsTo$ & 68 & 19
+\\ \hline 
+\end{tabular}
+\end{center}
+\caption{Number of unique entities per relationship}
+\label{table:NumberOfUniqueEntitiesPerRelationship}
+\end{table}
+The number of corresponding and conforming entities is significantly lower than the overall number of recovered \glspl{Fragment} in table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments}.
+This may indicate recovery of unnecessary \glspl{Fragment}, e.g. \glspl{Java} method \glspl{Fragment}; or it indicates an insufficiency of the implemented \gls{Correspondence} and \gls{Conformance} recovery.
+However, the number of unique left hand side entities for \conformsTo~ matches the number of $\#\conformsTo(\text{companiesXsdFile})$ minus one, the latter being the initial \conformsTo-declaration from the setup (see §\ref{section:Setup}).
+This assures that \gls{Conformance} is only recovered towards \gls{XSD}.
+Likewise the number of unique left hand side entities for \fragmentOf~ matches the number of all recovered \glspl{Fragment} from table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments}, the delta to \partOf~ remaining the same for both sides.

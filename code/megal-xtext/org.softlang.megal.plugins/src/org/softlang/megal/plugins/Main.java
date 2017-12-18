@@ -163,6 +163,15 @@ public class Main {
 		out.println("#(companyJavaFile._ correspondsTo companiesXsdFile._)      : " + Metrics.getRelationshipFragmentCount(kb, "correspondsTo", "companyJavaFile", "companiesXsdFile"));
 		out.println("#(_ correspondsTo companiesXsdFile._)                      : " + Metrics.getRelationshipFragmentLeftCount(kb, "correspondsTo", "companiesXsdFile"));
 		out.println("#(companyJavaFile._ correspondsTo _)                       : " + Metrics.getRelationshipFragmentRightCount(kb, "correspondsTo", "companyJavaFile"));
+		out.println();
+		out.println("#(_ partOf)                       : " + Metrics.getRelationshipLeftMemberCount(kb, "partOf"));
+		out.println("#(partOf _)                       : " + Metrics.getRelationshipRightMemberCount(kb, "partOf"));
+		out.println("#(_ fragmentOf)                       : " + Metrics.getRelationshipLeftMemberCount(kb, "fragmentOf"));
+		out.println("#(fragmentOf _)                       : " + Metrics.getRelationshipRightMemberCount(kb, "fragmentOf"));
+		out.println("#(_ correspondsTo)                       : " + Metrics.getRelationshipLeftMemberCount(kb, "correspondsTo"));
+		out.println("#(correspondsTo _)                       : " + Metrics.getRelationshipRightMemberCount(kb, "correspondsTo"));
+		out.println("#(_ conformsTo)                       : " + Metrics.getRelationshipLeftMemberCount(kb, "conformsTo"));
+		out.println("#(conformsTo _)                       : " + Metrics.getRelationshipRightMemberCount(kb, "conformsTo"));
 		out.println("*/");
 		out.println();
 		

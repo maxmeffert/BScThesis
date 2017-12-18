@@ -121,7 +121,6 @@ transformedIn < Artifact (+) * Artifact (+)
 //===============================================
 
 @Plugin 'SymmetryReasonerPlugin'
-@Plugin 'TransitivityReasonerPlugin'
 @Plugin 'CorrespondsToReasonerPlugin'
 correspondsTo < Artifact (+) * Artifact (+)
 
