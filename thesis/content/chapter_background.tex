@@ -553,7 +553,7 @@ public interface HelloListener extends ParseTreeListener {
 \end{lstlisting}
 While traversing a \gls{ParseTree}, listeners are notified upon entering or exiting tree nodes, called "context" by \gls{ANTLR}.
 Traversal is triggered using \texttt{Parse\-Tree\-Walker} instances, which implement \gls{DFS}.
-Usage of \texttt{Parse\-Tree\-Walker} is exemplified in listing \ref{ApplicationOfTheANTLRParseTreeWalker}.
+Usage of \texttt{Parse\-Tree\-Walker} is exemplified in listing \ref{listing:ApplicationOfTheANTLRParseTreeWalker}.
 \begin{lstlisting}[language=Java,caption={Application of the ANTLR ParseTreeWalker},label={listing:ApplicationOfTheANTLRParseTreeWalker}]
 ...
 HelloListener helloListener = ...
