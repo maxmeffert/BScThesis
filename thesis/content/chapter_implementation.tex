@@ -3,13 +3,13 @@
 This chapter summarizes the implementation of crucial parts of recovery system implemented for this thesis.
 §\ref{section:RecoveringFragments} covers the implementation of \gls{Fragment} recovery.
 §\ref{section:RecoveringParthoodLinks} covers the implementation of \gls{Parthood} link recovery.
-§\ref{section:RecoveringCorrespondenceLinks} and §\ref{section:RecoveringConformanceLinks} covers the implementation of \gls{Correspondence} and \gls{Conformance} link recovery
+§\ref{section:RecoveringCorrespondenceAndConformanceLinks} covers the implementation of \gls{Correspondence} and \gls{Conformance} link recovery
 
 \section{Recovering Fragments}
 \label{section:RecoveringFragments}
 This section summarizes the implementation of \gls{Fragment} recovery.
 \Glspl{Fragment} are syntactically well-formed pieces of code.
-For instance, consider the \gls{Java} class in listing \ref{ExcerptOfTheCompanyJavaClass}.
+For instance, consider the \gls{Java} class in listing \ref{listing:ExcerptOfTheCompanyJavaClass}.
 \begin{lstlisting}[language=Java,caption={Excerpt of the Company Java class},label={listing:ExcerptOfTheCompanyJavaClass}]
 public class Company {
 	...
@@ -212,7 +212,7 @@ The listener pushes fragments onto stacks, making the overall implementation wor
 
 \subsection{Megamodeling Fragments}
 \label{subsection:MegamodelingFragments}
-In order to add \glspl{Fragment} into a \gls{Megamodel} a suitable linguistic model has to be declared first. 
+In order to add \glspl{Fragment} into a \gls{Megamodel}, a suitable linguistic model has to be declared first. 
 Consider the following instance level \gls{Megamodel} of recovered \glspl{Fragment} shown in listing \ref{listing:AMegamodelForFragmentsOfAJavaClass}.
 \begin{lstlisting}[caption={A Megamodel for fragments of a Java class},label={listing:AMegamodelForFragmentsOfAJavaClass}]
 File < Artifact
@@ -279,22 +279,73 @@ JavaMethodFragments subsetOf JavaFragments
 It introduces the special relationship type \texttt{fragmentLanguageOf}, denoting the left-hand side is the language containing all possible \glspl{Fragment}  the right-hand side's language elements can be deconstructed in.
 This also implies a super-set relation between the two languages as \fragmentOf~ is reflexive like \partOf, so:
 \begin{align*}
-A \texttt{~fragmentLanguageOf~} B \Rightarrow B \subseteq A
+L_1 \texttt{~fragmentLanguageOf~} L_2 \Rightarrow L_2 \subseteq L_1
 \end{align*}
 
 \subsubsection{Fragment Entity Identifiers}
 \label{subsubsection:FragmentEntityIdentifiers}
+\gls{MegaL} entity identifiers have to be unique, but names of the constructs represented by \gls{Fragment} do not necessarily adhere to that.
+For instance, a \gls{Java} method may be overloaded or \gls{XML} element tags are naturally identified via the same name.
+Because of this, a naming scheme for storing recovered \glspl{Fragment} in a \gls{MegaL} \gls{Megamodel} needs to be devised.
+
+We utilize a simple naming scheme, preserving both uniqueness and readability.
+Consider listing \ref{listing:ExcerptOfACompanyXMLFile}, showing an excerpt of a \gls{XML} file.
+\begin{lstlisting}[caption={Excerpt of a Company XML file},label={listing:ExcerptOfACompanyXMLFile}]
+<company id="0" name="Softlang Inc.">
+    <departments>
+        <department id="0" name="Grammar Engineering">
+			...
+        </department>
+        <department id="1" name="Research &amp; Development">
+            ...
+        </department>
+        ...
+    </departments>
+</company>
+\end{lstlisting}
+If we want to add both \texttt{department} \glspl{Fragment} to a \gls{Megamodel}, we prepend an indexing prefix to its name, i.e. \texttt{F<index>\$}.
+This is exemplified in listing \ref{listing:QualifiedFragmentIdentifiers}.
+\begin{lstlisting}[caption={Qualified Fragment Identifiers},label={listing:QualifiedFragmentIdentifiers}]
+xmlFile : File
+xmlFile.company : Fragment
+xmlFile.company.departments : Fragment
+xmlFile.company.departments.F0$department : Fragment
+xmlFile.company.departments.F1$department : Fragment
+\end{lstlisting}
+
 
 \section{Recovering Parthood Links}
 \label{section:RecoveringParthoodLinks}
 This section summarizes the implementation of \gls{Parthood} link recovery.
+Recovering \gls{Parthood} links exploits the nature of \glspl{ParseTree} and \glspl{AST}, where the nested structure of code is represented by parent/child association between nodes.
+Listing \ref{listing:PseudoCodeRecoveryOfParthoodLinks} shows recovery of \gls{Parthood} links from a tree data structure in pseudo code notation.
+\begin{lstlisting}[caption={Pseudo code Recovery of Parthood Links},label={listing:PseudoCodeRecoveryOfParthoodLinks}]
+procedure recoverParthoodLinks(treeNode) {
+	foreach(child : treeNode.children) {
+		partOf(child,treeNode)
+		recoverParthoodLinks(treeNode)	
+	}
+}
+\end{lstlisting}
+The recovery procedure utilizes recursive descent traversal on a tree.
+The actual implementation of \gls{Parthood} link recovery adds \partOf- and \fragmentOf-links simultaneously into a simple knowledge base backed by a graph data structure.
+Listing \ref{listing:ActualRecoveryOfParthoodLinks} shows the responsible methods for this.
+\begin{lstlisting}[caption={Actual Recovery of Parthood Links},label={listing:ActualRecoveryOfParthoodLinks}]
+private IFragmentKBBuilder newFragmentKB(IFragmentKBBuilder fragmentKBBuilder, IFragment fragment) {
+    for (IFragment child : fragment.getChildren()) {
+        fragmentKBBuilder = newFragmentKB(fragmentKBBuilder.fragmentOf(child, fragment), child);
+    }
+    return fragmentKBBuilder;
+}
+
+@Override
+public IFragmentKB newFragmentKB(IFragment fragment) {
+	return newFragmentKB(fragmentKBBuilderFactory.newFragmentKBBuilder(), fragment).build();
+}
+\end{lstlisting}
 
 
+\section{Recovering Correspondence \& Conformance Links}
+\label{section:RecoveringCorrespondenceAndConformanceLinks}
+This section the implementation of \gls{Correspondence} and \gls{Conformance} link recovery.
 
-\section{Recovering Correspondence  Links}
-\label{section:RecoveringCorrespondenceLinks}
-This section the implementation of \gls{Correspondence} and \gls{Conformance} link recovery
-
-\section{Recovering Conformance Links}
-\label{section:RecoveringConformanceLinks}
-This section the implementation of \gls{Correspondence} and \gls{Conformance} link recovery

@@ -39,4 +39,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {lstlisting}{\numberline {5.4}A Megamodel for Java Fragment}{40}{lstlisting.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {lstlisting}{\numberline {6.1}Megamodel Setup}{44}{lstlisting.6.1}
+\contentsline {lstlisting}{\numberline {5.5}Excerpt of a Company XML file}{41}{lstlisting.5.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {lstlisting}{\numberline {5.6}Qualified Fragment Identifiers}{41}{lstlisting.5.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {lstlisting}{\numberline {5.7}Pseudo code Recovery of Parthood Links}{42}{lstlisting.5.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {lstlisting}{\numberline {5.8}Actual Recovery of Parthood Links}{42}{lstlisting.5.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {lstlisting}{\numberline {6.1}Megamodel Setup}{45}{lstlisting.6.1}

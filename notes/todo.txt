@@ -29,10 +29,11 @@ Universitätsstraße 1
 0261 5796712
 printcenter-unikoblenz@service.ricoh.de
 
-- Write eval for mini-case-study & impl counting
+DONE - Write eval for mini-case-study & impl counting
 
 DONE - Write short conclusioni + future work: larger corpus; instance-level recovery not possible, this need dynamic analysis, i.e. trace link capture!!!
 
+- Write abstract
 
 - Write remaining impl sections
 
