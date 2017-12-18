@@ -11,16 +11,16 @@ This section summarizes selected papers regarding their approaches on trace link
 \paragraph*{Information Retrieval Methods for Automated Traceability Recovery}
 \cite{DeLucia2012} 
 proposes a semi-automatic approach for recovering trace links:
-\begin{enumerate}
+\begin{enumerate*}[label={(\roman*)}]
 \item
-corpus generation using document parsing to extract \glspl{Artifact} of a desired size (paragraphs, classes, methods, etc.)
+corpus generation using document parsing to extract \glspl{Artifact} of a desired size (paragraphs, classes, methods, etc.);
 \item
-corpus indexing using information retrieval methods in order to create a homogeneous corpus removing stop words and applying other normalization techniques
+corpus indexing using information retrieval methods in order to create a homogeneous corpus removing stop words and applying other normalization techniques;
 \item
-recovery of "candidate" links computing a probabilistic similarity
+recovery of "candidate" links computing a probabilistic similarity;
 \item
-analysis/assessment of candidate links conducted by a human removing false positive links and confirming correct links
-\end{enumerate}
+analysis/assessment of candidate links conducted by a human removing false positive links and confirming correct links.
+\end{enumerate*}
 It is argued that using probabilistic information retrieval methods reduces the  overhead created by development of language specific analysis solutions, e.g. \gls{AST} generation.
 
 \paragraph*{Using Rules for Traceability Creation} 
