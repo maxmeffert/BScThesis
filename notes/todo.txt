@@ -35,10 +35,9 @@ DONE - Write short conclusioni + future work: larger corpus; instance-level reco
 
 - Write abstract
 
-- Write remaining impl sections
+- Write 1 remaining impl section
 
 DONE - Clean code listings: from figure to actual listings
-
 
 - Clean glossary
 
