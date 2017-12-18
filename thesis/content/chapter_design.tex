@@ -222,7 +222,7 @@ An \texttt{IMereology\-Builder} instance adds nodes and edges into its digraph w
 \texttt{IMereology}'s are then further wrapped by \texttt{IFragmentKB} (a Knowledge Base over \texttt{IFragment}) implementations in order to avoid dealing with generics throughout the system.
 This is also done utilizing the \gls{BuilderPattern}.
 
-The recovery of \gls{Parthood} links is encapsulated through \texttt{IFragmentKB\-Factory} using the \gls{AbstractFactoryPattern}, which computes \texttt{IFragmentKB} instances from an \texttt{IFragment} \gls{AST} as input.
+The recovery of \gls{Parthood} links is encapsulated through \texttt{IFragment\-KB\-Fac\-tory} using the \gls{AbstractFactoryPattern}, which computes \texttt{IFragmentKB} instances from an \texttt{IFragment} \gls{AST} as input.
 
 
 \subsubsection{Comparative Fragment Analysis API}
@@ -314,7 +314,7 @@ JavaFragmentRecoveryPlugin partOf FileFragmentRecoveryReasonerPlugin
 JavaFragmentRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.java.JavaFragmentRecoveryPlugin'
 ...
 \end{lstlisting}
-The snippet in listing \ref{listing:MegaLPluginInstantiation} demonstrates the instantiation of \texttt{Java\-Fragment\-Recovery\-Plugin} as part of \texttt{File\-Fragment\-Recovery\-Reasoner\-Plugin} in \gls{MegaL/Xtext}.
+The snippet in listing \ref{listing:MegaLPluginInstantiation} demonstrates the instantiation of \texttt{Java\-Frag\-ment\-Re\-co\-very\-Plug\-in} as part of \texttt{File\-Fragment\-Recovery\-Reasoner\-Plugin} in \gls{MegaL/Xtext}.
 
 
 The Recovery System or rather its facade (see §\ref{subsection:RecoverySystem}) is used to implement \gls{MegaL} plug-ins.
