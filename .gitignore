@@ -20,6 +20,9 @@
 *.vrb
 *.bcf
 *.lof
+*.loe
+*.lol
+*.lot
 
 *.run.xml
 
