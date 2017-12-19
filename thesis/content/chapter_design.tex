@@ -69,7 +69,7 @@ From each artifact a \gls{CST} or \gls{ParseTree} is constructed,
 \item
 each \gls{ParseTree} is further refined into an \gls{AST},
 \item
-both \glspl{AST} are compared with each other, i.e. both trees are traversed in a \gls{DFS} fashion and each pair of nodes is checked whether it can be recovered as link.
+both \glspl{AST} are compared with each other, i.e. both trees are traversed in \gls{DFS} fashion and each pair of nodes is checked whether it can be recovered as link.
 \end{enumerate}
 Eventually, the set of recovered links serves as output of the process.
 
@@ -94,14 +94,14 @@ The components of the \gls{API} are:
 
 \item[Abstract Fragment Model]
 The Abstract Fragment Model serves as base model for all \glspl{AST}.
-It can thought of as \gls{DTO} for the analysis components.
-As user of the \gls{API}, i have to derive a specific \gls{AST} from this model.
+It can be thought of as \gls{DTO} for the analysis components.
+As user of the \gls{API}, I have to derive a specific \gls{AST} from this model.
 A detailed description follows in §\ref{subsubsection:AbstractFragmentModel}.
 
 \item[Syntax Analysis API]
 The Syntax Analysis \gls{API} is the abstraction layer for parsing and \gls{AST} construction.
 It is currently backed by \gls{ANTLR}, but its internal design is loosely coupled, so other parser libraries can be used.
-As user of the \gls{API}, i have to implement a parser constructing an \gls{AST} deriving the Abstract Fragment Model.
+As user of the \gls{API}, I have to implement a parser constructing an \gls{AST} deriving the Abstract Fragment Model.
 However, if one uses \gls{ANTLR}, only \gls{AST} construction from a \gls{CST} is required.
 A detailed description follows in §\ref{subsubsection:SyntaxAnalysisAPI}.
 
@@ -111,12 +111,12 @@ The Fragment Analysis \gls{API} consists of two components:
 
 \item[Mereological Fragment Analysis API]
 The Mereological Fragment Analysis \gls{API} provides components for deriving parthood links between syntactically well-formed fragments.
-As user of the \gls{API}, i only have to apply its components to constructed \glspl{AST}.
+As user of the \gls{API}, I only have to apply its components to constructed \glspl{AST}.
 A detailed description follows in §\ref{subsubsection:MereologicalFragmentAnalysisAPI}.
 
 \item[Comparative Fragment Analysis API]
 The Comparative Fragment Analysis \gls{API} provides components for deriving links between different artifacts and their fragments.
-As user of the \gls{API}, i have to implement one or more specialized heuristics for deciding which links can be recovered.
+As user of the \gls{API}, I have to implement one or more specialized heuristics for deciding which links can be recovered.
 A detailed description follows in §\ref{subsubsection:ComparativeFragmentAnalysisAPI}.
 
 \end{description}
@@ -240,7 +240,7 @@ It utilizes the \gls{StrategyPattern} through the \texttt{IFragmentAnalyzerHeuri
 In this context, strategies are called heuristics, because recovery of links is not necessarily based on optimal, i.e. absolutely correct, solutions.
 Instead strategies may also implement practical solutions with reasonably sufficient results.
 
-\texttt{IFragmentAnalyzer} objects allow one to apply multiple heuristics, since there may be more than one practical approach to achieve a goal. Also this allows strategies to keep a relatively small implementation footprint.
+\texttt{IFragmentAnalyzer} allows to apply multiple heuristics, since there may be more than one practical approach. This also allows strategies to keep a relatively small implementation footprint.
 
 Recovered links are captured and stored in an \texttt{IBinaryRelation} instance which works like a set of pairs.
 
@@ -263,9 +263,9 @@ This block diagram depicts the functional outline of the Recovery System and its
 
 The Recovery System utilizes the Syntactic Analysis \gls{API} described in §\ref{subsubsection:SyntaxAnalysisAPI} for \gls{Java}, \gls{XML} and \gls{SQL/DDL}.
 For this, the Abstract Fragment Model described in §\ref{subsubsection:AbstractFragmentModel} is implemented.
-Note, fragment models do not implement \gls{AST} suitable for compilation of the targeted language.
+Note, fragment models do not implement an \gls{AST} suitable for compilation of the targeted language.
 Syntactic features unnecessary for the intended analysis, like local variable declarations, arithmetic expressions or invocations, are omitted.
-Fragment models rather focuses on structural features of the languages at hand.
+Fragment models rather focus on structural features of the languages at hand.
 
 The Comparative Fragment Analysis \gls{API} described in §\ref{subsubsection:ComparativeFragmentAnalysisAPI} is implemented with focus on artifacts of technologies, namely \gls{JAXB} and \gls{Hibernate}.
 It implements heuristics for link recovery between:
@@ -305,7 +305,7 @@ This block diagram depicts the functional outline of the Recovery System's integ
 
 \gls{MegaL/Xtext} provides a plug-in system, which allows to bind special \gls{Java} classes to \texttt{Plugin} entities (see §\ref{subsection:MegaLXText}).
 Code of such classes is then executed during the evaluation of a \gls{Megamodel}.
-Listing \ref{listing:MegaLPluginInstantiation} exemplifies the declaration of Plug-in within \gls{MegaL}.
+Listing \ref{listing:MegaLPluginInstantiation} exemplifies the declaration of plug-ins within \gls{MegaL}.
 \begin{lstlisting}[caption={MegaL/Xtext Plugin Integration},label={listing:MegaLPluginInstantiation}]
 ...
 JavaFragmentRecoveryPlugin : Plugin
@@ -317,5 +317,5 @@ JavaFragmentRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.java.Jav
 The snippet in listing \ref{listing:MegaLPluginInstantiation} demonstrates the instantiation of \texttt{Java\-Frag\-ment\-Re\-co\-very\-Plug\-in} as part of \texttt{File\-Fragment\-Recovery\-Reasoner\-Plugin} in \gls{MegaL/Xtext}.
 
 
-The Recovery System or rather its facade (see §\ref{subsection:RecoverySystem}) is used to implement \gls{MegaL} plug-ins.
-These Plug-ins are then in turn bound within \glspl{Megamodel}, which are divided by language and technology, i.e. there are separate \gls{MegaL} modules for \gls{Java}, \gls{XML}, \gls{SQL}, \gls{Hibernate} and \gls{JAXB}.
+The Recovery System or rather its facade (see §\ref{subsection:RecoverySystem}) is used to implement \gls{MegaL/Xtext} plug-ins.
+These plug-ins are then in turn bound within \glspl{Megamodel}, which are divided by language and technology, i.e. there are separate \gls{MegaL} modules for \gls{Java}, \gls{XML}, \gls{SQL}, \gls{Hibernate} and \gls{JAXB}.
