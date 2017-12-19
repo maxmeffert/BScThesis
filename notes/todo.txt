@@ -39,7 +39,7 @@ DONE - Write abstract
 
 DONE - Clean code listings: from figure to actual listings
 
-- Clean glossary
+DONE - Clean glossary
 
 DONE - Clean references
  
