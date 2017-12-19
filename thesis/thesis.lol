@@ -47,6 +47,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {lstlisting}{\numberline {5.8}Actual Recovery of Parthood Links}{42}{lstlisting.5.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {lstlisting}{\numberline {6.1}Megamodel Setup}{45}{lstlisting.6.1}
+\contentsline {lstlisting}{\numberline {5.9}Pseudo code Recovery of transitive Parthood Links}{42}{lstlisting.5.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {lstlisting}{\numberline {6.2}Recovered Correspondences}{50}{lstlisting.6.2}
+\contentsline {lstlisting}{\numberline {5.10}Excerpt of the BaseXmlXsdSimilarityHeuristic class}{43}{lstlisting.5.10}
+\defcounter {refsection}{0}\relax 
+\contentsline {lstlisting}{\numberline {5.11}The XmlXsdSimilarityHeuristic class}{44}{lstlisting.5.11}
+\defcounter {refsection}{0}\relax 
+\contentsline {lstlisting}{\numberline {6.1}Megamodel Setup}{48}{lstlisting.6.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {lstlisting}{\numberline {6.2}Recovered Correspondences}{53}{lstlisting.6.2}

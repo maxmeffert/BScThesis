@@ -316,20 +316,19 @@ xmlFile.company.departments.F1$department : Fragment
 \subsection{Recovering Parthood Links}
 \label{subsection:RecoveringParthoodLinks}
 This section summarizes the implementation of \gls{Parthood} link recovery.
-Recovering \gls{Parthood} links exploits the nature of \glspl{ParseTree} and \glspl{AST}, where the nested structure of code is represented by parent/child association between nodes.
+Recovering \gls{Parthood} links exploits the nature of \glspl{ParseTree} and \glspl{AST} as mentioned §\ref{subsubsection:MereologicalFragmentAnalysisAPI}, where the nested structure of code is represented by parent/child association between nodes.
 Listing \ref{listing:PseudoCodeRecoveryOfParthoodLinks} shows recovery of \gls{Parthood} links from a tree data structure in pseudo code notation.
-\begin{lstlisting}[caption={Pseudo code Recovery of Parthood Links},label={listing:PseudoCodeRecoveryOfParthoodLinks}]
-procedure recoverParthoodLinks(treeNode) {
-	foreach(child : treeNode.children) {
-		partOf(child,treeNode)
-		recoverParthoodLinks(treeNode)	
-	}
-}
+\begin{lstlisting}[caption={Pseudo code Recovery of Parthood Links},label={listing:PseudoCodeRecoveryOfParthoodLinks},morekeywords={procedure,foreach,input,output}]
+input: A node n of a n-ary tree structure.
+procedure recoverParthoodLinks(n):
+	foreach child node c of n:
+		declare c partOf n.
+		recoverParthoodLinks(c).	
 \end{lstlisting}
 The recovery procedure utilizes recursive descent traversal on a tree.
 The actual implementation of \gls{Parthood} link recovery adds \partOf- and \fragmentOf-links simultaneously into a simple knowledge base backed by a graph data structure.
 Listing \ref{listing:ActualRecoveryOfParthoodLinks} shows the responsible methods for this.
-\begin{lstlisting}[caption={Actual Recovery of Parthood Links},label={listing:ActualRecoveryOfParthoodLinks}]
+\begin{lstlisting}[language=Java,caption={Actual Recovery of Parthood Links},label={listing:ActualRecoveryOfParthoodLinks}]
 private IFragmentKBBuilder newFragmentKB(IFragmentKBBuilder fragmentKBBuilder, IFragment fragment) {
     for (IFragment child : fragment.getChildren()) {
         fragmentKBBuilder = newFragmentKB(fragmentKBBuilder.fragmentOf(child, fragment), child);
@@ -343,9 +342,109 @@ public IFragmentKB newFragmentKB(IFragment fragment) {
 }
 \end{lstlisting}
 
+Once a graph of recovered \partOf- and/or \fragmentOf-links is present, we can compute its transitive closure, thus recovering transitive \partOf- and \fragmentOf-links.
+Listing \ref{listing:PseudoCodeRecoveryOfTramsotoveParthoodLinks} shows the pseudo code for computing the transitive closure of a graph.
+\begin{lstlisting}[caption={Pseudo code Recovery of transitive Parthood Links},label={listing:PseudoCodeRecoveryOfTramsotoveParthoodLinks},morekeywords={procedure,foreach,input,output,if,yield}]
+input: A graph g and vertex v.
+procedure reachableVertices(g,v):
+	mark v as walked.
+	foreach adjacent vertex w of v:
+		if w is not marked as walked:
+			yield w.
+			reachableVertices(g,w).
+			
+input: A graph g.
+procedure computeTransitiveClosure(g):
+	foreach vertex v of g:
+		foreach vertex w in reachableVertices(g,v):
+			if w != v and g does neither contain edge (v,w) nor (w,v):
+				add edge (v,w) to g.
+\end{lstlisting}
+Note, the pseudo code implementation for computation of transitive closures uses a recursive \gls{DFS} for computing transitively reachable vertices of a given vertex.
+It utilizes a yield-return, denoting the next value is available from the outside without exiting the procedure.
+This can be thought of sequence which would be returned normally.
+The actual implementation utilizes the \gls{IteratorPattern} and non-recursive \gls{DFS} for computing transitively reachable vertices. 
 
 \section{Recovering Correspondence \& Conformance Links}
 \label{section:RecoveringCorrespondenceAndConformanceLinks}
-This section the implementation of \gls{Correspondence} and \gls{Conformance} link recovery.
+This section summarizes the implementation of \gls{Correspondence} and \gls{Conformance} link recovery.
+Recovering  \gls{Correspondence} and \gls{Conformance} links is done by implementing heuristics for the Comparative Fragment Analysis \gls{API}, as mentioned in §\ref{subsubsection:ComparativeFragmentAnalysisAPI}.
+Heuristics are strategies in sense of the \gls{StrategyPattern}.
+They are used for traversing two \glspl{AST} and comparing nodes in a non-probabilistic yet not absolutely correct deterministic way.
+They employ simple string comparison methods like plural removal, that is deletion of the English plural, and letter case normalization for detecting similarities.
+This heavily relies on conventions implemented in technologies, e.g. \gls{JAXB}, where \gls{Java} field identifiers are used as \gls{XML} element names, if not declared otherwise.
+In case, a \gls{Java} annotation provides an explicit name, it is used with strict equivalence.
 
+Listings \ref{listing:ExcerptOfTheBaseXmlXsdSimilarityHeuristicClass} and \ref{listing:TheXmlXsdSimilarityHeuristicClass} shows excerpts of the heuristics implemented to uncover related elements among \gls{XML} and \gls{XSD} \glspl{Fragment}.
+It uses an abstract base class (listing \ref{listing:ExcerptOfTheBaseXmlXsdSimilarityHeuristicClass}) for traversing \gls{Fragment} \glspl{AST} and a concrete class for specifying comparison predicates (listing \ref{listing:TheXmlXsdSimilarityHeuristicClass}).
+\begin{lstlisting}[language=Java,caption={Excerpt of the BaseXmlXsdSimilarityHeuristic class},label={listing:ExcerptOfTheBaseXmlXsdSimilarityHeuristicClass}]
+public abstract class BaseXmlXsdSimilarityHeuristic implements IFragmentAnalyzerHeuristic {
 
+    protected abstract boolean areSimilar(XmlElementFragment xmlElementFragment, XmlElementFragment xsdElementFragment);
+    protected abstract boolean areSimilar(XmlAttributeFragment xmlAttributeFragment, XmlElementFragment xsdElementFragment);
+
+    ...
+
+    private void addSimilarities(IBinaryRelation<IFragment> similarities, XmlElementFragment xmlElementFragment, XmlElementFragment xsdElementFragment) {
+        if (areSimilar(xmlElementFragment, xsdElementFragment)) {
+            similarities.add(xmlElementFragment, xsdElementFragment);
+            for (XmlAttributeFragment xmlAttributeFragment : xmlElementFragment.getXmlAttributeFragments()) {
+                addSimilarities(similarities, xmlAttributeFragment, xsdElementFragment.getXmlElementFragments());
+            }
+        }
+        for(XmlElementFragment xsdElementFragment1 : xsdElementFragment.getXmlElementFragments()) {
+            addSimilarities(similarities, xmlElementFragment, xsdElementFragment1);
+        }
+        for(XmlElementFragment xmlElementFragment1 : xmlElementFragment.getXmlElementFragments()) {
+            addSimilarities(similarities, xmlElementFragment1, xsdElementFragment);
+        }
+        addSimilarities(similarities, xmlElementFragment.getXmlElementFragments(), xsdElementFragment.getXmlElementFragments());
+    }
+
+    ...
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Java,caption={The XmlXsdSimilarityHeuristic class},label={listing:TheXmlXsdSimilarityHeuristicClass}]
+public class XmlXsdSimilarityHeuristic extends BaseXmlXsdSimilarityHeuristic {
+    @Override
+    protected boolean areSimilar(XmlElementFragment xmlElementFragment, XmlElementFragment xsdElementFragment) {
+        return (XmlFragmentUtils.isXsElementTag(xsdElementFragment)
+                || XmlFragmentUtils.isXsComplexTypeTag(xsdElementFragment))
+                && XmlFragmentUtils.hasAttribute(xsdElementFragment, "name", xmlElementFragment.getName());
+    }
+
+    @Override
+    protected boolean areSimilar(XmlAttributeFragment xmlAttributeFragment, XmlElementFragment xsdElementFragment) {
+        return XmlFragmentUtils.isXsAttributeTag(xsdElementFragment)
+                && XmlFragmentUtils.hasAttribute(xsdElementFragment, "name", xmlAttributeFragment.getName());
+    }
+}
+\end{lstlisting}
+
+Figure \ref{figure:ImplementedHeuristics} shows an \gls{UML} class diagram depicting all implemented heuristics.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=\textwidth]{images/Heuristics.png}
+\end{center}
+\caption{Implemented Heuristics}
+\label{figure:ImplementedHeuristics}
+\end{figure}
+All heuristics follow the same implementation scheme, exemplified with listings \ref{listing:ExcerptOfTheBaseXmlXsdSimilarityHeuristicClass} and \ref{listing:TheXmlXsdSimilarityHeuristicClass}.
+There is an abstract base class handling traversal and concrete classes handling comparison.
+Latter classes are further distinguished by the comparison tactic employed by them.
+They either implement name based similarity predicates or their implementation is based on annotation meta-data.
+The implemented heuristics detect:
+\begin{itemize}
+\item
+name based similarities between \gls{XML} and \gls{XSD} \glspl{Artifact}, e.g. \gls{Conformance} links between \gls{XML} elements and \gls{XSD} complex types or \gls{Conformance} links between \gls{XML} attributes and \gls{XSD} attribute definitions;
+
+\item
+name or annotation based similarities between \gls{Java} and \gls{XML} or \gls{XSD} \glspl{Artifact} generated by \gls{JAXB}, e.g. \gls{Correspondence} links between \gls{Java} fields and \gls{XML} attributes or \gls{XSD} attribute definitions;
+
+\item
+name based similarities between \gls{Java} and \gls{Hibernate} mapping \gls{Artifact}, e.g. \gls{Correspondence} links between \gls{Java} fields and \gls{Hibernate} property mapping definitions;
+
+\item
+name or annotation based similarities between \gls{Java} and \gls{SQL/DDL} \glspl{Artifact} generated by \gls{Hibernate}, e.g. \gls{Correspondence} links between \gls{Java} fields and \gls{SQL} column definitions.
+\end{itemize}
