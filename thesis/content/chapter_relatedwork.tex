@@ -9,7 +9,7 @@ This chapter provides an non-exhaustive overview over related work regarding tra
 This section summarizes selected papers regarding their approaches on trace link recovery.
 
 \paragraph*{Information Retrieval Methods for Automated Traceability Recovery}
-~\\Authors in \cite{DeLucia2012} 
+~\\Authors in \cite{DBLP:books/daglib/p/LuciaMOP12}
 propose a semi-automatic approach for recovering trace links: 
 \begin{enumerate*}[label={(\roman*)}]
 \item
@@ -24,68 +24,68 @@ analysis/assessment of candidate links conducted by a human removing false posit
 It is argued that using probabilistic information retrieval methods reduces the  overhead created by development of language specific analysis solutions, e.g. \gls{AST} generation.
 
 \paragraph*{Using Rules for Traceability Creation} 
-Authors in \cite{Zisman2012}
+Authors in \cite{DBLP:books/daglib/p/Zisman12}
 propose a fully automatic approach for recovering trace links by normalizing to \gls{XML} documents and applying XQuery encoded traceability rules on the corpus.
 This approach also takes ambiguity of natural languages into account by applying a grammatical classification of sentences during preprocessing and considering synonyms during recovery.
 
 \paragraph*{Tracing object-oriented code into functional requirements} 
-Authors in \cite{AntoniolCCDM00}
+Authors in \cite{DBLP:conf/iwpc/AntoniolCLCM00}
 propose an information retrieval approach for recovering trace links between source code and natural language documentation \glspl{Artifact}.
 In a provided case-study, \gls{Java} classes are linked to requirement documents based on a probabilistic similarity computed from the set of identifiers found in a class \gls{Artifact}.
 
 \paragraph*{Recovering Code to Documentation Links in OO Systems}
-Authors in \cite{AntoniolCDLM99}
+Authors in \cite{DBLP:conf/wcre/AntoniolCLM99}
 propose an information retrieval approach for recovering trace links between source code and natural language documentation \glspl{Artifact} based on a  probabilistic similarity computed from the set of identifiers found in source code \glspl{Artifact}.
-This is a predecessor paper of \cite{AntoniolCCDM00}.
+This is a predecessor paper of \cite{DBLP:conf/iwpc/AntoniolCLCM00}.
 
 \paragraph*{Mining software repositories for traceability links}
-Authors in \cite{KagdiMS07}
+Authors in \cite{DBLP:conf/iwpc/KagdiMS07}
 propose an approach for recovering trace links among source code and informal documentation \glspl{Artifact} by monitoring their co-change frequency, i.e. \glspl{Artifact} that are changed to concurrently in the history of a version control system.
 It is argued that a high co-change frequency implies trace links among \glspl{Artifact}.
 
 \paragraph*{Combining Textual and Structural Analysis of Software Artifacts for  Traceability Link Recovery}
-Authors in \cite{McMillanPR2009}
+Authors in \cite{DBLP:conf/icse/McMillanPR09}
 propose a combined approach of information retrieval methods for recovering exogenous links between source code and documentation \glspl{Artifact} and classical analysis methods for recovering endogenous links among source code \glspl{Artifact}.
 Endogenous links among documentation \glspl{Artifact} are proposed to be recovered indirectly, i.e. if source \glspl{Artifact} $S1$ and $S2$ are linked and both ar linked to documentation \glspl{Artifact} $D1$ and $D2$ respectively, then this may be seen as evidence that $D1$ are also linked $D2$.
 Indirect linking is proposed because the authors argue that information retrieval methods alone are not sufficient for trace link recovery purposes.
 Documentation \glspl{Artifact} may be linked despite sharing little to no semantic similarities.
 
 \paragraph*{Recovering traceability links in software artifact management systems using information retrieval methods}
-Authors in \cite{Lucia:2007:RTL:1276933.1276934}
+Authors in \cite{DBLP:journals/tosem/LuciaFOT07}
 provide an excessive case-study evaluating information retrieval methods, namely Latent Semantic Indexing, for trace link recovery.
 It concludes that information retrieval is not sufficient to recover all links among source code \glspl{Artifact}, 
 
 \paragraph*{TraceME: Traceability Management in Eclipse}
-Authors in \cite{TraceME}
+Authors in \cite{DBLP:conf/icsm/BavotaCLFOP12}
 introduce TraceME, an eclipse \gls{IDE} base tool for trace link recovery and management.
 It utilizes information retrieval techniques, namely the Vector Space Model, for trace link recovery inside eclipse projects.
 
 \paragraph*{OpenTrace: An Open Source Workbench for Automatic Software Traceability Link Recovery}
-Authors in \cite{OpenTrace}
+Authors in \cite{DBLP:conf/wcre/AngiusW12}
 introduce OpenTrace, a workbench for reproducible experiments with focus on automated trace link recovery.
 It provides means to apply information retrieval techniques for recovering trace links to large corpora of natural language \glspl{Artifact}.
 
 \paragraph*{Traceclipse: An eclipse plug-in for traceability link recovery and management}
-Authors in \cite{Traceclipse}
+Authors in \cite{DBLP:conf/icse/KlockGDP11}
 introduce Traceclipse, another eclipse \gls{IDE} based tool, providing means for trace link recovery using information retrieval techniques, namely the Vector Space Model.
 The implemented recovery process is semi-automatic in the sense that a user has to inspect proposed links.
 
 \section{Remarks}
 \label{section:Remarks}
 The majority of the papers summarized in §\ref{section:PaperSummary} utilize information retrieval techniques for trace link recovery
-\cite{DeLucia2012} 
-\cite{AntoniolCCDM00}
-\cite{AntoniolCDLM99}
-\cite{McMillanPR2009}
-\cite{Lucia:2007:RTL:1276933.1276934}
-\cite{TraceME}
-\cite{OpenTrace}
-\cite{Traceclipse}.
+\cite{DBLP:books/daglib/p/Zisman12} 
+\cite{DBLP:conf/iwpc/AntoniolCLCM00}
+\cite{DBLP:conf/wcre/AntoniolCLM99} 
+\cite{DBLP:conf/icse/McMillanPR09}
+\cite{DBLP:journals/tosem/LuciaFOT07}
+\cite{DBLP:conf/icsm/BavotaCLFOP12}
+\cite{DBLP:conf/wcre/AngiusW12}
+\cite{DBLP:conf/icse/KlockGDP11}
 The approach we use for this thesis is to utilize \gls{StaticProgramAnalysis} techniques for trace link recovery.
 This notable difference is due to the differing source and target \glspl{Artifact} intended to be recovered.
 The summarized approaches intend to recover links between source code and informal, natural language \glspl{Artifact} used for documentation.
 Because of the latter, applying information retrieval methods seems to be a reasonable strategy.
-Only \cite{McMillanPR2009} argues information retrieval to be insufficient.
+Only \cite{DBLP:conf/icse/McMillanPR09} argues information retrieval to be insufficient.
 However, the proposed recovery method (coupling metrics) for inter source code trace links seem to assume a homogeneous corpus.
 This thesis aims to recover exogenous trace links in a heterogeneous corpus.
  

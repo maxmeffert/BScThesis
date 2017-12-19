@@ -5,11 +5,11 @@ This chapter provides the necessary theoretical an technological background topi
 \section{Axioms of Linguistic Architectures}
 \label{section:AxiomsOfLinguisticArchitectures}
 This section summarizes axioms of linguistics architectures.
-Axioms are outlined in \cite{DBLP:conf/sle/Lammel16} and refined in \cite{HeinzLV17}.
+Axioms are outlined in \cite{DBLP:conf/sle/Lammel16} and refined in \cite{DBLP:conf/modelsward/HeinzLV17}.
 §\ref{subsection:Parthood} introduces the axiomatization for \gls{Parthood}
 §\ref{subsection:Fragments} 
 
-Axioms are presented in First Order Logic and formalization is taken from \cite{HeinzLV17}.
+Axioms are presented in First Order Logic and formalization is taken from \cite{DBLP:conf/modelsward/HeinzLV17}.
 The universe to draw elements from is represented by the \Entity-predicate:
 \begin{align*}
 \forall x.\Entity(x).
@@ -37,7 +37,7 @@ The intended use and semantic of these predicates is not meant to differ from in
 
 \subsection{Parthood}
 \label{subsection:Parthood}
-\Gls{Parthood} is the essential relationship when reasoning about \gls{Correspondence} and \gls{Conformance} among artifacts within linguistic architectures \cite{DBLP:conf/sle/Lammel16} \cite{HeinzLV17}.
+\Gls{Parthood} is the essential relationship when reasoning about \gls{Correspondence} and \gls{Conformance} among artifacts within linguistic architectures \cite{DBLP:conf/sle/Lammel16} \cite{DBLP:conf/modelsward/HeinzLV17}.
 It describes the relation between entities and their constituent parts.
 The study of \gls{Parthood} and its derivatives is \gls{Mereology} \cite{DBLP:journals/dke/Varzi96} \cite{SEP:Mereology}.
 In the context of linguistic architectures we assume most entities to be
@@ -123,7 +123,7 @@ Atomicity is later used to distinguish cases for \gls{Correspondence} and \gls{C
 
 \subsection{Fragments}
 \label{subsection:Fragments}
-\Glspl{Fragment} are a specialization of entities intended to capture the endogenous, mereological decomposition of artifacts \cite{HeinzLV17}.
+\Glspl{Fragment} are a specialization of entities intended to capture the endogenous, mereological decomposition of artifacts \cite{DBLP:conf/modelsward/HeinzLV17}.
 Axiom \ref{axiom:Fragment} defines  \glspl{Fragment} as artifacts, which are neither files nor folders, and are properly embedded in at least one other artifact.
 For instance, consider the syntactical decomposition of \gls{Java} classes, i.e. the class \gls{Fragment} contains method and field \glspl{Fragment}.
 \begin{axiom}[\Fragment]
@@ -137,7 +137,7 @@ For instance, consider the syntactical decomposition of \gls{Java} classes, i.e.
 \exists a.\Artifact(a) \wedge \properPartOf(f,a).
 \end{align*}
 \end{axiom}
-We emphasize the proper \gls{Parthood} here, since not all authors necessarily consider \partOf~ to be reflexive \cite{DBLP:conf/sle/Lammel16} \cite{HeinzLV17}.
+We emphasize the proper \gls{Parthood} here, since not all authors necessarily consider \partOf~ to be reflexive \cite{DBLP:conf/sle/Lammel16} \cite{DBLP:conf/modelsward/HeinzLV17}.
 However, we previously distinguished between reflexive and irreflexive \gls{Parthood} and if we were to use reflexive \gls{Parthood} for the definition of the \Fragment-predicate it would be a tautology:
 \begin{align*}
 &\Fragment(f) 
@@ -163,11 +163,11 @@ Secondly, we can describe the process of fragmentation:
 \Rightarrow
 \Fragment(p).
 \end{align*}
-The \gls{Fragment} nature propagates top-down alongside the order of \gls{Parthood}, i.e. if an entity is a \gls{Fragment} all parts are also \glspl{Fragment} \cite{HeinzLV17}.
+The \gls{Fragment} nature propagates top-down alongside the order of \gls{Parthood}, i.e. if an entity is a \gls{Fragment} all parts are also \glspl{Fragment} \cite{DBLP:conf/modelsward/HeinzLV17}.
 
 \subsection{Correspondence}
 \label{subsection:Correspondence}
-\Gls{Correspondence} is the relationship between to \glspl{Artifact} denoting both represent the same data in the sense that they are mereologically similar \cite{HeinzLV17}.
+\Gls{Correspondence} is the relationship between to \glspl{Artifact} denoting both represent the same data in the sense that they are mereologically similar \cite{DBLP:conf/modelsward/HeinzLV17}.
 It usually occurs as exogenous relationship, i.e. the involved \glspl{Artifact} do not belong to the same \gls{Language}, for instance \gls{XML} and \gls{JSON} may contain the same information.
 
 In order to axiomatize \gls{Correspondence} properly we need to introduce two other relationships first:
@@ -195,7 +195,7 @@ The relationship denoting two artifacts represent the same entity.
 \end{align*}
 \end{description}
 
-The axiomatization of \gls{Correspondence} from \cite{HeinzLV17} is slightly altered with emphasis of irreflexive proper \gls{Parthood}, Otherwise it would not work with axiom \ref{axiom:PartOf}.
+The axiomatization of \gls{Correspondence} from \cite{DBLP:conf/modelsward/HeinzLV17} is slightly altered with emphasis of irreflexive proper \gls{Parthood}, Otherwise it would not work with axiom \ref{axiom:PartOf}.
 \begin{axiom}[\correspondsTo]
 \label{axiom:CorrespondsTo}
 ~\newline
@@ -229,7 +229,7 @@ This axiomatization demands a strict one-to-one correspondence in its recursive 
 
 \subsection{Conformance}
 \label{subsection:Conformance}
-\Gls{Conformance} is the relationship between two \glspl{Artifact} denoting one satisfies the syntax specification given by the other \cite{HeinzLV17}.
+\Gls{Conformance} is the relationship between two \glspl{Artifact} denoting one satisfies the syntax specification given by the other \cite{DBLP:conf/modelsward/HeinzLV17}.
 This satisfaction is also meant to mereologically decomposable, i.e. there are parts of one \gls{Artifact} specified by a part of the other.
 
 
@@ -247,7 +247,7 @@ a \text{ is a definition for } e.
 \end{align*}
 
 \item[\elementOf]
-The relationship denoting set-theoretic membership.\footnote{We do not use the \elementOf axiom for \glspl{Artifact} and \glspl{Language} from \cite{HeinzLV17}, because it introduces the possibility for infinite mutual recursion:
+The relationship denoting set-theoretic membership.\footnote{We do not use the \elementOf axiom for \glspl{Artifact} and \glspl{Language} from \cite{DBLP:conf/modelsward/HeinzLV17}, because it introduces the possibility for infinite mutual recursion:
 \begin{align*}
 \elementOf(a,l)
 &\Rightarrow
@@ -269,7 +269,7 @@ e \in s.
 \end{description}
 
 
-The axiomatization of \gls{Conformance} from \cite{HeinzLV17} is also slightly altered with emphasis of irreflexive proper \gls{Parthood}, otherwise it would not work with axiom \ref{axiom:PartOf}.
+The axiomatization of \gls{Conformance} from \cite{DBLP:conf/modelsward/HeinzLV17} is also slightly altered with emphasis of irreflexive proper \gls{Parthood}, otherwise it would not work with axiom \ref{axiom:PartOf}.
 \begin{axiom}[\conformsTo]
 \label{axiom:ConformsTo}
 ~\newline
@@ -306,16 +306,16 @@ This section provides brief background on the topic of \gls{Traceability}, i.e. 
 \Gls{Traceability}, as a desired property of software systems and their development processes, originates from requirement engineering, i.e.
 how do we validate or verify that all requirements are met;
 or more precisely: on what data can we base such validation or verification?
-\cite{Winkler:2010:STR:1861285.1861287}
+\cite{DBLP:journals/sosym/WinklerP10}
 
 An answer to these questions is motivated by observations on development processes of software systems.
 Because such a process usually has an iterative and incremental nature, we can reasonably assume engineering activities to leave \glspl{Trace} which reflect the performed action.
 
 Modern day \gls{Traceability} objectives are not limited to validation of requirement compliance.
-It is also regarded as a desirable property for supporting engineering activities, e.g. change impact analysis or dependency analysis \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} \cite{Gotel94ananalysis}.
+It is also regarded as a desirable property for supporting engineering activities, e.g. change impact analysis or dependency analysis \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} \cite{DBLP:conf/re/GotelF94}.
 This feeds to the overall topic of program comprehension.
 We can informally define \gls{Traceability} as \textit{"[...] the ability to [...] interrelate uniquely identifiable
-entities in a way that matters."} \cite{PaigeOKZPC2010} \cite{Winkler:2010:STR:1861285.1861287}.
+entities in a way that matters."} \cite{PaigeOKZPC2010} \cite{DBLP:journals/sosym/WinklerP10}.
 
 
 \subsection{Traceability Terminology}
