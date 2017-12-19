@@ -40,22 +40,17 @@ comaniesSqlFile = 'workspace:/org.softlang.megal.plugins/input/companies.ddl.sql
 // § Correspondence
 //===============================================
 
-companyJavaFile correspondsTo companiesXmlFile
 companyJavaFile correspondsTo companiesXsdFile
 companyJavaFile correspondsTo comaniesSqlFile
 companyJavaFile correspondsTo companyHbmFile
 
-departmentJavaFile correspondsTo companiesXmlFile
 departmentJavaFile correspondsTo companiesXsdFile
 departmentJavaFile correspondsTo comaniesSqlFile
 departmentJavaFile correspondsTo departmentHbmFile
 
-employeeJavaFile correspondsTo companiesXmlFile
 employeeJavaFile correspondsTo companiesXsdFile
 employeeJavaFile correspondsTo comaniesSqlFile
 employeeJavaFile correspondsTo employeeHbmFile
-
-companiesXmlFile correspondsTo companiesXsdFile
 
 //===============================================
 // § Conformance

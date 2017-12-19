@@ -21,21 +21,23 @@
 % For Citation- and Bibliographystyles refer to the biblatex documentation
 % Standard is numeric both
 \usepackage{biblatex}
-\addbibresource{references.bib}
+\addbibresource{bibliography.bib}
 
 % This are optional packages, to use them remove the %:
 \usepackage{booktabs} %for optimicing tabulars
 %\usepackage{bibgerm} % for german BibTex styles
 \usepackage{wrapfig}% for wrapping text arount tables and figures
 \usepackage{multicol} % for Intermix single and multiple columns
-%\usepackage{enumitem} % for more options in the enumerate environment
+\usepackage{enumerate}
+\usepackage[inline]{enumitem} % for more options in the enumerate environment
 \usepackage{subcaption} % for subfigures
 \usepackage[font=footnotesize,labelfont=bf,labelsep=space]{caption} % for more formatting captions
 \usepackage{tikz} % for PGF/TikZ support
+\usepackage{tikz-qtree}
 \usepackage{tabularx} % for advanced tables
 \usepackage{listings} % for code listings
 \usepackage{multirow} % for columns spanning multiple rows in tables
-\usepackage{enumerate}
+
 %\usepackage{lipsum}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -43,10 +45,21 @@
 
 \usepackage{wasysym}
 
+\usepackage[nodayofweek]{datetime}
+
+\usepackage[toc]{glossaries}
+\makeglossaries
+\input{glossary.tex}
+
+\usepackage{ulem}
+
+
 %\usepackage{amsthm}
+\usepackage{thmtools}
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Propsition}
 \newtheorem{proof}{Proof}
+\newtheorem{axiom}{Axiom}
 
 % Settings for the listings package, for additional settings refer to the listings package documentation
 \lstset{
@@ -54,7 +67,8 @@
 	breakatwhitespace=true, % Erlaube Zeilenumbruch nur bei Whitespace
 	numbers = left, % Zeilennummern
 	tabsize = 3, % Tabulatorabstand
-	frame = single % Rahmen um Sourcecode listings
+	frame = single, % Rahmen um Sourcecode listings
+	basicstyle=\tiny
 	}
 
 % Bestimmt die Tiefe in der die Kapitel nummeriert werden
@@ -67,7 +81,9 @@
 \setlength{\headheight}{15pt}
 
 \author{Maximilian Meffert}
-\title{Megamodel-driven Traceability Recovery \& Exploration of Correspondence \& Conformance Links}
+
+\title{Trace Link Recovery\\using Static Program Analysis}
+
 \studiengang{Informatik}
 
 \makeatletter
@@ -82,7 +98,7 @@
 	linkcolor   = black,
 	citecolor   = black,
 	filecolor   = black,
-	urlcolor    = blue,
+	urlcolor    = black,
 }
 \makeatother
 
@@ -124,6 +140,9 @@
 \input{abstract.tex} % Einfügen des Abstracts
 \cleardoublepage
 
+\input{acknowledgements.tex}
+\cleardoublepage
+
 %\pagestyle{headings}
 \pagestyle{fancy}
 
@@ -133,18 +152,22 @@
 \fancyhead[R]{\thepage}        % nur rechts
 
 \pagenumbering{roman}
-\tableofcontents
 
+\tableofcontents
+\cleardoublepage
+
+\listoftheorems
 \cleardoublepage
 
 \listoffigures   % fuer ein eventuelles Abbildungsverzeichnis
 \cleardoublepage
 
-% \listoftables % Für ein Tabellenverzeichnis
-% \cleardoublepage
+\listoftables % Für ein Tabellenverzeichnis
+\cleardoublepage
 
-% \lstlistoflistings % Für ein Verzeichnis der Listings
-% \cleardoublepage
+\lstlistoflistings % Für ein Verzeichnis der Listings
+\cleardoublepage
+
 
 \pagenumbering{arabic}
 
@@ -152,7 +175,10 @@
 % Hier kommt jetzt der eigentliche Text der Arbeit
 \input{content.tex}
 \cleardoublepage
-%\bibliographystyle{alphadin}
+
+%\bibliographystyle{acm}
+\normalem % fix line breaks in book titles
 \printbibliography
+
 \end{document}
 

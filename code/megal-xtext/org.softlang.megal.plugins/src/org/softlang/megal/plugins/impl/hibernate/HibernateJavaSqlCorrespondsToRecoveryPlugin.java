@@ -7,27 +7,28 @@ import org.softlang.maxmeffert.bscthesis.ccrecovery.core.binaryrelations.IBinary
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.fragments.IFragment;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.core.parsers.ParserException;
 import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.ICCRecoveryScenarios;
+import org.softlang.maxmeffert.bscthesis.ccrecovery.scenarios.languages.java.fragments.JavaMethodFragment;
+import org.softlang.megal.mi2.Entity;
 import org.softlang.megal.plugins.api.recovery.BaseCorrespondsToRecoveryPlugin;
 import org.softlang.megal.plugins.api.recovery.IFragmentNameProvider;
 import org.softlang.megal.plugins.impl.java.JavaFragmentNameProvider;
 import org.softlang.megal.plugins.impl.sql.SqlFragmentNameProvider;
+import org.softlang.megal.plugins.util.Prelude;
 
 public class HibernateJavaSqlCorrespondsToRecoveryPlugin extends BaseCorrespondsToRecoveryPlugin {
 	
 	@Override
 	protected IBinaryRelation<IFragment> getSimilarities(ICCRecoveryScenarios ccRecoveryScenarios, InputStream left, InputStream right)
 			throws IOException, ParserException {
-		return ccRecoveryScenarios.getHibernateJavaSqlSimilarities(left, right);
+		IBinaryRelation<IFragment> similarities = ccRecoveryScenarios.getHibernateJavaSqlSimilarities(left, right);
+		similarities.removeIf(p -> p.getFirst() instanceof JavaMethodFragment);
+		return similarities;
 	}
 
 	@Override
-	public String getLeftLanguage() {
-		return "Java";
-	}
-
-	@Override
-	public String getRightLanguage() {
-		return "SQL";
+	public boolean canBeAppliedTo(Entity leftEntity, Entity rightEntity) {
+		return Prelude.isElementOfLanguage(leftEntity, "Java") 
+				&& Prelude.isElementOfLanguage(rightEntity, "SQL");
 	}
 
 	@Override

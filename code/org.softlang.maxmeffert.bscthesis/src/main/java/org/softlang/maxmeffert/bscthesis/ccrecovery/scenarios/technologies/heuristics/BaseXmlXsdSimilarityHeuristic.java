@@ -44,6 +44,9 @@ public abstract class BaseXmlXsdSimilarityHeuristic implements IFragmentAnalyzer
         for(XmlElementFragment xsdElementFragment1 : xsdElementFragment.getXmlElementFragments()) {
             addSimilarities(similarities, xmlElementFragment, xsdElementFragment1);
         }
+        for(XmlElementFragment xmlElementFragment1 : xmlElementFragment.getXmlElementFragments()) {
+            addSimilarities(similarities, xmlElementFragment1, xsdElementFragment);
+        }
         addSimilarities(similarities, xmlElementFragment.getXmlElementFragments(), xsdElementFragment.getXmlElementFragments());
     }
 

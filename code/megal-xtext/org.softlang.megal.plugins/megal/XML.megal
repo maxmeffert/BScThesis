@@ -48,3 +48,6 @@ XMLFragmentRecoveryPlugin realizationOf XML
 XMLFragmentRecoveryPlugin partOf FileFragmentRecoveryReasonerPlugin
 XMLFragmentRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.xml.XMLFragmentRecoveryPlugin'
 
+XmlXsdConformsToRecoveryPlugin: Plugin
+XmlXsdConformsToRecoveryPlugin partOf ConformsToReasonerPlugin
+XmlXsdConformsToRecoveryPlugin = 'classpath:org.softlang.megal.plugins.impl.xsd.XmlXsdConformsToRecoveryPlugin'
