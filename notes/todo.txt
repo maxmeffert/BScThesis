@@ -41,5 +41,5 @@ DONE - Clean code listings: from figure to actual listings
 
 - Clean glossary
 
-- Clean references
+DONE - Clean references
  

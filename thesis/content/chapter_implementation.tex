@@ -1,12 +1,11 @@
 \chapter{Implementation}
 \label{chapter:Implementation}
-This chapter summarizes the implementation of crucial parts of recovery system implemented for this thesis.
-§\ref{section:RecoveringFragments} covers the implementation of \gls{Fragment} recovery.
-§\ref{section:RecoveringParthoodLinks} covers the implementation of \gls{Parthood} link recovery.
+This chapter summarizes the implementation for crucial parts of the recovery system implemented for this thesis.
+§\ref{section:RecoveringFragmentsAnParthoodLinks} covers the implementation of \gls{Fragment} and \gls{Parthood} link recovery.
 §\ref{section:RecoveringCorrespondenceAndConformanceLinks} covers the implementation of \gls{Correspondence} and \gls{Conformance} link recovery
 
-\section{Recovering Fragments}
-\label{section:RecoveringFragments}
+\section{Recovering Fragments \& Parthood Links}
+\label{section:RecoveringFragmentsAnParthoodLinks}
 This section summarizes the implementation of \gls{Fragment} recovery.
 \Glspl{Fragment} are syntactically well-formed pieces of code.
 For instance, consider the \gls{Java} class in listing \ref{listing:ExcerptOfTheCompanyJavaClass}.
@@ -46,7 +45,7 @@ the class declaration itself can also be considered a fragment.
 
 The task of recovering \glspl{Fragment} is to add entities for each of such code pieces into a megamodel.
 Figure \ref{figure:IdealizedRecoveryOfJavaFragments} exemplifies the recovery of \gls{Java}\footnote{Recovery for \gls{XML} and \gls{SQL/DDL} is implemented in a similar fashion.
-If there is a noteworthy difference for other languages it will be explored, otherwise we keep using \gls{Java} as example domain for the remaining sections of §\ref{section:RecoveringFragments}.} \glspl{Fragment} in an idealized form.
+If there is a noteworthy difference for other languages it will be explored, otherwise we keep using \gls{Java} as example domain for the remaining sections of §\ref{section:RecoveringFragments}.} \glspl{Fragment} in an idealized form:
 \begin{figure}[h!]
 \begin{center}
 \begin{minipage}{0.5\textwidth}
@@ -181,15 +180,14 @@ From here, several specializations are introduced:
 \item
 \texttt{ModifiedJavaFragment} for constructs with modifiers like \texttt{private, public, final, abstract, static}, etc. or annotation meta-data
 \item
-\texttt{TypedJavaFragment} for constructs with distinct (return-) type like fields, methods or variables
+\texttt{TypedJavaFragment} for constructs with a distinct (return-) type like fields, methods or variables
 \end{itemize}
 The \gls{Fragment} model for \gls{Java} only focuses on structural syntactical features of the language.
 Everything below method signature level is omitted, because \glspl{Fragment} of this level are not important for the scope of this thesis.
 On the other hand, annotations are captured, since they provide significant information for further recovery analysis.
 \gls{Hibernate} and \gls{JAXB} rely on annotations for \gls{O/R/X-Mapping}.
 
-The \gls{AST} is constructed using \gls{ANTLR} \texttt{ParseTreeListener} approach as described in §\ref{subsubsection:SyntaxAnalysisAPI}.
-Listing \ref{listing:JavaFragmentASTConstruction} shows an excerpt from the listener implementation used to construct the the \gls{AST} for \gls{Java} \glspl{Fragment}.
+The \gls{AST} is constructed using the \gls{ANTLR} \texttt{ParseTreeListener} approach as described in §\ref{subsubsection:SyntaxAnalysisAPI}.
 \begin{lstlisting}[language=Java,caption={Construction of Java Fragment ASTs},label={listing:JavaFragmentASTConstruction}]
 ...
 @Override
@@ -203,8 +201,9 @@ public void exitNormalClassDeclaration(Java8Parser.NormalClassDeclarationContext
 }
 ...
 \end{lstlisting}
-This snippet in listing \ref{listing:JavaFragmentASTConstruction} shows an excerpt of the listener used to construct \gls{Java} \gls{Fragment} \glspl{AST}.
-Here, fragment instances are created when the listener leaves a certain node of the \gls{ParseTree}.
+Listing \ref{listing:JavaFragmentASTConstruction} shows an excerpt from the listener implementation used to construct the the \gls{AST} for \gls{Java} \glspl{Fragment}.
+%This snippet in listing \ref{listing:JavaFragmentASTConstruction} shows an excerpt of the listener used to construct \gls{Java} \gls{Fragment} \glspl{AST}.
+Here, fragment instances are created when the listener leaves certain nodes of the \gls{ParseTree}.
 Creation is delegated to a factory.
 The listener pushes fragments onto stacks, making the overall implementation work like a pushdown automaton or stack machine.
 
@@ -252,9 +251,9 @@ However, the right-hand side of these relationships used to specialize \glspl{Fr
 
 \subsubsection{Fragment Languages}
 \label{subsubsection:FragmentLanguages}
-A \gls{Fragment} alone cannot be element of the language the artifact it originated from belongs to, e.g. a \gls{Java} method alone cannot be accepted by the \gls{Java} grammar, nor can \gls{XML} attribute alone be accepted by the \gls{XML} grammar.
+A \gls{Fragment} alone cannot be element of the language the artifact it originated from belongs to, e.g. \gls{Java} methods alone cannot be accepted by the \gls{Java} grammar, nor can \gls{XML} attributes alone be accepted by the \gls{XML} grammar.
 Therefore, in order to cleanly add \glspl{Fragment} into a \gls{Megamodel}, we need to model \gls{Fragment} languages.
-Figure \ref{listing:JavaFragmentMegamodel} shows the \gls{Megamodel} for \gls{Java} \glspl{Fragment}.
+Listing \ref{listing:JavaFragmentMegamodel} shows the \gls{Megamodel} for \gls{Java} \glspl{Fragment}.
 \begin{lstlisting}[caption={A Megamodel for Java Fragment},label={listing:JavaFragmentMegamodel}]
 ...
 Language < Set
@@ -285,7 +284,7 @@ L_1 \texttt{~fragmentLanguageOf~} L_2 \Rightarrow L_2 \subseteq L_1
 \subsubsection{Fragment Entity Identifiers}
 \label{subsubsection:FragmentEntityIdentifiers}
 \gls{MegaL} entity identifiers have to be unique, but names of the constructs represented by \gls{Fragment} do not necessarily adhere to that.
-For instance, a \gls{Java} method may be overloaded or \gls{XML} element tags are naturally identified via the same name.
+For instance, a \gls{Java} method may be overloaded or multiple \gls{XML} elements are naturally identified via the same name.
 Because of this, a naming scheme for storing recovered \glspl{Fragment} in a \gls{MegaL} \gls{Megamodel} needs to be devised.
 
 We utilize a simple naming scheme, preserving both uniqueness and readability.
@@ -314,8 +313,8 @@ xmlFile.company.departments.F1$department : Fragment
 \end{lstlisting}
 
 
-\section{Recovering Parthood Links}
-\label{section:RecoveringParthoodLinks}
+\subsection{Recovering Parthood Links}
+\label{subsection:RecoveringParthoodLinks}
 This section summarizes the implementation of \gls{Parthood} link recovery.
 Recovering \gls{Parthood} links exploits the nature of \glspl{ParseTree} and \glspl{AST}, where the nested structure of code is represented by parent/child association between nodes.
 Listing \ref{listing:PseudoCodeRecoveryOfParthoodLinks} shows recovery of \gls{Parthood} links from a tree data structure in pseudo code notation.
@@ -348,4 +347,5 @@ public IFragmentKB newFragmentKB(IFragment fragment) {
 \section{Recovering Correspondence \& Conformance Links}
 \label{section:RecoveringCorrespondenceAndConformanceLinks}
 This section the implementation of \gls{Correspondence} and \gls{Conformance} link recovery.
+
 
