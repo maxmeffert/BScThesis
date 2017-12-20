@@ -33,7 +33,7 @@
 \newglossaryentry{O/R-Mapping}
 {
     name=O/\-R-Mapping,
-    description={Object-Relational-Mapping},
+    description={Object-Relational-Mapping. The bidirectional mapping between objects in the sense of object-oriented programming and a relational database system. It usually maps classes to tables and instances to rows of a table},
     first={O/R-Mapping (Object-Relational-Mapping)},
     text={O/\-R-Mapping}
 }
@@ -41,7 +41,7 @@
 \newglossaryentry{O/X-Mapping}
 {
     name=O/\-X-Mapping,
-    description={Object-XML-Mapping},
+    description={Object-XML-Mapping. The bidirectional mapping between objects in the sense of object-oriented programming and their \gls{XML} \glspl{Representation}. It usually maps classes to \gls{XSD} and instances to \gls{XSD} entities},
     first={O/X-Mapping (Object-XML-Mapping)},
     text={O/\-X-Mapping}
 }
@@ -71,7 +71,7 @@
 \newglossaryentry{ANTLR}
 {
     name=ANTLR,
-    description={Another Tool For Language Recognition},
+    description={Another Tool For Language Recognition (see \cite{Parr:2013:DAR:2501720})},
     first={ANTLR (Another Tool For Language Recognition)},
     text={ANTLR}
 }
@@ -277,10 +277,19 @@
     text={Facade Pattern}
 }
 
+
+\newglossaryentry{IteratorPattern}
+{
+    name={Iterator Pattern},
+    description={A behavioral \gls{GoF} pattern used in software design to traverse/iterate elements of a container data structure},
+    first={Iterator Pattern \cite{Gamma:1995:DPE:186897}},
+    text={Iterator Pattern}
+}
+
 \newglossaryentry{Artifact}
 {
     name={artifact},
-    description={Objects created during a software development process for a certain purpose. The term artifact usually refers to a digital document or a well-formed part of it}
+    description={An object created during a software development process for a certain purpose. The term artifact usually refers to a digital document or a well-formed part of it}
 }
 
 \newglossaryentry{Parthood}
@@ -316,25 +325,25 @@
 \newglossaryentry{Megamodel}
 {
     name={megamodel},
-    description={}
+    description={A model of models. Megamodels describe relations among different kinds of models, e.g. the relations between models and their metamodels or models and their instances}
 }
 
 \newglossaryentry{Megamodeling}
 {
     name={megamodeling},
-    description={}
+    description={The task of creating and maintaining a \gls{Megamodel}}
 }
 
 \newglossaryentry{Metamodel}
 {
     name={metamodel},
-    description={}
+    description={The syntactic and semantic specification of a model}
 }
 
 \newglossaryentry{Metamodeling}
 {
     name={metamodeling},
-    description={}
+    description={The task of creating and maintaining a \gls{Metamodel}}
 }
 
 \newglossaryentry{Fragment}
@@ -354,7 +363,7 @@
 \newglossaryentry{Representation}
 {
     name={representation},
-    description={}
+    description={The syntactic encoding of information or a conceptual model}
 }
 
 \newglossaryentry{Manifestation}
@@ -367,20 +376,20 @@
 \newglossaryentry{Language}
 {
     name={language},
-    description={}
+    description={Umbrella term for natural, formal and programming languages. In context of this thesis, the term is usually refers to the latter two, unless noted otherwise}
 }
 
 \newglossaryentry{Technology}
 {
     name={technology},
-    description={},
+    description={Programs, \glspl{Language}, \glspl{API}, etc. used in a software development process},
     plural={technologies}
 }
 
 \newglossaryentry{Ontology}
 {
     name={ontology},
-    description={},
+    description={Domain knowledge captured in form of an \gls{ERModel}},
     plural={ontologies}
 }
 
@@ -388,7 +397,7 @@
 \newglossaryentry{LinguisticArchitecture}
 {
     name={linguistic architecture},
-    description={}
+    description={The architecture or model of a software system concerned with its outline regarding \glspl{Language} and \glspl{Technology} used by it or used to build it (see  \cite{DBLP:conf/models/FavreLV12}, \cite{DBLP:conf/ecmdafa/LammelV14} and \cite{DBLP:conf/modelsward/HeinzLV17})}
 }
 
 \newglossaryentry{ERModel}
@@ -404,29 +413,42 @@
 \newglossaryentry{Trace}
 {
     name={trace},
-    description={}
+    description={A \gls{TraceLink} or the act of following that link \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} (see §\ref{subsection:TraceabilityTerminology})}
 }
 
 \newglossaryentry{Traceability}
 {
     name={traceability},
-    description={}
-}
-
-\newglossaryentry{TraceabilityRecovery}
-{
-    name={traceability recovery},
-    description={}
+    description={The potential for traces to be established and used \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} (see §\ref{subsection:TraceabilityTerminology})}
 }
 
 \newglossaryentry{TraceLink}
 {
     name={trace link},
-    description={}
+    description={A semantic link between two \glspl{Artifact} \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} (see §\ref{subsection:TraceabilityTerminology})}
+}
+
+\newglossaryentry{TraceRecovery}
+{
+    name={trace recovery},
+    description={The action of creating \glspl{Trace} among already existing \glspl{Artifact} \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} (see §\ref{subsection:TraceabilityTerminology})}
+}
+
+\newglossaryentry{TraceLinkRecovery}
+{
+    name={trace link recovery},
+    description={},
+    see={TraceRecovery}
 }
 
 \newglossaryentry{StaticProgramAnalysis}
 {
     name={static program analysis},
-    description={}
+    description={The automated analysis of programs without executing them. It is the opposite of \gls{DynamicProgramAnalysis}}
+}
+
+\newglossaryentry{DynamicProgramAnalysis}
+{
+    name={dynamic program analysis},
+    description={The automated analysis of a program's behavior and side-effects while executing it. It is the opposite of \gls{StaticProgramAnalysis}}
 }

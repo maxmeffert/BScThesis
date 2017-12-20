@@ -167,7 +167,7 @@ We rather count entities corresponding or conforming to \glspl{Fragment} of the 
 |\{ x : \conformsTo(x,y') \wedge \fragmentOf(y',y)  \}|
 \end{align*}
 
-Eventually, we are interested in the number of unique elements per relationship, distinguishing left hand side (LHS) from right hand side (RHS) entities: 
+Eventually, we are interested in the number of unique elements per relationship, distinguishing left-hand side (LHS) from right-hand side (RHS) entities: 
 \begin{align*}
 \#LHS(R) &:= |\{ x : R(x,y) \}| \\
 \#RHS(R) &:= |\{ y : R(x,y) \}| 
@@ -311,7 +311,7 @@ Regarding \gls{Conformance}, the table indicates, that it only occurs towards \g
 This is in accordance with the definition of \gls{Conformance}, given within the setup \gls{XSD} is the only specification \gls{Language} for the other \glspl{Artifact} present.
 
 Table \ref{table:NumberOfUniqueEntitiesPerRelationship} shows the number of unique entities per relationship.
-We distinguish left hand side (LHS) from right hand side (RHS) entities.
+We distinguish left-hand side (LHS) from right-hand side (RHS) entities.
 \begin{table}[h!]
 \begin{center}
 \begin{tabular}{|l|l|l|}
@@ -333,6 +333,6 @@ $\conformsTo$ & 68 & 19
 \end{table}
 The number of corresponding and conforming entities is significantly lower than the overall number of recovered \glspl{Fragment} in table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments}.
 This may indicate recovery of unnecessary \glspl{Fragment}, e.g. \glspl{Java} method \glspl{Fragment}; or it indicates an insufficiency of the implemented \gls{Correspondence} and \gls{Conformance} recovery.
-However, the number of unique left hand side entities for \conformsTo~ matches the number of $\#\conformsTo(\text{companiesXsdFile})$ minus one, the latter being the initial \conformsTo-declaration from the setup (see §\ref{section:Setup}).
+However, the number of unique left-hand side entities for \conformsTo~ matches the number of $\#\conformsTo(\text{companiesXsdFile})$ minus one, the latter being the initial \conformsTo-declaration from the setup (see §\ref{section:Setup}).
 This assures that \gls{Conformance} is only recovered towards \gls{XSD}.
-Likewise the number of unique left hand side entities for \fragmentOf~ matches the number of all recovered \glspl{Fragment} from table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments}, the delta to \partOf~ remaining the same for both sides.
+Likewise the number of unique left-hand side entities for \fragmentOf~ matches the number of all recovered \glspl{Fragment} from table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments}, the delta to \partOf~ remaining the same for both sides.

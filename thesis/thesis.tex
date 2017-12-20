@@ -38,6 +38,9 @@
 \usepackage{listings} % for code listings
 \usepackage{multirow} % for columns spanning multiple rows in tables
 
+\usepackage[english]{babel}
+\usepackage{hyphenat}
+
 %\usepackage{lipsum}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -174,6 +177,13 @@
 
 % Hier kommt jetzt der eigentliche Text der Arbeit
 \input{content.tex}
+
+\clearpage
+\printglossary
+
+\clearpage
+\input{addendum.tex}
+
 \cleardoublepage
 
 %\bibliographystyle{acm}
