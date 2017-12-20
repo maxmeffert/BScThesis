@@ -44,8 +44,7 @@ the class declaration itself can also be considered a fragment.
 \end{itemize}
 
 The task of recovering \glspl{Fragment} is to add entities for each of such code pieces into a megamodel.
-Figure \ref{figure:IdealizedRecoveryOfJavaFragments} exemplifies the recovery of \gls{Java}\footnote{Recovery for \gls{XML} and \gls{SQL/DDL} is implemented in a similar fashion.
-If there is a noteworthy difference for other languages it will be explored, otherwise we keep using \gls{Java} as example domain for the remaining sections of §\ref{section:RecoveringFragments}.} \glspl{Fragment} in an idealized form:
+Figure \ref{figure:IdealizedRecoveryOfJavaFragments} exemplifies the recovery of \gls{Java} \glspl{Fragment} in an idealized form:
 \begin{figure}[h!]
 \begin{center}
 \begin{minipage}{0.5\textwidth}
@@ -360,9 +359,9 @@ procedure computeTransitiveClosure(g):
 			if w != v and g does neither contain edge (v,w) nor (w,v):
 				add edge (v,w) to g.
 \end{lstlisting}
-Note, the pseudo code implementation for computation of transitive closures uses a recursive \gls{DFS} for computing transitively reachable vertices of a given vertex.
+Note, the pseudo code implementation for computation of transitive closures uses  recursive \gls{DFS} for computing transitively reachable vertices of a given vertex.
 It utilizes a yield-return, denoting the next value is available from the outside without exiting the procedure.
-This can be thought of sequence which would be returned normally.
+This can be thought of as sequence which would be returned normally.
 The actual implementation utilizes the \gls{IteratorPattern} and non-recursive \gls{DFS} for computing transitively reachable vertices. 
 
 \section{Recovering Correspondence \& Conformance Links}
