@@ -1,7 +1,7 @@
 \chapter{Introduction}
 \label{chapter:Introduction}
 Modern software system are heterogeneous in terms of \glspl{Language} and \glspl{Technology} used for programming and inter process communication, which is a challenge for program comprehension.
-Support of \glspl{Traceability} can provide help to overcome this challenge by bringing out related components of a software system.
+Support of \gls{Traceability} can provide help to overcome this challenge by bringing out related components of a software system.
 
 \section{Motivational Example}
 Common tasks in software development are implementation of serialization and persistence of domain models.
@@ -16,8 +16,8 @@ Each manifestation involves another software language and technology.
 \caption{O/R/X-Mapping Manifestations}
 \label{figure:ORXManifestations}
 \end{figure}
-Figure \ref{figure:ORXManifestations} opposes model- to instance-level syntaxes of different manifestations for a conceptual model for employees in an \gls{O/R/X-Mapping} scenario.
-One employee only has a \textit{name} and an \textit{age} attribute.
+Figure \ref{figure:ORXManifestations} opposes model- to instance-level syntaxes of different manifestations for a conceptual model of employees in an \gls{O/R/X-Mapping} scenario.
+Employee only have a \textit{name} and an \textit{age} attribute.
 Persistence is presented in tuple notation, data transfer objects of an application tier are represented with a fictional high level programming language object notation and serialization is exemplified with \gls{XML} and \gls{XSD} syntax.
 
 Although figure \ref{figure:ORXManifestations} shows a fictionalized example, one can observe structural similarities among the different model and instance representation syntaxes.
@@ -101,8 +101,8 @@ The aim of this thesis is to provide automated recovery of such similarities as 
 Recovered links are inserted into \textit{\glspl{Megamodel}} \cite{DBLP:conf/sattose/BaggeZ14} for \textit{\glspl{LinguisticArchitecture}} \cite{DBLP:conf/models/FavreLV12} \cite{DBLP:conf/ecmdafa/LammelV14} \cite{DBLP:conf/modelsward/HeinzLV17}.
 \Glspl{Megamodel} are models providing a high level of abstraction with other models as modeling elements, e.g. a \gls{Megamodel} may describe the dependencies between \glspl{Metamodel}, models and instances.
 \Glspl{LinguisticArchitecture} intend to describe software systems from a language centric point of view.
-They model knowledge about software systems in terms of \glspl{Language}, \glspl{Artifact}, \glspl{Technology}, etc. \cite{LukasHaertelBScThesis} \cite{DBLP:conf/models/FavreLV12} \cite{DBLP:conf/ecmdafa/LammelV14}
-Such entities are interrelated with relationships derived from common software engineering and theoretical computer science vocabulary providing special semantics, e.g. \textit{defines}, \textit{isA}, \textit{instanceOf}, \textit{represents}, \textit{implements}, \textit{realizationOf}, \textit{elementOf}, \textit{subsetOf} \cite{DBLP:conf/modelsward/HeinzLV17}
+They model knowledge about software systems in terms of \glspl{Language}, \glspl{Artifact}, \glspl{Technology}, etc. \cite{LukasHaertelBScThesis} \cite{DBLP:conf/models/FavreLV12} \cite{DBLP:conf/ecmdafa/LammelV14}.
+Such entities are interrelated with relationships derived from common software engineering and theoretical computer science vocabulary providing special semantics, e.g. \textit{defines}, \textit{isA}, \textit{instanceOf}, \textit{represents}, \textit{implements}, \textit{realizationOf}, \textit{elementOf}, \textit{subsetOf} \cite{DBLP:conf/modelsward/HeinzLV17}.
 
 \Glspl{LinguisticArchitecture} are related to \glspl{ERModel} and \glspl{Ontology}.
 Recovering semantic links as described above is related to the concept of \textit{\gls{Traceability}} and an application of \textit{\gls{TraceRecovery}} \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12} (see §\ref{section:Traceability}).
@@ -117,7 +117,7 @@ We call well-formed partial source code \glspl{Artifact} \textit{\glspl{Fragment
 \section{Approach}
 \label{section:Approach}
 Our approach for recovering \glspl{TraceLink} utilizes \textit{\gls{StaticProgramAnalysis}}.
-We use it in the broad sense that we construct specialized \glspl{AST} for further analysis.
+We use it in the broad sense, i.e. we construct specialized \glspl{AST} for further analysis.
 Usually \gls{StaticProgramAnalysis} is used with the purpose of formal verification or measurement of software engineering related properties of source code, e.g. cohesion and coupling metrics.
 We use \gls{StaticProgramAnalysis} to semantically link code \glspl{Fragment} and uncover knowledge of the analyzed \glspl{Artifact}.
 In that respect, our approach is related to computing software metrics.
@@ -156,7 +156,7 @@ We contribute a \gls{Java} based \gls{API} for recovering \glspl{TraceLink} amon
 We contribute an implementation for \gls{Correspondence} and \gls{Conformance} link recovery among \gls{JAXB} and \gls{Hibernate} \glspl{Artifact} utilizing the created \gls{API} and axioms for linguistic architectures (see §\ref{chapter:Implementation} and §\ref{section:AxiomsOfLinguisticArchitectures} respectively).
 
 \item
-We contribute a small case-study applying the implemented recovery system to a minimal \gls{O/R/X-Mapping} program (see §\ref{chapter:MiniCaseStudy}).
+We contribute a mini case-study applying the implemented recovery system to a minimal \gls{O/R/X-Mapping} corpus (see §\ref{chapter:MiniCaseStudy}).
 
 \end{contributions}
 

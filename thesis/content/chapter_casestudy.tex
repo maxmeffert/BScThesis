@@ -254,7 +254,7 @@ comaniesSqlFile & 17 & 17
 \label{table:NumberOfPartsAndFragmentsPerFile}
 \end{table}
 The overall equivalence $\#\partOf(x) = \#\fragmentOf(x)$ for all files indicates that all parts of each file are indeed proper parts (see §\ref{subsection:Fragments}).
-Furthermore it indicates in conjunction with table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments} that all recovered \glspl{Fragment} are properly linked to the files their originated from, since sum of all recovered \glspl{Fragment} per file matches the number of all recovered \glspl{Fragment}.
+Furthermore, it indicates, in conjunction with table \ref{table:NumberOfRecoveredArtifactsFilesAndFragments}, that all recovered \glspl{Fragment} are properly linked to the files their originated from, since sum of all recovered \glspl{Fragment} per file matches the number of all recovered \glspl{Fragment}.
 
 Table \ref{table:NumberOfEntitiesCorrespondingOrConformingToFragmentsOfAFile} shows the number of entities corresponding of conforming to \glspl{Fragment} of a file.
 \begin{table}[h!]
@@ -305,7 +305,7 @@ companyHbmFile.F0$hibernate-mapping.F4$class.F9$bag correspondsTo companyJavaFil
 \end{lstlisting}
 
 $\#\correspondsTo(\text{companiesXmlFile}) = 0$ indicates that \gls{Correspondence} does not occur between model- and instance-level \glspl{Artifact}.
-This satisfies the definition of \gls{Correspondence}, denoting two \glspl{Artifact} represent the same data (see §\ref{subsection:Correspondence}), which should not occur between different levels of abstraction.
+This satisfies the definition of \gls{Correspondence}, denoting two \glspl{Artifact} may represent the same data (see §\ref{subsection:Correspondence}), which should not occur between different levels of abstraction.
 
 Regarding \gls{Conformance}, the table indicates, that it only occurs towards \gls{XSD} files, since $\#\conformsTo(x)$ is zero for all files except companiesXsdFile.
 This is in accordance with the definition of \gls{Conformance}, given within the setup \gls{XSD} is the only specification \gls{Language} for the other \glspl{Artifact} present.
