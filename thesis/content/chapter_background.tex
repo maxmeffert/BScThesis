@@ -1,14 +1,14 @@
 \chapter{Background}
 \label{chapter:Background}
-This chapter provides the necessary theoretical an technological background topics of the thesis.
+This chapter provides the necessary theoretical an technological background topics for this thesis.
+§\ref{section:AxiomsOfLinguisticArchitectures} summarizes axioms of \glspl{LinguisticArchitecture}.
+§\ref{section:Traceability} summarizes the concept of \gls{Traceability}.
+§\ref{section:TechnologicalBackground} introduces \glspl{Technology} used in this thesis.
 
 \section{Axioms of Linguistic Architectures}
 \label{section:AxiomsOfLinguisticArchitectures}
 This section summarizes axioms of linguistics architectures.
 Axioms are outlined in \cite{DBLP:conf/sle/Lammel16} and refined in \cite{DBLP:conf/modelsward/HeinzLV17}.
-§\ref{subsection:Parthood} introduces the axiomatization for \gls{Parthood}
-§\ref{subsection:Fragments} 
-
 Axioms are presented in First Order Logic and formalization is taken from \cite{DBLP:conf/modelsward/HeinzLV17}.
 The universe to draw elements from is represented by the \Entity-predicate:
 \begin{align*}
@@ -16,7 +16,7 @@ The universe to draw elements from is represented by the \Entity-predicate:
 \end{align*}
 We assume it holds for everything of interest, hence such things are called \textit{entities}.
 
-Linguistic architectures intend to describe software from language centric point of view, thus we provide specializations of entities for languages:
+Linguistic architectures intend to describe software from a language centric point of view, thus we provide specializations of entities for languages:
 \begin{align*}
 &\Set(x) \Rightarrow \Entity(x).
 &\text{\cite{DBLP:conf/modelsward/HeinzLV17}}
@@ -49,10 +49,10 @@ The intended use and semantic of these predicates is not meant to differ from in
 It describes the relation between entities and their constituent parts.
 The study of \gls{Parthood} and its derivatives is \gls{Mereology} \cite{DBLP:journals/dke/Varzi96} \cite{SEP:Mereology}.
 In the context of linguistic architectures we assume most entities to be
-composed of several conceptual or "physical"\footnote{We mean physical in the sense, that an entity manifests in some (digital) form, but not in the sense that someone can touch it with bare hands} parts.
+composed of several conceptual or "physical"\footnote{We mean physical in the sense that an entity manifests in some (digital) form, but not in the sense that someone can touch it with bare hands} parts.
 In short, such entities exists as sum of their parts.
-That is, programs may compiled from many files, systems consists of several disjoint but dependent components, a \gls{Java} class is made up of methods and fields, etc.
-Furthermore such entities are considered to be \textit{mereologically invariant}, i.e. if one part changes, the whole changes as well. 
+That is, programs may be compiled from many files, systems consists of several disjoint but dependent components, a \gls{Java} class is made up of methods and fields, etc.
+Furthermore such entities are considered to be \textit{mereologically invariant}, i.e. if one part changes, the whole entity changes as well. 
 Axiom \ref{axiom:PartOf} captures \gls{Parthood} at its most basic level.
 \begin{axiom}[\partOf]
 \label{axiom:PartOf}
@@ -118,7 +118,7 @@ $x$ and $y$ cannot be distinguished
 \item[\properPartOf(x,y)] 
 $x$ is certainly a part of $y$, however $y$ is not a part of $x$
 \end{description} 
-In general proper \gls{Parthood} is a asymmetric relationship:
+In general, proper \gls{Parthood} is a asymmetric relationship:
 \begin{align*}
 &\properPartOf(x,y) 
 \Rightarrow
@@ -239,7 +239,7 @@ The axiomatization of \gls{Correspondence} from \cite{DBLP:conf/modelsward/Heinz
 Axiom \ref{axiom:CorrespondsTo} defines \gls{Correspondence} recursively:
 \begin{enumerate}[align=left,label=\textbf{Case \Roman*},ref={\Roman*}]
 \item
-If both \glspl{Artifact} is atomic in the sense it cannot be decomposed in further parts, we check whether both artifacts represent the same data.
+If both \glspl{Artifact} are atomic in the sense that they cannot be decomposed in further parts, we check whether both artifacts represent the same data.
 
 \item
 Else, if at least one \gls{Artifact} is not atomic, then for each proper part of one \gls{Artifact} has to be a corresponding part in the other and vice versa.
@@ -312,7 +312,7 @@ The axiomatization of \gls{Conformance} from \cite{DBLP:conf/modelsward/HeinzLV1
 Axiom \ref{axiom:ConformsTo} defines \gls{Conformance} recursively:
 \begin{enumerate}[align=left,label=\textbf{Case \Roman*},ref={\Roman*}]
 \item
-If both \glspl{Artifact} is atomic in the sense it cannot be decomposed in further parts, we check whether one \gls{Artifact} defines a language the other \gls{Artifact} is an element of.
+If both \glspl{Artifact} are atomic in the sense that they cannot be decomposed in further parts, we check whether one \gls{Artifact} defines a language the other \gls{Artifact} is an element of.
 
 \item
 Else, if at least one \gls{Artifact} is not atomic, then for each proper part of one \gls{Artifact} has to be a proper part in the other \gls{Artifact} it conforms to.
@@ -413,6 +413,7 @@ These trace links may be created automatically or semi-automatically using tools
 
 
 \section{Technological Background}
+\label{section:TechnologicalBackground}
 This section provides background on key \glspl{Technology} used by this thesis.
 §\ref{subsection:MegaLXText} introduces the \gls{MegaL} modeling language and \gls{MegaL/Xtext} as corresponding technology.
 §\ref{subsection:JAXB} and §\ref{subsection:Hibernate} provides an introduction to \gls{JAXB} and \gls{Hibernate} respectively.
@@ -421,7 +422,7 @@ This section provides background on key \glspl{Technology} used by this thesis.
 \subsection{MagaL \& MegaL/Xtext}
 \label{subsection:MegaLXText}
 \gls{MegaL} \cite{DBLP:conf/ecmdafa/LammelV14} \cite{DBLP:conf/models/FavreLV12} is a modeling language for \glspl{LinguisticArchitecture} developed by Software Languages Team\footnote{\url{http://www.softlang.org/}(Retrieved \formatdate{12}{12}{2017})} at the University of Koblenz-Landau.
-\gls{MegaL/Xtext} \cite{LukasHaertelBScThesis} \cite{HaertelHHLV17} is the integration of \gls{MegaL} into the eclipse \gls{IDE} based on Xtext\footnote{\url{http://www.eclipse.org/Xtext/}(Retrieved \formatdate{12}{12}{2017})} developed by the same team.
+\gls{MegaL/Xtext} \cite{LukasHaertelBScThesis} \cite{DBLP:journals/programming/HartelHLVH17} is the integration of \gls{MegaL} into the eclipse \gls{IDE} based on Xtext\footnote{\url{http://www.eclipse.org/Xtext/}(Retrieved \formatdate{12}{12}{2017})} developed by the same team.
 
 \Gls{MegaL} provides a textual notation for typed \glspl{ERModel}, i.e. each entity and each relation is strictly typed.
 This is exemplified by listing \ref{listing:AMegamodelForCitation} showing a simple \gls{Megamodel} for citation of scientific papers.
