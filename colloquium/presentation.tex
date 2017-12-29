@@ -10,14 +10,19 @@
 \usepackage{gensymb}
 \usepackage{graphicx}
 
-\graphicspath{{./img/}}
+\usepackage[nodayofweek]{datetime}
+\usepackage{hyperref}
+\usepackage{breakurl}
+
+
+\graphicspath{{./images/}}
 
 \usetheme{metropolis}
 %\usecolortheme{beetle}
 
 
-\title{Trace Link Recovery\\using Static Program Analysis}
-\subtitle{\it B.Sc. Thesis Defense}
+\title{Trace Link Recovery \\using Static Program Analysis}
+\subtitle{\it B.Sc. Thesis Colloquium/Defense}
 \author{Maximilian Meffert}
 \institute{University of Koblenz-Landau}
 \date{\today}
@@ -65,11 +70,51 @@ backgroundcolor=\color{anti-flashwhite}
 
 \frame{\titlepage}
 
-\begin{frame}{Author Information}
-Maximilian Meffert\\
-Mat.-Nr.: 210 101 205\\
-E-Mail: maxmeffert@uni-koblenz.de
+\begin{frame}{General Information}
+\centering
+\textbf{Maximilian Meffert}\\~\\
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ll}
+Mat.-Nr.: & 210 101 205\\
+E-Mail: & \href{mailto:maxmeffert@uni-koblenz.de}{maxmeffert@uni-koblenz.de}\\
+GitHub: & \url{https://github.com/maxmeffert}\\
+Thesis-Repo.: & \url{https://github.com/maxmeffert/BScThesis}
+\end{tabular}
+}
+\\~\vspace{\fill}~\\
+\textbf{Supervisors}\\~\\
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lll}
+Prof. Dr. Ralf Lämmel 
+& \textit{Institute for Computer Science} 
+& University of Koblenz-Landau\\
+M.Sc. Johannes Härtel 
+& \textit{Institute for Computer Science}
+& University of Koblenz-Landau
+\end{tabular}
+}
 \end{frame}
+
+\begin{frame}{Software as Cognitive Challenge}
+\begin{center}
+\includegraphics[width=.5\textwidth]{YouAreHere.png}\\
+\cite{BlackEyeGalaxy}
+\end{center}
+\end{frame}
+
+\begin{frame}{Traceability}
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+\end{frame}
+
+\begin{frame}{Linguistic Architectures}
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+\end{frame}
+
+\begin{frame}{Trace Link Recovery Approach}
+\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+\end{frame}
+
+
 
 %
 %\begin{frame}[fragile,allowframebreaks]{Motivation}
@@ -273,7 +318,7 @@ E-Mail: maxmeffert@uni-koblenz.de
 %\end{frame}
 
 \begin{frame}{References}
-\tiny{\bibliographystyle{splncs}}
+\bibliographystyle{splncs}
 \bibliography{bibliography}{}
 \end{frame}
 
