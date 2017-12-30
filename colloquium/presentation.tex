@@ -15,6 +15,18 @@
 \usepackage{breakurl}
 
 
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{thmtools}
+
+%\newtheorem{definition}{Definition}
+%\newtheorem{proposition}{Propsition}
+%\newtheorem{proof}{Proof}
+\newtheorem{axiom}{Axiom}
+
+
+
 \graphicspath{{./images/}}
 
 \usetheme{metropolis}
@@ -84,34 +96,69 @@ Thesis-Repo.: & \url{https://github.com/maxmeffert/BScThesis}
 \\~\vspace{\fill}~\\
 \textbf{Supervisors}\\~\\
 \resizebox{\textwidth}{!}{
-\begin{tabular}{lll}
+\begin{tabular}{ll}
 Prof. Dr. Ralf Lämmel 
-& \textit{Institute for Computer Science} 
-& University of Koblenz-Landau\\
+& University of Koblenz-Landau, \textit{Institute for Computer Science} \\
 M.Sc. Johannes Härtel 
-& \textit{Institute for Computer Science}
-& University of Koblenz-Landau
+& University of Koblenz-Landau, \textit{Institute for Computer Science}
 \end{tabular}
 }
 \end{frame}
 
-\begin{frame}{Software as Cognitive Challenge}
+\begin{frame}{Motivation: Software as Cognitive Challenge}
+\begin{columns}
+\begin{column}{0.5\textwidth}
 \begin{center}
-\includegraphics[width=.5\textwidth]{YouAreHere.png}\\
-\cite{BlackEyeGalaxy}
+\includegraphics[width=\textwidth]{YouAreHere.png}
+\newline
+\footnotesize
+View on the "Black Eye" galaxy provided by \cite{BlackEyeGalaxy}.
 \end{center}
+\end{column}
+\begin{column}{0.5\textwidth}
+Modern Software Systems are:
+\begin{itemize}
+\item
+large\\(allover artifact count)
+\item
+heterogeneous\\(languages involved)
+\end{itemize}
+$\Rightarrow$
+challenging for program comprehension tasks 
+\end{column}
+\end{columns}
 \end{frame}
 
-\begin{frame}{Traceability}
-\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+\begin{frame}[fragile,allowframebreaks]{Traceability}
+asdf
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]{Traceability Terminology}
+\begin{definition}[Trace]
+\begin{description}[align=left]
+\item[(Noun)]
+A specified triplet of elements comprising: \emph{source artifact}, \emph{target artifact} and a \emph{trace link} associating the two \emph{trace artifacts}. \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+\item[(Verb)]
+The act of following a trace link. \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+\end{description}
+\end{definition}
+%\begin{definition}[Trace Link]
+%A specified association between a pair of artifacts, on comprising the soruce artifact and on comprising the target artifact. 
+%\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+%\end{definition}
+
 \end{frame}
 
 \begin{frame}{Linguistic Architectures}
 \cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
 \end{frame}
 
-\begin{frame}{Trace Link Recovery Approach}
-\cite{DBLP:books/daglib/p/GotelCHZEGDAMM12}
+\begin{frame}[fragile,allowframebreaks]{Trace Link Recovery Approach}
+\begin{center}
+\includegraphics[width=\textwidth]{RecoveryApproach.png}
+\end{center}
+\pagebreak
+asdf
 \end{frame}
 
 
